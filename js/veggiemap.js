@@ -127,7 +127,7 @@ function onEachFeature(feature) {
     let eCou = feature.properties.addr_country;
     let ePos = feature.properties.addr_postcode;
     let eStr = feature.properties.addr_street;
-    let eCat = feature.properties.category;
+    let eCat = eval(feature.properties.category);
     let eEma = feature.properties.contact_email;
     let ePho = feature.properties.contact_phone;
     let eWeb = feature.properties.contact_website;
@@ -163,7 +163,7 @@ function onEachFeature(feature) {
     if(eInf){popupContent += "<hr/><div class='popupflex-container'><div>ℹ️</div><div><a href=\"https://www.vegan-in-halle.de/wp/leben/vegane-stadtkarte/#"+eTyp+eId+"\" target=\"_top\">Mehr Infos</a></div>"}
 
     // Adding the marker to the map
-    L.marker(eLatLon,{title:eSym + " " + eNam,icon:getIcon(eIco, eCat)}).bindPopup(popupContent).addTo(eval(eCat));
+    L.marker(eLatLon,{title:eSym + " " + eNam,icon:getIcon(eIco, eCat)}).bindPopup(popupContent).addTo(eCat);
 }
 
 // Main function to put the markers to the map

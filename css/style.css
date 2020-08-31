@@ -121,12 +121,3 @@ a {
   width: 30px !important;
   height: 30px !important;
 }
-
-/* Popup content */
-.popupflex-container {
-  display: flex;
-}
-
-.popupflex-container > div {
-  padding: 5px;
-}

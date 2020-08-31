@@ -10,7 +10,6 @@ import urllib3    # for the HTTP GET request
 
 assert sys.version_info >= (3, 0)
 
-
 # constants for the overpass request
 
 ## server list (from: https://wiki.openstreetmap.org/wiki/Overpass_API)
