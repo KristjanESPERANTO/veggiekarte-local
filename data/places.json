@@ -1,0 +1,2735 @@
+{
+ "_timestamp": "2020-08-29 01:54:53.485748",
+ "features": [
+  {
+   "geometry": {
+    "coordinates": [
+     12.0612878,
+     51.2974302
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 252918375,
+    "_type": "node",
+    "addr_city": "Bad D\u00fcrrenberg",
+    "addr_street": "Apothekerberg 16",
+    "category": "vegan_friendly",
+    "contact_website": "http://www.hotel-alte-apotheke.de",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "Alte Apotheke",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9610093,
+     51.4823823
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 282473154,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06108",
+    "addr_street": "Ankerstra\u00dfe 2",
+    "category": "vegan_friendly",
+    "contact_website": "https://www.ankerhof.de/htdocs/saalekahn.shtml",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "Saalekahn",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9616488,
+     51.4738785
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 302835320,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06110",
+    "addr_street": "Torstra\u00dfe 40",
+    "category": "vegan_friendly",
+    "contact_website": "https://www.telepizza.de/halle/aktion/vegan",
+    "cuisine": "pizza",
+    "icon": "maki_restaurant-pizza",
+    "name": "Tele Pizza",
+    "symbol": "\ud83c\udf55"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.8101874,
+     51.5832466
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 307612249,
+    "_type": "node",
+    "addr_city": "Wettin-L\u00f6bej\u00fcn",
+    "addr_postcode": "06193",
+    "addr_street": "Burgstra\u00dfe 5",
+    "category": "vegetarian_friendly",
+    "contact_email": "burgcafe-wettin@web.de",
+    "contact_phone": "+49 34607 20265",
+    "contact_website": "http://www.burgcafe-wettin.de/",
+    "cuisine": "german",
+    "icon": "cafe",
+    "name": "Burgcafe Arndt",
+    "opening_hours": "Mo off<br/>Tu-Fr 12:00-23:00<br/>Sa 11:00-24:00<br/>Su 11:00-20:00",
+    "symbol": "\u2615"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9793227,
+     51.48059
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 309747715,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Augustastra\u00dfe 8",
+    "category": "vegan_friendly",
+    "contact_email": "indian.restaurent_shiva@hotmail.de",
+    "contact_phone": "+49 345 4789517",
+    "contact_website": "http://www.shiva-halle.de/",
+    "cuisine": "indian",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "Shiva",
+    "opening_hours": "Mo-Su 11:30-15:00,17:30-23:30",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9943745,
+     51.4835257
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 413572583,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06112",
+    "addr_street": "Freiimfelder Stra\u00dfe 21",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 345 5600952",
+    "icon": "ice_cream",
+    "name": "Eisdiele Schmidt",
+    "opening_hours": "Mo,Tu off<br/>We-Su 10:00-19:00",
+    "symbol": "\ud83c\udf68"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.0124552,
+     51.4801544
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 471978357,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06116",
+    "addr_street": "Fiete-Schulze-Stra\u00dfe 14",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 345 6788999",
+    "contact_website": "https://www.uno-pizza.de/",
+    "cuisine": "pizza",
+    "icon": "maki_restaurant-pizza",
+    "more_info": true,
+    "name": "Uno Pizza",
+    "opening_hours": "Mo-Su 11:00-23:00<br/>Sa 11:00-24:00",
+    "symbol": "\ud83c\udf55"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9656933,
+     51.4919059
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 578246181,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Bernburger Stra\u00dfe 1",
+    "category": "vegan_friendly",
+    "contact_website": "http://www.mosdaniels.de/",
+    "icon": "bar",
+    "more_info": true,
+    "name": "Mo's Daniel's",
+    "symbol": "\ud83c\udf78"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9780393,
+     51.3478207
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 683792616,
+    "_type": "node",
+    "category": "vegetarian_friendly",
+    "icon": "fast_food",
+    "name": "Side D\u00f6ner",
+    "opening_hours": "Mo-Fr 10:00-21:00, Sa 10:30-21:00, Su,PH 11:00-21:00",
+    "symbol": "\ud83c\udf54"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9677199,
+     51.4844933
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 711744198,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Kleine Marktstra\u00dfe 3",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 345 94099040",
+    "contact_website": "https://hansimglueck-burgergrill.de/standort/halle-am-haendelhaus/",
+    "cuisine": "burger",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "Hans im Gl\u00fcck",
+    "opening_hours": "Mo-Th, Su 11:00-23:00<br/>Fr, Sa 11:00-00:00",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9685849,
+     51.4853151
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 788761098,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Gro\u00dfe Ulrichstra\u00dfe 51",
+    "category": "vegetarian_friendly",
+    "contact_phone": "+49-345-5110712",
+    "contact_website": "http://www.ntcafe.de/",
+    "icon": "cafe",
+    "name": "Caf\u00e9 nt",
+    "opening_hours": "Mo-Sa 10:00-22:00, Su 10:00-18:00",
+    "symbol": "\u2615"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9643914,
+     51.4968059
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 836094555,
+    "_type": "node",
+    "category": "vegetarian_friendly",
+    "cuisine": "pizza",
+    "icon": "maki_restaurant-pizza",
+    "name": "Pizzeria Pinocchio",
+    "opening_hours": "Mo-Su,PH 11:00-22:00",
+    "symbol": "\ud83c\udf55"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9698115,
+     51.4871679
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 942721131,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 345 94979848",
+    "cuisine": "sandwich",
+    "icon": "fast_food",
+    "more_info": true,
+    "name": "Subway",
+    "opening_hours": "Mo-Fr 09:00-22:00<br/>Sa-Su 12:00-22:00",
+    "symbol": "\ud83c\udf54"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9649977,
+     51.4832003
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1034448971,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Gro\u00dfe Klausstra\u00dfe 11",
+    "category": "vegan_friendly",
+    "icon": "pub",
+    "more_info": true,
+    "name": "N\u00f6\u00f6",
+    "opening_hours": "10:00-01:00",
+    "symbol": "\ud83c\udf7b"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9662724,
+     51.484371
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1034449861,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06108",
+    "addr_street": "Kleine Ulrichstra\u00dfe 2",
+    "category": "vegetarian_only",
+    "contact_phone": "+49 345 2901604",
+    "contact_website": "http://www.oekoase-halle.de",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "\u00d6koase",
+    "opening_hours": "Mo-Su 11:00-18:00",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9663357,
+     51.4856228
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1037059970,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Kleine Ulrichstra\u00dfe 11",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 345 20808-03",
+    "contact_website": "https://www.kaffeeschuppen.de/",
+    "icon": "pub",
+    "more_info": true,
+    "name": "Kaffeeschuppen",
+    "symbol": "\ud83c\udf7b"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9713058,
+     51.485321
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1037235900,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Mittelstra\u00dfe 7",
+    "category": "vegan_friendly",
+    "icon": "bar",
+    "more_info": true,
+    "name": "Czech",
+    "opening_hours": "Mo-Su 00:00-01:00,10:00-24:00",
+    "symbol": "\ud83c\udf78"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9676866,
+     51.4863816
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1037236274,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Gro\u00dfe Ulrichstra\u00dfe 41",
+    "category": "vegan_limited",
+    "contact_phone": "+49 345 52485122",
+    "cuisine": "asian",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "Anh Asia",
+    "opening_hours": "Tu-Th 10:30-21:30<br/>Fr-Sa 10:30-23:00<br/>Su 11:00-22:00",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9683896,
+     51.4872334
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1038238639,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "Enchilada",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9638301,
+     51.497223
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1045144852,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06114",
+    "addr_street": "Adolfstra\u00dfe 10",
+    "category": "vegan_friendly",
+    "icon": "cafe",
+    "more_info": true,
+    "name": "Rosenburg",
+    "symbol": "\u2615"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9664838,
+     51.4955458
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1045144871,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06114",
+    "addr_street": "Reilstra\u00dfe 133",
+    "category": "vegan_limited",
+    "icon": "bar",
+    "more_info": true,
+    "name": "Zwei Zimmer K\u00fcche Bar",
+    "symbol": "\ud83c\udf78"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9676367,
+     51.4896696
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1185202509,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Harz 42",
+    "category": "vegan_friendly",
+    "cuisine": "canteen",
+    "icon": "restaurant",
+    "name": "Mensa Harz",
+    "opening_hours": "Mo-Fr 11:15-14:00",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9708291,
+     51.4826808
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1475009992,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Marktplatz 24",
+    "category": "vegan_limited",
+    "contact_phone": "+49 345 6856521",
+    "cuisine": "italian",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "Rossini",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9708458,
+     51.4877831
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1538147900,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "August-Bebel-Stra\u00dfe 3",
+    "category": "vegan_friendly",
+    "contact_website": "http://www.lefeu.de/le-feu-halle-saale",
+    "cuisine": "french",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "Le Feu",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9770411,
+     51.4880551
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1562519987,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_phone": "+491794554442",
+    "cuisine": "indian;turkish",
+    "icon": "fast_food",
+    "name": "Bistro Sundarban",
+    "opening_hours": "Mo-Sa 11:00-22:00<br/>Su 12:00-22:00",
+    "symbol": "\ud83c\udf54"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9905999,
+     51.3531808
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1634514338,
+    "_type": "node",
+    "addr_city": "Merseburg",
+    "addr_country": "DE",
+    "addr_postcode": "06217",
+    "addr_street": "Teichstra\u00dfe 2",
+    "category": "vegetarian_friendly",
+    "contact_phone": "+49 3461 214066",
+    "cuisine": "chinese",
+    "icon": "restaurant",
+    "name": "China-Restaurant Dynastie",
+    "opening_hours": "Tu 17:30-22:00<br/>We-Su,PH 11:00-14:30,17:30-22:00",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9671873,
+     51.4882466
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1639760594,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06108",
+    "addr_street": "Neumarktstra\u00dfe 9",
+    "category": "vegan_friendly",
+    "cuisine": "waffle",
+    "icon": "cafe",
+    "more_info": true,
+    "name": "Bewaffel Dich",
+    "symbol": "\u2615"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9587678,
+     51.5125023
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1675706101,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06118",
+    "addr_street": "Trothaer Stra\u00dfe 15",
+    "category": "vegetarian_friendly",
+    "contact_phone": "+49 345 5320670",
+    "cuisine": "chinese",
+    "icon": "restaurant",
+    "name": "China Garden",
+    "opening_hours": "Mo-Su,PH 11:30-15:00,17:00-23:00",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9680151,
+     51.4852757
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1676156956,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Gro\u00dfe Ulrichstra\u00dfe 16",
+    "category": "vegan_limited",
+    "contact_email": "kontakt@house-of-india.de",
+    "contact_phone": "+49 345 2083888",
+    "contact_website": "https://www.house-of-india.de/",
+    "cuisine": "indian",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "House Of India",
+    "opening_hours": "Mo-Sa 11:30-14:30, 17:30-23:30<br/>Su 11:30-23:30",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9593887,
+     51.512184
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1701119442,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "icon": "supermarket",
+    "more_info": true,
+    "name": "naturata",
+    "opening_hours": "Mo-Sa 08:00-20:00",
+    "symbol": "\ud83c\udfea"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.965024,
+     51.4959637
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1902279166,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_website": "http://www.biomarkt-halle.de",
+    "icon": "convenience",
+    "more_info": true,
+    "name": "Biomarkt am Reileck",
+    "opening_hours": "Mo-Fr 09:30-19:00<br/>Sa 09:00-13:00<br/>PH off",
+    "symbol": "\ud83c\udfea"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9707479,
+     51.4881925
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1931764008,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "August-Bebel-Stra\u00dfe 53",
+    "category": "vegan_friendly",
+    "contact_email": "afamia-eck@hotmail.com",
+    "contact_phone": "+4934547885417",
+    "contact_website": "http://www.afamia-halle.de",
+    "cuisine": "oriental;burger",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "Afamia Eck",
+    "opening_hours": "Mo-Sa 11:00-21:00",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9679623,
+     51.4853313
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1943778686,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "icon": "supermarket",
+    "more_info": true,
+    "name": "bio rio",
+    "opening_hours": "Mo-Fr 09:00-20:00<br/>Sa 09:00-19:00",
+    "symbol": "\ud83c\udfea"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9664836,
+     51.4956736
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1955876490,
+    "_type": "node",
+    "category": "vegan_limited",
+    "cuisine": "kebab",
+    "icon": "fast_food",
+    "name": "Tomate D\u00f6ner",
+    "symbol": "\ud83c\udf54"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9702197,
+     51.4849562
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2030536901,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Barf\u00fc\u00dferstra\u00dfe 8",
+    "category": "vegetarian_friendly",
+    "contact_email": "info@wildschuetz-halle.de",
+    "contact_phone": "+49 345 4458725",
+    "contact_website": "http://wildschuetz-halle.de",
+    "cuisine": "german",
+    "icon": "restaurant",
+    "name": "Wildsch\u00fctz",
+    "opening_hours": "Tu-Sa 11:00-14:00,17:00-23:00<br/>Su 11:00-20:00",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9655845,
+     51.4899957
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2051567009,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Geiststra\u00dfe 21",
+    "category": "vegan_friendly",
+    "icon": "convenience",
+    "more_info": true,
+    "name": "\u00d6koHalle",
+    "symbol": "\ud83c\udfea"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9715581,
+     51.4840227
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2065237786,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "icon": "supermarket",
+    "more_info": true,
+    "name": "Naturell",
+    "symbol": "\ud83c\udfea"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.967368,
+     51.4873171
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2068490774,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06108",
+    "addr_street": "Universit\u00e4tsring 9",
+    "category": "vegan_friendly",
+    "contact_email": "the-one-halle@gmx.de",
+    "contact_phone": "+49 157 75356067",
+    "contact_website": "https://www.the-one-halle.de/",
+    "icon": "bar",
+    "more_info": true,
+    "name": "the one",
+    "symbol": "\ud83c\udf78"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9703883,
+     51.4796143
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2322858124,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Rannische Stra\u00dfe 18",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 345 2901049",
+    "contact_website": "https://www.weltladenhalle.de/",
+    "icon": "convenience",
+    "more_info": true,
+    "name": "Weltladen Halle (Saale)",
+    "opening_hours": "Mo-Fr 10:00-18:00, Sa 10:00-14:00",
+    "symbol": "\ud83c\udfea"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9911235,
+     51.3569726
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2371803959,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "cuisine": "pizza",
+    "icon": "maki_restaurant-pizza",
+    "name": "Freddy Fresh",
+    "symbol": "\ud83c\udf55"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9778323,
+     51.4754283
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2415756481,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_email": "info@hallenser-kartoffelhaus.de",
+    "contact_phone": "+49 345 502545",
+    "contact_website": "https://www.hallenser-kartoffelhaus.de/",
+    "cuisine": "regional",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "Hallenser Kartoffelhaus",
+    "opening_hours": "Tu-Su 11:30-22:30",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9665075,
+     51.4858657
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2496741334,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Kleine Ulrichstra\u00dfe 25",
+    "category": "vegetarian_only",
+    "contact_phone": "+49 345 2084446",
+    "contact_website": "http://www.nasch-madame.de",
+    "icon": "cafe",
+    "more_info": true,
+    "name": "Nasch Madame - Konditorei",
+    "opening_hours": "We-Fr 13:00-18:00<br/>Sa 10:00-18:00<br/>Su 12:00-17:00",
+    "symbol": "\u2615"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9205143,
+     51.4793644
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2531221700,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06122",
+    "addr_street": "Neust\u00e4dter Passage 17",
+    "category": "vegan_limited",
+    "cuisine": "sandwich",
+    "icon": "fast_food",
+    "more_info": true,
+    "name": "Subway",
+    "opening_hours": "Mo-We 09:00-22:00<br/>Th-Sa 09:00-23:00<br/>Su 10:00-22:00",
+    "symbol": "\ud83c\udf54"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9608908,
+     51.485173
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2715257424,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06108",
+    "addr_street": "Pf\u00e4lzer Ufer 6",
+    "category": "vegan_limited",
+    "contact_email": "sonnendeckhalle@yahoo.de",
+    "contact_website": "https://sonnendeckhalle.wixsite.com/",
+    "icon": "cafe",
+    "more_info": true,
+    "name": "Sonnendeck",
+    "opening_hours": "Mo-Fr 11:00-18:00+<br/>Sa-Su 10:00-18:00+",
+    "symbol": "\u2615"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9870829,
+     51.4777426
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2791600291,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06112",
+    "addr_street": "Hans-Dietrich-Genscher-Platz 1",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 345 29989903",
+    "contact_website": "http://www.coffee-fellows.de/",
+    "cuisine": "coffee_shop",
+    "icon": "cafe",
+    "more_info": true,
+    "name": "Coffee Fellows",
+    "opening_hours": "Mo-Fr 06:00-20:00<br/>Sa-Su 08:00-20:00",
+    "symbol": "\u2615"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9665041,
+     51.4962613
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2874464836,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06114",
+    "addr_street": "Reilstra\u00dfe 131",
+    "category": "vegan_friendly",
+    "cuisine": "mexican",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "Mextreme",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9797147,
+     51.4793653
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2876264915,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Martinstra\u00dfe 17",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 345 4722962",
+    "contact_website": "http://www.saomai-halle.de/",
+    "cuisine": "vietnamese",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "Sao Mai",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9701538,
+     51.4758174
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2932869816,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06110",
+    "addr_street": "Steinweg 38",
+    "category": "vegan_friendly",
+    "cuisine": "syrisch",
+    "icon": "fast_food",
+    "more_info": true,
+    "name": "Yasmin",
+    "symbol": "\ud83c\udf54"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.7833499,
+     51.4661476
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2969150134,
+    "_type": "node",
+    "addr_city": "Teutschenthal",
+    "addr_country": "DE",
+    "addr_postcode": "06179",
+    "addr_street": "Stra\u00dfe der Einheit 17",
+    "category": "vegan_limited",
+    "icon": "bakery",
+    "more_info": true,
+    "name": "Sch\u00e4l",
+    "opening_hours": "Mo 06:00-13:00<br/>Tu-Fr 06:00-16:30<br/>Sa 06:00-10:00<br/>Su off",
+    "symbol": "\ud83e\udd6f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9663396,
+     51.4942999
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3052291182,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Bernburger Stra\u00dfe 21",
+    "category": "vegan_limited",
+    "contact_website": "https://www.facebook.com/pages/Seoul-Kulinarisch/1448074335456319",
+    "cuisine": "asian",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "Seoul Kulinarisch",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9703938,
+     51.4754624
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3122763481,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06110",
+    "addr_street": "Steinweg 19a",
+    "category": "vegan_friendly",
+    "cuisine": "pizza",
+    "icon": "maki_restaurant-pizza",
+    "name": "Domino's Pizza",
+    "symbol": "\ud83c\udf55"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9658855,
+     51.4954925
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3173527817,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06114",
+    "addr_street": "Richard-Wagner-Stra\u00dfe 1",
+    "category": "vegan_friendly",
+    "contact_website": "http://www.burgerservice-halle.de/",
+    "cuisine": "burger",
+    "icon": "fast_food",
+    "more_info": true,
+    "name": "Burgerservice",
+    "opening_hours": "Mo off, Tu-Th 11:00-22:00<br/>Fr-Sa 11:00-00:00<br/>Su 11:00-22:00",
+    "symbol": "\ud83c\udf54"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.1780337,
+     51.3439014
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3208898648,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 34638 39793",
+    "contact_website": "http://www.coffee-fellows.de/",
+    "cuisine": "coffee_shop",
+    "icon": "cafe",
+    "more_info": true,
+    "name": "Coffee Fellows",
+    "opening_hours": "Mo-Th 09:00-20:00<br/>Fr 09:00-22:00<br/>Sa 09:00-20:00<br/>Su off",
+    "symbol": "\u2615"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9721516,
+     51.4923084
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3364559365,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Puschkinstra\u00dfe 22",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 345 13252299",
+    "contact_website": "http://www.theshabby.de",
+    "cuisine": "coffee_shop;cake",
+    "icon": "cafe",
+    "more_info": true,
+    "name": "The Shabby",
+    "opening_hours": "Tu-Su 09:00-18:00<br/>PH 09:00-18:00",
+    "symbol": "\u2615"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9245461,
+     51.4801097
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3387395693,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06122",
+    "addr_street": "Neust\u00e4dter Passage 9",
+    "category": "vegan_friendly",
+    "contact_website": "https://www.uno-pizza.de/uno-pizza-halle/",
+    "cuisine": "pizza",
+    "icon": "maki_restaurant-pizza",
+    "more_info": true,
+    "name": "Uno Pizza",
+    "symbol": "\ud83c\udf55"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9690337,
+     51.4912396
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3590210914,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "August-Bebel-Stra\u00dfe 18",
+    "category": "vegan_friendly",
+    "contact_website": "http://www.kumara-soulfood.de/",
+    "cuisine": "organic",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "Kumara soulfood",
+    "opening_hours": "Mo-Th 11:00-15:00<br/>Fr 11:00-15:00, 18:00-22:00",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9674203,
+     51.4864335
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3658458714,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Gro\u00dfe Ulrichstra\u00dfe 40",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 345 4723780",
+    "contact_website": "http://www.kornliebchen.de",
+    "icon": "cafe",
+    "more_info": true,
+    "name": "KornLiebchen",
+    "opening_hours": "Tu-Fr 09:00-18:30<br/>Sa 09:00-16:00",
+    "symbol": "\u2615"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.968206,
+     51.4872768
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3724388225,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Universit\u00e4tsring 6a",
+    "category": "vegan_friendly",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "Burgerheart",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.966905,
+     51.4863948
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3752087074,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 345 13256155",
+    "cuisine": "italian",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "Rote So\u00dfe",
+    "opening_hours": "12:00-22:00",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9924674,
+     51.3549709
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3820929262,
+    "_type": "node",
+    "addr_city": "Merseburg",
+    "addr_country": "DE",
+    "addr_postcode": "06217",
+    "addr_street": "K\u00f6nig-Heinrich-Stra\u00dfe 2",
+    "category": "vegan_limited",
+    "cuisine": "sandwich",
+    "icon": "fast_food",
+    "more_info": true,
+    "name": "Subway",
+    "symbol": "\ud83c\udf54"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9662899,
+     51.4872473
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3821868244,
+    "_type": "node",
+    "category": "vegan_limited",
+    "cuisine": "japanese",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "Sakura",
+    "opening_hours": "Mo-Sa 11:30-14:30,17:30-23:00<br/>Su,PH 11:30-15:00,17:30-22:00",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9699697,
+     51.4933783
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 4036431410,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Ludwig-Wucherer-Stra\u00dfe 29",
+    "category": "vegan_only",
+    "contact_website": "https://vegs-halle.tumblr.com/",
+    "cuisine": "vegan;wraps",
+    "icon": "fast_food",
+    "more_info": true,
+    "name": "Vegs",
+    "opening_hours": "Mo-Fr 12:00-22:00<br/>Sa 15:00-20:00",
+    "symbol": "\ud83c\udf54"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9703747,
+     51.4758258
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 4465518868,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06110",
+    "addr_street": "Steinweg 17",
+    "category": "vegan_friendly",
+    "contact_website": "http://www.sushifreunde.de/anfahrt-kontakt/#sctab541",
+    "cuisine": "sushi",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "Sushifreunde",
+    "opening_hours": "Mo-Su 11:30-22:00",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9768247,
+     51.4930581
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 4635274539,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06114",
+    "addr_street": "Herderstra\u00dfe 13",
+    "category": "vegan_friendly",
+    "contact_website": "https://www.facebook.com/faustspaetkultur/",
+    "icon": "convenience",
+    "more_info": true,
+    "name": "Faust Sp\u00e4tkultur",
+    "symbol": "\ud83c\udfea"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9555747,
+     51.4977698
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 4730436532,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06114",
+    "addr_street": "Burgstra\u00dfe 47a",
+    "category": "vegan_friendly",
+    "cuisine": "ice_cream",
+    "icon": "ice_cream",
+    "name": "Eisburg",
+    "opening_hours": "Mo-Fr 13:00-20:00 and Sa-Su 12:00-20:00",
+    "symbol": "\ud83c\udf68"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9664563,
+     51.4849077
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 4815445923,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Kleine Ulrichstra\u00dfe 33",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 345 68879585",
+    "contact_website": "http://www.budapest-restaurant-halle-saale.de",
+    "cuisine": "hungarian",
+    "icon": "restaurant",
+    "name": "Budapest Restaurant",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9661277,
+     51.4863491
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 4815463722,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Bergstra\u00dfe 1",
+    "category": "vegan_limited",
+    "contact_website": "https://www.facebook.com/pg/vietvillagehalle/",
+    "cuisine": "vietnamese",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "Viet Village",
+    "opening_hours": "Mo-Su 11:00-23:00",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.961939,
+     51.4979599
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 4832028123,
+    "_type": "node",
+    "category": "vegetarian_friendly",
+    "cuisine": "kebab;pizza",
+    "icon": "fast_food",
+    "name": "D\u00f6ner & Pizza Chef",
+    "opening_hours": "Mo-Fr 10:30-23:00<br/>Sa,Su,PH 11:00-23:00",
+    "symbol": "\ud83c\udf54"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9330975,
+     51.4994094
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 4868552820,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06120",
+    "addr_street": "Hubertusplatz 1a",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 345 678 8999",
+    "contact_website": "https://www.uno-pizza.de/uno-pizza-halle/",
+    "cuisine": "pizza",
+    "icon": "maki_restaurant-pizza",
+    "more_info": true,
+    "name": "Uno Pizza",
+    "opening_hours": "Mo-Su 11:00-23:00",
+    "symbol": "\ud83c\udf55"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9687571,
+     51.4939567
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 4893692292,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06114",
+    "addr_street": "M\u00fchlweg 29",
+    "category": "vegan_friendly",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "Pandileo",
+    "opening_hours": "Mo-Su 12:00-22:00",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9708593,
+     51.492959
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 4893782127,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06108",
+    "addr_street": "Ludwig-Wucherer-Stra\u00dfe 25",
+    "category": "vegan_limited",
+    "icon": "fast_food",
+    "name": "Yasmine",
+    "symbol": "\ud83c\udf54"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9740497,
+     51.4914512
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 4893812414,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06108",
+    "addr_street": "Ludwig-Wucherer-Stra\u00dfe 12",
+    "category": "vegan_friendly",
+    "cuisine": "kebab",
+    "icon": "fast_food",
+    "name": "Kiez D\u00f6ner",
+    "opening_hours": "Mo-Th 10:00-01:00<br/>Fr-Su,PH 10:00-03:00",
+    "symbol": "\ud83c\udf54"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9699118,
+     51.4854444
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 4914539421,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06108",
+    "addr_street": "Barf\u00fc\u00dferstra\u00dfe 11",
+    "category": "vegan_friendly",
+    "contact_email": "cafe@7gramm.com",
+    "contact_phone": "+49 151 43239924",
+    "contact_website": "http://7gramm.com",
+    "cuisine": "coffee_shop",
+    "icon": "cafe",
+    "more_info": true,
+    "name": "7 Gramm",
+    "opening_hours": "Mo-Fr 09:00-22:00<br/>Sa 10:00-22:00<br/>Su 12:00-18:00",
+    "symbol": "\u2615"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9657436,
+     51.4909923
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 4948443538,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Geiststra\u00dfe 28",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 174 7863204",
+    "contact_website": "http://www.gastroguide.de/restaurant/183104/thang-long-imbiss/halle/",
+    "icon": "fast_food",
+    "more_info": true,
+    "name": "Thang-Long Imbiss",
+    "symbol": "\ud83c\udf54"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9619723,
+     51.5011975
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 4971464334,
+    "_type": "node",
+    "category": "vegan_limited",
+    "icon": "cafe",
+    "more_info": true,
+    "name": "Caf\u00e9 Ludwig",
+    "opening_hours": "We-Su 09:00-18:00",
+    "symbol": "\u2615"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9667696,
+     51.4867456
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 4974999721,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Gro\u00dfe Ulrichstra\u00dfe 29",
+    "category": "vegan_friendly",
+    "contact_website": "http://bagel29.npage.de/",
+    "icon": "cafe",
+    "more_info": true,
+    "name": "Bagel 29",
+    "symbol": "\u2615"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9721836,
+     51.4816909
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 5245541311,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 345 68169155",
+    "icon": "supermarket",
+    "more_info": true,
+    "name": "denn's Biomarkt",
+    "opening_hours": "Mo-Sa 08:00-20:00",
+    "symbol": "\ud83c\udfea"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9688803,
+     51.4737109
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 5583171123,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "icon": "convenience",
+    "more_info": true,
+    "name": "Asia-Lebensmittel",
+    "symbol": "\ud83c\udfea"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9632008,
+     51.4707364
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 5592955318,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06110",
+    "addr_street": "Ludwigstra\u00dfe 37",
+    "category": "vegan_only",
+    "contact_website": "www.ludwigstrasse37.de/kuefa.html",
+    "icon": "maki_star-stroked",
+    "more_info": true,
+    "name": "VL-K\u00fcfa",
+    "opening_hours": "Tu 20:00+",
+    "symbol": ""
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9661347,
+     51.5071812
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 5592987513,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06114",
+    "addr_street": "Reilstra\u00dfe 78",
+    "category": "vegan_only",
+    "contact_website": "https://www.reil78.de/",
+    "icon": "maki_star-stroked",
+    "more_info": true,
+    "name": "Reil-K\u00fcfa",
+    "opening_hours": "Su 19:00+",
+    "symbol": ""
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9573124,
+     51.5002376
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 5593108867,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06114",
+    "addr_street": "Gro\u00dfe Brunnenstra\u00dfe 63",
+    "category": "vegan_friendly",
+    "contact_website": "http://kleinfolgenreich.de/themen/himmel-und-erde/",
+    "icon": "supermarket",
+    "more_info": true,
+    "name": "Himmel & Erde",
+    "opening_hours": "Mo-Fr 12:00-18:00",
+    "symbol": "\ud83c\udfea"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9678025,
+     51.4854936
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 5599806557,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06108",
+    "addr_street": "Gro\u00dfe Ulrichstra\u00dfe 18",
+    "category": "vegan_friendly",
+    "cuisine": "arabic;fast_food",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "Yaman Sham",
+    "opening_hours": "Mo-Su 10:30-23:00<br/>Fr 10:00-23:00",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9701787,
+     51.473713
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 5868832962,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06110",
+    "addr_street": "Liebenauer Stra\u00dfe 1",
+    "category": "vegan_friendly",
+    "contact_website": "https://www.tandoori-halle.de/",
+    "cuisine": "indian;latin_american",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "Tandoori Steakhaus",
+    "opening_hours": "Mo-Su 11:30-14:30, 17:30-23:00",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9788562,
+     51.479147
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 5942265574,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06108",
+    "addr_street": "Leipziger Stra\u00dfe 70",
+    "category": "vegan_friendly",
+    "icon": "cafe",
+    "more_info": true,
+    "name": "koffij",
+    "symbol": "\u2615"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9655539,
+     51.4956755
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 6033781352,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06114",
+    "addr_street": "Richard-Wagner-Stra\u00dfe 2",
+    "category": "vegetarian_only",
+    "contact_phone": "+49 345 13252434",
+    "contact_website": "https://www.toertcheneck.de",
+    "icon": "cafe",
+    "more_info": true,
+    "name": "T\u00f6rtcheneck",
+    "opening_hours": "Tu-Su 11:00-18:00<br/>Su 12:00-16:00",
+    "symbol": "\u2615"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9674092,
+     51.4861224
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 6380783117,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06108",
+    "addr_street": "Gro\u00dfe Ulrichstra\u00dfe 23",
+    "category": "vegan_friendly",
+    "contact_website": "https://roots-halle.de/",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "roots",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9610697,
+     51.4849106
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 6569044919,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06108",
+    "addr_street": "Pf\u00e4lzer Ufer 4",
+    "category": "vegan_friendly",
+    "icon": "bar",
+    "more_info": true,
+    "name": "Hafenmeister & Docks",
+    "opening_hours": "Mo-Fr 11:30-18:00<br/>Sa 10:00-18:00<br/>Su 09:00-18:00",
+    "symbol": "\ud83c\udf78"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.8841424,
+     51.2849088
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 6652719424,
+    "_type": "node",
+    "addr_city": "Braunsbedra",
+    "addr_postcode": "06242",
+    "addr_street": "Markt 14",
+    "category": "vegetarian_friendly",
+    "contact_email": "info@warias-restaurant.de",
+    "contact_phone": "+49 34633 9090",
+    "contact_website": "https://www.warias-restaurant.de",
+    "icon": "restaurant",
+    "name": "Warias am Markt",
+    "opening_hours": "Mo-Su 11:30-22:00<br/>Fr,Sa 11:30-24:00",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9872248,
+     51.4778531
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 6805328949,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06112",
+    "addr_street": "Hans-Dietrich-Genscher-Platz 1",
+    "category": "vegan_friendly",
+    "icon": "convenience",
+    "more_info": true,
+    "name": "Bio im Bahnhof",
+    "opening_hours": "Mo-Su 08:00-20:00",
+    "symbol": "\ud83c\udfea"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9700357,
+     51.474002
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 6820930072,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06110",
+    "addr_street": "Steinweg 29",
+    "category": "vegan_friendly",
+    "cuisine": "russian",
+    "icon": "cafe",
+    "more_info": true,
+    "name": "Pirashki",
+    "opening_hours": "Mo-Su 15:00-20:00",
+    "symbol": "\u2615"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9764108,
+     51.4875765
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 7027316371,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06108",
+    "addr_street": "Gro\u00dfe Steinstra\u00dfe 34",
+    "category": "vegan_friendly",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "Bistro Lorraine",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9661048,
+     51.4282383
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 7068127430,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06132",
+    "addr_street": "Am Wasserwerk 1",
+    "category": "vegan_limited",
+    "contact_website": "https://www.mayamare.de/sauna-wellness/#cancunbar",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "Cancun-Bar",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9662995,
+     51.4882258
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 7160439895,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Geiststra\u00dfe 58",
+    "category": "vegan_limited",
+    "contact_website": "https://www.willkommen-in-halle.de/",
+    "icon": "maki_star-stroked",
+    "more_info": true,
+    "name": "Welcome-Treff",
+    "symbol": ""
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9653379,
+     51.4961558
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 7206763585,
+    "_type": "node",
+    "addr_postcode": "06114",
+    "addr_street": "Richard-Wagner-Stra\u00dfe 57",
+    "category": "vegetarian_friendly",
+    "cuisine": "diner;international;coffee_shop;cake;mediterranean;oriental;tea",
+    "icon": "restaurant",
+    "name": "Laube 57",
+    "opening_hours": "Tu-Su 12:00-22:00",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9657115,
+     51.4958187
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 7388445891,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06114",
+    "addr_street": "Richard-Wagner-Stra\u00dfe 60",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 345 23968706",
+    "contact_website": "https://city-doner-halle-restaurant.business.site/",
+    "cuisine": "kebab",
+    "icon": "fast_food",
+    "more_info": true,
+    "name": "City D\u00f6ner",
+    "opening_hours": "Mo-Fr 11:00-22:00<br/>Sa 12:00-23:00<br/>Su 12:00-22:00",
+    "symbol": "\ud83c\udf54"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9669807,
+     51.5317995
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 7508729470,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06118",
+    "addr_street": "An der Witschke 30",
+    "category": "vegan_friendly",
+    "contact_email": "kontakt@das-ding-in-seeben.de",
+    "contact_phone": "+49 178 5851535",
+    "contact_website": "https://www.das-ding-in-seeben.de",
+    "cuisine": "regional;international;coffee_shop",
+    "icon": "cafe",
+    "name": "Das Ding in Seeben",
+    "opening_hours": "Fr-Su 10:00-19:00",
+    "symbol": "\u2615"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9688723,
+     51.4869272
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 27177218,
+    "_type": "way",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06108",
+    "addr_street": "Universit\u00e4tsring 5",
+    "category": "vegan_limited",
+    "contact_website": "https://www.studentenwerk-halle.de/mensen-cafebars/mensen-in-halle/mensa-tulpe",
+    "icon": "maki_college",
+    "name": "Burse zur Tulpe",
+    "symbol": "\ud83c\udf93"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9981454,
+     51.479946
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 32804265,
+    "_type": "way",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06112",
+    "addr_street": "Delitzscher Stra\u00dfe 49a",
+    "category": "vegan_friendly",
+    "cuisine": "pizza",
+    "icon": "maki_restaurant-pizza",
+    "more_info": true,
+    "name": "Freddy Fresh",
+    "symbol": "\ud83c\udf55"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9542164,
+     51.4574074
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 47571137,
+    "_type": "way",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06128",
+    "addr_street": "Ammendorfer Weg 68",
+    "category": "vegan_friendly",
+    "contact_website": "https://www.uno-pizza.de/uno-pizza-halle/",
+    "cuisine": "pizza",
+    "icon": "maki_restaurant-pizza",
+    "more_info": true,
+    "name": "Uno Pizza",
+    "symbol": "\ud83c\udf55"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9665461,
+     51.4938724
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 53062443,
+    "_type": "way",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06114",
+    "addr_street": "M\u00fchlweg 22",
+    "category": "vegan_friendly",
+    "contact_website": "https://www.uno-pizza.de/uno-pizza-halle/",
+    "cuisine": "pizza",
+    "icon": "maki_restaurant-pizza",
+    "more_info": true,
+    "name": "Uno Pizza",
+    "symbol": "\ud83c\udf55"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9658478,
+     51.4952182
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 60962078,
+    "_type": "way",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06114",
+    "addr_street": "H\u00e4ndelstra\u00dfe 38",
+    "category": "vegan_friendly",
+    "cuisine": "pizza",
+    "icon": "maki_restaurant-pizza",
+    "name": "Domino's Pizza",
+    "symbol": "\ud83c\udf55"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9475137,
+     51.4936383
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 61561597,
+    "_type": "way",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06108",
+    "addr_street": "Pei\u00dfnitzinsel 1",
+    "category": "vegan_friendly",
+    "contact_website": "https://www.peissnitzhaus.de/",
+    "icon": "cafe",
+    "more_info": true,
+    "name": "Gartenlokal am Pei\u00dfnitzhaus /Pei\u00dfnitzhaus-Cafe",
+    "opening_hours": "Mo-Fr 11:30-17:00 +Sa-Su 10:00-18:00",
+    "symbol": "\u2615"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9716425,
+     51.4929782
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 120005523,
+    "_type": "way",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Ludwig-Wucherer-Stra\u00dfe 62",
+    "category": "vegetarian_only",
+    "contact_email": "info@eisdeal.de",
+    "contact_website": "www.eisdeal.de",
+    "icon": "ice_cream",
+    "name": "Eis-Dealer",
+    "opening_hours": "12:00-18:00",
+    "symbol": "\ud83c\udf68"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.974495,
+     51.4932826
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 120082234,
+    "_type": "way",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06114",
+    "addr_street": "Viktor-Scheffel-Stra\u00dfe 8",
+    "category": "vegan_limited",
+    "cuisine": "crepe;french;breakfast;coffee_shop;cake;pasta;tea",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "Colonne Morris",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.967301,
+     51.4827162
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 134238289,
+    "_type": "way",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Talamtstra\u00dfe 6",
+    "category": "vegan_friendly",
+    "contact_email": "kontakt@moenchshof-halle.de",
+    "contact_phone": "+49 345 2021726",
+    "contact_website": "https://moenchshof-halle.de/",
+    "cuisine": "german",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "M\u00f6nchshof",
+    "opening_hours": "Mo-Sa 11:00-23:00<br/>Su,PH 11:00-15:00",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9664306,
+     51.4945584
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 164756625,
+    "_type": "way",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Bernburger Stra\u00dfe 19",
+    "category": "vegetarian_only",
+    "cuisine": "oriental;international",
+    "icon": "fast_food",
+    "more_info": true,
+    "name": "Falafello",
+    "opening_hours": "10:00-24:00",
+    "symbol": "\ud83c\udf54"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9668081,
+     51.4948689
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 164756646,
+    "_type": "way",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Ludwig-Wucherer-Stra\u00dfe 43",
+    "category": "vegan_friendly",
+    "cuisine": "kebab",
+    "icon": "fast_food",
+    "more_info": true,
+    "name": "NICE",
+    "symbol": "\ud83c\udf54"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.968599,
+     51.4838231
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 178744104,
+    "_type": "way",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Gro\u00dfe Nikolaistra\u00dfe 2",
+    "category": "vegan_friendly",
+    "contact_email": "info@halleschesbrauhaus.de",
+    "contact_phone": "+49 345 212570",
+    "contact_website": "https://www.halleschesbrauhaus.de/",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "Hallesches Brauhaus",
+    "opening_hours": "Mo-Fr 16:00-24:00<br/>Sa 11:00-24:00<br/>Su 11:00-21:00<br/>PH 11:00-24:00",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9992993,
+     51.3558742
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 182854644,
+    "_type": "way",
+    "addr_city": "Merseburg",
+    "addr_postcode": "06217",
+    "addr_street": "Burgstra\u00dfe 6",
+    "category": "vegan_friendly",
+    "contact_website": "http://www.tajmahal-merseburg.de/",
+    "cuisine": "indian",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "Tajmahal",
+    "opening_hours": "Mo-Su 11:00-23:00",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.0237008,
+     51.4491067
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 261692804,
+    "_type": "way",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06112",
+    "addr_street": "Messestra\u00dfe 2",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 (345) 68878555",
+    "contact_website": "https://www.espitas.de/restaurants/espitas-halle",
+    "cuisine": "mexican",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "Espitas",
+    "opening_hours": "Mo-Th 11:00-23:00, Fr 11:00-24:00<br/>Sa 10:00-24:00<br/>Su 10:00-23:00",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.963151,
+     51.466719
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 303470451,
+    "_type": "way",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06128",
+    "addr_street": "Stra\u00dfe der Republik 140",
+    "category": "vegetarian_friendly",
+    "cuisine": "kebab",
+    "icon": "fast_food",
+    "name": "Berlin D\u00f6ner - Dilan Imbiss",
+    "symbol": "\ud83c\udf54"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9713475,
+     51.4779569
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 304682735,
+    "_type": "way",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06110",
+    "addr_street": "Franckeplatz 1",
+    "category": "vegan_friendly",
+    "cuisine": "canteen",
+    "icon": "restaurant",
+    "name": "Mensa Franckesche Stiftungen",
+    "opening_hours": "Mo-Th 10:00 - 14:15, Fr 10:00 - 14:00",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.973747,
+     51.4893364
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 375345326,
+    "_type": "way",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Adam-Kuckhoff-Stra\u00dfe 34b",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 345 5524980",
+    "contact_website": "https://www.studentenwerk-halle.de/hochschulgastronomie/halle/cafebar-steintor-campus/",
+    "icon": "cafe",
+    "more_info": true,
+    "name": "Cafebar Steintor-Campus",
+    "opening_hours": "Mo-Th 08:00-17:00, Fr 08:00-14:30",
+    "symbol": "\u2615"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9659804,
+     51.4973787
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 467769739,
+    "_type": "way",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06114",
+    "addr_street": "Reilstra\u00dfe 13",
+    "category": "vegan_limited",
+    "contact_phone": "+49 345 6846567",
+    "contact_website": "http://www.kim-halle.de/",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "Goldene Schildkr\u00f6te",
+    "symbol": "\ud83c\udf7d\ufe0f"
+   },
+   "type": "Feature"
+  }
+ ],
+ "type": "FeatureCollection"
+}

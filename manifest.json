@@ -1,6 +1,6 @@
 {
-    "name": "Veggiekarte",
-    "short_name": "Veggiekarte",
+    "name": "Veggiekarte Halle",
+    "short_name": "VKarte Halle",
     "start_url": "./index.html",
     "icons": [
         {
