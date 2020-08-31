@@ -1,4 +1,8 @@
-# veggiekarte
+# veggiekarte local
+
+This is a fork of the world wide map [veggiekarte from piratenpanda](https://github.com/piratenpanda/veggiekarte). This map is for local use. Improvements will be added to the upstream project.
+
+## description
 
 A map to find vegetarian/vegan POIs in your area.
 
