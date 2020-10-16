@@ -10,7 +10,6 @@ let vegan_limited = L.featureGroup.subGroup(parentGroup, {});
 let vegetarian_friendly = L.featureGroup.subGroup(parentGroup, {});
 let map;
 
-
 function veggiemap() {
 
   // TileLayer
@@ -117,6 +116,7 @@ function veggiemap_populate(parentGroup) {
     .catch(error  => {console.log('Request failed', error);});
 }
 
+// Function to handle the places data.
 function onEachFeature(feature) {
     // Get the Information 
     let eId  = feature.properties._id;
@@ -127,10 +127,12 @@ function onEachFeature(feature) {
     let eCou = feature.properties.addr_country;
     let ePos = feature.properties.addr_postcode;
     let eStr = feature.properties.addr_street;
-    let eCat = eval(feature.properties.category);
+    let eCat = feature.properties.category;
     let eEma = feature.properties.contact_email;
     let ePho = feature.properties.contact_phone;
     let eWeb = feature.properties.contact_website;
+    let eFac = feature.properties.contact_facebook;
+    let eIns = feature.properties.contact_instagram;
     let eCui = feature.properties.cuisine;
     let eIco = feature.properties.icon;
     let eInf = feature.properties.more_info;
@@ -159,11 +161,13 @@ function onEachFeature(feature) {
     if(eOpe!=undefined){popupContent += "<div class='popupflex-container'><div>🕖</div><div>" + eOpe +"</div></div>"}
     if(ePho!=undefined){popupContent += "<div class='popupflex-container'><div>☎️</div><div><a href=\"tel:" + ePho + "\" target=\"_blank\">" + ePho + "</a></div></div>"}
     if(eEma!=undefined){popupContent += "<div class='popupflex-container'><div>📧</div><div><a href=\"mailto:" + eEma + "\" target=\"_blank\">" + eEma + "</a></div></div>"}
-    if(eWeb!=undefined){popupContent += "<div class='popupflex-container'><div>🌐</div><div><a href=\"" + eWeb + "\" target=\"_blank\">" + eWeb + "</a></div></div>"}
+    if(eWeb!=undefined){popupContent += "<div class='popupflex-container'><div>🌐</div><div><a href=\"" + eWeb + "\" target=\"_blank\">" + eWeb.replace("https://", "") + "</a></div></div>"}
+    if(eFac!=undefined){popupContent += "<div class='popupflex-container'><div>🇫</div><div><a href=\"" + eFac + "\" target=\"_blank\">" + eFac.replace("https://", "") + "</a></div></div>"}
+    if(eIns!=undefined){popupContent += "<div class='popupflex-container'><div>📸</div><div><a href=\"" + eIns + "\" target=\"_blank\">" + eIns.replace("https://", "") + "</a></div></div>"}
     if(eInf){popupContent += "<hr/><div class='popupflex-container'><div>ℹ️</div><div><a href=\"https://www.vegan-in-halle.de/wp/leben/vegane-stadtkarte/#"+eTyp+eId+"\" target=\"_top\">Mehr Infos</a></div>"}
 
     // Adding the marker to the map
-    L.marker(eLatLon,{title:eSym + " " + eNam,icon:getIcon(eIco, eCat)}).bindPopup(popupContent).addTo(eCat);
+    L.marker(eLatLon,{title:eSym + " " + eNam,icon:getIcon(eIco, eCat)}).bindPopup(popupContent).addTo(eval(eCat));
 }
 
 // Main function to put the markers to the map

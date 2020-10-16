@@ -121,3 +121,21 @@ a {
   width: 30px !important;
   height: 30px !important;
 }
+
+/* Emojis and content in the popup in one line */
+.popupflex-container {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.popupflex-container > div {
+  min-width: 2em;
+  padding-bottom: 7px;
+}
+
+/** Firefox workaround for https://github.com/Leaflet/Leaflet/issues/4686 */
+.leaflet-fade-anim .leaflet-tile {
+  will-change: auto !important;
+}
+.leaflet-zoom-anim .leaflet-zoom-animated {
+  will-change: auto !important;
+}

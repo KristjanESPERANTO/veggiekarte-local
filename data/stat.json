@@ -15,6 +15,62 @@
    "n_vegan_only": 3,
    "n_vegetarian_friendly": 11,
    "n_vegetarian_only": 5
+  },
+  {
+   "date": "2020-09-27",
+   "n_vegan_friendly": 78,
+   "n_vegan_limited": 18,
+   "n_vegan_only": 3,
+   "n_vegetarian_friendly": 11,
+   "n_vegetarian_only": 5
+  },
+  {
+   "date": "2020-09-30",
+   "n_vegan_friendly": 78,
+   "n_vegan_limited": 18,
+   "n_vegan_only": 3,
+   "n_vegetarian_friendly": 11,
+   "n_vegetarian_only": 5
+  },
+  {
+   "date": "2020-10-03",
+   "n_vegan_friendly": 78,
+   "n_vegan_limited": 17,
+   "n_vegan_only": 3,
+   "n_vegetarian_friendly": 11,
+   "n_vegetarian_only": 5
+  },
+  {
+   "date": "2020-10-06",
+   "n_vegan_friendly": 78,
+   "n_vegan_limited": 17,
+   "n_vegan_only": 3,
+   "n_vegetarian_friendly": 11,
+   "n_vegetarian_only": 5
+  },
+  {
+   "date": "2020-10-09",
+   "n_vegan_friendly": 79,
+   "n_vegan_limited": 17,
+   "n_vegan_only": 3,
+   "n_vegetarian_friendly": 11,
+   "n_vegetarian_only": 5
+  },
+  {
+   "date": "2020-10-10",
+   "n_vegan_friendly": 79,
+   "n_vegan_limited": 17,
+   "n_vegan_only": 3,
+   "n_vegetarian_friendly": 11,
+   "n_vegetarian_only": 5
+  },
+  {
+   "date": "2020-10-16",
+   "n_vegan_friendly": 79,
+   "n_vegan_limited": 17,
+   "n_vegan_only": 3,
+   "n_vegetarian_friendly": 11,
+   "n_vegetarian_only": 5
   }
  ]
 }

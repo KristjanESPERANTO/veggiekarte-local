@@ -88,6 +88,7 @@ GET_MORE_INFO = [
     3387395693,  # Uno Pizza - Neustadt
     4868552820,  # Uno Pizza - Heide Süd
     4948443538,  # Thang Long
+    189926769,   # Lichthaus
     134238289,   # Mönchshof
     4465518868,  # Sushifreunde
     1475009992,  # Rossini
@@ -291,8 +292,6 @@ def write_data(data):
         placeObj["properties"]["_type"] = elementType
 
 
-
-
         if elementType == "node":
             lat = e.get("lat", None)
             lon = e.get("lon", None)
@@ -364,6 +363,12 @@ def write_data(data):
             placeObj["properties"]["contact_website"] = tags.get("contact:website", "")
         elif "website" in tags:
             placeObj["properties"]["contact_website"] = tags.get("website", "")
+        if "contact:facebook" in tags:
+            placeObj["properties"]["contact_facebook"] = tags.get("contact:facebook", "")
+        elif "facebook" in tags:
+            placeObj["properties"]["contact_facebook"] = tags.get("facebook", "")
+        if "contact:instagram" in tags:
+            placeObj["properties"]["contact_instagram"] = tags.get("contact:instagram", "")
         if "contact:email" in tags:
             placeObj["properties"]["contact_email"] = tags.get("contact:email", "")
         elif "email" in tags:
