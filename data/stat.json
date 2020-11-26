@@ -71,6 +71,110 @@
    "n_vegan_only": 3,
    "n_vegetarian_friendly": 11,
    "n_vegetarian_only": 5
+  },
+  {
+   "date": "2020-10-18",
+   "n_vegan_friendly": 81,
+   "n_vegan_limited": 19,
+   "n_vegan_only": 3,
+   "n_vegetarian_friendly": 13,
+   "n_vegetarian_only": 5
+  },
+  {
+   "date": "2020-10-24",
+   "n_vegan_friendly": 81,
+   "n_vegan_limited": 19,
+   "n_vegan_only": 3,
+   "n_vegetarian_friendly": 13,
+   "n_vegetarian_only": 5
+  },
+  {
+   "date": "2020-10-25",
+   "n_vegan_friendly": 81,
+   "n_vegan_limited": 19,
+   "n_vegan_only": 3,
+   "n_vegetarian_friendly": 13,
+   "n_vegetarian_only": 5
+  },
+  {
+   "date": "2020-10-29",
+   "n_vegan_friendly": 81,
+   "n_vegan_limited": 19,
+   "n_vegan_only": 3,
+   "n_vegetarian_friendly": 13,
+   "n_vegetarian_only": 5
+  },
+  {
+   "date": "2020-11-04",
+   "n_vegan_friendly": 81,
+   "n_vegan_limited": 19,
+   "n_vegan_only": 3,
+   "n_vegetarian_friendly": 13,
+   "n_vegetarian_only": 5
+  },
+  {
+   "date": "2020-11-08",
+   "n_vegan_friendly": 81,
+   "n_vegan_limited": 20,
+   "n_vegan_only": 3,
+   "n_vegetarian_friendly": 13,
+   "n_vegetarian_only": 5
+  },
+  {
+   "date": "2020-11-13",
+   "n_vegan_friendly": 81,
+   "n_vegan_limited": 20,
+   "n_vegan_only": 3,
+   "n_vegetarian_friendly": 13,
+   "n_vegetarian_only": 5
+  },
+  {
+   "date": "2020-11-14",
+   "n_vegan_friendly": 81,
+   "n_vegan_limited": 20,
+   "n_vegan_only": 3,
+   "n_vegetarian_friendly": 13,
+   "n_vegetarian_only": 5
+  },
+  {
+   "date": "2020-11-15",
+   "n_vegan_friendly": 80,
+   "n_vegan_limited": 20,
+   "n_vegan_only": 3,
+   "n_vegetarian_friendly": 13,
+   "n_vegetarian_only": 5
+  },
+  {
+   "date": "2020-11-16",
+   "n_vegan_friendly": 80,
+   "n_vegan_limited": 20,
+   "n_vegan_only": 3,
+   "n_vegetarian_friendly": 13,
+   "n_vegetarian_only": 5
+  },
+  {
+   "date": "2020-11-21",
+   "n_vegan_friendly": 129,
+   "n_vegan_limited": 20,
+   "n_vegan_only": 12,
+   "n_vegetarian_friendly": 81,
+   "n_vegetarian_only": 6
+  },
+  {
+   "date": "2020-11-22",
+   "n_vegan_friendly": 130,
+   "n_vegan_limited": 20,
+   "n_vegan_only": 12,
+   "n_vegetarian_friendly": 81,
+   "n_vegetarian_only": 6
+  },
+  {
+   "date": "2020-11-26",
+   "n_vegan_friendly": 130,
+   "n_vegan_limited": 20,
+   "n_vegan_only": 12,
+   "n_vegetarian_friendly": 81,
+   "n_vegetarian_only": 6
   }
  ]
 }
