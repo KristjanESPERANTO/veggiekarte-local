@@ -40,15 +40,15 @@
       <div id="close" onclick="toggleInfo()">✖</div>
       <div id="content">
         <h1>Willkommen</h1>
-        <p>Dies ist eine für Halle angepasste Version der Veggiekarte (<a href="https://www.veggiekarte.de/" target="_blank">www.veggiekarte.de</a>) und ist Teil der Webseite <a href="https://www.vegan-in-halle.de/" target="_blank">www.vegan-in-halle.de</a>. Wir experimentieren noch viel damit rum. Gib uns gern <a href="https://www.vegan-in-halle.de/wp/proveg/kontakt/" target="_blank">Feedback</a> was du davon hältst und was dir eventuell fehlt.</p>
+        <p>Dies ist eine für Halle angepasste Version der Veggiekarte (<a href="https://www.veggiekarte.de" target="_blank" rel="noopener noreferrer">www.veggiekarte.de</a>) und ist Teil der Webseite <a href="https://www.vegan-in-halle.de" target="_blank" rel="noopener noreferrer">www.vegan-in-halle.de</a>. Wir experimentieren noch viel damit rum. Gib uns gern <a href="https://www.vegan-in-halle.de/wp/proveg/kontakt/" target="_blank">Feedback</a> was du davon hältst und was dir eventuell fehlt.</p>
         <h1>Veggiekarte</h1>
         <p>Auf der Karte findest du die in OpenStreetMap in Halle und im Saalekreis eingetragenen veganen und vegetarischen Restaurants, Eisdielen, Cafés etc. Benutze einfach das Suchfeld um nach deinem Ort oder deiner Straße zu suchen. Alle großen grünen Icons sind Lokalitäten in denen es vegane Optionen gibt. Icons die nicht grün sind, bieten vegetarische aber keine veganen Optionen an.</p>
         <h1>Über OpenStreetMap</h1>
         <p>OpenStreetMap ist eine freie Weltkarte und funktioniert so ähnlich wie Wikipedia. Jeder kann mitmachen und Informationen eintragen. Dadurch ist die Karte immer aktuell und voll von nützlichen Informationen. Wer Verbesserungsvorschläge hat oder Fehler in der Karte findet, kann diese einfach selbst eintragen oder verbessern</p>
         <h1>Informationen beitragen</h1>
-        <p>Wenn du selbst Restaurants, Cafés, Eisdielen oder Imbissbuden kennst, die noch nicht in der Karte auftauchen, oder selbst eins betreibst, dann kannst du es einfach selbst hinzufügen. Dazu musst du den "diet:vegan"- oder "diet:vegetarian"-Tag bei deiner Location in OpenStreetMap hinzufügen. Eine Anleitung dazu gibt es <a href="https://www.lebsanft.org/posts/informationen-zur-veggiekarte-hinzufuegen/" target="_blank">hier</a>.</p>
+        <p>Wenn du selbst Restaurants, Cafés, Eisdielen oder Imbissbuden kennst, die noch nicht in der Karte auftauchen, oder selbst eins betreibst, dann kannst du es einfach selbst hinzufügen. Dazu musst du den "diet:vegan"- oder "diet:vegetarian"-Tag bei deiner Location in OpenStreetMap hinzufügen. Eine Anleitung dazu gibt es <a href="https://www.lebsanft.org/posts/informationen-zur-veggiekarte-hinzufuegen/" target="_blank" rel="noopener noreferrer">hier</a>.</p>
         <h1>Sonstiges</h1>
-        <p>Die hallesche Veggiekarte aktualisieren wir aktuell nur manuell. Den Code der originalen Veggiekarte findest du auf <a href="https://github.com/piratenpanda/veggiekarte" target="_blank">GitHub</a>. Die Anpassungen für Halle werden dort nach und nach eingepflegt.</p>
+        <p>Die hallesche Veggiekarte aktualisieren wir aktuell nur manuell. Den Code der originalen Veggiekarte findest du auf <a href="https://github.com/piratenpanda/veggiekarte" target="_blank" rel="noopener noreferrer">GitHub</a>. Die Anpassungen für Halle werden dort nach und nach eingepflegt.</p>
       </div>
     </div>
 
@@ -67,8 +67,11 @@
     <script src="third-party/leaflet.locatecontrol/L.Control.Locate.min.js"></script>
     <script src="third-party/leaflet.easybutton/easy-button.js"></script>
     <script src="third-party/leaflet.featuregroup.subgroup/leaflet.featuregroup.subgroup.js"></script>
+    <script src="third-party/i18next/i18next.js"></script>
+    <script src="third-party/opening_hours/opening_hoursdeps.js"></script>
 
     <!-- Own scripts -->
+    <script src="js/i18n-resources.js"></script>
     <script src="js/veggiemap.js"></script>
     <script src="js/veggiemap-icons.js"></script>
 

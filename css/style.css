@@ -126,6 +126,12 @@ a:hover {
   height: 30px !important;
 }
 
+/* PopupTitle */
+.mapPopupTitle {
+  font-size: medium;
+  text-align: center;
+}
+
 /* Emojis and content in the popup in one line */
 .popupflex-container {
   display: flex;
@@ -181,6 +187,26 @@ a:hover {
   background-color: #2074b6;
 }
 
+/* Open state circles in the popup box */
+.open_state_circle {
+  height: 0.8em;
+  width: 0.8em;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 0.5em;
+}
+.open {
+  background-color: green;
+}
+.opens_soon {
+  background-color: yellow;
+}
+.closes_soon {
+  background-color: orange;
+}
+.closed {
+  background-color: red;
+}
 
 /* Firefox workaround for https://github.com/Leaflet/Leaflet/issues/4686 */
 .leaflet-fade-anim .leaflet-tile {

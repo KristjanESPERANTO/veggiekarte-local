@@ -1,6 +1,16 @@
 // The "use strict" directive helps to write cleaner code.
 "use strict";
 
+
+/* Definition (polyfill) for the function replaceAll
+   for older browser versions (before 2020)
+   Can be removed after some years. */
+if (!String.prototype.replaceAll) {
+    String.prototype.replaceAll = function (old_str, new_str){
+        return this.replace(new RegExp(old_str, 'g'), new_str);
+    };
+}
+
 // Define marker groups
 let parentGroup = L.markerClusterGroup({showCoverageOnHover: false, maxClusterRadius: 20});
 let vegan_only = L.featureGroup.subGroup(parentGroup, {});
@@ -23,8 +33,16 @@ function veggiemap() {
     layers: [tileOSM],
     center: [51.42, 12.0],
     zoom: 11,
-    worldCopyJump: true
+    worldCopyJump: true,
+    zoomControl: false
   });
+
+// Add zoom control
+L.control.zoom({
+     position:'topright',
+     zoomInTitle: i18next.t('leaflet.L-control-zoom.zoom_in'),
+     zoomOutTitle: i18next.t('leaflet.L-control-zoom.zoom_out')
+}).addTo(map);
 
   // Define overlays (each marker group gets a layer) + add legend to the description
   let overlays = {
@@ -51,16 +69,18 @@ function veggiemap() {
   let hash = new L.Hash(map);
 
   // Add info button
-  L.easyButton(
+  let infoButton = L.easyButton(
     '<div class="info-button"></div>',
-    function(btn, map){
-    toggleInfo();
-  }, 'Information').addTo(map);
+    function(btn, map){toggleInfo();},
+    i18next.t('leaflet.L-control-infoButton.title')
+  ).addTo(map);
+  infoButton.setPosition('topright');
 
   // Add button for search places
   L.Control.geocoder({
-    placeholder: 'Nach Ortsnamen suchen...',
-    errorMessage: 'Nichts gefunden.'
+    placeholder: i18next.t('leaflet.L-control-geocoder.placeholder'),
+    errorMessage: i18next.t('leaflet.L-control-geocoder.error_message'),
+    //TODO: Add title somehow, because all other buttons have titles.
   }).addTo(map);
 
   // Add button to search own position
@@ -69,11 +89,12 @@ function veggiemap() {
     iconLoading: 'loading_icon',
     showCompass: true,
     strings: {
-      title: "Standort ermitteln",
-      metersUnit: "Meter",
-      popup: "Du befindest dich maximal {distance} {unit} entfernt von diesem Punkt."
+      title: i18next.t('leaflet.L-control-locate.where_am_i'),
+      metersUnit: i18next.t('leaflet.L-control-locate.meter'),
+      popup: i18next.t('leaflet.L-control-locate.distance'),
     },
-    locateOptions: {maxZoom: 16}
+    locateOptions: {maxZoom: 16},
+    position:'topright'
   }).addTo(map);
 
   // Add layer control button
@@ -95,17 +116,14 @@ function toggleInfo() {
 // Function to put the numbers of markers into the legend.
 //   The numbers are calculated using the refresh.py script and stored in the places.json file.
 function stat_populate() {
-
-    const url = "data/stat.json";
-
-    fetch(url)
-    .then(response => response.json())
-    .then(data => onEachFeatureStat(data))
-    .catch(error  => {console.log('Request failed', error);});
+  const url = "data/stat.json";
+  fetch(url)
+  .then(response => response.json())
+  .then(data => onEachFeatureStat(data))
+  .catch(error  => {console.log('Request failed', error);});
 }
 
 function onEachFeatureStat(data) {
-
   for (let x in data.stat[data.stat.length -1]){
     document.getElementById(x).innerHTML = data.stat[data.stat.length -1][x];
   }
@@ -113,16 +131,17 @@ function onEachFeatureStat(data) {
 
 // Function to get the information from the places json file.
 function veggiemap_populate(parentGroup) {
-    const url = "data/places.json";
+  const url = "data/places.json";
 
-    fetch(url)
-    .then(response => response.json())
-    .then(data => {L.geoJSON([data], {onEachFeature: onEachFeature});})
-    .catch(error  => {console.log('Request failed', error);});
+  fetch(url)
+  .then(response => response.json())
+  .then(data => {L.geoJSON([data], {onEachFeature: onEachFeature});})
+  .catch(error  => {console.log('Request failed', error);});
 }
 
 // Function to handle the places data.
 function onEachFeature(feature) {
+
     // Get the Information 
     let eId  = feature.properties._id;
     let eLatLon = [feature.geometry.coordinates[1],feature.geometry.coordinates[0]];
@@ -145,11 +164,14 @@ function onEachFeature(feature) {
     let eSym = feature.properties.symbol;
 
     /*** Building the popup content ***/
-    let popupContent = "<b>" + eSym + " " + eNam + "</b> "; // Symbol and name
-    popupContent += "<a href=\"https://openstreetmap.org/"+eTyp+"/"+eId+"\" target=\"_blank\">*</a><hr/>"; // OSM link
+    let popupContent = "<div class='mapPopupTitle'>" + eSym + " " + eNam; // Symbol and name
+    
+     // OSM link for popup and console outputs
+    let osmUrl = "https://openstreetmap.org/"+eTyp+"/"+eId
+    popupContent += "<a href='"+osmUrl+"' target='_blank' rel='noopener noreferrer'> *</a></div><hr/>";
 
     // Adding cuisine information to popup
-    if(eCui!=undefined){popupContent += "<div class='popupflex-container'><div>👩‍🍳</div><div>" + eCui +"</div></div>"}
+    if(eCui!=undefined){popupContent += "<div class='popupflex-container'><div>👩‍🍳</div><div>" + eCui.replaceAll(";", ", ").replaceAll("_", " ") +"</div></div>"}
 
     // Address
     let eAddr = ""
@@ -160,23 +182,74 @@ function onEachFeature(feature) {
     // if(eCou!=undefined){eAddr += eCou}       // Country
 
     // Adding address information to popup
-    if(eAddr!=""){popupContent += "<div class='popupflex-container'><div>📍</div><div>" + eAddr +"</div></div>"}
+    if(eAddr!=""){popupContent += "<div class='popupflex-container'><div>📍</div><div>" + eAddr +"</div></div>"
+    } else {
+      console.log("-W- " + eNam + " without address information. - " + osmUrl)
+    }
 
+    // Adding opening hours to popup
+    if(eOpe!=undefined){
+      // Country: Germany
+      let country_code = 'de';
+      // State: Sachsen-Anhalt
+      let state = 'st';
+      // Get browser language for the warnings and the prettifier
+      let locale = navigator.language.split('-')[0];
+      //Create opening_hours object
+      let oh = new opening_hours(eOpe, {
+          'lat':eLatLon[0],'lon':[0], 'address': {'country_code':country_code, 'state':state}},
+          {'locale':locale});
+      let prettified_value = oh.prettifyValue({conf: {'locale':locale, 'rule_sep_string': '<br />', 'print_semicolon': false, 'sep_one_day_between': ', '}});
+      prettified_value = prettified_value.replaceAll(',', ', ').replaceAll('PH', i18next.t('words.public_holiday'));
+      // Find out the open state
+      let open_state = '';
+      let open_state_emoji = '';
+      if(oh.getState()){
+        open_state = i18next.t('words.open');
+        open_state_emoji = 'open';
+        if(!oh.isOpenInMinutes()){
+          open_state += i18next.t('texts.will close soon');
+          open_state_emoji = 'closes_soon';
+        }
+      } else {
+        open_state = i18next.t('words.closed');
+        open_state_emoji = 'closed';
+        if(oh.isOpenInMinutes()){
+          open_state += i18next.t('texts.will open soon');
+          open_state_emoji = 'opens_soon';
+        }
+      }
+      // Append opening hours to the popup
+      popupContent += "<div class='popupflex-container'><div>🕖</div><div><span class='open_state_circle " + open_state_emoji + "'></span>" + open_state + "<br />" + prettified_value + "</div></div>";
+    } else {
+      // Output console warning if there is no opening_hours
+      console.log("-W- " + eNam + " (" + eStr + ") without opening hours. - " + osmUrl)
+    }
+    
     // Adding addidtional information to popup
-    if(eOpe!=undefined){popupContent += "<div class='popupflex-container'><div>🕖</div><div>" + eOpe +"</div></div>"}
-    if(ePho!=undefined){popupContent += "<div class='popupflex-container'><div>☎️</div><div><a href=\"tel:" + ePho + "\" target=\"_blank\">" + ePho + "</a></div></div>"}
-    if(eEma!=undefined){popupContent += "<div class='popupflex-container'><div>📧</div><div><a href=\"mailto:" + eEma + "\" target=\"_blank\">" + eEma + "</a></div></div>"}
-    if(eWeb!=undefined){popupContent += "<div class='popupflex-container'><div>🌐</div><div><a href=\"" + eWeb + "\" target=\"_blank\">" + eWeb.replace("https://", "") + "</a></div></div>"}
-    if(eFac!=undefined){popupContent += "<div class='popupflex-container'><div>🇫</div><div><a href=\"" + eFac + "\" target=\"_blank\">" + eFac.replace("https://", "") + "</a></div></div>"}
-    if(eIns!=undefined){popupContent += "<div class='popupflex-container'><div>📸</div><div><a href=\"" + eIns + "\" target=\"_blank\">" + eIns.replace("https://", "") + "</a></div></div>"}
-    if(eInf){popupContent += "<hr/><div class='popupflex-container'><div>ℹ️</div><div><a href=\"https://www.vegan-in-halle.de/wp/leben/vegane-stadtkarte/#"+eTyp+eId+"\" target=\"_top\">Mehr Infos</a></div>"}
+    if(ePho!=undefined){popupContent += "<div class='popupflex-container'><div>☎️</div><div><a href='tel:" + ePho + "' target='_blank' rel='noopener noreferrer'>" + ePho + "</a></div></div>"}
+    if(eEma!=undefined){popupContent += "<div class='popupflex-container'><div>📧</div><div><a href='mailto:" + eEma + "' target='_blank' rel='noopener noreferrer'>" + eEma + "</a></div></div>"}
+    if(eWeb!=undefined){popupContent += "<div class='popupflex-container'><div>🌐</div><div><a href='" + eWeb + "' target='_blank' rel='noopener noreferrer'>" + eWeb.replace("https://", "") + "</a></div></div>"}
+    if(eFac!=undefined){popupContent += "<div class='popupflex-container'><div>🇫</div><div><a href='" + eFac + "' target='_blank' rel='noopener noreferrer'>" + decodeURI(eFac).replace("https://", "") + "</a></div></div>"}
+    if(eIns!=undefined){popupContent += "<div class='popupflex-container'><div>📸</div><div><a href='" + eIns + "' target='_blank' rel='noopener noreferrer'>" + eIns.replace("https://", "") + "</a></div></div>"}
+    if(eInf){popupContent += "<hr/><div class='popupflex-container'><div>ℹ️</div><div><a href=\"https://www.vegan-in-halle.de/wp/leben/vegane-stadtkarte/#"+eTyp+eId+"\" target=\"_top\">" + i18next.t('texts.more_info') + "</a></div>"}
 
     // Adding the marker to the map
     L.marker(eLatLon,{title:eSym + " " + eNam,icon:getIcon(eIco, eCat)}).bindPopup(popupContent).addTo(eval(eCat));
 }
 
-// Main function to put the markers to the map
+
+// Adding function for opening_hours objects to check if place will be open after n minutes
+if (!opening_hours.prototype.isOpenInMinutes) {
+  opening_hours.prototype.isOpenInMinutes = function(minutes = 60) {
+    let nowPlusHours = new Date();
+    nowPlusHours.setUTCMinutes(nowPlusHours.getUTCMinutes()+minutes);
+    return this.getState(nowPlusHours);
+  };
+}
+
+// Put the markers to the map
 veggiemap();
 
-// Call the function to put the numbers into the legend
+// Put the numbers into the legend
 stat_populate();
