@@ -18,7 +18,12 @@ let vegetarian_only = L.featureGroup.subGroup(parentGroup, {});
 let vegan_friendly = L.featureGroup.subGroup(parentGroup, {});
 let vegan_limited = L.featureGroup.subGroup(parentGroup, {});
 let vegetarian_friendly = L.featureGroup.subGroup(parentGroup, {});
+let subgroups = { vegan_only, vegetarian_only, vegan_friendly, vegan_limited, vegetarian_friendly };
+
 let map;
+var locate_control;
+var layerContol
+
 
 function veggiemap() {
 
@@ -37,33 +42,31 @@ function veggiemap() {
     zoomControl: false
   });
 
-// Add zoom control
-L.control.zoom({
-     position:'topright',
-     zoomInTitle: i18next.t('leaflet.L-control-zoom.zoom_in'),
-     zoomOutTitle: i18next.t('leaflet.L-control-zoom.zoom_out')
-}).addTo(map);
+  // Add zoom control
+  L.control.zoom({position:'topright'}).addTo(map);
 
   // Define overlays (each marker group gets a layer) + add legend to the description
   let overlays = {
-    "<div class='legendRow' title='Place which offers only vegan food.'><div class='firstCell vegan_only'></div><div class='secondCell'>vegan only</div><div class='thirdCell' id='n_vegan_only'></div></div>" : vegan_only,
-    "<div class='legendRow' title='Place which offers only vegetarian and vegan food.'><div class='firstCell vegetarian_only'></div><div class='secondCell'>vegetarian only + vegan</div><div class='thirdCell' id='n_vegetarian_only'></div></div>" : vegetarian_only,
-    "<div class='legendRow' title='Place which offers also vegan food.'><div class='firstCell vegan_friendly'></div><div class='secondCell'>vegan friendly</div><div class='thirdCell' id='n_vegan_friendly'></div></div>" : vegan_friendly,
-    "<div class='legendRow' title='Place with limited vegan offer (usualy that means, you have to ask for it).'><div class='firstCell vegan_limited'></div><div class='secondCell'>vegan limited</div><div class='thirdCell' id='n_vegan_limited'></div></div>" : vegan_limited,
-    "<div class='legendRow' title='Place which offers also vegetarian food, but no vegan.'><div class='firstCell vegetarian_friendly'></div><div class='secondCell'>vegetarian friendly</div><div class='thirdCell' id='n_vegetarian_friendly'></div></div><br /><br /><div id='date'></div>" : vegetarian_friendly
+    "<div class='legendRow'>vegan_only</div>" : vegan_only,
+    //"<div class='legendRow' title='Place which offers only vegan food.'><div class='firstCell vegan_only'></div><div class='secondCell'></div><div class='thirdCell' id='n_vegan_only'></div></div>" : vegan_only,
+    "<div class='legendRow' title='Place which offers only vegetarian and vegan food.'><div class='firstCell vegetarian_only'></div><div class='secondCell'></div><div class='thirdCell' id='n_vegetarian_only'></div></div>" : vegetarian_only,
+    "<div class='legendRow' title='Place which offers also vegan food.'><div class='firstCell vegan_friendly'></div><div class='secondCell'></div><div class='thirdCell' id='n_vegan_friendly'></div></div>" : vegan_friendly,
+    "<div class='legendRow' title='Place with limited vegan offer (usualy that means, you have to ask for it).'><div class='firstCell vegan_limited'></div><div class='secondCell'></div><div class='thirdCell' id='n_vegan_limited'></div></div>" : vegan_limited,
+    "<div class='legendRow' title='Place which offers also vegetarian food, but no vegan.'><div class='firstCell vegetarian_friendly'></div><div class='secondCell'></div><div class='thirdCell' id='n_vegetarian_friendly'></div></div><br /><br /><div id='date'></div>" : vegetarian_friendly
   };
-
-  // Add marker groups to the map
-  vegan_only.addTo(map);
-  vegetarian_only.addTo(map);
-  vegan_friendly.addTo(map);
-  vegan_limited.addTo(map);
-  // vegetarian_friendly.addTo(map);
 
   veggiemap_populate(parentGroup);
 
-  // Add the parent marker group to the map
-  parentGroup.addTo(map);
+  // Enable the on-demand popup and tooltip calculation
+  parentGroup.bindPopup(calculatePopup);
+  parentGroup.bindTooltip(calculateTooltip);
+
+  // Close the tooltip when opening the popup
+  parentGroup.on("click", function(e){
+    if(parentGroup.isPopupOpen()){
+      parentGroup.closeTooltip();
+    }
+  })
 
   // Add hash to the url
   let hash = new L.Hash(map);
@@ -71,35 +74,120 @@ L.control.zoom({
   // Add info button
   let infoButton = L.easyButton(
     '<div class="info-button"></div>',
-    function(btn, map){toggleInfo();},
-    i18next.t('leaflet.L-control-infoButton.title')
+    function(btn, map){toggleInfo()}
   ).addTo(map);
   infoButton.setPosition('topright');
 
   // Add button for search places
-  L.Control.geocoder({
-    placeholder: i18next.t('leaflet.L-control-geocoder.placeholder'),
-    errorMessage: i18next.t('leaflet.L-control-geocoder.error_message'),
-    //TODO: Add title somehow, because all other buttons have titles.
-  }).addTo(map);
+  L.Control.geocoder().addTo(map);
 
   // Add button to search own position
-  L.control.locate({
+  locate_control = L.control.locate({
     icon: 'locate_icon',
     iconLoading: 'loading_icon',
     showCompass: true,
-    strings: {
-      title: i18next.t('leaflet.L-control-locate.where_am_i'),
-      metersUnit: i18next.t('leaflet.L-control-locate.meter'),
-      popup: i18next.t('leaflet.L-control-locate.distance'),
-    },
     locateOptions: {maxZoom: 16},
     position:'topright'
   }).addTo(map);
 
   // Add layer control button
-  L.control.layers(null, overlays).addTo(map);
+  layerContol = L.control.layers(null, overlays).addTo(map);
+  console.log(layerContol);
+
+  // Add scale control
+  L.control.scale().addTo(map);
+  
+  
+  
+  // Add languageselector
+  map.addControl(L.languageSelector({
+      languages: new Array(
+      // TODO: replace Array with foreach ...
+          L.langObject('en', 'English'),
+          L.langObject('de', 'Deutsch'),
+          L.langObject('fr', 'Français'),
+          L.langObject('ru', 'Русский')
+      ),
+      callback: changeLanguage,
+    //title: 'Language',  // TODO: Add real title and translate it
+    vertical: true
+    
+    
+    
+  }));
+  
+  
+  
 }
+
+
+/**
+ * Add or replace the language parameter of the URL and reload the page.
+ * @param String id of the language
+ */
+function changeLanguage(selectedLanguage) {
+    window.location.href = updateURLParameter(window.location.href, 'lang', selectedLanguage);
+}
+
+/**
+ * Add or replace a parameter (with value) in the given URL.
+ * By Adil Malik, https://stackoverflow.com/questions/1090948/change-url-parameters/10997390#10997390
+ * @param String url the URL
+ * @param String param the parameter
+ * @param String paramVal the value of the parameter
+ * @return String the changed URL
+ */
+function updateURLParameter(url, param, paramVal) {
+    var theAnchor = null;
+    var newAdditionalURL = "";
+    var tempArray = url.split("?");
+    var baseURL = tempArray[0];
+    var additionalURL = tempArray[1];
+    var temp = "";
+
+    if (additionalURL) {
+        var tmpAnchor = additionalURL.split("#");
+        var theParams = tmpAnchor[0];
+        theAnchor = tmpAnchor[1];
+        if(theAnchor) {
+            additionalURL = theParams;
+        }
+
+        tempArray = additionalURL.split("&");
+
+        for (let i=0; i<tempArray.length; i++) {
+            if(tempArray[i].split('=')[0] != param) {
+                newAdditionalURL += temp + tempArray[i];
+                temp = "&";
+            }
+        }        
+    } else {
+        var tmpAnchor = baseURL.split("#");
+        var theParams = tmpAnchor[0];
+        theAnchor  = tmpAnchor[1];
+
+        if(theParams) {
+            baseURL = theParams;
+        }
+    }
+
+    if(theAnchor) {
+        paramVal += "#" + theAnchor;
+    }
+
+    var rows_txt = temp + "" + param + "=" + paramVal;
+    return baseURL + "?" + newAdditionalURL + rows_txt;
+}
+
+
+
+
+
+
+
+
+
+
 
 // Function to toogle the visibility of the Info box.
 function toggleInfo() {
@@ -113,6 +201,12 @@ function toggleInfo() {
     }
 }
 
+// Function to hide the spinner.
+function hideSpinner() {
+  let element = document.getElementById('spinner');
+  element.style.display = "none";
+}
+
 // Function to put the numbers of markers into the legend.
 //   The numbers are calculated using the refresh.py script and stored in the places.json file.
 function stat_populate() {
@@ -124,25 +218,80 @@ function stat_populate() {
 }
 
 function onEachFeatureStat(data) {
-  for (let x in data.stat[data.stat.length -1]){
-    document.getElementById(x).innerHTML = data.stat[data.stat.length -1][x];
+  for (let category in data.stat[data.stat.length -1]){
+    let number_of_elements = data.stat[data.stat.length -1][category];
+    // document.getElementById(category).innerHTML = "(" + number_of_elements + ")";     // TODO: Testweise abgeschalten
   }
 }
 
 // Function to get the information from the places json file.
 function veggiemap_populate(parentGroup) {
-  const url = "data/places.json";
-
+  const url = "data/places.min.json";
   fetch(url)
   .then(response => response.json())
-  .then(data => {L.geoJSON([data], {onEachFeature: onEachFeature});})
+  .then(geojson => geojsonToMarkerGroups(geojson.features))
+  .then(markerGroups => {
+    Object.entries(subgroups).forEach(([key, subgroup]) => {
+      // Bulk add all the markers from a markerGroup to a subgroup in one go
+      // Source: https://github.com/ghybs/Leaflet.FeatureGroup.SubGroup/issues/5
+      subgroup.addLayer(L.layerGroup(markerGroups[key]));
+      map.addLayer(subgroup);
+    });
+
+    // Don't show vegetarian_friendly on startup
+    map.removeLayer(vegetarian_friendly);
+
+    // Reveal all the markers and clusters on the map in one go
+    map.addLayer(parentGroup);
+
+    // Call the function to put the numbers into the legend
+    stat_populate();
+
+    // Check if the data entries are complete
+    //checkData(parentGroup);
+
+    // Hide spinner
+    hideSpinner();
+  })
   .catch(error  => {console.log('Request failed', error);});
 }
 
-// Function to handle the places data.
-function onEachFeature(feature) {
+// Process the places GeoJSON into the groups of markers
+function geojsonToMarkerGroups(features) {
+    const groups = {};
+    features.forEach(feature => {
+        const eCat = feature.properties.category;
+        if (!groups[eCat]) groups[eCat] = [];
+        groups[eCat].push(getMarker(feature));
+    });
+    return groups;
+}
 
-    // Get the Information 
+// Function to get the marker.
+function getMarker(feature) {
+    let eLatLon = [feature.geometry.coordinates[1],feature.geometry.coordinates[0]];
+    let eSym = feature.properties.symbol;
+    let eNam = feature.properties.name;
+    let eIco = feature.properties.icon;
+    let eCat = feature.properties.category;
+
+    let marker = L.marker(eLatLon, { icon: getIcon(eIco, eCat) });
+    marker.feature = feature;
+    return marker;
+}
+
+// Calculate tooltip content for a given marker layer
+function calculateTooltip(layer) {
+    let feature = layer.feature;
+    let eSym = feature.properties.symbol;
+    let eNam = feature.properties.name;
+    return eSym + " " + eNam;
+}
+
+// Calculate popup content for a given marker layer
+function calculatePopup(layer) {
+    // Get the information
+    let feature = layer.feature;
     let eId  = feature.properties._id;
     let eLatLon = [feature.geometry.coordinates[1],feature.geometry.coordinates[0]];
     let eNam = feature.properties.name;
@@ -165,10 +314,10 @@ function onEachFeature(feature) {
 
     /*** Building the popup content ***/
     let popupContent = "<div class='mapPopupTitle'>" + eSym + " " + eNam; // Symbol and name
-    
-     // OSM link for popup and console outputs
-    let osmUrl = "https://openstreetmap.org/"+eTyp+"/"+eId
-    popupContent += "<a href='"+osmUrl+"' target='_blank' rel='noopener noreferrer'> *</a></div><hr/>";
+
+    // OSM link for popup
+    let osmUrl = "https://openstreetmap.org/"+eTyp+"/"+eId;
+    popupContent += "<a href='"+osmUrl+"' target='_blank' rel='noopener noreferrer'> *</a></div><hr/>"; // OSM link
 
     // Adding cuisine information to popup
     if(eCui!=undefined){popupContent += "<div class='popupflex-container'><div>👩‍🍳</div><div>" + eCui.replaceAll(";", ", ").replaceAll("_", " ") +"</div></div>"}
@@ -176,16 +325,13 @@ function onEachFeature(feature) {
     // Address
     let eAddr = ""
     // Collecting address information
-    if(eStr!=undefined){eAddr += eStr +"<br/>"} // Street
-    if(ePos!=undefined){eAddr += ePos +" "}     // Postcode
-    if(eCit!=undefined){eAddr += eCit +" "}     // City
-    // if(eCou!=undefined){eAddr += eCou}       // Country
+    if(eStr!=undefined){eAddr += eStr +"<br/>"}  // Street
+    if(ePos!=undefined){eAddr += ePos +" "}      // Postcode
+    if(eCit!=undefined){eAddr += eCit +" "}      // City
+    //if(eCou!=undefined){eAddr += "<br/>" + eCou} // Country
 
     // Adding address information to popup
-    if(eAddr!=""){popupContent += "<div class='popupflex-container'><div>📍</div><div>" + eAddr +"</div></div>"
-    } else {
-      console.log("-W- " + eNam + " without address information. - " + osmUrl)
-    }
+    if(eAddr!=""){popupContent += "<div class='popupflex-container'><div>📍</div><div>" + eAddr +"</div></div>"}
 
     // Adding opening hours to popup
     if(eOpe!=undefined){
@@ -207,49 +353,73 @@ function onEachFeature(feature) {
       if(oh.getState()){
         open_state = i18next.t('words.open');
         open_state_emoji = 'open';
-        if(!oh.isOpenInMinutes()){
+        if(!oh.getFutureState()){
           open_state += i18next.t('texts.will close soon');
           open_state_emoji = 'closes_soon';
         }
       } else {
         open_state = i18next.t('words.closed');
         open_state_emoji = 'closed';
-        if(oh.isOpenInMinutes()){
+        if(oh.getFutureState()){
           open_state += i18next.t('texts.will open soon');
           open_state_emoji = 'opens_soon';
         }
       }
       // Append opening hours to the popup
       popupContent += "<div class='popupflex-container'><div>🕖</div><div><span class='open_state_circle " + open_state_emoji + "'></span>" + open_state + "<br />" + prettified_value + "</div></div>";
-    } else {
-      // Output console warning if there is no opening_hours
-      console.log("-W- " + eNam + " (" + eStr + ") without opening hours. - " + osmUrl)
     }
-    
+
     // Adding addidtional information to popup
     if(ePho!=undefined){popupContent += "<div class='popupflex-container'><div>☎️</div><div><a href='tel:" + ePho + "' target='_blank' rel='noopener noreferrer'>" + ePho + "</a></div></div>"}
     if(eEma!=undefined){popupContent += "<div class='popupflex-container'><div>📧</div><div><a href='mailto:" + eEma + "' target='_blank' rel='noopener noreferrer'>" + eEma + "</a></div></div>"}
     if(eWeb!=undefined){popupContent += "<div class='popupflex-container'><div>🌐</div><div><a href='" + eWeb + "' target='_blank' rel='noopener noreferrer'>" + eWeb.replace("https://", "") + "</a></div></div>"}
     if(eFac!=undefined){popupContent += "<div class='popupflex-container'><div>🇫</div><div><a href='" + eFac + "' target='_blank' rel='noopener noreferrer'>" + decodeURI(eFac).replace("https://", "") + "</a></div></div>"}
     if(eIns!=undefined){popupContent += "<div class='popupflex-container'><div>📸</div><div><a href='" + eIns + "' target='_blank' rel='noopener noreferrer'>" + eIns.replace("https://", "") + "</a></div></div>"}
-    if(eInf){popupContent += "<hr/><div class='popupflex-container'><div>ℹ️</div><div><a href=\"https://www.vegan-in-halle.de/wp/leben/vegane-stadtkarte/#"+eTyp+eId+"\" target=\"_top\">" + i18next.t('texts.more_info') + "</a></div>"}
+    if(eInf!=undefined){popupContent += "<hr/><div class='popupflex-container'><div>ℹ️</div><div><a href=\"https://www.vegan-in-halle.de/wp/leben/vegane-stadtkarte/#"+eTyp+eId+"\" target=\"_top\">" + i18next.t('texts.more_info') + "</a></div>"}
 
-    // Adding the marker to the map
-    L.marker(eLatLon,{title:eSym + " " + eNam,icon:getIcon(eIco, eCat)}).bindPopup(popupContent).addTo(eval(eCat));
+    return popupContent;
 }
 
 
-// Adding function for opening_hours objects to check if place will be open after n minutes
-if (!opening_hours.prototype.isOpenInMinutes) {
-  opening_hours.prototype.isOpenInMinutes = function(minutes = 60) {
+// Adding function for opening_hours objects to check if place will be open after n minutes (60 minutes as default)
+if (!opening_hours.prototype.getFutureState) {
+  opening_hours.prototype.getFutureState = function(minutes = 60) {
     let nowPlusHours = new Date();
     nowPlusHours.setUTCMinutes(nowPlusHours.getUTCMinutes()+minutes);
     return this.getState(nowPlusHours);
   };
 }
 
-// Put the markers to the map
-veggiemap();
 
-// Put the numbers into the legend
-stat_populate();
+// Check if the data entries are complete
+function checkData(parentGroup) {
+    parentGroup.eachLayer(function(layer){
+      // Collect properties
+      let eNam = layer.feature.properties.name;
+      let eId  = layer.feature.properties._id;
+      let eTyp = layer.feature.properties._type;
+      let osmUrl = "https://openstreetmap.org/"+eTyp+"/"+eId;
+      let eOpe = layer.feature.properties.opening_hours;
+      let eCit = layer.feature.properties.addr_city;
+      let ePos = layer.feature.properties.addr_postcode;
+      let eStr = layer.feature.properties.addr_street;
+
+      // Check address data
+      if (eCit == undefined || ePos == undefined || eStr == undefined) {
+        console.log("-W- " + eNam + ": Address information incomplete. - " + osmUrl);
+      }
+
+      // Check opening hours
+      if (eOpe == undefined) {
+        console.log("-W- " + eNam + ": Without opening hours. - " + osmUrl);
+      }
+
+
+      //TODO: Check if cuisine if filled
+
+    });
+};
+
+
+// Main function
+veggiemap();

@@ -175,6 +175,94 @@
    "n_vegan_only": 12,
    "n_vegetarian_friendly": 81,
    "n_vegetarian_only": 6
+  },
+  {
+   "date": "2020-12-01",
+   "n_vegan_friendly": 131,
+   "n_vegan_limited": 20,
+   "n_vegan_only": 12,
+   "n_vegetarian_friendly": 81,
+   "n_vegetarian_only": 6
+  },
+  {
+   "date": "2020-12-03",
+   "n_vegan_friendly": 131,
+   "n_vegan_limited": 20,
+   "n_vegan_only": 12,
+   "n_vegetarian_friendly": 81,
+   "n_vegetarian_only": 6
+  },
+  {
+   "date": "2020-12-09",
+   "n_vegan_friendly": 131,
+   "n_vegan_limited": 20,
+   "n_vegan_only": 12,
+   "n_vegetarian_friendly": 83,
+   "n_vegetarian_only": 6
+  },
+  {
+   "date": "2020-12-12",
+   "n_vegan_friendly": 131,
+   "n_vegan_limited": 20,
+   "n_vegan_only": 12,
+   "n_vegetarian_friendly": 83,
+   "n_vegetarian_only": 6
+  },
+  {
+   "date": "2020-12-13",
+   "n_vegan_friendly": 10810,
+   "n_vegan_limited": 169,
+   "n_vegan_only": 2310,
+   "n_vegetarian_friendly": 15555,
+   "n_vegetarian_only": 1551
+  },
+  {
+   "date": "2020-12-14",
+   "n_vegan_friendly": 10822,
+   "n_vegan_limited": 169,
+   "n_vegan_only": 2312,
+   "n_vegetarian_friendly": 16413,
+   "n_vegetarian_only": 1551
+  },
+  {
+   "date": "2020-12-15",
+   "n_vegan_friendly": 10825,
+   "n_vegan_limited": 169,
+   "n_vegan_only": 2309,
+   "n_vegetarian_friendly": 16777,
+   "n_vegetarian_only": 1553
+  },
+  {
+   "date": "2020-12-16",
+   "n_vegan_friendly": 10839,
+   "n_vegan_limited": 169,
+   "n_vegan_only": 2311,
+   "n_vegetarian_friendly": 16854,
+   "n_vegetarian_only": 1554
+  },
+  {
+   "date": "2020-12-17",
+   "n_vegan_friendly": 10866,
+   "n_vegan_limited": 169,
+   "n_vegan_only": 2313,
+   "n_vegetarian_friendly": 16906,
+   "n_vegetarian_only": 1555
+  },
+  {
+   "date": "2020-12-18",
+   "n_vegan_friendly": 10883,
+   "n_vegan_limited": 169,
+   "n_vegan_only": 2313,
+   "n_vegetarian_friendly": 16977,
+   "n_vegetarian_only": 1558
+  },
+  {
+   "date": "2020-12-19",
+   "n_vegan_friendly": 10883,
+   "n_vegan_limited": 169,
+   "n_vegan_only": 2313,
+   "n_vegetarian_friendly": 16977,
+   "n_vegetarian_only": 1558
   }
  ]
 }

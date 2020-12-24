@@ -1,0 +1,61 @@
+
+
+.leaflet-control-layers .leaflet-languageselector-control .leaflet-control {
+  background-color: black;
+  
+}
+
+
+.leaflet-languageselector-control:hover > .leaflet-languageselector-languagesdiv {
+  display: block;
+background-image: none;
+}
+
+
+
+
+.leaflet-languageselector-control {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M11 13c-1-1-3-3-3-6h5V5H8V2H6v3H0v2h6v1c-1 3-2 5-6 7l1 2c3-1 5-4 6-7l4 6zm7-6h-2l-6 15h3l1-5h6l2 5h2zm-3 8l2-6 2 6z'/%3E%3C/svg%3E");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 24px !important;
+  display: block;
+
+  height: 30px;
+  width: 30px;
+
+}
+
+.leaflet-languageselector-control:hover {
+  background-image: none;
+}
+
+.leaflet-languageselector-languagesdiv {
+ display: none;
+}
+
+
+
+.leaflet-languageselector-title {
+  font-size: larger;
+  font-weight: bold;
+  display: block;
+  position: relative;
+}
+
+.leaflet-languageselector-float-left {
+  float: left;
+}
+
+.leaflet-languageselector-mleft {
+  margin-left: 7px;
+}
+
+.leaflet-languageselector-langdiv {
+  cursor: pointer; 
+}
+
+.leaflet-languageselector-clearfloat {
+  clear: both;
+}
+
