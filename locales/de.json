@@ -2,18 +2,6 @@
   "de": {
     "translation": {
       "__comment__": "German localization",
-      "lang": {
-        "de": "Deutsch",
-        "en": "Englisch",
-        "fr": "Französisch",
-        "hu": "Ungarisch",
-        "it": "Italienisch",
-        "nl": "Niederländisch",
-        "pt": "Portugiesisch",
-        "ru": "Russisch",
-        "uk": "Ukrainisch",
-        "choose": "Wähle eine Sprache"
-      },
       "texts": {
         "will open soon": ", aber wird bald öffnen",
         "will close soon": ", aber wird bald schließen",
@@ -32,7 +20,7 @@
         "i18n_vegetarian_only_title": "Ort mit nur vegetarischen und veganen Angeboten.",
         "i18n_vegan_friendly": "vegan-freundlich",
         "i18n_vegan_friendly_title": "Ort der auch vegane Angebote hat.",
-        "i18n_vegan_limited": "eingeschgränkt vegan",
+        "i18n_vegan_limited": "eingeschränkt vegan",
         "i18n_vegan_limited_title": "Ort mit eingeschränktem veganen Angebot (in der Regel heißt das, dass du danach fragen musst und es nicht eindeutig aus der Karte hervorgeht).",
         "i18n_vegetarian_friendly": "vegetarisch-freundlich",
         "i18n_vegetarian_friendly_title": "Ort mit vegetarischem, aber keinem veganen Angebot."

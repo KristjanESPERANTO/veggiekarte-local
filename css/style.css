@@ -42,7 +42,7 @@ body {
   line-height: 150%;
   padding: 10px;
   border-radius: 10px;
-  //display: none;
+  /* display: none; */
 }
 /* Info box: Scrollable for small devices. */
 @media screen and (max-height: 812px) {

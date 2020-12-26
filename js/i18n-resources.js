@@ -1,220 +1,54 @@
-var resources = { 
-  // Dutch (nl) localization
-  nl: {
-    translation: {
-      "lang": {
-        "en": "Engels",
-        "fr": "Frans",
-        "de": "Duits",
-        "ru": "Russisch",
-        "pt": "Portugees",
-        "it": "Italiaans",
-        "uk": "Oekraïens",
-        "nl": "Nederlands",
-        "choose": "Kies taal",
-      },
-      "texts": {
-      },
-      "words": {
-        "open": "open",
-        "unknown": "onbekend",
-        "closed": "gesloten",
-      },
-    },
-  },
-  // French (fr) localization
-  fr: {
-    translation: {
-      "lang": {
-        "en": "Anglais",
-        "fr": "Français",
-        "de": "Allemand",
-        "ru": "Russe",
-        "pt": "Portugais",
-        "it": "Italien",
-        "uk": "Ukrainien",
-        "choose": "Choisissez la langue",
-      },
-      "texts": {
-      },
-      "words": {
-        "open": "ouvert",
-        "unknown": "indéterminé",
-        "closed": "fermé",
-      },
-    },
-  },
-  // Russian (ru) localization
-  ru: {
-    translation: {
-      "lang": {
-        "en": "английский",
-        "fr": "французский",
-        "de": "немецкий",
-        "ru": "русский",
-        "pt": "португальский",
-        "it": "итальянский",
-        "uk": "украинский",
-        "choose": "Выберите язык",
-      },
-      "texts": {
-      },
-      "words": {
-        "open": "c",
-        "unknown": "неизвестный",
-        "closed": "закрыто",
-      },
-    },
-  },
-  // Portuguese (pt) localization
-  pt: {
-    translation: {
-      "lang": {
-        "en": "Inglês",
-        "fr": "Francês",
-        "de": "Alemão",
-        "ru": "Russo",
-        "it": "Italiano",
-        "pt": "Português",
-        "uk": "Ucraniano",
-        "choose": "Escolha a sua linguagem",
-      },
-      "texts": {
-      },
-      "words": {
-        "open": "Aberto de",
-        "unknown": "Desconhecido",
-        "closed": "Fechado",
-      },
-    },
-  },
-  // Italian (it) localization
-  it: {
-    translation: {
-      "lang": {
-        "en": "Inglese",
-        "fr": "Francese",
-        "de": "Tedesco",
-        "ru": "Russo",
-        "it": "Italiano",
-        "pt": "Portoghese",
-        "uk": "Ucraino",
-        "choose": "Scegli lingua",
-      },
-      "texts": {
-      },
-      "words": {
-        "open": "aperto",
-        "unknown": "sconosciuto",
-        "closed": "chiuso",
-      },
-    },
-  },
-  // Ukrainian (uk) localization
-  uk: {
-    translation: {
-      "lang": {
-        "en": "англійська",
-        "fr": "французька",
-        "de": "німецька",
-        "ru": "російська",
-        "pt": "португальська",
-        "it": "италійська",
-        "uk": "українська",
-        "choose": "Виберіть мову",
-      },
-      "texts": {
-      },
-      "words": {
-        "open": "з",
-        "unknown": "невідомий",
-        "closed": "зачинено",
-      },
-    },
-  },
-  // Hungarian (hu) localization
-  hu: {
-    translation: {
-      "lang": {
-        "en": "Angol",
-        "fr": "Francia",
-        "de": "Német",
-        "ru": "Orosz",
-        "pt": "Portugál",
-        "it": "Olasz",
-        "uk": "Ukrán",
-        "nl": "Holland",
-        "hu": "Magyar",
-        "choose": "Nyelv kiválasztása",
-      },
-      "texts": {
-      },
-      "words": {
-        "open": "nyitva",
-        "unknown": "ismeretlen",
-        "closed": "zárva",
-      },
-    },
-  },
+// The "use strict" directive helps to write cleaner code.
+"use strict";
+
+//TODO: - Rename this file
+//      - translate cuisine
+
+
+// Languages (there has to be a json file for each language)
+const languages = {
+	de: 'Deutsch',
+	en: 'English',
+	eo: 'Esperanto',
+	fi: 'Suomi',
+	fr: 'Français'
 };
 
+function getUserLanguage () {
+  // 1. If set, take language from URL paramter
+  // 2. Else take browser language
+  // 3. If the taken language isn't one of the translated, return English 
 
-function getLanguage () {
-  // 1. If set return language from URL paramter
-  // 2. Else return browser language if we have a translation
-  // 3. Else return English as fallback         ???????????????????????????????????????????????????????????????????????????
+  let language;
   
-  
-  //https://www.w3docs.com/snippets/javascript/how-to-get-url-parameters.html
-  //https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams/get
-  
-  
-  let urlParams = new URLSearchParams(document.location.search.substring(1));
-  let urlLang = urlParams.get('lang');
+  // Get language from URL
+  let urlParameters = new URLSearchParams(document.location.search.substring(1));
+  let urlLanguage = urlParameters.get('lang');
 
-  
-
-
-
-  
-  if (urlLang) {
-    console.log("urlLang: " + urlLang);
-    return urlLang;
+  if (urlLanguage != undefined) {
+    console.log("Language from URL: " + urlLanguage);
+    language = urlLanguage;
   } else {
-    let browserLang = navigator.language.split("-")[0];
-    console.log("browserLang: " + urlLang);
-    return browserLang;
+	// Get language from browser
+    let browserLanguage = navigator.language.split("-")[0];
+    console.log("Browser language: " + browserLanguage);
+    language = browserLanguage;
   }
-  
+
+  // Check if we support the taken language
+  if (!Object.keys(languages).includes(language)) {
+    console.log("This Website is not translated to language with language code '" + language + "'. Help to translate it!");
+    language = "en";
+  }
+
+  return language;
 }
 
 
-
-let userLanguage = getLanguage();
-let fallbackLanguage = "en";
-let languageRecources = {};
-
-const languages = [
-  //"de", // German
-  "en", // English
-  "fr", // French
-  "hu", // Hungarian
-  "it", // Italian
-  "nl", // Dutch
-  "pt", // Portuguese
-  "ru", // Russian
-  "uk"  // Ukrainian
-]
-
-if (!languages.includes(userLanguage)) {
-  console.log("This Website is not translated to language with language code '" + userLanguage + "'. Help to translate it!");
-  userLanguage = "en";
-}
-
-function getLanguageRecources(language, init) {
-  fetch('./locales/' + language + '.json')
+function getLanguageRecources(userLanguage, init) {
+  let languageFile = './locales/' + userLanguage + '.json';
+  fetch(languageFile)
   .then(response => {
-  console.log(response.status);
   if (response.ok) {
     return response.json();
   } else {
@@ -224,22 +58,40 @@ function getLanguageRecources(language, init) {
   
   })
   .then(data => {
-console.log(languageRecources);
 
-  // Merge new data per spread operator
-  languageRecources = {...languageRecources, ...data};
-  console.log(languageRecources);
-  
-  if (init) {
-    initTranslate();
-  }
+    // Merge new data per spread operator
+    languageRecources = {...languageRecources, ...data};
+
+    if (init) {
+      initTranslate();
+    } else {
+      // Get fallback language recources
+      getLanguageRecources(fallbackLanguage, true);
+    }  
   
   })
   .catch(function (err) {
-  console.log(err);
+    console.log(err);
   });
 
 }
+
+
+
+function initTranslate() {
+  if (!initialized) {
+    i18next.init({
+      lng: userLanguage,
+	  fallbackLng: fallbackLanguage,
+      debug: false,
+      resources: languageRecources
+    });
+	initialized = true;
+  }
+  
+  updateContent();
+}
+
 
 
 
@@ -295,9 +147,6 @@ function updateContent() {
                    i18next.t('texts.i18n_vegetarian_friendly') +
                    '</div><div class="thirdCell" id="n_vegetarian_friendly"></div></div><br><br><div id="date"></div></span></div></label>';
   
-  console.log(i18next.t('texts.i18n_vegan_limited_title'));
-  
-  
     //document.getElementsByClassName('leaflet-control-layers-selector')[0].nextElementSibling.innerText = i18next.t('leaflet.L-control-zoom.zoom_in');
   document.getElementsByClassName('legendRow')[0].innerText = i18next.t('leaflet.L-control-zoom.zoom_in');  
   document.getElementsByClassName('leaflet-control-layers-overlays')[0].children[0].title = i18next.t('leaflet.L-control-zoom.zoom_in');
@@ -319,31 +168,16 @@ function updateContent() {
   
 }
 
-
-
-function initTranslate() {
-  i18next.init({
-    lng: userLanguage,
-    fallbackLng: fallbackLanguage,
-    debug: false,
-    resources: languageRecources
-  });
-  updateContent();
-}
+let languageRecources = {};
+let initialized = false;
+let fallbackLanguage = "en";
+let userLanguage = getUserLanguage();
 
 
 
-// Get browser language recources
+
+
+// Get language recources
 getLanguageRecources(userLanguage, false);
-
-// Get fallback language recources
-getLanguageRecources(fallbackLanguage, true);
-
-
-
-
-
-
-
 
 

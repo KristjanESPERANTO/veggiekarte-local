@@ -21,8 +21,9 @@ let vegetarian_friendly = L.featureGroup.subGroup(parentGroup, {});
 let subgroups = { vegan_only, vegetarian_only, vegan_friendly, vegan_limited, vegetarian_friendly };
 
 let map;
-var locate_control;
-var layerContol
+let locate_control;
+let layerContol;
+let languageControl;
 
 
 function veggiemap() {
@@ -91,33 +92,30 @@ function veggiemap() {
   }).addTo(map);
 
   // Add layer control button
-  layerContol = L.control.layers(null, overlays).addTo(map);
+  layerContol = L.control.layers(null, overlays);
+  layerContol.addTo(map);
   console.log(layerContol);
+
+  // Add language control button
+  languageControl = L.languageSelector({
+      languages: new Array(
+      // TODO: replace Array with foreach ...
+
+          L.langObject('de', 'Deutsch'),
+          L.langObject('en', 'English'),
+		  L.langObject('eo', 'Esperanto'),
+          L.langObject('fi', 'Suomi'),
+          L.langObject('fr', 'Français')
+      ),
+      callback: changeLanguage,
+      //title: 'Language',  // TODO: Add real title and translate it
+      vertical: true,
+	  collapsed:true
+  });
+  languageControl.addTo(map);
 
   // Add scale control
   L.control.scale().addTo(map);
-  
-  
-  
-  // Add languageselector
-  map.addControl(L.languageSelector({
-      languages: new Array(
-      // TODO: replace Array with foreach ...
-          L.langObject('en', 'English'),
-          L.langObject('de', 'Deutsch'),
-          L.langObject('fr', 'Français'),
-          L.langObject('ru', 'Русский')
-      ),
-      callback: changeLanguage,
-    //title: 'Language',  // TODO: Add real title and translate it
-    vertical: true
-    
-    
-    
-  }));
-  
-  
-  
 }
 
 
@@ -340,9 +338,17 @@ function calculatePopup(layer) {
       // State: Sachsen-Anhalt
       let state = 'st';
       // Get browser language for the warnings and the prettifier
-      let locale = navigator.language.split('-')[0];
+	  
+	  
+	  
+	  
+      //let locale = navigator.language.split('-')[0];
+	  //let locale = getUserLanguage();
+	  
+	  let locale = userLanguage; // userLanguage is defined in i18n.js
+	  
       //Create opening_hours object
-      let oh = new opening_hours(eOpe, {
+	  let oh = new opening_hours(eOpe, {
           'lat':eLatLon[0],'lon':[0], 'address': {'country_code':country_code, 'state':state}},
           {'locale':locale});
       let prettified_value = oh.prettifyValue({conf: {'locale':locale, 'rule_sep_string': '<br />', 'print_semicolon': false, 'sep_one_day_between': ', '}});
