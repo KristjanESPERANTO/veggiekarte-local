@@ -1,7 +1,7 @@
 "use strict";
 /**
  * Adds a language selector to Leaflet based maps.
- * License: CC0 (Creative Commons Zero), see http://creativecommons.org/publicdomain/zero/1.0/
+ * License: CC0 (Creative Commons Zero), see https://creativecommons.org/publicdomain/zero/1.0/
  * Project page: https://github.com/buche/leaflet-languageselector
  **/
 L.LanguageSelector = L.Control.extend({
@@ -33,34 +33,22 @@ L.LanguageSelector = L.Control.extend({
     this._map = map;
     if (this.options.button) {
 
-      console.log(this._container);
-
+      // 
       L.DomUtil.addClass(this._container, this.options.buttonClassName);
-	  L.DomEvent.on(this._container, 'mouseup', this._fireClick, this);
-      /* L.DomEvent.on(this._container, 'mouseover', this._fireMouseOver, this);
-      L.DomEvent.on(this._container, 'mouseout', this._fireMouseOut, this);  */
-	  
-	  
+	  L.DomEvent.on(this._container, 'mouseup', this._openSelector, this);
 	  
 	  L.DomEvent.addListener(this._map, 'click', function (e) {
-            let buttonDiv = document.getElementsByClassName('leaflet-languageselector-control')[0];
-
-			console.log(buttonDiv);
-			console.log("x");
-						L.DomUtil.addClass(buttonDiv, 'leaflet-control-languageselector-button');   /*            TODO this._container ->er Container   */
-            });
-	  
-	  
-	  
+ 
+	    let buttonDiv = document.getElementsByClassName('leaflet-languageselector-control')[0];
+	    L.DomUtil.addClass(buttonDiv, 'leaflet-control-languageselector-button');
+	  });
     }
     return this._container;
   },
 
   onRemove: function(map) {
     if (this.options.button) {
-     L.DomEvent.off(this._container, 'mouseup', this._fireClick, this);
-      /*  L.DomEvent.off(this._container, 'mouseover', this._fireMouseOver, this);
-      L.DomEvent.off(this._container, 'mouseout', this._fireMouseOut, this); */
+     L.DomEvent.off(this._container, 'mouseup', this._openSelector, this);
     }
     this._container.style.display = 'none';
     this._map = null;
@@ -136,47 +124,12 @@ L.LanguageSelector = L.Control.extend({
     return L.DomUtil.hasClass(this._container, this.options.buttonClassName);
   },
 
-  _toggleButton: function() {
-  
-    //this._container.classList.toggle(this.options.buttonClassName);
-    
+  _openSelector: function(e) {
+
     if (this._isButton()) {
       L.DomUtil.removeClass(this._container, this.options.buttonClassName);
-    } else {
-      L.DomUtil.addClass(this._container, this.options.buttonClassName);
     }
-  },
-
-  _fireClick: function(e) {
-    //this.fire('mouseover');
-
-    if (this._isButton()) {
-	  console.log('mouseover');
-     /* this.fire('mouseover'); */
-      setTimeout(this._toggleButton(), 500);
-      //this._toggleButton();
-    }
-  },
-
-  _fireMouseOver: function(e) {
-    //this.fire('mouseover');
-
-    if (this._isButton()) {
-	  console.log('mouseover');
-     /* this.fire('mouseover'); */
-      setTimeout(this._toggleButton(), 500);
-      //this._toggleButton();
-    }
-  },
-
-  _fireMouseOut: function(e) {
-    if (!this._isButton()) {
-		console.log('mouseout');
-      /* this.fire('mouseout'); */
-      setTimeout(this._toggleButton(), 500);
-      //this._toggleButton();
-    }
-  },
+  }
 
 });
 
