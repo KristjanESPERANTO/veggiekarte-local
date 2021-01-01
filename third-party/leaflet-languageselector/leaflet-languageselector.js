@@ -32,17 +32,35 @@ L.LanguageSelector = L.Control.extend({
   onAdd: function(map) {
     this._map = map;
     if (this.options.button) {
+
+      console.log(this._container);
+
       L.DomUtil.addClass(this._container, this.options.buttonClassName);
-      L.DomEvent.on(this._container, 'mouseover', this._fireMouseOver, this);
-      L.DomEvent.on(this._container, 'mouseout', this._fireMouseOut, this);
+	  L.DomEvent.on(this._container, 'mouseup', this._fireClick, this);
+      /* L.DomEvent.on(this._container, 'mouseover', this._fireMouseOver, this);
+      L.DomEvent.on(this._container, 'mouseout', this._fireMouseOut, this);  */
+	  
+	  
+	  
+	  L.DomEvent.addListener(this._map, 'click', function (e) {
+            let buttonDiv = document.getElementsByClassName('leaflet-languageselector-control')[0];
+
+			console.log(buttonDiv);
+			console.log("x");
+						L.DomUtil.addClass(buttonDiv, 'leaflet-control-languageselector-button');   /*            TODO this._container ->er Container   */
+            });
+	  
+	  
+	  
     }
     return this._container;
   },
 
   onRemove: function(map) {
     if (this.options.button) {
-      L.DomEvent.off(this._container, 'mouseover', this._fireMouseOver, this);
-      L.DomEvent.off(this._container, 'mouseout', this._fireMouseOut, this);
+     L.DomEvent.off(this._container, 'mouseup', this._fireClick, this);
+      /*  L.DomEvent.off(this._container, 'mouseover', this._fireMouseOver, this);
+      L.DomEvent.off(this._container, 'mouseout', this._fireMouseOut, this); */
     }
     this._container.style.display = 'none';
     this._map = null;
@@ -69,9 +87,17 @@ L.LanguageSelector = L.Control.extend({
       langDiv.id = 'languageselector_' + lang.id;
       langDiv._langselinstance = this;
       if (langDiv.addEventListener) {
-        langDiv.addEventListener('click', this._languageChanged, false);
+        console.log("mouseup");
+        langDiv.addEventListener('mouseup', this._languageChanged, false);
       } else {
-        langDiv.attachEvent('onclick', this._languageChanged);
+
+
+
+
+
+
+        console.log("onmouseup");
+        langDiv.attachEvent('onmouseup', this._languageChanged);
       }
       if (this.options.hideSelected && this.options.initialLanguage && this.options.initialLanguage == lang.id) {
         langDiv.style.display = 'none';
@@ -112,19 +138,32 @@ L.LanguageSelector = L.Control.extend({
 
   _toggleButton: function() {
   
-    this._container.classList.toggle(this.options.buttonClassName);
-    //if (this._isButton()) {
-      //L.DomUtil.removeClass(this._container, this.options.buttonClassName);
-    //} else {
-      //L.DomUtil.addClass(this._container, this.options.buttonClassName);
-    //}
+    //this._container.classList.toggle(this.options.buttonClassName);
+    
+    if (this._isButton()) {
+      L.DomUtil.removeClass(this._container, this.options.buttonClassName);
+    } else {
+      L.DomUtil.addClass(this._container, this.options.buttonClassName);
+    }
+  },
+
+  _fireClick: function(e) {
+    //this.fire('mouseover');
+
+    if (this._isButton()) {
+	  console.log('mouseover');
+     /* this.fire('mouseover'); */
+      setTimeout(this._toggleButton(), 500);
+      //this._toggleButton();
+    }
   },
 
   _fireMouseOver: function(e) {
     //this.fire('mouseover');
 
     if (this._isButton()) {
-      this.fire('mouseover');
+	  console.log('mouseover');
+     /* this.fire('mouseover'); */
       setTimeout(this._toggleButton(), 500);
       //this._toggleButton();
     }
@@ -132,7 +171,8 @@ L.LanguageSelector = L.Control.extend({
 
   _fireMouseOut: function(e) {
     if (!this._isButton()) {
-      this.fire('mouseout');
+		console.log('mouseout');
+      /* this.fire('mouseout'); */
       setTimeout(this._toggleButton(), 500);
       //this._toggleButton();
     }
