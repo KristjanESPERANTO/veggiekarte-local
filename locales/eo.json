@@ -11,7 +11,7 @@
         "content-osm-heading": "Pri OpenStreetMap",
         "content-osm-text": "<a href='https://www.openstreetmap.org' target='_blank' rel='noopener noreferrer'>OpenStreetMap</a> estas senpaga mondmapo kaj funkcias simile al Vikipedio. Ĉiu povas partopreni kaj enigi informojn. Tio signifas, ke la mapo estas ĉiam aktuala kaj plena de utilaj informoj. Ĉiu, kiu havas sugestojn pri plibonigo aŭ trovas erarojn en la mapo, povas simple enigi ilin aŭ plibonigi ilin.",
         "content-contribute-heading": "Kontribui informojn",
-        "content-contribute-text": "Se vi scias pri restoracioj, kafejoj, glaciaĵejoj aŭ manĝejetoj, kiuj ankoraŭ ne estas en la mapo, aŭ mem posedas unu, tiam vi povas simple aldoni ĝin mem. Por fari tion, vi devas aldoni la etikedon 'dieto: vegano' aŭ 'dieto: vegetara' ĉe via loko en OpenStreetMap. Instrukcioj haveblas <a href='https://www.lebsanft.org/posts/informationen-zur-veggiekarte-hinzufuegen/' target='_blank' rel='noopener noreferrer'>ĉi tie</a>.",
+        "content-contribute-text": "Se vi scias pri restoracioj, kafejoj, glaciaĵejoj aŭ manĝejetoj, kiuj ankoraŭ ne estas en la mapo, aŭ mem posedas unu, tiam vi povas simple aldoni ĝin mem. Por fari tion, vi devas aldoni la etikedon 'dieto: vegano' aŭ 'dieto: vegetara' ĉe via loko en OpenStreetMap. Instrukcioj haveblas <a href='how-to/tutorial_de.html' target='_blank' rel='noopener noreferrer'>ĉi tie</a>.",
         "content-further-heading": "Plue",
         "content-further-text": "Veggiekarte estas ĝisdatigita aŭtomate ĉiun horon. Vi povas trovi la kodon ĉe <a href='https://github.com/piratenpanda/veggiekarte' target='_blank' rel='noopener noreferrer'>GitHub</a>.",
         "i18n_vegan_only": "tute vegana",

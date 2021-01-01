@@ -12437,6 +12437,18 @@
                 }
             }
         },
+        eo: {
+            opening_hours: {
+                texts: {
+                    "please use English abbreviation ok for ko": "Bonvolu uzi la anglan mallongigon '__ok__' für '__ko__'."
+                    },
+                pretty: {
+                    off: "fermita",
+                    SH: "lernejaj ferioj",
+                    PH: "festotagoj"
+                }
+            }
+        },
         de: {
             opening_hours: {
                 texts: {
@@ -12552,6 +12564,15 @@
                     off: "geschlossen",
                     SH: "Schulferien",
                     PH: "Feiertags"
+                }
+            }
+        },
+        fi: {
+            opening_hours: {
+                pretty: {
+                    off: "suljettu",
+                    SH: "koululomat",
+                    PH: "lailliset vapaapäivät"
                 }
             }
         },
@@ -14996,14 +15017,6 @@
             var it = this.getIterator(date);
             return it.getState()
         };
-
-        this.getFutureState = function(minutes = 60) {
-            var date = new Date();
-            date.setUTCMinutes(date.getUTCMinutes()+minutes);
-            var it = this.getIterator(date);
-            return it.getState();
-        };
-
         this.getUnknown = function(date) {
             var it = this.getIterator(date);
             return it.getUnknown()

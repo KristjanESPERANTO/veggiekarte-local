@@ -263,6 +263,22 @@
    "n_vegan_only": 2313,
    "n_vegetarian_friendly": 16977,
    "n_vegetarian_only": 1558
+  },
+  {
+   "date": "2020-12-31",
+   "n_vegan_friendly": 132,
+   "n_vegan_limited": 20,
+   "n_vegan_only": 12,
+   "n_vegetarian_friendly": 84,
+   "n_vegetarian_only": 6
+  },
+  {
+   "date": "2021-01-01",
+   "n_vegan_friendly": 132,
+   "n_vegan_limited": 20,
+   "n_vegan_only": 12,
+   "n_vegetarian_friendly": 84,
+   "n_vegetarian_only": 6
   }
  ]
 }

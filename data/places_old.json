@@ -1,5 +1,5 @@
 {
- "_timestamp": "2020-12-19 01:55:00.759465",
+ "_timestamp": "2021-01-01 01:22:06.777625",
  "features": [
   {
    "geometry": {
@@ -18,6 +18,7 @@
     "category": "vegan_friendly",
     "contact_phone": "+49 3462 542280",
     "contact_website": "https://www.hotel-alte-apotheke.de",
+    "cuisine": "german",
     "icon": "restaurant",
     "more_info": true,
     "name": "Alte Apotheke",
@@ -425,6 +426,32 @@
   {
    "geometry": {
     "coordinates": [
+     12.4207371,
+     51.3211375
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 341153539,
+    "_type": "node",
+    "addr_city": "Leipzig",
+    "addr_postcode": "04299",
+    "addr_street": "Ferdinand-Jost-Stra\u00dfe 35",
+    "category": "vegan_friendly",
+    "contact_email": "info@la-tortita.de",
+    "contact_facebook": "https://www.facebook.com/latortita.leipzig",
+    "contact_instagram": "https://www.instagram.com/nosch.latortita",
+    "contact_website": "https://www.la-tortita.de",
+    "cuisine": "coffee_shop",
+    "icon": "cafe",
+    "name": "La Tortita Nosch",
+    "symbol": "\u2615"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      12.3656673,
      51.3686603
     ],
@@ -688,6 +715,7 @@
     "addr_street": "Freiimfelder Stra\u00dfe 21",
     "category": "vegan_friendly",
     "contact_phone": "+49 345 5600952",
+    "cuisine": "ice_cream",
     "icon": "ice_cream",
     "name": "Eisdiele Schmidt",
     "opening_hours": "Mo,Tu off; We-Su 10:00-19:00",
@@ -716,6 +744,29 @@
     "icon": "fast_food",
     "name": "Asia Wok",
     "opening_hours": "Mo-Fr 10:30-15:00,16:00-20:00; Sa 12:00-19:00",
+    "symbol": "\ud83c\udf54"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9131226,
+     51.5158245
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 458735523,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06120",
+    "addr_street": "Heideringpassage 4",
+    "category": "vegetarian_friendly",
+    "cuisine": "oriental",
+    "icon": "fast_food",
+    "name": "D\u00f6ner 66",
+    "opening_hours": "PH,Mo-Su 11:00-21:00",
     "symbol": "\ud83c\udf54"
    },
    "type": "Feature"
@@ -1052,6 +1103,7 @@
     "addr_postcode": "06217",
     "addr_street": "Geusaer Stra\u00dfe 81A",
     "category": "vegetarian_friendly",
+    "cuisine": "kebab",
     "icon": "fast_food",
     "name": "Side D\u00f6ner",
     "opening_hours": "Mo-Fr 10:00-21:00; Sa 10:30-21:00; Su,PH 11:00-21:00",
@@ -1071,6 +1123,7 @@
     "_id": 701606825,
     "_type": "node",
     "addr_city": "Leipzig",
+    "addr_postcode": "04299",
     "addr_street": "Rudolph-Herrmann-Stra\u00dfe 24",
     "category": "vegetarian_friendly",
     "cuisine": "asian",
@@ -1480,6 +1533,7 @@
     "contact_instagram": "https://www.instagram.com/enchilada_halle",
     "contact_phone": "+49 345 47896090",
     "contact_website": "https://halle.enchilada.de",
+    "cuisine": "mexican",
     "icon": "restaurant",
     "more_info": true,
     "name": "Enchilada",
@@ -2408,6 +2462,7 @@
     "_type": "node",
     "addr_city": "Leipzig",
     "addr_country": "DE",
+    "addr_postcode": "04109",
     "addr_street": "Kolonnadenstra\u00dfe 19",
     "category": "vegetarian_friendly",
     "contact_website": "https://www.libelle-leipzig.de",
@@ -2543,6 +2598,7 @@
     "contact_instagram": "https://www.instagram.com/the_one_halle",
     "contact_phone": "+49 157 75356067",
     "contact_website": "https://www.the-one-halle.de",
+    "cuisine": "burger",
     "icon": "bar",
     "more_info": true,
     "name": "the one",
@@ -2570,7 +2626,7 @@
     "name": "Le Crobag",
     "opening_hours": "Mo-Fr 05:30-20:00; Sa,Su,PH 06:00-20:00",
     "shop": "bakery",
-    "symbol": "\ud83e\udd6f"
+    "symbol": "\ud83e\udd68"
    },
    "type": "Feature"
   },
@@ -2774,6 +2830,7 @@
     "contact_instagram": "https://www.instagram.com/naschmadame",
     "contact_phone": "+49 345 2084446",
     "contact_website": "http://www.nasch-madame.de",
+    "cuisine": "cake",
     "icon": "cafe",
     "more_info": true,
     "name": "Nasch Madame - Konditorei",
@@ -2795,8 +2852,9 @@
     "_type": "node",
     "addr_city": "Leipzig",
     "addr_postcode": "04109",
-    "addr_street": "Reichsstra\u00dfe",
+    "addr_street": "Reichsstra\u00dfe 2",
     "category": "vegan_friendly",
+    "contact_website": "https://www.cafecentral-leipzig.de",
     "cuisine": "italian",
     "icon": "cafe",
     "name": "Caf\u00e9 Central",
@@ -2819,10 +2877,12 @@
     "addr_city": "Leipzig",
     "addr_country": "DE",
     "addr_postcode": "04109",
-    "addr_street": "Nikolaistra\u00dfe",
+    "addr_street": "Nikolaistra\u00dfe 31",
     "category": "vegetarian_friendly",
+    "contact_facebook": "https://www.facebook.com/Toskana-Leipzig-1384153831850146",
+    "contact_instagram": "https://www.instagram.com/trattoriatoskana",
     "contact_phone": "+49 341 96286970",
-    "contact_website": "http://www.toskana-leipzig.de",
+    "contact_website": "https://www.toskana-leipzig.de",
     "cuisine": "italian;pizza;burger;steak;ice_cream",
     "icon": "restaurant",
     "name": "Toskana",
@@ -3167,7 +3227,7 @@
     "name": "Sch\u00e4l",
     "opening_hours": "Mo 06:00-13:00; Tu-Fr 06:00-16:30; Sa 06:00-10:00; Su off",
     "shop": "bakery",
-    "symbol": "\ud83e\udd6f"
+    "symbol": "\ud83e\udd68"
    },
    "type": "Feature"
   },
@@ -3339,6 +3399,9 @@
    "properties": {
     "_id": 3343904427,
     "_type": "node",
+    "addr_city": "Leipzig",
+    "addr_postcode": "04177",
+    "addr_street": "Erich-K\u00f6hn-Stra\u00dfe 24",
     "category": "vegetarian_friendly",
     "contact_website": "http://www.herkules-leipzig.de",
     "cuisine": "greek",
@@ -3641,7 +3704,10 @@
     "addr_postcode": "06108",
     "addr_street": "Universit\u00e4tsring 6a",
     "category": "vegan_friendly",
-    "contact_website": "https://www.facebook.com/burgerheart.halle",
+    "contact_facebook": "https://www.facebook.com/burgerheart.halle",
+    "contact_instagram": "https://www.instagram.com/burgerheart_halle",
+    "contact_website": "https://halle.burgerheart.com",
+    "cuisine": "burger",
     "icon": "restaurant",
     "more_info": true,
     "name": "Burgerheart",
@@ -3765,9 +3831,11 @@
    "properties": {
     "_id": 3843069907,
     "_type": "node",
+    "addr_city": "Leipzig",
     "addr_postcode": "04109",
+    "addr_street": "Kolonnadenstra\u00dfe 7",
     "category": "vegetarian_friendly",
-    "contact_website": "https://www.facebook.com/cafe.tunichtgut",
+    "contact_facebook": "https://www.facebook.com/cafe.tunichtgut",
     "cuisine": "regional;cake;coffee_shop",
     "icon": "cafe",
     "name": "Caf\u00e9 Tunichtgut",
@@ -4140,7 +4208,7 @@
     "icon": "maki_restaurant-pizza",
     "more_info": true,
     "name": "Uno Pizza",
-    "opening_hours": "Su-Fr 11:00-23:00; Sa 11:00-24:00",
+    "opening_hours": "11:00-23:00; Fr 11:00-23:59; Sa 11:00-24:00",
     "symbol": "\ud83c\udf55"
    },
    "type": "Feature"
@@ -4162,6 +4230,7 @@
     "category": "vegan_friendly",
     "contact_facebook": "https://www.facebook.com/pandileoFood",
     "contact_phone": "+49 1522 1410403",
+    "cuisine": "burrito;bowl",
     "icon": "restaurant",
     "more_info": true,
     "name": "Pandileo",
@@ -4186,6 +4255,7 @@
     "addr_street": "Ludwig-Wucherer-Stra\u00dfe 27",
     "category": "vegan_limited",
     "contact_facebook": "https://www.facebook.com/Yasmine-Grillhaus-Oriental-Diner-107727340809090",
+    "cuisine": "oriental",
     "icon": "fast_food",
     "name": "Yasmine",
     "opening_hours": "Mo-Su 11:00-23:00",
@@ -4263,6 +4333,7 @@
     "addr_street": "Geiststra\u00dfe 28",
     "category": "vegan_friendly",
     "contact_phone": "+49 174 7863204",
+    "cuisine": "asian",
     "icon": "fast_food",
     "more_info": true,
     "name": "Thang-Long Imbiss",
@@ -4317,6 +4388,7 @@
     "contact_facebook": "https://www.facebook.com/Bagel29Halle",
     "contact_phone": "+49 345 51725821",
     "contact_website": "https://bagel29.hpage.com",
+    "cuisine": "bagel",
     "icon": "cafe",
     "more_info": true,
     "name": "Bagel 29",
@@ -4803,6 +4875,7 @@
     "category": "vegetarian_only",
     "contact_phone": "+49 345 13252434",
     "contact_website": "https://www.toertcheneck.de",
+    "cuisine": "cake",
     "icon": "cafe",
     "more_info": true,
     "name": "T\u00f6rtcheneck",
@@ -4826,7 +4899,7 @@
     "addr_postcode": "04315",
     "addr_street": "Schulze-Delitzsch-Stra\u00dfe 19",
     "category": "vegan_friendly",
-    "contact_facebook": "https://de-de.facebook.com/malaleipzig",
+    "contact_facebook": "https://www.facebook.com/malaleipzig",
     "contact_phone": "+49 341 65839766",
     "icon": "restaurant",
     "name": "Caf\u00e9 Mala",
@@ -4900,6 +4973,7 @@
     "addr_street": "Gro\u00dfe Ulrichstra\u00dfe 23",
     "category": "vegan_friendly",
     "contact_facebook": "https://www.facebook.com/rootshalle",
+    "contact_instagram": "https://www.instagram.com/roots_halle",
     "contact_phone": "+49 345 27976527",
     "contact_website": "https://www.roots-halle.de",
     "icon": "restaurant",
@@ -4975,6 +5049,7 @@
     "contact_email": "info@warias-restaurant.de",
     "contact_phone": "+49 34633 9090",
     "contact_website": "https://www.warias-restaurant.de",
+    "cuisine": "german",
     "icon": "restaurant",
     "name": "Warias am Markt",
     "opening_hours": "Mo-Su 11:30-22:00; Fr,Sa 11:30-24:00",
@@ -5046,7 +5121,8 @@
     "addr_postcode": "06108",
     "addr_street": "Gro\u00dfe Steinstra\u00dfe 34",
     "category": "vegan_friendly",
-    "contact_facebook": "https://www.facebook.com/pg/BistroLorraine",
+    "contact_facebook": "https://www.facebook.com/BistroLorraine",
+    "cuisine": "international",
     "icon": "restaurant",
     "more_info": true,
     "name": "Bistro Lorraine",
@@ -5095,6 +5171,7 @@
     "addr_street": "Am Wasserwerk 1",
     "category": "vegan_limited",
     "contact_website": "https://www.mayamare.de/sauna-wellness/#cancunbar",
+    "cuisine": "mexican",
     "icon": "restaurant",
     "more_info": true,
     "name": "Cancun-Bar",
@@ -5905,6 +5982,7 @@
     "contact_facebook": "https://www.facebook.com/eisdeal.de",
     "contact_instagram": "https://www.instagram.com/eisdealerhalle",
     "contact_website": "https://www.eisdeal.de",
+    "cuisine": "ice_cream",
     "icon": "ice_cream",
     "name": "Eis-Dealer",
     "opening_hours": "12:00-18:00",
@@ -6116,6 +6194,7 @@
     "contact_email": "info@halleschesbrauhaus.de",
     "contact_phone": "+49 345 212570",
     "contact_website": "https://www.halleschesbrauhaus.de",
+    "cuisine": "german",
     "icon": "restaurant",
     "more_info": true,
     "name": "Hallesches Brauhaus",
@@ -6323,6 +6402,7 @@
     "category": "vegan_limited",
     "contact_phone": "+49 345 6846567",
     "contact_website": "http://www.kim-halle.de",
+    "cuisine": "asian",
     "icon": "restaurant",
     "more_info": true,
     "name": "Goldene Schildkr\u00f6te",

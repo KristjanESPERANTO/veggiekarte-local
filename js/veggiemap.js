@@ -30,7 +30,7 @@ function veggiemap() {
 
   // TileLayer
   let tileOSM = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: "&copy; <a href='https://openstreetmap.org'>OpenStreetMap</a> contributors, <a href='https://creativecommons.org/licenses/by-sa/2.0/'>CC-BY-SA</a>",
+    attribution: "&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap contributors</a>",
     maxZoom: 18
   });
 
@@ -48,12 +48,11 @@ function veggiemap() {
 
   // Define overlays (each marker group gets a layer) + add legend to the description
   let overlays = {
-    "<div class='legendRow'>vegan_only</div>" : vegan_only,
-    //"<div class='legendRow' title='Place which offers only vegan food.'><div class='firstCell vegan_only'></div><div class='secondCell'></div><div class='thirdCell' id='n_vegan_only'></div></div>" : vegan_only,
-    "<div class='legendRow' title='Place which offers only vegetarian and vegan food.'><div class='firstCell vegetarian_only'></div><div class='secondCell'></div><div class='thirdCell' id='n_vegetarian_only'></div></div>" : vegetarian_only,
-    "<div class='legendRow' title='Place which offers also vegan food.'><div class='firstCell vegan_friendly'></div><div class='secondCell'></div><div class='thirdCell' id='n_vegan_friendly'></div></div>" : vegan_friendly,
-    "<div class='legendRow' title='Place with limited vegan offer (usualy that means, you have to ask for it).'><div class='firstCell vegan_limited'></div><div class='secondCell'></div><div class='thirdCell' id='n_vegan_limited'></div></div>" : vegan_limited,
-    "<div class='legendRow' title='Place which offers also vegetarian food, but no vegan.'><div class='firstCell vegetarian_friendly'></div><div class='secondCell'></div><div class='thirdCell' id='n_vegetarian_friendly'></div></div><br /><br /><div id='date'></div>" : vegetarian_friendly
+    "<div class='legendRow'><div class='firstCell vegan_only'></div><div class='secondCell'></div><div class='thirdCell' id='n_vegan_only'></div></div>" : vegan_only,
+    "<div class='legendRow'><div class='firstCell vegetarian_only'></div><div class='secondCell'></div><div class='thirdCell' id='n_vegetarian_only'></div></div>" : vegetarian_only,
+    "<div class='legendRow'><div class='firstCell vegan_friendly'></div><div class='secondCell'></div><div class='thirdCell' id='n_vegan_friendly'></div></div>" : vegan_friendly,
+    "<div class='legendRow'><div class='firstCell vegan_limited'></div><div class='secondCell'></div><div class='thirdCell' id='n_vegan_limited'></div></div>" : vegan_limited,
+    "<div class='legendRow'><div class='firstCell vegetarian_friendly'></div><div class='secondCell'></div><div class='thirdCell' id='n_vegetarian_friendly'></div></div>" : vegetarian_friendly
   };
 
   veggiemap_populate(parentGroup);
@@ -94,23 +93,19 @@ function veggiemap() {
   // Add layer control button
   layerContol = L.control.layers(null, overlays);
   layerContol.addTo(map);
-  console.log(layerContol);
 
   // Add language control button
   languageControl = L.languageSelector({
-      languages: new Array(
-      // TODO: replace Array with foreach ...
-
-          L.langObject('de', 'Deutsch'),
-          L.langObject('en', 'English'),
-		  L.langObject('eo', 'Esperanto'),
-          L.langObject('fi', 'Suomi'),
-          L.langObject('fr', 'Français')
-      ),
+      languages: [
+          L.langObject('de', 'Deutsch',   './third-party/leaflet-languageselector/images/de.svg'),
+          L.langObject('en', 'English',   './third-party/leaflet-languageselector/images/en.svg'),
+          L.langObject('eo', 'Esperanto', './third-party/leaflet-languageselector/images/eo.svg'),
+          L.langObject('fi', 'Suomi',     './third-party/leaflet-languageselector/images/fi.svg'),
+          L.langObject('fr', 'Français',  './third-party/leaflet-languageselector/images/fr.svg')
+      ],
       callback: changeLanguage,
-      //title: 'Language',  // TODO: Add real title and translate it
-      vertical: true,
-	  collapsed:true
+      vertical: false,
+      button: true
   });
   languageControl.addTo(map);
 
@@ -124,65 +119,55 @@ function veggiemap() {
  * @param String id of the language
  */
 function changeLanguage(selectedLanguage) {
-    window.location.href = updateURLParameter(window.location.href, 'lang', selectedLanguage);
+  window.location.href = updateURLParameter(window.location.href, 'lang', selectedLanguage);
 }
 
 /**
  * Add or replace a parameter (with value) in the given URL.
- * By Adil Malik, https://stackoverflow.com/questions/1090948/change-url-parameters/10997390#10997390
  * @param String url the URL
  * @param String param the parameter
  * @param String paramVal the value of the parameter
  * @return String the changed URL
  */
 function updateURLParameter(url, param, paramVal) {
-    var theAnchor = null;
-    var newAdditionalURL = "";
-    var tempArray = url.split("?");
-    var baseURL = tempArray[0];
-    var additionalURL = tempArray[1];
-    var temp = "";
+  let theAnchor = null;
+  let newAdditionalURL = "";
+  let tempArray = url.split("?");
+  let baseURL = tempArray[0];
+  let additionalURL = tempArray[1];
+  let temp = "";
 
-    if (additionalURL) {
-        var tmpAnchor = additionalURL.split("#");
-        var theParams = tmpAnchor[0];
-        theAnchor = tmpAnchor[1];
-        if(theAnchor) {
-            additionalURL = theParams;
-        }
-
-        tempArray = additionalURL.split("&");
-
-        for (let i=0; i<tempArray.length; i++) {
-            if(tempArray[i].split('=')[0] != param) {
-                newAdditionalURL += temp + tempArray[i];
-                temp = "&";
-            }
-        }        
-    } else {
-        var tmpAnchor = baseURL.split("#");
-        var theParams = tmpAnchor[0];
-        theAnchor  = tmpAnchor[1];
-
-        if(theParams) {
-            baseURL = theParams;
-        }
+  if (additionalURL) {
+    let tmpAnchor = additionalURL.split("#");
+    let theParams = tmpAnchor[0];
+    theAnchor = tmpAnchor[1];
+    if (theAnchor) {
+      additionalURL = theParams;
     }
 
-    if(theAnchor) {
-        paramVal += "#" + theAnchor;
-    }
+    tempArray = additionalURL.split("&");
 
-    var rows_txt = temp + "" + param + "=" + paramVal;
-    return baseURL + "?" + newAdditionalURL + rows_txt;
+    for (let i = 0; i < tempArray.length; i++) {
+      if (tempArray[i].split('=')[0] != param) {
+        newAdditionalURL += temp + tempArray[i];
+        temp = "&";
+      }
+    }
+  } else {
+    let tmpAnchor = baseURL.split("#");
+    let theParams = tmpAnchor[0];
+    theAnchor = tmpAnchor[1];
+
+    if (theParams) {
+      baseURL = theParams;
+    }
+  }
+
+
+
+  let rows_txt = temp + "" + param + "=" + paramVal;
+  return baseURL + "?" + newAdditionalURL + rows_txt;
 }
-
-
-
-
-
-
-
 
 
 
@@ -246,7 +231,7 @@ function veggiemap_populate(parentGroup) {
     stat_populate();
 
     // Check if the data entries are complete
-    //checkData(parentGroup);
+    checkData(parentGroup);
 
     // Hide spinner
     hideSpinner();
@@ -338,17 +323,10 @@ function calculatePopup(layer) {
       // State: Sachsen-Anhalt
       let state = 'st';
       // Get browser language for the warnings and the prettifier
-	  
-	  
-	  
-	  
-      //let locale = navigator.language.split('-')[0];
-	  //let locale = getUserLanguage();
-	  
-	  let locale = userLanguage; // userLanguage is defined in i18n.js
-	  
+      let locale = userLanguage; // userLanguage is defined in i18n.js
+
       //Create opening_hours object
-	  let oh = new opening_hours(eOpe, {
+          let oh = new opening_hours(eOpe, {
           'lat':eLatLon[0],'lon':[0], 'address': {'country_code':country_code, 'state':state}},
           {'locale':locale});
       let prettified_value = oh.prettifyValue({conf: {'locale':locale, 'rule_sep_string': '<br />', 'print_semicolon': false, 'sep_one_day_between': ', '}});

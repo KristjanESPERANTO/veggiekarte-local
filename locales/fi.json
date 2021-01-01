@@ -11,7 +11,7 @@
         "content-osm-heading": "Tietoja OpenStreetMap",
         "content-osm-text": "<a href='https://www.openstreetmap.org' target='_blank' rel='noopener noreferrer'>OpenStreetMap</a> on ilmainen maailmankartta ja toimii samalla tavalla kuin Wikipedia. Kaikki voivat osallistua ja syöttää tietoja. Tämä tarkoittaa, että kartta on aina ajan tasalla ja täynnä hyödyllisiä tietoja. Jokainen, jolla on parannusehdotuksia tai löytää virheitä kartalta, voi yksinkertaisesti kirjoittaa ne tai parantaa niitä.",
         "content-contribute-heading": "Anna tietoja",
-        "content-contribute-text": "Jos tiedät itse ravintoloita, kahviloita, jäätelöbaareja tai noutoruokia, jotka eivät vielä ole valikossa, tai pidät itse itseäsi, voit lisätä sen itse. Tätä varten sinun on lisättävä 'ruokavalio: vegaani' tai 'ruokavalio: kasvissyöjä' -tunniste sijaintisi alueelle OpenStreetMapiin. Ohjeet ovat saatavilla <a href='https://www.lebsanft.org/posts/informationen-zur-veggiekarte-hinzufuegen/' target='_blank' rel='noopener noreferrer'>täältä</a>.",
+        "content-contribute-text": "Jos tiedät itse ravintoloita, kahviloita, jäätelöbaareja tai noutoruokia, jotka eivät vielä ole valikossa, tai pidät itse itseäsi, voit lisätä sen itse. Tätä varten sinun on lisättävä 'ruokavalio: vegaani' tai 'ruokavalio: kasvissyöjä' -tunniste sijaintisi alueelle OpenStreetMapiin. Ohjeet ovat saatavilla <a href='how-to/tutorial_de.html' target='_blank' rel='noopener noreferrer'>täältä</a>.",
         "content-further-heading": "Edelleen",
         "content-further-text": "Veggiekarte päivitetään automaattisesti joka tunti. Löydät koodin <a href='https://github.com/piratenpanda/veggiekarte' target='_blank' rel='noopener noreferrer'>GitHub</a>.",
         "i18n_vegan_only": "vain vegaani",

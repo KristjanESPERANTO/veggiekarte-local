@@ -11,7 +11,7 @@
         "content-osm-heading": "About OpenStreetMap",
         "content-osm-text": "<a href='https://www.openstreetmap.org' target='_blank' rel='noopener noreferrer'>OpenStreetMap</a> is a free world map and works similarly to Wikipedia. Everyone can participate and enter information. This means that the map is always up to date and full of useful information. Anyone who has suggestions for improvement or finds errors in the map can simply enter them or improve them.",
         "content-contribute-heading": "Contribute information",
-        "content-contribute-text": "If you yourself know restaurants, cafes, ice cream parlors or food kiosks that are not yet on the map, or run one yourself, then you can simply add it yourself. To do this, you have to add the 'diet: vegan' or 'diet: vegetarian' tag at your location in OpenStreetMap. Instructions are available <a href='https://www.lebsanft.org/posts/informationen-zur-veggiekarte-hinzufuegen/' target='_blank' rel='noopener noreferrer'>here</a>.",
+        "content-contribute-text": "If you yourself know restaurants, cafes, ice cream parlors or food kiosks that are not yet on the map, or run one yourself, then you can simply add it yourself. To do this, you have to add the 'diet: vegan' or 'diet: vegetarian' tag at your location in OpenStreetMap. Instructions are available <a href='how-to/tutorial_de.html' target='_blank' rel='noopener noreferrer'>here</a>.",
         "content-further-heading": "Further",
         "content-further-text": "Veggiekarte is updated automatically every hour. You can find the code on <a href='https://github.com/piratenpanda/veggiekarte' target='_blank' rel='noopener noreferrer'>GitHub</a>.",
         "i18n_vegan_only": "vegan only",
