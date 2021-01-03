@@ -4,6 +4,10 @@
  * License: CC0 (Creative Commons Zero), see https://creativecommons.org/publicdomain/zero/1.0/
  * Project page: https://github.com/buche/leaflet-languageselector
  **/
+
+let buttonClassName = 'leaflet-control-languageselector-button';
+let buttonDisabledClassName = 'leaflet-control-languageselector-button-disabled';
+
 L.LanguageSelector = L.Control.extend({
 
   includes: L.Evented.prototype,
@@ -16,7 +20,6 @@ L.LanguageSelector = L.Control.extend({
     hideSelected: false,
     vertical: true,
     initialLanguage: null,
-    buttonClassName: 'leaflet-control-languageselector-button',
     button: true
   },
 
@@ -32,16 +35,17 @@ L.LanguageSelector = L.Control.extend({
   onAdd: function(map) {
     this._map = map;
     if (this.options.button) {
-
-      // 
-      L.DomUtil.addClass(this._container, this.options.buttonClassName);
+      L.DomUtil.addClass(this._container, buttonClassName);
 	  L.DomEvent.on(this._container, 'mouseup', this._openSelector, this);
 	  
+	  // 
 	  L.DomEvent.addListener(this._map, 'click', function (e) {
- 
-	    let buttonDiv = document.getElementsByClassName('leaflet-languageselector-control')[0];
-	    L.DomUtil.addClass(buttonDiv, 'leaflet-control-languageselector-button');
-	  });
+        let languageButtonDisabled = document.getElementsByClassName(buttonDisabledClassName)[0];
+        if (languageButtonDisabled != undefined) {
+          languageButtonDisabled.classList.remove(buttonDisabledClassName);
+          languageButtonDisabled.classList.add(buttonClassName);
+        }
+      });
     }
     return this._container;
   },
@@ -75,16 +79,8 @@ L.LanguageSelector = L.Control.extend({
       langDiv.id = 'languageselector_' + lang.id;
       langDiv._langselinstance = this;
       if (langDiv.addEventListener) {
-        console.log("mouseup");
         langDiv.addEventListener('mouseup', this._languageChanged, false);
       } else {
-
-
-
-
-
-
-        console.log("onmouseup");
         langDiv.attachEvent('onmouseup', this._languageChanged);
       }
       if (this.options.hideSelected && this.options.initialLanguage && this.options.initialLanguage == lang.id) {
@@ -121,13 +117,14 @@ L.LanguageSelector = L.Control.extend({
   },
 
   _isButton: function() {
-    return L.DomUtil.hasClass(this._container, this.options.buttonClassName);
+    return L.DomUtil.hasClass(this._container, buttonClassName);
   },
 
   _openSelector: function(e) {
 
     if (this._isButton()) {
-      L.DomUtil.removeClass(this._container, this.options.buttonClassName);
+      L.DomUtil.removeClass(this._container, buttonClassName);
+	  L.DomUtil.addClass(this._container, buttonDisabledClassName);
     }
   }
 
