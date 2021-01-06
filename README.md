@@ -19,10 +19,10 @@ You can use it in any modern browser or install it as an app (as an [PWA](https:
 
 There are several ways to get involved:
 1. Improve the data on OpenStreetMap
-  1. Add missing places
-  2. Add and correct information (like opening hours) of places
+   1. Add missing places
+   2. Add and correct information (like opening hours) of places
 2. Report issues
-3. Help to translate
+3. Help to translate (take [locales/en.json](locales/en.json) as template)
 4. Participate in development
 
 ## Keys
