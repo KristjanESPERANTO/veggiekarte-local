@@ -1,10 +1,6 @@
 // The "use strict" directive helps to write cleaner code.
 "use strict";
 
-//TODO: - Rename this file
-//      - translate cuisine
-
-
 // Languages (there has to be a json file for each language)
 const languages = {
   de: 'Deutsch',
@@ -77,7 +73,6 @@ function getLanguageRecources(userLanguage, init) {
 }
 
 
-
 function initTranslate() {
   if (!initialized) {
     i18next.init({
@@ -91,8 +86,6 @@ function initTranslate() {
   
   updateContent();
 }
-
-
 
 
 function updateContent() {

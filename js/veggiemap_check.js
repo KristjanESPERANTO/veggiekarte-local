@@ -13,12 +13,13 @@ if (!String.prototype.replaceAll) {
 
 // Define marker groups
 let parentGroup = L.markerClusterGroup({showCoverageOnHover: false, maxClusterRadius: 20});
-let vegan_only = L.featureGroup.subGroup(parentGroup, {});
-let vegetarian_only = L.featureGroup.subGroup(parentGroup, {});
-let vegan_friendly = L.featureGroup.subGroup(parentGroup, {});
-let vegan_limited = L.featureGroup.subGroup(parentGroup, {});
-let vegetarian_friendly = L.featureGroup.subGroup(parentGroup, {});
-let subgroups = { vegan_only, vegetarian_only, vegan_friendly, vegan_limited, vegetarian_friendly };
+let issue_number_1 = L.featureGroup.subGroup(parentGroup, {});
+let issue_number_2 = L.featureGroup.subGroup(parentGroup, {});
+let issue_number_3 = L.featureGroup.subGroup(parentGroup, {});
+let issue_number_4 = L.featureGroup.subGroup(parentGroup, {});
+let issue_number_5 = L.featureGroup.subGroup(parentGroup, {});
+let issue_number_many = L.featureGroup.subGroup(parentGroup, {});
+let subgroups = { issue_number_1, issue_number_2, issue_number_3, issue_number_4, issue_number_5, issue_number_many };
 
 let map;
 
@@ -27,7 +28,7 @@ function veggiemap() {
 
   // TileLayer
   let tileOSM = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: "&copy; <a href='https://openstreetmap.org'>OpenStreetMap</a> contributors, <a href='https://creativecommons.org/licenses/by-sa/2.0/'>CC-BY-SA</a>",
+    attribution: "&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap contributors</a>",
     maxZoom: 18
   });
 
@@ -49,11 +50,12 @@ L.control.zoom({
 
   // Define overlays (each marker group gets a layer) + add legend to the description
   let overlays = {
-    "<div class='legendRow' title='Place which offers only vegan food.'><div class='firstCell vegan_only'></div><div class='secondCell'>vegan only</div><div class='thirdCell' id='n_vegan_only'></div></div>" : vegan_only,
-    "<div class='legendRow' title='Place which offers only vegetarian and vegan food.'><div class='firstCell vegetarian_only'></div><div class='secondCell'>vegetarian only + vegan</div><div class='thirdCell' id='n_vegetarian_only'></div></div>" : vegetarian_only,
-    "<div class='legendRow' title='Place which offers also vegan food.'><div class='firstCell vegan_friendly'></div><div class='secondCell'>vegan friendly</div><div class='thirdCell' id='n_vegan_friendly'></div></div>" : vegan_friendly,
-    "<div class='legendRow' title='Place with limited vegan offer (usualy that means, you have to ask for it).'><div class='firstCell vegan_limited'></div><div class='secondCell'>vegan limited</div><div class='thirdCell' id='n_vegan_limited'></div></div>" : vegan_limited,
-    "<div class='legendRow' title='Place which offers also vegetarian food, but no vegan.'><div class='firstCell vegetarian_friendly'></div><div class='secondCell'>vegetarian friendly</div><div class='thirdCell' id='n_vegetarian_friendly'></div></div><br /><br /><div id='date'></div>" : vegetarian_friendly
+    "<div class='legendRow'><div class='firstCell vegan_only'></div><div class='secondCell'>1 issue</div><div class='thirdCell' id='n_vegan_only'></div></div>" : issue_number_1,
+    "<div class='legendRow'><div class='firstCell vegetarian_only'></div><div class='secondCell'>2 issues</div><div class='thirdCell' id='n_vegetarian_only'></div></div>" : issue_number_2,
+    "<div class='legendRow'><div class='firstCell vegan_friendly'></div><div class='secondCell'>3 issues</div><div class='thirdCell' id='n_vegan_friendly'></div></div>" : issue_number_3,
+    "<div class='legendRow'><div class='firstCell vegan_limited'></div><div class='secondCell'>4 issues</div><div class='thirdCell' id='n_vegan_limited'></div></div>" : issue_number_4,
+    "<div class='legendRow'><div class='firstCell vegetarian_friendly'></div><div class='secondCell'>5 issues</div><div class='thirdCell' id='n_vegetarian_friendly'></div></div>" : issue_number_5,
+    "<div class='legendRow'><div class='firstCell vegetarian_friendly'></div><div class='secondCell'>more than 5</div><div class='thirdCell' id='n_vegetarian_friendly'></div></div><br /><br /><div id='date'></div>" : issue_number_many
   };
 
   veggiemap_populate(parentGroup);
@@ -148,8 +150,8 @@ function veggiemap_populate(parentGroup) {
       map.addLayer(subgroup);
     });
 
-    // Don't show vegetarian_friendly on startup
-    map.removeLayer(vegetarian_friendly);
+    // Don't show markers with only 1 issue
+    map.removeLayer(issue_number_1);
 
     // Reveal all the markers and clusters on the map in one go
     map.addLayer(parentGroup);
@@ -167,14 +169,16 @@ function geojsonToMarkerGroups(features) {
     const groups = {};
     groups["vegan_only"] = [];
     features.forEach(feature => {
+        let eCat = "issue_number_"
+        if (feature.properties.issue_number > 5) {
+          eCat += feature.properties.many;
+        } else {
+          eCat += feature.properties.issue_number;
+        }
+        if (!groups[eCat]) groups[eCat] = [];
 
-        
       
-
-      
-        groups["vegan_only"].push(getMarker(feature));
-      
-
+        groups[eCat].push(getMarker(feature));
     });
     return groups;
 }

@@ -604,7 +604,11 @@ def write_data(data):
 
         places_data["features"].append(place_obj)
 
-        if len(place_check_obj["properties"]) > 5 or len(place_check_obj["properties"]["undefined"]) > 0:
+        place_check_obj["properties"]["undefined"]
+        
+        place_check_obj["properties"]["issue_number"] = len(place_check_obj["properties"]["issues"]) + len(place_check_obj["properties"]["undefined"])
+
+        if place_check_obj["properties"]["issue_number"] > 0:
             #print(len(place_check_obj["properties"]))
             places_data_checks["features"].append(place_check_obj)
     print(osm_elements_number, ' elements.')
@@ -691,7 +695,7 @@ def main():
         outfile.write(json.dumps(places_data_checks, indent=1, sort_keys=True))
         outfile.close()
 
-        check_data()
+        #check_data()
     else:
         print("A problem has occurred. The old VEGGIE_MAP was not replaced!")
 

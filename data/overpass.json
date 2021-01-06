@@ -2,8 +2,8 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.56.7 b85c4387",
   "osm3s": {
-    "timestamp_osm_base": "2021-01-01T00:26:02Z",
-    "timestamp_areas_base": "2021-01-01T00:16:02Z",
+    "timestamp_osm_base": "2021-01-06T10:38:03Z",
+    "timestamp_areas_base": "2021-01-06T10:28:03Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -415,7 +415,7 @@
     "diet:vegetarian": "yes",
     "name": "Allegretto",
     "opening_hours": "Tu-Su 11:30-14:30,17:00-21:00",
-    "website": "www.allegretto-leipzig.de",
+    "website": "http://www.allegretto-leipzig.de",
     "wheelchair": "no"
   }
 },
@@ -3233,10 +3233,10 @@
     "addr:postcode": "04317",
     "addr:street": "Hofer Straße",
     "amenity": "fast_food",
-    "cuisine": "asian",
+    "cuisine": "vietnamese;thai;chinese;turkish;german",
     "diet:vegan": "no",
     "diet:vegetarian": "yes",
-    "name": "Internationaler Imbiss",
+    "name": "Internationale Spezialitäten",
     "opening_hours": "Tu-Sa 10:00-21:00; PH,Su 12:00-20:00; Mo off",
     "wheelchair": "yes"
   }

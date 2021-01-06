@@ -38,7 +38,7 @@ L.LanguageSelector = L.Control.extend({
       L.DomUtil.addClass(this._container, buttonClassName);
 	  L.DomEvent.on(this._container, 'mouseup', this._openSelector, this);
 	  
-	  // 
+	  // Add listener to the map to close the button on click on the map
 	  L.DomEvent.addListener(this._map, 'click', function (e) {
         let languageButtonDisabled = document.getElementsByClassName(buttonDisabledClassName)[0];
         if (languageButtonDisabled != undefined) {
@@ -121,7 +121,6 @@ L.LanguageSelector = L.Control.extend({
   },
 
   _openSelector: function(e) {
-
     if (this._isButton()) {
       L.DomUtil.removeClass(this._container, buttonClassName);
 	  L.DomUtil.addClass(this._container, buttonDisabledClassName);

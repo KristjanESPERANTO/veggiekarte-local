@@ -52,7 +52,7 @@ function veggiemap() {
     "<div class='legendRow'><div class='firstCell vegetarian_only'></div><div class='secondCell'></div><div class='thirdCell' id='n_vegetarian_only'></div></div>" : vegetarian_only,
     "<div class='legendRow'><div class='firstCell vegan_friendly'></div><div class='secondCell'></div><div class='thirdCell' id='n_vegan_friendly'></div></div>" : vegan_friendly,
     "<div class='legendRow'><div class='firstCell vegan_limited'></div><div class='secondCell'></div><div class='thirdCell' id='n_vegan_limited'></div></div>" : vegan_limited,
-    "<div class='legendRow'><div class='firstCell vegetarian_friendly'></div><div class='secondCell'></div><div class='thirdCell' id='n_vegetarian_friendly'></div></div>" : vegetarian_friendly
+    "<div class='legendRow'><div class='firstCell vegetarian_friendly'></div><div class='secondCell'></div><div class='thirdCell' id='n_vegetarian_friendly'></div></div><br /><br /><div id='date'></div>" : vegetarian_friendly
   };
 
   veggiemap_populate(parentGroup);
@@ -162,13 +162,9 @@ function updateURLParameter(url, param, paramVal) {
       baseURL = theParams;
     }
   }
-
-
-
   let rows_txt = temp + "" + param + "=" + paramVal;
   return baseURL + "?" + newAdditionalURL + rows_txt;
 }
-
 
 
 
@@ -184,11 +180,13 @@ function toggleInfo() {
     }
 }
 
+
 // Function to hide the spinner.
 function hideSpinner() {
   let element = document.getElementById('spinner');
   element.style.display = "none";
 }
+
 
 // Function to put the numbers of markers into the legend.
 //   The numbers are calculated using the refresh.py script and stored in the places.json file.
@@ -203,7 +201,7 @@ function stat_populate() {
 function onEachFeatureStat(data) {
   for (let category in data.stat[data.stat.length -1]){
     let number_of_elements = data.stat[data.stat.length -1][category];
-    // document.getElementById(category).innerHTML = "(" + number_of_elements + ")";     // TODO: Testweise abgeschalten
+    document.getElementById(category).innerHTML = "(" + number_of_elements + ")";
   }
 }
 
@@ -235,6 +233,9 @@ function veggiemap_populate(parentGroup) {
 
     // Hide spinner
     hideSpinner();
+    
+    // Update translations
+    updateContent();
   })
   .catch(error  => {console.log('Request failed', error);});
 }
