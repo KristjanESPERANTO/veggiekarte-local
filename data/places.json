@@ -1,5 +1,5 @@
 {
- "_timestamp": "2021-01-06 11:39:38.109637",
+ "_timestamp": "2021-01-15 22:30:03.191132",
  "features": [
   {
    "geometry": {
@@ -445,6 +445,7 @@
     "cuisine": "coffee_shop",
     "icon": "cafe",
     "name": "La Tortita Nosch",
+    "opening_hours": "Fr-Su 13:00-20:00",
     "symbol": "\u2615"
    },
    "type": "Feature"
@@ -567,7 +568,7 @@
     "cuisine": "pizza",
     "icon": "maki_restaurant-pizza",
     "name": "Happy Hour",
-    "opening_hours": "Mo-Sa 11:00-22:45; So,PH 12:00-22:45",
+    "opening_hours": "Mo-Sa 11:00-22:45; Su,PH 12:00-22:45",
     "symbol": "\ud83c\udf55"
    },
    "type": "Feature"
@@ -2066,7 +2067,7 @@
     "cuisine": "kebab",
     "icon": "fast_food",
     "name": "Olive",
-    "opening_hours": "Mo-So 09:00-00:00",
+    "opening_hours": "Mo-Su 09:00-24:00",
     "symbol": "\ud83c\udf54"
    },
    "type": "Feature"
@@ -2724,7 +2725,7 @@
     "addr_postcode": "04277",
     "addr_street": "Wolfgang-Heinze-Stra\u00dfe 12a",
     "category": "vegan_only",
-    "contact_website": "dein-deli.de",
+    "contact_website": "http://dein-deli.de",
     "cuisine": "burger",
     "icon": "fast_food",
     "name": "Dein Deli",
@@ -3220,7 +3221,7 @@
     "addr_street": "Stra\u00dfe der Einheit 17",
     "category": "vegan_limited",
     "contact_facebook": "https://www.facebook.com/B%C3%A4ckerei-Sch%C3%A4l-467517753397255",
-    "contact_instagram": "https://instagram.com/martin.schael",
+    "contact_instagram": "https://www.instagram.com/martin.schael",
     "contact_website": "https://www.b\u00e4ckerei-sch\u00e4l.de",
     "icon": "bakery",
     "more_info": true,
@@ -5522,6 +5523,31 @@
   {
    "geometry": {
     "coordinates": [
+     12.4259905,
+     51.3207957
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 8297560435,
+    "_type": "node",
+    "addr_city": "Leipzig",
+    "addr_postcode": "04299",
+    "addr_street": "Sommerfelder Stra\u00dfe 15",
+    "category": "vegan_friendly",
+    "contact_email": "leipzig-stoetteritz@freddy-fresh.de",
+    "contact_phone": "+49 34186388538",
+    "cuisine": "pizza",
+    "icon": "maki_restaurant-pizza",
+    "name": "Freddy Fresh",
+    "opening_hours": "Mo-Th 11:00-22:00; Fr-Su 11:00-23:00; Su 11:00-22:00",
+    "symbol": "\ud83c\udf55"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9339655,
      51.4965308
     ],
@@ -5878,11 +5904,11 @@
     "addr_postcode": "06114",
     "addr_street": "H\u00e4ndelstra\u00dfe 38",
     "category": "vegan_friendly",
-    "contact_facebook": "https://www.dominos.de/kaufhaus/de-hallereileck-33831",
     "contact_phone": "+49 345 530 130",
+    "contact_website": "https://www.dominos.de/kaufhaus/de-hallereileck-33831",
     "cuisine": "pizza",
     "icon": "maki_restaurant-pizza",
-    "name": "Domino's Pizza",
+    "name": "Domino's",
     "opening_hours": "Mo-Su 11:00-23:00",
     "symbol": "\ud83c\udf55"
    },

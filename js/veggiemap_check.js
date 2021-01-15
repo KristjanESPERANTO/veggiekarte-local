@@ -18,8 +18,9 @@ let issue_number_2 = L.featureGroup.subGroup(parentGroup, {});
 let issue_number_3 = L.featureGroup.subGroup(parentGroup, {});
 let issue_number_4 = L.featureGroup.subGroup(parentGroup, {});
 let issue_number_5 = L.featureGroup.subGroup(parentGroup, {});
+let issue_number_6 = L.featureGroup.subGroup(parentGroup, {});
 let issue_number_many = L.featureGroup.subGroup(parentGroup, {});
-let subgroups = { issue_number_1, issue_number_2, issue_number_3, issue_number_4, issue_number_5, issue_number_many };
+let subgroups = { issue_number_1, issue_number_2, issue_number_3, issue_number_4, issue_number_5, issue_number_6, issue_number_many };
 
 let map;
 
@@ -42,11 +43,7 @@ function veggiemap() {
   });
 
 // Add zoom control
-L.control.zoom({
-     position:'topright',
-     zoomInTitle: i18next.t('leaflet.L-control-zoom.zoom_in'),
-     zoomOutTitle: i18next.t('leaflet.L-control-zoom.zoom_out')
-}).addTo(map);
+L.control.zoom().addTo(map);
 
   // Define overlays (each marker group gets a layer) + add legend to the description
   let overlays = {
@@ -54,8 +51,9 @@ L.control.zoom({
     "<div class='legendRow'><div class='firstCell vegetarian_only'></div><div class='secondCell'>2 issues</div><div class='thirdCell' id='n_vegetarian_only'></div></div>" : issue_number_2,
     "<div class='legendRow'><div class='firstCell vegan_friendly'></div><div class='secondCell'>3 issues</div><div class='thirdCell' id='n_vegan_friendly'></div></div>" : issue_number_3,
     "<div class='legendRow'><div class='firstCell vegan_limited'></div><div class='secondCell'>4 issues</div><div class='thirdCell' id='n_vegan_limited'></div></div>" : issue_number_4,
-    "<div class='legendRow'><div class='firstCell vegetarian_friendly'></div><div class='secondCell'>5 issues</div><div class='thirdCell' id='n_vegetarian_friendly'></div></div>" : issue_number_5,
-    "<div class='legendRow'><div class='firstCell vegetarian_friendly'></div><div class='secondCell'>more than 5</div><div class='thirdCell' id='n_vegetarian_friendly'></div></div><br /><br /><div id='date'></div>" : issue_number_many
+    "<div class='legendRow'><div class='firstCell vegetarian_friendly'></div><div class='secondCell'>5 issues</div><div class='thirdCell' id='7'></div></div>" : issue_number_5,
+    "<div class='legendRow'><div class='firstCell vegetarian_friendly'></div><div class='secondCell'>6 issues</div><div class='thirdCell' id='6'></div></div>" : issue_number_6,
+    "<div class='legendRow'><div class='firstCell vegetarian_friendly'></div><div class='secondCell'>more than 6</div><div class='thirdCell' id='n_vegetarian_friendly'></div></div><br /><br /><div id='date'></div>" : issue_number_many
   };
 
   veggiemap_populate(parentGroup);
@@ -170,7 +168,7 @@ function geojsonToMarkerGroups(features) {
     groups["vegan_only"] = [];
     features.forEach(feature => {
         let eCat = "issue_number_"
-        if (feature.properties.issue_number > 5) {
+        if (feature.properties.issue_number > 6) {
           eCat += feature.properties.many;
         } else {
           eCat += feature.properties.issue_number;

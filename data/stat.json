@@ -1,6 +1,22 @@
 {
  "stat": [
   {
+   "date": "2019-11-05",
+   "n_vegan_friendly": 68,
+   "n_vegan_limited": 16,
+   "n_vegan_only": 4,
+   "n_vegetarian_friendly": 7,
+   "n_vegetarian_only": 6
+  },
+  {
+   "date": "2019-11-17",
+   "n_vegan_friendly": 69,
+   "n_vegan_limited": 16,
+   "n_vegan_only": 4,
+   "n_vegetarian_friendly": 7,
+   "n_vegetarian_only": 6
+  },
+  {
    "date": "2020-08-28",
    "n_vegan_friendly": 76,
    "n_vegan_limited": 19,
@@ -227,6 +243,30 @@
   {
    "date": "2021-01-06",
    "n_vegan_friendly": 132,
+   "n_vegan_limited": 20,
+   "n_vegan_only": 12,
+   "n_vegetarian_friendly": 84,
+   "n_vegetarian_only": 6
+  },
+  {
+   "date": "2021-01-10",
+   "n_vegan_friendly": 132,
+   "n_vegan_limited": 20,
+   "n_vegan_only": 12,
+   "n_vegetarian_friendly": 84,
+   "n_vegetarian_only": 6
+  },
+  {
+   "date": "2021-01-13",
+   "n_vegan_friendly": 132,
+   "n_vegan_limited": 20,
+   "n_vegan_only": 12,
+   "n_vegetarian_friendly": 84,
+   "n_vegetarian_only": 6
+  },
+  {
+   "date": "2021-01-15",
+   "n_vegan_friendly": 133,
    "n_vegan_limited": 20,
    "n_vegan_only": 12,
    "n_vegetarian_friendly": 84,
