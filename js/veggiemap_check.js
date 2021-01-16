@@ -24,7 +24,6 @@ let subgroups = { issue_number_1, issue_number_2, issue_number_3, issue_number_4
 
 let map;
 
-
 function veggiemap() {
 
   // TileLayer
@@ -47,13 +46,13 @@ L.control.zoom().addTo(map);
 
   // Define overlays (each marker group gets a layer) + add legend to the description
   let overlays = {
-    "<div class='legendRow'><div class='firstCell vegan_only'></div><div class='secondCell'>1 issue</div><div class='thirdCell' id='n_vegan_only'></div></div>" : issue_number_1,
-    "<div class='legendRow'><div class='firstCell vegetarian_only'></div><div class='secondCell'>2 issues</div><div class='thirdCell' id='n_vegetarian_only'></div></div>" : issue_number_2,
-    "<div class='legendRow'><div class='firstCell vegan_friendly'></div><div class='secondCell'>3 issues</div><div class='thirdCell' id='n_vegan_friendly'></div></div>" : issue_number_3,
-    "<div class='legendRow'><div class='firstCell vegan_limited'></div><div class='secondCell'>4 issues</div><div class='thirdCell' id='n_vegan_limited'></div></div>" : issue_number_4,
-    "<div class='legendRow'><div class='firstCell vegetarian_friendly'></div><div class='secondCell'>5 issues</div><div class='thirdCell' id='7'></div></div>" : issue_number_5,
-    "<div class='legendRow'><div class='firstCell vegetarian_friendly'></div><div class='secondCell'>6 issues</div><div class='thirdCell' id='6'></div></div>" : issue_number_6,
-    "<div class='legendRow'><div class='firstCell vegetarian_friendly'></div><div class='secondCell'>more than 6</div><div class='thirdCell' id='n_vegetarian_friendly'></div></div><br /><br /><div id='date'></div>" : issue_number_many
+    "<div class='legendRow'><div class='secondCell'>1 issue</div><div class='thirdCell' id='issue_number_1'></div></div>" : issue_number_1,
+    "<div class='legendRow'><div class='secondCell'>2 issues</div><div class='thirdCell' id='issue_number_2'></div></div>" : issue_number_2,
+    "<div class='legendRow'><div class='secondCell'>3 issues</div><div class='thirdCell' id='issue_number_3'></div></div>" : issue_number_3,
+    "<div class='legendRow'><div class='secondCell'>4 issues</div><div class='thirdCell' id='issue_number_4'></div></div>" : issue_number_4,
+    "<div class='legendRow'><div class='secondCell'>5 issues</div><div class='thirdCell' id='issue_number_5'></div></div>" : issue_number_5,
+    "<div class='legendRow'><div class='secondCell'>6 issues</div><div class='thirdCell' id='issue_number_6'></div></div>" : issue_number_6,
+    "<div class='legendRow'><div class='secondCell'>more than 6</div><div class='thirdCell' id='issue_number_many'></div></div>" : issue_number_many
   };
 
   veggiemap_populate(parentGroup);
@@ -119,20 +118,16 @@ function toggleInfo() {
 
 // Function to put the numbers of markers into the legend.
 //   The numbers are calculated using the refresh.py script and stored in the places.json file.
-function stat_populate() {
-  const url = "data/stat.json";
-  fetch(url)
-  .then(response => response.json())
-  .then(data => onEachFeatureStat(data))
-  .catch(error  => {console.log('Request failed', error);});
+function stat_populate(markerGroups) {
+  let children = Object.keys(markerGroups);
+
+  for (let i = 0; i < children.length; i++) {
+    let key = children[i];
+    document.getElementById(key).innerHTML = "(" + markerGroups[key].length + ")";
+  } 
+  
 }
 
-function onEachFeatureStat(data) {
-  for (let category in data.stat[data.stat.length -1]){
-    let number_of_elements = data.stat[data.stat.length -1][category];
-    document.getElementById(category).innerHTML = "(" + number_of_elements + ")";
-  }
-}
 
 // Function to get the information from the places json file.
 function veggiemap_populate(parentGroup) {
@@ -149,15 +144,13 @@ function veggiemap_populate(parentGroup) {
     });
 
     // Don't show markers with only 1 issue
-    map.removeLayer(issue_number_1);
+    //map.removeLayer(issue_number_1);
 
     // Reveal all the markers and clusters on the map in one go
     map.addLayer(parentGroup);
 
     // Call the function to put the numbers into the legend
-    stat_populate();
-
-
+    stat_populate(markerGroups);
   })
   .catch(error  => {console.log('Request failed', error);});
 }
@@ -165,7 +158,7 @@ function veggiemap_populate(parentGroup) {
 // Process the places GeoJSON into the groups of markers
 function geojsonToMarkerGroups(features) {
     const groups = {};
-    groups["vegan_only"] = [];
+
     features.forEach(feature => {
         let eCat = "issue_number_"
         if (feature.properties.issue_number > 6) {
@@ -178,8 +171,10 @@ function geojsonToMarkerGroups(features) {
       
         groups[eCat].push(getMarker(feature));
     });
+
     return groups;
 }
+
 
 // Function to get the marker.
 function getMarker(feature) {
@@ -258,17 +253,6 @@ function calculatePopup(layer) {
 
     return popupContent;
 }
-
-
-// Adding function for opening_hours objects to check if place will be open after n minutes
-if (!opening_hours.prototype.isOpenInMinutes) {
-  opening_hours.prototype.isOpenInMinutes = function(minutes = 60) {
-    let nowPlusHours = new Date();
-    nowPlusHours.setUTCMinutes(nowPlusHours.getUTCMinutes()+minutes);
-    return this.getState(nowPlusHours);
-  };
-}
-
 
 
 // Main function
