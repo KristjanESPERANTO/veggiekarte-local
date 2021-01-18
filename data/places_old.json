@@ -1,5 +1,5 @@
 {
- "_timestamp": "2021-01-13 01:53:16.334901",
+ "_timestamp": "2021-01-17 23:00:59.569009",
  "features": [
   {
    "geometry": {
@@ -568,7 +568,7 @@
     "cuisine": "pizza",
     "icon": "maki_restaurant-pizza",
     "name": "Happy Hour",
-    "opening_hours": "Mo-Sa 11:00-22:45; So,PH 12:00-22:45",
+    "opening_hours": "Mo-Sa 11:00-22:45; Su,PH 12:00-22:45",
     "symbol": "\ud83c\udf55"
    },
    "type": "Feature"
@@ -1478,8 +1478,8 @@
     "addr_postcode": "06108",
     "addr_street": "Mittelstra\u00dfe 7",
     "category": "vegan_friendly",
+    "contact_facebook": "https://www.facebook.com/Czech-139350349441083",
     "contact_instagram": "https://www.instagram.com/czech_bar",
-    "contact_website": "https://www.facebook.com/Czech-139350349441083",
     "icon": "bar",
     "more_info": true,
     "name": "Czech",
@@ -2067,7 +2067,7 @@
     "cuisine": "kebab",
     "icon": "fast_food",
     "name": "Olive",
-    "opening_hours": "Mo-So 09:00-00:00",
+    "opening_hours": "Mo-Su 09:00-24:00",
     "symbol": "\ud83c\udf54"
    },
    "type": "Feature"
@@ -2611,29 +2611,6 @@
   {
    "geometry": {
     "coordinates": [
-     12.3810193,
-     51.3451549
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 2140362874,
-    "_type": "node",
-    "addr_city": "Leipzig",
-    "addr_postcode": "04109",
-    "addr_street": "Willy-Brandt-Platz 5",
-    "category": "vegetarian_friendly",
-    "icon": "bakery",
-    "name": "Le Crobag",
-    "opening_hours": "Mo-Fr 05:30-20:00; Sa,Su,PH 06:00-20:00",
-    "shop": "bakery",
-    "symbol": "\ud83e\udd68"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
      12.3271424,
      51.3385368
     ],
@@ -2673,7 +2650,7 @@
     "category": "vegetarian_friendly",
     "contact_email": "skaska-laden@web.de",
     "contact_phone": "+49 341 65839172",
-    "contact_website": "http://www.skaska.eu/skaska%20Leipzig/INDEX%20LEIPZIG.htm",
+    "contact_website": "https://skaska.eu",
     "cuisine": "russian",
     "icon": "restaurant",
     "name": "Skaska",
@@ -2725,7 +2702,7 @@
     "addr_postcode": "04277",
     "addr_street": "Wolfgang-Heinze-Stra\u00dfe 12a",
     "category": "vegan_only",
-    "contact_website": "dein-deli.de",
+    "contact_website": "http://dein-deli.de",
     "cuisine": "burger",
     "icon": "fast_food",
     "name": "Dein Deli",
@@ -3221,7 +3198,7 @@
     "addr_street": "Stra\u00dfe der Einheit 17",
     "category": "vegan_limited",
     "contact_facebook": "https://www.facebook.com/B%C3%A4ckerei-Sch%C3%A4l-467517753397255",
-    "contact_instagram": "https://instagram.com/martin.schael",
+    "contact_instagram": "https://www.instagram.com/martin.schael",
     "contact_website": "https://www.b\u00e4ckerei-sch\u00e4l.de",
     "icon": "bakery",
     "more_info": true,
@@ -4133,7 +4110,7 @@
     "cuisine": "hungarian",
     "icon": "restaurant",
     "name": "Budapest Restaurant",
-    "opening_hours": "We-Fr 11:30-14:30,17:30-22:00 Sa 11:30-14:30,17:30-23:00 Su 11:30-15:00",
+    "opening_hours": "We-Fr 11:30-14:30,17:30-22:00; Sa 11:30-14:30,17:30-23:00; Su 11:30-15:00",
     "symbol": "\ud83c\udf7d\ufe0f"
    },
    "type": "Feature"
@@ -4154,7 +4131,7 @@
     "addr_postcode": "06108",
     "addr_street": "Bergstra\u00dfe 1",
     "category": "vegan_limited",
-    "contact_website": "https://www.facebook.com/pg/vietvillagehalle",
+    "contact_facebook": "https://www.facebook.com/vietvillagehalle",
     "cuisine": "vietnamese",
     "icon": "restaurant",
     "more_info": true,
@@ -4439,8 +4416,9 @@
     "addr_postcode": "04177",
     "addr_street": "Georg-Schwarz-Stra\u00dfe 10",
     "category": "vegan_friendly",
+    "contact_facebook": "https://www.facebook.com/pizzalableipzig",
     "contact_phone": "+49 176 66557313",
-    "contact_website": "https://de-de.facebook.com/pizzalableipzig",
+    "contact_website": "https://pizzalab.de",
     "cuisine": "pizza",
     "icon": "maki_restaurant-pizza",
     "name": "Pizza Lab",
@@ -4770,7 +4748,7 @@
     "addr_street": "Lauchst\u00e4dter Stra\u00dfe 15A",
     "category": "vegan_friendly",
     "contact_email": "cafe.oink@posteo.de",
-    "contact_website": "https://facebook.com/CafeOink",
+    "contact_facebook": "https://www.facebook.com/CafeOink",
     "cuisine": "tea;cake;coffee_shop;ice_cream",
     "icon": "cafe",
     "name": "Caf\u00e9 Oink",
@@ -5523,6 +5501,31 @@
   {
    "geometry": {
     "coordinates": [
+     12.4259905,
+     51.3207957
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 8297560435,
+    "_type": "node",
+    "addr_city": "Leipzig",
+    "addr_postcode": "04299",
+    "addr_street": "Sommerfelder Stra\u00dfe 15",
+    "category": "vegan_friendly",
+    "contact_email": "leipzig-stoetteritz@freddy-fresh.de",
+    "contact_phone": "+49 34186388538",
+    "cuisine": "pizza",
+    "icon": "maki_restaurant-pizza",
+    "name": "Freddy Fresh",
+    "opening_hours": "Mo-Th 11:00-22:00; Fr-Su 11:00-23:00; Su 11:00-22:00",
+    "symbol": "\ud83c\udf55"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9339655,
      51.4965308
     ],
@@ -5879,11 +5882,11 @@
     "addr_postcode": "06114",
     "addr_street": "H\u00e4ndelstra\u00dfe 38",
     "category": "vegan_friendly",
-    "contact_facebook": "https://www.dominos.de/kaufhaus/de-hallereileck-33831",
     "contact_phone": "+49 345 530 130",
+    "contact_website": "https://www.dominos.de/kaufhaus/de-hallereileck-33831",
     "cuisine": "pizza",
     "icon": "maki_restaurant-pizza",
-    "name": "Domino's Pizza",
+    "name": "Domino's",
     "opening_hours": "Mo-Su 11:00-23:00",
     "symbol": "\ud83c\udf55"
    },

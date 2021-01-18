@@ -2,8 +2,8 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.56.7 b85c4387",
   "osm3s": {
-    "timestamp_osm_base": "2021-01-06T10:38:03Z",
-    "timestamp_areas_base": "2021-01-06T10:28:03Z",
+    "timestamp_osm_base": "2021-01-18T00:18:02Z",
+    "timestamp_areas_base": "2021-01-17T23:08:03Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -396,8 +396,10 @@
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "name": "La Tortita Nosch",
+    "opening_hours:covid19": "Fr-Su 13:00-20:00",
     "outdoor_seating": "no",
-    "planned:opening_hours": "Th-Sa 16:00-22:00"
+    "planned:opening_hours": "Th-Sa 16:00-22:00",
+    "wheelchair": "no"
   }
 },
 {
@@ -501,7 +503,7 @@
     "drive_through": "no",
     "internet_access": "no",
     "name": "Happy Hour",
-    "opening_hours": "Mo-Sa 11:00-22:45; So,PH 12:00-22:45",
+    "opening_hours": "Mo-Sa 11:00-22:45; Su,PH 12:00-22:45",
     "outdoor_seating": "no",
     "phone": "+49 341 3032548",
     "smoking": "outside",
@@ -1325,8 +1327,8 @@
     "addr:postcode": "06108",
     "addr:street": "Mittelstraße",
     "amenity": "bar",
+    "contact:facebook": "https://www.facebook.com/Czech-139350349441083/",
     "contact:instagram": "https://www.instagram.com/czech_bar/",
-    "contact:website": "https://www.facebook.com/Czech-139350349441083/",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "name": "Czech",
@@ -1743,7 +1745,6 @@
     "description": "omnivores Flammkuchen-Restaurant\ngroß Auswahl an vegan bestellbaren Flammkuchen - diese sind gut gekennzeichnet",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
-    "disused:amenity": "restaurant",
     "name": "Le Feu",
     "opening_hours": "Su-Th 17:00-22:00; Fr-Sa 17:00-23:00",
     "outdoor_seating": "no",
@@ -1862,7 +1863,7 @@
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "name": "Olive",
-    "opening_hours": "Mo-So 09:00-00:00"
+    "opening_hours": "Mo-Su 09:00-24:00"
   }
 },
 {
@@ -2339,28 +2340,6 @@
 },
 {
   "type": "node",
-  "id": 2140362874,
-  "lat": 51.3451549,
-  "lon": 12.3810193,
-  "tags": {
-    "addr:city": "Leipzig",
-    "addr:housenumber": "5",
-    "addr:postcode": "04109",
-    "addr:street": "Willy-Brandt-Platz",
-    "brand": "Le Crobag",
-    "brand:wikidata": "Q1558025",
-    "brand:wikipedia": "de:Le Crobag",
-    "diet:vegan": "no",
-    "diet:vegetarian": "yes",
-    "level": "1",
-    "name": "Le Crobag",
-    "opening_hours": "Mo-Fr 05:30-20:00; Sa,Su,PH 06:00-20:00",
-    "shop": "bakery",
-    "toilets:wheelchair": "no"
-  }
-},
-{
-  "type": "node",
   "id": 2179499253,
   "lat": 51.3385368,
   "lon": 12.3271424,
@@ -2392,15 +2371,14 @@
     "addr:postcode": "04275",
     "addr:street": "Arthur-Hoffmann-Straße",
     "amenity": "restaurant",
-    "contact:website": "http://www.skaska.eu/skaska%20Leipzig/INDEX%20LEIPZIG.htm",
+    "contact:email": "skaska-laden@web.de",
+    "contact:phone": "+49 341 65839172",
+    "contact:website": "https://skaska.eu",
     "cuisine": "russian",
     "diet:vegan": "no",
     "diet:vegetarian": "yes",
-    "email": "skaska-laden@web.de",
     "name": "Skaska",
-    "opening_hours": "Tu-Sa 17:30-23:00; Su 11:30-14:30,17:30-23:00",
-    "phone": "+49 341 65839172",
-    "website": "http://skaska.eu/"
+    "opening_hours": "Tu-Sa 17:30-23:00; Su 11:30-14:30,17:30-23:00"
   }
 },
 {
@@ -2447,7 +2425,7 @@
     "opening_hours": "Tu-Su,PH 12:00-22:00; Mo off",
     "outdoor_seating": "no",
     "takeaway": "yes",
-    "website": "dein-deli.de",
+    "website": "http://dein-deli.de",
     "wheelchair": "no"
   }
 },
@@ -2890,7 +2868,7 @@
     "addr:postcode": "06179",
     "addr:street": "Straße der Einheit",
     "contact:facebook": "https://www.facebook.com/B%C3%A4ckerei-Sch%C3%A4l-467517753397255/",
-    "contact:instagram": "https://instagram.com/martin.schael/",
+    "contact:instagram": "https://www.instagram.com/martin.schael",
     "contact:website": "https://www.bäckerei-schäl.de",
     "diet:vegan": "limited",
     "diet:vegetarian": "yes",
@@ -3708,7 +3686,7 @@
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "name": "Budapest Restaurant",
-    "opening_hours": "We-Fr 11:30-14:30,17:30-22:00 Sa 11:30-14:30,17:30-23:00 Su 11:30-15:00",
+    "opening_hours": "We-Fr 11:30-14:30,17:30-22:00; Sa 11:30-14:30,17:30-23:00; Su 11:30-15:00",
     "phone": "+49 345 68879585",
     "website": "https://www.budapest-jambor.de",
     "wheelchair": "no",
@@ -3727,12 +3705,12 @@
     "addr:postcode": "06108",
     "addr:street": "Bergstraße",
     "amenity": "restaurant",
+    "contact:facebook": "https://www.facebook.com/vietvillagehalle",
     "cuisine": "vietnamese",
     "diet:vegan": "limited",
     "diet:vegetarian": "yes",
     "name": "Viet Village",
     "opening_hours": "Mo-Su 11:00-23:00",
-    "website": "https://www.facebook.com/pg/vietvillagehalle/",
     "wheelchair:description": "keine Angaben, Eckgebäude zur Ulrichstraße"
   }
 },
@@ -3967,6 +3945,9 @@
     "addr:postcode": "04177",
     "addr:street": "Georg-Schwarz-Straße",
     "amenity": "restaurant",
+    "contact:facebook": "https://www.facebook.com/pizzalableipzig",
+    "contact:phone": "+49 176 66557313",
+    "contact:website": "https://pizzalab.de",
     "cuisine": "pizza",
     "delivery": "no",
     "diet:vegan": "yes",
@@ -3974,10 +3955,8 @@
     "name": "Pizza Lab",
     "opening_hours": "Tu-Sa 18:00-22:00",
     "outdoor_seating": "yes",
-    "phone": "+49 176 66557313",
     "smoking": "isolated",
-    "takeaway": "no",
-    "website": "https://de-de.facebook.com/pizzalableipzig/"
+    "takeaway": "no"
   }
 },
 {
@@ -4260,13 +4239,13 @@
     "addr:postcode": "04229",
     "addr:street": "Lauchstädter Straße",
     "amenity": "cafe",
+    "contact:facebook": "https://www.facebook.com/CafeOink",
     "cuisine": "tea;cake;coffee_shop;ice_cream",
     "diet:vegan": "yes",
     "email": "cafe.oink@posteo.de",
     "internet_access": "wlan",
     "name": "Café Oink",
     "opening_hours": "Sa-Su 11:00-19:00; Tu-Fr 09:00-19:00",
-    "website": "https://facebook.com/CafeOink",
     "wheelchair": "no"
   }
 },
@@ -4906,6 +4885,27 @@
   }
 },
 {
+  "type": "node",
+  "id": 8297560435,
+  "lat": 51.3207957,
+  "lon": 12.4259905,
+  "tags": {
+    "addr:city": "Leipzig",
+    "addr:housenumber": "15",
+    "addr:postcode": "04299",
+    "addr:street": "Sommerfelder Straße",
+    "amenity": "fast_food",
+    "cuisine": "pizza",
+    "diet:vegan": "yes",
+    "diet:vegetarian": "yes",
+    "email": "leipzig-stoetteritz@freddy-fresh.de",
+    "name": "Freddy Fresh",
+    "opening_hours": "Mo-Th 11:00-22:00; Fr-Su 11:00-23:00; Su 11:00-22:00",
+    "phone": "+49 34186388538",
+    "wheelchair": "no"
+  }
+},
+{
   "type": "way",
   "id": 22883232,
   "center": {
@@ -5467,16 +5467,16 @@
     "addr:postcode": "06114",
     "addr:street": "Händelstraße",
     "amenity": "fast_food",
-    "brand": "Domino's Pizza",
+    "brand": "Domino's",
     "brand:wikidata": "Q839466",
     "brand:wikipedia": "en:Domino's Pizza",
     "building": "apartments",
-    "contact:facebook": "https://www.dominos.de/kaufhaus/de-hallereileck-33831",
     "contact:phone": "+49 345 530 130",
+    "contact:website": "https://www.dominos.de/kaufhaus/de-hallereileck-33831",
     "cuisine": "pizza",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
-    "name": "Domino's Pizza",
+    "name": "Domino's",
     "opening_hours": "Mo-Su 11:00-23:00",
     "short_name": "Domino's",
     "takeaway": "yes",

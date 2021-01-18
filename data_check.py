@@ -64,31 +64,10 @@ def get_data_osm():
     server = 0
     result = None
 
-    # Preparing the string for the Overpass request
-    # Define export format
-    overpass_query = '?data=[out:json];'
-
-    # # Define the area - Halle + Saalekreis
-    overpass_query += 'area["de:amtlicher_gemeindeschluessel"="15002000"]->.halle;'\
-                      'area["de:amtlicher_gemeindeschluessel"="15088"]->.saalekreis;'\
-                      'area["de:amtlicher_gemeindeschluessel"="14713000"]->.leipzig;'\
-                      '(.halle;.saalekreis;.leipzig;)->.hal_sk_le_area;'
-    # # Collect the vegan nodes, ways and relations
-    overpass_query += '(nwr(area.hal_sk_le_area)["diet:vegan"~"yes|only|limited"];'
-    # # Collect the vegetarian nodes, ways and relations
-    overpass_query += 'nwr(area.hal_sk_le_area)["diet:vegetarian"~"yes|only"];'
-    # # End of the query and use "out center" to reduce the geometry of ways and relations to a single coordinate
-    overpass_query += ');out+center;'
-
     # Sending a request to one server after another until one gives a valid answer or
     # the end of the server list is reached.
     while (server < len(SERVERS)) and (result is None):
-        # Get a server from the server list
-        overpass_server = SERVERS[server]
 
-        # Overpass request
-        print("Send query to server: ", overpass_server)
-        #osm_request = HTTP.request("GET", overpass_server + overpass_query)
 
         #urx = "https://veggiekarte.de/data/overpass.json"
 
@@ -97,11 +76,6 @@ def get_data_osm():
         osm_request = HTTP.request("GET", urx)
 
 
-
-        #osm_request2 = urllib.request.urlopen(urx)
-
-        #print(osm_request)
-        #print(osm_request2)
 
         # Check the status of the request
         if osm_request.status == 200:
@@ -132,10 +106,10 @@ def get_data_osm():
 
 
 
-def uri_validator(uri, check_path):
+def uri_validator(uri, with_path):
     try:
         result = urllib.parse.urlparse(uri)
-        if check_path:
+        if with_path:
             return all([result.scheme, result.netloc, result.path])
         else:
             return all([result.scheme, result.netloc])
@@ -144,15 +118,7 @@ def uri_validator(uri, check_path):
 
 
 
-
-def write_data(data):
-    """Write the data in a temp file."""
-    # Initialize variables to count the markers
-    n_vegan_only = 0
-    n_vegetarian_only = 0
-    n_vegan_friendly = 0
-    n_vegan_limited = 0
-    n_vegetarian_friendly = 0
+def check_data(data):
 
     # Adding timestamp
     places_data["_timestamp"] = TIMESTAMP
@@ -177,12 +143,6 @@ def write_data(data):
         element_type = osm_element["type"]
         tags = osm_element.get("tags", {})
 
-        place_obj = {}
-        place_obj["type"] = "Feature"
-        place_obj["properties"] = {}
-        place_obj["properties"]["_id"] = element_id
-        place_obj["properties"]["_type"] = element_type
-
         place_check_obj = {}
         place_check_obj["type"] = "Feature"
         place_check_obj["properties"] = {}
@@ -191,28 +151,19 @@ def write_data(data):
         place_check_obj["properties"]["undefined"] = []
         place_check_obj["properties"]["issues"] = []
 
-
         if element_type == "node":
             lat = osm_element.get("lat", None)
             lon = osm_element.get("lon", None)
-
         elif element_type == "way" or element_type == "relation":
             center_coordinates = osm_element.get("center", None)  # get the coordinates from the center of the object
             lat = center_coordinates.get("lat", None)
             lon = center_coordinates.get("lon", None)
 
-        else:
-            continue
-
-        place_obj["geometry"] = {}
-        place_obj["geometry"]["type"] = "Point"
-        place_obj["geometry"]["coordinates"] = [lon, lat]
-
         place_check_obj["geometry"] = {}
         place_check_obj["geometry"]["type"] = "Point"
         place_check_obj["geometry"]["coordinates"] = [lon, lat]
 
-        # Get a name
+        # Name
         if "name" in tags:
             name = tags["name"]
             place_check_obj["properties"]["name"] = name
@@ -220,6 +171,10 @@ def write_data(data):
             # If there is no name, take the english if exists
             if "name:en" in tags:
                 name = tags["name:en"]
+            # If it is a vending machine, name it "vending machine"
+            elif "amenity" in tags:
+                if tags["amenity"] == "vending_machine":
+                  name = "vending machine"
             else:
                 # If there is no name given from osm, we build one
                 name = "%s %s" % (element_type, element_id)
@@ -233,67 +188,44 @@ def write_data(data):
         print(osm_element_index, ' / ', osm_elements_number, '\t', end='\r')
 
 
-        # Give the object a category
-        #if tags.get("diet:vegan", "") == "only":
-        #    place_obj["properties"]["category"] = "vegan_only"
-        #    n_vegan_only += 1
-        #elif (tags.get("diet:vegetarian", "") == "only"
-        #      and tags.get("diet:vegan", "") == "yes"):
-        #    place_obj["properties"]["category"] = "vegetarian_only"
-        #    n_vegetarian_only += 1
-        #elif tags.get("diet:vegan", "") == "yes":
-        #    place_obj["properties"]["category"] = "vegan_friendly"
-        #    n_vegan_friendly += 1
-        #elif tags.get("diet:vegan", "") == "limited":
-        #    place_obj["properties"]["category"] = "vegan_limited"
-        #    n_vegan_limited += 1
-        #else:
-        #    place_obj["properties"]["category"] = "vegetarian_friendly"
-        #    n_vegetarian_friendly += 1
+
+        # Diet tags
+        if "diet:vegan" in tags:
+            diet_vegan = tags.get("diet:vegan", "")
+            if diet_vegan != "only" and diet_vegan != "yes" and diet_vegan != "limited" and diet_vegan != "no":
+                place_check_obj["properties"]["issues"].append("'diet:vegan' has an unusual value: " + diet_vegan)
+        if "diet:vegetarian" in tags:
+            diet_vegetarian = tags.get("diet:vegetarian", "")
+            if diet_vegetarian != "only" and diet_vegetarian != "yes" and diet_vegetarian != "no":
+                place_check_obj["properties"]["issues"].append("'diet:vegetarian' has an unusual value: " + diet_vegetarian)
 
         # Cuisine
-        if "cuisine" in tags:
-            place_obj["properties"]["cuisine"] = tags["cuisine"]
-        #else:
-            #if "shop" not in tags:
-
-                #if tags.get("amenity", "") != "cafe":
-                    # Log if there is no cuisine
-                    #place_check_obj["properties"]["undefined"].append("cuisine")
+        #if "cuisine" not in tags:
+        #    if "shop" not in tags:
+        #        if tags.get("amenity", "") != "cafe":
+        #            place_check_obj["properties"]["undefined"].append("cuisine")
 
         # Address
-        if "addr:street" in tags:
-            place_obj["properties"]["addr_street"] = tags.get("addr:street", "")
-            if "addr:housenumber" in tags:
-                place_obj["properties"]["addr_street"] += " " + tags.get("addr:housenumber", "")
-            else:
-                # Log if there is no addr:housenumber
-                place_check_obj["properties"]["undefined"].append("addr:housenumber")
-        else:
-            # Log if there is no addr:street
+        if "addr:street" not in tags:
             place_check_obj["properties"]["undefined"].append("addr:street")
-
+        if "addr:housenumber" not in tags:
+            place_check_obj["properties"]["undefined"].append("addr:housenumber")
         if not "addr:city" in tags:
             if not "addr:suburb" in tags:
-                # Log if there is no addr:city
                 place_check_obj["properties"]["undefined"].append("addr:city/suburb")
-
         if not "addr:postcode" in tags:
-            # Log if there is no addr:postcode
             place_check_obj["properties"]["undefined"].append("addr:postcode")
 
-        # Contact
-
+        # Website (till now we only check if the URI is valid, not if the website is reachable)
         website = 'undefined'
         if "contact:website" in tags:
-            website = tags.get("contact:website", "").rstrip("/")
+            website = tags.get("contact:website", "")
             if uri_validator(website, False) is False:
                 place_check_obj["properties"]["issues"].append("'contact:website' URI invalid")
-        elif "website" in tags:
-            website = tags.get("website", "").rstrip("/")
+        if "website" in tags:
+            website = tags.get("website", "")
             if uri_validator(website, False) is False:
                 place_check_obj["properties"]["issues"].append("'website' URI invalid")
-
         if "facebook" in website:
             place_check_obj["properties"]["issues"].append("'facebook' URI as website -> change to 'contact:facebook'")
         if "instagram" in website:
@@ -301,74 +233,56 @@ def write_data(data):
         if "contact:website" in tags and "website" in tags:
             place_check_obj["properties"]["issues"].append("'website' and 'contact:website' defined -> remove one")
 
-
+        # Facebook
         if "contact:facebook" in tags:
-            contact_facebook = tags.get("contact:facebook", "").rstrip("/")
-
+            contact_facebook = tags.get("contact:facebook", "")
             if contact_facebook.startswith("http://"):
                 place_check_obj["properties"]["issues"].append("'contact:facebook' starts with 'http' instead of 'https'")
             elif not contact_facebook.startswith("https://www.facebook.com/"):
                 place_check_obj["properties"]["issues"].append("'contact:facebook' does not starts with 'https://www.facebook.com/'")
             elif uri_validator(contact_facebook, True) is False:
                 place_check_obj["properties"]["issues"].append("'contact:facebook' URI invalid")
+        if "facebook" in tags:
+            place_check_obj["properties"]["issues"].append("old tag: 'facebook' -> change to 'contact:facebook'")
 
-        elif "facebook" in tags:
-            place_check_obj["properties"]["issues"].append("old tag: 'facebook'")
-
-
+        # Instagram
         if "contact:instagram" in tags:
-
-            contact_instagram = tags.get("contact:instagram", "").rstrip("/")
-
+            contact_instagram = tags.get("contact:instagram", "")
             if contact_instagram.startswith("http://"):
                 place_check_obj["properties"]["issues"].append("'contact:instagram' starts with 'http' instead of 'https'")
             elif not contact_instagram.startswith("https://www.instagram.com/"):
                 place_check_obj["properties"]["issues"].append("'contact:instagram' does not starts with 'https://www.instagram.com/'")
             elif uri_validator(contact_instagram, True) is False:
                 place_check_obj["properties"]["issues"].append("'contact:instagram' URI invalid")
-
-        elif "instagram" in tags:
+        if "instagram" in tags:
             place_check_obj["properties"]["issues"].append("old tag 'instagram'")
 
-
-        if "disused" in "".join(tags):
-            place_check_obj["properties"]["issues"].append("There is a 'disused' tag: Check whether this tag is correct! If so, please remove the diet tags.")
-
-
+        # E-Mail
         if "contact:email" in tags:
-            place_obj["properties"]["contact_email"] = tags.get("contact:email", "")
+            email = tags.get("contact:email", "")
         elif "email" in tags:
-            place_obj["properties"]["contact_email"] = tags.get("email", "")
-
-            # -> logfile if unformat
-
+            email = tags.get("email", "")
         if "contact:email" in tags or "email" in tags:
-
-            email = place_obj["properties"]["contact_email"]
-
             try:
-              # Validate.
               valid = validate_email(email)
-
-             # Update with the normalized form.
-              email = valid.email
             except EmailNotValidError as e:
-              # email is not valid, exception message is human-readable
               place_check_obj["properties"]["issues"].append("E-Mail is not valid: " + str(e))
+        if "contact:email" in tags and "email" in tags:
+            place_check_obj["properties"]["issues"].append("'email' and 'contact:email' defined -> remove one")
 
+        # Phone
         if "contact:phone" in tags:
             contact_phone = tags.get("contact:phone", "")
             if not contact_phone.startswith("+"):
                 place_check_obj["properties"]["issues"].append("'contact:phone' has no international format like '+44 20 84527891'")
-        elif "phone" in tags:
+        if "phone" in tags:
             phone = tags.get("phone", "")
             if not phone.startswith("+"):
                 place_check_obj["properties"]["issues"].append("'phone' has no international format like '+44 20 84527891'")
-
         if "contact:phone" in tags and "phone" in tags:
             place_check_obj["properties"]["issues"].append("'phone' and 'contact:phone' defined -> remove one")
 
-
+        # Opening hours
         opening_hours = 'undefined'
         if "opening_hours:covid19" in tags and tags["opening_hours:covid19"] != "same" and tags["opening_hours:covid19"] != "restricted":
             opening_hours = tags["opening_hours:covid19"]
@@ -376,68 +290,26 @@ def write_data(data):
             opening_hours = tags["opening_hours"]
         else:
             place_check_obj["properties"]["undefined"].append("opening_hours")
-
         if "\n" in opening_hours or "\r" in opening_hours:
-            place_check_obj["properties"]["issues"].append("there is a line break in 'opening_hours' -> remove")
+            place_check_obj["properties"]["issues"].append("There is a line break in 'opening_hours' -> remove")
 
+        # Disused
+        if "disused" in "".join(tags):
+            place_check_obj["properties"]["issues"].append("There is a 'disused' tag: Check whether this tag is correct. If so, please remove the diet tags.")
 
-        #place_check_obj["properties"]["undefined"]
-        
+        # Count issues
         place_check_obj["properties"]["issue_number"] = len(place_check_obj["properties"]["issues"]) + len(place_check_obj["properties"]["undefined"])
+        
+        if len(place_check_obj["properties"]["issues"]) == 0:
+            del(place_check_obj["properties"]["issues"])
+        if len(place_check_obj["properties"]["undefined"]) == 0:
+            del(place_check_obj["properties"]["undefined"])
 
+        # Only use elements with issues
         if place_check_obj["properties"]["issue_number"] > 0:
-            #print(len(place_check_obj["properties"]))
             places_data_checks["features"].append(place_check_obj)
     print(osm_elements_number, ' elements.')
 
-    # Collect the statistic data in an object and add it to the places object
-    stat_obj = {"date": DATE,
-                "n_vegan_only": n_vegan_only,
-                "n_vegetarian_only": n_vegetarian_only,
-                "n_vegan_friendly": n_vegan_friendly,
-                "n_vegan_limited": n_vegan_limited,
-                "n_vegetarian_friendly": n_vegetarian_friendly}
-
-    # Open statistic data file
-    with open(VEGGIESTAT_FILE) as json_file:
-
-        # Get previous statistic data
-        previous_stat_data = json.load(json_file)
-        stat_data["stat"] = previous_stat_data["stat"]
-
-        # Get date from the last entry
-        last_date = stat_data["stat"][-1]["date"]
-
-        # Ensure that there is only one entry each day
-        if DATE == last_date:
-            stat_data["stat"].pop(-1)
-
-        # Append the new data
-        stat_data["stat"].append(stat_obj)
-
-
-def check_data():
-    """Check the temp file and replace the old VEGGIEPLACES_FILE if it is ok."""
-    #if os.path.isfile(VEGGIEPLACES_TEMPFILE_GZIP):                        # check if the temp file exists
-        #if os.path.getsize(VEGGIEPLACES_TEMPFILE_GZIP) > 500:             # check if the temp file isn't too small (see issue #21)
-            #print("rename " + VEGGIEPLACES_TEMPFILE + " to " + VEGGIEPLACES_FILE)
-            #os.rename(VEGGIEPLACES_FILE, VEGGIEPLACES_OLDFILE)           # rename old file
-            #os.rename(VEGGIEPLACES_TEMPFILE, VEGGIEPLACES_FILE)          # rename temp file to new file
-            #print("rename " + VEGGIEPLACES_TEMPFILE_MIN + " to " + VEGGIEPLACES_FILE_MIN)
-            #os.rename(VEGGIEPLACES_TEMPFILE_MIN, VEGGIEPLACES_FILE_MIN)  # rename minimized temp file to new file
-            #print("rename " + VEGGIEPLACES_TEMPFILE_GZIP + " to " + VEGGIEPLACES_FILE_GZIP)
-            #os.rename(VEGGIEPLACES_TEMPFILE_GZIP, VEGGIEPLACES_FILE_GZIP)  # rename minimized temp file to new file
-
-            # Write the new statistic file
-            #outfilestat = open(VEGGIESTAT_FILE, "w")
-            #outfilestat.write(json.dumps(stat_data, indent=1, sort_keys=True))
-            #outfilestat.close()
-
-        #else:
-            #print("New gzip temp file is too small!")
-            #print(os.path.getsize(VEGGIEPLACES_TEMPFILE_GZIP))
-    #else:
-        #print("temp file don't exists!")
 
 
 def main():
@@ -451,30 +323,14 @@ def main():
 
     # Write data
     if osm_data is not None:
-        write_data(osm_data)
-
-        # Write file in pretty format
-        #outfile = open(VEGGIEPLACES_TEMPFILE, "w")
-        #outfile.write(json.dumps(places_data, indent=1, sort_keys=True))
-        #outfile.close()
-
-        # Write file in minimized format
-        #outfile_min = open(VEGGIEPLACES_TEMPFILE_MIN, "w")
-        #outfile_min.write(json.dumps(places_data, indent=None, sort_keys=True, separators=(',', ':')))
-        #outfile_min.close()
-
-        # Write file in gzipped format
-        #with gzip.open(VEGGIEPLACES_TEMPFILE_GZIP, "wt", encoding="UTF-8") as outfile_gzip:
-        #    outfile_gzip.write(json.dumps(places_data, indent=None, sort_keys=True, separators=(',', ':')))
+        check_data(osm_data)
 
         # Write check result file in pretty format
         outfile = open(VEGGIEPLACES_CHECKRESULT_FILE, "w")
         outfile.write(json.dumps(places_data_checks, indent=1, sort_keys=True))
         outfile.close()
 
-        #check_data()
     else:
         print("A problem has occurred. The old VEGGIE_MAP was not replaced!")
-
 
 main()

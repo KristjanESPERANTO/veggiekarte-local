@@ -1,5 +1,5 @@
 {
- "_timestamp": "2021-01-15 22:30:03.191132",
+ "_timestamp": "2021-01-18 01:19:44.720232",
  "features": [
   {
    "geometry": {
@@ -1478,8 +1478,8 @@
     "addr_postcode": "06108",
     "addr_street": "Mittelstra\u00dfe 7",
     "category": "vegan_friendly",
+    "contact_facebook": "https://www.facebook.com/Czech-139350349441083",
     "contact_instagram": "https://www.instagram.com/czech_bar",
-    "contact_website": "https://www.facebook.com/Czech-139350349441083",
     "icon": "bar",
     "more_info": true,
     "name": "Czech",
@@ -2611,29 +2611,6 @@
   {
    "geometry": {
     "coordinates": [
-     12.3810193,
-     51.3451549
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 2140362874,
-    "_type": "node",
-    "addr_city": "Leipzig",
-    "addr_postcode": "04109",
-    "addr_street": "Willy-Brandt-Platz 5",
-    "category": "vegetarian_friendly",
-    "icon": "bakery",
-    "name": "Le Crobag",
-    "opening_hours": "Mo-Fr 05:30-20:00; Sa,Su,PH 06:00-20:00",
-    "shop": "bakery",
-    "symbol": "\ud83e\udd68"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
      12.3271424,
      51.3385368
     ],
@@ -2673,7 +2650,7 @@
     "category": "vegetarian_friendly",
     "contact_email": "skaska-laden@web.de",
     "contact_phone": "+49 341 65839172",
-    "contact_website": "http://www.skaska.eu/skaska%20Leipzig/INDEX%20LEIPZIG.htm",
+    "contact_website": "https://skaska.eu",
     "cuisine": "russian",
     "icon": "restaurant",
     "name": "Skaska",
@@ -4133,7 +4110,7 @@
     "cuisine": "hungarian",
     "icon": "restaurant",
     "name": "Budapest Restaurant",
-    "opening_hours": "We-Fr 11:30-14:30,17:30-22:00 Sa 11:30-14:30,17:30-23:00 Su 11:30-15:00",
+    "opening_hours": "We-Fr 11:30-14:30,17:30-22:00; Sa 11:30-14:30,17:30-23:00; Su 11:30-15:00",
     "symbol": "\ud83c\udf7d\ufe0f"
    },
    "type": "Feature"
@@ -4154,7 +4131,7 @@
     "addr_postcode": "06108",
     "addr_street": "Bergstra\u00dfe 1",
     "category": "vegan_limited",
-    "contact_website": "https://www.facebook.com/pg/vietvillagehalle",
+    "contact_facebook": "https://www.facebook.com/vietvillagehalle",
     "cuisine": "vietnamese",
     "icon": "restaurant",
     "more_info": true,
@@ -4439,8 +4416,9 @@
     "addr_postcode": "04177",
     "addr_street": "Georg-Schwarz-Stra\u00dfe 10",
     "category": "vegan_friendly",
+    "contact_facebook": "https://www.facebook.com/pizzalableipzig",
     "contact_phone": "+49 176 66557313",
-    "contact_website": "https://de-de.facebook.com/pizzalableipzig",
+    "contact_website": "https://pizzalab.de",
     "cuisine": "pizza",
     "icon": "maki_restaurant-pizza",
     "name": "Pizza Lab",
@@ -4770,7 +4748,7 @@
     "addr_street": "Lauchst\u00e4dter Stra\u00dfe 15A",
     "category": "vegan_friendly",
     "contact_email": "cafe.oink@posteo.de",
-    "contact_website": "https://facebook.com/CafeOink",
+    "contact_facebook": "https://www.facebook.com/CafeOink",
     "cuisine": "tea;cake;coffee_shop;ice_cream",
     "icon": "cafe",
     "name": "Caf\u00e9 Oink",
@@ -4904,7 +4882,7 @@
     "contact_phone": "+49 341 65839766",
     "icon": "restaurant",
     "name": "Caf\u00e9 Mala",
-    "opening_hours": "Tu-Fr 15:00-22:30; Sa, Su 09:30-22:30",
+    "opening_hours": "Tu-Fr 17:00-22:30",
     "symbol": "\ud83c\udf7d\ufe0f"
    },
    "type": "Feature"
@@ -5053,7 +5031,7 @@
     "cuisine": "german",
     "icon": "restaurant",
     "name": "Warias am Markt",
-    "opening_hours": "Mo-Su 11:30-22:00; Fr,Sa 11:30-24:00",
+    "opening_hours": "Mo-Su 11:30-21:00",
     "symbol": "\ud83c\udf7d\ufe0f"
    },
    "type": "Feature"

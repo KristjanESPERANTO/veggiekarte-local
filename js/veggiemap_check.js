@@ -24,6 +24,7 @@ let subgroups = { issue_number_1, issue_number_2, issue_number_3, issue_number_4
 
 let map;
 
+
 function veggiemap() {
 
   // TileLayer
@@ -74,28 +75,18 @@ L.control.zoom().addTo(map);
   // Add info button
   let infoButton = L.easyButton(
     '<div class="info-button"></div>',
-    function(btn, map){toggleInfo();},
-    i18next.t('leaflet.L-control-infoButton.title')
+    function(btn, map){toggleInfo();}
   ).addTo(map);
   infoButton.setPosition('topright');
 
   // Add button for search places
-  L.Control.geocoder({
-    placeholder: i18next.t('leaflet.L-control-geocoder.placeholder'),
-    errorMessage: i18next.t('leaflet.L-control-geocoder.error_message'),
-    //TODO: Add title somehow, because all other buttons have titles.
-  }).addTo(map);
+  L.Control.geocoder().addTo(map);
 
   // Add button to search own position
   L.control.locate({
     icon: 'locate_icon',
     iconLoading: 'loading_icon',
     showCompass: true,
-    strings: {
-      title: i18next.t('leaflet.L-control-locate.where_am_i'),
-      metersUnit: i18next.t('leaflet.L-control-locate.meter'),
-      popup: i18next.t('leaflet.L-control-locate.distance'),
-    },
     locateOptions: {maxZoom: 16},
     position:'topright'
   }).addTo(map);
@@ -120,7 +111,6 @@ function toggleInfo() {
 //   The numbers are calculated using the refresh.py script and stored in the places.json file.
 function stat_populate(markerGroups) {
   let children = Object.keys(markerGroups);
-
   for (let i = 0; i < children.length; i++) {
     let key = children[i];
     document.getElementById(key).innerHTML = "(" + markerGroups[key].length + ")";
@@ -158,11 +148,10 @@ function veggiemap_populate(parentGroup) {
 // Process the places GeoJSON into the groups of markers
 function geojsonToMarkerGroups(features) {
     const groups = {};
-
     features.forEach(feature => {
         let eCat = "issue_number_"
         if (feature.properties.issue_number > 6) {
-          eCat += feature.properties.many;
+          eCat += "many";
         } else {
           eCat += feature.properties.issue_number;
         }
@@ -171,7 +160,6 @@ function geojsonToMarkerGroups(features) {
       
         groups[eCat].push(getMarker(feature));
     });
-
     return groups;
 }
 
@@ -212,44 +200,27 @@ function calculatePopup(layer) {
     let eFac = feature.properties.contact_facebook;
     let eIns = feature.properties.contact_instagram;
     let eIco = feature.properties.icon;
-    let eInf = feature.properties.more_info;
     let eOpe = feature.properties.opening_hours;
     let eSym = feature.properties.symbol;
 
     /*** Building the popup content ***/
-    let popupContent = "<div class='mapPopupTitle'>" + eNam + "</div>"; // Name
-
-    // OSM link for popup
-    let osmUrl = "https://openstreetmap.org/"+eTyp+"/"+eId;
-    popupContent += "<div><a href='"+osmUrl+"' target='_blank' rel='noopener noreferrer'>(Edit on OpenStreetMap)</a></div><hr/>"; // OSM link
+    
+    // Popup title
+    let popupContent = "<div class='mapPopupTitle'>" + eNam + "</div><hr/>";
 
     // Add undefined keys
-    feature.properties.undefined.forEach(key => popupContent += "<div>'"+key+"' is undefined</div>")
-    
+    if (feature.properties.undefined != undefined) {
+        feature.properties.undefined.forEach(key => popupContent += "<div class='popup_issue'>'"+key+"' is undefined</div>")
+    }
+
     // Add issues
-    feature.properties.issues.forEach(issue => popupContent += "<div>"+issue+"</div>")
+    if (feature.properties.issues != undefined) {
+        feature.properties.issues.forEach(issue => popupContent += "<div class='popup_issue'>"+issue+"</div>")
+    }
 
-
-  
-    // Address
-    let eAddr = ""
-    // Collecting address information
-    if(eStr!=undefined){eAddr += eStr +"<br/>"}  // Street
-    if(ePos!=undefined){eAddr += ePos +" "}      // Postcode
-    if(eCit!=undefined){eAddr += eCit +" "}      // City
-    //if(eCou!=undefined){eAddr += "<br/>" + eCou} // Country
-
-    // Adding address information to popup
-    if(eAddr!=""){popupContent += "<div class='popupflex-container'><div>📍</div><div>" + eAddr +"</div></div>"}
-
-
-    // Adding addidtional information to popup
-    if(ePho!=undefined){popupContent += "<div class='popupflex-container'><div>☎️</div><div><a href='tel:" + ePho + "' target='_blank' rel='noopener noreferrer'>" + ePho + "</a></div></div>"}
-    if(eEma!=undefined){popupContent += "<div class='popupflex-container'><div>📧</div><div><a href='mailto:" + eEma + "' target='_blank' rel='noopener noreferrer'>" + eEma + "</a></div></div>"}
-    if(eWeb!=undefined){popupContent += "<div class='popupflex-container'><div>🌐</div><div><a href='" + eWeb + "' target='_blank' rel='noopener noreferrer'>" + eWeb.replace("https://", "") + "</a></div></div>"}
-    if(eFac!=undefined){popupContent += "<div class='popupflex-container'><div>🇫</div><div><a href='" + eFac + "' target='_blank' rel='noopener noreferrer'>" + decodeURI(eFac).replace("https://", "") + "</a></div></div>"}
-    if(eIns!=undefined){popupContent += "<div class='popupflex-container'><div>📸</div><div><a href='" + eIns + "' target='_blank' rel='noopener noreferrer'>" + eIns.replace("https://", "") + "</a></div></div>"}
-    if(eInf!=undefined){popupContent += "<hr/><div class='popupflex-container'><div>ℹ️</div><div><a href=\"https://www.vegan-in-halle.de/wp/leben/vegane-stadtkarte/#"+eTyp+eId+"\" target=\"_top\">" + i18next.t('texts.more_info') + "</a></div>"}
+    // OSM link to edit
+    let osmUrl = "https://openstreetmap.org/"+eTyp+"/"+eId;
+    popupContent += "<hr/><div class='mapEditorLink'><a href='"+osmUrl+"' target='_blank' rel='noopener noreferrer'>(Edit on OpenStreetMap)</a></div>";
 
     return popupContent;
 }
