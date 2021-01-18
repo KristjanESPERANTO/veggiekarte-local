@@ -75,7 +75,7 @@ L.control.zoom().addTo(map);
   // Add info button
   let infoButton = L.easyButton(
     '<div class="info-button"></div>',
-    function(btn, map){toggleInfo();}
+    function(btn, map){toggleInfo()}
   ).addTo(map);
   infoButton.setPosition('topright');
 

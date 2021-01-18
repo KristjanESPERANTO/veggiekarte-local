@@ -190,13 +190,28 @@ function hideSpinner() {
 
 // Function to put the numbers of markers into the legend.
 //   The numbers are calculated using the refresh.py script and stored in the places.json file.
-function stat_populate() {
+function sstat_populate() {
   const url = "data/stat.json";
   fetch(url)
   .then(response => response.json())
   .then(data => onEachFeatureStat(data))
   .catch(error  => {console.log('Request failed', error);});
 }
+
+function stat_populate(markerGroups) {
+  let children = Object.keys(markerGroups[0]);
+  console.log(children);
+  for (let i = 0; i < children.length; i++) {
+
+    let key = children[i];
+		  console.log(key);
+    document.getElementById("n_" + key).innerHTML = "(" + markerGroups[0][key].length + ")";
+  } 
+  document.getElementById("date").innerHTML = "(" + markerGroups[1] + ")";
+  console.log(markerGroups[1]);
+  
+}
+
 
 function onEachFeatureStat(data) {
   for (let category in data.stat[data.stat.length -1]){
@@ -210,12 +225,12 @@ function veggiemap_populate(parentGroup) {
   const url = "data/places.min.json";
   fetch(url)
   .then(response => response.json())
-  .then(geojson => geojsonToMarkerGroups(geojson.features))
+  .then(geojson => geojsonToMarkerGroups(geojson))
   .then(markerGroups => {
     Object.entries(subgroups).forEach(([key, subgroup]) => {
       // Bulk add all the markers from a markerGroup to a subgroup in one go
       // Source: https://github.com/ghybs/Leaflet.FeatureGroup.SubGroup/issues/5
-      subgroup.addLayer(L.layerGroup(markerGroups[key]));
+      subgroup.addLayer(L.layerGroup(markerGroups[0][key]));
       map.addLayer(subgroup);
     });
 
@@ -226,7 +241,7 @@ function veggiemap_populate(parentGroup) {
     map.addLayer(parentGroup);
 
     // Call the function to put the numbers into the legend
-    stat_populate();
+    stat_populate(markerGroups);
 
     // Check if the data entries are complete
     checkData(parentGroup);
@@ -241,14 +256,16 @@ function veggiemap_populate(parentGroup) {
 }
 
 // Process the places GeoJSON into the groups of markers
-function geojsonToMarkerGroups(features) {
+function geojsonToMarkerGroups(geojson) {
+	const date = geojson._timestamp.split(" ")[0];
+	console.log(date);
     const groups = {};
-    features.forEach(feature => {
+    geojson.features.forEach(feature => {
         const eCat = feature.properties.category;
         if (!groups[eCat]) groups[eCat] = [];
         groups[eCat].push(getMarker(feature));
     });
-    return groups;
+    return [groups, date];
 }
 
 // Function to get the marker.
