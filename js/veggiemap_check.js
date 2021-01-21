@@ -42,8 +42,8 @@ function veggiemap() {
     zoomControl: false
   });
 
-// Add zoom control
-L.control.zoom().addTo(map);
+  // Add zoom control
+  L.control.zoom({position:'topright'}).addTo(map);
 
   // Define overlays (each marker group gets a layer) + add legend to the description
   let overlays = {
@@ -107,15 +107,35 @@ function toggleInfo() {
     }
 }
 
-// Function to put the numbers of markers into the legend.
-//   The numbers are calculated using the refresh.py script and stored in the places.json file.
-function stat_populate(markerGroups) {
-  let children = Object.keys(markerGroups);
-  for (let i = 0; i < children.length; i++) {
-    let key = children[i];
-    document.getElementById(key).innerHTML = "(" + markerGroups[key].length + ")";
-  } 
-  
+
+// Function to hide the spinner.
+function hideSpinner() {
+  let element = document.getElementById('spinner');
+  element.style.display = "none";
+}
+
+/**
+* Function to detect the number of markers for each category and
+* add them to the Layer Control.
+*
+* @param {object} markerGroups The marker groups.
+* @param {string} date The date when the data was queried.
+*/
+function stat_populate(markerGroups, date) {
+  // Get all categories
+  let markerGroupCategories = Object.keys(markerGroups);
+  // Go through the list of categories
+  for (let i = 0; i < markerGroupCategories.length; i++) {
+    // Get the name
+    let categoryName = markerGroupCategories[i];
+    // Get the number of the markers
+    let markerNumber = markerGroups[categoryName].length;
+    // Add the number to the category entry
+    document.getElementById(categoryName).innerHTML = "(" + markerNumber + ")";
+  }
+  // Add the date to the Layer Control
+  let lastEntry = document.getElementById("issue_number_many").parentNode.parentNode;
+  lastEntry.innerHTML += "<br /><div>("+date+")</div>";
 }
 
 
@@ -124,8 +144,11 @@ function veggiemap_populate(parentGroup) {
   const url = "data/check_results.json";
   fetch(url)
   .then(response => response.json())
-  .then(geojson => geojsonToMarkerGroups(geojson.features))
-  .then(markerGroups => {
+  .then(geojson => geojsonToMarkerGroups(geojson))
+  .then(markerGroupsAndDate => {
+    let markerGroups = markerGroupsAndDate[0];
+    let date = markerGroupsAndDate[1];
+    
     Object.entries(subgroups).forEach(([key, subgroup]) => {
       // Bulk add all the markers from a markerGroup to a subgroup in one go
       // Source: https://github.com/ghybs/Leaflet.FeatureGroup.SubGroup/issues/5
@@ -140,15 +163,16 @@ function veggiemap_populate(parentGroup) {
     map.addLayer(parentGroup);
 
     // Call the function to put the numbers into the legend
-    stat_populate(markerGroups);
+    stat_populate(markerGroups, date);
   })
   .catch(error  => {console.log('Request failed', error);});
 }
 
 // Process the places GeoJSON into the groups of markers
-function geojsonToMarkerGroups(features) {
+function geojsonToMarkerGroups(geojson) {
+    const date = geojson._timestamp.split(" ")[0];
     const groups = {};
-    features.forEach(feature => {
+    geojson.features.forEach(feature => {
         let eCat = "issue_number_"
         if (feature.properties.issue_number > 6) {
           eCat += "many";
@@ -156,11 +180,9 @@ function geojsonToMarkerGroups(features) {
           eCat += feature.properties.issue_number;
         }
         if (!groups[eCat]) groups[eCat] = [];
-
-      
         groups[eCat].push(getMarker(feature));
     });
-    return groups;
+    return [groups, date];
 }
 
 
