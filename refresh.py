@@ -1,17 +1,15 @@
 #!/usr/bin/python
 """
-With this module we get the POIs with the tags vegan = * and
-vegetarian = * from OpenStreetMap and fill them in a file.
+With this module we get the POIs with the tags diet:vegan = * and
+diet:vegetarian = * from OpenStreetMap and fill them in a file.
 """
-
-import os         # for handling files
-import time       # for sleep
-import json       # read and write json
-import sys        # to check the python version
-import datetime   # for the timestamp
-import urllib3    # for the HTTP GET request
-
-assert sys.version_info >= (3, 0)
+import datetime           # for the timestamp
+import gzip               # for compressing the json file
+import json               # read and write json
+import sys                # to check the python version
+import time               # for sleep
+import urllib3            # for the HTTP GET request
+from pathlib import Path  # for handling files
 
 # constants for the overpass request
 
@@ -28,22 +26,26 @@ SERVERS = [
 HTTP = urllib3.PoolManager()
 
 # # constants for the output files
-TIMESTAMP = str(datetime.datetime.now())                     # the actual date and time
-DATE = datetime.datetime.now().strftime("%Y-%m-%d")          # the actual date
-DATA_DIR = os.path.dirname(os.path.abspath(__file__))        # get the path of the directory of this script
-VEGGIEPLACES_TEMPFILE = DATA_DIR + "/data/places_temp.json"  # the temp file to store the data from the overpass request
-VEGGIEPLACES_FILE = DATA_DIR + "/data/places.json"           # the data file which will be used for the map
-VEGGIESTAT_FILE = DATA_DIR + "/data/stat.json"               # the data file which will be used for the map
-VEGGIEPLACES_OLDFILE = DATA_DIR + "/data/places_old.json"    # previous version of the data file (helpful to examine changes)
+TIMESTAMP = str(datetime.datetime.now())                       # the actual date and time
+DATE = str(datetime.date.today())                              # the actual date
+DATA_DIR = Path("./data/")                                     # get the path of the directory of this script
+VEGGIEPLACES_TEMPFILE = DATA_DIR / "places_temp.json"          # the temp file to store the data
+VEGGIEPLACES_TEMPFILE_MIN = DATA_DIR / "places_temp.min.json"  # the minimized temp file
+VEGGIEPLACES_TEMPFILE_GZIP = DATA_DIR / "places_temp.min.json.gz"  # the gzipped temp file
+VEGGIEPLACES_FILE = DATA_DIR / "places.json"                   # the data file which will be used for the map
+VEGGIEPLACES_FILE_MIN = DATA_DIR / "places.min.json"           # the minimized data file which will be used for the map
+VEGGIEPLACES_FILE_GZIP = DATA_DIR / "places.min.json.gz"       # the gzipped data file which will be used for the map
+VEGGIESTAT_FILE = DATA_DIR / "stat.json"                       # the statistics data file which will be used for the map
+VEGGIEPLACES_OLDFILE = DATA_DIR / "places_old.json"            # previous version of the data file (helpful to examine changes)
+OVERPASS_FILE = DATA_DIR / "overpass.json"                     # the raw overpass output file (useful for later use)
 
 # variables to handle the json data
-places_data = {}
 stat_data = {}
 
 # only for Halle
 TOP_URL = "https://www.vegan-in-halle.de/wp/leben/vegane-stadtkarte/"
 
-# # list of objects which get links to more infos
+# # list of objects which get links to more information
 GET_MORE_INFO = [
     4036431410,  # Vegs
     5592987513,  # VL-Küfa
@@ -54,7 +56,8 @@ GET_MORE_INFO = [
     1034449861,  # Ökoase
     61561597,    # Gartenlokal am Peißnitzhaus
     1037059970,  # Kaffeeschuppen
-    164756625,   # Falafello
+    164756625,   # Falafello 1
+    8357411012,  # Falafello 2
     711744198,   # Hans im Glück
     1538147900,  # Le Feu
     2932869816,  # Yasmin
@@ -67,7 +70,6 @@ GET_MORE_INFO = [
     3821868244,  # Sakura
     282473154,   # Saalekahn
     1034448971,  # Café Nöö
-    748274685,   # Coffee & Sandwiches (Angebot nicht geprüft, aktuell ohne Veggie-Tags)
     2531221700,  # Subway Neustadt
     942721131,   # Subway Zentrum
     3820929262,  # Subway Merseburg
@@ -78,17 +80,18 @@ GET_MORE_INFO = [
     3052291182,  # Seoul Kulinarisch
     1037236274,  # Anh Asia
     164756646,   # Nice
+    8773861578,  # JUICY
     7388445891,  # City Döner
     578246181,   # Mo’s Daniel’s
     2876264915,  # Sao Mai
     178744104,   # Hallesches Brauhaus
     3752087074,  # Rote Soße
     32804265,    # Freddy Fresh
-    53062443,    # Uno Pizza - Innenstadt
-    471978357,   # Uno Pizza - Büschdorf
-    47571137,    # Uno Pizza - Südstadt
-    3387395693,  # Uno Pizza - Neustadt
-    4868552820,  # Uno Pizza - Heide Süd
+    9033240019,  # Papa John's - Innenstadt
+    471978357,   # Papa John's - Büschdorf
+    47571137,    # Papa John's - Südstadt
+    3387395693,  # Papa John's - Neustadt
+    4868552820,  # Papa John's - Heide Süd
     4948443538,  # Thang Long
     189926769,   # Lichthaus
     134238289,   # Mönchshof
@@ -110,6 +113,7 @@ GET_MORE_INFO = [
     304682735,   # Mensa Franckesche Stiftungen
     22883232,    # Heidemensa
     375345326,   # Cafebar Steintor-Campus
+    2338022982,  # Cup der guten Hoffnung
     3364559365,  # The Shabby
     8018723343,  # Café Kuckhoff
     2496741334,  # Naschmadame
@@ -176,7 +180,7 @@ ICON_MAPPING = {
     "leisure:sports_centre": ["sports", "🤼"],
     "leisure:stadium": ["maki_stadium", "🏟️"],
     "shop:alcohol": ["alcohol", "🍷"],
-    "shop:bakery": ["bakery", "🥯"],
+    "shop:bakery": ["bakery", "🥨"],
     "shop:beauty": ["beauty", "💇"],
     "shop:bicycle": ["bicycle", "🚲"],
     "shop:books": ["library", "📚"],
@@ -219,7 +223,7 @@ def determine_icon(tags):
     return icon
 
 
-def get_data_osm():
+def get_osm_data():
     """Get the data from OSM."""
     # Initialize variables
     server = 0
@@ -227,21 +231,18 @@ def get_data_osm():
 
     # Preparing the string for the Overpass request
     # Define export format
-    overpass_query = '?data=[out:json];'
+    overpass_query = "?data=[out:json];"
 
     # # Define the area - Halle + Saalekreis
-    overpass_query += 'area["de:amtlicher_gemeindeschluessel"="15002000"]->.halle;'\
-                      'area["de:amtlicher_gemeindeschluessel"="15088"]->.saalekreis;'\
-                      'area["de:amtlicher_gemeindeschluessel"="14713000"]->.leipzig;'\
-                      '(.halle;.saalekreis;.leipzig;)->.hal_sk_le_area;'
-    # # Collect the vegan nodes and ways
-    overpass_query += '(node(area.hal_sk_le_area)["diet:vegan"~"yes|only|limited"];'\
-                      'way(area.hal_sk_le_area)["diet:vegan"~"yes|only|limited"];'
-    # # Collect the vegetarian nodes and ways
-    overpass_query += 'node(area.hal_sk_le_area)["diet:vegetarian"~"yes|only"];'\
-                      'way(area.hal_sk_le_area)["diet:vegetarian"~"yes|only"];'
-    # # End of the query and use "out center" to reduce the geometry of ways to a single coordinate
-    overpass_query += ');out+center;'
+    overpass_query += "area['de:amtlicher_gemeindeschluessel'='11000000']->.berlin;"\
+                      "area['de:amtlicher_gemeindeschluessel'='14']->.sachsen;"\
+                      "area['de:amtlicher_gemeindeschluessel'='15']->.sachsenanhalt;"\
+                      "area['de:amtlicher_gemeindeschluessel'='16']->.thueringen;"\
+                      "(.berlin;.sachsen;.sachsenanhalt;.thueringen;)->.searchArea;"
+    # # Collect the vegan nodes, ways and relations
+    overpass_query += "nwr(area.searchArea)['diet:vegan'~'yes|only|limited'];"
+    # # End of the query and use "out center" to reduce the geometry of ways and relations to a single coordinate
+    overpass_query += "out+center;"
 
     # Sending a request to one server after another until one gives a valid answer or
     # the end of the server list is reached.
@@ -256,6 +257,11 @@ def get_data_osm():
         # Check the status of the request
         if osm_request.status == 200:
             print("Received answer successfully.")
+
+            # Store the raw output in a file (for any later use)
+            OVERPASS_FILE.touch()
+            OVERPASS_FILE.write_bytes(osm_request.data)
+
             result = json.loads(osm_request.data.decode("utf-8"))
         elif osm_request.status == 400:
             print("HTTP error code ", osm_request.status, ": Bad Request")
@@ -277,12 +283,14 @@ def get_data_osm():
 
 def write_data(data):
     """Write the data in a temp file."""
+
+    places_data = {}
+
     # Initialize variables to count the markers
     n_vegan_only = 0
     n_vegetarian_only = 0
     n_vegan_friendly = 0
     n_vegan_limited = 0
-    n_vegetarian_friendly = 0
 
     # Adding timestamp
     places_data["_timestamp"] = TIMESTAMP
@@ -292,6 +300,10 @@ def write_data(data):
     # Adding list object which will contain all place objects
     places_data["features"] = []
 
+    # Variables to print progress in the console
+    osm_element_index = 0
+    osm_elements_number = len(data["elements"])
+
     # Go through every osm element and put the information into a new places element.
     for osm_element in data["elements"]:
 
@@ -299,21 +311,17 @@ def write_data(data):
         element_type = osm_element["type"]
         tags = osm_element.get("tags", {})
 
-        place_obj = {}
-        place_obj["type"] = "Feature"
-        place_obj["properties"] = {}
+        place_obj = {"type": "Feature", "properties": {}}
         place_obj["properties"]["_id"] = element_id
         place_obj["properties"]["_type"] = element_type
 
         if element_type == "node":
             lat = osm_element.get("lat", None)
             lon = osm_element.get("lon", None)
-
-        elif element_type == "way":
+        elif element_type == "way" or element_type == "relation":
             center_coordinates = osm_element.get("center", None)  # get the coordinates from the center of the object
             lat = center_coordinates.get("lat", None)
             lon = center_coordinates.get("lon", None)
-
         else:
             continue
 
@@ -325,14 +333,26 @@ def write_data(data):
         place_obj["properties"]["icon"] = icon[0]
         place_obj["properties"]["symbol"] = icon[1]
 
+        # Get a name
         if "name" in tags:
             name = tags["name"]
-            # # Double quotes could escape code, so we have to replace them:
-            name = name.replace('"', '”')
         else:
-            # # If there is no name given from osm, we build one.
-            name = "%s %s" % (element_type, element_id)
+            # If there is no name, take the english if exists
+            if "name:en" in tags:
+                name = tags["name:en"]
+            # If it is a vending machine, name it "vending machine"            
+            elif tags.get("amenity", "") == "vending_machine":
+                name = "vending machine"
+            else:
+                # If there is no name given from osm, we build one
+                name = "%s %s" % (element_type, element_id)
+        # Double quotes could escape code, so we have to replace them:
+        name = name.replace('"', '”')
         place_obj["properties"]["name"] = name
+
+        # Print progress
+        osm_element_index += 1
+        print(osm_element_index, " / ", osm_elements_number, "\t", end="\r")
 
         # Give the object a category
         if tags.get("diet:vegan", "") == "only":
@@ -349,67 +369,78 @@ def write_data(data):
             place_obj["properties"]["category"] = "vegan_limited"
             n_vegan_limited += 1
         else:
-            place_obj["properties"]["category"] = "vegetarian_friendly"
-            n_vegetarian_friendly += 1
+            continue
 
         if "cuisine" in tags:
             place_obj["properties"]["cuisine"] = tags["cuisine"]
         if "addr:street" in tags:
-            place_obj["properties"]["addr_street"] = tags.get("addr:street", "")
+            place_obj["properties"]["addr_street"] = tags["addr:street"]
             if "addr:housenumber" in tags:
-                place_obj["properties"]["addr_street"] += " " + tags.get("addr:housenumber", "")
+                place_obj["properties"]["addr_street"] += " " + tags["addr:housenumber"]
         if "addr:city" in tags:
-            place_obj["properties"]["addr_city"] = tags.get("addr:city", "")
+            place_obj["properties"]["addr_city"] = tags["addr:city"]
+        else:
+            if "addr:suburb" in tags:
+                # In some regions (e.g. in USA and Australia) they often tag suburbs instead of city
+                place_obj["properties"]["addr_city"] = tags["addr:suburb"]
         if "addr:postcode" in tags:
-            place_obj["properties"]["addr_postcode"] = tags.get("addr:postcode", "")
+            place_obj["properties"]["addr_postcode"] = tags["addr:postcode"]
         if "addr:country" in tags:
-            place_obj["properties"]["addr_country"] = tags.get("addr:country", "")
+            place_obj["properties"]["addr_country"] = tags["addr:country"]
         if "contact:website" in tags:
-            place_obj["properties"]["contact_website"] = tags.get("contact:website", "")
+            place_obj["properties"]["contact_website"] = tags["contact:website"].rstrip("/")
         elif "website" in tags:
-            place_obj["properties"]["contact_website"] = tags.get("website", "")
+            place_obj["properties"]["contact_website"] = tags["website"].rstrip("/")
         if "contact:facebook" in tags:
-            place_obj["properties"]["contact_facebook"] = tags.get("contact:facebook", "")
+            place_obj["properties"]["contact_facebook"] = tags["contact:facebook"].rstrip("/")
         elif "facebook" in tags:
-            place_obj["properties"]["contact_facebook"] = tags.get("facebook", "")
+            place_obj["properties"]["contact_facebook"] = tags["facebook"].rstrip("/")
         if "contact:instagram" in tags:
-            place_obj["properties"]["contact_instagram"] = tags.get("contact:instagram", "")
+            place_obj["properties"]["contact_instagram"] = tags["contact:instagram"].rstrip("/")
+        elif "instagram" in tags:
+            place_obj["properties"]["contact_instagram"] = tags["instagram"].rstrip("/")
         if "contact:email" in tags:
-            place_obj["properties"]["contact_email"] = tags.get("contact:email", "")
+            place_obj["properties"]["contact_email"] = tags["contact:email"]
         elif "email" in tags:
-            place_obj["properties"]["contact_email"] = tags.get("email", "")
+            place_obj["properties"]["contact_email"] = tags["email"]
         if "contact:phone" in tags:
-            place_obj["properties"]["contact_phone"] = tags.get("contact:phone", "")
+            place_obj["properties"]["contact_phone"] = tags["contact:phone"]
         elif "phone" in tags:
-            place_obj["properties"]["contact_phone"] = tags.get("phone", "")
-        if "opening_hours:covid19" in tags:
-            # Replacing line breaks with spaces (Usually there should be no line breaks,
-            # but if they do appear, they break the structure of the places.json).
-            opening_hours = tags["opening_hours:covid19"].replace("\n", "").replace("\r", "")
-            place_obj["properties"]["opening_hours"] = opening_hours
+            place_obj["properties"]["contact_phone"] = tags["phone"]
+        
+        opening_hours = None
+        if "opening_hours:covid19" in tags and tags["opening_hours:covid19"] != "same" and tags["opening_hours:covid19"] != "restricted":
+            opening_hours = tags["opening_hours:covid19"]
+        # elif "opening_hours:kitchen" in tags:
+        #    opening_hours = tags["opening_hours:kitchen"]
         elif "opening_hours" in tags:
+            opening_hours = tags["opening_hours"]
+        if opening_hours is not None:
             # Replacing line breaks with spaces (Usually there should be no line breaks,
             # but if they do appear, they break the structure of the places.json).
-            opening_hours = tags["opening_hours"].replace("\n", "").replace("\r", "")
+            opening_hours = opening_hours.replace("\n", "").replace("\r", "")
             place_obj["properties"]["opening_hours"] = opening_hours
         if "shop" in tags:
             place_obj["properties"]["shop"] = tags["shop"]
-
         if element_id in GET_MORE_INFO:  # More information and Link for those who use the map in a local website.
             place_obj["properties"]["more_info"] = True
 
         places_data["features"].append(place_obj)
 
+    # Print number of elements
+    print(osm_elements_number, " elements")
+
     # Collect the statistic data in an object and add it to the places object
-    stat_obj = {"date": DATE,
-                "n_vegan_only": n_vegan_only,
-                "n_vegetarian_only": n_vegetarian_only,
-                "n_vegan_friendly": n_vegan_friendly,
-                "n_vegan_limited": n_vegan_limited,
-                "n_vegetarian_friendly": n_vegetarian_friendly}
+    stat_obj = {
+        "date": DATE,
+        "n_vegan_only": n_vegan_only,
+        "n_vegetarian_only": n_vegetarian_only,
+        "n_vegan_friendly": n_vegan_friendly,
+        "n_vegan_limited": n_vegan_limited
+    }
 
     # Open statistic data file
-    with open(VEGGIESTAT_FILE) as json_file:
+    with VEGGIESTAT_FILE.open() as json_file:
 
         # Get previous statistic data
         previous_stat_data = json.load(json_file)
@@ -425,23 +456,28 @@ def write_data(data):
         # Append the new data
         stat_data["stat"].append(stat_obj)
 
+    return places_data
+
 
 def check_data():
     """Check the temp file and replace the old VEGGIEPLACES_FILE if it is ok."""
-    if os.path.isfile(VEGGIEPLACES_TEMPFILE):                    # check if the temp file exists
-        if os.path.getsize(VEGGIEPLACES_TEMPFILE) > 500:         # check if the temp file isn't to small (see issue #21)
-            print("rename " + VEGGIEPLACES_TEMPFILE + " to " + VEGGIEPLACES_FILE)
-            os.rename(VEGGIEPLACES_FILE, VEGGIEPLACES_OLDFILE)   # rename old file
-            os.rename(VEGGIEPLACES_TEMPFILE, VEGGIEPLACES_FILE)  # rename temp file to new file
+    if VEGGIEPLACES_TEMPFILE_GZIP.exists():                             # check if the temp file exists
+        if VEGGIEPLACES_TEMPFILE_GZIP.stat().st_size > 500:             # check if the temp file isn't too small (see issue #21)
+            print("rename " + str(VEGGIEPLACES_TEMPFILE) + " to " + str(VEGGIEPLACES_FILE))
+            VEGGIEPLACES_FILE.rename(VEGGIEPLACES_OLDFILE)             # rename old file
+            VEGGIEPLACES_TEMPFILE.rename(VEGGIEPLACES_FILE)            # rename temp file to new file
+            print("rename " + str(VEGGIEPLACES_TEMPFILE_MIN) + " to " + str(VEGGIEPLACES_FILE_MIN))
+            VEGGIEPLACES_TEMPFILE_MIN.rename(VEGGIEPLACES_FILE_MIN)    # rename minimized temp file to new file
+            print("rename " + str(VEGGIEPLACES_TEMPFILE_GZIP) + " to " + str(VEGGIEPLACES_FILE_GZIP))
+            VEGGIEPLACES_TEMPFILE_GZIP.rename(VEGGIEPLACES_FILE_GZIP)    # rename gzip temp file to new file
 
             # Write the new statistic file
-            outfilestat = open(VEGGIESTAT_FILE, "w")
-            outfilestat.write(json.dumps(stat_data, indent=1, sort_keys=True))
-            outfilestat.close()
+            VEGGIESTAT_FILE.touch()
+            VEGGIESTAT_FILE.write_text(json.dumps(stat_data, indent=1, sort_keys=True))
 
         else:
-            print("temp file is to small!")
-            print(os.path.getsize(VEGGIEPLACES_TEMPFILE))
+            print("New gzip temp file is too small!")
+            print(VEGGIEPLACES_TEMPFILE_GZIP.stat().st_size)
     else:
         print("temp file don't exists!")
 
@@ -449,18 +485,33 @@ def check_data():
 def main():
     """Call the functions to get and write the osm data."""
     # Get data
-    osm_data = get_data_osm()
+    if len(sys.argv) < 2:
+        osm_data = get_osm_data()
+        #osm_data = json.load(open('./data/overpass.json'))
+    else:
+        # For testing without new OSM requests
+        # Example: 'python3 refresh.py ./data/overpass.json'
+        osm_data = json.load(open(sys.argv[1]))
 
     # Write data
     if osm_data is not None:
-        write_data(osm_data)
-        outfile = open(VEGGIEPLACES_TEMPFILE, "w")
-        outfile.write(json.dumps(places_data, indent=1, sort_keys=True))
-        outfile.close()
+        places_data = write_data(osm_data)
+
+        # Write file in pretty format
+        VEGGIEPLACES_TEMPFILE.touch()
+        VEGGIEPLACES_TEMPFILE.write_text(json.dumps(places_data, indent=1, sort_keys=True))
+
+        # Write file in minimized format
+        VEGGIEPLACES_TEMPFILE_MIN.touch()
+        VEGGIEPLACES_TEMPFILE_MIN.write_text(json.dumps(places_data, indent=None, sort_keys=True, separators=(",", ":")))
+
+        # Write file in gzipped format
+        with gzip.open(VEGGIEPLACES_TEMPFILE_GZIP, "wt", encoding="UTF-8") as outfile_gzip:
+            outfile_gzip.write(json.dumps(places_data, indent=None, sort_keys=True, separators=(',', ':')))
 
         check_data()
     else:
-        print("A problem has occurred. The old VEGGIE_MAP was not replaced!")
+        print("A problem has occurred. The old data was not replaced!")
 
 
 main()

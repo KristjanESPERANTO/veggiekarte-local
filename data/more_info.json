@@ -1,0 +1,492 @@
+{
+  "projects": [
+    {
+      "osm_id": "halle-saale-germany",
+      "project-url": "https://vegan-in-halle.de/wp/wp-json/wp/v2/pages/",
+      "node": [
+        {
+          "osm_id": 4036431410,
+          "name": "Vegs",
+          "wp_id": "667"
+        },
+        {
+          "osm_id": 5592987513,
+          "name": "VL-Küfa",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 5592955318,
+          "name": "Reil-Küfa",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 1931764008,
+          "name": "Afamia Eck",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 3658458714,
+          "name": "Kornliebchen",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 3590210914,
+          "name": "Kumara",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 1034449861,
+          "name": "Ökoase",
+          "wp_id": "oekoase"
+        },
+        {
+          "osm_id": 1037059970,
+          "name": "Kaffeeschuppen",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 8357411012,
+          "name": "Falafello - Uniring",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 711744198,
+          "name": "Hans im Glück",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 1538147900,
+          "name": "Le Feu",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 2932869816,
+          "name": "Yasmin",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 261692804,
+          "name": "Espitas",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 6380783117,
+          "name": "roots",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 1038238639,
+          "name": "Enchilada",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 2874464836,
+          "name": "Mextreme",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 252918375,
+          "name": "Alte Apotheke",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 4974999721,
+          "name": "Bagel 29",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 3821868244,
+          "name": "Sakura",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 282473154,
+          "name": "Saalekahn",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 1034448971,
+          "name": "Café Nöö",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 2531221700,
+          "name": "Subway Neustadt",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 942721131,
+          "name": "Subway Zentrum",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 3820929262,
+          "name": "Subway Merseburg",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 309747715,
+          "name": "Shiva",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 1676156956,
+          "name": "House of India",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 2791600302,
+          "name": "Hotdog King",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 3052291182,
+          "name": "Seoul Kulinarisch",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 1037236274,
+          "name": "Anh Asia",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 7388445891,
+          "name": "City Döner",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 578246181,
+          "name": "Mo’s Daniel’s",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 2876264915,
+          "name": "Sao Mai",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 3752087074,
+          "name": "Rote Soße",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 32804265,
+          "name": "Freddy Fresh",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 471978357,
+          "name": "Uno Pizza - Büschdorf",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 3387395693,
+          "name": "Uno Pizza - Neustadt",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 4868552820,
+          "name": "Uno Pizza - Heide Süd",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 4948443538,
+          "name": "Thang Long",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 4465518868,
+          "name": "Sushifreunde",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 1475009992,
+          "name": "Rossini",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 4893692292,
+          "name": "Pandileo",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 3724388225,
+          "name": "Burgerheart",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 4815463722,
+          "name": "Viet Village",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 5599806557,
+          "name": "Sham Restaurant",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 2415756481,
+          "name": "Hallenser Kartoffelhaus",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 3173527817,
+          "name": "Burgerservice",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 6820930072,
+          "name": "Pirashki",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 8018875351,
+          "name": "Restaurant Ruine",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 2068490774,
+          "name": "The One",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 5868832962,
+          "name": "Tandoori Steakhaus",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 1185202509,
+          "name": "Harzmensa",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 8018837433,
+          "name": "Mensa Neuwerk",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 3364559365,
+          "name": "The Shabby",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 8018723343,
+          "name": "Café Kuckhoff",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 2496741334,
+          "name": "Naschmadame",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 6033781352,
+          "name": "Törtcheneck",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 1037235900,
+          "name": "Czech",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 4914539421,
+          "name": "7 Gramm",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 2791600291,
+          "name": "Coffee Fellows im Hauptbahnhof",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 3208898648,
+          "name": "Coffee Fellows - Nova Eventis",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 1639760594,
+          "name": "Bewaffel dich",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 6569044919,
+          "name": "Hafenmeister & Docks",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 5942265574,
+          "name": "Koffij",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 1045144852,
+          "name": "Rosenburg",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 7027316371,
+          "name": "Bistro Lorraine",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 5593108867,
+          "name": "Himmel & Erde",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 1045144871,
+          "name": "Zwei Zimmer, Küche, Bar",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 4971464334,
+          "name": "Café Ludwig",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 3724402925,
+          "name": "I LOVE Icecream",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 2715257424,
+          "name": "Sonnendeck",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 2065237786,
+          "name": "Naturell",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 2051567009,
+          "name": "ÖkoHalle",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 1943778686,
+          "name": "BioRio",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 1902279166,
+          "name": "Biomarkt am Reileck",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 1701119442,
+          "name": "Naturata",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 6805328949,
+          "name": "Bio im Bahnhof",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 5245541311,
+          "name": "denns",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 5583171123,
+          "name": "Europasia",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 2322858124,
+          "name": "Weltladen",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 6366059605,
+          "name": "Rübchen",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 7068127430,
+          "name": "Cancun-Bar",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 2969150134,
+          "name": "Bäckerei Schäl",
+          "wp_id": "vegs"
+        }
+      ],
+      "way": [
+        {
+          "osm_id": 61561597,
+          "name": "Gartenlokal am Peißnitzhaus",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 164756625,
+          "name": "Falafello - Bernburger Straße",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 189926769,
+          "name": "Lichthaus",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 467769739,
+          "name": "Goldene Schildkröte",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 164756646,
+          "name": "Nice",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 178744104,
+          "name": "Hallesches Brauhaus",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 53062443,
+          "name": "Uno Pizza - Innenstadt",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 47571137,
+          "name": "Uno Pizza - Südstadt",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 134238289,
+          "name": "Mönchshof",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 182854644,
+          "name": "Tajmahal",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 375345326,
+          "name": "Cafebar Steintor-Campus",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 304682735,
+          "name": "Mensa Franckesche Stiftungen",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 22883232,
+          "name": "Heidemensa",
+          "wp_id": "vegs"
+        },
+        {
+          "osm_id": 120082234,
+          "name": "Colonne Morris",
+          "wp_id": "vegs"
+        }
+      ]
+    }
+  ]
+}
