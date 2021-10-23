@@ -52,8 +52,6 @@ body {
 }
 
 
-
-
 /* Legend */
 .legendRow {
   display: table-cell;
@@ -77,6 +75,7 @@ body {
   padding-left: 10px;
 }
 
+
 /* Marker properties */
 .marker {
   border-radius: 40% 5%;
@@ -89,6 +88,7 @@ body {
   border-color: NavajoWhite;
   padding: 3px;
 }
+
 
 /* Categorie properties */
 .vegan_only {

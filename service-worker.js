@@ -1,6 +1,6 @@
 let CACHE_NAME = 'veggiekarte-halle';
 
-console.log(CACHE_NAME);
+console.info(CACHE_NAME);
 
 // List of files to cache here.
 const FILES_TO_CACHE = [
@@ -26,7 +26,7 @@ self.addEventListener('fetch', event => {
   event.respondWith(
     caches.open(CACHE_NAME)
       .then(cache => {
-        return cache.match(event.request, {ignoreSearch: true})
+        return cache.match(event.request)
          .then(response => {
            var fetchPromise = fetch(event.request)
              .then(networkResponse => {
