@@ -51,7 +51,6 @@ body {
   }
 }
 
-
 /* Legend */
 .legendRow {
   display: table-cell;
@@ -75,7 +74,6 @@ body {
   padding-left: 10px;
 }
 
-
 /* Marker properties */
 .marker {
   border-radius: 40% 5%;
@@ -89,7 +87,6 @@ body {
   padding: 3px;
 }
 
-
 /* Categorie properties */
 .vegan_only {
   background: #005500;
@@ -100,11 +97,11 @@ body {
   border-color: #118811;
 }
 .vegan_friendly {
-  background: #00BC00;
-  border-color: #00BC00;
+  background: #00bc00;
+  border-color: #00bc00;
 }
 .vegan_limited {
-  background: #AAFFAA;
+  background: #aaffaa;
   border-color: SeaGreen;
 }
 .vegetarian_friendly {
@@ -185,8 +182,12 @@ body {
 }
 /* Loading Icon */
 @keyframes spinner {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 .loading_icon {
   width: 12px;
@@ -209,7 +210,6 @@ body {
   background-color: #2074b6;
 }
 
-
 /* Firefox workaround for https://github.com/Leaflet/Leaflet/issues/4686 */
 .leaflet-fade-anim .leaflet-tile {
   will-change: auto !important;
@@ -217,8 +217,6 @@ body {
 .leaflet-zoom-anim .leaflet-zoom-animated {
   will-change: auto !important;
 }
-
-
 
 /* Editor link centered */
 .mapEditorLink {

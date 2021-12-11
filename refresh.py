@@ -75,6 +75,7 @@ GET_MORE_INFO = [
     3820929262,  # Subway Merseburg
     467769739,   # Goldene Schildkröte
     309747715,   # Shiva
+    1781737776,  # Indian Masala
     1676156956,  # House of India
     2791600302,  # Hotdog King
     3052291182,  # Seoul Kulinarisch
@@ -115,6 +116,7 @@ GET_MORE_INFO = [
     375345326,   # Cafebar Steintor-Campus
     2338022982,  # Cup der guten Hoffnung
     3364559365,  # The Shabby
+    4893812414,  # TEKİEZ
     8018723343,  # Café Kuckhoff
     2496741334,  # Naschmadame
     6033781352,  # Törtcheneck
@@ -233,12 +235,11 @@ def get_osm_data():
     # Define export format
     overpass_query = "?data=[out:json];"
 
-    # # Define the area - Halle + Saalekreis
-    overpass_query += "area['de:amtlicher_gemeindeschluessel'='11000000']->.berlin;"\
-                      "area['de:amtlicher_gemeindeschluessel'='14']->.sachsen;"\
+    # # Define the area - Mitteldeutschland
+    overpass_query += "area['de:amtlicher_gemeindeschluessel'='14']->.sachsen;"\
                       "area['de:amtlicher_gemeindeschluessel'='15']->.sachsenanhalt;"\
                       "area['de:amtlicher_gemeindeschluessel'='16']->.thueringen;"\
-                      "(.berlin;.sachsen;.sachsenanhalt;.thueringen;)->.searchArea;"
+                      "(.sachsen;.sachsenanhalt;.thueringen;)->.searchArea;"
     # # Collect the vegan nodes, ways and relations
     overpass_query += "nwr(area.searchArea)['diet:vegan'~'yes|only|limited'];"
     # # End of the query and use "out center" to reduce the geometry of ways and relations to a single coordinate
@@ -499,11 +500,11 @@ def main():
 
         # Write file in pretty format
         VEGGIEPLACES_TEMPFILE.touch()
-        VEGGIEPLACES_TEMPFILE.write_text(json.dumps(places_data, indent=1, sort_keys=True))
+        VEGGIEPLACES_TEMPFILE.write_text(json.dumps(places_data, indent=1, sort_keys=True, ensure_ascii=False))
 
         # Write file in minimized format
         VEGGIEPLACES_TEMPFILE_MIN.touch()
-        VEGGIEPLACES_TEMPFILE_MIN.write_text(json.dumps(places_data, indent=None, sort_keys=True, separators=(",", ":")))
+        VEGGIEPLACES_TEMPFILE_MIN.write_text(json.dumps(places_data, indent=None, sort_keys=True, separators=(",", ":"), ensure_ascii=False))
 
         # Write file in gzipped format
         with gzip.open(VEGGIEPLACES_TEMPFILE_GZIP, "wt", encoding="UTF-8") as outfile_gzip:
@@ -511,7 +512,7 @@ def main():
 
         check_data()
     else:
-        print("A problem has occurred. The old data was not replaced!")
+        print("A problem has occurred. The old data file was not replaced!")
 
 
 main()

@@ -5,19 +5,19 @@
 function getStatistics() {
   const url = "data/stat.json";
   fetch(url)
-  .then(response => response.json())
-  .then(data => handleData(data.stat))
-  .catch(error  => {console.log('Request failed', error);});
+    .then(response => response.json())
+    .then(data => handleData(data.stat))
+    .catch(error => { console.log('Request failed', error); });
 }
 
 
 function handleData(data) {
   // Call function to put the values from each day in arrays
   (data).forEach(getValues);
-  
+
   // Get config
   let config = buildConfig();
-  
+
   // Publish chart
   publishChart(config);
 }
@@ -37,43 +37,43 @@ function getValues(element) {
     dataVeganLimited.push(element.n_vegan_limited);
     lastElementDate = currentElementDate;
   }
-} 
+}
 
 
 function buildConfig() {
 
-    let config = {
-      type: 'line',
-      data: {
-        labels: dateArray,
-        datasets: [{
-          label: 'vegan only',
-          borderColor: 'DarkGreen',
-          backgroundColor: 'DarkGreen',
-          data: dataVeganOnly,
-          fill: false
-        }, {
-          label: 'vegetarian only',
-          borderColor: 'SpringGreen',
-          backgroundColor: 'SpringGreen',
-          data: dataVegetarianOnly,
-          fill: false
-        }, {
-          label: 'vegan friendly',
-          borderColor: 'SkyBlue  ',
-          backgroundColor: 'SkyBlue  ',
-          data: dataVeganFriendly,
-          fill: false
-        }, {
-          label: 'vegan limited',
-          borderColor: 'Orange',
-          backgroundColor: 'Orange',
-          data: dataVeganLimited,
-          fill: false
-        }]
-      }
-    };
-  
+  let config = {
+    type: 'line',
+    data: {
+      labels: dateArray,
+      datasets: [{
+        label: 'vegan only',
+        borderColor: 'DarkGreen',
+        backgroundColor: 'DarkGreen',
+        data: dataVeganOnly,
+        fill: false
+      }, {
+        label: 'vegetarian only',
+        borderColor: 'SpringGreen',
+        backgroundColor: 'SpringGreen',
+        data: dataVegetarianOnly,
+        fill: false
+      }, {
+        label: 'vegan friendly',
+        borderColor: 'SkyBlue  ',
+        backgroundColor: 'SkyBlue  ',
+        data: dataVeganFriendly,
+        fill: false
+      }, {
+        label: 'vegan limited',
+        borderColor: 'Orange',
+        backgroundColor: 'Orange',
+        data: dataVeganLimited,
+        fill: false
+      }]
+    }
+  };
+
   return config;
 }
 

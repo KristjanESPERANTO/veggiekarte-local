@@ -1,12 +1,14 @@
 // The "use strict" directive helps to write cleaner code.
 "use strict";
 
+import { getIcon } from "./veggiemap-icons.js"
+import { setUserLanguage, getUserLanguage, addLanguageRecources } from "./i18n.js"
 
 /* Definition (polyfill) for the function replaceAll
    for older browser versions (before 2020)
    Can be removed after some years. */
 if (!String.prototype.replaceAll) {
-  String.prototype.replaceAll = function(old_str, new_str) {
+  String.prototype.replaceAll = function (old_str, new_str) {
     return this.replace(new RegExp(old_str, 'g'), new_str);
   };
 }
@@ -20,8 +22,6 @@ let vegan_limited = L.featureGroup.subGroup(parentGroup, {});
 let subgroups = { vegan_only, vegetarian_only, vegan_friendly, vegan_limited };
 
 let map;
-let locateControl;
-let fullscreenControl;
 let layerControl;
 let languageControl;
 
@@ -61,7 +61,7 @@ function veggiemap() {
   parentGroup.bindTooltip(calculateTooltip);
 
   // Close the tooltip when opening the popup
-  parentGroup.on("click", function(e) {
+  parentGroup.on("click", function (e) {
     if (parentGroup.isPopupOpen()) {
       parentGroup.closeTooltip();
     }
@@ -71,15 +71,15 @@ function veggiemap() {
   let hash = new L.Hash(map);
 
   // Add fullscreen control button
-  fullscreenControl = new L.Control.Fullscreen({
+  document.fullscreenControl = new L.Control.Fullscreen({
     position: 'topright',
   });
-  fullscreenControl.addTo(map);
+  document.fullscreenControl.addTo(map);
 
   // Add info button
   let infoButton = L.easyButton(
     '<div class="info-button"></div>',
-    function(btn, map) { toggleInfo() }
+    function (btn, map) { toggleInfo() }
   ).addTo(map);
   infoButton.setPosition('topright');
 
@@ -87,24 +87,26 @@ function veggiemap() {
   L.Control.geocoder().addTo(map);
 
   // Add button to search own position
-  locateControl = L.control.locate({
+  document.locateControl = L.control.locate({
     icon: 'locate_icon',
     iconLoading: 'loading_icon',
     showCompass: true,
     locateOptions: { maxZoom: 16 },
     position: 'topright'
-  }).addTo(map);
+  });
+  document.locateControl.addTo(map)
 
   // Add language control button
   languageControl = L.languageSelector({
     languages: [
-      L.langObject('de', 'de - Deutsch',   './third-party/leaflet-languageselector/images/de.svg'),
-      L.langObject('en', 'en - English',   './third-party/leaflet-languageselector/images/en.svg'),
-      L.langObject('eo', 'eo - Esperanto', './third-party/leaflet-languageselector/images/eo.svg'),
-      L.langObject('fi', 'fi - suomi',     './third-party/leaflet-languageselector/images/fi.svg'),
-      L.langObject('fr', 'fr - Français',  './third-party/leaflet-languageselector/images/fr.svg')
+      L.langObject('de', 'de - Deutsch', './third-party/leaflet.languageselector/images/de.svg'),
+      L.langObject('en', 'en - English', './third-party/leaflet.languageselector/images/en.svg'),
+      L.langObject('eo', 'eo - Esperanto', './third-party/leaflet.languageselector/images/eo.svg'),
+      L.langObject('fi', 'fi - suomi', './third-party/leaflet.languageselector/images/fi.svg'),
+      L.langObject('fr', 'fr - Français', './third-party/leaflet.languageselector/images/fr.svg')
     ],
-    callback: changeLanguage,
+    callback: setUserLanguage,
+    initialLanguage: getUserLanguage(),
     vertical: false,
     button: true
   });
@@ -119,60 +121,6 @@ function veggiemap() {
 }
 
 
-/**
- * Add or replace the language parameter of the URL and reload the page.
- * @param String id of the language
- */
-function changeLanguage(selectedLanguage) {
-  window.location.href = updateURLParameter(window.location.href, 'lang', selectedLanguage);
-}
-
-/**
- * Add or replace a parameter (with value) in the given URL.
- * @param String url the URL
- * @param String param the parameter
- * @param String paramVal the value of the parameter
- * @return String the changed URL
- */
-function updateURLParameter(url, param, paramVal) {
-  let theAnchor = null;
-  let newAdditionalURL = "";
-  let tempArray = url.split("?");
-  let baseURL = tempArray[0];
-  let additionalURL = tempArray[1];
-  let temp = "";
-
-  if (additionalURL) {
-    let tmpAnchor = additionalURL.split("#");
-    let theParams = tmpAnchor[0];
-    theAnchor = tmpAnchor[1];
-    if (theAnchor) {
-      additionalURL = theParams;
-    }
-
-    tempArray = additionalURL.split("&");
-
-    for (let i = 0; i < tempArray.length; i++) {
-      if (tempArray[i].split('=')[0] != param) {
-        newAdditionalURL += temp + tempArray[i];
-        temp = "&";
-      }
-    }
-  } else {
-    let tmpAnchor = baseURL.split("#");
-    let theParams = tmpAnchor[0];
-    theAnchor = tmpAnchor[1];
-
-    if (theParams) {
-      baseURL = theParams;
-    }
-  }
-  let rows_txt = temp + "" + param + "=" + paramVal;
-  return baseURL + "?" + newAdditionalURL + rows_txt;
-}
-
-
-
 // Function to toogle the visibility of the Info box.
 function toggleInfo() {
   let element = document.getElementById('information'); // get the element of the information window
@@ -183,7 +131,7 @@ function toggleInfo() {
     element.style.display = "none";
   }
 }
-
+document.toggleInfo = toggleInfo;
 
 // Function to hide the spinner.
 function hideSpinner() {
@@ -245,8 +193,8 @@ function veggiemap_populate(parentGroup) {
       // Hide spinner
       hideSpinner();
 
-      // Update translations
-      updateContent();
+      // Initiate translations
+      addLanguageRecources(getUserLanguage());
     })
     .catch(error => { console.error('Request failed', error); });
 }
@@ -336,12 +284,12 @@ function calculatePopup(layer) {
   if (eCui != undefined) { popupContent += "<div class='popupflex-container'><div>👩‍🍳</div><div>" + eCui.replaceAll(";", ", ").replaceAll("_", " ") + "</div></div>" }
 
   // Address
-  let eAddr = ""
-    // Collecting address information
-  if (eStr != undefined) { eAddr += eStr + "<br/>" }  // Street
-  if (ePos != undefined) { eAddr += ePos + " " }      // Postcode
-  if (eCit != undefined) { eAddr += eCit + " " }      // City
-  //if(eCou!= undefined) { eAddr += "<br/>" + eCou }  // Country
+  let eAddr = "";
+  // Collecting address information
+  if (eStr != undefined) { eAddr += eStr + "<br/>" } // Street
+  if (ePos != undefined) { eAddr += ePos + " " }     // Postcode
+  if (eCit != undefined) { eAddr += eCit + " " }     // City
+  //if (eCou != undefined) { eAddr += "<br/>" + eCou } // Country
 
   // Adding address information to popup
   if (eAddr != "") { popupContent += "<div class='popupflex-container'><div>📍</div><div>" + eAddr + "</div></div>" }
@@ -353,7 +301,7 @@ function calculatePopup(layer) {
     // State: Sachsen-Anhalt
     let state = 'Sachsen-Anhalt';
     // Get browser language for the warnings and the prettifier
-    let locale = userLanguage; // userLanguage is defined in i18n.js
+    let locale = getUserLanguage();
 
     //Create opening_hours object
     let oh = new opening_hours(eOpe, {
@@ -408,7 +356,7 @@ function calculatePopup(layer) {
 
 // Adding function for opening_hours objects to check if place will be open after n minutes (60 minutes as default)
 if (!opening_hours.prototype.getFutureState) {
-  opening_hours.prototype.getFutureState = function(minutes = 60) {
+  opening_hours.prototype.getFutureState = function (minutes = 60) {
     let nowPlusHours = new Date();
     nowPlusHours.setUTCMinutes(nowPlusHours.getUTCMinutes() + minutes);
     return this.getState(nowPlusHours);
@@ -418,7 +366,7 @@ if (!opening_hours.prototype.getFutureState) {
 
 // Check if the data entries are complete
 function checkData(parentGroup) {
-  parentGroup.eachLayer(function(layer) {
+  parentGroup.eachLayer(function (layer) {
     // Collect properties
     let eNam = layer.feature.properties.name;
     let eId = layer.feature.properties._id;

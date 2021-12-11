@@ -6,13 +6,13 @@
    for older browser versions (before 2020)
    Can be removed after some years. */
 if (!String.prototype.replaceAll) {
-    String.prototype.replaceAll = function (old_str, new_str){
-        return this.replace(new RegExp(old_str, 'g'), new_str);
-    };
+  String.prototype.replaceAll = function (old_str, new_str) {
+    return this.replace(new RegExp(old_str, 'g'), new_str);
+  };
 }
 
 // Define marker groups
-let parentGroup = L.markerClusterGroup({showCoverageOnHover: false, maxClusterRadius: 20});
+let parentGroup = L.markerClusterGroup({ showCoverageOnHover: false, maxClusterRadius: 20 });
 let issue_number_0 = L.featureGroup.subGroup(parentGroup, {});
 let issue_number_1 = L.featureGroup.subGroup(parentGroup, {});
 let issue_number_2 = L.featureGroup.subGroup(parentGroup, {});
@@ -44,18 +44,18 @@ function veggiemap() {
   });
 
   // Add zoom control
-  L.control.zoom({position:'topright'}).addTo(map);
+  L.control.zoom({ position: 'topright' }).addTo(map);
 
   // Define overlays (each marker group gets a layer) + add legend to the description
   let overlays = {
-    "<div class='legendRow'><div class='secondCell'>no issues</div><div class='thirdCell' id='issue_number_0'></div></div>" : issue_number_0,
-    "<div class='legendRow'><div class='secondCell'>1 issue</div><div class='thirdCell' id='issue_number_1'></div></div>" : issue_number_1,
-    "<div class='legendRow'><div class='secondCell'>2 issues</div><div class='thirdCell' id='issue_number_2'></div></div>" : issue_number_2,
-    "<div class='legendRow'><div class='secondCell'>3 issues</div><div class='thirdCell' id='issue_number_3'></div></div>" : issue_number_3,
-    "<div class='legendRow'><div class='secondCell'>4 issues</div><div class='thirdCell' id='issue_number_4'></div></div>" : issue_number_4,
-    "<div class='legendRow'><div class='secondCell'>5 issues</div><div class='thirdCell' id='issue_number_5'></div></div>" : issue_number_5,
-    "<div class='legendRow'><div class='secondCell'>6 issues</div><div class='thirdCell' id='issue_number_6'></div></div>" : issue_number_6,
-    "<div class='legendRow'><div class='secondCell'>more than 6</div><div class='thirdCell' id='issue_number_many'></div></div>" : issue_number_many
+    "<div class='legendRow'><div class='secondCell'>no issues</div><div class='thirdCell' id='issue_number_0'></div></div>": issue_number_0,
+    "<div class='legendRow'><div class='secondCell'>1 issue</div><div class='thirdCell' id='issue_number_1'></div></div>": issue_number_1,
+    "<div class='legendRow'><div class='secondCell'>2 issues</div><div class='thirdCell' id='issue_number_2'></div></div>": issue_number_2,
+    "<div class='legendRow'><div class='secondCell'>3 issues</div><div class='thirdCell' id='issue_number_3'></div></div>": issue_number_3,
+    "<div class='legendRow'><div class='secondCell'>4 issues</div><div class='thirdCell' id='issue_number_4'></div></div>": issue_number_4,
+    "<div class='legendRow'><div class='secondCell'>5 issues</div><div class='thirdCell' id='issue_number_5'></div></div>": issue_number_5,
+    "<div class='legendRow'><div class='secondCell'>6 issues</div><div class='thirdCell' id='issue_number_6'></div></div>": issue_number_6,
+    "<div class='legendRow'><div class='secondCell'>more than 6</div><div class='thirdCell' id='issue_number_many'></div></div>": issue_number_many
   };
 
   veggiemap_populate(parentGroup);
@@ -65,8 +65,8 @@ function veggiemap() {
   parentGroup.bindTooltip(calculateTooltip);
 
   // Close the tooltip when opening the popup
-  parentGroup.on("click", function(e){
-    if(parentGroup.isPopupOpen()){
+  parentGroup.on("click", function (e) {
+    if (parentGroup.isPopupOpen()) {
       parentGroup.closeTooltip();
     }
   })
@@ -77,7 +77,7 @@ function veggiemap() {
   // Add info button
   let infoButton = L.easyButton(
     '<div class="info-button"></div>',
-    function(btn, map){toggleInfo()}
+    function (btn, map) { toggleInfo() }
   ).addTo(map);
   infoButton.setPosition('topright');
 
@@ -89,8 +89,8 @@ function veggiemap() {
     icon: 'locate_icon',
     iconLoading: 'loading_icon',
     showCompass: true,
-    locateOptions: {maxZoom: 16},
-    position:'topright'
+    locateOptions: { maxZoom: 16 },
+    position: 'topright'
   }).addTo(map);
 
   // Add layer control button
@@ -101,12 +101,12 @@ function veggiemap() {
 function toggleInfo() {
   let element = document.getElementById('information');    // get the element of the information window
   let computedStyle = window.getComputedStyle(element);    // get the actual style information
-    if (computedStyle.display != "block") {
-      element.style.display = "block";
-    }
-    else {
-      element.style.display = "none";
-    }
+  if (computedStyle.display != "block") {
+    element.style.display = "block";
+  }
+  else {
+    element.style.display = "none";
+  }
 }
 
 
@@ -137,7 +137,7 @@ function stat_populate(markerGroups, date) {
   }
   // Add the date to the Layer Control
   let lastEntry = document.getElementById("issue_number_many").parentNode.parentNode;
-  lastEntry.innerHTML += "<br /><div>("+date+")</div>";
+  lastEntry.innerHTML += "<br /><div>(" + date + ")</div>";
 }
 
 
@@ -145,97 +145,97 @@ function stat_populate(markerGroups, date) {
 function veggiemap_populate(parentGroup) {
   const url = "../data/check_results.json";
   fetch(url)
-  .then(response => response.json())
-  .then(geojson => geojsonToMarkerGroups(geojson))
-  .then(markerGroupsAndDate => {
-    let markerGroups = markerGroupsAndDate[0];
-    let date = markerGroupsAndDate[1];
-    
-    Object.entries(subgroups).forEach(([key, subgroup]) => {
-      // Bulk add all the markers from a markerGroup to a subgroup in one go
-      // Source: https://github.com/ghybs/Leaflet.FeatureGroup.SubGroup/issues/5
-      subgroup.addLayer(L.layerGroup(markerGroups[key]));
-      map.addLayer(subgroup);
-    });
+    .then(response => response.json())
+    .then(geojson => geojsonToMarkerGroups(geojson))
+    .then(markerGroupsAndDate => {
+      let markerGroups = markerGroupsAndDate[0];
+      let date = markerGroupsAndDate[1];
 
-    // Don't show markers without issues
-    map.removeLayer(issue_number_0);
+      Object.entries(subgroups).forEach(([key, subgroup]) => {
+        // Bulk add all the markers from a markerGroup to a subgroup in one go
+        // Source: https://github.com/ghybs/Leaflet.FeatureGroup.SubGroup/issues/5
+        subgroup.addLayer(L.layerGroup(markerGroups[key]));
+        map.addLayer(subgroup);
+      });
 
-    // Reveal all the markers and clusters on the map in one go
-    map.addLayer(parentGroup);
+      // Don't show markers without issues
+      map.removeLayer(issue_number_0);
 
-    // Call the function to put the numbers into the legend
-    stat_populate(markerGroups, date);
+      // Reveal all the markers and clusters on the map in one go
+      map.addLayer(parentGroup);
 
-    // Hide spinner
-    hideSpinner();
-  })
-  .catch(error  => {console.log('Request failed', error);});
+      // Call the function to put the numbers into the legend
+      stat_populate(markerGroups, date);
+
+      // Hide spinner
+      hideSpinner();
+    })
+    .catch(error => { console.log('Request failed', error); });
 }
 
 // Process the places GeoJSON into the groups of markers
 function geojsonToMarkerGroups(geojson) {
-    const date = geojson._timestamp.split(" ")[0];
-    const groups = {};
-    geojson.features.forEach(feature => {
-        let eCat = "issue_number_"
-        if (feature.properties.issue_number > 6) {
-          eCat += "many";
-        } else {
-          eCat += feature.properties.issue_number;
-        }
-        if (!groups[eCat]) groups[eCat] = [];
-        groups[eCat].push(getMarker(feature));
-    });
-    return [groups, date];
+  const date = geojson._timestamp.split(" ")[0];
+  const groups = {};
+  geojson.features.forEach(feature => {
+    let eCat = "issue_number_"
+    if (feature.properties.issue_number > 6) {
+      eCat += "many";
+    } else {
+      eCat += feature.properties.issue_number;
+    }
+    if (!groups[eCat]) groups[eCat] = [];
+    groups[eCat].push(getMarker(feature));
+  });
+  return [groups, date];
 }
 
 
 // Function to get the marker.
 function getMarker(feature) {
-    let eLatLon = [feature.geometry.coordinates[1],feature.geometry.coordinates[0]];
-    let eNam = feature.properties.name;
+  let eLatLon = [feature.geometry.coordinates[1], feature.geometry.coordinates[0]];
+  let eNam = feature.properties.name;
 
-    let marker = L.marker(eLatLon);
-    marker.feature = feature;
-    return marker;
+  let marker = L.marker(eLatLon);
+  marker.feature = feature;
+  return marker;
 }
 
 // Calculate tooltip content for a given marker layer
 function calculateTooltip(layer) {
-    let feature = layer.feature;
-    let eNam = feature.properties.name;
-    return eNam;
+  let feature = layer.feature;
+  let eNam = feature.properties.name;
+  return eNam;
 }
 
 // Calculate popup content for a given marker layer
 function calculatePopup(layer) {
-    // Get the information
-    let feature = layer.feature;
-    let eId  = feature.properties._id;
-    let eNam = feature.properties.name;
-    let eTyp = feature.properties._type;
+  // Get the information
+  let feature = layer.feature;
+  let eId = feature.properties._id;
+  let eNam = feature.properties.name;
+  let eTyp = feature.properties._type;
 
-    /*** Building the popup content ***/
-    
-    // Popup title
-    let popupContent = "<div class='mapPopupTitle'>" + eNam + "</div><hr/>";
+  /*** Building the popup content ***/
 
-    // Add undefined keys
-    if (feature.properties.undefined != undefined) {
-        feature.properties.undefined.forEach(key => popupContent += "<div class='popup_issue'>'"+key+"' is undefined</div>")
-    }
+  // Popup title
+  let popupContent = "<div class='mapPopupTitle'>" + eNam + "</div><hr/>";
 
-    // Add issues
-    if (feature.properties.issues != undefined) {
-        feature.properties.issues.forEach(issue => popupContent += "<div class='popup_issue'>"+issue+"</div>")
-    }
+  // Add undefined keys
+  if (feature.properties.undefined != undefined) {
+    feature.properties.undefined.forEach(key => popupContent += "<div class='popup_issue'>'" + key + "' is undefined</div>")
+  }
 
-    // OSM link to edit
-    let osmUrl = "https://openstreetmap.org/"+eTyp+"/"+eId;
-    popupContent += "<hr/><div class='mapEditorLink'><a href='"+osmUrl+"' target='_blank' rel='noopener noreferrer'>(Edit on OpenStreetMap)</a></div>";
+  // Add issues
+  if (feature.properties.issues != undefined) {
+    feature.properties.issues.forEach(issue => popupContent += "<div class='popup_issue'>" + issue + "</div>")
+  }
 
-    return popupContent;
+  // OSM link to edit
+  let osmUrl = "https://openstreetmap.org/" + eTyp + "/" + eId;
+  popupContent += "<hr/><div class='mapEditorLink'><a href='" + osmUrl + "' target='_blank' rel='noopener noreferrer'>(Edit on OpenStreetMap)</a></div>";
+
+  return popupContent;
 }
 
 
