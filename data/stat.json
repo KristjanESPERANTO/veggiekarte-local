@@ -401,10 +401,10 @@
   },
   {
    "date": "2022-03-12",
-   "n_vegan_friendly": 509,
-   "n_vegan_limited": 37,
-   "n_vegan_only": 26,
-   "n_vegetarian_only": 22
+   "n_vegan_friendly": 98,
+   "n_vegan_limited": 22,
+   "n_vegan_only": 3,
+   "n_vegetarian_only": 10
   }
  ]
 }

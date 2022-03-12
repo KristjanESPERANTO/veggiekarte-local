@@ -238,11 +238,10 @@ def get_osm_data():
     # Define export format
     overpass_query = "?data=[out:json];"
 
-    # # Define the area - Mitteldeutschland
-    overpass_query += "area['de:amtlicher_gemeindeschluessel'='14']->.sachsen;"\
-                      "area['de:amtlicher_gemeindeschluessel'='15']->.sachsenanhalt;"\
-                      "area['de:amtlicher_gemeindeschluessel'='16']->.thueringen;"\
-                      "(.sachsen;.sachsenanhalt;.thueringen;)->.searchArea;"
+    # # Define the area - Halle + Saalekreis
+    overpass_query += "area['de:amtlicher_gemeindeschluessel'='15002000']->.halle;"\
+                      "area['de:amtlicher_gemeindeschluessel'='15088']->.saalekreis;"\
+                      "(.halle;.saalekreis;)->.searchArea;"
     # # Collect the vegan nodes, ways and relations
     overpass_query += "nwr(area.searchArea)['diet:vegan'~'yes|only|limited'];"
     # # End of the query and use "out center" to reduce the geometry of ways and relations to a single coordinate
