@@ -1,5 +1,5 @@
 {
- "_timestamp": "2021-12-11 12:33:46.434102",
+ "_timestamp": "2022-03-12 14:02:52.722378",
  "features": [
   {
    "geometry": {
@@ -242,13 +242,62 @@
     "addr_postcode": "04103",
     "addr_street": "Gutenbergplatz 1e",
     "category": "vegan_friendly",
-    "contact_phone": "+49 341 2171717",
+    "contact_phone": "+49 341 6894575",
     "contact_website": "https://www.uno-pizza.de/uno-pizza-leipzig",
     "cuisine": "pizza",
     "icon": "maki_restaurant-pizza",
-    "name": "Uno Pizza",
-    "opening_hours": "Mo-Su 11:00-23:00",
+    "name": "Papa John's",
+    "opening_hours": "Su-Th 11:00-23:00, Fr,Sa 11:00-24:00",
     "symbol": "🍕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.3420799,
+     51.325345
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 254379309,
+    "_type": "node",
+    "addr_city": "Leipzig",
+    "addr_country": "DE",
+    "addr_postcode": "04229",
+    "addr_street": "Industriestraße 22",
+    "category": "vegan_friendly",
+    "contact_phone": "+4915254131368",
+    "cuisine": "asian",
+    "icon": "fast_food",
+    "name": "Kim Qui - Goldene Schildkröte",
+    "opening_hours": "Mo-Sa 11:00-22:00; Su 12:00-22:00",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.344164,
+     51.3242476
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 254379571,
+    "_type": "node",
+    "addr_city": "Leipzig",
+    "addr_postcode": "04229",
+    "addr_street": "Könneritzstraße 49",
+    "category": "vegan_friendly",
+    "contact_website": "https://www.maza-pita.de",
+    "cuisine": "syrian",
+    "icon": "fast_food",
+    "name": "Maza Pita",
+    "opening_hours": "Mo-Fr 11:00-22:00; Sa 12:00-22:00; Su,PH 12:00-21:00",
+    "symbol": "🍔"
    },
    "type": "Feature"
   },
@@ -374,6 +423,26 @@
     "name": "Ganesha",
     "opening_hours": "open",
     "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.3261333,
+     51.3159779
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 265089190,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "cuisine": "kebab",
+    "icon": "fast_food",
+    "name": "Bistro Today",
+    "opening_hours": "Mo-Su 11:00-23:00",
+    "symbol": "🍔"
    },
    "type": "Feature"
   },
@@ -622,7 +691,7 @@
     "cuisine": "burger;chicken;salad;wings",
     "icon": "restaurant",
     "name": "MaBe`s Grillbar",
-    "opening_hours": "Mo-Sa 10:30-21:30; Su 12:00-21:30",
+    "opening_hours": "Mo-Sa 11:00-21:00; Su 12:00-21:00",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -816,7 +885,7 @@
     "cuisine": "cake",
     "icon": "restaurant",
     "name": "Selketaler Waldgasthof IV. Hammer in Mägdesprung",
-    "opening_hours": "Fr-Su 12:00-18:00",
+    "opening_hours": "Sa-Su 13:00-17:00",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -1142,6 +1211,31 @@
   {
    "geometry": {
     "coordinates": [
+     11.0355383,
+     50.9873412
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 316755952,
+    "_type": "node",
+    "addr_city": "Erfurt",
+    "addr_postcode": "99086",
+    "addr_street": "Friedrich-Engels-Straße 11",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 361 5612220",
+    "contact_website": "https://www.dominos.de",
+    "cuisine": "pizza",
+    "icon": "maki_restaurant-pizza",
+    "name": "Domino's Pizza",
+    "opening_hours": "Mo-Su 11:00-23:00",
+    "symbol": "🍕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      12.2388427,
      51.8350536
     ],
@@ -1167,32 +1261,6 @@
   {
    "geometry": {
     "coordinates": [
-     12.187767,
-     51.608488
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 331167653,
-    "_type": "node",
-    "addr_city": "Sandersdorf-Brehna",
-    "addr_country": "DE",
-    "addr_postcode": "06794",
-    "addr_street": "Raststätte Köckern",
-    "category": "vegan_friendly",
-    "contact_phone": "+49 34954 24870",
-    "contact_website": "http://www.mcdonalds.de",
-    "cuisine": "burger",
-    "icon": "fast_food",
-    "name": "McDonald's",
-    "opening_hours": "24/7",
-    "symbol": "🍔"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
      13.7392296,
      51.0490791
     ],
@@ -1211,7 +1279,7 @@
     "contact_website": "http://www.ladencafe.de/cafe_start.html",
     "cuisine": "vollwert",
     "icon": "restaurant",
-    "name": "Café aha + Weltladen",
+    "name": "LadenCafé aha + Weltladen",
     "opening_hours": "Mo-Su 09:00-23:00",
     "symbol": "🍽️"
    },
@@ -1264,6 +1332,26 @@
     "name": "Burger King",
     "opening_hours": "Mo-Tu 09:00-22:00; Fr-Sa 09:00-23:00; Su,PH 10:00-22:00",
     "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.3801004,
+     51.3387307
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 340038682,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_website": "http://mr-borella.de",
+    "icon": "ice_cream",
+    "name": "Mr. Borella",
+    "opening_hours": "Mo-Su 10:00-20:00; PH off",
+    "symbol": "🍨"
    },
    "type": "Feature"
   },
@@ -1389,7 +1477,7 @@
     "cuisine": "sandwich",
     "icon": "fast_food",
     "name": "Subway",
-    "opening_hours": "Mo-Fr 09:30-23:00; Sa,Su,PH 11:00-23:00",
+    "opening_hours": "Mo-Fr 10:00-21:00; PH,Sa,Su 11:00-21:00",
     "symbol": "🍔"
    },
    "type": "Feature"
@@ -1471,6 +1559,31 @@
   {
    "geometry": {
     "coordinates": [
+     13.740705,
+     51.049511
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 373092452,
+    "_type": "node",
+    "addr_city": "Dresden",
+    "addr_country": "DE",
+    "addr_postcode": "01067",
+    "addr_street": "Weiße Gasse 6",
+    "category": "vegan_friendly",
+    "contact_website": "https://www.happyhappa-dresden.de",
+    "cuisine": "international",
+    "icon": "restaurant",
+    "name": "Happy Happa",
+    "opening_hours": "Mo-Th 17:00-22:00; Fr-Su 12:00-22:00",
+    "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.3638041,
      50.9936804
     ],
@@ -1539,7 +1652,7 @@
     "cuisine": "vietnamese;chinese;asian",
     "icon": "fast_food",
     "name": "Vegan Express",
-    "opening_hours": "11:00-22:00",
+    "opening_hours": "11:00-22:00; We off",
     "symbol": "🍔"
    },
    "type": "Feature"
@@ -1572,30 +1685,6 @@
   {
    "geometry": {
     "coordinates": [
-     13.7214845,
-     51.0339046
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 391057031,
-    "_type": "node",
-    "addr_city": "Dresden",
-    "addr_postcode": "01187",
-    "addr_street": "Nürnberger Straße 28B",
-    "category": "vegan_friendly",
-    "contact_email": "info@konditorei-mueller.com",
-    "contact_website": "http://www.konditorei-mueller.com",
-    "icon": "cafe",
-    "name": "Café & Konditorei Müller",
-    "opening_hours": "Mo-Fr 07:00-18:00; Sa 07:00-14:00; Su 13:00-17:00",
-    "symbol": "☕"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
      13.7239392,
      51.0330651
     ],
@@ -1617,6 +1706,31 @@
     "opening_hours": "Mo-Fr 06:00-18:00; Sa 07:00-11:00",
     "shop": "bakery",
     "symbol": "☕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     14.809644,
+     50.8935447
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 391287591,
+    "_type": "node",
+    "addr_city": "Zittau",
+    "addr_country": "DE",
+    "addr_postcode": "02763",
+    "addr_street": "Ottokarplatz 19",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 3583 9395583",
+    "cuisine": "indian;pizza;kebab;burger",
+    "icon": "restaurant",
+    "name": "Taj Mahal",
+    "opening_hours": "PH,Mo-Su 11:00-22:00",
+    "symbol": "🍽️"
    },
    "type": "Feature"
   },
@@ -1700,6 +1814,30 @@
   {
    "geometry": {
     "coordinates": [
+     12.3442398,
+     51.3251525
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 418507131,
+    "_type": "node",
+    "addr_street": "Könneritzstraße 38",
+    "category": "vegan_friendly",
+    "contact_email": "maitaileipzig@t-online.de",
+    "contact_phone": "+49 341 4792291",
+    "contact_website": "http://www.maitai-leipzig.de",
+    "cuisine": "thai",
+    "icon": "restaurant",
+    "name": "Mai Tai",
+    "opening_hours": "Tu-Su 11:30-14:30,17:30-22:30",
+    "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      13.7515197,
      51.0712192
     ],
@@ -1717,7 +1855,7 @@
     "cuisine": "arab;falafel;salad;soup;flatbread",
     "icon": "restaurant",
     "name": "Falafel Freunde",
-    "opening_hours": "Mo-Sa 11:30-23:00; Su 10:00-21:00",
+    "opening_hours": "Mo-Fr 11:30-20:00; Sa 13:30-20:00",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -1826,6 +1964,70 @@
   {
    "geometry": {
     "coordinates": [
+     12.342089,
+     51.3204394
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 495077558,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "cuisine": "kebab",
+    "icon": "fast_food",
+    "name": "Ishtar Döner",
+    "opening_hours": "PH,Mo-Su 11:00-24:00",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.3796821,
+     51.339245
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 496111415,
+    "_type": "node",
+    "addr_city": "Leipzig",
+    "addr_country": "DE",
+    "addr_postcode": "04109",
+    "addr_street": "Augustusplatz 11",
+    "category": "vegan_friendly",
+    "contact_website": "http://www.vapiano.de",
+    "cuisine": "italian",
+    "icon": "restaurant",
+    "name": "Vapiano",
+    "opening_hours": "Mo-Th 11:00-24:00, Fr,Sa 11:00-01:00, Su,PH 11:00-24:00",
+    "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.3362093,
+     51.3309846
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 496276523,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "icon": "restaurant",
+    "name": "HOLZKY",
+    "opening_hours": "Tu-Su 17:00-23:00; Mo off",
+    "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      13.6293319,
      51.1068684
     ],
@@ -1843,6 +2045,32 @@
     "icon": "cafe",
     "name": "Jannys Eis",
     "opening_hours": "Mo-Sa 11:00-19:00; Su,PH 12:00-19:00",
+    "symbol": "☕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.3754254,
+     51.3414853
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 501570683,
+    "_type": "node",
+    "addr_city": "Leipzig",
+    "addr_country": "DE",
+    "addr_postcode": "04109",
+    "addr_street": "Katharinenstraße 4",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 341 9601979",
+    "contact_website": "https://www.milch-bar-pinguin.de",
+    "cuisine": "ice_cream",
+    "icon": "cafe",
+    "name": "Milchbar Pinguin",
+    "opening_hours": "Mo-Sa 09:00-22:00; PH,Su 10:00-21:00",
     "symbol": "☕"
    },
    "type": "Feature"
@@ -2027,37 +2255,12 @@
     "_type": "node",
     "addr_city": "Leipzig",
     "addr_postcode": "04107",
-    "addr_street": "Straße des 17. Juni 2A",
+    "addr_street": "Straße des 17. Juni 2a",
     "category": "vegan_friendly",
     "contact_website": "https://www.studentenwerk-leipzig.de/mensen-cafeterien/einrichtungen/peterssteinweg",
     "icon": "maki_star-stroked",
     "name": "Mensa Peterssteinweg",
     "opening_hours": "Mo-Fr 08:00-14:00",
-    "symbol": ""
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     13.7272402,
-     51.0849668
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 612570549,
-    "_type": "node",
-    "addr_city": "Dresden",
-    "addr_postcode": "01129",
-    "addr_street": "Großenhainer Straße 129",
-    "category": "vegan_friendly",
-    "contact_phone": "+49 351 85673690",
-    "contact_website": "https://www.curry-haus-dresden.de",
-    "cuisine": "indian",
-    "icon": "maki_star-stroked",
-    "name": "Curry Haus",
-    "opening_hours": "Mo-Su 11:00-22:00",
     "symbol": ""
    },
    "type": "Feature"
@@ -2112,29 +2315,6 @@
   {
    "geometry": {
     "coordinates": [
-     11.5845825,
-     50.9286043
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 621214119,
-    "_type": "node",
-    "addr_city": "Jena",
-    "addr_postcode": "07743",
-    "addr_street": "Leutragraben 1",
-    "category": "vegan_friendly",
-    "cuisine": "chinese",
-    "icon": "fast_food",
-    "name": "Mr. Binh Dinh",
-    "opening_hours": "Mo-Sa 08:00-20:00",
-    "symbol": "🍔"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
      11.5876322,
      50.928371
     ],
@@ -2153,6 +2333,30 @@
     "name": "O'Steria in Piazza",
     "opening_hours": "Mo-Su 11:30-23:30",
     "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.3410658,
+     51.3193439
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 622163494,
+    "_type": "node",
+    "addr_city": "Leipzig",
+    "addr_country": "DE",
+    "addr_postcode": "04229",
+    "addr_street": "Könneritzstraße 100",
+    "category": "vegan_friendly",
+    "contact_website": "http://cafe-wb.de",
+    "icon": "cafe",
+    "name": "Café WB",
+    "opening_hours": "Tu-Su 08:00-18:00",
+    "symbol": "☕"
    },
    "type": "Feature"
   },
@@ -2226,6 +2430,29 @@
     "icon": "fast_food",
     "name": "McDonald's",
     "opening_hours": "24/7",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.3306927,
+     51.3205471
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 640520921,
+    "_type": "node",
+    "addr_city": "Leipzig",
+    "addr_country": "DE",
+    "addr_postcode": "04229",
+    "addr_street": "Zschochersche Straße 103",
+    "category": "vegan_friendly",
+    "icon": "fast_food",
+    "name": "World of Pizza",
+    "opening_hours": "Mo-Su 10:00-24:00",
     "symbol": "🍔"
    },
    "type": "Feature"
@@ -2328,6 +2555,49 @@
   {
    "geometry": {
     "coordinates": [
+     12.3436996,
+     51.3234154
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 671557250,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "icon": "cafe",
+    "name": "Eis an der Kö",
+    "opening_hours": "Tu-Su 13:00-18:00",
+    "symbol": "☕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     10.9470796,
+     50.8344147
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 695532220,
+    "_type": "node",
+    "addr_city": "Arnstadt",
+    "addr_country": "DE",
+    "addr_postcode": "99310",
+    "addr_street": "An der Neuen Kirche 16",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 3628 600606",
+    "contact_website": "https://www.avanti-arnstadt.de",
+    "icon": "fast_food",
+    "name": "Avanti Döner",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9677199,
      51.4844933
     ],
@@ -2350,6 +2620,26 @@
     "name": "Hans im Glück",
     "opening_hours": "Mo-Th,Su 11:00-23:00; Fr,Sa 11:00-00:00",
     "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.3106325,
+     51.3492798
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 727663328,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "cuisine": "asian",
+    "icon": "fast_food",
+    "name": "Le Hong",
+    "opening_hours": "Mo-Fr 10:30-22:00; PH,Sa,Su 11:00-22:00",
+    "symbol": "🍔"
    },
    "type": "Feature"
   },
@@ -2424,6 +2714,26 @@
     "name": "Ristorante Fellini",
     "opening_hours": "Mo-Th 11:30-14:30,17:30-22:30; Tu off; Fr,Sa 11:30-14:30,17:30-23:00; Su,PH 12:00-15:00,17:00-22:00",
     "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.3438241,
+     51.3244008
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 847764995,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "cuisine": "sandwich",
+    "icon": "fast_food",
+    "name": "Subway",
+    "opening_hours": "Mo-Fr 11:00-21:00; PH,Sa,Su 12:00-21:00",
+    "symbol": "🍔"
    },
    "type": "Feature"
   },
@@ -2569,7 +2879,7 @@
     "cuisine": "pizza",
     "icon": "maki_restaurant-pizza",
     "name": "vegan . . . on the run",
-    "opening_hours": "Tu, Th 11:00-22:00; We, Fr, Sa, Su 17:00-22:00",
+    "opening_hours": "Tu,Th 11:00-22:00; We,Fr,Sa,Su 17:00-22:00",
     "symbol": "🍕"
    },
    "type": "Feature"
@@ -2670,6 +2980,52 @@
     "name": "Curry & Co",
     "opening_hours": "Mo-Sa 11:00-20:00",
     "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.3645863,
+     51.3429816
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 966823631,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_website": "http://www.konditorei-wendl.de",
+    "icon": "cafe",
+    "name": "Wendl",
+    "opening_hours": "Mo-Fr 06:30-16:00; Sa,Su 07:00-13:00",
+    "shop": "bakery",
+    "symbol": "☕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     10.947935,
+     50.8334343
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 970200254,
+    "_type": "node",
+    "addr_city": "Arnstadt",
+    "addr_country": "DE",
+    "addr_postcode": "99310",
+    "addr_street": "Rankestraße 2",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 3628 581251",
+    "contact_website": "https://www.ganesha-arnstadt.de",
+    "cuisine": "indian",
+    "icon": "restaurant",
+    "name": "Ganesha",
+    "symbol": "🍽️"
    },
    "type": "Feature"
   },
@@ -3005,6 +3361,31 @@
   {
    "geometry": {
     "coordinates": [
+     12.3435844,
+     51.3231007
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1094877576,
+    "_type": "node",
+    "addr_city": "Leipzig",
+    "addr_country": "DE",
+    "addr_postcode": "04229",
+    "addr_street": "Stieglitzstraße 85a",
+    "category": "vegan_friendly",
+    "contact_website": "https://www.famtranphat.de",
+    "cuisine": "vietnamese",
+    "icon": "restaurant",
+    "name": "Fam Tran Phat",
+    "opening_hours": "Mo-Su 11:00-15:00,17:00-21:30",
+    "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      12.3737199,
      51.3068304
     ],
@@ -3219,6 +3600,27 @@
   {
    "geometry": {
     "coordinates": [
+     13.7407839,
+     51.0502251
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1250771041,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_website": "https://www.greenandgloria.de",
+    "cuisine": "bowl",
+    "icon": "restaurant",
+    "name": "Green & Gloria",
+    "opening_hours": "Tu-Sa 10:00-20:00",
+    "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      12.4155432,
      51.3238304
     ],
@@ -3255,8 +3657,9 @@
     "addr_city": "Leipzig",
     "addr_country": "DE",
     "addr_postcode": "04275",
-    "addr_street": "Altenburger Straße 13",
+    "addr_street": "Altenburger Straße 15",
     "category": "vegan_friendly",
+    "contact_website": "https://mitteldorf-catering.de",
     "icon": "restaurant",
     "name": "Media City Bistro",
     "opening_hours": "Mo-Fr 08:00-17:00",
@@ -3293,6 +3696,27 @@
   {
    "geometry": {
     "coordinates": [
+     12.336785,
+     51.3289231
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1325742413,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 341 2369339",
+    "cuisine": "vietnamese;asian",
+    "icon": "fast_food",
+    "name": "Pho To Dung",
+    "opening_hours": "Mo-Fr 10:30-21:00; Sa 11:00-16:00; Su 11:00-20:00",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.5871458,
      50.9274799
     ],
@@ -3311,6 +3735,28 @@
     "name": "City Kebap",
     "opening_hours": "Mo-Sa 09:00-24:00; Su 11:00-23:00",
     "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     10.947323,
+     50.8340774
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1440466453,
+    "_type": "node",
+    "addr_city": "Arnstadt",
+    "addr_country": "DE",
+    "addr_postcode": "99310",
+    "addr_street": "Erfurter Straße 7",
+    "category": "vegan_friendly",
+    "icon": "cafe",
+    "name": "Kaffee Nagel",
+    "symbol": "☕"
    },
    "type": "Feature"
   },
@@ -3381,7 +3827,7 @@
     "contact_website": "https://www.lecrobag.de/shops-de/standorte/dresden-neustadt.html",
     "icon": "bakery",
     "name": "Le Crobag",
-    "opening_hours": "Mo-Sa 05:00-20:00; Su,Ph 06:00-20:00",
+    "opening_hours": "PH,Su 06:00-18:00; Mo-Fr 05:00-18:00; Sa 05:30-18:00",
     "shop": "bakery",
     "symbol": "🥨"
    },
@@ -3406,7 +3852,7 @@
     "cuisine": "asian",
     "icon": "fast_food",
     "name": "mai-mai",
-    "opening_hours": "Mo-Su,Ph 10:00-20:00",
+    "opening_hours": "PH,Mo-Su 11:00-20:00",
     "symbol": "🍔"
    },
    "type": "Feature"
@@ -3521,8 +3967,8 @@
   {
    "geometry": {
     "coordinates": [
-     13.7282963,
-     51.0839689
+     13.728301,
+     51.0839491
     ],
     "type": "Point"
    },
@@ -3694,6 +4140,32 @@
   {
    "geometry": {
     "coordinates": [
+     12.3799897,
+     51.3451105
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1661228222,
+    "_type": "node",
+    "addr_city": "Leipzig",
+    "addr_country": "DE",
+    "addr_postcode": "04109",
+    "addr_street": "Willy-Brandt-Platz 5",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 341 225541",
+    "contact_website": "http://www.subway-leipzig.de",
+    "cuisine": "sandwich",
+    "icon": "fast_food",
+    "name": "Subway",
+    "opening_hours": "PH,Mo-Su 08:00-22:00",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      12.373115,
      51.3162776
     ],
@@ -3707,11 +4179,12 @@
     "addr_postcode": "04275",
     "addr_street": "Karl-Liebknecht-Straße 114",
     "category": "vegan_friendly",
+    "contact_phone": "+49 341 65874821",
+    "contact_website": "https://ca-phao-leipzig.de",
     "cuisine": "vietnamese",
     "icon": "fast_food",
-    "name": "Cá Pha'o",
+    "name": "Cā Pha'o",
     "opening_hours": "Mo,We-Fr 11:30-22:30; Sa,Su 12:00-22:30",
-    "shop": "butcher",
     "symbol": "🍔"
    },
    "type": "Feature"
@@ -3763,7 +4236,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "House Of India",
-    "opening_hours": "Mo-Sa 11:30-14:30, 17:30-23:30; Su 11:30-23:30",
+    "opening_hours": "Mo-Sa 11:30-14:30,17:30-23:30; PH,Su 11:30-23:30",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -3820,6 +4293,54 @@
   {
    "geometry": {
     "coordinates": [
+     12.3610671,
+     51.3421904
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1714948053,
+    "_type": "node",
+    "addr_city": "Leipzig",
+    "addr_country": "DE",
+    "addr_postcode": "04109",
+    "addr_street": "Jahnallee 23",
+    "category": "vegan_friendly",
+    "cuisine": "asian",
+    "icon": "fast_food",
+    "name": "Leming Bistro",
+    "opening_hours": "Mo-Fr 10:30-21:30; Sa 11:00-21:30",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.3612729,
+     51.3422418
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1714948060,
+    "_type": "node",
+    "addr_city": "Leipzig",
+    "addr_postcode": "04109",
+    "addr_street": "Jahnallee 21",
+    "category": "vegan_friendly",
+    "contact_website": "https://emmas-feinfood.business.site",
+    "cuisine": "crepes",
+    "icon": "cafe",
+    "name": "Emma's Feinfood",
+    "opening_hours": "Tu-Su 13:00-21:00",
+    "symbol": "☕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.0304188,
      50.9784757
     ],
@@ -3863,6 +4384,26 @@
     "name": "Fatira Teigwaren",
     "opening_hours": "Mo-Fr 8:00-21:00; Sa 8:00-22:00; Su 10:00-20:00",
     "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.3621525,
+     51.3424377
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1763526587,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "cuisine": "asian",
+    "icon": "restaurant",
+    "name": "HAI CUISINE",
+    "opening_hours": "Mo-Su 11:00-22:00",
+    "symbol": "🍽️"
    },
    "type": "Feature"
   },
@@ -4088,30 +4629,6 @@
   {
    "geometry": {
     "coordinates": [
-     11.0202425,
-     50.9833539
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 1852609745,
-    "_type": "node",
-    "addr_city": "Erfurt",
-    "addr_country": "DE",
-    "addr_postcode": "99089",
-    "addr_street": "Nordhäuser Straße 123",
-    "category": "vegan_friendly",
-    "cuisine": "pizza",
-    "icon": "maki_restaurant-pizza",
-    "name": "Schlemmer-Pizza-Service",
-    "opening_hours": "Mo-Sa 11:00-14:00,17:00-22:45; PH,Su 12:00-22:45",
-    "symbol": "🍕"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
      10.9167994,
      50.6875756
     ],
@@ -4231,7 +4748,7 @@
     "icon": "supermarket",
     "more_info": true,
     "name": "biorio",
-    "opening_hours": "Mo-Fr 09:00-20:00; Sa 09:00-19:00",
+    "opening_hours": "Mo-Fr 09:00-19:00; Sa 09:00-19:00",
     "shop": "supermarket",
     "symbol": "🏪"
    },
@@ -4281,6 +4798,30 @@
     "icon": "fast_food",
     "name": "Tomate Döner",
     "opening_hours": "Mo-Su 11:00-22:00",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.375055,
+     51.343189
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1962917546,
+    "_type": "node",
+    "addr_city": "Leipzig",
+    "addr_country": "DE",
+    "addr_postcode": "04109",
+    "addr_street": "Brühl 1",
+    "category": "vegan_friendly",
+    "cuisine": "burger",
+    "icon": "fast_food",
+    "name": "McDonald's",
+    "opening_hours": "Mo-Th 08:00-23:00, Fr,Sa 08:00-01:00, PH,Su 11:00-23:00",
     "symbol": "🍔"
    },
    "type": "Feature"
@@ -4490,6 +5031,33 @@
   {
    "geometry": {
     "coordinates": [
+     12.3748283,
+     51.3422034
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2050207144,
+    "_type": "node",
+    "addr_city": "Leipzig",
+    "addr_postcode": "04109",
+    "addr_street": "Katharinenstraße 15",
+    "category": "vegan_friendly",
+    "contact_email": "info@phoviet-leipzig.de",
+    "contact_facebook": "https://www.facebook.com/phoviet.leipzig",
+    "contact_phone": "+49 341 99391747",
+    "contact_website": "http://www.phoviet-leipzig.de",
+    "cuisine": "vietnamese",
+    "icon": "restaurant",
+    "name": "Pho Viet",
+    "opening_hours": "Mo-Fr 11:30-15:00,17:00-22:00, Sa 11:30-23:00; Su off",
+    "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9655845,
      51.4899957
     ],
@@ -4559,7 +5127,7 @@
     "cuisine": "indian",
     "icon": "restaurant",
     "name": "Taj Mahal",
-    "opening_hours": "Mo-Fr 11:00-15:00,17:00-22:00; Sa-Su 11:00-22:00",
+    "opening_hours": "Mo-Fr 11:00-15:00,17:00-22:00; Sa 11:00-22:00; Su 11:00-15:00,17:00-22:00",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -4647,6 +5215,74 @@
   {
    "geometry": {
     "coordinates": [
+     12.373594,
+     51.3432875
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2128945749,
+    "_type": "node",
+    "addr_city": "Leipzig",
+    "addr_country": "DE",
+    "addr_postcode": "04109",
+    "addr_street": "Brühl 1",
+    "category": "vegan_friendly",
+    "cuisine": "asian",
+    "icon": "restaurant",
+    "name": "Sushi & Nem",
+    "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.3746335,
+     51.3431811
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2128946870,
+    "_type": "node",
+    "addr_city": "Leipzig",
+    "addr_country": "DE",
+    "addr_postcode": "04109",
+    "addr_street": "Brühl 1",
+    "category": "vegan_friendly",
+    "contact_website": "https://lukas-baecker.de",
+    "icon": "cafe",
+    "name": "Lukas Bäcker",
+    "opening_hours": "Mo-Fr 06:30-15:00; PH off",
+    "shop": "bakery",
+    "symbol": "☕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.3755461,
+     51.343385
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2128949584,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "cuisine": "american",
+    "icon": "fast_food",
+    "name": "Pommes Freunde",
+    "opening_hours": "Mo-Sa 10:00-20:00",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      10.9159182,
      50.6829278
     ],
@@ -4666,6 +5302,78 @@
     "name": "China Haus",
     "opening_hours": "Mo,Tu,Th-Su,PH 11:00-15:00, 17:30-22:00",
     "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.3591925,
+     51.3419685
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2146499686,
+    "_type": "node",
+    "addr_city": "Leipzig",
+    "addr_postcode": "04109",
+    "addr_street": "Jahnallee 29",
+    "category": "vegan_friendly",
+    "cuisine": "asian",
+    "icon": "restaurant",
+    "name": "Vacay",
+    "opening_hours": "Mo-Su 11:00-23:00",
+    "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.327516,
+     51.337795
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2179511921,
+    "_type": "node",
+    "addr_city": "Leipzig",
+    "addr_postcode": "04177",
+    "addr_street": "Georg-Schwarz-Straße 2",
+    "category": "vegan_friendly",
+    "contact_website": "https://www.360gradwaschbar.de",
+    "icon": "cafe",
+    "name": "360° Waschbar",
+    "opening_hours": "Mo-Fr 10:00-20:00, Sa-Su 10:00-22:00",
+    "shop": "laundry",
+    "symbol": "☕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.3327738,
+     51.3322501
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2192784201,
+    "_type": "node",
+    "addr_city": "Leipzig",
+    "addr_country": "DE",
+    "addr_postcode": "04177",
+    "addr_street": "Merseburger Straße 44",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 341 49300365",
+    "contact_website": "http://www.suesssalzig.de",
+    "icon": "cafe",
+    "name": "süß + salzig",
+    "opening_hours": "We-Su 10:00-18:00",
+    "symbol": "☕"
    },
    "type": "Feature"
   },
@@ -5153,6 +5861,49 @@
   {
    "geometry": {
     "coordinates": [
+     12.3309421,
+     51.3208166
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2456818084,
+    "_type": "node",
+    "addr_city": "Leipzig",
+    "addr_country": "DE",
+    "addr_postcode": "04229",
+    "addr_street": "Zschochersche Straße 99",
+    "category": "vegan_friendly",
+    "icon": "ice_cream",
+    "name": "Nasch Salon",
+    "opening_hours": "Mo-Su 12:00-20:00; PH off",
+    "symbol": "🍨"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.5849426,
+     50.9259243
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2458038368,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "cuisine": "pizza;burger",
+    "icon": "maki_restaurant-pizza",
+    "name": "Fritz Mitte",
+    "opening_hours": "Su-Fr 11:00-23:00; Sa 10:30-01:00",
+    "symbol": "🍕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      13.7417453,
      51.064911
     ],
@@ -5242,6 +5993,30 @@
     "name": "Nasch Madame - Konditorei",
     "opening_hours": "We-Fr 13:00-18:00; Sa 10:00-18:00; Su 12:00-17:00",
     "symbol": "☕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.3203633,
+     51.3440128
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2500371486,
+    "_type": "node",
+    "addr_city": "Leipzig",
+    "addr_postcode": "04179",
+    "addr_street": "Georg-Schwarz-Straße 57",
+    "category": "vegan_friendly",
+    "contact_website": "https://www.shikisushi-leipzig.de",
+    "cuisine": "sushi",
+    "icon": "fast_food",
+    "name": "Nikki Sushi",
+    "opening_hours": "Tu-Su 11:00-22:00; Mo off",
+    "symbol": "🍔"
    },
    "type": "Feature"
   },
@@ -5340,7 +6115,7 @@
     "cuisine": "asian",
     "icon": "fast_food",
     "name": "Asia Wok Bistro Express",
-    "opening_hours": "Mo-Fr 10:00-20:30; Sa 11:00-15:00; PH,Su 14:00-20:00",
+    "opening_hours": "Mo-Fr 10:00-20:00; Sa 15:00-20:00; PH,Su 15:00-20:00",
     "symbol": "🍔"
    },
    "type": "Feature"
@@ -5432,6 +6207,7 @@
     "icon": "cafe",
     "name": "Landbäckerei Schmidt",
     "opening_hours": "Mo-Sa 07:00-18:00; Su 07:00-17:00",
+    "shop": "bakery",
     "symbol": "☕"
    },
    "type": "Feature"
@@ -5439,8 +6215,28 @@
   {
    "geometry": {
     "coordinates": [
-     11.6098515,
-     52.135797
+     12.3753412,
+     51.3434065
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2623235670,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "cuisine": "asian",
+    "icon": "fast_food",
+    "name": "Haiky",
+    "opening_hours": "Mo-Sa 10:00-20:00",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.6099051,
+     52.1357604
     ],
     "type": "Point"
    },
@@ -5511,6 +6307,56 @@
     "opening_hours": "Mo-Fr 11:00-01:00; Sa 13:00-01:00; Su,PH 13:00-00:00",
     "shop": "yes",
     "symbol": ""
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     13.8081228,
+     51.0528833
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2744406906,
+    "_type": "node",
+    "addr_city": "Dresden",
+    "addr_country": "DE",
+    "addr_postcode": "01309",
+    "addr_street": "Schillerplatz 7",
+    "category": "vegan_only",
+    "contact_website": "https://www.veganhouse-dresden.de",
+    "cuisine": "asian",
+    "icon": "restaurant",
+    "name": "Vegan House",
+    "opening_hours": "Mo-Su 12:00-22:00",
+    "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.0049494,
+     51.0034066
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2776892851,
+    "_type": "node",
+    "addr_city": "Erfurt",
+    "addr_postcode": "99091",
+    "addr_street": "Berliner Platz 3a",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 361 38149707",
+    "contact_website": "https://www.dominos.de/impressum/33978",
+    "cuisine": "pizza",
+    "icon": "maki_restaurant-pizza",
+    "name": "Domino's Pizza",
+    "opening_hours": "Mo-Su 11:00-23:00",
+    "symbol": "🍕"
    },
    "type": "Feature"
   },
@@ -5900,9 +6746,6 @@
    "properties": {
     "_id": 3013703237,
     "_type": "node",
-    "addr_city": "Erfurt",
-    "addr_postcode": "99084",
-    "addr_street": "Marktstraße 5",
     "category": "vegan_friendly",
     "icon": "ice_cream",
     "name": "Zucker & Zimt",
@@ -6079,7 +6922,7 @@
     "addr_postcode": "04177",
     "addr_street": "Lindenauer Markt 8",
     "category": "vegan_friendly",
-    "cuisine": "oriental",
+    "cuisine": "oriental;kebab",
     "icon": "fast_food",
     "name": "Bistro Kleopatra",
     "opening_hours": "open",
@@ -6136,6 +6979,31 @@
     "name": "Jiyan Kebaphaus",
     "opening_hours": "10:00-05:00",
     "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.3813422,
+     51.3445431
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3208891938,
+    "_type": "node",
+    "addr_city": "Leipzig",
+    "addr_postcode": "04109",
+    "addr_street": "Willy-Brandt-Platz 7",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 341 30865500",
+    "contact_website": "http://www.coffee-fellows.de",
+    "cuisine": "coffee_shop",
+    "icon": "cafe",
+    "name": "Coffee Fellows",
+    "opening_hours": "Mo-Sa 08:30-21:00; Su 09:00-18:00",
+    "symbol": "☕"
    },
    "type": "Feature"
   },
@@ -6290,7 +7158,7 @@
     "cuisine": "burger",
     "icon": "fast_food",
     "name": "Beat’n’Burger",
-    "opening_hours": "PH,Mo-Su 12:00-22:00",
+    "opening_hours": "PH,Mo-Su 16:00-20:00",
     "symbol": "🍔"
    },
    "type": "Feature"
@@ -6696,6 +7564,31 @@
   {
    "geometry": {
     "coordinates": [
+     12.3363683,
+     51.3287779
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3676489423,
+    "_type": "node",
+    "addr_city": "Leipzig",
+    "addr_country": "DE",
+    "addr_postcode": "04229",
+    "addr_street": "Zschochersche Straße 50a",
+    "category": "vegan_friendly",
+    "contact_website": "https://997restaurant.business.site",
+    "cuisine": "sushi",
+    "icon": "restaurant",
+    "name": "997 - Sushi & Robata",
+    "opening_hours": "Mo-Sa 11:00-15:00,16:00-23:00; PH,Su 12:00-22:00",
+    "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      13.8412257,
      51.0227201
     ],
@@ -6802,10 +7695,12 @@
     "addr_postcode": "99448",
     "addr_street": "Auf dem Katzenberg 93",
     "category": "vegetarian_only",
+    "contact_email": "info@sonnenhof-hohenfelden.de",
     "contact_phone": "+49 179 7698744",
+    "contact_website": "http://sonnenhof-hohenfelden.de",
     "icon": "restaurant",
     "name": "Waldgasthaus Sonnenhof",
-    "opening_hours": "Sa,Su,PH 11:00-18:00",
+    "opening_hours": "Apr-Oct: Sa,Su,PH 11:00-18:00; Nov-Mar: Sa,Su,PH 11:00-17:00",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -6840,6 +7735,32 @@
   {
    "geometry": {
     "coordinates": [
+     11.035546,
+     50.9738081
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3752759991,
+    "_type": "node",
+    "addr_city": "Erfurt",
+    "addr_country": "DE",
+    "addr_postcode": "99084",
+    "addr_street": "Juri-Gagarin-Ring 100",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 361 3452950",
+    "contact_website": "https://www.dominos.de",
+    "cuisine": "pizza",
+    "icon": "maki_restaurant-pizza",
+    "name": "Domino's",
+    "opening_hours": "Su-Th 10:30-23:00; Fr-Sa 10:30-24:00",
+    "symbol": "🍕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9747563,
      51.4937554
     ],
@@ -6865,8 +7786,30 @@
   {
    "geometry": {
     "coordinates": [
-     10.9190377,
-     50.6841475
+     12.3427868,
+     51.32502
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3776400557,
+    "_type": "node",
+    "addr_street": "Industriestraße 18",
+    "category": "vegan_friendly",
+    "contact_facebook": "https://facebook.com/JimmyOrpheus",
+    "contact_phone": "+4934149293991",
+    "icon": "cafe",
+    "name": "Jimmy Orpheus",
+    "opening_hours": "Mo-Fr 09:00-23:00; Sa,Su 10:00-19:00",
+    "symbol": "☕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     10.9190451,
+     50.6841513
     ],
     "type": "Point"
    },
@@ -6907,6 +7850,25 @@
     "name": "Phu Hung",
     "opening_hours": "Mo-Fr 11:00-20:00; Sa,Su,PH 12:00-20:00",
     "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.3270413,
+     51.3172313
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3794392180,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "icon": "ice_cream",
+    "name": "Oscars",
+    "opening_hours": "open",
+    "symbol": "🍨"
    },
    "type": "Feature"
   },
@@ -6967,6 +7929,28 @@
   {
    "geometry": {
     "coordinates": [
+     12.3757062,
+     51.3433783
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3874825457,
+    "_type": "node",
+    "addr_city": "Leipzig",
+    "addr_postcode": "04109",
+    "addr_street": "Brühl 1",
+    "category": "vegan_friendly",
+    "cuisine": "asian",
+    "icon": "fast_food",
+    "name": "Yasumi New Cooking",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      12.3733427,
      51.3304027
     ],
@@ -6984,6 +7968,30 @@
     "icon": "fast_food",
     "name": "Subway",
     "opening_hours": "Mo-Fr 10:00-22:00, Sa,Su 11:00-22:00",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.329401,
+     51.336336
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3961817032,
+    "_type": "node",
+    "addr_city": "Leipzig",
+    "addr_postcode": "04177",
+    "addr_street": "Merseburger Straße 80b",
+    "category": "vegetarian_only",
+    "contact_website": "http://bistro-thanhlong.de",
+    "cuisine": "asian",
+    "icon": "fast_food",
+    "name": "Asia Bistro Thanh-Long",
+    "opening_hours": "Mo-Fr 11:00-15:30,17:30-21:30; PH,Sa 12:00-15:30,17:30-21:30; Su 18:00-21:30",
     "symbol": "🍔"
    },
    "type": "Feature"
@@ -7034,6 +8042,24 @@
     "name": "Fam. Tran Phat",
     "opening_hours": "Mo-Th 11:00-22:30; Fr-Sa 11:00-23:00; Su 11:00-22:00; PH off",
     "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.3362135,
+     51.3285264
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3964858645,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "icon": "fast_food",
+    "name": "Beit Giddi",
+    "symbol": "🍔"
    },
    "type": "Feature"
   },
@@ -7155,7 +8181,7 @@
     "contact_website": "https://www.studentenwerk-dresden.de/mensen/details-mensa-reichenbachstrasse.html",
     "cuisine": "asian",
     "icon": "fast_food",
-    "name": "Mensa Reichenbachstraße",
+    "name": "Mensa Matrix",
     "opening_hours": "Mo-Th 10:45-15:00; Fr 10:45-14:00",
     "symbol": "🍔"
    },
@@ -7273,6 +8299,10 @@
     "_id": 4244275889,
     "_type": "node",
     "category": "vegan_friendly",
+    "contact_email": "info@yasminimbiss.de",
+    "contact_facebook": "https://www.facebook.com/yasminimbiss",
+    "contact_phone": "+49 371 25639455",
+    "contact_website": "https://yasminimbiss.de",
     "cuisine": "syrian",
     "icon": "fast_food",
     "name": "Yasmin",
@@ -7353,6 +8383,31 @@
   {
    "geometry": {
     "coordinates": [
+     11.0431957,
+     50.9710439
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 4331256693,
+    "_type": "node",
+    "addr_city": "Erfurt",
+    "addr_postcode": "99099",
+    "addr_street": "Nonnenrain 65",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 361 43020800",
+    "contact_website": "https://www.dominos.de",
+    "cuisine": "pizza",
+    "icon": "maki_restaurant-pizza",
+    "name": "Domino's",
+    "opening_hours": "Mo-Su 11:00-23:00; PH off",
+    "symbol": "🍕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      12.9254793,
      50.843387
     ],
@@ -7369,6 +8424,27 @@
     "name": "Grundmanns Café & Eis",
     "opening_hours": "Tu-Fr 12:00-18:00; Sa,Su 14:00-18:00",
     "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.3756745,
+     51.343158
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 4381880985,
+    "_type": "node",
+    "addr_city": "Leipzig",
+    "category": "vegan_friendly",
+    "icon": "cafe",
+    "name": "Heberer's Traditional Bakery",
+    "opening_hours": "Mo-Fr 08:00-14:00",
+    "shop": "bakery",
+    "symbol": "☕"
    },
    "type": "Feature"
   },
@@ -7396,6 +8472,27 @@
     "name": "RajMahal",
     "opening_hours": "Mo-Su off",
     "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     13.7550874,
+     51.0659492
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 4393402154,
+    "_type": "node",
+    "category": "vegan_limited",
+    "contact_website": "https://burger-dresden.de",
+    "cuisine": "burger",
+    "icon": "fast_food",
+    "name": "Burgermeister",
+    "opening_hours": "Tu-Th 17:00-22:00; Fr,Sa 12:00-24:00; Su 12:00-22:00",
+    "symbol": "🍔"
    },
    "type": "Feature"
   },
@@ -7444,6 +8541,50 @@
     "name": "Cafe Herzstück",
     "opening_hours": "Mo 14:00-18:00; We-Fr 11:00-18:00; Sa,Su 09:00-18:00",
     "symbol": "☕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.3399431,
+     51.3195835
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 4450551301,
+    "_type": "node",
+    "addr_street": "Oeserstraße 33",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 341 49626506",
+    "contact_website": "http://www.chulo-leipzig.de",
+    "cuisine": "nepalese",
+    "icon": "restaurant",
+    "name": "Chulo",
+    "opening_hours": "Tu-Fr 17:30-22:30, Sa,Su 11:30-14:30,17:30-22:30",
+    "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     10.9469845,
+     50.8335717
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 4451928389,
+    "_type": "node",
+    "addr_city": "Arnstadt",
+    "addr_postcode": "99310",
+    "addr_street": "Holzmarkt 1",
+    "category": "vegan_friendly",
+    "icon": "restaurant",
+    "name": "Waffelstübchen",
+    "symbol": "🍽️"
    },
    "type": "Feature"
   },
@@ -7540,6 +8681,27 @@
     "icon": "fast_food",
     "name": "Campus Bistro",
     "opening_hours": "Mo-Fr 07:00-14:00",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.310548,
+     51.3493234
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 4535666314,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 341-441 29 42",
+    "cuisine": "asian",
+    "icon": "fast_food",
+    "name": "Asia Snack Bistro",
+    "opening_hours": "Mo-Fr 10:30-21:00; PH,Sa,Su 11:30-21:00",
     "symbol": "🍔"
    },
    "type": "Feature"
@@ -7686,6 +8848,29 @@
   {
    "geometry": {
     "coordinates": [
+     12.3398552,
+     51.3263693
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 4793322942,
+    "_type": "node",
+    "addr_city": "Leipzig",
+    "addr_postcode": "04229",
+    "addr_street": "Industriestraße 37",
+    "category": "vegan_friendly",
+    "cuisine": "chinese",
+    "icon": "restaurant",
+    "name": "Koufu",
+    "opening_hours": "Sa, PH 17:30-22:00; Mo 11:30-14:30; Tu-Fr, Su 11:30-14:30, 17:30-22:00",
+    "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9664563,
      51.4849077
     ],
@@ -7733,6 +8918,30 @@
     "name": "Viet Village",
     "opening_hours": "Mo-Su 11:00-23:00",
     "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.3360297,
+     51.3363049
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 4828837562,
+    "_type": "node",
+    "addr_city": "Leipzig",
+    "addr_postcode": "04177",
+    "addr_street": "Dreilindenstraße 2",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 341 24736301",
+    "cuisine": "kebab;pizza;burger",
+    "icon": "fast_food",
+    "name": "Mari Bistro",
+    "opening_hours": "Mo-Sa 11:00-23:00; Su,PH 12:00-22:00",
+    "symbol": "🍔"
    },
    "type": "Feature"
   },
@@ -8171,6 +9380,30 @@
   {
    "geometry": {
     "coordinates": [
+     11.7767019,
+     51.2119973
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 5051470770,
+    "_type": "node",
+    "addr_city": "Freyburg (Unstrut)",
+    "addr_postcode": "06632",
+    "addr_street": "Schloß 25",
+    "category": "vegan_friendly",
+    "contact_phone": "034464.35-0",
+    "contact_website": "https://edelacker.de",
+    "cuisine": "regional;french;german;international;italian",
+    "icon": "restaurant",
+    "name": "Weinberghotel Edelacker",
+    "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.0317129,
      50.9783838
     ],
@@ -8344,6 +9577,30 @@
   {
    "geometry": {
     "coordinates": [
+     11.0261121,
+     50.9899182
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 5249907324,
+    "_type": "node",
+    "addr_city": "Erfurt",
+    "addr_postcode": "99086",
+    "addr_street": "Magdeburger Allee 53",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 361 43040475",
+    "contact_website": "https://www.landmarkt-erfurt.de/caf%C3%A9-bistro",
+    "icon": "cafe",
+    "name": "LandMarkt Café + Bistro",
+    "opening_hours": "Mo-Fr 11:00-14:00",
+    "symbol": "☕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      13.7407091,
      51.0684342
     ],
@@ -8473,6 +9730,31 @@
   {
    "geometry": {
     "coordinates": [
+     12.832794,
+     50.8265636
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 5367452068,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_email": "info@caferaabe.de",
+    "contact_facebook": "https://www.facebook.com/CafeRaabe",
+    "contact_instagram": "https://www.instagram.com/caferaabe_chemnitz",
+    "contact_phone": "+49 371 72007237",
+    "contact_website": "https://www.caferaabe.de",
+    "cuisine": "german",
+    "icon": "cafe",
+    "name": "Raabe",
+    "opening_hours": "Mo-We 11:30-18:00; Th,Fr off; Sa,Su 11:30-18:00",
+    "symbol": "☕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      13.7142316,
      51.080215
     ],
@@ -8493,6 +9775,55 @@
     "name": "Do Street Food Vietnam",
     "opening_hours": "Mo-Sa 11:00-20:00; Su,PH off",
     "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.3730056,
+     51.3428669
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 5552751027,
+    "_type": "node",
+    "addr_city": "Leipzig",
+    "addr_postcode": "04109",
+    "addr_street": "Hainstraße 23",
+    "category": "vegan_friendly",
+    "contact_facebook": "https://www.facebook.com/frittz.cool",
+    "contact_phone": "+49 341 68417525",
+    "icon": "fast_food",
+    "name": "Frittz",
+    "opening_hours": "Mo-Sa 10:00-20:00",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.0244383,
+     50.9665754
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 5553272600,
+    "_type": "node",
+    "addr_city": "Erfurt",
+    "addr_country": "DE",
+    "addr_postcode": "99096",
+    "addr_street": "Schillerstraße 62",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 361 78980520",
+    "contact_website": "https://www.call-a-pizza.de/erfurt",
+    "icon": "fast_food",
+    "name": "Call a Pizza Erfurt",
+    "opening_hours": "11:00-23:00",
+    "symbol": "🍔"
    },
    "type": "Feature"
   },
@@ -8572,6 +9903,45 @@
     "name": "Masala",
     "opening_hours": "off",
     "symbol": "🍸"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.3298725,
+     51.3198737
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 5592049271,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "icon": "fast_food",
+    "name": "China Imbiss",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.3297981,
+     51.3198397
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 5592049843,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 341 46376347",
+    "cuisine": "asian",
+    "icon": "restaurant",
+    "name": "Aroma Sushi",
+    "opening_hours": "Mo-Fr 11:00-22:00; Sa, Su 12:30-22:00",
+    "symbol": "🍽️"
    },
    "type": "Feature"
   },
@@ -8681,6 +10051,26 @@
   {
    "geometry": {
     "coordinates": [
+     12.3292246,
+     51.3196803
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 5601768241,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "cuisine": "kebab;pasta;pizza",
+    "icon": "fast_food",
+    "name": "Sultan Döner Pizza Pasta",
+    "opening_hours": "Mo-Sa 10:00-23:00; Su 11:00-23:00",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      12.9181933,
      50.834152
     ],
@@ -8752,6 +10142,25 @@
     "name": "Ubuntu",
     "opening_hours": "Tu-Fr 10:00-19:00; Sa-So 09:00-19:00",
     "symbol": "☕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.342184,
+     51.3214201
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 5758391186,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "icon": "fast_food",
+    "name": "Bistro Petra",
+    "opening_hours": "Mo-Sa 10:30-24:00; Su 11:00-23:00",
+    "symbol": "🍔"
    },
    "type": "Feature"
   },
@@ -9226,6 +10635,28 @@
   {
    "geometry": {
     "coordinates": [
+     12.359572,
+     51.3420079
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 6166540054,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 341 24747361",
+    "contact_website": "https://www.napoli-leipzig.de",
+    "cuisine": "pizza",
+    "icon": "maki_restaurant-pizza",
+    "name": "Pizzeria Napoli",
+    "opening_hours": "Mo-Su 11:00-22:00",
+    "symbol": "🍕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      12.3251943,
      51.3407513
     ],
@@ -9240,6 +10671,26 @@
     "name": "Pizzeria Cortigiano 3",
     "opening_hours": "PH,Mo-Su 12:00-22:00",
     "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.3258622,
+     51.3402302
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 6239791410,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_website": "https://www.pastel-leipzig.de",
+    "icon": "cafe",
+    "name": "Pastel",
+    "opening_hours": "PH,Th-Su 13:00-18:00",
+    "symbol": "☕"
    },
    "type": "Feature"
   },
@@ -9289,6 +10740,52 @@
     "icon": "restaurant",
     "name": "neiß.esskultur",
     "opening_hours": "Mo off; Tu-Sa 14:00-22:00; Su 10:00-18:00",
+    "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     13.728746,
+     51.0516245
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 6286561730,
+    "_type": "node",
+    "addr_city": "Dresden",
+    "addr_country": "DE",
+    "addr_postcode": "01067",
+    "addr_street": "Hertha-Lindner-Straße 12",
+    "category": "vegan_friendly",
+    "contact_website": "https://www.dominos.de",
+    "cuisine": "pizza",
+    "icon": "maki_restaurant-pizza",
+    "name": "Domino's",
+    "opening_hours": "Mo-Su 11:00-23:00",
+    "symbol": "🍕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     14.2323346,
+     50.8922338
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 6328614677,
+    "_type": "node",
+    "category": "vegan_limited",
+    "contact_website": "https://www.schmilka.de/gasthof-zur-muehle",
+    "cuisine": "regional",
+    "icon": "restaurant",
+    "name": "Gasthof zur Mühle",
+    "opening_hours": "10:00+",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -9385,33 +10882,6 @@
     "opening_hours": "Mo 13:00-19:00; Tu-Th 16:00-19:00; Fr 10:00-13:00,16:00-19:00; Sa 10:00-13:00; Su,PH off",
     "shop": "foodcoop",
     "symbol": ""
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9674092,
-     51.4861224
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 6380783117,
-    "_type": "node",
-    "addr_city": "Halle (Saale)",
-    "addr_postcode": "06108",
-    "addr_street": "Große Ulrichstraße 23",
-    "category": "vegan_friendly",
-    "contact_facebook": "https://www.facebook.com/rootshalle",
-    "contact_instagram": "https://www.instagram.com/roots_halle",
-    "contact_phone": "+49 345 27976527",
-    "contact_website": "https://www.roots-halle.de",
-    "icon": "restaurant",
-    "more_info": true,
-    "name": "roots",
-    "opening_hours": "off",
-    "symbol": "🍽️"
    },
    "type": "Feature"
   },
@@ -9866,7 +11336,7 @@
     "cuisine": "vietnamese;asian",
     "icon": "restaurant",
     "name": "Quan Xanh - vietnamnese vegan food",
-    "opening_hours": "Tu-Fr 11:00-22:00; Sa-Su 13:00-22:00",
+    "opening_hours": "Tu-Fr 11:00-22:00; PH,Sa,Su 13:00-22:00",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -9924,6 +11394,32 @@
   {
    "geometry": {
     "coordinates": [
+     12.3662601,
+     51.3403502
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 7116169217,
+    "_type": "node",
+    "addr_city": "Leipzig",
+    "addr_country": "DE",
+    "addr_postcode": "04109",
+    "addr_street": "Käthe-Kollwitz-Straße 18",
+    "category": "vegan_friendly",
+    "contact_email": "info@brotagonist.de",
+    "contact_phone": "+49 341 49690317",
+    "contact_website": "https://www.brotagonist.de",
+    "icon": "cafe",
+    "name": "Wendl",
+    "opening_hours": "Mo-Fr 07:00-18:00; Sa 07:00-13:00; Su,PH off",
+    "symbol": "☕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.5858399,
      50.9292399
     ],
@@ -9967,6 +11463,32 @@
     "name": "Falafel bei Robert",
     "opening_hours": "Mo-Fr 10:00-20:00; Sa 10:00-18:00",
     "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.3417014,
+     51.320462
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 7172078652,
+    "_type": "node",
+    "addr_city": "Leipzig",
+    "addr_postcode": "04229",
+    "addr_street": "Könneritzstraße 88",
+    "category": "vegan_friendly",
+    "contact_email": "hej@roots-pflanzencafe.de",
+    "contact_phone": "+49 341 24825940",
+    "contact_website": "https://www.roots-pflanzencafe.de",
+    "cuisine": "coffee_shop",
+    "icon": "cafe",
+    "name": "Roots. Planzencafé",
+    "opening_hours": "Th,Fr 11:00-18:00; Sa,Su 10:00-18:00; Mo 12:00-18:00",
+    "symbol": "☕"
    },
    "type": "Feature"
   },
@@ -10242,6 +11764,24 @@
   {
    "geometry": {
     "coordinates": [
+     12.3748136,
+     51.3429614
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 7700456484,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "icon": "cafe",
+    "name": "Goethe Kaffeerösterei",
+    "symbol": "☕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.5909452,
      50.928588
     ],
@@ -10286,22 +11826,20 @@
   {
    "geometry": {
     "coordinates": [
-     12.9443909,
-     50.8185551
+     11.0365705,
+     50.9779077
     ],
     "type": "Point"
    },
    "properties": {
-    "_id": 7816761764,
+    "_id": 7817630559,
     "_type": "node",
-    "addr_city": "Chemnitz",
-    "addr_postcode": "09126",
-    "addr_street": "Zschopauer Straße 178",
     "category": "vegan_friendly",
-    "icon": "ice_cream",
-    "name": "LOOICE TRADITIONAL ICE CREAM",
-    "opening_hours": "Mo-Th 11:00-21:00; Fr,Sa 11:00-22:00; Su 13:00-21:00",
-    "symbol": "🍨"
+    "icon": "supermarket",
+    "name": "denn's Biomarkt",
+    "opening_hours": "Mo-Sa 08:00-20:00",
+    "shop": "supermarket;bakery",
+    "symbol": "🏪"
    },
    "type": "Feature"
   },
@@ -10401,6 +11939,32 @@
     "name": "Vöner",
     "opening_hours": "We 11:00-13:00, 16:00-21:00; Th 11:00-13:00, 16:00-22:00; Sa 16:00-22:00; Su 16:00-21:00",
     "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.0355181,
+     50.9744583
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 8252531986,
+    "_type": "node",
+    "addr_city": "Erfurt",
+    "addr_postcode": "99084",
+    "addr_street": "Bahnhofstraße 38",
+    "category": "vegan_friendly",
+    "contact_email": "erfurt1@vapiano.de",
+    "contact_phone": "+49 361 78974726",
+    "contact_website": "https://www.vapiano-restaurant.de/de/restaurants/erfurt-bahnhofstr",
+    "cuisine": "italian",
+    "icon": "restaurant",
+    "name": "Vapiano",
+    "opening_hours": "Mo-Th 11:30-22:00; Fr,Sa 11:30-23:30; PH off",
+    "symbol": "🍽️"
    },
    "type": "Feature"
   },
@@ -10527,6 +12091,29 @@
     "name": "Falafello",
     "opening_hours": "Mo-Su,PH 11:00-22:00",
     "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     13.7394826,
+     51.0514333
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 8378156322,
+    "_type": "node",
+    "addr_city": "Dresden",
+    "addr_postcode": "01067",
+    "addr_street": "Jüdenhof 6",
+    "category": "vegan_friendly",
+    "contact_website": "https://www.umaii.de/dresden-neumarkt",
+    "cuisine": "ramen;bowl",
+    "icon": "restaurant",
+    "name": "Umaii Ramenbar",
+    "symbol": "🍽️"
    },
    "type": "Feature"
   },
@@ -10776,6 +12363,7 @@
     "contact_instagram": "https://www.instagram.com/nobelsuess",
     "contact_website": "https://nobelsuess.eu",
     "icon": "maki_star-stroked",
+    "more_info": true,
     "name": "nobelsüß",
     "opening_hours": "Mo-Fr 11:00-17:00; Sa 10:00-16:00",
     "shop": "pastry",
@@ -10802,6 +12390,7 @@
     "contact_phone": "+49 171 3651504",
     "contact_website": "http://www.alikgelato.de",
     "icon": "ice_cream",
+    "more_info": true,
     "name": "Alik Gelato",
     "symbol": "🍨"
    },
@@ -10929,8 +12518,8 @@
   {
    "geometry": {
     "coordinates": [
-     11.9692265,
-     51.4832933
+     11.9715732,
+     51.4929765
     ],
     "type": "Point"
    },
@@ -10939,7 +12528,7 @@
     "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
-    "addr_street": "Marktplatz 18",
+    "addr_street": "Ludwig-Wucherer-Straße 62",
     "category": "vegan_friendly",
     "contact_facebook": "https://www.facebook.com/JUICY-Donuts-Bagels-101929962043700",
     "contact_instagram": "https://www.instagram.com/juicy_halle",
@@ -10947,8 +12536,9 @@
     "contact_website": "https://www.juicy-halle.de",
     "cuisine": "donut;bagel",
     "icon": "cafe",
+    "more_info": true,
     "name": "JUICY",
-    "opening_hours": "Mo-Su 11:00-20:00",
+    "opening_hours": "Mo-Su 10:00-21:00",
     "symbol": "☕"
    },
    "type": "Feature"
@@ -10968,10 +12558,12 @@
     "addr_postcode": "06118",
     "addr_street": "Trothaer Straße 9a",
     "category": "vegan_friendly",
+    "contact_phone": "+49 345 52387777",
     "contact_website": "https://www.lieferando.de/speisekarte/pizza-one-1",
     "cuisine": "pizza",
     "icon": "maki_restaurant-pizza",
     "name": "Pizza One",
+    "opening_hours": "Mo-Su 11:00-24:00",
     "symbol": "🍕"
    },
    "type": "Feature"
@@ -11066,7 +12658,7 @@
     "addr_postcode": "01159",
     "addr_street": "Kesselsdorfer Straße 32",
     "category": "vegan_friendly",
-    "contact_phone": "0049 351 889 58 799",
+    "contact_phone": "+49 351 889 58 799",
     "contact_website": "https://www.world-of-pizza.de/dresden-loebtau",
     "cuisine": "burger;pizza",
     "icon": "fast_food",
@@ -11097,6 +12689,133 @@
     "name": "Green Bistro",
     "opening_hours": "Mo-Sa 10:30-23:00; So 11:30-22:00; PH 11:30-22:00",
     "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9659886,
+     51.4951686
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 9343768547,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06114",
+    "addr_street": "Händelstraße 38",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 345 530130",
+    "contact_website": "https://www.dominos.de/kaufhaus/de-hallereileck-33831",
+    "cuisine": "pizza",
+    "icon": "maki_restaurant-pizza",
+    "name": "Domino's",
+    "opening_hours": "Mo-Su 11:00-23:00",
+    "symbol": "🍕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.8119864,
+     51.1521944
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 9391291618,
+    "_type": "node",
+    "addr_city": "Naumburg (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06618",
+    "addr_street": "Jakobstraße 10",
+    "category": "vegetarian_only",
+    "contact_email": "pimpinelle.suppenkelle@gmx.de",
+    "contact_facebook": "https://www.facebook.com/suppenkellenmb",
+    "contact_phone": "+49 3445 233377",
+    "contact_website": "https://www.pimpinelle-suppenkelle.de",
+    "cuisine": "curry;pasta;salad;soups;vegetarian",
+    "icon": "fast_food",
+    "name": "Pimpinelle Suppenkelle",
+    "opening_hours": "Mo-Fr 11:00-15:00",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.0054613,
+     51.0034113
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 9511206588,
+    "_type": "node",
+    "addr_city": "Erfurt",
+    "addr_postcode": "99091",
+    "addr_street": "Berliner Platz 1",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 1575 9078688",
+    "contact_website": "https://avogan.business.site",
+    "icon": "restaurant",
+    "name": "Avogan",
+    "opening_hours": "Mo-Su 11:00-22:00",
+    "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9695742,
+     51.4843564
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 9572703189,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06108",
+    "addr_street": "Große Ulrichtsraße 58",
+    "category": "vegan_limited",
+    "contact_instagram": "https://www.instagram.com/bowlsking",
+    "icon": "fast_food",
+    "more_info": true,
+    "name": "Bowls King",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9716439,
+     51.4929347
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 9572733602,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06108",
+    "addr_street": "Ludwig-Wucherer-Straße 62",
+    "category": "vegetarian_only",
+    "contact_email": "info@eisdeal.de",
+    "contact_facebook": "https://www.facebook.com/eisdeal.de",
+    "contact_instagram": "https://www.instagram.com/eisdealerhalle",
+    "contact_website": "https://www.eisdeal.de",
+    "cuisine": "ice_cream",
+    "icon": "ice_cream",
+    "name": "Eis-Dealer",
+    "opening_hours": "12:00-18:00",
+    "symbol": "🍨"
    },
    "type": "Feature"
   },
@@ -11258,8 +12977,8 @@
   {
    "geometry": {
     "coordinates": [
-     10.9175163,
-     50.6847093
+     10.9175182,
+     50.6847192
     ],
     "type": "Point"
    },
@@ -11308,8 +13027,8 @@
   {
    "geometry": {
     "coordinates": [
-     10.9162632,
-     50.685609
+     10.9162509,
+     50.6855843
     ],
     "type": "Point"
    },
@@ -11351,32 +13070,6 @@
     "icon": "maki_restaurant-pizza",
     "more_info": true,
     "name": "Papa John's",
-    "opening_hours": "Mo-Su 11:00-23:00",
-    "symbol": "🍕"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9658478,
-     51.4952182
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 60962078,
-    "_type": "way",
-    "addr_city": "Halle (Saale)",
-    "addr_country": "DE",
-    "addr_postcode": "06114",
-    "addr_street": "Händelstraße 38",
-    "category": "vegan_friendly",
-    "contact_phone": "+49 345 530 130",
-    "contact_website": "https://www.dominos.de/kaufhaus/de-hallereileck-33831",
-    "cuisine": "pizza",
-    "icon": "maki_restaurant-pizza",
-    "name": "Domino's",
     "opening_hours": "Mo-Su 11:00-23:00",
     "symbol": "🍕"
    },
@@ -11526,10 +13219,11 @@
     "addr_postcode": "38855",
     "addr_street": "Breite Straße 8",
     "category": "vegan_friendly",
+    "contact_phone": "+4939436959577",
     "cuisine": "asian",
     "icon": "fast_food",
     "name": "breite acht",
-    "opening_hours": "11:00 - 18:30",
+    "opening_hours": "Mo-Sa 11:30-18:30",
     "symbol": "🍔"
    },
    "type": "Feature"
@@ -11574,7 +13268,6 @@
     "addr_city": "Bad Schandau",
     "addr_country": "DE",
     "addr_postcode": "01814",
-    "addr_street": "Kuhstall 1",
     "category": "vegan_friendly",
     "contact_email": "kuhstall@elbsandstein.de",
     "contact_website": "https://www.berggast.de/kuhstall",
@@ -11606,34 +13299,6 @@
     "name": "McDonald's",
     "opening_hours": "Su-Th 06:00-24:00, Fr 06:00-01:00, Sa 06:00-01:00",
     "symbol": "🍔"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9716425,
-     51.4929782
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 120005523,
-    "_type": "way",
-    "addr_city": "Halle (Saale)",
-    "addr_country": "DE",
-    "addr_postcode": "06108",
-    "addr_street": "Ludwig-Wucherer-Straße 62",
-    "category": "vegetarian_only",
-    "contact_email": "info@eisdeal.de",
-    "contact_facebook": "https://www.facebook.com/eisdeal.de",
-    "contact_instagram": "https://www.instagram.com/eisdealerhalle",
-    "contact_website": "https://www.eisdeal.de",
-    "cuisine": "ice_cream",
-    "icon": "ice_cream",
-    "name": "Eis-Dealer",
-    "opening_hours": "12:00-18:00",
-    "symbol": "🍨"
    },
    "type": "Feature"
   },
@@ -11740,8 +13405,8 @@
   {
    "geometry": {
     "coordinates": [
-     11.9658156,
-     51.488462
+     11.9658099,
+     51.4884586
     ],
     "type": "Point"
    },
@@ -11816,7 +13481,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Mönchshof",
-    "opening_hours": "Mo-Sa 11:00-23:00; Su,PH 11:00-15:00",
+    "opening_hours": "Tu-Sa 11:00-23:00; Su 11:00-15:00; Mo off",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -11865,6 +13530,31 @@
     "icon": "fast_food",
     "name": "BaB-Imbiss",
     "opening_hours": "Mo-Fr 12:00-21:00",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.3811369,
+     51.3443821
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 144337141,
+    "_type": "way",
+    "addr_city": "Leipzig",
+    "addr_country": "DE",
+    "addr_postcode": "04109",
+    "addr_street": "Willy-Brandt-Platz 5",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 341 2248910",
+    "cuisine": "burger",
+    "icon": "fast_food",
+    "name": "Burger King",
+    "opening_hours": "Mo-Su 08:00-23:00; Fr,Sa 08:00-24:00",
     "symbol": "🍔"
    },
    "type": "Feature"
@@ -12080,6 +13770,27 @@
   {
    "geometry": {
     "coordinates": [
+     12.3742937,
+     51.3398117
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 188679471,
+    "_type": "way",
+    "addr_street": "Petersstraße 10",
+    "category": "vegan_friendly",
+    "cuisine": "friture",
+    "icon": "fast_food",
+    "name": "Curry Cult",
+    "opening_hours": "Mo-Sa 11:00-19:00",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9669297,
      51.4807172
     ],
@@ -12108,7 +13819,32 @@
   {
    "geometry": {
     "coordinates": [
-     10.9172767,
+     12.5912633,
+     50.6802683
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 197836017,
+    "_type": "way",
+    "addr_city": "Wildenfels",
+    "addr_country": "DE",
+    "addr_postcode": "08134",
+    "addr_street": "Arno-Schmidt-Straße 28",
+    "category": "vegan_friendly",
+    "contact_website": "https://www.mcdonalds.de/restaurant/wildenfels-haertensdorf-arno-schmidt-str-28",
+    "cuisine": "burger",
+    "icon": "fast_food",
+    "name": "McDonald's",
+    "opening_hours": "Mo-Th 07:00-23:30; Fr-Sa 07:00-24:00; Su 08:00-23:30",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     10.917276,
      50.6851949
     ],
     "type": "Point"
@@ -12333,6 +14069,32 @@
   {
    "geometry": {
     "coordinates": [
+     12.1878054,
+     51.608474
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 285316788,
+    "_type": "way",
+    "addr_city": "Sandersdorf-Brehna",
+    "addr_country": "DE",
+    "addr_postcode": "06794",
+    "addr_street": "Raststätte Köckern",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 34954 24870",
+    "contact_website": "http://www.mcdonalds.de",
+    "cuisine": "burger",
+    "icon": "fast_food",
+    "name": "McDonald's",
+    "opening_hours": "24/7",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      13.7286408,
      51.031554
     ],
@@ -12505,6 +14267,32 @@
   {
    "geometry": {
     "coordinates": [
+     13.7327725,
+     51.0401673
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 377887890,
+    "_type": "way",
+    "addr_city": "Dresden",
+    "addr_country": "DE",
+    "addr_postcode": "01069",
+    "addr_street": "Wiener Platz 4",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 351 43899010",
+    "contact_website": "https://www.burgerking.de",
+    "cuisine": "burger",
+    "icon": "fast_food",
+    "name": "Burger King",
+    "opening_hours": "Mo-Su 11:00-21:00",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      13.7324927,
      51.0402558
     ],
@@ -12545,30 +14333,6 @@
     "opening_hours": "Mo-Sa 05:00-18:00; Su 05:00-19:00",
     "shop": "bakery",
     "symbol": "☕"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     10.6853681,
-     50.6435707
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 409035494,
-    "_type": "way",
-    "addr_city": "Zella-Mehlis",
-    "addr_country": "DE",
-    "addr_postcode": "98544",
-    "addr_street": "Industriestraße 1",
-    "category": "vegan_only",
-    "cuisine": "burger",
-    "icon": "fast_food",
-    "name": "McDonald's",
-    "opening_hours": "Mo-Su 00:00-01:00,07:00-24:00; Fr 00:00-02:00,07:00-24:00; Sa 00:00-03:00,07:00-24:00",
-    "symbol": "🍔"
    },
    "type": "Feature"
   },
@@ -12734,6 +14498,29 @@
     "icon": "restaurant",
     "name": "dean&david",
     "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.7064684,
+     50.5968197
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 812748935,
+    "_type": "way",
+    "addr_city": "Aue-Bad Schlema",
+    "addr_postcode": "08280",
+    "addr_street": "Lößnitzer Straße 85",
+    "category": "vegan_friendly",
+    "cuisine": "burger",
+    "icon": "fast_food",
+    "name": "Burger King",
+    "opening_hours": "Su-Th 09:00-24:00, Fr-Sa 09:00-02:00",
+    "symbol": "🍔"
    },
    "type": "Feature"
   },

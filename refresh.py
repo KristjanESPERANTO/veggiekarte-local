@@ -51,6 +51,7 @@ GET_MORE_INFO = [
     5592987513,  # VL-Küfa
     5592955318,  # Reil-Küfa
     1931764008,  # Afamia Eck
+    9572703189,  # Bowls King
     3658458714,  # Kornliebchen
     3590210914,  # Kumara
     1034449861,  # Ökoase
@@ -80,7 +81,8 @@ GET_MORE_INFO = [
     3052291182,  # Seoul Kulinarisch
     1037236274,  # Anh Asia
     164756646,   # Nice
-    8773861578,  # JUICY
+    8773861578,  # JUICY - Reileck
+    9140808707,  # JUICY - LuWu
     7388445891,  # City Döner
     578246181,   # Mo’s Daniel’s
     2876264915,  # Sao Mai
@@ -136,6 +138,7 @@ GET_MORE_INFO = [
     3724402925,  # I LOVE Icecream
     2715257424,  # Sonnendeck
     2065237786,  # Naturell
+    8867577091,  # nobelsüß
     2051567009,  # ÖkoHalle
     1943778686,  # BioRio
     1902279166,  # Biomarkt am Reileck

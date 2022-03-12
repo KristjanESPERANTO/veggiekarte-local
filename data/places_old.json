@@ -1,5 +1,5 @@
 {
- "_timestamp": "2021-11-28 12:10:33.553902",
+ "_timestamp": "2021-12-11 12:33:46.434102",
  "features": [
   {
    "geometry": {
@@ -373,6 +373,27 @@
     "icon": "restaurant",
     "name": "Ganesha",
     "opening_hours": "open",
+    "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.3270346,
+     51.3152429
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 265089220,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_website": "https://www.don-giovanni-leipzig.de",
+    "cuisine": "italian",
+    "icon": "restaurant",
+    "name": "Don Giovanni",
+    "opening_hours": "Mo-Fr 14:00-22:00; Sa 11:00-23:00; Su,PH 11:00-21:00",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -3556,10 +3577,16 @@
    "properties": {
     "_id": 1581100202,
     "_type": "node",
+    "addr_city": "Erfurt",
+    "addr_postcode": "99084",
+    "addr_street": "Pilse 8",
     "category": "vegan_friendly",
+    "contact_phone": "+49 361 26596614",
+    "contact_website": "https://www.numa-erfurt.de",
+    "cuisine": "pasta",
     "icon": "fast_food",
-    "name": "NUMA",
-    "opening_hours": "Mo 10:00-15:00; Tu-Sa 11:00-21:00",
+    "name": "Numa – Die Nudelmacher",
+    "opening_hours": "Mo-Sa 11:00-15:00",
     "symbol": "🍔"
    },
    "type": "Feature"
@@ -3805,11 +3832,12 @@
     "addr_postcode": "99084",
     "addr_street": "Hefengasse 1",
     "category": "vegan_friendly",
+    "contact_phone": "0361 - 6604666",
     "contact_website": "http://cognitoworld.com",
-    "cuisine": "organic",
+    "cuisine": "organic;burger;pasta;curry",
     "icon": "restaurant",
     "name": "Cognito",
-    "opening_hours": "Mo-Sa 10:00-19:00",
+    "opening_hours": "Mo-Sa 07:30-21:30",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -3857,6 +3885,7 @@
     "contact_website": "https://www.indien-masala-halle-saale.de",
     "cuisine": "indian",
     "icon": "restaurant",
+    "more_info": true,
     "name": "Indian Masala",
     "symbol": "🍽️"
    },
@@ -4695,6 +4724,31 @@
   {
    "geometry": {
     "coordinates": [
+     11.0242917,
+     50.9783836
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2276692146,
+    "_type": "node",
+    "addr_city": "Erfurt",
+    "addr_postcode": "99084",
+    "addr_street": "Andreasstraße 37",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 361 430 220 46",
+    "contact_website": "https://www.numa-erfurt.de",
+    "cuisine": "pasta",
+    "icon": "fast_food",
+    "name": "Numa – Die Nudelmacher",
+    "opening_hours": "Mo-Sa 11:00-21:00",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      13.9439866,
      50.9619383
     ],
@@ -5136,6 +5190,29 @@
     "icon": "restaurant",
     "name": "Kua Thai Bistro",
     "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.0283799,
+     50.9778508
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2480645615,
+    "_type": "node",
+    "addr_street": "Fischmarkt 9",
+    "category": "vegan_friendly",
+    "contact_phone": "0361 - 56 12 445",
+    "contact_website": "https://www.baerenland.com",
+    "icon": "confectionery",
+    "name": "Bärenladen - Fruchtgummi-Paradies",
+    "opening_hours": "tu-sa 10:00-18:00",
+    "shop": "confectionery",
+    "symbol": "🍬"
    },
    "type": "Feature"
   },
@@ -7505,7 +7582,7 @@
     "contact_phone": "+49 351 47028692",
     "icon": "bakery",
     "name": "Sternenbäck",
-    "opening_hours": "Mo-Fr 06:30-18:30; Sa 07:00-17:00; Su 08:00-17:00",
+    "opening_hours": "Mo-Fr 07:00-18:00; Sa, Su 08:00-16:00; Su 08:00-17:00",
     "shop": "bakery",
     "symbol": "🥨"
    },
@@ -8631,8 +8708,8 @@
   {
    "geometry": {
     "coordinates": [
-     12.9179419,
-     50.8341927
+     12.9179218,
+     50.8341931
     ],
     "type": "Point"
    },
@@ -8646,7 +8723,7 @@
     "contact_email": "klosterstrasse.chemnitz@deananddavid.com",
     "contact_phone": "+49 371 66655680",
     "contact_website": "https://deananddavid.de/standorte/chemnitz-klosterstrasse",
-    "cuisine": "salad;sandwich;wraps",
+    "cuisine": "salad;sandwich",
     "icon": "restaurant",
     "name": "dean&david",
     "opening_hours": "Mo-Fr 10:00-20:00; Sa,Su 11:30-20:00",
@@ -9103,6 +9180,28 @@
   {
    "geometry": {
     "coordinates": [
+     12.3224004,
+     51.3228904
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 6057706738,
+    "_type": "node",
+    "addr_street": "Röckener Straße 44",
+    "category": "vegan_friendly",
+    "contact_facebook": "https://www.facebook.com/heiterbiswolkigcafe",
+    "contact_phone": "+49 176 34590754",
+    "icon": "cafe",
+    "name": "Heiter bis Wolkig",
+    "opening_hours": "Mo, Tu off; We-Su 14:00-22:00",
+    "symbol": "☕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      12.4025146,
      51.3486129
     ],
@@ -9155,6 +9254,9 @@
    "properties": {
     "_id": 6251874221,
     "_type": "node",
+    "addr_city": "Chemnitz",
+    "addr_postcode": "09126",
+    "addr_street": "Dittesstraße 15",
     "category": "vegan_friendly",
     "cuisine": "asian",
     "icon": "fast_food",
@@ -9461,8 +9563,8 @@
   {
    "geometry": {
     "coordinates": [
-     11.585958,
-     50.9295768
+     11.5859162,
+     50.9295948
     ],
     "type": "Point"
    },
@@ -10431,31 +10533,6 @@
   {
    "geometry": {
     "coordinates": [
-     11.0235842,
-     50.9872891
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 8520143664,
-    "_type": "node",
-    "addr_city": "Erfurt",
-    "addr_postcode": "99089",
-    "addr_street": "Gerberstraße 9",
-    "category": "vegan_friendly",
-    "contact_email": "hummusandhomies@gmail.com",
-    "contact_phone": "+49 151 47028753",
-    "contact_website": "https://hummusandhomies.de",
-    "icon": "fast_food",
-    "name": "Hummus & Homies",
-    "opening_hours": "Tu-Su 12:00-21:00",
-    "symbol": "🍔"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
      12.373131,
      51.3175431
     ],
@@ -10976,6 +11053,56 @@
   {
    "geometry": {
     "coordinates": [
+     13.6980442,
+     51.0436196
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 9295754370,
+    "_type": "node",
+    "addr_city": "Dresden",
+    "addr_country": "DE",
+    "addr_postcode": "01159",
+    "addr_street": "Kesselsdorfer Straße 32",
+    "category": "vegan_friendly",
+    "contact_phone": "0049 351 889 58 799",
+    "contact_website": "https://www.world-of-pizza.de/dresden-loebtau",
+    "cuisine": "burger;pizza",
+    "icon": "fast_food",
+    "name": "World Of Pizza",
+    "opening_hours": "Mo-Su 10:00-24:00",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.0291254,
+     50.9774107
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 9315927309,
+    "_type": "node",
+    "addr_city": "Erfurt",
+    "addr_postcode": "99084",
+    "addr_street": "Predigerstraße 20",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 361 55066790",
+    "cuisine": "kebab",
+    "icon": "fast_food",
+    "name": "Green Bistro",
+    "opening_hours": "Mo-Sa 10:30-23:00; So 11:30-22:00; PH 11:30-22:00",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9339655,
      51.4965308
     ],
@@ -11096,7 +11223,7 @@
     "cuisine": "coffee_shop",
     "icon": "cafe",
     "name": "Starbucks",
-    "opening_hours": "Mo-Fr 07:00-21:00; Sa 07:30-21:00; Su,PH 07:30-20:30",
+    "opening_hours": "Tu-Sa 07:00-19:30; PH,Su 07:30-19:30",
     "symbol": "☕"
    },
    "type": "Feature"
