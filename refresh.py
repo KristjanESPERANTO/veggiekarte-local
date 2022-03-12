@@ -62,7 +62,6 @@ GET_MORE_INFO = [
     1538147900,  # Le Feu
     2932869816,  # Yasmin
     261692804,   # Espitas
-    6380783117,  # roots
     1038238639,  # Enchilada
     2874464836,  # Mextreme
     252918375,   # Alte Apotheke
@@ -109,6 +108,7 @@ GET_MORE_INFO = [
     8018875351,  # Restaurant Ruine
     2068490774,  # The One
     5868832962,  # Tandoori Steakhaus
+    8932643632,  # Alik GELATO
     1185202509,  # Harzmensa
     8018837433,  # Mensa Neuwerk
     304682735,   # Mensa Franckesche Stiftungen
