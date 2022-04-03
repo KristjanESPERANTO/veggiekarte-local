@@ -2,8 +2,8 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.57.1 74a55df1",
   "osm3s": {
-    "timestamp_osm_base": "2022-03-12T13:29:15Z",
-    "timestamp_areas_base": "2022-03-12T11:44:39Z",
+    "timestamp_osm_base": "2022-04-03T11:28:33Z",
+    "timestamp_areas_base": "2022-04-03T10:36:59Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -565,7 +565,7 @@
     "internet_access": "wlan",
     "internet_access:fee": "no",
     "name": "Bewaffel Dich",
-    "opening_hours": "Mo-Th 09:00-23:00; Fr-Sa 09:00-00:00; Su 09:00-23:00",
+    "opening_hours": "Mo-Su 09:00-22:00",
     "outdoor_seating": "yes",
     "wheelchair": "limited"
   }
@@ -1225,7 +1225,7 @@
     "diet:vegan": "limited",
     "diet:vegetarian": "yes",
     "name": "Seoul Kulinarisch",
-    "opening_hours": "Mo 11:00-15:00,17:00-20:00; Tu-Su 11:00-15:00",
+    "opening_hours": "Mo-Sa 11:00-15:00, 17:00-20:00",
     "toilets:wheelchair": "no",
     "wheelchair": "limited"
   }
@@ -2071,9 +2071,9 @@
   "tags": {
     "addr:city": "Halle (Saale)",
     "addr:country": "DE",
-    "addr:housenumber": "2",
+    "addr:housenumber": "32",
     "addr:postcode": "06114",
-    "addr:street": "Richard-Wagner-Straße",
+    "addr:street": "Reilstraße",
     "amenity": "cafe",
     "contact:instagram": "https://www.instagram.com/toertcheneck.konditorei/",
     "contact:phone": "+49 345 13252434",
@@ -2082,7 +2082,10 @@
     "diet:vegan": "yes",
     "diet:vegetarian": "only",
     "name": "Törtcheneck",
-    "opening_hours": "Tu-Sa 11:00-16:00"
+    "opening_hours": "Tu-Sa 11:00-16:00",
+    "outdoor_seating": "no",
+    "phone": "+49 345 13252434",
+    "website": "https://www.toertcheneck.de"
   }
 },
 {
@@ -2241,7 +2244,7 @@
     "diet:vegetarian": "yes",
     "name": "Oberstübchen",
     "old_name": "Laube 57",
-    "opening_hours": "Mo,We,Th 15:30-23:00; Tu off; Fr,Sa 15:30-02:00; Su 15:30-21:00",
+    "opening_hours": "Mo,We,Th 17:30-23:00; Tu off; Fr,Sa 17:30-02:00; Su 14:30-21:00",
     "outdoor_seating": "yes"
   }
 },
@@ -2444,8 +2447,8 @@
 {
   "type": "node",
   "id": 8795957217,
-  "lat": 51.4777098,
-  "lon": 11.9871323,
+  "lat": 51.4776208,
+  "lon": 11.9871928,
   "tags": {
     "addr:city": "Halle (Saale)",
     "addr:housenumber": "1",
@@ -2459,9 +2462,10 @@
     "diet:vegan": "yes",
     "diet:vegan:labeled": "yes",
     "diet:vegetarian": "yes",
-    "fixme": "Genauer Standort im Hauptbahnhof nicht bekannt",
+    "level": "-1",
     "name": "dean&david",
-    "opening_hours": "Mo-Su 09:00-20:00"
+    "opening_hours": "Mo-Su 09:00-20:00",
+    "start_date": "2021"
   }
 },
 {
@@ -3427,38 +3431,6 @@
     "source": "Bing",
     "wheelchair": "limited",
     "wheelchair:description": "Eingang mit Rampe, kein behindertengerechtes WC"
-  }
-},
-{
-  "type": "way",
-  "id": 778088156,
-  "center": {
-    "lat": 51.4776208,
-    "lon": 11.9871929
-  },
-  "nodes": [
-    7261818011,
-    7261818012,
-    7261818013,
-    7261818014,
-    7261818011
-  ],
-  "tags": {
-    "addr:city": "Halle (Saale)",
-    "addr:housenumber": "1",
-    "addr:postcode": "06112",
-    "addr:street": "Hans-Dietrich-Genscher-Platz",
-    "amenity": "restaurant",
-    "brand": "dean&david",
-    "brand:wikidata": "Q66132404",
-    "cuisine": "salad;sandwich",
-    "diet:vegan": "yes",
-    "diet:vegetarian": "yes",
-    "indoor": "room",
-    "level": "-1",
-    "name": "dean&david",
-    "room": "shop",
-    "start_date": "2021"
   }
 }
 

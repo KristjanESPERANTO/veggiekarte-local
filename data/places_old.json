@@ -1,6 +1,32 @@
 {
- "_timestamp": "2022-03-12 14:28:01.810999",
+ "_timestamp": "2022-03-12 14:30:36.934948",
  "features": [
+  {
+   "geometry": {
+    "coordinates": [
+     12.0612878,
+     51.2974302
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 252918375,
+    "_type": "node",
+    "addr_city": "Bad Dürrenberg",
+    "addr_postcode": "06231",
+    "addr_street": "Apothekerberg 16",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 3462 542280",
+    "contact_website": "https://www.hotel-alte-apotheke.de",
+    "cuisine": "german",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "Alte Apotheke",
+    "opening_hours": "Mo-Fr 06:30+; Sa,Su 08:00+",
+    "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
   {
    "geometry": {
     "coordinates": [
@@ -962,6 +988,32 @@
   {
    "geometry": {
     "coordinates": [
+     11.9911235,
+     51.3569726
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2371803959,
+    "_type": "node",
+    "addr_city": "Merseburg",
+    "addr_postcode": "06217",
+    "addr_street": "Bahnhofsplatz 1",
+    "category": "vegan_friendly",
+    "contact_email": "merseburg@freddy-fresh.de",
+    "contact_phone": "+49 3461 2897799",
+    "contact_website": "https://www.freddy-fresh.de",
+    "cuisine": "pizza",
+    "icon": "maki_restaurant-pizza",
+    "name": "Freddy Fresh",
+    "opening_hours": "Mo-Su 10:30-22:00",
+    "symbol": "🍕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9778323,
      51.4754283
     ],
@@ -1207,6 +1259,59 @@
   {
    "geometry": {
     "coordinates": [
+     11.7833499,
+     51.4661476
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2969150134,
+    "_type": "node",
+    "addr_city": "Teutschenthal",
+    "addr_country": "DE",
+    "addr_postcode": "06179",
+    "addr_street": "Straße der Einheit 17",
+    "category": "vegan_limited",
+    "contact_email": "martin.schael@freenet.de",
+    "contact_facebook": "https://www.facebook.com/B%C3%A4ckerei-Sch%C3%A4l-467517753397255",
+    "contact_instagram": "https://www.instagram.com/martin.schael",
+    "contact_phone": "+49 34601 22650",
+    "contact_website": "https://www.bäckerei-schäl.de",
+    "icon": "bakery",
+    "more_info": true,
+    "name": "Schäl",
+    "opening_hours": "Mo 06:00-13:00; Tu-Fr 06:00-16:30; Sa 06:00-10:00; Su,PH off",
+    "shop": "bakery",
+    "symbol": "🥨"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.177683,
+     51.344328
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2986723100,
+    "_type": "node",
+    "addr_city": "Leuna",
+    "addr_postcode": "06237",
+    "category": "vegan_friendly",
+    "contact_website": "https://www.dunkin-donuts.de",
+    "cuisine": "donut;coffee_shop",
+    "icon": "fast_food",
+    "name": "Dunkin'",
+    "opening_hours": "Mo-Sa 10:00-20:00; Su off",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9663396,
      51.4942999
     ],
@@ -1283,6 +1388,32 @@
     "name": "Burgerservice",
     "opening_hours": "Mo off; Tu-Th 11:00-22:00; Fr-Sa 11:00-00:00; Su 11:00-22:00",
     "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.1780337,
+     51.3439014
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3208898648,
+    "_type": "node",
+    "addr_city": "Leuna",
+    "addr_postcode": "06237",
+    "addr_street": "Einkaufszentrum NOVA",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 34638 39793",
+    "contact_website": "https://coffee-fellows.com/locations/coffee-fellows-leuna-nova-eventis",
+    "cuisine": "coffee_shop",
+    "icon": "cafe",
+    "more_info": true,
+    "name": "Coffee Fellows",
+    "opening_hours": "Mo-Th 09:00-20:00; Fr 09:00-22:00; Sa 09:00-20:00; Su off",
+    "symbol": "☕"
    },
    "type": "Feature"
   },
@@ -1473,6 +1604,33 @@
     "name": "Vanilla",
     "opening_hours": "Mo-Su,PH 12:00-19:00",
     "symbol": "☕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9924674,
+     51.3549709
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3820929262,
+    "_type": "node",
+    "addr_city": "Merseburg",
+    "addr_country": "DE",
+    "addr_postcode": "06217",
+    "addr_street": "König-Heinrich-Straße 2",
+    "category": "vegan_limited",
+    "contact_phone": "+49 3461 8249020",
+    "contact_website": "https://restaurants.subway.com/germany/st/merseburg/konig-heinrich-stra%C3%9Fe-2",
+    "cuisine": "sandwich",
+    "icon": "fast_food",
+    "more_info": true,
+    "name": "Subway",
+    "opening_hours": "Mo-Fr 09:00-21:00; Sa 10:00-21:00; Su 12:00-21:00",
+    "symbol": "🍔"
    },
    "type": "Feature"
   },
@@ -1842,6 +2000,33 @@
     "name": "Bagel 29",
     "opening_hours": "Mo-Sa 10:00-18:00; Su off",
     "symbol": "☕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9993352,
+     51.3558738
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 5091097909,
+    "_type": "node",
+    "addr_city": "Merseburg",
+    "addr_country": "DE",
+    "addr_postcode": "06217",
+    "addr_street": "Burgstraße 6",
+    "category": "vegan_friendly",
+    "contact_email": "info@tajmahal-merseburg.de",
+    "contact_phone": "+49 3461-2769066",
+    "contact_website": "www.tajmahal-merseburg.de",
+    "cuisine": "indian",
+    "icon": "restaurant",
+    "name": "Taj Mahal",
+    "opening_hours": "Mo-Su 11:00-23:00",
+    "symbol": "🍽️"
    },
    "type": "Feature"
   },
@@ -2468,6 +2653,31 @@
   {
    "geometry": {
     "coordinates": [
+     11.9831239,
+     51.3704679
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 8793001854,
+    "_type": "node",
+    "addr_city": "Merseburg",
+    "addr_postcode": "06217",
+    "addr_street": "Querfurter Straße 4",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 3461 2391255",
+    "contact_website": "https://sushideluxe.de/restaurants/halle",
+    "cuisine": "sushi",
+    "icon": "restaurant",
+    "name": "SUSHIdeluxe",
+    "opening_hours": "Mo-Su 11:00-20:45",
+    "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.978945,
      51.4883301
     ],
@@ -3069,6 +3279,31 @@
   {
    "geometry": {
     "coordinates": [
+     11.9992993,
+     51.3558742
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 182854644,
+    "_type": "way",
+    "addr_city": "Merseburg",
+    "addr_postcode": "06217",
+    "addr_street": "Burgstraße 6",
+    "category": "vegan_friendly",
+    "contact_website": "http://www.tajmahal-merseburg.de",
+    "cuisine": "indian",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "Tajmahal",
+    "opening_hours": "Mo-Su 11:00-23:00",
+    "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9669297,
      51.4807172
     ],
@@ -3091,6 +3326,30 @@
     "name": "Lichthaus",
     "opening_hours": "We-Th 14:00-18:00; Fr-Sa 14:00-24:00",
     "symbol": "☕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9842788,
+     51.2814207
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 255017911,
+    "_type": "way",
+    "addr_city": "Leuna",
+    "addr_postcode": "06237",
+    "addr_street": "Maienweg 1",
+    "category": "vegan_friendly",
+    "contact_website": "https://www.aramark.de",
+    "cuisine": "german;burger;regional;coffee_shop;ice_cream;barbecue;sandwich;chicken",
+    "icon": "restaurant",
+    "name": "Raffiness",
+    "opening_hours": "Mo-Fr 11:00-14:00",
+    "symbol": "🍽️"
    },
    "type": "Feature"
   },

@@ -1,5 +1,5 @@
 {
- "_timestamp": "2022-03-12 14:30:36.934948",
+ "_timestamp": "2022-04-03 13:29:50.196971",
  "features": [
   {
    "geometry": {
@@ -596,7 +596,7 @@
     "icon": "cafe",
     "more_info": true,
     "name": "Bewaffel Dich",
-    "opening_hours": "Mo-Th 09:00-23:00; Fr-Sa 09:00-00:00; Su 09:00-23:00",
+    "opening_hours": "Mo-Su 09:00-22:00",
     "symbol": "☕"
    },
    "type": "Feature"
@@ -1332,7 +1332,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Seoul Kulinarisch",
-    "opening_hours": "Mo 11:00-15:00,17:00-20:00; Tu-Su 11:00-15:00",
+    "opening_hours": "Mo-Sa 11:00-15:00, 17:00-20:00",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -2255,7 +2255,7 @@
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06114",
-    "addr_street": "Richard-Wagner-Straße 2",
+    "addr_street": "Reilstraße 32",
     "category": "vegetarian_only",
     "contact_instagram": "https://www.instagram.com/toertcheneck.konditorei",
     "contact_phone": "+49 345 13252434",
@@ -2460,7 +2460,7 @@
     "cuisine": "coffee_shop",
     "icon": "restaurant",
     "name": "Oberstübchen",
-    "opening_hours": "Mo,We,Th 15:30-23:00; Tu off; Fr,Sa 15:30-02:00; Su 15:30-21:00",
+    "opening_hours": "Mo,We,Th 17:30-23:00; Tu off; Fr,Sa 17:30-02:00; Su 14:30-21:00",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -2703,8 +2703,8 @@
   {
    "geometry": {
     "coordinates": [
-     11.9871323,
-     51.4777098
+     11.9871928,
+     51.4776208
     ],
     "type": "Point"
    },
@@ -3456,28 +3456,6 @@
     "more_info": true,
     "name": "Goldene Schildkröte",
     "opening_hours": "Mo-Su 11:00-22:00",
-    "symbol": "🍽️"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9871929,
-     51.4776208
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 778088156,
-    "_type": "way",
-    "addr_city": "Halle (Saale)",
-    "addr_postcode": "06112",
-    "addr_street": "Hans-Dietrich-Genscher-Platz 1",
-    "category": "vegan_friendly",
-    "cuisine": "salad;sandwich",
-    "icon": "restaurant",
-    "name": "dean&david",
     "symbol": "🍽️"
    },
    "type": "Feature"
