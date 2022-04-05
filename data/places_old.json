@@ -1,5 +1,5 @@
 {
- "_timestamp": "2022-04-03 13:37:15.464994",
+ "_timestamp": "2022-04-03 13:41:15.203086",
  "features": [
   {
    "geometry": {
@@ -177,6 +177,30 @@
     "name": "Papa John's",
     "opening_hours": "Mo-Su 11:00-23:00",
     "symbol": "🍕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9700403,
+     51.4767897
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 499450663,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06110",
+    "addr_street": "Steinweg 46",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 3 45 6 86 52 22",
+    "icon": "hairdresser",
+    "name": "Haarwerk",
+    "shop": "hairdresser",
+    "symbol": "💇"
    },
    "type": "Feature"
   },
@@ -464,6 +488,31 @@
     "name": "Zwei Zimmer Küche Bar",
     "opening_hours": "Su-Th 12:00-02:00; Fr-Sa 12:00-03:00",
     "symbol": "🍸"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.997409,
+     51.4902085
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1103698374,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06116",
+    "addr_street": "Fritz-Hoffmann-Straße 1",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 345 5 60 87 73",
+    "contact_website": "https://www.webadresse.de/friseure-halle-moebius-jeannette",
+    "icon": "hairdresser",
+    "name": "Coiffeur Jeannette Möbius – Der nette Friseur",
+    "shop": "hairdresser",
+    "symbol": "💇"
    },
    "type": "Feature"
   },
@@ -936,6 +985,30 @@
   {
    "geometry": {
     "coordinates": [
+     11.9840217,
+     51.4272949
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2284590295,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06132",
+    "addr_street": "Merseburger Straße 434",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 3 45 7 75 87 96",
+    "icon": "hairdresser",
+    "name": "Hairstyling",
+    "opening_hours": "Mo-Fr 07:00-19:00; Sa 07:00-12:00",
+    "shop": "hairdresser",
+    "symbol": "💇"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9703883,
      51.4796143
     ],
@@ -1099,6 +1172,30 @@
   {
    "geometry": {
     "coordinates": [
+     11.966528,
+     51.4721139
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2567892341,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06110",
+    "addr_street": "Wörmlitzer Straße 107",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 3 45 13 18 99 98",
+    "icon": "hairdresser",
+    "name": "Classio Hair & Beauty Lounge",
+    "shop": "hairdresser",
+    "symbol": "💇"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9608908,
      51.485173
     ],
@@ -1121,6 +1218,28 @@
     "name": "Sonnendeck",
     "opening_hours": "Mo-Fr 11:00-18:00+; Sa-Su 10:00-18:00+",
     "symbol": "☕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.967557,
+     51.4822903
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2749602895,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 345 58217707",
+    "contact_website": "https://www.koegel-der-friseur.de",
+    "icon": "hairdresser",
+    "name": "Koegel der Friseur",
+    "opening_hours": "Mo 13:00-18:00; Tu,Th-Fr 08:30-19:00; We 09:30-19:00; Sa 08:00-13:30",
+    "shop": "hairdresser",
+    "symbol": "💇"
    },
    "type": "Feature"
   },
@@ -1340,6 +1459,29 @@
   {
    "geometry": {
     "coordinates": [
+     11.9840561,
+     51.462897
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3067537371,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06112",
+    "addr_street": "Merseburger Straße 137",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 3 45 4 44 24 18",
+    "icon": "hairdresser",
+    "name": "hairStyling",
+    "shop": "hairdresser",
+    "symbol": "💇"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9703938,
      51.4754624
     ],
@@ -1414,6 +1556,30 @@
     "name": "Coffee Fellows",
     "opening_hours": "Mo-Th 09:00-20:00; Fr 09:00-22:00; Sa 09:00-20:00; Su off",
     "symbol": "☕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9710809,
+     51.4629014
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3299234039,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06110",
+    "addr_street": "Huttenstraße 49",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 3 45 4 44 91 20",
+    "icon": "hairdresser",
+    "name": "HairStyling",
+    "shop": "hairdresser",
+    "symbol": "💇"
    },
    "type": "Feature"
   },
@@ -1558,6 +1724,31 @@
   {
    "geometry": {
     "coordinates": [
+     11.9780186,
+     51.4800165
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3731334025,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Martinstraße 8",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 345 2021817",
+    "contact_website": "https://www.haarstudio-steffi.de",
+    "icon": "hairdresser",
+    "name": "Steffi`s Haarstudio",
+    "shop": "hairdresser",
+    "symbol": "💇"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.966905,
      51.4863948
     ],
@@ -1664,30 +1855,23 @@
   {
    "geometry": {
     "coordinates": [
-     11.9699697,
-     51.4933783
+     11.9337137,
+     51.5006059
     ],
     "type": "Point"
    },
    "properties": {
-    "_id": 4036431410,
+    "_id": 4228270047,
     "_type": "node",
     "addr_city": "Halle (Saale)",
-    "addr_country": "DE",
-    "addr_postcode": "06108",
-    "addr_street": "Ludwig-Wucherer-Straße 29",
-    "category": "vegan_only",
-    "contact_email": "vegs.halle@gmx.de",
-    "contact_facebook": "https://www.facebook.com/vegs.halle",
-    "contact_instagram": "https://www.instagram.com/vegs.halle",
-    "contact_phone": "+49 176 20796828",
-    "contact_website": "https://www.vegs-halle.de",
-    "cuisine": "wraps",
-    "icon": "fast_food",
-    "more_info": true,
-    "name": "Vegs",
-    "opening_hours": "Mo-Fr 12:00-20:00; Sa,Su,PH off",
-    "symbol": "🍔"
+    "addr_postcode": "06120",
+    "addr_street": "Heideallee 2",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 3 45 68 30 07 33",
+    "icon": "hairdresser",
+    "name": "Classic Hair & Beauty Lounge",
+    "shop": "hairdresser",
+    "symbol": "💇"
    },
    "type": "Feature"
   },
@@ -1978,6 +2162,30 @@
   {
    "geometry": {
     "coordinates": [
+     11.9605472,
+     51.4565756
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 4974883422,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06128",
+    "addr_street": "Kollenbeyer Weg 33",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 345 131 6747",
+    "icon": "hairdresser",
+    "name": "new-styling",
+    "shop": "hairdresser",
+    "symbol": "💇"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9667696,
      51.4867456
     ],
@@ -2033,6 +2241,30 @@
   {
    "geometry": {
     "coordinates": [
+     11.9661272,
+     51.4866954
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 5240927115,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06108",
+    "addr_street": "Kleine Ulrichstraße 18",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 345 6850105",
+    "icon": "hairdresser",
+    "name": "HairCult",
+    "opening_hours": "Mo 09:00-17:00, Tu,We 10:00-19:00, Th 10:00-18:00, Fr 08:00-19:00, Sa 09:00-14:00",
+    "shop": "hairdresser",
+    "symbol": "💇"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9721836,
      51.4816909
     ],
@@ -2081,55 +2313,6 @@
     "opening_hours": "Mo-Sa 09:00-19:00; Su off",
     "shop": "convenience",
     "symbol": "🏪"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9632008,
-     51.4707364
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 5592955318,
-    "_type": "node",
-    "addr_city": "Halle (Saale)",
-    "addr_postcode": "06110",
-    "addr_street": "Ludwigstraße 37",
-    "category": "vegan_only",
-    "contact_website": "https://www.ludwigstrasse37.de/kuefa.html",
-    "icon": "maki_star-stroked",
-    "more_info": true,
-    "name": "VL-Küfa",
-    "opening_hours": "Tu 20:00+",
-    "symbol": ""
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9661347,
-     51.5071812
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 5592987513,
-    "_type": "node",
-    "addr_city": "Halle (Saale)",
-    "addr_postcode": "06114",
-    "addr_street": "Reilstraße 78",
-    "category": "vegan_only",
-    "contact_facebook": "https://www.facebook.com/reil78",
-    "contact_website": "https://www.reil78.de",
-    "icon": "maki_star-stroked",
-    "more_info": true,
-    "name": "Reil-Küfa",
-    "opening_hours": "Su 19:00+",
-    "symbol": ""
    },
    "type": "Feature"
   },
@@ -2489,6 +2672,33 @@
     "name": "City Döner",
     "opening_hours": "Mo-Fr 11:00-22:00; Sa 12:00-23:00; Su 12:00-22:00",
     "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9711935,
+     51.4918365
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 7598042193,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06108",
+    "addr_street": "Puschkinstraße 16",
+    "category": "vegan_only",
+    "contact_email": "hallo@inkerbelltattoos.de",
+    "contact_facebook": "https://www.facebook.com/inkerbelltattoos",
+    "contact_instagram": "https://www.instagram.com/inkerbell_tattoos",
+    "contact_website": "https://www.inkerbelltattoos.de",
+    "icon": "maki_star-stroked",
+    "name": "Inkerbell Tattoos",
+    "opening_hours": "nach Anfrage",
+    "shop": "tattoo",
+    "symbol": ""
    },
    "type": "Feature"
   },
@@ -2876,6 +3086,187 @@
     "name": "Pizza One",
     "opening_hours": "Mo-Su 11:00-24:00",
     "symbol": "🍕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.8766096,
+     51.5051126
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 9261469165,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06120",
+    "addr_street": "Röntgenstraße 12",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 3 45 5 51 17 83",
+    "icon": "hairdresser",
+    "name": "Classic Hair & Beauty Lounge",
+    "shop": "hairdresser",
+    "symbol": "💇"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9784849,
+     51.452762
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 9261473487,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06130",
+    "addr_street": "Am Breiten Pfuhl 44",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 3 45 1 22 16 35",
+    "icon": "hairdresser",
+    "name": "Amme Cornelia Friseursalon",
+    "shop": "hairdresser",
+    "symbol": "💇"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9589856,
+     51.4813732
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 9261675833,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06108",
+    "addr_street": "Mansfelder Straße 15",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 3 45 2 03 68 71",
+    "icon": "hairdresser",
+    "name": "Friseursalon Andrea Hinze",
+    "shop": "hairdresser",
+    "symbol": "💇"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9153805,
+     51.4759688
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 9261788412,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 3 45 6 80 15 25",
+    "icon": "hairdresser",
+    "name": "Haarstudio Heike",
+    "shop": "hairdresser",
+    "symbol": "💇"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9585373,
+     51.4478008
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 9261789811,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06128",
+    "addr_street": "Südstadtring 90",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 3 45 1 21 14 60",
+    "icon": "hairdresser",
+    "name": "Frisör Klier GmbH Kaufland",
+    "shop": "hairdresser",
+    "symbol": "💇"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.965624,
+     51.4601221
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 9261825700,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06110",
+    "addr_street": "Finkenweg 35",
+    "category": "vegan_friendly",
+    "contact_email": "schnittstelle-derfriseur@gmx.de",
+    "contact_facebook": "https://www.facebook.com/SchnittstelleHalle",
+    "contact_phone": "+49 3 45 1 22 73 99",
+    "contact_website": "https://www.facebook.com/SchnittstelleHalle",
+    "icon": "hairdresser",
+    "name": "Schnittstelle Friseurfachgeschäft",
+    "shop": "hairdresser",
+    "symbol": "💇"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.926354,
+     51.46979
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 9261839535,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 3 45 6 90 27 87",
+    "icon": "hairdresser",
+    "name": "Scorna und Schenk GbR",
+    "shop": "hairdresser",
+    "symbol": "💇"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9795456,
+     51.4695174
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 9261848291,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06110",
+    "addr_street": "Turmstraße 35",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 3 45 4 72 17 77",
+    "icon": "hairdresser",
+    "name": "Stilart Ihr Friseur",
+    "shop": "hairdresser",
+    "symbol": "💇"
    },
    "type": "Feature"
   },

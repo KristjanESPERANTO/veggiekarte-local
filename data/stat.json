@@ -412,6 +412,13 @@
    "n_vegan_limited": 22,
    "n_vegan_only": 4,
    "n_vegetarian_only": 10
+  },
+  {
+   "date": "2022-04-05",
+   "n_vegan_friendly": 116,
+   "n_vegan_limited": 22,
+   "n_vegan_only": 4,
+   "n_vegetarian_only": 10
   }
  ]
 }

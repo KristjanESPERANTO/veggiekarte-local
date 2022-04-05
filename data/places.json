@@ -1,5 +1,5 @@
 {
- "_timestamp": "2022-04-03 13:41:15.203086",
+ "_timestamp": "2022-04-05 23:50:41.688554",
  "features": [
   {
    "geometry": {
@@ -3627,13 +3627,13 @@
     "addr_postcode": "06108",
     "addr_street": "Ludwig-Wucherer-Straße 43",
     "category": "vegan_friendly",
-    "contact_facebook": "https://www.facebook.com/NICE-the-healthy-kebab-eatery-475148036602683",
-    "contact_instagram": "https://www.instagram.com/nice_eatery",
-    "contact_website": "https://www.nice-kebab.de",
-    "cuisine": "kebab",
+    "contact_facebook": "https://www.facebook.com/SPICY-Mexican-Streetfood-475148036602683",
+    "contact_instagram": "https://www.instagram.com/spicy_halle",
+    "contact_website": "https://www.spicy-halle.de",
+    "cuisine": "mexican",
     "icon": "fast_food",
     "more_info": true,
-    "name": "NICE",
+    "name": "SPICY",
     "opening_hours": "Mo-Su 11:00-21:00",
     "symbol": "🍔"
    },

@@ -2,8 +2,8 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.57.1 74a55df1",
   "osm3s": {
-    "timestamp_osm_base": "2022-04-03T11:39:43Z",
-    "timestamp_areas_base": "2022-04-03T11:36:42Z",
+    "timestamp_osm_base": "2022-04-05T21:48:53Z",
+    "timestamp_areas_base": "2022-04-05T20:08:39Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -3458,14 +3458,15 @@
     "addr:street": "Ludwig-Wucherer-Straße",
     "amenity": "fast_food",
     "building": "yes",
-    "contact:facebook": "https://www.facebook.com/NICE-the-healthy-kebab-eatery-475148036602683/",
-    "contact:instagram": "https://www.instagram.com/nice_eatery/",
-    "contact:website": "https://www.nice-kebab.de/",
-    "cuisine": "kebab",
+    "contact:facebook": "https://www.facebook.com/SPICY-Mexican-Streetfood-475148036602683/",
+    "contact:instagram": "https://www.instagram.com/spicy_halle/",
+    "contact:website": "https://www.spicy-halle.de",
+    "cuisine": "mexican",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "drive_through": "no",
-    "name": "NICE",
+    "name": "SPICY",
+    "old_name": "NICE",
     "opening_hours": "Mo-Su 11:00-21:00"
   }
 },
