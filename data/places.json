@@ -1,5 +1,5 @@
 {
- "_timestamp": "2022-04-03 13:29:50.196971",
+ "_timestamp": "2022-04-20 23:41:37.360627",
  "features": [
   {
    "geometry": {
@@ -2957,6 +2957,30 @@
   {
    "geometry": {
     "coordinates": [
+     11.9660487,
+     51.4964693
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 9676330117,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06114",
+    "addr_street": "Reilstraße 7",
+    "category": "vegan_only",
+    "contact_instagram": "bay.vegan",
+    "cuisine": "asian",
+    "icon": "restaurant",
+    "name": "Bay Vegan",
+    "opening_hours": "Mo-Su 11:00-15:00, 17:00-23:00",
+    "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9339655,
      51.4965308
     ],
@@ -3236,13 +3260,13 @@
     "addr_postcode": "06108",
     "addr_street": "Ludwig-Wucherer-Straße 43",
     "category": "vegan_friendly",
-    "contact_facebook": "https://www.facebook.com/NICE-the-healthy-kebab-eatery-475148036602683",
-    "contact_instagram": "https://www.instagram.com/nice_eatery",
-    "contact_website": "https://www.nice-kebab.de",
-    "cuisine": "kebab",
+    "contact_facebook": "https://www.facebook.com/SPICY-Mexican-Streetfood-475148036602683",
+    "contact_instagram": "https://www.instagram.com/spicy_halle",
+    "contact_website": "https://www.spicy-halle.de",
+    "cuisine": "mexican",
     "icon": "fast_food",
     "more_info": true,
-    "name": "NICE",
+    "name": "SPICY",
     "opening_hours": "Mo-Su 11:00-21:00",
     "symbol": "🍔"
    },

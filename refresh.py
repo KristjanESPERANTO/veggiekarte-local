@@ -80,7 +80,7 @@ GET_MORE_INFO = [
     2791600302,  # Hotdog King
     3052291182,  # Seoul Kulinarisch
     1037236274,  # Anh Asia
-    164756646,   # Nice
+    164756646,   # SPICY
     8773861578,  # JUICY - Reileck
     9140808707,  # JUICY - LuWu
     7388445891,  # City Döner

@@ -1,9 +1,9 @@
 {
   "version": 0.6,
-  "generator": "Overpass API 0.7.57.1 74a55df1",
+  "generator": "Overpass API 0.7.57.2 48842a1b",
   "osm3s": {
-    "timestamp_osm_base": "2022-04-03T11:28:33Z",
-    "timestamp_areas_base": "2022-04-03T10:36:59Z",
+    "timestamp_osm_base": "2022-04-20T21:40:54Z",
+    "timestamp_areas_base": "2022-04-20T21:18:41Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -2674,6 +2674,31 @@
   }
 },
 {
+  "type": "node",
+  "id": 9676330117,
+  "lat": 51.4964693,
+  "lon": 11.9660487,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:housenumber": "7",
+    "addr:postcode": "06114",
+    "addr:street": "Reilstraße",
+    "amenity": "restaurant",
+    "contact:instagram": "bay.vegan",
+    "cuisine": "asian",
+    "diet:vegan": "only",
+    "diet:vegetarian": "yes",
+    "level": "0",
+    "name": "Bay Vegan",
+    "opening_hours": "Mo-Su 11:00-15:00, 17:00-23:00",
+    "outdoor_seating": "yes",
+    "payment:cards": "yes",
+    "payment:cash": "yes",
+    "start_date": "2022-04-12",
+    "wheelchair": "limited"
+  }
+},
+{
   "type": "way",
   "id": 22883232,
   "center": {
@@ -3107,14 +3132,15 @@
     "addr:street": "Ludwig-Wucherer-Straße",
     "amenity": "fast_food",
     "building": "yes",
-    "contact:facebook": "https://www.facebook.com/NICE-the-healthy-kebab-eatery-475148036602683/",
-    "contact:instagram": "https://www.instagram.com/nice_eatery/",
-    "contact:website": "https://www.nice-kebab.de/",
-    "cuisine": "kebab",
+    "contact:facebook": "https://www.facebook.com/SPICY-Mexican-Streetfood-475148036602683/",
+    "contact:instagram": "https://www.instagram.com/spicy_halle/",
+    "contact:website": "https://www.spicy-halle.de",
+    "cuisine": "mexican",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "drive_through": "no",
-    "name": "NICE",
+    "name": "SPICY",
+    "old_name": "NICE",
     "opening_hours": "Mo-Su 11:00-21:00"
   }
 },
