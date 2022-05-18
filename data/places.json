@@ -1,5 +1,5 @@
 {
- "_timestamp": "2022-04-20 23:41:37.360627",
+ "_timestamp": "2022-05-18 23:08:12.398872",
  "features": [
   {
    "geometry": {
@@ -721,36 +721,6 @@
     "opening_hours": "Mo-Fr 09:30-19:00; Sa 09:00-13:00; PH off",
     "shop": "convenience",
     "symbol": "🏪"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9707479,
-     51.4881925
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 1931764008,
-    "_type": "node",
-    "addr_city": "Halle (Saale)",
-    "addr_country": "DE",
-    "addr_postcode": "06108",
-    "addr_street": "August-Bebel-Straße 53",
-    "category": "vegan_friendly",
-    "contact_email": "afamia-eck@hotmail.com",
-    "contact_facebook": "https://www.facebook.com/Afamia-Eck-484508991704649",
-    "contact_instagram": "https://www.instagram.com/afamiaeck53",
-    "contact_phone": "+49 345 47885417",
-    "contact_website": "https://www.afamia-halle.de",
-    "cuisine": "oriental;burger",
-    "icon": "restaurant",
-    "more_info": true,
-    "name": "Afamia Eck",
-    "opening_hours": "Mo-Sa 11:00-21:00",
-    "symbol": "🍽️"
    },
    "type": "Feature"
   },
@@ -1833,14 +1803,11 @@
     "addr_postcode": "06114",
     "addr_street": "Mühlweg 29",
     "category": "vegan_friendly",
-    "contact_facebook": "https://www.facebook.com/pandileoFood",
-    "contact_phone": "+49 1522 1410403",
-    "cuisine": "burrito;bowl",
-    "icon": "restaurant",
+    "cuisine": "coffee;kuchen",
+    "icon": "cafe",
     "more_info": true,
-    "name": "Pandileo",
-    "opening_hours": "We-Mo 12:00-20:00",
-    "symbol": "🍽️"
+    "name": "Café Wittekind",
+    "symbol": "☕"
    },
    "type": "Feature"
   },
@@ -2974,6 +2941,32 @@
     "icon": "restaurant",
     "name": "Bay Vegan",
     "opening_hours": "Mo-Su 11:00-15:00, 17:00-23:00",
+    "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.964367,
+     51.4738689
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 9752900958,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06110",
+    "addr_street": "Torstraße 47",
+    "category": "vegan_friendly",
+    "contact_instagram": "https://www.instagram.com/lilobowl",
+    "contact_phone": "+49 345 13256860",
+    "contact_website": "https://www.lilobowl.de",
+    "icon": "restaurant",
+    "name": "lilobowl",
+    "opening_hours": "Tu-Th 11:00-20:00; Fr-Sa 11:00-21:00; Su 11:00-20:00",
     "symbol": "🍽️"
    },
    "type": "Feature"

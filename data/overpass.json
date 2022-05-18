@@ -2,8 +2,8 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.57.2 48842a1b",
   "osm3s": {
-    "timestamp_osm_base": "2022-04-20T21:40:54Z",
-    "timestamp_areas_base": "2022-04-20T21:18:41Z",
+    "timestamp_osm_base": "2022-05-18T21:07:07Z",
+    "timestamp_areas_base": "2022-05-18T20:43:51Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -489,7 +489,7 @@
     "opening_hours": "Mo-Sa 09:00-22:00; Su 10:00-22:00",
     "outdoor_seating": "yes",
     "phone": "+49 345 6856521",
-    "toilets:wheelchair": "yes",
+    "toilets:wheelchair": "no",
     "wheelchair": "yes",
     "wheelchair:description": "Rampe, Aufzug, Behinderten-WC und -Parkplatz vorhanden (Parkhaus Händelhauskarree)."
   }
@@ -668,38 +668,6 @@
     "organic": "only",
     "shop": "convenience",
     "website": "http://www.biomarkt-halle.de",
-    "wheelchair": "no"
-  }
-},
-{
-  "type": "node",
-  "id": 1931764008,
-  "lat": 51.4881925,
-  "lon": 11.9707479,
-  "tags": {
-    "addr:city": "Halle (Saale)",
-    "addr:country": "DE",
-    "addr:housenumber": "53",
-    "addr:postcode": "06108",
-    "addr:street": "August-Bebel-Straße",
-    "amenity": "restaurant",
-    "contact:email": "afamia-eck@hotmail.com",
-    "contact:facebook": "https://www.facebook.com/Afamia-Eck-484508991704649/",
-    "contact:instagram": "https://www.instagram.com/afamiaeck53/",
-    "contact:phone": "+49 345 47885417",
-    "contact:website": "https://www.afamia-halle.de",
-    "cuisine": "oriental;burger",
-    "delivery": "no",
-    "description": "orientalisches omvivores Bistro/Gaststätte wechselndes Angebot an Nachspeisen und Hauptgerichten wie vegane Döner mit Seitan, Burger, Falaffel-Variationen, Kartoffelpizza sehr offen und kreativ was veganes Essen angeht viele Innen-Sitzplätze",
-    "diet:halal": "yes",
-    "diet:vegan": "yes",
-    "diet:vegetarian": "yes",
-    "name": "Afamia Eck",
-    "opening_hours": "Mo-Sa 11:00-21:00",
-    "outdoor_seating": "no",
-    "smoking": "no",
-    "takeaway": "yes",
-    "toilets:wheelchair": "no",
     "wheelchair": "no"
   }
 },
@@ -1697,14 +1665,10 @@
     "addr:housenumber": "29",
     "addr:postcode": "06114",
     "addr:street": "Mühlweg",
-    "amenity": "restaurant",
-    "contact:facebook": "https://www.facebook.com/pandileoFood/",
-    "contact:phone": "+49 1522 1410403",
-    "cuisine": "burrito;bowl",
+    "amenity": "cafe",
+    "cuisine": "coffee;kuchen",
     "diet:vegan": "yes",
-    "diet:vegetarian": "yes",
-    "name": "Pandileo",
-    "opening_hours": "We-Mo 12:00-20:00",
+    "name": "Kaffehaus Wittekind",
     "outdoor_seating": "yes",
     "wheelchair": "limited"
   }
@@ -2699,6 +2663,26 @@
   }
 },
 {
+  "type": "node",
+  "id": 9752900958,
+  "lat": 51.4738689,
+  "lon": 11.9643670,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:country": "DE",
+    "addr:housenumber": "47",
+    "addr:postcode": "06110",
+    "addr:street": "Torstraße",
+    "amenity": "restaurant",
+    "contact:instagram": "https://www.instagram.com/lilobowl/",
+    "contact:phone": "+49 345 13256860",
+    "contact:website": "https://www.lilobowl.de",
+    "diet:vegan": "yes",
+    "name": "lilobowl",
+    "opening_hours": "Tu-Th 11:00-20:00; Fr-Sa 11:00-21:00; Su 11:00-20:00"
+  }
+},
+{
   "type": "way",
   "id": 22883232,
   "center": {
@@ -2724,6 +2708,7 @@
     "amenity": "fast_food",
     "building": "yes",
     "building:levels": "1",
+    "check_date:opening_hours": "2022-04-29",
     "contact:website": "https://www.studentenwerk-halle.de/mensen-cafebars/mensen-in-halle/heidemensa-mit-cafebar",
     "diet:vegan": "limited",
     "diet:vegetarian": "yes",

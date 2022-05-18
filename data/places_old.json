@@ -1,5 +1,5 @@
 {
- "_timestamp": "2022-04-05 23:52:17.070421",
+ "_timestamp": "2022-04-20 23:41:37.360627",
  "features": [
   {
    "geometry": {
@@ -2951,6 +2951,30 @@
     "name": "Eis-Dealer",
     "opening_hours": "12:00-18:00",
     "symbol": "🍨"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9660487,
+     51.4964693
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 9676330117,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06114",
+    "addr_street": "Reilstraße 7",
+    "category": "vegan_only",
+    "contact_instagram": "bay.vegan",
+    "cuisine": "asian",
+    "icon": "restaurant",
+    "name": "Bay Vegan",
+    "opening_hours": "Mo-Su 11:00-15:00, 17:00-23:00",
+    "symbol": "🍽️"
    },
    "type": "Feature"
   },

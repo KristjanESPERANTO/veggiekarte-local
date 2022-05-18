@@ -50,7 +50,6 @@ GET_MORE_INFO = [
     4036431410,  # Vegs
     5592987513,  # VL-Küfa
     5592955318,  # Reil-Küfa
-    1931764008,  # Afamia Eck
     9572703189,  # Bowls King
     3658458714,  # Kornliebchen
     3590210914,  # Kumara
@@ -99,7 +98,7 @@ GET_MORE_INFO = [
     134238289,   # Mönchshof
     4465518868,  # Sushifreunde
     1475009992,  # Rossini
-    4893692292,  # Pandileo
+    4893692292,  # Café Wittekind
     3724388225,  # Burgerheart
     182854644,   # Tajmahal
     4815463722,  # Viet Village
