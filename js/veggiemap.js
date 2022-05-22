@@ -61,7 +61,7 @@ function veggiemap() {
   parentGroup.bindTooltip(calculateTooltip);
 
   // Close the tooltip when opening the popup
-  parentGroup.on("click", function (e) {
+  parentGroup.on("click", function () {
     if (parentGroup.isPopupOpen()) {
       parentGroup.closeTooltip();
     }
@@ -79,7 +79,7 @@ function veggiemap() {
   // Add info button
   let infoButton = L.easyButton(
     '<div class="info-button"></div>',
-    function (btn, map) { toggleInfo() }
+    function () { toggleInfo() }
   ).addTo(map);
   infoButton.setPosition('topright');
 
@@ -243,7 +243,7 @@ function addLibReview(feature) {
   fetch(url)
     .then(response => response.json())
     .then(data => document.getElementById('libreviews').innerHTML = '<div class="popupflex-container"><div>📓</div><div><a href="https://lib.reviews/' + data.thing.urlID + '" target="_blank" rel="noopener noreferrer">' + i18next.t('words.review') + '</a></div>')
-    .catch(error => {
+    .catch(() => {
       console.info("There is no review of this place or lib.reviews isn't available.");
     });
 }
