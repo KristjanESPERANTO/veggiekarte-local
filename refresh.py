@@ -87,7 +87,7 @@ GET_MORE_INFO = [
     2876264915,  # Sao Mai
     178744104,   # Hallesches Brauhaus
     3752087074,  # Rote Soße
-    14334740,    # Freddy Fresh
+    10057151822, # Freddy Fresh
     9033240019,  # Papa John's - Innenstadt
     471978357,   # Papa John's - Büschdorf
     47571137,    # Papa John's - Südstadt
@@ -235,7 +235,7 @@ def get_osm_data():
 
     # Preparing the string for the Overpass request
     # Define export format
-    overpass_query = "?data=[out:json][timeout:900];("
+    overpass_query = "?data=[out:json][timeout:900];"
 
     # # Define the area - Halle + Saalekreis
     overpass_query += "area['de:amtlicher_gemeindeschluessel'='15002000']->.halle;"\
