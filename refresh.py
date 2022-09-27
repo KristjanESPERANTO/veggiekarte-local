@@ -235,7 +235,7 @@ def get_osm_data():
 
     # Preparing the string for the Overpass request
     # Define export format
-    overpass_query = "?data=[out:json];"
+    overpass_query = "?data=[out:json][timeout:900];("
 
     # # Define the area - Halle + Saalekreis
     overpass_query += "area['de:amtlicher_gemeindeschluessel'='15002000']->.halle;"\
