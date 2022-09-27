@@ -1,5 +1,5 @@
 {
- "_timestamp": "2022-09-27 19:55:52.006923",
+ "_timestamp": "2022-09-27 20:33:08.629368",
  "features": [
   {
    "geometry": {
@@ -512,25 +512,6 @@
     "more_info": true,
     "name": "Harzmensa",
     "opening_hours": "Mo-Fr 11:15-14:00",
-    "symbol": "🍽️"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9656053,
-     51.4846953
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 1353941365,
-    "_type": "node",
-    "category": "vegan_only",
-    "icon": "restaurant",
-    "name": "Dompfaff",
-    "opening_hours": "Tu-Sa 11:30-23:00; Su 11:30-22:00",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -1945,10 +1926,10 @@
     "addr_street": "Barfüßerstraße 11",
     "category": "vegan_friendly",
     "contact_email": "cafe@7gramm.com",
-    "contact_facebook": "7Grammcafe",
+    "contact_facebook": "https://www.facebook.com/7Grammcafe",
     "contact_phone": "+49 151 43239924",
-    "contact_website": "http://7gramm.com",
-    "cuisine": "coffee_shop;vegan;vegetarian",
+    "contact_website": "https://7gramm.com",
+    "cuisine": "coffee_shop",
     "icon": "cafe",
     "more_info": true,
     "name": "7 Gramm",

@@ -2,7 +2,7 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.58.5 b0c4acbb",
   "osm3s": {
-    "timestamp_osm_base": "2022-09-27T18:35:46Z",
+    "timestamp_osm_base": "2022-09-27T21:42:38Z",
     "timestamp_areas_base": "2022-07-20T11:06:24Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
@@ -2882,6 +2882,27 @@
   }
 },
 {
+  "type": "node",
+  "id": 10057151822,
+  "lat": 51.4799496,
+  "lon": 11.9981254,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:housenumber": "49a",
+    "addr:postcode": "06112",
+    "addr:street": "Delitzscher Straße",
+    "amenity": "fast_food",
+    "contact:phone": "+49 345 68597862",
+    "contact:website": "https://www.freddy-fresh.de",
+    "cuisine": "pizza",
+    "diet:vegan": "yes",
+    "diet:vegetarian": "yes",
+    "name": "Freddy Fresh",
+    "opening_hours": "Mo-Su 11:00-22:00",
+    "wheelchair": "limited"
+  }
+},
+{
   "type": "way",
   "id": 22883232,
   "center": {
@@ -3654,44 +3675,6 @@
     "source": "Bing",
     "wheelchair": "limited",
     "wheelchair:description": "Eingang mit Rampe, kein behindertengerechtes WC"
-  }
-},
-{
-  "type": "relation",
-  "id": 14334740,
-  "center": {
-    "lat": 51.4799454,
-    "lon": 11.9981292
-  },
-  "members": [
-    {
-      "type": "way",
-      "ref": 32804265,
-      "role": "outer"
-    },
-    {
-      "type": "way",
-      "ref": 1076882670,
-      "role": "outer"
-    }
-  ],
-  "tags": {
-    "addr:city": "Halle (Saale)",
-    "addr:country": "DE",
-    "addr:housenumber": "49a",
-    "addr:postcode": "06112",
-    "addr:street": "Delitzscher Straße",
-    "amenity": "fast_food",
-    "building": "yes",
-    "contact:phone": "+49 345 68597862",
-    "contact:website": "https://www.freddy-fresh.de",
-    "cuisine": "pizza",
-    "diet:vegan": "yes",
-    "diet:vegetarian": "yes",
-    "name": "Freddy Fresh",
-    "opening_hours": "Mo-Su 11:00-22:00",
-    "type": "multipolygon",
-    "wheelchair": "limited"
   }
 }
 
