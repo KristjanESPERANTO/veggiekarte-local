@@ -1,5 +1,5 @@
 {
- "_timestamp": "2022-05-18 23:08:12.398872",
+ "_timestamp": "2022-09-27 20:33:08.629368",
  "features": [
   {
    "geometry": {
@@ -204,6 +204,29 @@
     "name": "Mo's Daniel's",
     "opening_hours": "Mo-Sa 18:00-01:00",
     "symbol": "🍸"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9863589,
+     51.4781389
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 671764555,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06112",
+    "addr_street": "Hans-Dietrich-Genscher-Platz",
+    "category": "vegan_friendly",
+    "icon": "bakery",
+    "name": "Backwerk",
+    "opening_hours": "Mo-Su 04:00-20:00",
+    "shop": "bakery",
+    "symbol": "🥨"
    },
    "type": "Feature"
   },
@@ -522,6 +545,31 @@
   {
    "geometry": {
     "coordinates": [
+     11.9708081,
+     51.482779
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1531995016,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Marktplatz 24",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 345 7749360",
+    "contact_website": "http://www.dinea.de",
+    "icon": "restaurant",
+    "name": "DINEA",
+    "opening_hours": "Mo-Sa 09:30-20:00; PH off",
+    "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9708458,
      51.4877831
     ],
@@ -727,6 +775,32 @@
   {
    "geometry": {
     "coordinates": [
+     11.9707479,
+     51.4881925
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1931764008,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "August-Bebel-Straße 53",
+    "category": "vegan_friendly",
+    "contact_email": "info@amasyna.de",
+    "contact_phone": "+49176610962284",
+    "contact_website": "https://amasyna.de",
+    "cuisine": "pizza;burger;kebab;barbecue;mediterranean;american;arab",
+    "icon": "maki_restaurant-pizza",
+    "name": "Amasyna",
+    "symbol": "🍕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9679623,
      51.4853313
     ],
@@ -842,7 +916,7 @@
     "icon": "convenience",
     "more_info": true,
     "name": "ÖkoHalle",
-    "opening_hours": "Mo-Th 09:00-13:00,15:00-18:30; Fr 09:00-18:30; Sa 09:00-13:00; Su,PH off",
+    "opening_hours": "Mo-Fr 09:00-13:00, Mo-Th 15:00-18:00, Sa 09:00-13:00; PH,Su off",
     "shop": "convenience",
     "symbol": "🏪"
    },
@@ -945,7 +1019,7 @@
     "addr_country": "DE",
     "addr_postcode": "06114",
     "addr_street": "Reilstraße 129",
-    "category": "vegetarian_only",
+    "category": "vegan_only",
     "contact_facebook": "https://www.facebook.com/cupdergutenhoffnung",
     "icon": "cafe",
     "more_info": true,
@@ -1086,6 +1160,7 @@
     "contact_instagram": "https://www.instagram.com/sonnendeckhalle",
     "contact_phone": "+49 163 2049161",
     "contact_website": "https://sonnendeckhalle.wixsite.com/sonnendeckhalle",
+    "cuisine": "regional;breakfast",
     "icon": "cafe",
     "more_info": true,
     "name": "Sonnendeck",
@@ -1464,7 +1539,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Kumara soulfood",
-    "opening_hours": "Mo-Th 11:00-15:00; Fr 11:00-15:00, 18:00-22:00",
+    "opening_hours": "Mo-Fr 11:00-15:00, Fr 18:00-22:00",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -1704,34 +1779,8 @@
     "cuisine": "ice_cream",
     "icon": "ice_cream",
     "name": "Eisburg",
-    "opening_hours": "Mo-Fr 13:00-20:00; Sa-Su 12:00-20:00",
+    "opening_hours": "Mo-Fr 13:00-19:00; Sa, Su 12:00-19:00",
     "symbol": "🍨"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9664563,
-     51.4849077
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 4815445923,
-    "_type": "node",
-    "addr_city": "Halle (Saale)",
-    "addr_country": "DE",
-    "addr_postcode": "06108",
-    "addr_street": "Kleine Ulrichstraße 33",
-    "category": "vegan_friendly",
-    "contact_phone": "+49 345 68879585",
-    "contact_website": "https://www.budapest-jambor.de",
-    "cuisine": "hungarian",
-    "icon": "restaurant",
-    "name": "Budapest Restaurant",
-    "opening_hours": "We-Fr 11:30-14:30,17:30-22:00; Sa 11:30-14:30,17:30-23:00; Su 11:30-15:00",
-    "symbol": "🍽️"
    },
    "type": "Feature"
   },
@@ -1856,7 +1905,7 @@
     "icon": "cafe",
     "more_info": true,
     "name": "TEKİEZ",
-    "opening_hours": "Mo-So 08:00-18:00",
+    "opening_hours": "Mo-Su 08:00-18:00",
     "symbol": "☕"
    },
    "type": "Feature"
@@ -1879,12 +1928,12 @@
     "contact_email": "cafe@7gramm.com",
     "contact_facebook": "https://www.facebook.com/7Grammcafe",
     "contact_phone": "+49 151 43239924",
-    "contact_website": "http://7gramm.com",
+    "contact_website": "https://7gramm.com",
     "cuisine": "coffee_shop",
     "icon": "cafe",
     "more_info": true,
     "name": "7 Gramm",
-    "opening_hours": "Mo-Fr 09:00-22:00; Sa 10:00-22:00; Su 12:00-18:00",
+    "opening_hours": "Mo-Fr 08:00-21:00; Sa-Su 09:00-20:00",
     "symbol": "☕"
    },
    "type": "Feature"
@@ -1910,7 +1959,7 @@
     "icon": "fast_food",
     "more_info": true,
     "name": "Thang-Long Imbiss",
-    "opening_hours": "Mo-Fr 09:30-19:30; Sa 10:30-19:00; Su off",
+    "opening_hours": "Mo-Fr 09:30-20:00; Sa 10:30-19:30; Su off",
     "symbol": "🍔"
    },
    "type": "Feature"
@@ -1993,6 +2042,29 @@
     "icon": "restaurant",
     "name": "Taj Mahal",
     "opening_hours": "Mo-Su 11:00-23:00",
+    "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9744995,
+     51.4798895
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 5151602820,
+    "_type": "node",
+    "addr_street": "Große Brauhausstraße",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 345 4704425",
+    "contact_website": "http://www.himalaya-halle.de",
+    "cuisine": "indian",
+    "icon": "restaurant",
+    "name": "Himalaya",
+    "opening_hours": "Mo-Fr 12:00-14:00,17:30-22:00; Sa 17:30-22:00; PH 12:00-14:00,17:30-22:00",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -2202,8 +2274,8 @@
     "contact_website": "https://saltlabs.de/koffij",
     "icon": "cafe",
     "more_info": true,
-    "name": "koffij",
-    "opening_hours": "Mo-Fr 10:00-18:00; Sa 09:00-16:00; Su off",
+    "name": "Koffij",
+    "opening_hours": "Mo-Fr 09:00-20:00; Sa 09:00-18:00; Su off",
     "symbol": "☕"
    },
    "type": "Feature"
@@ -2232,6 +2304,30 @@
     "more_info": true,
     "name": "Törtcheneck",
     "opening_hours": "Tu-Sa 11:00-16:00",
+    "symbol": "☕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9690632,
+     51.4846923
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 6058235422,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06108",
+    "addr_street": "Große Ulrichstraße 7–9",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 345 69499674",
+    "contact_website": "https://www.arko.de",
+    "icon": "cafe",
+    "name": "arko",
+    "opening_hours": "Mo-Fr 09:00-19:00, Sa 09:00-18:00",
     "symbol": "☕"
    },
    "type": "Feature"
@@ -2305,6 +2401,26 @@
     "opening_hours": "Mo-Su 08:00-19:00",
     "shop": "convenience",
     "symbol": "🏪"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9749193,
+     51.4834433
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 6814015852,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_website": "https://www.roy-coffee.de",
+    "icon": "cafe",
+    "name": "Kaffeerösterei Roy",
+    "opening_hours": "Mo-Fr 10:00-19:00; Sa 10:00-17:00",
+    "symbol": "☕"
    },
    "type": "Feature"
   },
@@ -2481,7 +2597,7 @@
     "icon": "cafe",
     "more_info": true,
     "name": "Café Kuckhoff",
-    "opening_hours": "Mo,We,Th 09:00-21:00; Tu off; Fr-Sa 09:00-22:00; Su 09:00-18:00",
+    "opening_hours": "Mo,Tu off; We-Su 09:00-18:00",
     "symbol": "☕"
    },
    "type": "Feature"
@@ -2533,6 +2649,30 @@
     "name": "Restaurant Ruine",
     "opening_hours": "Mo 17:00-24:00; Tu-Th 12:00-24:00; Fr-Su 12:00-01:00",
     "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9589333,
+     51.5049797
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 8167669673,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06114",
+    "addr_street": "Seebener Straße 20",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 345 22602882",
+    "cuisine": "coffee_shop;ice_cream",
+    "icon": "cafe",
+    "name": "Kaffeehaus Wittekind",
+    "opening_hours": "Eissalon: Mo-So 11:00 - 19:00; Restaurant: Mi-Fr 14:00 - 22:00 + Sa,So 9:00-22:00",
+    "symbol": "☕"
    },
    "type": "Feature"
   },
@@ -2592,8 +2732,8 @@
   {
    "geometry": {
     "coordinates": [
-     11.9660347,
-     51.4963212
+     11.9660441,
+     51.4962832
     ],
     "type": "Point"
    },
@@ -2684,10 +2824,10 @@
     "category": "vegan_friendly",
     "contact_website": "https://deananddavid.com/halle-hans-dietrich-genscher-platz",
     "cuisine": "salad;sandwich",
-    "icon": "restaurant",
+    "icon": "fast_food",
     "name": "dean&david",
     "opening_hours": "Mo-Su 09:00-20:00",
-    "symbol": "🍽️"
+    "symbol": "🍔"
    },
    "type": "Feature"
   },
@@ -2711,7 +2851,7 @@
     "contact_website": "https://eisfvchs.com",
     "icon": "ice_cream",
     "name": "Eisfvchs",
-    "opening_hours": "Su-Th 12:00-18:00; Fr-Sa 12:00-19:00",
+    "opening_hours": "Mo-Su 12:00-17:30",
     "symbol": "🍨"
    },
    "type": "Feature"
@@ -2763,6 +2903,7 @@
     "icon": "ice_cream",
     "more_info": true,
     "name": "Alik Gelato",
+    "opening_hours": "Mo-Su 14:00-18:00",
     "symbol": "🍨"
    },
    "type": "Feature"
@@ -2874,6 +3015,29 @@
   {
    "geometry": {
     "coordinates": [
+     11.9779396,
+     51.4796537
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 9474397454,
+    "_type": "node",
+    "addr_street": "Leipziger Straße 37",
+    "category": "vegan_limited",
+    "contact_instagram": "https://www.instagram.com/mirarestauranthalle",
+    "contact_phone": "+49 345 68286058",
+    "cuisine": "mediterranean;kebab;pizza;shawarma",
+    "icon": "fast_food",
+    "name": "Mira",
+    "opening_hours": "Mo-Su 11:00-21:00",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9695742,
      51.4843564
     ],
@@ -2974,6 +3138,28 @@
   {
    "geometry": {
     "coordinates": [
+     11.9793497,
+     51.4929992
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 9969559755,
+    "_type": "node",
+    "addr_street": "Schillerstraße 41",
+    "category": "vegan_friendly",
+    "contact_phone": "+4917680642015",
+    "contact_website": "https://www.cafépolenka.de",
+    "icon": "cafe",
+    "name": "Polenka",
+    "opening_hours": "Tu, We 10:00-18:00; Th-Sa 10:00-22:00; Su 10:00-18:00",
+    "symbol": "☕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9339655,
      51.4965308
     ],
@@ -3016,33 +3202,6 @@
     "name": "Burse zur Tulpe",
     "opening_hours": "off",
     "symbol": "🍽️"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9981454,
-     51.479946
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 32804265,
-    "_type": "way",
-    "addr_city": "Halle (Saale)",
-    "addr_country": "DE",
-    "addr_postcode": "06112",
-    "addr_street": "Delitzscher Straße 49a",
-    "category": "vegan_friendly",
-    "contact_phone": "+49 345 68597862",
-    "contact_website": "https://www.freddy-fresh.de",
-    "cuisine": "pizza",
-    "icon": "maki_restaurant-pizza",
-    "more_info": true,
-    "name": "Freddy Fresh",
-    "opening_hours": "Mo-Su 11:00-22:00",
-    "symbol": "🍕"
    },
    "type": "Feature"
   },
@@ -3205,6 +3364,33 @@
     "more_info": true,
     "name": "Mönchshof",
     "opening_hours": "Tu-Sa 11:00-23:00; Su 11:00-15:00; Mo off",
+    "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9685284,
+     51.4840732
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 134365557,
+    "_type": "way",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Große Nikolaistraße 10-11",
+    "category": "vegan_friendly",
+    "contact_email": "halle@wenzel-prager-bierstuben.de",
+    "contact_phone": "+49 345 4704998-0",
+    "contact_website": "http://www.wenzel-prager-bierstuben.de",
+    "cuisine": "czech",
+    "icon": "restaurant",
+    "name": "Wenzel Prager Bierstuben",
+    "opening_hours": "Mo-Th 11:30-22:00; Fr,Sa 11:30-23:00; Su 11:30-21:00",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -3445,7 +3631,7 @@
     "icon": "cafe",
     "more_info": true,
     "name": "Cafebar Steintor-Campus",
-    "opening_hours": "Mo-Th 08:00-17:00; Fr 08:00-14:30",
+    "opening_hours": "Mo-Th 08:00-16:30; Fr 08:00-14:30",
     "symbol": "☕"
    },
    "type": "Feature"
@@ -3474,6 +3660,32 @@
     "name": "Goldene Schildkröte",
     "opening_hours": "Mo-Su 11:00-22:00",
     "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9981292,
+     51.4799454
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 14334740,
+    "_type": "relation",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06112",
+    "addr_street": "Delitzscher Straße 49a",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 345 68597862",
+    "contact_website": "https://www.freddy-fresh.de",
+    "cuisine": "pizza",
+    "icon": "maki_restaurant-pizza",
+    "name": "Freddy Fresh",
+    "opening_hours": "Mo-Su 11:00-22:00",
+    "symbol": "🍕"
    },
    "type": "Feature"
   }

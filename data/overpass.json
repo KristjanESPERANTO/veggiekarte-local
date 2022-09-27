@@ -1,9 +1,9 @@
 {
   "version": 0.6,
-  "generator": "Overpass API 0.7.57.2 48842a1b",
+  "generator": "Overpass API 0.7.58.5 b0c4acbb",
   "osm3s": {
-    "timestamp_osm_base": "2022-05-18T21:07:07Z",
-    "timestamp_areas_base": "2022-05-18T20:43:51Z",
+    "timestamp_osm_base": "2022-09-27T18:35:46Z",
+    "timestamp_areas_base": "2022-07-20T11:06:24Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -88,6 +88,7 @@
     "addr:postcode": "06108",
     "addr:street": "Augustastraße",
     "amenity": "restaurant",
+    "check_date:opening_hours": "2022-08-16",
     "cuisine": "indian",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
@@ -193,6 +194,32 @@
     "name": "Mo's Daniel's",
     "opening_hours": "Mo-Sa 18:00-01:00",
     "wheelchair": "limited"
+  }
+},
+{
+  "type": "node",
+  "id": 671764555,
+  "lat": 51.4781389,
+  "lon": 11.9863589,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:postcode": "06112",
+    "addr:street": "Hans-Dietrich-Genscher-Platz",
+    "brand": "BackWerk",
+    "brand:wikidata": "Q798298",
+    "brand:wikipedia": "de:BackWerk",
+    "diet:vegan": "yes",
+    "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
+    "level": "-1",
+    "name": "Backwerk",
+    "note": "Öffnungszeiten müssen noch überprüft werden",
+    "opening_hours": "Mo-Su 04:00-20:00",
+    "outdoor_seating": "no",
+    "payment:girocard": "yes",
+    "shop": "bakery",
+    "takeaway": "yes",
+    "wheelchair": "yes"
   }
 },
 {
@@ -485,6 +512,7 @@
     "cuisine": "italian",
     "diet:vegan": "limited",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "name": "Rossini",
     "opening_hours": "Mo-Sa 09:00-22:00; Su 10:00-22:00",
     "outdoor_seating": "yes",
@@ -492,6 +520,34 @@
     "toilets:wheelchair": "no",
     "wheelchair": "yes",
     "wheelchair:description": "Rampe, Aufzug, Behinderten-WC und -Parkplatz vorhanden (Parkhaus Händelhauskarree)."
+  }
+},
+{
+  "type": "node",
+  "id": 1531995016,
+  "lat": 51.4827790,
+  "lon": 11.9708081,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:country": "DE",
+    "addr:floor": "4",
+    "addr:housenumber": "24",
+    "addr:postcode": "06108",
+    "addr:street": "Marktplatz",
+    "amenity": "restaurant",
+    "contact:phone": "+49 345 7749360",
+    "contact:website": "http://www.dinea.de",
+    "diet:vegan": "yes",
+    "diet:vegetarian": "yes",
+    "kids_area": "yes",
+    "kids_area:indoor": "yes",
+    "name": "DINEA",
+    "opening_hours": "Mo-Sa 09:30-20:00; PH off",
+    "operator": "DINEA Gastronomie GmbH",
+    "outdoor_seating": "yes",
+    "toilets:wheelchair": "yes",
+    "wheelchair": "yes",
+    "wheelchair:description": "Fahrstuhl in alle Etagen, Behindertengerechtes WC eine Etage tiefer, Behindertenparkplätze Rathausstraße oder Parkhaus Hansering"
   }
 },
 {
@@ -673,6 +729,37 @@
 },
 {
   "type": "node",
+  "id": 1931764008,
+  "lat": 51.4881925,
+  "lon": 11.9707479,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:country": "DE",
+    "addr:housenumber": "53",
+    "addr:postcode": "06108",
+    "addr:street": "August-Bebel-Straße",
+    "amenity": "restaurant",
+    "capacity": "30",
+    "cuisine": "pizza;burger;kebab;barbecue;mediterranean;american;arab",
+    "diet:vegan": "yes",
+    "disused:amenity": "restaurant",
+    "email": "info@amasyna.de",
+    "name": "Amasyna",
+    "old_name": "Afamia Eck",
+    "outdoor_seating": "no",
+    "payment:cash": "yes",
+    "phone": "+49176610962284",
+    "reservation": "yes",
+    "smoking": "no",
+    "start_date": "2022-06-13",
+    "takeaway": "yes",
+    "toilets:wheelchair": "no",
+    "website": "https://amasyna.de",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
   "id": 1943778686,
   "lat": 51.4853313,
   "lon": 11.9679623,
@@ -771,7 +858,7 @@
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "name": "ÖkoHalle",
-    "opening_hours": "Mo-Th 09:00-13:00,15:00-18:30; Fr 09:00-18:30; Sa 09:00-13:00; Su,PH off",
+    "opening_hours": "Mo-Fr 09:00-13:00, Mo-Th 15:00-18:00, Sa 09:00-13:00; PH,Su off",
     "organic": "only",
     "shop": "convenience",
     "wheelchair": "no"
@@ -859,7 +946,7 @@
     "addr:street": "Reilstraße",
     "amenity": "cafe",
     "contact:facebook": "https://www.facebook.com/cupdergutenhoffnung",
-    "diet:vegan": "yes",
+    "diet:vegan": "only",
     "diet:vegetarian": "only",
     "internet_access:fee": "no",
     "name": "Cup der guten Hoffnung",
@@ -985,12 +1072,17 @@
     "contact:instagram": "https://www.instagram.com/sonnendeckhalle/",
     "contact:phone": "+49 163 2049161",
     "contact:website": "https://sonnendeckhalle.wixsite.com/sonnendeckhalle/",
+    "cuisine": "regional;breakfast",
     "diet:vegan": "limited",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "name": "Sonnendeck",
     "opening_hours": "Mo-Fr 11:00-18:00+; Sa-Su 10:00-18:00+",
     "operator": "WINZ-Catering UG",
     "outdoor_seating": "terrace",
+    "payment:girocard": "yes",
+    "toilets": "yes",
+    "toilets:wheelchair": "no",
     "wheelchair": "no"
   }
 },
@@ -1081,6 +1173,7 @@
     "addr:street": "Martinstraße",
     "amenity": "restaurant",
     "capacity": "25",
+    "check_date:opening_hours": "2022-08-16",
     "cuisine": "vietnamese",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
@@ -1350,7 +1443,7 @@
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "name": "Kumara soulfood",
-    "opening_hours": "Mo-Th 11:00-15:00; Fr 11:00-15:00, 18:00-22:00",
+    "opening_hours": "Mo-Fr 11:00-15:00, Fr 18:00-22:00",
     "takeaway": "yes",
     "wheelchair": "limited"
   }
@@ -1576,31 +1669,8 @@
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "name": "Eisburg",
-    "opening_hours": "Mo-Fr 13:00-20:00; Sa-Su 12:00-20:00",
+    "opening_hours": "Mo-Fr 13:00-19:00; Sa, Su 12:00-19:00",
     "outdoor_seating": "yes"
-  }
-},
-{
-  "type": "node",
-  "id": 4815445923,
-  "lat": 51.4849077,
-  "lon": 11.9664563,
-  "tags": {
-    "addr:city": "Halle (Saale)",
-    "addr:country": "DE",
-    "addr:housenumber": "33",
-    "addr:postcode": "06108",
-    "addr:street": "Kleine Ulrichstraße",
-    "amenity": "restaurant",
-    "cuisine": "hungarian",
-    "diet:vegan": "yes",
-    "diet:vegetarian": "yes",
-    "name": "Budapest Restaurant",
-    "opening_hours": "We-Fr 11:30-14:30,17:30-22:00; Sa 11:30-14:30,17:30-23:00; Su 11:30-15:00",
-    "phone": "+49 345 68879585",
-    "website": "https://www.budapest-jambor.de",
-    "wheelchair": "no",
-    "wheelchair:description": "Anhand von Foto sind am Eingang zwei Stufen zu überwinden"
   }
 },
 {
@@ -1619,6 +1689,7 @@
     "cuisine": "vietnamese",
     "diet:vegan": "limited",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "name": "Viet Village",
     "opening_hours": "Mo-Su 11:00-23:00",
     "outdoor_seating": "yes",
@@ -1668,7 +1739,7 @@
     "amenity": "cafe",
     "cuisine": "coffee;kuchen",
     "diet:vegan": "yes",
-    "name": "Kaffehaus Wittekind",
+    "name": "Café Wittekind",
     "outdoor_seating": "yes",
     "wheelchair": "limited"
   }
@@ -1711,10 +1782,11 @@
     "diet:vegan": "yes",
     "drive_through": "no",
     "name": "TEKİEZ",
-    "old:name": "Kiez Döner",
-    "opening_hours": "Mo-So 08:00-18:00",
+    "old_name": "Kiez Döner",
+    "opening_hours": "Mo-Su 08:00-18:00",
     "outdoor_seating": "yes",
-    "takeaway": "yes"
+    "takeaway": "yes",
+    "wheelchair": "no"
   }
 },
 {
@@ -1728,16 +1800,16 @@
     "addr:postcode": "06108",
     "addr:street": "Barfüßerstraße",
     "amenity": "cafe",
-    "contact:facebook": "https://www.facebook.com/7Grammcafe/",
+    "contact:facebook": "https://www.facebook.com/7Grammcafe",
     "cuisine": "coffee_shop",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "email": "cafe@7gramm.com",
     "internet_access": "wlan",
     "name": "7 Gramm",
-    "opening_hours": "Mo-Fr 09:00-22:00; Sa 10:00-22:00; Su 12:00-18:00",
+    "opening_hours": "Mo-Fr 08:00-21:00; Sa-Su 09:00-20:00",
     "phone": "+49 151 43239924",
-    "website": "http://7gramm.com",
+    "website": "https://7gramm.com",
     "wheelchair": "limited",
     "wikidata": "Q98642649"
   }
@@ -1758,7 +1830,7 @@
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "name": "Thang-Long Imbiss",
-    "opening_hours": "Mo-Fr 09:30-19:30; Sa 10:30-19:00; Su off",
+    "opening_hours": "Mo-Fr 09:30-20:00; Sa 10:30-19:30; Su off",
     "phone": "+49 174 7863204",
     "wheelchair": "no"
   }
@@ -1840,7 +1912,24 @@
     "phone": "+49 3461-2769066",
     "smoking": "outside",
     "smoking:outside": "outside",
-    "website": "www.tajmahal-merseburg.de"
+    "website": "www.tajmahal-merseburg.de",
+    "website:menu": "https://tajmahal-merseburg.de/food-items/"
+  }
+},
+{
+  "type": "node",
+  "id": 5151602820,
+  "lat": 51.4798895,
+  "lon": 11.9744995,
+  "tags": {
+    "addr:street": "Große Brauhausstraße",
+    "amenity": "restaurant",
+    "contact:phone": "+49 345 4704425",
+    "contact:website": "http://www.himalaya-halle.de",
+    "cuisine": "indian",
+    "diet:vegan": "yes",
+    "name": "Himalaya",
+    "opening_hours": "Mo-Fr 12:00-14:00,17:30-22:00; Sa 17:30-22:00; PH 12:00-14:00,17:30-22:00"
   }
 },
 {
@@ -1856,6 +1945,7 @@
     "brand": "denn's Biomarkt",
     "brand:wikidata": "Q48883773",
     "brand:wikipedia": "de:Denn’s Biomarkt",
+    "check_date:opening_hours": "2022-08-16",
     "contact:phone": "+49 345 68169155",
     "contact:website": "https://www.denns-biomarkt.de/halle-leipziger-str-100/marktseite/",
     "diet:vegan": "yes",
@@ -2018,12 +2108,18 @@
     "contact:instagram": "https://www.instagram.com/koffijhalle/",
     "contact:phone": "+49 345 21389065",
     "contact:website": "https://saltlabs.de/koffij/",
+    "diet:halal": "yes",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "internet_access": "wlan",
-    "name": "koffij",
-    "opening_hours": "Mo-Fr 10:00-18:00; Sa 09:00-16:00; Su off",
+    "internet_access:fee": "no",
+    "name": "Koffij",
+    "opening_hours": "Mo-Fr 09:00-20:00; Sa 09:00-18:00; Su off",
+    "outdoor_seating": "yes",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
     "toilets:wheelchair": "yes",
+    "website": "https://koffij.de",
     "wheelchair": "yes"
   }
 },
@@ -2050,6 +2146,27 @@
     "outdoor_seating": "no",
     "phone": "+49 345 13252434",
     "website": "https://www.toertcheneck.de"
+  }
+},
+{
+  "type": "node",
+  "id": 6058235422,
+  "lat": 51.4846923,
+  "lon": 11.9690632,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:housenumber": "7–9",
+    "addr:postcode": "06108",
+    "addr:street": "Große Ulrichstraße",
+    "amenity": "cafe",
+    "diet:vegan": "yes",
+    "diet:vegetarian": "yes",
+    "name": "arko",
+    "opening_hours": "Mo-Fr 09:00-19:00, Sa 09:00-18:00",
+    "outdoor_seating": "no",
+    "phone": "+49 345 69499674",
+    "website": "https://www.arko.de/",
+    "wheelchair": "no"
   }
 },
 {
@@ -2083,6 +2200,7 @@
     "amenity": "bar",
     "contact:facebook": "https://www.facebook.com/Hafenmeister-Docks-154417685229693/",
     "diet:vegan": "yes",
+    "indoor_seating": "yes",
     "name": "Hafenmeister & Docks",
     "opening_hours": "Mo-Fr 11:30-18:00; Sa 10:00-18:00; Su 09:00-18:00",
     "outdoor_seating": "yes"
@@ -2105,6 +2223,21 @@
     "organic": "yes",
     "shop": "convenience",
     "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 6814015852,
+  "lat": 51.4834433,
+  "lon": 11.9749193,
+  "tags": {
+    "amenity": "cafe",
+    "check_date:opening_hours": "2022-09-08",
+    "diet:vegan": "yes",
+    "diet:vegetarian": "yes",
+    "name": "Kaffeerösterei Roy",
+    "opening_hours": "Mo-Fr 10:00-19:00; Sa 10:00-17:00",
+    "website": "https://www.roy-coffee.de"
   }
 },
 {
@@ -2251,7 +2384,7 @@
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "name": "Café Kuckhoff",
-    "opening_hours": "Mo,We,Th 09:00-21:00; Tu off; Fr-Sa 09:00-22:00; Su 09:00-18:00"
+    "opening_hours": "Mo,Tu off; We-Su 09:00-18:00"
   }
 },
 {
@@ -2291,6 +2424,28 @@
     "diet:vegetarian": "yes",
     "name": "Restaurant Ruine",
     "opening_hours": "Mo 17:00-24:00; Tu-Th 12:00-24:00; Fr-Su 12:00-01:00"
+  }
+},
+{
+  "type": "node",
+  "id": 8167669673,
+  "lat": 51.5049797,
+  "lon": 11.9589333,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:housenumber": "20",
+    "addr:postcode": "06114",
+    "addr:street": "Seebener Straße",
+    "amenity": "cafe",
+    "cuisine": "coffee_shop;ice_cream",
+    "diet:vegan": "yes",
+    "diet:vegetarian": "yes",
+    "name": "Kaffeehaus Wittekind",
+    "note": "eröffnet 27.02.2021, bis 2020 Caffee Schade",
+    "opening_hours": "We-Fr 14:00-22:00; Sa,Su 09:00-22:00",
+    "opening_hours:covid19": "Eissalon: Mo-So 11:00 - 19:00; Restaurant: Mi-Fr 14:00 - 22:00 + Sa,So 9:00-22:00",
+    "outdoor_seating": "yes",
+    "phone": "+49 345 22602882"
   }
 },
 {
@@ -2343,8 +2498,8 @@
 {
   "type": "node",
   "id": 8773861578,
-  "lat": 51.4963212,
-  "lon": 11.9660347,
+  "lat": 51.4962832,
+  "lon": 11.9660441,
   "tags": {
     "addr:city": "Halle (Saale)",
     "addr:housenumber": "6",
@@ -2360,7 +2515,8 @@
     "diet:vegetarian": "yes",
     "name": "JUICY",
     "opening_hours": "Mo-Sa 08:00-21:00; Su 10:00-21:00",
-    "start_date": "2021-06-01"
+    "start_date": "2021-06-01",
+    "website": "https://juicy-halle.de/"
   }
 },
 {
@@ -2418,7 +2574,7 @@
     "addr:housenumber": "1",
     "addr:postcode": "06112",
     "addr:street": "Hans-Dietrich-Genscher-Platz",
-    "amenity": "restaurant",
+    "amenity": "fast_food",
     "brand": "dean&david",
     "brand:wikidata": "Q66132404",
     "contact:website": "https://deananddavid.com/halle-hans-dietrich-genscher-platz/",
@@ -2429,7 +2585,8 @@
     "level": "-1",
     "name": "dean&david",
     "opening_hours": "Mo-Su 09:00-20:00",
-    "start_date": "2021"
+    "start_date": "2021",
+    "takeaway": "yes"
   }
 },
 {
@@ -2449,7 +2606,7 @@
     "diet:vegan": "yes",
     "diet:vegetarian": "only",
     "name": "Eisfvchs",
-    "opening_hours": "Su-Th 12:00-18:00; Fr-Sa 12:00-19:00"
+    "opening_hours": "Mo-Su 12:00-17:30"
   }
 },
 {
@@ -2487,6 +2644,7 @@
     "diet:vegetarian": "yes",
     "email": "lecker@alikgelato.de",
     "name": "Alik Gelato",
+    "opening_hours": "Mo-Su 14:00-18:00",
     "outdoor_seating": "yes",
     "phone": "+49 171 3651504",
     "website": "http://www.alikgelato.de"
@@ -2593,6 +2751,29 @@
 },
 {
   "type": "node",
+  "id": 9474397454,
+  "lat": 51.4796537,
+  "lon": 11.9779396,
+  "tags": {
+    "addr:housenumber": "37",
+    "addr:street": "Leipziger Straße",
+    "amenity": "fast_food",
+    "contact:instagram": "https://www.instagram.com/mirarestauranthalle/",
+    "contact:phone": "+49 345 68286058",
+    "cuisine": "mediterranean;kebab;pizza;shawarma",
+    "diet:vegan": "limited",
+    "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
+    "name": "Mira",
+    "opening_hours": "Mo-Su 11:00-21:00",
+    "outdoor_seating": "yes",
+    "payment:girocard": "yes",
+    "takeaway": "yes",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
   "id": 9572703189,
   "lat": 51.4843564,
   "lon": 11.9695742,
@@ -2683,6 +2864,24 @@
   }
 },
 {
+  "type": "node",
+  "id": 9969559755,
+  "lat": 51.4929992,
+  "lon": 11.9793497,
+  "tags": {
+    "addr:housenumber": "41",
+    "addr:street": "Schillerstraße",
+    "amenity": "cafe",
+    "diet:vegan": "yes",
+    "diet:vegetarian": "yes",
+    "name": "Polenka",
+    "opening_hours": "Tu, We 10:00-18:00; Th-Sa 10:00-22:00; Su 10:00-18:00",
+    "outdoor_seating": "yes",
+    "phone": "+4917680642015",
+    "website": "https://www.cafépolenka.de/"
+  }
+},
+{
   "type": "way",
   "id": 22883232,
   "center": {
@@ -2766,38 +2965,6 @@
 },
 {
   "type": "way",
-  "id": 32804265,
-  "center": {
-    "lat": 51.4799460,
-    "lon": 11.9981454
-  },
-  "nodes": [
-    369655497,
-    369655499,
-    369655496,
-    369655501,
-    369655497
-  ],
-  "tags": {
-    "addr:city": "Halle (Saale)",
-    "addr:country": "DE",
-    "addr:housenumber": "49a",
-    "addr:postcode": "06112",
-    "addr:street": "Delitzscher Straße",
-    "amenity": "fast_food",
-    "building": "yes",
-    "contact:phone": "+49 345 68597862",
-    "contact:website": "https://www.freddy-fresh.de",
-    "cuisine": "pizza",
-    "diet:vegan": "yes",
-    "diet:vegetarian": "yes",
-    "name": "Freddy Fresh",
-    "opening_hours": "Mo-Su 11:00-22:00",
-    "wheelchair": "limited"
-  }
-},
-{
-  "type": "way",
   "id": 47571137,
   "center": {
     "lat": 51.4574074,
@@ -2872,9 +3039,12 @@
     "cuisine": "regional;coffee_shop",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
+    "highchair": "yes",
+    "indoor_seating": "yes",
     "name": "Gartenlokal am Peißnitzhaus/Peißnitzhaus-Café",
     "opening_hours": "Mo-Fr 11:30-17:00; Sa-Su 10:00-18:00",
     "outdoor_seating": "yes",
+    "payment:girocard": "yes",
     "source": "https://www.peissnitzhaus.de/index.php/gartenlokal",
     "toilets:wheelchair": "yes",
     "wheelchair": "yes",
@@ -3051,6 +3221,48 @@
     "website": "https://moenchshof-halle.de/",
     "wheelchair": "limited",
     "wheelchair:description": "2 Stufen + Schild \"Rollstuhlfahrer bitte melden\", 2 Rampen vorhanden, bei Reservierung \"Rollstuhlfahrer\" angeben"
+  }
+},
+{
+  "type": "way",
+  "id": 134365557,
+  "center": {
+    "lat": 51.4840732,
+    "lon": 11.9685284
+  },
+  "nodes": [
+    1477499659,
+    1477499656,
+    1891003366,
+    1891003367,
+    1477499660,
+    1477499663,
+    1477499662,
+    1477499661,
+    2787725892,
+    2787725891,
+    1477499659
+  ],
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:country": "DE",
+    "addr:housenumber": "10-11",
+    "addr:postcode": "06108",
+    "addr:street": "Große Nikolaistraße",
+    "amenity": "restaurant",
+    "building": "yes",
+    "cuisine": "czech",
+    "diet:vegan": "yes",
+    "diet:vegetarian": "yes",
+    "email": "halle@wenzel-prager-bierstuben.de",
+    "fax": "+49 345 4704998-1",
+    "name": "Wenzel Prager Bierstuben",
+    "opening_hours": "Mo-Th 11:30-22:00; Fr,Sa 11:30-23:00; Su 11:30-21:00",
+    "phone": "+49 345 4704998-0",
+    "toilets:wheelchair": "yes",
+    "website": "http://www.wenzel-prager-bierstuben.de",
+    "wheelchair": "limited",
+    "wheelchair:description": "Stufen am Eingang, aber (etwas steile) Rampe vorhanden, Vorsicht mit Elektrorolli!"
   }
 },
 {
@@ -3397,7 +3609,7 @@
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "name": "Cafebar Steintor-Campus",
-    "opening_hours": "Mo-Th 08:00-17:00; Fr 08:00-14:30",
+    "opening_hours": "Mo-Th 08:00-16:30; Fr 08:00-14:30",
     "operator": "Studentenwerk Halle",
     "outdoor_seating": "yes",
     "smoking": "no",
@@ -3442,6 +3654,44 @@
     "source": "Bing",
     "wheelchair": "limited",
     "wheelchair:description": "Eingang mit Rampe, kein behindertengerechtes WC"
+  }
+},
+{
+  "type": "relation",
+  "id": 14334740,
+  "center": {
+    "lat": 51.4799454,
+    "lon": 11.9981292
+  },
+  "members": [
+    {
+      "type": "way",
+      "ref": 32804265,
+      "role": "outer"
+    },
+    {
+      "type": "way",
+      "ref": 1076882670,
+      "role": "outer"
+    }
+  ],
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:country": "DE",
+    "addr:housenumber": "49a",
+    "addr:postcode": "06112",
+    "addr:street": "Delitzscher Straße",
+    "amenity": "fast_food",
+    "building": "yes",
+    "contact:phone": "+49 345 68597862",
+    "contact:website": "https://www.freddy-fresh.de",
+    "cuisine": "pizza",
+    "diet:vegan": "yes",
+    "diet:vegetarian": "yes",
+    "name": "Freddy Fresh",
+    "opening_hours": "Mo-Su 11:00-22:00",
+    "type": "multipolygon",
+    "wheelchair": "limited"
   }
 }
 
