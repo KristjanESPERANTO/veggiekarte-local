@@ -28,20 +28,19 @@ let languageControl;
 
 function veggiemap() {
 
-  // TileLayer
-  let tileOSM = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: "&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap contributors</a>",
-    maxZoom: 18
-  });
-
   // Map
   map = L.map("map", {
-    layers: [tileOSM],
     center: [51.42, 12.0],
     zoom: 11,
     worldCopyJump: true,
     zoomControl: false
   });
+
+  // TileLayer
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 18,
+    attribution: "© <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap contributors</a>",
+  }).addTo(map);
 
   // Add zoom control
   L.control.zoom({ position: 'topright' }).addTo(map);
