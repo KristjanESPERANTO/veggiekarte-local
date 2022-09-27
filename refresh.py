@@ -87,7 +87,7 @@ GET_MORE_INFO = [
     2876264915,  # Sao Mai
     178744104,   # Hallesches Brauhaus
     3752087074,  # Rote Soße
-    32804265,    # Freddy Fresh
+    14334740,    # Freddy Fresh
     9033240019,  # Papa John's - Innenstadt
     471978357,   # Papa John's - Büschdorf
     47571137,    # Papa John's - Südstadt
