@@ -38,7 +38,7 @@ function veggiemap() {
 
   // TileLayer
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 18,
+    maxZoom: 19,
     attribution: "© <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap contributors</a>",
   }).addTo(map);
 
