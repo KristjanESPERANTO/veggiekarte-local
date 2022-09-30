@@ -1,9 +1,9 @@
+# Veggiekarte local
+
 [![GitHub issues](https://img.shields.io/github/issues/KristjanESPERANTO/veggiekarte-local)](https://github.com/KristjanESPERANTO/veggiekarte-local/issues)
 [![GitHub forks](https://img.shields.io/github/forks/KristjanESPERANTO/veggiekarte-local)](https://github.com/KristjanESPERANTO/veggiekarte-local/network)
 [![GitHub stars](https://img.shields.io/github/stars/KristjanESPERANTO/veggiekarte-local)](https://github.com/KristjanESPERANTO/veggiekarte-local/stargazers)
 [![GitHub license](https://img.shields.io/github/license/KristjanESPERANTO/veggiekarte-local?style=plastic)](https://github.com/KristjanESPERANTO/veggiekarte-local/blob/master/LICENSE)
-
-# Veggiekarte local
 
 This is a fork of the world wide map [veggiekarte from piratenpanda](https://github.com/piratenpanda/veggiekarte). This map is for local use. Improvements will be added to the upstream project.
 
@@ -44,12 +44,12 @@ This is an overview of the third-party software and data we use. Many thanks to 
 | software                                                                                   | license                                                                                                          | version   | purpose                                                                               |
 | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------- |
 | [chart.js](https://github.com/chartjs/Chart.js)                                            | MIT [\*](https://github.com/chartjs/Chart.js/blob/master/LICENSE.md)                                             | 3.7.1     | JavaScript library to creat charts. We use this in the `data_chart.html`.             |
-| [i18next](https://github.com/i18next/i18next)                                              | MIT [\*](https://github.com/i18next/i18next/blob/master/LICENSE)                                                 | 21.9.2   | JavaScript internationalization framework.                                            |
+| [i18next](https://github.com/i18next/i18next)                                              | MIT [\*](https://github.com/i18next/i18next/blob/master/LICENSE)                                                 | 21.9.2    | JavaScript internationalization framework.                                            |
 | [leaflet](https://github.com/Leaflet/Leaflet/)                                             | BSD-2-Clause [\*](https://github.com/Leaflet/Leaflet/blob/master/LICENSE)                                        | 1.8.0     | JavaScript library to create interactive maps.                                        |
 | [leaflet.control.geocoder](https://github.com/perliedman/leaflet-control-geocoder/)        | BSD-2-Clause [\*](https://github.com/perliedman/leaflet-control-geocoder/blob/master/LICENSE)                    | 2.4.0     | A control to locate places. The button with the magnifier 🔍.                         |
 | [leaflet.easybutton](https://github.com/CliffCloud/Leaflet.EasyButton)                     | MIT [\*](https://github.com/CliffCloud/Leaflet.EasyButton/blob/master/LICENSE)                                   | 2.4.0     | Adding buttons. We are using it for the info button.                                  |
 | [leaflet.featuregroup.subgroup](https://github.com/ghybs/Leaflet.FeatureGroup.SubGroup)    | BSD-2-Clause [\*](https://github.com/ghybs/Leaflet.FeatureGroup.SubGroup/blob/master/LICENSE)                    | 1.0.2     | Dynamically add/remove groups of markers.                                             |
-| [leaflet.fullscreen](https://github.com/brunob/leaflet.fullscreen)                         | MIT [\*](https://github.com/brunob/leaflet.fullscreen/blob/master/LICENSE)                                        | 2.4.0     | Add a fullscreen button.                                                              |
+| [leaflet.fullscreen](https://github.com/brunob/leaflet.fullscreen)                         | MIT [\*](https://github.com/brunob/leaflet.fullscreen/blob/master/LICENSE)                                       | 2.4.0     | Add a fullscreen button.                                                              |
 | [leaflet.hash](https://github.com/siimots/leaflet-hash)                                    | MIT [\*](https://github.com/siimots/leaflet-hash/blob/master/LICENSE.md)                                         | 1.0.1     | Add coordinate hashes to the URL in the browser adress field.                         |
 | [leaflet.languageselector](https://github.com/KristjanESPERANTO/Leaflet.LanguageSelector/) | CC0 [\*](https://github.com/KristjanESPERANTO/Leaflet.LanguageSelector/blob/master/LICENSE)                      | 1.2.0     | A control to switch between languages.                                                |
 | [leaflet.locatecontrol](https://github.com/domoritz/leaflet-locatecontrol/)                | MIT [\*](https://github.com/domoritz/leaflet-locatecontrol/blob/gh-pages/LICENSE)                                | 0.76.1    | A control to locate the position of the user.                                         |
