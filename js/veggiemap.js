@@ -58,9 +58,6 @@ function veggiemap() {
       veganLimited
   };
 
-  // Enable the on-demand popup and tooltip calculation
-  parentGroup.bindPopup(calculatePopup);
-  parentGroup.bindTooltip(calculateTooltip);
 
   // Close the tooltip when opening the popup
   parentGroup.on("click", () => {
@@ -212,6 +209,12 @@ function veggiemapPopulate(parentGroupVar) {
 
       // Call the function to put the numbers into the legend
       statPopulate(markerGroups, date);
+
+      // Enable the on-demand popup and tooltip calculation
+      parentGroup.eachLayer((layer) => {
+        layer.bindPopup(calculatePopup);
+        layer.bindTooltip(calculateTooltip);
+      });
 
       // Check if the data entries are complete
       checkData(parentGroupVar);
