@@ -1,0 +1,52 @@
+{
+  "name": "veggiekarte-local",
+  "version": "1.0.1",
+  "description": "Fork of veggiekarte for local use.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KristjanESPERANTO/veggiekarte-local/"
+  },
+  "keywords": [
+    "vegan",
+    "map"
+  ],
+  "author": {
+    "name": "Kristjan ESPERANTO",
+    "email": "kristjan.esperanto@gmail.com",
+    "url": "https://github.com/KristjanESPERANTO"
+  },
+  "contributors": [
+    "https://github.com/KristjanESPERANTO/veggiekarte-local/graphs/contributors"
+  ],
+  "license": "GNU General Public License v3.0",
+  "bugs": {
+    "url": "https://github.com/KristjanESPERANTO/veggiekarte-local/issues"
+  },
+  "homepage": "https://github.com/KristjanESPERANTO/veggiekarte-local",
+  "devDependencies": {
+    "eslint": "^8.23.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-json": "^3.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "stylelint": "^14.12.1",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^28.0.0",
+    "stylelint-prettier": "^2.0.0"
+  },
+  "scripts": {
+    "lint": "eslint . && stylelint **/*.css",
+    "lint:fix": "eslint --fix . && stylelint --fix **/*.css",
+    "test": "npm run lint",
+    "prepare": "husky install"
+  },
+  "type": "module",
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.css": "stylelint --fix"
+  }
+}
