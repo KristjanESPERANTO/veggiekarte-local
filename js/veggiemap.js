@@ -438,7 +438,7 @@ function calculatePopup(layer) {
 // eslint-disable-next-line camelcase
 if (!opening_hours.prototype.getFutureState) {
   // eslint-disable-next-line camelcase
-  opening_hours.prototype.getFutureState = (minutes = 60) => {
+  opening_hours.prototype.getFutureState = function (minutes = 60) {
     const nowPlusHours = new Date();
     nowPlusHours.setUTCMinutes(nowPlusHours.getUTCMinutes() + minutes);
     return this.getState(nowPlusHours);
