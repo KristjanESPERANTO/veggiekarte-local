@@ -2,7 +2,7 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.58.5 b0c4acbb",
   "osm3s": {
-    "timestamp_osm_base": "2022-09-27T21:42:38Z",
+    "timestamp_osm_base": "2022-10-03T09:54:57Z",
     "timestamp_areas_base": "2022-07-20T11:06:24Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
@@ -106,8 +106,8 @@
 {
   "type": "node",
   "id": 311197346,
-  "lat": 51.4734745,
-  "lon": 11.9795031,
+  "lat": 51.4734855,
+  "lon": 11.9795492,
   "tags": {
     "addr:city": "Halle (Saale)",
     "addr:housenumber": "5",
@@ -688,6 +688,7 @@
     "diet:vegan": "yes",
     "name": "Indian Masala",
     "old_name": "Geschwister Knoll",
+    "opening_hours": "Mo-Sa 10:30-14:30, 16:00-22:00; Su 10:30-22:00",
     "wheelchair": "no"
   }
 },
@@ -699,10 +700,12 @@
   "tags": {
     "addr:city": "Halle (Saale)",
     "addr:housenumber": "17a",
+    "addr:postcode": "06128",
     "addr:street": "Diesterwegstraße",
     "amenity": "ice_cream",
     "diet:vegan": "yes",
     "name": "Eiscafe Rimini",
+    "opening_hours": "Mo off; Tu-Su 12:00-18:00",
     "toilets:wheelchair": "no",
     "wheelchair": "yes"
   }
@@ -740,15 +743,16 @@
     "addr:street": "August-Bebel-Straße",
     "amenity": "restaurant",
     "capacity": "30",
+    "contact:email": "info@amasyna.de",
+    "contact:phone": "+49 176 610962284",
     "cuisine": "pizza;burger;kebab;barbecue;mediterranean;american;arab",
     "diet:vegan": "yes",
     "disused:amenity": "restaurant",
-    "email": "info@amasyna.de",
     "name": "Amasyna",
     "old_name": "Afamia Eck",
+    "opening_hours": "Mo-Th 11:00-21:00; fr 11:00-22:00; Sa 12:00-22:00; Su 13:00-21:00",
     "outdoor_seating": "no",
     "payment:cash": "yes",
-    "phone": "+49176610962284",
     "reservation": "yes",
     "smoking": "no",
     "start_date": "2022-06-13",
@@ -1103,6 +1107,7 @@
     "brand:wikipedia": "en:Coffee Fellows",
     "contact:website": "https://coffee-fellows.com/",
     "cuisine": "coffee_shop",
+    "diet:halal": "no",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "internet_access": "wlan",
@@ -1209,7 +1214,7 @@
     "name:ar": "ياسمين",
     "name:de": "Yasmin",
     "opening_hours": "Mo-Su 11:00-22:00",
-    "phone": "+4915772543654",
+    "phone": "+49 157 72543654",
     "shisha": "yes",
     "takeaway": "yes",
     "wheelchair": "no"
@@ -1370,28 +1375,6 @@
     "takeaway": "yes",
     "toilets:wheelchair": "yes",
     "wheelchair": "yes"
-  }
-},
-{
-  "type": "node",
-  "id": 3364559365,
-  "lat": 51.4923084,
-  "lon": 11.9721516,
-  "tags": {
-    "addr:city": "Halle (Saale)",
-    "addr:country": "DE",
-    "addr:housenumber": "22;1",
-    "addr:postcode": "06108",
-    "addr:street": "Puschkinstraße;Harz",
-    "contact:email": "info@theshabby.de",
-    "contact:facebook": "https://www.facebook.com/theshabby/",
-    "contact:instagram": "https://www.instagram.com/the_shabby/",
-    "cuisine": "coffee_shop;cake",
-    "diet:vegan": "yes",
-    "diet:vegetarian": "yes",
-    "disused:amenity": "cafe",
-    "name": "The Shabby",
-    "opening_date": "2021-12"
   }
 },
 {
@@ -1896,10 +1879,9 @@
     "addr:street": "Burgstraße",
     "amenity": "restaurant",
     "contact:email": "info@tajmahal-merseburg.de",
-    "contact:fax": "+49 3461-2769068",
-    "contact:phone": "+49 3461-2769066",
+    "contact:fax": "+49 3461 2769068",
+    "contact:phone": "+49 3461 2769066",
     "cuisine": "indian",
-    "diet:non-vegetarian": "yes",
     "diet:pescetarian": "yes",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
@@ -1909,10 +1891,9 @@
     "payment:cash": "yes",
     "payment:credit_cards": "yes",
     "payment:debit_cards": "yes",
-    "phone": "+49 3461-2769066",
     "smoking": "outside",
     "smoking:outside": "outside",
-    "website": "www.tajmahal-merseburg.de",
+    "website": "https://tajmahal-merseburg.de",
     "website:menu": "https://tajmahal-merseburg.de/food-items/"
   }
 },
@@ -1922,10 +1903,13 @@
   "lat": 51.4798895,
   "lon": 11.9744995,
   "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:housenumber": "2",
+    "addr:postcode": "06108",
     "addr:street": "Große Brauhausstraße",
     "amenity": "restaurant",
     "contact:phone": "+49 345 4704425",
-    "contact:website": "http://www.himalaya-halle.de",
+    "contact:website": "https://www.himalaya-halle.de",
     "cuisine": "indian",
     "diet:vegan": "yes",
     "name": "Himalaya",
@@ -2216,6 +2200,8 @@
     "addr:housenumber": "1",
     "addr:postcode": "06112",
     "addr:street": "Hans-Dietrich-Genscher-Platz",
+    "diet:halal": "no",
+    "diet:kosher": "no",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "name": "Bio im Bahnhof",
@@ -2231,6 +2217,10 @@
   "lat": 51.4834433,
   "lon": 11.9749193,
   "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:housenumber": "21",
+    "addr:postcode": "06108",
+    "addr:street": "Hansering",
     "amenity": "cafe",
     "check_date:opening_hours": "2022-09-08",
     "diet:vegan": "yes",
@@ -2755,7 +2745,9 @@
   "lat": 51.4796537,
   "lon": 11.9779396,
   "tags": {
+    "addr:city": "Halle (Saale)",
     "addr:housenumber": "37",
+    "addr:postcode": "06108",
     "addr:street": "Leipziger Straße",
     "amenity": "fast_food",
     "contact:instagram": "https://www.instagram.com/mirarestauranthalle/",
@@ -2788,6 +2780,7 @@
     "diet:vegan": "limited",
     "diet:vegetarian": "yes",
     "name": "Bowls King",
+    "opening_hours": "off",
     "takeaway": "yes"
   }
 },
@@ -2829,7 +2822,8 @@
     "addr:postcode": "06114",
     "addr:street": "Reilstraße",
     "amenity": "restaurant",
-    "contact:instagram": "bay.vegan",
+    "contact:instagram": "https://www.instagram.com/bay.vegan/",
+    "contact:phone": "+49 162 6678968",
     "cuisine": "asian",
     "diet:vegan": "only",
     "diet:vegetarian": "yes",
@@ -2869,7 +2863,9 @@
   "lat": 51.4929992,
   "lon": 11.9793497,
   "tags": {
+    "addr:city": "Halle (Saale)",
     "addr:housenumber": "41",
+    "addr:postcode": "06114",
     "addr:street": "Schillerstraße",
     "amenity": "cafe",
     "diet:vegan": "yes",
@@ -2877,8 +2873,8 @@
     "name": "Polenka",
     "opening_hours": "Tu, We 10:00-18:00; Th-Sa 10:00-22:00; Su 10:00-18:00",
     "outdoor_seating": "yes",
-    "phone": "+4917680642015",
-    "website": "https://www.cafépolenka.de/"
+    "phone": "+49 176 80642015",
+    "website": "https://www.cafépolenka.de"
   }
 },
 {

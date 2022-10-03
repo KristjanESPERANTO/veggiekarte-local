@@ -1,5 +1,5 @@
 {
- "_timestamp": "2022-09-27 23:38:53.656795",
+ "_timestamp": "2022-10-03 11:51:35.050927",
  "features": [
   {
    "geometry": {
@@ -108,8 +108,8 @@
   {
    "geometry": {
     "coordinates": [
-     11.9795031,
-     51.4734745
+     11.9795492,
+     51.4734855
     ],
     "type": "Point"
    },
@@ -723,6 +723,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Indian Masala",
+    "opening_hours": "Mo-Sa 10:30-14:30, 16:00-22:00; Su 10:30-22:00",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -739,10 +740,12 @@
     "_id": 1808694395,
     "_type": "node",
     "addr_city": "Halle (Saale)",
+    "addr_postcode": "06128",
     "addr_street": "Diesterwegstraße 17a",
     "category": "vegan_friendly",
     "icon": "ice_cream",
     "name": "Eiscafe Rimini",
+    "opening_hours": "Mo off; Tu-Su 12:00-18:00",
     "symbol": "🍨"
    },
    "type": "Feature"
@@ -789,11 +792,12 @@
     "addr_street": "August-Bebel-Straße 53",
     "category": "vegan_friendly",
     "contact_email": "info@amasyna.de",
-    "contact_phone": "+49176610962284",
+    "contact_phone": "+49 176 610962284",
     "contact_website": "https://amasyna.de",
     "cuisine": "pizza;burger;kebab;barbecue;mediterranean;american;arab",
     "icon": "maki_restaurant-pizza",
     "name": "Amasyna",
+    "opening_hours": "Mo-Th 11:00-21:00; fr 11:00-22:00; Sa 12:00-22:00; Su 13:00-21:00",
     "symbol": "🍕"
    },
    "type": "Feature"
@@ -1291,7 +1295,7 @@
     "addr_postcode": "06110",
     "addr_street": "Steinweg 39",
     "category": "vegan_friendly",
-    "contact_phone": "+4915772543654",
+    "contact_phone": "+49 157 72543654",
     "cuisine": "arab;syrian",
     "icon": "fast_food",
     "more_info": true,
@@ -1459,33 +1463,6 @@
     "name": "Coffee Fellows",
     "opening_hours": "Mo-Th 09:00-20:00; Fr 09:00-22:00; Sa 09:00-20:00; Su off",
     "symbol": "☕"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9721516,
-     51.4923084
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 3364559365,
-    "_type": "node",
-    "addr_city": "Halle (Saale)",
-    "addr_country": "DE",
-    "addr_postcode": "06108",
-    "addr_street": "Puschkinstraße;Harz 22;1",
-    "category": "vegan_friendly",
-    "contact_email": "info@theshabby.de",
-    "contact_facebook": "https://www.facebook.com/theshabby",
-    "contact_instagram": "https://www.instagram.com/the_shabby",
-    "cuisine": "coffee_shop;cake",
-    "icon": "maki_star-stroked",
-    "more_info": true,
-    "name": "The Shabby",
-    "symbol": ""
    },
    "type": "Feature"
   },
@@ -2036,8 +2013,8 @@
     "addr_street": "Burgstraße 6",
     "category": "vegan_friendly",
     "contact_email": "info@tajmahal-merseburg.de",
-    "contact_phone": "+49 3461-2769066",
-    "contact_website": "www.tajmahal-merseburg.de",
+    "contact_phone": "+49 3461 2769066",
+    "contact_website": "https://tajmahal-merseburg.de",
     "cuisine": "indian",
     "icon": "restaurant",
     "name": "Taj Mahal",
@@ -2057,10 +2034,12 @@
    "properties": {
     "_id": 5151602820,
     "_type": "node",
-    "addr_street": "Große Brauhausstraße",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06108",
+    "addr_street": "Große Brauhausstraße 2",
     "category": "vegan_friendly",
     "contact_phone": "+49 345 4704425",
-    "contact_website": "http://www.himalaya-halle.de",
+    "contact_website": "https://www.himalaya-halle.de",
     "cuisine": "indian",
     "icon": "restaurant",
     "name": "Himalaya",
@@ -2415,6 +2394,9 @@
    "properties": {
     "_id": 6814015852,
     "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06108",
+    "addr_street": "Hansering 21",
     "category": "vegan_friendly",
     "contact_website": "https://www.roy-coffee.de",
     "icon": "cafe",
@@ -3023,6 +3005,8 @@
    "properties": {
     "_id": 9474397454,
     "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06108",
     "addr_street": "Leipziger Straße 37",
     "category": "vegan_limited",
     "contact_instagram": "https://www.instagram.com/mirarestauranthalle",
@@ -3054,6 +3038,7 @@
     "icon": "fast_food",
     "more_info": true,
     "name": "Bowls King",
+    "opening_hours": "off",
     "symbol": "🍔"
    },
    "type": "Feature"
@@ -3100,7 +3085,8 @@
     "addr_postcode": "06114",
     "addr_street": "Reilstraße 7",
     "category": "vegan_only",
-    "contact_instagram": "bay.vegan",
+    "contact_instagram": "https://www.instagram.com/bay.vegan",
+    "contact_phone": "+49 162 6678968",
     "cuisine": "asian",
     "icon": "restaurant",
     "name": "Bay Vegan",
@@ -3146,9 +3132,11 @@
    "properties": {
     "_id": 9969559755,
     "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06114",
     "addr_street": "Schillerstraße 41",
     "category": "vegan_friendly",
-    "contact_phone": "+4917680642015",
+    "contact_phone": "+49 176 80642015",
     "contact_website": "https://www.cafépolenka.de",
     "icon": "cafe",
     "name": "Polenka",

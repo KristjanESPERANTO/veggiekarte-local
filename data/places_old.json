@@ -1,5 +1,5 @@
 {
- "_timestamp": "2022-09-27 20:33:08.629368",
+ "_timestamp": "2022-09-27 23:38:53.656795",
  "features": [
   {
    "geometry": {
@@ -3160,6 +3160,32 @@
   {
    "geometry": {
     "coordinates": [
+     11.9981254,
+     51.4799496
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 10057151822,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06112",
+    "addr_street": "Delitzscher Straße 49a",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 345 68597862",
+    "contact_website": "https://www.freddy-fresh.de",
+    "cuisine": "pizza",
+    "icon": "maki_restaurant-pizza",
+    "more_info": true,
+    "name": "Freddy Fresh",
+    "opening_hours": "Mo-Su 11:00-22:00",
+    "symbol": "🍕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9339655,
      51.4965308
     ],
@@ -3660,32 +3686,6 @@
     "name": "Goldene Schildkröte",
     "opening_hours": "Mo-Su 11:00-22:00",
     "symbol": "🍽️"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9981292,
-     51.4799454
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 14334740,
-    "_type": "relation",
-    "addr_city": "Halle (Saale)",
-    "addr_country": "DE",
-    "addr_postcode": "06112",
-    "addr_street": "Delitzscher Straße 49a",
-    "category": "vegan_friendly",
-    "contact_phone": "+49 345 68597862",
-    "contact_website": "https://www.freddy-fresh.de",
-    "cuisine": "pizza",
-    "icon": "maki_restaurant-pizza",
-    "name": "Freddy Fresh",
-    "opening_hours": "Mo-Su 11:00-22:00",
-    "symbol": "🍕"
    },
    "type": "Feature"
   }
