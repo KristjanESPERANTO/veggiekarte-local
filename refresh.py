@@ -94,7 +94,6 @@ GET_MORE_INFO = [
     3387395693,  # Papa John's - Neustadt
     4868552820,  # Papa John's - Heide Süd
     4948443538,  # Thang Long
-    189926769,   # Lichthaus
     134238289,   # Mönchshof
     4465518868,  # Sushifreunde
     1475009992,  # Rossini
