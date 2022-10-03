@@ -2,7 +2,7 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.58.5 b0c4acbb",
   "osm3s": {
-    "timestamp_osm_base": "2022-10-03T09:54:57Z",
+    "timestamp_osm_base": "2022-10-03T12:00:59Z",
     "timestamp_areas_base": "2022-07-20T11:06:24Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
@@ -203,6 +203,7 @@
   "lon": 11.9863589,
   "tags": {
     "addr:city": "Halle (Saale)",
+    "addr:housenumber": "1",
     "addr:postcode": "06112",
     "addr:street": "Hans-Dietrich-Genscher-Platz",
     "brand": "BackWerk",
@@ -535,14 +536,14 @@
     "addr:postcode": "06108",
     "addr:street": "Marktplatz",
     "amenity": "restaurant",
-    "contact:phone": "+49 345 7749360",
-    "contact:website": "http://www.dinea.de",
+    "contact:phone": "+49 345 7749361",
+    "contact:website": "https://galeria-restaurant.de/fillialen-galeria-restaurant-halle-martkplatz-20/",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "kids_area": "yes",
     "kids_area:indoor": "yes",
     "name": "DINEA",
-    "opening_hours": "Mo-Sa 09:30-20:00; PH off",
+    "opening_hours": "Mo-Sa 09:30-17:00; Su,PH off",
     "operator": "DINEA Gastronomie GmbH",
     "outdoor_seating": "yes",
     "toilets:wheelchair": "yes",
@@ -747,7 +748,6 @@
     "contact:phone": "+49 176 610962284",
     "cuisine": "pizza;burger;kebab;barbecue;mediterranean;american;arab",
     "diet:vegan": "yes",
-    "disused:amenity": "restaurant",
     "name": "Amasyna",
     "old_name": "Afamia Eck",
     "opening_hours": "Mo-Th 11:00-21:00; fr 11:00-22:00; Sa 12:00-22:00; Su 13:00-21:00",
@@ -1132,13 +1132,13 @@
     "addr:postcode": "06112",
     "addr:street": "Hans-Dietrich-Genscher-Platz",
     "amenity": "fast_food",
-    "contact:website": "https://www.einkaufsbahnhof.de/halle-hauptbahnhof/store/halle_obstladen-s7907/",
+    "contact:website": "https://www.einkaufsbahnhof.de/halle-hauptbahnhof/store/obst-und-saftbar",
     "cuisine": "juices",
     "diet:vegan": "yes",
     "diet:vegetarian": "only",
     "level": "-1",
     "name": "mein Obstladen Saftbar",
-    "opening_hours": "Mo-Fr 09:00-16:00; Sa-Su off; PH 08:00-20:00",
+    "opening_hours": "Mo-Su, PH 08:00-20:00",
     "wheelchair": "yes"
   }
 },
@@ -1320,31 +1320,6 @@
     "opening_hours": "Mo-Su , PH 11:00-23:00",
     "short_name": "Domino's",
     "takeaway": "yes",
-    "wheelchair": "yes"
-  }
-},
-{
-  "type": "node",
-  "id": 3173527817,
-  "lat": 51.4954925,
-  "lon": 11.9658855,
-  "tags": {
-    "addr:city": "Halle (Saale)",
-    "addr:country": "DE",
-    "addr:housenumber": "1",
-    "addr:postcode": "06114",
-    "addr:street": "Richard-Wagner-Straße",
-    "amenity": "fast_food",
-    "capacity": "0",
-    "contact:facebook": "https://www.facebook.com/burgerservice/",
-    "contact:phone": "+49 345 52503748",
-    "contact:website": "http://www.burgerservice-halle.de",
-    "cuisine": "burger",
-    "diet:vegan": "yes",
-    "diet:vegetarian": "yes",
-    "drive_through": "no",
-    "name": "Burgerservice",
-    "opening_hours": "Mo off; Tu-Th 11:00-22:00; Fr-Sa 11:00-00:00; Su 11:00-22:00",
     "wheelchair": "yes"
   }
 },
@@ -1723,6 +1698,7 @@
     "cuisine": "coffee;kuchen",
     "diet:vegan": "yes",
     "name": "Café Wittekind",
+    "opening_hours": "Mo-Tu off; We-Fr 13:00-21:00; Sa-Su 09:00-21:00",
     "outdoor_seating": "yes",
     "wheelchair": "limited"
   }
@@ -2103,7 +2079,6 @@
     "payment:credit_cards": "yes",
     "payment:debit_cards": "yes",
     "toilets:wheelchair": "yes",
-    "website": "https://koffij.de",
     "wheelchair": "yes"
   }
 },
@@ -2127,9 +2102,7 @@
     "diet:vegetarian": "only",
     "name": "Törtcheneck",
     "opening_hours": "Tu-Sa 11:00-16:00",
-    "outdoor_seating": "no",
-    "phone": "+49 345 13252434",
-    "website": "https://www.toertcheneck.de"
+    "outdoor_seating": "no"
   }
 },
 {
@@ -2256,6 +2229,7 @@
   "lon": 11.9869940,
   "tags": {
     "addr:city": "Halle (Saale)",
+    "addr:housenumber": "1",
     "addr:postcode": "06112",
     "addr:street": "Hans-Dietrich-Genscher-Platz",
     "amenity": "fast_food",
@@ -2346,14 +2320,12 @@
     "addr:postcode": "06114",
     "addr:street": "Richard-Wagner-Straße",
     "amenity": "fast_food",
-    "contact:facebook": "https://www.facebook.com/pg/City-Döner-104417934452006/",
     "contact:phone": "+49 345 23968706",
     "cuisine": "kebab",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "name": "City Döner",
-    "opening_hours": "Mo-Fr 11:00-22:00; Sa 12:00-23:00; Su 12:00-22:00",
-    "website": "https://city-doner-halle-restaurant.business.site/"
+    "opening_hours": "Mo-Fr 11:00-22:00; Sa 12:00-23:00; Su 12:00-22:00"
   }
 },
 {
@@ -2505,8 +2477,7 @@
     "diet:vegetarian": "yes",
     "name": "JUICY",
     "opening_hours": "Mo-Sa 08:00-21:00; Su 10:00-21:00",
-    "start_date": "2021-06-01",
-    "website": "https://juicy-halle.de/"
+    "start_date": "2021-06-01"
   }
 },
 {
@@ -2701,16 +2672,15 @@
     "addr:postcode": "06118",
     "addr:street": "Trothaer Straße",
     "amenity": "restaurant",
-    "contact:website": "https://www.lieferando.de/speisekarte/pizza-one-1",
+    "contact:phone": "+49 345 52387777",
+    "contact:website": "https://www.pizzaone-halle.de",
     "cuisine": "pizza",
     "delivery": "yes",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "name": "Pizza One",
     "opening_hours": "Mo-Su 11:00-24:00",
-    "phone": "+49 345 52387777",
-    "takeaway": "yes",
-    "website": "https://www.pizzaone-halle.de"
+    "takeaway": "yes"
   }
 },
 {
@@ -2926,6 +2896,7 @@
     "building:levels": "1",
     "check_date:opening_hours": "2022-04-29",
     "contact:website": "https://www.studentenwerk-halle.de/mensen-cafebars/mensen-in-halle/heidemensa-mit-cafebar",
+    "cuisine": "canteen",
     "diet:vegan": "limited",
     "diet:vegetarian": "yes",
     "name": "Heidemensa",
@@ -3432,44 +3403,6 @@
     "opening_hours": "Mo-Su 11:00-23:00",
     "website": "http://www.tajmahal-merseburg.de/",
     "wheelchair": "no"
-  }
-},
-{
-  "type": "way",
-  "id": 189926769,
-  "center": {
-    "lat": 51.4807172,
-    "lon": 11.9669297
-  },
-  "nodes": [
-    2005386101,
-    2005386095,
-    2005386099,
-    2005386098,
-    2005386101
-  ],
-  "tags": {
-    "addr:city": "Halle (Saale)",
-    "addr:country": "DE",
-    "addr:housenumber": "3",
-    "addr:postcode": "06108",
-    "addr:street": "Dreyhauptstraße",
-    "amenity": "cafe",
-    "building": "yes",
-    "contact:facebook": "https://www.facebook.com/LichthausHalle",
-    "contact:instagram": "https://www.instagram.com/lichthaushalle/",
-    "diet:vegan": "yes",
-    "internet_access": "wlan",
-    "internet_access:fee": "no",
-    "name": "Lichthaus",
-    "opening_hours": "We-Th 14:00-18:00; Fr-Sa 14:00-24:00",
-    "operator": "Operation Mobilisation e. V.",
-    "phone": "+49 345 69494454",
-    "smoking": "no",
-    "toilets:wheelchair": "yes",
-    "website": "https://www.lichthaushalle.de",
-    "wheelchair": "yes",
-    "wheelchair:description": "über eine Rollstuhlrampe erreichbar"
   }
 },
 {
