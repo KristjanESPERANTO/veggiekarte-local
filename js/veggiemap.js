@@ -58,7 +58,6 @@ function veggiemap() {
       veganLimited
   };
 
-
   // Close the tooltip when opening the popup
   parentGroup.on("click", () => {
     if (parentGroup.isPopupOpen()) {

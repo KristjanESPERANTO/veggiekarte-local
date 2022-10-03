@@ -1,11 +1,11 @@
 function veggiemap_populate(parentGroup) {
   const url = "../data/check_results.json";
   fetch(url)
-    .then(response => response.json())
-    .then(geojson => geojsonToMarkerGroups(geojson))
-    .then(markerGroupsAndDate => {
-      let markerGroups = markerGroupsAndDate[0];
-      let date = markerGroupsAndDate[1];
+    .then((response) => response.json())
+    .then((geojson) => geojsonToMarkerGroups(geojson))
+    .then((markerGroupsAndDate) => {
+      const markerGroups = markerGroupsAndDate[0];
+      const date = markerGroupsAndDate[1];
 
       Object.keys(markerGroups);
       console.log(markerGroups);
@@ -32,46 +32,39 @@ function veggiemap_populate(parentGroup) {
 
       // iterate over object
       keys.forEach((key, index) => {
+        const DIV = document.createElement("DIV");
 
-        let DIV = document.createElement("DIV");
-
-        let heading = document.createElement("h2");
+        const heading = document.createElement("h2");
         heading.innerText = key;
-        heading.innerText += " (" + markerGroups[key].length + ")";
+        heading.innerText += ` (${markerGroups[key].length})`;
         DIV.appendChild(heading);
-        let table = document.createElement("table");
-        let tableHead = document.createElement("tr");
+        const table = document.createElement("table");
+        const tableHead = document.createElement("tr");
         tableHead.innerHTML += "<th>Index</th>";
         tableHead.innerHTML += "<th>Name</th>";
         tableHead.innerHTML += "<th>Issues</th>";
         table.appendChild(tableHead);
 
-
-
         markerGroups[key].forEach((element, index) => {
-
-
-          let row = document.createElement("tr");
+          const row = document.createElement("tr");
           index += 1;
           undef = element.properties.undefined;
-          if (undef == undefined) { undef = "-" };
+          if (undef == undefined) {
+            undef = "-";
+          }
           console.log(element);
-          row.innerHTML += "<td>" + index + "</td>";
-          row.innerHTML += "<td>" + element.properties.name + "</td>";
-          row.innerHTML += "<td>" + element.properties.issue_number + "</td>";
+          row.innerHTML += `<td>${index}</td>`;
+          row.innerHTML += `<td>${element.properties.name}</td>`;
+          row.innerHTML += `<td>${element.properties.issue_number}</td>`;
           table.appendChild(row);
-
-        })
+        });
 
         DIV.appendChild(table);
 
-        output = document.getElementById('output')
+        output = document.getElementById("output");
 
         output.appendChild(DIV);
-
       });
-
-
 
       /*
           markerGroups.forEach(group => {
@@ -85,26 +78,21 @@ function veggiemap_populate(parentGroup) {
               }
               if (!groups[eCat]) groups[eCat] = [];
               groups[eCat].push(getMarker(feature));
-          });*/
-
-
-
-
-
+          }); */
     })
-    .catch(error => { console.log('Request failed', error); });
+    .catch((error) => {
+      console.log("Request failed", error);
+    });
 }
-
 
 // Process the places GeoJSON into the groups of markers
 function geojsonToMarkerGroups(geojson) {
   const date = geojson._timestamp.split(" ")[0];
   const groups = {};
-  geojson.features.forEach(feature => {
+  geojson.features.forEach((feature) => {
+    // console.log(feature.properties.diet_vegan);
 
-    //console.log(feature.properties.diet_vegan);
-
-    let eCat = feature.properties.diet_vegan;
+    const eCat = feature.properties.diet_vegan;
 
     if (!groups[eCat]) groups[eCat] = [];
     groups[eCat].push(feature);
@@ -112,30 +100,25 @@ function geojsonToMarkerGroups(geojson) {
   return [groups, date];
 }
 
-
-
 function json2Table(json) {
-  let cols = Object.keys(json[0]);
+  const cols = Object.keys(json[0]);
 
+  // Map over columns, make headers,join into string
+  const headerRow = cols.map((col) => `<th>${col}</th>`).join("");
 
-  //Map over columns, make headers,join into string
-  let headerRow = cols
-    .map(col => `<th>${col}</th>`)
-    .join("");
-
-  //map over array of json objs, for each row(obj) map over column values,
-  //and return a td with the value of that object for its column
-  //take that array of tds and join them
-  //then return a row of the tds
-  //finally join all the rows together
-  let rows = json
-    .map(row => {
-      let tds = cols.map(col => `<td>${row[col]}</td>`).join("");
+  // map over array of json objs, for each row(obj) map over column values,
+  // and return a td with the value of that object for its column
+  // take that array of tds and join them
+  // then return a row of the tds
+  // finally join all the rows together
+  const rows = json
+    .map((row) => {
+      const tds = cols.map((col) => `<td>${row[col]}</td>`).join("");
       return `<tr>${tds}</tr>`;
     })
     .join("");
 
-  //build the table
+  // build the table
   const table = `
 	<table>
 		<thead>
@@ -146,8 +129,8 @@ function json2Table(json) {
 		<tbody>
 	<table>`;
 
-  output = document.getElementById('output')
-  output.innerHTML = json2Table(data)
+  output = document.getElementById("output");
+  output.innerHTML = json2Table(data);
 }
 
 veggiemap_populate();
