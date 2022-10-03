@@ -52,21 +52,21 @@ function veggiemap() {
 
   // Define overlays (each marker group gets a layer) + add legend to the description
   const overlays = {
-    "<div class='legendRow'><div class='secondCell'>no issues</div><div class='thirdCell' id='issue_number_0'></div></div>":
+    "<div class='legend-row'><div class='second-cell'>no issues</div><div class='third-cell' id='issue_number_0'></div></div>":
       issueNumber0,
-    "<div class='legendRow'><div class='secondCell'>1 issue</div><div class='thirdCell' id='issue_number_1'></div></div>":
+    "<div class='legend-row'><div class='second-cell'>1 issue</div><div class='third-cell' id='issue_number_1'></div></div>":
       issueNumber1,
-    "<div class='legendRow'><div class='secondCell'>2 issues</div><div class='thirdCell' id='issue_number_2'></div></div>":
+    "<div class='legend-row'><div class='second-cell'>2 issues</div><div class='third-cell' id='issue_number_2'></div></div>":
       issueNumber2,
-    "<div class='legendRow'><div class='secondCell'>3 issues</div><div class='thirdCell' id='issue_number_3'></div></div>":
+    "<div class='legend-row'><div class='second-cell'>3 issues</div><div class='third-cell' id='issue_number_3'></div></div>":
       issueNumber3,
-    "<div class='legendRow'><div class='secondCell'>4 issues</div><div class='thirdCell' id='issue_number_4'></div></div>":
+    "<div class='legend-row'><div class='second-cell'>4 issues</div><div class='third-cell' id='issue_number_4'></div></div>":
       issueNumber4,
-    "<div class='legendRow'><div class='secondCell'>5 issues</div><div class='thirdCell' id='issue_number_5'></div></div>":
+    "<div class='legend-row'><div class='second-cell'>5 issues</div><div class='third-cell' id='issue_number_5'></div></div>":
       issueNumber5,
-    "<div class='legendRow'><div class='secondCell'>6 issues</div><div class='thirdCell' id='issue_number_6'></div></div>":
+    "<div class='legend-row'><div class='second-cell'>6 issues</div><div class='third-cell' id='issue_number_6'></div></div>":
       issueNumber6,
-    "<div class='legendRow'><div class='secondCell'>more than 6</div><div class='thirdCell' id='issue_number_many'></div></div>":
+    "<div class='legend-row'><div class='second-cell'>more than 6</div><div class='third-cell' id='issue_number_many'></div></div>":
       issueNumberMany
   };
 
@@ -95,8 +95,8 @@ function veggiemap() {
   // Add button to search own position
   L.control
     .locate({
-      icon: "locate_icon",
-      iconLoading: "loading_icon",
+      icon: "locate-icon",
+      iconLoading: "loading-icon",
       showCompass: true,
       locateOptions: { maxZoom: 16 },
       position: "topright"
@@ -235,26 +235,26 @@ function calculatePopup(layer) {
   /** * Building the popup content ** */
 
   // Popup title
-  let popupContent = `<div class='mapPopupTitle'>${eNam}</div><hr/>`;
+  let popupContent = `<div class='map-popup-title'>${eNam}</div><hr/>`;
 
   // Add undefined keys
   if (feature.properties.undefined !== undefined) {
     feature.properties.undefined.forEach(
       (key) =>
-        (popupContent += `<div class='popup_issue'>'${key}' is undefined</div>`)
+        (popupContent += `<div class='popup-issue'>'${key}' is undefined</div>`)
     );
   }
 
   // Add issues
   if (feature.properties.issues !== undefined) {
     feature.properties.issues.forEach(
-      (issue) => (popupContent += `<div class='popup_issue'>${issue}</div>`)
+      (issue) => (popupContent += `<div class='popup-issue'>${issue}</div>`)
     );
   }
 
   // OSM link to edit
   const osmUrl = `https://openstreetmap.org/${eTyp}/${eId}`;
-  popupContent += `<hr/><div class='mapEditorLink'><a href='${osmUrl}' target='_blank' rel='noopener noreferrer'>(Edit on OpenStreetMap)</a></div>`;
+  popupContent += `<hr/><div class='map-editor-link'><a href='${osmUrl}' target='_blank' rel='noopener noreferrer'>(Edit on OpenStreetMap)</a></div>`;
 
   return popupContent;
 }

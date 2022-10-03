@@ -232,41 +232,41 @@ function updateContent() {
   );
 
   // Layer control
-  document.getElementsByClassName("secondCell")[0].innerText = i18next.t(
+  document.getElementsByClassName("second-cell")[0].innerText = i18next.t(
     "texts.i18n_vegan_only"
   );
   document.getElementsByClassName(
-    "legendRow"
+    "legend-row"
   )[0].parentElement.parentElement.title = i18next.t(
     "texts.i18n_vegan_only_title"
   );
-  document.getElementsByClassName("secondCell")[1].innerText = i18next.t(
+  document.getElementsByClassName("second-cell")[1].innerText = i18next.t(
     "texts.i18n_vegetarian_only"
   );
   document.getElementsByClassName(
-    "legendRow"
+    "legend-row"
   )[1].parentElement.parentElement.title = i18next.t(
     "texts.i18n_vegetarian_only_title"
   );
-  document.getElementsByClassName("secondCell")[2].innerText = i18next.t(
+  document.getElementsByClassName("second-cell")[2].innerText = i18next.t(
     "texts.i18n_vegan_friendly"
   );
   document.getElementsByClassName(
-    "legendRow"
+    "legend-row"
   )[2].parentElement.parentElement.title = i18next.t(
     "texts.i18n_vegan_friendly_title"
   );
-  document.getElementsByClassName("secondCell")[3].innerText = i18next.t(
+  document.getElementsByClassName("second-cell")[3].innerText = i18next.t(
     "texts.i18n_vegan_limited"
   );
   document.getElementsByClassName(
-    "legendRow"
+    "legend-row"
   )[3].parentElement.parentElement.title = i18next.t(
     "texts.i18n_vegan_limited_title"
   );
 
-  // document.getElementsByClassName("secondCell")[4].innerText = i18next.t("texts.i18n_vegetarian_friendly");
-  // document.getElementsByClassName("legendRow")[4].parentElement.parentElement.title = i18next.t("texts.i18n_vegetarian_friendly_title");
+  // document.getElementsByClassName("second-cell")[4].innerText = i18next.t("texts.i18n_vegetarian_friendly");
+  // document.getElementsByClassName("legend-row")[4].parentElement.parentElement.title = i18next.t("texts.i18n_vegetarian_friendly_title");
 
   // Set HTML lang attribut
   document.body.parentElement.lang = i18next.language;

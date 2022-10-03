@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 const CACHE_NAME = "veggiekarte-halle";
 
 console.info(CACHE_NAME);

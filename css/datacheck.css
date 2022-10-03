@@ -20,6 +20,7 @@ body {
   text-align: center;
   float: right;
 }
+
 #close:hover {
   cursor: pointer;
   transform: rotate(360deg);
@@ -35,14 +36,15 @@ body {
   right: 0;
   top: 10px;
   width: 70%;
-  background-color: rgba(255, 255, 255, 0.85);
-  box-shadow: 0 0 10px DimGray;
+  background-color: rgb(255 255 255 / 85%);
+  box-shadow: 0 0 10px dimgray;
   color: #111;
   z-index: 7;
   line-height: 150%;
   padding: 10px;
   border-radius: 10px;
 }
+
 /* Info box: Scrollable for small devices. */
 @media screen and (max-height: 812px) {
   #information {
@@ -52,24 +54,27 @@ body {
 }
 
 /* Legend */
-.legendRow {
+.legend-row {
   display: table-cell;
   max-height: 15px;
   position: relative;
   top: -3px;
 }
-.firstCell {
+
+.first-cell {
   display: table-cell;
   width: 15px;
   border-radius: 5px;
   border: solid 1px #cdcdcddd;
   margin-right: 5px;
 }
-.secondCell {
+
+.second-cell {
   display: table-cell;
   padding-left: 5px;
 }
-.thirdCell {
+
+.third-cell {
   display: table-cell;
   padding-left: 10px;
 }
@@ -80,33 +85,38 @@ body {
   border-style: solid;
   border-width: 2px;
   padding: 2px;
-  box-shadow: 4px 4px 4px DimGray;
+  box-shadow: 4px 4px 4px dimgray;
 }
+
 .marker:hover {
-  border-color: NavajoWhite;
+  border-color: navajowhite;
   padding: 3px;
 }
 
 /* Categorie properties */
 .vegan_only {
-  background: #005500;
-  border-color: #117722;
+  background: #050;
+  border-color: #172;
 }
+
 .vegetarian_only {
-  background: #118811;
-  border-color: #118811;
+  background: #181;
+  border-color: #11818811;
 }
+
 .vegan_friendly {
   background: #00bc00;
   border-color: #00bc00;
 }
+
 .vegan_limited {
-  background: #aaffaa;
-  border-color: SeaGreen;
+  background: #afa;
+  border-color: seagreen;
 }
+
 .vegetarian_friendly {
   background: #fefefe;
-  border-color: DarkGreen;
+  border-color: darkgreen;
 }
 
 /* Layer button: Adjust the size to the other buttons. */
@@ -115,6 +125,7 @@ body {
   height: 26px !important;
   background-size: 80%;
 }
+
 .leaflet-touch .leaflet-control-layers-toggle {
   width: 30px !important;
   height: 30px !important;
@@ -122,7 +133,7 @@ body {
 
 /* Tooltip: Mimic Firefox's tooltip style */
 .leaflet-tooltip {
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0 0 0 / 85%);
   color: #fff;
   padding: 1em;
   border: none;
@@ -130,15 +141,15 @@ body {
 }
 
 /* Tooltip: Hide the pointing triangle */
-.leaflet-tooltip-top:before,
-.leaflet-tooltip-bottom:before,
-.leaflet-tooltip-left:before,
-.leaflet-tooltip-right:before {
+.leaflet-tooltip-top::before,
+.leaflet-tooltip-bottom::before,
+.leaflet-tooltip-left::before,
+.leaflet-tooltip-right::before {
   border-color: transparent;
 }
 
 /* PopupTitle */
-.mapPopupTitle {
+.map-popup-title {
   font-size: medium;
   text-align: center;
 }
@@ -148,6 +159,7 @@ body {
   display: flex;
   flex-wrap: nowrap;
 }
+
 .popupflex-container > div {
   min-width: 2em;
   padding-bottom: 7px;
@@ -169,27 +181,30 @@ body {
 }
 
 /* * Locatecontrol * */
+
 /* Marker Icon */
-.locate_icon {
+.locate-icon {
   display: inline-block;
   width: 18px;
   height: 18px;
   margin-top: 5px;
   background-color: black;
   mask-size: cover;
-  -webkit-mask-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22"><path d="M 18,7.5 C 17.95833,3.1354462 14.5,0 11,0 7.5,0 3.9740383,2.6627432 4,7.5 4.0259617,12.337257 11,22 11,22 11,22 18.04167,11.864554 18,7.5 Z M 8.5,7 c 0,-3.333332 5,-3.333332 5,0 0,3.333332 -5,3.333332 -5,0 z" fill="black" /></svg>');
   mask-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22"><path d="M 18,7.5 C 17.95833,3.1354462 14.5,0 11,0 7.5,0 3.9740383,2.6627432 4,7.5 4.0259617,12.337257 11,22 11,22 11,22 18.04167,11.864554 18,7.5 Z M 8.5,7 c 0,-3.333332 5,-3.333332 5,0 0,3.333332 -5,3.333332 -5,0 z" fill="black" /></svg>');
 }
+
 /* Loading Icon */
 @keyframes spinner {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
 }
-.loading_icon {
+
+.loading-icon {
   width: 12px;
   height: 12px;
   margin-top: 4px;
@@ -201,32 +216,36 @@ body {
   border-top-color: #434343;
   animation: 1.5s linear infinite spinner;
 }
-/* Marker Icon: Color while following */
-.leaflet-control-locate.active.following a span {
-  background-color: #fc8428;
-}
+
 /* Marker Icon: Color while active */
 .leaflet-control-locate.active a span {
   background-color: #2074b6;
+}
+
+/* Marker Icon: Color while following */
+.leaflet-control-locate.active.following a span {
+  background-color: #fc8428;
 }
 
 /* Firefox workaround for https://github.com/Leaflet/Leaflet/issues/4686 */
 .leaflet-fade-anim .leaflet-tile {
   will-change: auto !important;
 }
+
 .leaflet-zoom-anim .leaflet-zoom-animated {
   will-change: auto !important;
 }
 
 /* Editor link centered */
-.mapEditorLink {
+.map-editor-link {
   text-align: center;
 }
 
 /* Issue rows with different colours */
-.popup_issue:nth-of-type(odd) {
+.popup-issue:nth-of-type(odd) {
   background: #fee;
 }
-.popup_issue:nth-of-type(even) {
+
+.popup-issue:nth-of-type(even) {
   background: #fdd;
 }

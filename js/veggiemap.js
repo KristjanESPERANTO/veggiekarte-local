@@ -48,13 +48,13 @@ function veggiemap() {
 
   // Define overlays (each marker group gets a layer) + add legend to the description
   const overlays = {
-    "<div class='legendRow'><div class='firstCell vegan_only'></div><div class='secondCell'></div><div class='thirdCell' id='n_vegan_only'></div></div>":
+    "<div class='legend-row'><div class='first-cell vegan_only'></div><div class='second-cell'></div><div class='third-cell' id='n_vegan_only'></div></div>":
       veganOnly,
-    "<div class='legendRow'><div class='firstCell vegetarian_only'></div><div class='secondCell'></div><div class='thirdCell' id='n_vegetarian_only'></div></div>":
+    "<div class='legend-row'><div class='first-cell vegetarian_only'></div><div class='second-cell'></div><div class='third-cell' id='n_vegetarian_only'></div></div>":
       vegetarianOnly,
-    "<div class='legendRow'><div class='firstCell vegan_friendly'></div><div class='secondCell'></div><div class='thirdCell' id='n_vegan_friendly'></div></div>":
+    "<div class='legend-row'><div class='first-cell vegan_friendly'></div><div class='second-cell'></div><div class='third-cell' id='n_vegan_friendly'></div></div>":
       veganFriendly,
-    "<div class='legendRow'><div class='firstCell vegan_limited'></div><div class='secondCell'></div><div class='thirdCell' id='n_vegan_limited'></div></div>":
+    "<div class='legend-row'><div class='first-cell vegan_limited'></div><div class='second-cell'></div><div class='third-cell' id='n_vegan_limited'></div></div>":
       veganLimited
   };
 
@@ -90,8 +90,8 @@ function veggiemap() {
 
   // Add button to search own position
   document.locateControl = L.control.locate({
-    icon: "locate_icon",
-    iconLoading: "loading_icon",
+    icon: "locate-icon",
+    iconLoading: "loading-icon",
     showCompass: true,
     locateOptions: { maxZoom: 16 },
     position: "topright"
@@ -310,7 +310,7 @@ function calculatePopup(layer) {
   const eSym = feature.properties.symbol;
 
   /* Building the popup content */
-  let popupContent = `<div class='mapPopupTitle'>${eSym} ${eNam}`; // Symbol and name
+  let popupContent = `<div class='map-popup-title'>${eSym} ${eNam}`; // Symbol and name
 
   // OSM link for popup
   const osmUrl = `https://openstreetmap.org/${eTyp}/${eId}`;
@@ -380,18 +380,18 @@ function calculatePopup(layer) {
       openStateEmoji = "open";
       if (!oh.getFutureState()) {
         openState += i18next.t("texts.will close soon");
-        openStateEmoji = "closes_soon";
+        openStateEmoji = "closes-soon";
       }
     } else {
       openState = i18next.t("words.closed");
       openStateEmoji = "closed";
       if (oh.getFutureState()) {
         openState += i18next.t("texts.will open soon");
-        openStateEmoji = "opens_soon";
+        openStateEmoji = "opens-soon";
       }
     }
     // Append opening hours to the popup
-    popupContent += `<div class='popupflex-container'><div>🕖</div><div><span class='open_state_circle ${openStateEmoji}'></span>${openState}<br />${prettifiedValue}</div></div>`;
+    popupContent += `<div class='popupflex-container'><div>🕖</div><div><span class='open-state-circle ${openStateEmoji}'></span>${openState}<br />${prettifiedValue}</div></div>`;
   }
 
   // Adding addidtional information to popup
@@ -439,7 +439,7 @@ function calculatePopup(layer) {
 // Adding function for opening_hours objects to check if place will be open after n minutes (60 minutes as default)
 // eslint-disable-next-line camelcase
 if (!opening_hours.prototype.getFutureState) {
-  // eslint-disable-next-line camelcase
+  // eslint-disable-next-line camelcase, func-names
   opening_hours.prototype.getFutureState = function (minutes = 60) {
     const nowPlusHours = new Date();
     nowPlusHours.setUTCMinutes(nowPlusHours.getUTCMinutes() + minutes);
