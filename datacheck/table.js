@@ -1,11 +1,11 @@
-function veggiemap_populate(parentGroup) {
+function veggiemapPopulate() {
   const url = "../data/check_results.json";
   fetch(url)
     .then((response) => response.json())
     .then((geojson) => geojsonToMarkerGroups(geojson))
     .then((markerGroupsAndDate) => {
       const markerGroups = markerGroupsAndDate[0];
-      const date = markerGroupsAndDate[1];
+      // const date = markerGroupsAndDate[1];
 
       Object.keys(markerGroups);
       console.log(markerGroups);
@@ -31,7 +31,7 @@ function veggiemap_populate(parentGroup) {
       // [ 'java', 'javascript', 'nodejs', 'php' ]
 
       // iterate over object
-      keys.forEach((key, index) => {
+      keys.forEach((key) => {
         const DIV = document.createElement("DIV");
 
         const heading = document.createElement("h2");
@@ -47,9 +47,10 @@ function veggiemap_populate(parentGroup) {
 
         markerGroups[key].forEach((element, index) => {
           const row = document.createElement("tr");
+          // eslint-disable-next-line no-param-reassign
           index += 1;
-          undef = element.properties.undefined;
-          if (undef == undefined) {
+          let undef = element.properties.undefined;
+          if (undef === undefined) {
             undef = "-";
           }
           console.log(element);
@@ -61,7 +62,7 @@ function veggiemap_populate(parentGroup) {
 
         DIV.appendChild(table);
 
-        output = document.getElementById("output");
+        const output = document.getElementById("output");
 
         output.appendChild(DIV);
       });
@@ -100,6 +101,7 @@ function geojsonToMarkerGroups(geojson) {
   return [groups, date];
 }
 
+/*
 function json2Table(json) {
   const cols = Object.keys(json[0]);
 
@@ -132,5 +134,6 @@ function json2Table(json) {
   output = document.getElementById("output");
   output.innerHTML = json2Table(data);
 }
+*/
 
-veggiemap_populate();
+veggiemapPopulate();
