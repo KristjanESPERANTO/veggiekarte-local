@@ -72,7 +72,6 @@ function veggiemap() {
   const hash = new L.Hash(map);
 
   // Add fullscreen control button
-  // eslint-disable-next-line new-cap
   document.fullscreenControl = new L.control.fullscreen({
     position: "topright",
     fullscreenElement: map._container.parentNode
