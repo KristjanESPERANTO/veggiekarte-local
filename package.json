@@ -1,7 +1,7 @@
 {
   "name": "veggiekarte-local",
   "version": "1.0.1",
-  "description": "Fork of veggiekarte for local use.",
+  "description": "A OpenStreetMap based map to easily find places, like restaurants and cafes, with vegetarian and vegan options.",
   "repository": {
     "type": "git",
     "url": "https://github.com/KristjanESPERANTO/veggiekarte-local/"
