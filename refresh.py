@@ -150,7 +150,7 @@ GET_MORE_INFO = [
 ]
 
 # icon mapping
-# (the first element of the array is for the icon in the marker, the second is an emoji and it is used in the title)
+# (the first element of the array is for the icon in the marker, the second is an emoji which is used in the title)
 ICON_MAPPING = {
     # Intentionally not alphabetical order
     "cuisine:pizza": ["maki_restaurant-pizza", "🍕"],
@@ -209,7 +209,7 @@ ICON_MAPPING = {
 
 def determine_icon(tags):
     """Determine an icon for the marker."""
-    icon = ["maki_star-stroked", ""]   # Use this icon if there is no matching per ICON_MAPPING.
+    icon = ["maki_star-stroked", ""]  # Use this icon if there is no matching per ICON_MAPPING.
     for key_value in ICON_MAPPING:
         key, value = key_value.split(":")
         tag = tags.get(key)
@@ -236,8 +236,8 @@ def get_osm_data():
     overpass_query = "?data=[out:json][timeout:900];"
 
     # # Define the area - Halle + Saalekreis
-    overpass_query += "area['de:amtlicher_gemeindeschluessel'='15002000']->.halle;"\
-                      "area['de:amtlicher_gemeindeschluessel'='15088']->.saalekreis;"\
+    overpass_query += "area['de:amtlicher_gemeindeschluessel'='15002000']->.halle;" \
+                      "area['de:amtlicher_gemeindeschluessel'='15088']->.saalekreis;" \
                       "(.halle;.saalekreis;)->.searchArea;"
     # # Collect the vegan nodes, ways and relations
     overpass_query += "nwr(area.searchArea)['diet:vegan'~'yes|only|limited'];"
@@ -304,7 +304,7 @@ def write_data(data):
     osm_element_index = 0
     osm_elements_number = len(data["elements"])
 
-    # Go through every osm element and put the information into a new places element.
+    # Go through every osm element and put the information into a new place's element.
     for osm_element in data["elements"]:
 
         element_id = osm_element["id"]
@@ -381,7 +381,7 @@ def write_data(data):
             place_obj["properties"]["addr_city"] = tags["addr:city"]
         else:
             if "addr:suburb" in tags:
-                # In some regions (e.g. in USA and Australia) they often tag suburbs instead of city
+                # In some regions (e.g. in the USA and Australia) they often tag suburbs instead of city
                 place_obj["properties"]["addr_city"] = tags["addr:suburb"]
         if "addr:postcode" in tags:
             place_obj["properties"]["addr_postcode"] = tags["addr:postcode"]
@@ -407,7 +407,7 @@ def write_data(data):
             place_obj["properties"]["contact_phone"] = tags["contact:phone"]
         elif "phone" in tags:
             place_obj["properties"]["contact_phone"] = tags["phone"]
-        
+
         opening_hours = None
         if "opening_hours:covid19" in tags and tags["opening_hours:covid19"] != "same" and tags["opening_hours:covid19"] != "restricted":
             opening_hours = tags["opening_hours:covid19"]
@@ -487,7 +487,7 @@ def main():
     # Get data
     if len(sys.argv) < 2:
         osm_data = get_osm_data()
-        #osm_data = json.load(open('./data/overpass.json'))
+        # osm_data = json.load(open('./data/overpass.json'))
     else:
         # For testing without new OSM requests
         # Example: 'python3 refresh.py ./data/overpass.json'
