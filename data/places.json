@@ -1,5 +1,5 @@
 {
- "_timestamp": "2022-10-03 13:57:51.367423",
+ "_timestamp": "2022-10-10 00:11:22.292111",
  "features": [
   {
    "geometry": {
@@ -2624,7 +2624,7 @@
     "cuisine": "coffee_shop;ice_cream",
     "icon": "cafe",
     "name": "Kaffeehaus Wittekind",
-    "opening_hours": "Eissalon: Mo-So 11:00 - 19:00; Restaurant: Mi-Fr 14:00 - 22:00 + Sa,So 9:00-22:00",
+    "opening_hours": "We-Fr 14:00-22:00; Sa,Su 09:00-22:00",
     "symbol": "☕"
    },
    "type": "Feature"

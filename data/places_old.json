@@ -1,5 +1,5 @@
 {
- "_timestamp": "2022-10-03 11:51:35.050927",
+ "_timestamp": "2022-10-03 13:57:51.367423",
  "features": [
   {
    "geometry": {
@@ -220,7 +220,7 @@
     "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06112",
-    "addr_street": "Hans-Dietrich-Genscher-Platz",
+    "addr_street": "Hans-Dietrich-Genscher-Platz 1",
     "category": "vegan_friendly",
     "icon": "bakery",
     "name": "Backwerk",
@@ -558,11 +558,11 @@
     "addr_postcode": "06108",
     "addr_street": "Marktplatz 24",
     "category": "vegan_friendly",
-    "contact_phone": "+49 345 7749360",
-    "contact_website": "http://www.dinea.de",
+    "contact_phone": "+49 345 7749361",
+    "contact_website": "https://galeria-restaurant.de/fillialen-galeria-restaurant-halle-martkplatz-20",
     "icon": "restaurant",
     "name": "DINEA",
-    "opening_hours": "Mo-Sa 09:30-20:00; PH off",
+    "opening_hours": "Mo-Sa 09:30-17:00; Su,PH off",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -1215,11 +1215,11 @@
     "addr_postcode": "06112",
     "addr_street": "Hans-Dietrich-Genscher-Platz 1",
     "category": "vegetarian_only",
-    "contact_website": "https://www.einkaufsbahnhof.de/halle-hauptbahnhof/store/halle_obstladen-s7907",
+    "contact_website": "https://www.einkaufsbahnhof.de/halle-hauptbahnhof/store/obst-und-saftbar",
     "cuisine": "juices",
     "icon": "fast_food",
     "name": "mein Obstladen Saftbar",
-    "opening_hours": "Mo-Fr 09:00-16:00; Sa-Su off; PH 08:00-20:00",
+    "opening_hours": "Mo-Su, PH 08:00-20:00",
     "symbol": "🍔"
    },
    "type": "Feature"
@@ -1409,34 +1409,6 @@
     "name": "Domino's",
     "opening_hours": "Mo-Su , PH 11:00-23:00",
     "symbol": "🍕"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9658855,
-     51.4954925
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 3173527817,
-    "_type": "node",
-    "addr_city": "Halle (Saale)",
-    "addr_country": "DE",
-    "addr_postcode": "06114",
-    "addr_street": "Richard-Wagner-Straße 1",
-    "category": "vegan_friendly",
-    "contact_facebook": "https://www.facebook.com/burgerservice",
-    "contact_phone": "+49 345 52503748",
-    "contact_website": "http://www.burgerservice-halle.de",
-    "cuisine": "burger",
-    "icon": "fast_food",
-    "more_info": true,
-    "name": "Burgerservice",
-    "opening_hours": "Mo off; Tu-Th 11:00-22:00; Fr-Sa 11:00-00:00; Su 11:00-22:00",
-    "symbol": "🍔"
    },
    "type": "Feature"
   },
@@ -1833,6 +1805,7 @@
     "icon": "cafe",
     "more_info": true,
     "name": "Café Wittekind",
+    "opening_hours": "Mo-Tu off; We-Fr 13:00-21:00; Sa-Su 09:00-21:00",
     "symbol": "☕"
    },
    "type": "Feature"
@@ -2444,7 +2417,7 @@
     "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06112",
-    "addr_street": "Hans-Dietrich-Genscher-Platz",
+    "addr_street": "Hans-Dietrich-Genscher-Platz 1",
     "category": "vegan_friendly",
     "contact_website": "https://www.subway-halle.de",
     "cuisine": "sandwich",
@@ -2545,9 +2518,7 @@
     "addr_postcode": "06114",
     "addr_street": "Richard-Wagner-Straße 60",
     "category": "vegan_friendly",
-    "contact_facebook": "https://www.facebook.com/pg/City-Döner-104417934452006",
     "contact_phone": "+49 345 23968706",
-    "contact_website": "https://city-doner-halle-restaurant.business.site",
     "cuisine": "kebab",
     "icon": "fast_food",
     "more_info": true,
@@ -2960,7 +2931,7 @@
     "addr_street": "Trothaer Straße 9a",
     "category": "vegan_friendly",
     "contact_phone": "+49 345 52387777",
-    "contact_website": "https://www.lieferando.de/speisekarte/pizza-one-1",
+    "contact_website": "https://www.pizzaone-halle.de",
     "cuisine": "pizza",
     "icon": "maki_restaurant-pizza",
     "name": "Pizza One",
@@ -3187,6 +3158,7 @@
     "addr_street": "Theodor-Lieser-Straße 7",
     "category": "vegan_limited",
     "contact_website": "https://www.studentenwerk-halle.de/mensen-cafebars/mensen-in-halle/heidemensa-mit-cafebar",
+    "cuisine": "canteen",
     "icon": "fast_food",
     "more_info": true,
     "name": "Heidemensa",
@@ -3515,34 +3487,6 @@
     "name": "Tajmahal",
     "opening_hours": "Mo-Su 11:00-23:00",
     "symbol": "🍽️"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9669297,
-     51.4807172
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 189926769,
-    "_type": "way",
-    "addr_city": "Halle (Saale)",
-    "addr_country": "DE",
-    "addr_postcode": "06108",
-    "addr_street": "Dreyhauptstraße 3",
-    "category": "vegan_friendly",
-    "contact_facebook": "https://www.facebook.com/LichthausHalle",
-    "contact_instagram": "https://www.instagram.com/lichthaushalle",
-    "contact_phone": "+49 345 69494454",
-    "contact_website": "https://www.lichthaushalle.de",
-    "icon": "cafe",
-    "more_info": true,
-    "name": "Lichthaus",
-    "opening_hours": "We-Th 14:00-18:00; Fr-Sa 14:00-24:00",
-    "symbol": "☕"
    },
    "type": "Feature"
   },
