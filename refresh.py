@@ -99,7 +99,7 @@ GET_MORE_INFO = [
     1475009992,  # Rossini
     4893692292,  # Café Wittekind
     3724388225,  # Burgerheart
-    182854644,   # Tajmahal
+    5091097909,  # Tajmahal
     4815463722,  # Viet Village
     5599806557,  # Sham Restaurant
     2415756481,  # Hallenser Kartoffelhaus
@@ -316,8 +316,7 @@ def write_data(data):
             continue
 
         place_obj = {"type": "Feature", "properties": {}}
-        place_obj["properties"]["_id"] = element_id
-        place_obj["properties"]["_type"] = element_type
+        place_obj["properties"]["id"] = f"{element_type}_{element_id}"
 
         if element_type == "node":
             lat = osm_element.get("lat", None)

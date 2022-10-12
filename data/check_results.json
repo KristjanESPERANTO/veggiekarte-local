@@ -1,5 +1,5 @@
 {
- "_timestamp": "2022-10-03 12:49:56.164694",
+ "_timestamp": "2022-10-12 21:57:22.835888",
  "features": [
   {
    "geometry": {
@@ -10,11 +10,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 252918375,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Alte Apotheke"
+    "name": "Alte Apotheke",
+    "id": "node_252918375"
    },
    "type": "Feature"
   },
@@ -27,11 +26,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 282473154,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 1,
     "name": "Saalekahn",
+    "id": "node_282473154",
     "undefined": [
      "cuisine"
     ]
@@ -47,14 +45,13 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 302835320,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 1,
     "issues": [
      "'contact:website' URI invalid"
     ],
-    "name": "Telepizza"
+    "name": "Telepizza",
+    "id": "node_302835320"
    },
    "type": "Feature"
   },
@@ -67,11 +64,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 309747715,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Shiva"
+    "name": "Shiva",
+    "id": "node_309747715"
    },
    "type": "Feature"
   },
@@ -84,11 +80,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 311197346,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Maxi Bistro"
+    "name": "Maxi Bistro",
+    "id": "node_311197346"
    },
    "type": "Feature"
   },
@@ -101,11 +96,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 413572583,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Eisdiele Schmidt"
+    "name": "Eisdiele Schmidt",
+    "id": "node_413572583"
    },
    "type": "Feature"
   },
@@ -118,11 +112,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 471978357,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Papa John's"
+    "name": "Papa John's",
+    "id": "node_471978357"
    },
    "type": "Feature"
   },
@@ -135,11 +128,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 578246181,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Mo's Daniel's"
+    "name": "Mo's Daniel's",
+    "id": "node_578246181"
    },
    "type": "Feature"
   },
@@ -152,14 +144,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 671764555,
-    "_type": "node",
     "diet_vegan": "yes",
-    "issue_number": 1,
+    "issue_number": 0,
     "name": "Backwerk",
-    "undefined": [
-     "addr:housenumber"
-    ]
+    "id": "node_671764555"
    },
    "type": "Feature"
   },
@@ -172,11 +160,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 711744198,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Hans im Gl\u00fcck"
+    "name": "Hans im Gl\u00fcck",
+    "id": "node_711744198"
    },
    "type": "Feature"
   },
@@ -189,11 +176,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 942721131,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Subway"
+    "name": "Subway",
+    "id": "node_942721131"
    },
    "type": "Feature"
   },
@@ -206,11 +192,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1034448971,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 1,
     "name": "N\u00f6\u00f6",
+    "id": "node_1034448971",
     "undefined": [
      "cuisine"
     ]
@@ -226,11 +211,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1034449861,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 1,
     "name": "\u00d6koase",
+    "id": "node_1034449861",
     "undefined": [
      "cuisine"
     ]
@@ -246,11 +230,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1037059970,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 1,
     "name": "Kaffeeschuppen",
+    "id": "node_1037059970",
     "undefined": [
      "cuisine"
     ]
@@ -266,11 +249,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1037235900,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Czech"
+    "name": "Czech",
+    "id": "node_1037235900"
    },
    "type": "Feature"
   },
@@ -283,11 +265,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1037236274,
-    "_type": "node",
     "diet_vegan": "limited",
     "issue_number": 0,
-    "name": "Anh Asia"
+    "name": "Anh Asia",
+    "id": "node_1037236274"
    },
    "type": "Feature"
   },
@@ -300,11 +281,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1038238639,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Enchilada"
+    "name": "Enchilada",
+    "id": "node_1038238639"
    },
    "type": "Feature"
   },
@@ -317,11 +297,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1045144852,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Rosenburg"
+    "name": "Rosenburg",
+    "id": "node_1045144852"
    },
    "type": "Feature"
   },
@@ -334,11 +313,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1045144871,
-    "_type": "node",
     "diet_vegan": "limited",
     "issue_number": 0,
-    "name": "Zwei Zimmer K\u00fcche Bar"
+    "name": "Zwei Zimmer K\u00fcche Bar",
+    "id": "node_1045144871"
    },
    "type": "Feature"
   },
@@ -351,11 +329,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1185202509,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Harzmensa"
+    "name": "Harzmensa",
+    "id": "node_1185202509"
    },
    "type": "Feature"
   },
@@ -368,11 +345,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1475009992,
-    "_type": "node",
     "diet_vegan": "limited",
     "issue_number": 0,
-    "name": "Rossini"
+    "name": "Rossini",
+    "id": "node_1475009992"
    },
    "type": "Feature"
   },
@@ -385,14 +361,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1531995016,
-    "_type": "node",
     "diet_vegan": "yes",
-    "issue_number": 2,
-    "issues": [
-     "'contact:website' URI invalid"
-    ],
+    "issue_number": 1,
     "name": "DINEA",
+    "id": "node_1531995016",
     "undefined": [
      "cuisine"
     ]
@@ -408,11 +380,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1538147900,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Le Feu"
+    "name": "Le Feu",
+    "id": "node_1538147900"
    },
    "type": "Feature"
   },
@@ -425,11 +396,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1562519987,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Bistro Sundarban"
+    "name": "Bistro Sundarban",
+    "id": "node_1562519987"
    },
    "type": "Feature"
   },
@@ -442,11 +412,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1639760594,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Bewaffel Dich"
+    "name": "Bewaffel Dich",
+    "id": "node_1639760594"
    },
    "type": "Feature"
   },
@@ -459,11 +428,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1676156956,
-    "_type": "node",
     "diet_vegan": "limited",
     "issue_number": 0,
-    "name": "House Of India"
+    "name": "House Of India",
+    "id": "node_1676156956"
    },
    "type": "Feature"
   },
@@ -476,11 +444,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1701119442,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "naturata"
+    "name": "naturata",
+    "id": "node_1701119442"
    },
    "type": "Feature"
   },
@@ -493,11 +460,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1781737776,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Indian Masala"
+    "name": "Indian Masala",
+    "id": "node_1781737776"
    },
    "type": "Feature"
   },
@@ -510,11 +476,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1808694395,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Eiscafe Rimini"
+    "name": "Eiscafe Rimini",
+    "id": "node_1808694395"
    },
    "type": "Feature"
   },
@@ -527,11 +492,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1902279166,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Biomarkt am Reileck"
+    "name": "Biomarkt am Reileck",
+    "id": "node_1902279166"
    },
    "type": "Feature"
   },
@@ -544,14 +508,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1931764008,
-    "_type": "node",
     "diet_vegan": "yes",
-    "issue_number": 1,
-    "issues": [
-     "There is a 'disused' tag: Check whether this tag is correct. If so, please remove the diet tags."
-    ],
-    "name": "Amasyna"
+    "issue_number": 0,
+    "name": "Amasyna",
+    "id": "node_1931764008"
    },
    "type": "Feature"
   },
@@ -564,11 +524,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1943778686,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "biorio"
+    "name": "biorio",
+    "id": "node_1943778686"
    },
    "type": "Feature"
   },
@@ -581,11 +540,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1955876490,
-    "_type": "node",
     "diet_vegan": "limited",
     "issue_number": 0,
-    "name": "Tomate D\u00f6ner"
+    "name": "Tomate D\u00f6ner",
+    "id": "node_1955876490"
    },
    "type": "Feature"
   },
@@ -598,11 +556,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2011410746,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Asia Snack"
+    "name": "Asia Snack",
+    "id": "node_2011410746"
    },
    "type": "Feature"
   },
@@ -615,11 +572,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2018747313,
-    "_type": "node",
     "diet_vegan": "limited",
     "issue_number": 0,
-    "name": "Imbiss \u201eZur Nudelbude\u201c"
+    "name": "Imbiss \u201eZur Nudelbude\u201c",
+    "id": "node_2018747313"
    },
    "type": "Feature"
   },
@@ -632,11 +588,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2051567009,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "\u00d6koHalle"
+    "name": "\u00d6koHalle",
+    "id": "node_2051567009"
    },
    "type": "Feature"
   },
@@ -649,11 +604,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2065237786,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Naturell"
+    "name": "Naturell",
+    "id": "node_2065237786"
    },
    "type": "Feature"
   },
@@ -666,11 +620,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2068490774,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "the one"
+    "name": "the one",
+    "id": "node_2068490774"
    },
    "type": "Feature"
   },
@@ -683,11 +636,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2322858124,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Weltladen Halle (Saale)"
+    "name": "Weltladen Halle (Saale)",
+    "id": "node_2322858124"
    },
    "type": "Feature"
   },
@@ -700,11 +652,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2338022982,
-    "_type": "node",
     "diet_vegan": "only",
     "issue_number": 0,
-    "name": "Cup der guten Hoffnung"
+    "name": "Cup der guten Hoffnung",
+    "id": "node_2338022982"
    },
    "type": "Feature"
   },
@@ -717,11 +668,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2371803959,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Freddy Fresh"
+    "name": "Freddy Fresh",
+    "id": "node_2371803959"
    },
    "type": "Feature"
   },
@@ -734,11 +684,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2415756481,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Hallenser Kartoffelhaus"
+    "name": "Hallenser Kartoffelhaus",
+    "id": "node_2415756481"
    },
    "type": "Feature"
   },
@@ -751,11 +700,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2496741334,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Nasch Madame - Konditorei"
+    "name": "Nasch Madame - Konditorei",
+    "id": "node_2496741334"
    },
    "type": "Feature"
   },
@@ -768,11 +716,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2531221700,
-    "_type": "node",
     "diet_vegan": "limited",
     "issue_number": 0,
-    "name": "Subway"
+    "name": "Subway",
+    "id": "node_2531221700"
    },
    "type": "Feature"
   },
@@ -785,11 +732,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2715257424,
-    "_type": "node",
     "diet_vegan": "limited",
     "issue_number": 0,
-    "name": "Sonnendeck"
+    "name": "Sonnendeck",
+    "id": "node_2715257424"
    },
    "type": "Feature"
   },
@@ -802,11 +748,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2791600291,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Coffee Fellows"
+    "name": "Coffee Fellows",
+    "id": "node_2791600291"
    },
    "type": "Feature"
   },
@@ -819,14 +764,13 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2791600304,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 1,
     "issues": [
      "'contact:website' URI invalid"
     ],
-    "name": "mein Obstladen Saftbar"
+    "name": "mein Obstladen Saftbar",
+    "id": "node_2791600304"
    },
    "type": "Feature"
   },
@@ -839,11 +783,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2874464836,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Mextreme"
+    "name": "Mextreme",
+    "id": "node_2874464836"
    },
    "type": "Feature"
   },
@@ -856,11 +799,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2876264915,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Sao Mai"
+    "name": "Sao Mai",
+    "id": "node_2876264915"
    },
    "type": "Feature"
   },
@@ -873,11 +815,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2932869816,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Yasmin"
+    "name": "Yasmin",
+    "id": "node_2932869816"
    },
    "type": "Feature"
   },
@@ -890,11 +831,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2969150134,
-    "_type": "node",
     "diet_vegan": "limited",
     "issue_number": 0,
-    "name": "Sch\u00e4l"
+    "name": "Sch\u00e4l",
+    "id": "node_2969150134"
    },
    "type": "Feature"
   },
@@ -907,11 +847,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2986723100,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 2,
     "name": "Dunkin'",
+    "id": "node_2986723100",
     "undefined": [
      "addr:street",
      "addr:housenumber"
@@ -928,11 +867,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 3052291182,
-    "_type": "node",
     "diet_vegan": "limited",
     "issue_number": 0,
-    "name": "Seoul Kulinarisch"
+    "name": "Seoul Kulinarisch",
+    "id": "node_3052291182"
    },
    "type": "Feature"
   },
@@ -945,31 +883,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 3122763481,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Domino's"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9658855,
-     51.4954925
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 3173527817,
-    "_type": "node",
-    "diet_vegan": "yes",
-    "issue_number": 1,
-    "issues": [
-     "'contact:website' URI invalid"
-    ],
-    "name": "Burgerservice"
+    "name": "Domino's",
+    "id": "node_3122763481"
    },
    "type": "Feature"
   },
@@ -982,11 +899,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 3208898648,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 1,
     "name": "Coffee Fellows",
+    "id": "node_3208898648",
     "undefined": [
      "addr:housenumber"
     ]
@@ -1002,11 +918,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 3387395693,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Papa John's"
+    "name": "Papa John's",
+    "id": "node_3387395693"
    },
    "type": "Feature"
   },
@@ -1019,11 +934,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 3590210914,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Kumara soulfood"
+    "name": "Kumara soulfood",
+    "id": "node_3590210914"
    },
    "type": "Feature"
   },
@@ -1036,11 +950,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 3658458714,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "KornLiebchen"
+    "name": "KornLiebchen",
+    "id": "node_3658458714"
    },
    "type": "Feature"
   },
@@ -1053,11 +966,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 3724388225,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Burgerheart"
+    "name": "Burgerheart",
+    "id": "node_3724388225"
    },
    "type": "Feature"
   },
@@ -1070,11 +982,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 3752087074,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Rote So\u00dfe"
+    "name": "Rote So\u00dfe",
+    "id": "node_3752087074"
    },
    "type": "Feature"
   },
@@ -1087,11 +998,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 3753966634,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Vanilla"
+    "name": "Vanilla",
+    "id": "node_3753966634"
    },
    "type": "Feature"
   },
@@ -1104,11 +1014,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 3820929262,
-    "_type": "node",
     "diet_vegan": "limited",
     "issue_number": 0,
-    "name": "Subway"
+    "name": "Subway",
+    "id": "node_3820929262"
    },
    "type": "Feature"
   },
@@ -1121,11 +1030,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 3821868244,
-    "_type": "node",
     "diet_vegan": "limited",
     "issue_number": 0,
-    "name": "Sakura"
+    "name": "Sakura",
+    "id": "node_3821868244"
    },
    "type": "Feature"
   },
@@ -1138,11 +1046,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 4036431410,
-    "_type": "node",
     "diet_vegan": "only",
     "issue_number": 0,
-    "name": "Vegs"
+    "name": "Vegs",
+    "id": "node_4036431410"
    },
    "type": "Feature"
   },
@@ -1155,11 +1062,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 4465518868,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Sushifreunde"
+    "name": "Sushifreunde",
+    "id": "node_4465518868"
    },
    "type": "Feature"
   },
@@ -1172,11 +1078,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 4730436532,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Eisburg"
+    "name": "Eisburg",
+    "id": "node_4730436532"
    },
    "type": "Feature"
   },
@@ -1189,11 +1094,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 4815463722,
-    "_type": "node",
     "diet_vegan": "limited",
     "issue_number": 0,
-    "name": "Viet Village"
+    "name": "Viet Village",
+    "id": "node_4815463722"
    },
    "type": "Feature"
   },
@@ -1206,11 +1110,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 4868552820,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Papa John's"
+    "name": "Papa John's",
+    "id": "node_4868552820"
    },
    "type": "Feature"
   },
@@ -1223,14 +1126,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 4893692292,
-    "_type": "node",
     "diet_vegan": "yes",
-    "issue_number": 1,
+    "issue_number": 0,
     "name": "Caf\u00e9 Wittekind",
-    "undefined": [
-     "opening_hours"
-    ]
+    "id": "node_4893692292"
    },
    "type": "Feature"
   },
@@ -1243,11 +1142,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 4893782127,
-    "_type": "node",
     "diet_vegan": "limited",
     "issue_number": 0,
-    "name": "Yasmine"
+    "name": "Yasmine",
+    "id": "node_4893782127"
    },
    "type": "Feature"
   },
@@ -1260,11 +1158,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 4893812414,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "TEK\u0130EZ"
+    "name": "TEK\u0130EZ",
+    "id": "node_4893812414"
    },
    "type": "Feature"
   },
@@ -1277,11 +1174,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 4914539421,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "7 Gramm"
+    "name": "7 Gramm",
+    "id": "node_4914539421"
    },
    "type": "Feature"
   },
@@ -1294,11 +1190,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 4948443538,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Thang-Long Imbiss"
+    "name": "Thang-Long Imbiss",
+    "id": "node_4948443538"
    },
    "type": "Feature"
   },
@@ -1311,11 +1206,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 4971464334,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Caf\u00e9 Ludwig"
+    "name": "Caf\u00e9 Ludwig",
+    "id": "node_4971464334"
    },
    "type": "Feature"
   },
@@ -1328,11 +1222,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 4974999721,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Bagel 29"
+    "name": "Bagel 29",
+    "id": "node_4974999721"
    },
    "type": "Feature"
   },
@@ -1345,11 +1238,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 5091097909,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Taj Mahal"
+    "name": "Taj Mahal",
+    "id": "node_5091097909"
    },
    "type": "Feature"
   },
@@ -1362,11 +1254,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 5151602820,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Himalaya"
+    "name": "Himalaya",
+    "id": "node_5151602820"
    },
    "type": "Feature"
   },
@@ -1379,11 +1270,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 5245541311,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "denn's Biomarkt"
+    "name": "denn's Biomarkt",
+    "id": "node_5245541311"
    },
    "type": "Feature"
   },
@@ -1396,11 +1286,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 5583171123,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "YENSO Asia Markt"
+    "name": "YENSO Asia Markt",
+    "id": "node_5583171123"
    },
    "type": "Feature"
   },
@@ -1413,11 +1302,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 5592955318,
-    "_type": "node",
     "diet_vegan": "only",
     "issue_number": 1,
     "name": "VL-K\u00fcfa",
+    "id": "node_5592955318",
     "undefined": [
      "cuisine"
     ]
@@ -1433,11 +1321,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 5592987513,
-    "_type": "node",
     "diet_vegan": "only",
     "issue_number": 1,
     "name": "Reil-K\u00fcfa",
+    "id": "node_5592987513",
     "undefined": [
      "cuisine"
     ]
@@ -1453,11 +1340,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 5593108867,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Himmel & Erde"
+    "name": "Himmel & Erde",
+    "id": "node_5593108867"
    },
    "type": "Feature"
   },
@@ -1470,11 +1356,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 5599806557,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Yaman Sham"
+    "name": "Yaman Sham",
+    "id": "node_5599806557"
    },
    "type": "Feature"
   },
@@ -1487,11 +1372,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 5868832962,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Tandoori Steakhaus"
+    "name": "Tandoori Steakhaus",
+    "id": "node_5868832962"
    },
    "type": "Feature"
   },
@@ -1504,15 +1388,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 5942265574,
-    "_type": "node",
     "diet_vegan": "yes",
-    "issue_number": 2,
-    "issues": [
-     "'website' URI invalid",
-     "'website' and 'contact:website' defined -> remove one"
-    ],
-    "name": "Koffij"
+    "issue_number": 0,
+    "name": "Koffij",
+    "id": "node_5942265574"
    },
    "type": "Feature"
   },
@@ -1525,15 +1404,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 6033781352,
-    "_type": "node",
     "diet_vegan": "yes",
-    "issue_number": 2,
-    "issues": [
-     "'website' and 'contact:website' defined -> remove one",
-     "'phone' and 'contact:phone' defined -> remove one"
-    ],
-    "name": "T\u00f6rtcheneck"
+    "issue_number": 0,
+    "name": "T\u00f6rtcheneck",
+    "id": "node_6033781352"
    },
    "type": "Feature"
   },
@@ -1546,11 +1420,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 6058235422,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "arko"
+    "name": "arko",
+    "id": "node_6058235422"
    },
    "type": "Feature"
   },
@@ -1563,11 +1436,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 6366059605,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "R\u00fcbchen"
+    "name": "R\u00fcbchen",
+    "id": "node_6366059605"
    },
    "type": "Feature"
   },
@@ -1580,11 +1452,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 6569044919,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Hafenmeister & Docks"
+    "name": "Hafenmeister & Docks",
+    "id": "node_6569044919"
    },
    "type": "Feature"
   },
@@ -1597,11 +1468,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 6805328949,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Bio im Bahnhof"
+    "name": "Bio im Bahnhof",
+    "id": "node_6805328949"
    },
    "type": "Feature"
   },
@@ -1614,11 +1484,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 6814015852,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Kaffeer\u00f6sterei Roy"
+    "name": "Kaffeer\u00f6sterei Roy",
+    "id": "node_6814015852"
    },
    "type": "Feature"
   },
@@ -1631,11 +1500,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 6820930072,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Pirashki"
+    "name": "Pirashki",
+    "id": "node_6820930072"
    },
    "type": "Feature"
   },
@@ -1648,14 +1516,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 7026845075,
-    "_type": "node",
     "diet_vegan": "yes",
-    "issue_number": 1,
+    "issue_number": 0,
     "name": "Subway",
-    "undefined": [
-     "addr:housenumber"
-    ]
+    "id": "node_7026845075"
    },
    "type": "Feature"
   },
@@ -1668,11 +1532,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 7027316371,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Bistro Lorraine"
+    "name": "Bistro Lorraine",
+    "id": "node_7027316371"
    },
    "type": "Feature"
   },
@@ -1685,11 +1548,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 7068127430,
-    "_type": "node",
     "diet_vegan": "limited",
     "issue_number": 0,
-    "name": "Cancun-Bar"
+    "name": "Cancun-Bar",
+    "id": "node_7068127430"
    },
    "type": "Feature"
   },
@@ -1702,11 +1564,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 7206763585,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Oberst\u00fcbchen"
+    "name": "Oberst\u00fcbchen",
+    "id": "node_7206763585"
    },
    "type": "Feature"
   },
@@ -1719,14 +1580,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 7388445891,
-    "_type": "node",
     "diet_vegan": "yes",
-    "issue_number": 1,
-    "issues": [
-     "'website' URI invalid"
-    ],
-    "name": "City D\u00f6ner"
+    "issue_number": 0,
+    "name": "City D\u00f6ner",
+    "id": "node_7388445891"
    },
    "type": "Feature"
   },
@@ -1739,11 +1596,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 8018723343,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Caf\u00e9 Kuckhoff"
+    "name": "Caf\u00e9 Kuckhoff",
+    "id": "node_8018723343"
    },
    "type": "Feature"
   },
@@ -1756,11 +1612,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 8018837433,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Mensa Neuwerk"
+    "name": "Mensa Neuwerk",
+    "id": "node_8018837433"
    },
    "type": "Feature"
   },
@@ -1773,11 +1628,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 8018875351,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 1,
     "name": "Restaurant Ruine",
+    "id": "node_8018875351",
     "undefined": [
      "cuisine"
     ]
@@ -1793,11 +1647,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 8167669673,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Kaffeehaus Wittekind"
+    "name": "Kaffeehaus Wittekind",
+    "id": "node_8167669673"
    },
    "type": "Feature"
   },
@@ -1810,11 +1663,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 8357411012,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Falafello"
+    "name": "Falafello",
+    "id": "node_8357411012"
    },
    "type": "Feature"
   },
@@ -1827,11 +1679,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 8616778482,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "World of Pizza"
+    "name": "World of Pizza",
+    "id": "node_8616778482"
    },
    "type": "Feature"
   },
@@ -1844,14 +1695,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 8773861578,
-    "_type": "node",
     "diet_vegan": "yes",
-    "issue_number": 1,
-    "issues": [
-     "'website' and 'contact:website' defined -> remove one"
-    ],
-    "name": "JUICY"
+    "issue_number": 0,
+    "name": "JUICY",
+    "id": "node_8773861578"
    },
    "type": "Feature"
   },
@@ -1864,11 +1711,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 8793001854,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "SUSHIdeluxe"
+    "name": "SUSHIdeluxe",
+    "id": "node_8793001854"
    },
    "type": "Feature"
   },
@@ -1881,11 +1727,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 8793003720,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "SUSHIdeluxe"
+    "name": "SUSHIdeluxe",
+    "id": "node_8793003720"
    },
    "type": "Feature"
   },
@@ -1898,11 +1743,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 8795957217,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "dean&david"
+    "name": "dean&david",
+    "id": "node_8795957217"
    },
    "type": "Feature"
   },
@@ -1915,11 +1759,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 8859490294,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Eisfvchs"
+    "name": "Eisfvchs",
+    "id": "node_8859490294"
    },
    "type": "Feature"
   },
@@ -1932,11 +1775,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 8867577091,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "nobels\u00fc\u00df"
+    "name": "nobels\u00fc\u00df",
+    "id": "node_8867577091"
    },
    "type": "Feature"
   },
@@ -1949,11 +1791,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 8932643632,
-    "_type": "node",
     "diet_vegan": "limited",
     "issue_number": 0,
-    "name": "Alik Gelato"
+    "name": "Alik Gelato",
+    "id": "node_8932643632"
    },
    "type": "Feature"
   },
@@ -1966,11 +1807,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 9033240019,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Papa John's"
+    "name": "Papa John's",
+    "id": "node_9033240019"
    },
    "type": "Feature"
   },
@@ -1983,11 +1823,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 9140808707,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "JUICY"
+    "name": "JUICY",
+    "id": "node_9140808707"
    },
    "type": "Feature"
   },
@@ -2000,15 +1839,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 9212628476,
-    "_type": "node",
     "diet_vegan": "yes",
-    "issue_number": 2,
-    "issues": [
-     "'contact:website' URI invalid",
-     "'website' and 'contact:website' defined -> remove one"
-    ],
-    "name": "Pizza One"
+    "issue_number": 0,
+    "name": "Pizza One",
+    "id": "node_9212628476"
    },
    "type": "Feature"
   },
@@ -2021,11 +1855,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 9343768547,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Domino's"
+    "name": "Domino's",
+    "id": "node_9343768547"
    },
    "type": "Feature"
   },
@@ -2038,11 +1871,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 9474397454,
-    "_type": "node",
     "diet_vegan": "limited",
     "issue_number": 0,
-    "name": "Mira"
+    "name": "Mira",
+    "id": "node_9474397454"
    },
    "type": "Feature"
   },
@@ -2055,11 +1887,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 9572703189,
-    "_type": "node",
     "diet_vegan": "limited",
     "issue_number": 1,
     "name": "Bowls King",
+    "id": "node_9572703189",
     "undefined": [
      "cuisine"
     ]
@@ -2075,11 +1906,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 9572733602,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Eis-Dealer"
+    "name": "Eis-Dealer",
+    "id": "node_9572733602"
    },
    "type": "Feature"
   },
@@ -2092,11 +1922,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 9676330117,
-    "_type": "node",
     "diet_vegan": "only",
     "issue_number": 0,
-    "name": "Bay Vegan"
+    "name": "Bay Vegan",
+    "id": "node_9676330117"
    },
    "type": "Feature"
   },
@@ -2109,11 +1938,13 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 9752900958,
-    "_type": "node",
     "diet_vegan": "yes",
-    "issue_number": 1,
+    "issue_number": 2,
+    "issues": [
+     "'contact:website' URI invalid"
+    ],
     "name": "lilobowl",
+    "id": "node_9752900958",
     "undefined": [
      "cuisine"
     ]
@@ -2129,11 +1960,13 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 9969559755,
-    "_type": "node",
     "diet_vegan": "yes",
-    "issue_number": 0,
-    "name": "Polenka"
+    "issue_number": 1,
+    "issues": [
+     "'website' URI invalid"
+    ],
+    "name": "Polenka",
+    "id": "node_9969559755"
    },
    "type": "Feature"
   },
@@ -2146,11 +1979,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 10057151822,
-    "_type": "node",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Freddy Fresh"
+    "name": "Freddy Fresh",
+    "id": "node_10057151822"
    },
    "type": "Feature"
   },
@@ -2163,14 +1995,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 22883232,
-    "_type": "way",
     "diet_vegan": "limited",
-    "issue_number": 1,
+    "issue_number": 0,
     "name": "Heidemensa",
-    "undefined": [
-     "cuisine"
-    ]
+    "id": "way_22883232"
    },
    "type": "Feature"
   },
@@ -2183,11 +2011,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 27177218,
-    "_type": "way",
     "diet_vegan": "limited",
     "issue_number": 0,
-    "name": "Burse zur Tulpe"
+    "name": "Burse zur Tulpe",
+    "id": "way_27177218"
    },
    "type": "Feature"
   },
@@ -2200,11 +2027,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 47571137,
-    "_type": "way",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Papa John's"
+    "name": "Papa John's",
+    "id": "way_47571137"
    },
    "type": "Feature"
   },
@@ -2217,11 +2043,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 61561597,
-    "_type": "way",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Gartenlokal am Pei\u00dfnitzhaus/Pei\u00dfnitzhaus-Caf\u00e9"
+    "name": "Gartenlokal am Pei\u00dfnitzhaus/Pei\u00dfnitzhaus-Caf\u00e9",
+    "id": "way_61561597"
    },
    "type": "Feature"
   },
@@ -2234,11 +2059,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 98848040,
-    "_type": "way",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Das Ding in Seeben"
+    "name": "Das Ding in Seeben",
+    "id": "way_98848040"
    },
    "type": "Feature"
   },
@@ -2251,11 +2075,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 120082234,
-    "_type": "way",
     "diet_vegan": "limited",
     "issue_number": 0,
-    "name": "Colonne Morris"
+    "name": "Colonne Morris",
+    "id": "way_120082234"
    },
    "type": "Feature"
   },
@@ -2268,11 +2091,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 128558823,
-    "_type": "way",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Palmyra"
+    "name": "Palmyra",
+    "id": "way_128558823"
    },
    "type": "Feature"
   },
@@ -2285,11 +2107,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 134238289,
-    "_type": "way",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "M\u00f6nchshof"
+    "name": "M\u00f6nchshof",
+    "id": "way_134238289"
    },
    "type": "Feature"
   },
@@ -2302,11 +2123,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 134365557,
-    "_type": "way",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Wenzel Prager Bierstuben"
+    "name": "Wenzel Prager Bierstuben",
+    "id": "way_134365557"
    },
    "type": "Feature"
   },
@@ -2319,11 +2139,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 164756625,
-    "_type": "way",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Falafello"
+    "name": "Falafello",
+    "id": "way_164756625"
    },
    "type": "Feature"
   },
@@ -2336,11 +2155,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 164756646,
-    "_type": "way",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "SPICY"
+    "name": "SPICY",
+    "id": "way_164756646"
    },
    "type": "Feature"
   },
@@ -2353,11 +2171,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 178744104,
-    "_type": "way",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Hallesches Brauhaus"
+    "name": "Hallesches Brauhaus",
+    "id": "way_178744104"
    },
    "type": "Feature"
   },
@@ -2370,32 +2187,13 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 182854644,
-    "_type": "way",
     "diet_vegan": "yes",
-    "issue_number": 0,
-    "name": "Tajmahal"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9669297,
-     51.4807172
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 189926769,
-    "_type": "way",
-    "diet_vegan": "yes",
-    "issue_number": 2,
+    "issue_number": 1,
     "issues": [
-     "'website' URI invalid",
-     "'contact:facebook' URI invalid"
+     "'website' URI invalid"
     ],
-    "name": "Lichthaus"
+    "name": "Tajmahal",
+    "id": "way_182854644"
    },
    "type": "Feature"
   },
@@ -2408,11 +2206,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 255017911,
-    "_type": "way",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Raffiness"
+    "name": "Raffiness",
+    "id": "way_255017911"
    },
    "type": "Feature"
   },
@@ -2425,11 +2222,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 261692804,
-    "_type": "way",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Espitas"
+    "name": "Espitas",
+    "id": "way_261692804"
    },
    "type": "Feature"
   },
@@ -2442,11 +2238,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 304682735,
-    "_type": "way",
     "diet_vegan": "limited",
     "issue_number": 0,
-    "name": "Mensa Franckesche Stiftungen"
+    "name": "Mensa Franckesche Stiftungen",
+    "id": "way_304682735"
    },
    "type": "Feature"
   },
@@ -2459,11 +2254,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 375345326,
-    "_type": "way",
     "diet_vegan": "yes",
     "issue_number": 0,
-    "name": "Cafebar Steintor-Campus"
+    "name": "Cafebar Steintor-Campus",
+    "id": "way_375345326"
    },
    "type": "Feature"
   },
@@ -2476,11 +2270,10 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 467769739,
-    "_type": "way",
     "diet_vegan": "limited",
     "issue_number": 0,
-    "name": "Goldene Schildkr\u00f6te"
+    "name": "Goldene Schildkr\u00f6te",
+    "id": "way_467769739"
    },
    "type": "Feature"
   }

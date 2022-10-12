@@ -1,5 +1,5 @@
 {
- "_timestamp": "2022-10-03 13:57:51.367423",
+ "_timestamp": "2022-10-12 21:09:58.297174",
  "features": [
   {
    "geometry": {
@@ -10,8 +10,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 252918375,
-    "_type": "node",
     "addr_city": "Bad Dürrenberg",
     "addr_postcode": "06231",
     "addr_street": "Apothekerberg 16",
@@ -22,6 +20,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Alte Apotheke",
+    "oid": "n252918375.",
     "opening_hours": "Mo-Fr 06:30+; Sa,Su 08:00+",
     "symbol": "🍽️"
    },
@@ -36,8 +35,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 282473154,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Ankerstraße 2",
@@ -47,6 +44,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Saalekahn",
+    "oid": "n282473154.",
     "opening_hours": "Mo-Th 12:00-23:00; Fr-Sa 12:00-24:00; Su,PH 12:00-22:00",
     "symbol": "🍽️"
    },
@@ -61,8 +59,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 302835320,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06110",
     "addr_street": "Torstraße 40",
@@ -72,6 +68,7 @@
     "cuisine": "pizza",
     "icon": "maki_restaurant-pizza",
     "name": "Telepizza",
+    "oid": "n302835320.",
     "opening_hours": "11:00-22:00",
     "symbol": "🍕"
    },
@@ -86,8 +83,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 309747715,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -100,6 +95,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Shiva",
+    "oid": "n309747715.",
     "opening_hours": "Mo-Su 11:30-15:00,17:30-23:30",
     "symbol": "🍽️"
    },
@@ -114,8 +110,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 311197346,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06110",
     "addr_street": "Thomasiusstraße 5",
@@ -124,6 +118,7 @@
     "cuisine": "kebab",
     "icon": "fast_food",
     "name": "Maxi Bistro",
+    "oid": "n311197346.",
     "opening_hours": "Mo-Su 11:00-23:00",
     "symbol": "🍔"
    },
@@ -138,8 +133,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 413572583,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06112",
@@ -149,6 +142,7 @@
     "cuisine": "ice_cream",
     "icon": "ice_cream",
     "name": "Eisdiele Schmidt",
+    "oid": "n413572583.",
     "opening_hours": "Mo,Tu off; We-Su 10:00-19:00",
     "symbol": "🍨"
    },
@@ -163,8 +157,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 471978357,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06116",
     "addr_street": "Fiete-Schulze-Straße 14",
@@ -175,6 +167,7 @@
     "icon": "maki_restaurant-pizza",
     "more_info": true,
     "name": "Papa John's",
+    "oid": "n471978357.",
     "opening_hours": "Mo-Su 11:00-23:00",
     "symbol": "🍕"
    },
@@ -189,8 +182,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 578246181,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -202,6 +193,7 @@
     "icon": "bar",
     "more_info": true,
     "name": "Mo's Daniel's",
+    "oid": "n578246181.",
     "opening_hours": "Mo-Sa 18:00-01:00",
     "symbol": "🍸"
    },
@@ -216,14 +208,13 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 671764555,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06112",
     "addr_street": "Hans-Dietrich-Genscher-Platz 1",
     "category": "vegan_friendly",
     "icon": "bakery",
     "name": "Backwerk",
+    "oid": "n671764555.",
     "opening_hours": "Mo-Su 04:00-20:00",
     "shop": "bakery",
     "symbol": "🥨"
@@ -239,8 +230,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 711744198,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -253,6 +242,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Hans im Glück",
+    "oid": "n711744198.",
     "opening_hours": "Mo-Th,Su 11:00-23:00; Fr,Sa 11:00-00:00",
     "symbol": "🍽️"
    },
@@ -267,8 +257,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 942721131,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Universitätsring 22",
@@ -279,6 +267,7 @@
     "icon": "fast_food",
     "more_info": true,
     "name": "Subway",
+    "oid": "n942721131.",
     "opening_hours": "Mo-Fr 09:00-22:00; Sa-Su 12:00-22:00",
     "symbol": "🍔"
    },
@@ -293,8 +282,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1034448971,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -304,6 +291,7 @@
     "icon": "pub",
     "more_info": true,
     "name": "Nöö",
+    "oid": "n1034448971.",
     "opening_hours": "Su-Th 10:00-01:00; Fr-Sa 10:00-02:00",
     "symbol": "🍻"
    },
@@ -318,8 +306,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1034449861,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Kleine Ulrichstraße 2",
@@ -329,6 +315,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Ökoase",
+    "oid": "n1034449861.",
     "opening_hours": "Mo-Su 11:00-18:00",
     "symbol": "🍽️"
    },
@@ -343,8 +330,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1037059970,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -356,6 +341,7 @@
     "icon": "pub",
     "more_info": true,
     "name": "Kaffeeschuppen",
+    "oid": "n1037059970.",
     "opening_hours": "Mo-Th 09:00-01:00; Fr-Sa 09:00-02:00; Su 10:00-01:00",
     "symbol": "🍻"
    },
@@ -370,8 +356,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1037235900,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -382,6 +366,7 @@
     "icon": "bar",
     "more_info": true,
     "name": "Czech",
+    "oid": "n1037235900.",
     "opening_hours": "Mo-Fr 11:00-01:00; Sa-Su 18:00-00:30",
     "symbol": "🍸"
    },
@@ -396,8 +381,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1037236274,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -408,6 +391,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Anh Asia",
+    "oid": "n1037236274.",
     "opening_hours": "Tu-Th 10:30-21:30; Fr-Sa 10:30-23:00; Su 11:00-22:00",
     "symbol": "🍽️"
    },
@@ -422,8 +406,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1038238639,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Universitätsring 6",
@@ -437,6 +419,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Enchilada",
+    "oid": "n1038238639.",
     "opening_hours": "Mo-Sa 18:00-01:00, Su off",
     "symbol": "🍽️"
    },
@@ -451,8 +434,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1045144852,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06114",
     "addr_street": "Adolfstraße 10",
@@ -460,6 +441,7 @@
     "icon": "cafe",
     "more_info": true,
     "name": "Rosenburg",
+    "oid": "n1045144852.",
     "opening_hours": "Mo-Su 10:00-17:00",
     "symbol": "☕"
    },
@@ -474,8 +456,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1045144871,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06114",
@@ -485,6 +465,7 @@
     "icon": "bar",
     "more_info": true,
     "name": "Zwei Zimmer Küche Bar",
+    "oid": "n1045144871.",
     "opening_hours": "Su-Th 12:00-02:00; Fr-Sa 12:00-03:00",
     "symbol": "🍸"
    },
@@ -499,8 +480,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1185202509,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -511,6 +490,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Harzmensa",
+    "oid": "n1185202509.",
     "opening_hours": "Mo-Fr 11:15-14:00",
     "symbol": "🍽️"
    },
@@ -525,8 +505,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1475009992,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -537,6 +515,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Rossini",
+    "oid": "n1475009992.",
     "opening_hours": "Mo-Sa 09:00-22:00; Su 10:00-22:00",
     "symbol": "🍽️"
    },
@@ -551,8 +530,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1531995016,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -562,6 +539,7 @@
     "contact_website": "https://galeria-restaurant.de/fillialen-galeria-restaurant-halle-martkplatz-20",
     "icon": "restaurant",
     "name": "DINEA",
+    "oid": "n1531995016.",
     "opening_hours": "Mo-Sa 09:30-17:00; Su,PH off",
     "symbol": "🍽️"
    },
@@ -576,8 +554,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1538147900,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -590,6 +566,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Le Feu",
+    "oid": "n1538147900.",
     "opening_hours": "Su-Th 17:00-22:00; Fr-Sa 17:00-23:00",
     "symbol": "🍽️"
    },
@@ -604,8 +581,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1562519987,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06112",
     "addr_street": "Am Steintor 3",
@@ -617,6 +592,7 @@
     "cuisine": "indian;turkish",
     "icon": "fast_food",
     "name": "Bistro Sundarban",
+    "oid": "n1562519987.",
     "opening_hours": "Mo-Sa 11:00-22:00; Su,PH 12:00-22:00",
     "symbol": "🍔"
    },
@@ -631,8 +607,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1639760594,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Neumarktstraße 9",
@@ -644,6 +618,7 @@
     "icon": "cafe",
     "more_info": true,
     "name": "Bewaffel Dich",
+    "oid": "n1639760594.",
     "opening_hours": "Mo-Su 09:00-22:00",
     "symbol": "☕"
    },
@@ -658,8 +633,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1676156956,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -672,6 +645,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "House Of India",
+    "oid": "n1676156956.",
     "opening_hours": "Mo-Sa 11:30-14:30,17:30-23:30; PH,Su 11:30-23:30",
     "symbol": "🍽️"
    },
@@ -686,8 +660,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1701119442,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06118",
     "addr_street": "Trothaer Straße 14",
@@ -696,6 +668,7 @@
     "icon": "supermarket",
     "more_info": true,
     "name": "naturata",
+    "oid": "n1701119442.",
     "opening_hours": "Mo-Sa 08:00-20:00",
     "shop": "supermarket",
     "symbol": "🏪"
@@ -711,8 +684,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1781737776,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -723,6 +694,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Indian Masala",
+    "oid": "n1781737776.",
     "opening_hours": "Mo-Sa 10:30-14:30, 16:00-22:00; Su 10:30-22:00",
     "symbol": "🍽️"
    },
@@ -737,14 +709,13 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1808694395,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06128",
     "addr_street": "Diesterwegstraße 17a",
     "category": "vegan_friendly",
     "icon": "ice_cream",
     "name": "Eiscafe Rimini",
+    "oid": "n1808694395.",
     "opening_hours": "Mo off; Tu-Su 12:00-18:00",
     "symbol": "🍨"
    },
@@ -759,8 +730,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1902279166,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06114",
     "addr_street": "Stephanusstraße 12",
@@ -769,6 +738,7 @@
     "icon": "convenience",
     "more_info": true,
     "name": "Biomarkt am Reileck",
+    "oid": "n1902279166.",
     "opening_hours": "Mo-Fr 09:30-19:00; Sa 09:00-13:00; PH off",
     "shop": "convenience",
     "symbol": "🏪"
@@ -784,8 +754,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1931764008,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -797,6 +765,7 @@
     "cuisine": "pizza;burger;kebab;barbecue;mediterranean;american;arab",
     "icon": "maki_restaurant-pizza",
     "name": "Amasyna",
+    "oid": "n1931764008.",
     "opening_hours": "Mo-Th 11:00-21:00; fr 11:00-22:00; Sa 12:00-22:00; Su 13:00-21:00",
     "symbol": "🍕"
    },
@@ -811,8 +780,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1943778686,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Große Ulrichstraße 16",
@@ -820,6 +787,7 @@
     "icon": "supermarket",
     "more_info": true,
     "name": "biorio",
+    "oid": "n1943778686.",
     "opening_hours": "Mo-Fr 09:00-19:00; Sa 09:00-19:00",
     "shop": "supermarket",
     "symbol": "🏪"
@@ -835,8 +803,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 1955876490,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06114",
     "addr_street": "Reilstraße 133",
@@ -844,6 +810,7 @@
     "cuisine": "kebab",
     "icon": "fast_food",
     "name": "Tomate Döner",
+    "oid": "n1955876490.",
     "opening_hours": "Mo-Su 11:00-22:00",
     "symbol": "🍔"
    },
@@ -858,8 +825,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2011410746,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06112",
     "addr_street": "Am Steintor 13",
@@ -868,6 +833,7 @@
     "cuisine": "asian",
     "icon": "fast_food",
     "name": "Asia Snack",
+    "oid": "n2011410746.",
     "opening_hours": "Mo-Fr 10:30-21:00; Su 11:00-21:00",
     "symbol": "🍔"
    },
@@ -882,8 +848,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2018747313,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06110",
     "addr_street": "Franckeplatz 4",
@@ -896,6 +860,7 @@
     "cuisine": "italian",
     "icon": "restaurant",
     "name": "Imbiss „Zur Nudelbude“",
+    "oid": "n2018747313.",
     "opening_hours": "Mo 11:30-14:30; Tu-Sa 11:30-14:30,16:30-19:00",
     "symbol": "🍽️"
    },
@@ -910,8 +875,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2051567009,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -920,6 +883,7 @@
     "icon": "convenience",
     "more_info": true,
     "name": "ÖkoHalle",
+    "oid": "n2051567009.",
     "opening_hours": "Mo-Fr 09:00-13:00, Mo-Th 15:00-18:00, Sa 09:00-13:00; PH,Su off",
     "shop": "convenience",
     "symbol": "🏪"
@@ -935,8 +899,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2065237786,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Große Steinstraße 79",
@@ -946,6 +908,7 @@
     "icon": "supermarket",
     "more_info": true,
     "name": "Naturell",
+    "oid": "n2065237786.",
     "opening_hours": "Mo-Fr 09:30-19:00; Sa 10:00-14:00; Su,PH off",
     "shop": "supermarket",
     "symbol": "🏪"
@@ -961,8 +924,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2068490774,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Universitätsring 9",
@@ -976,6 +937,7 @@
     "icon": "bar",
     "more_info": true,
     "name": "the one",
+    "oid": "n2068490774.",
     "opening_hours": "Tu-Th 17:00-22:00; Fr,Sa 17:00-00:00; Mo,Su,PH off",
     "symbol": "🍸"
    },
@@ -990,8 +952,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2322858124,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -1002,6 +962,7 @@
     "icon": "convenience",
     "more_info": true,
     "name": "Weltladen Halle (Saale)",
+    "oid": "n2322858124.",
     "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-14:00",
     "shop": "convenience",
     "symbol": "🏪"
@@ -1017,8 +978,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2338022982,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06114",
@@ -1028,6 +987,7 @@
     "icon": "cafe",
     "more_info": true,
     "name": "Cup der guten Hoffnung",
+    "oid": "n2338022982.",
     "opening_hours": "Mo-Fr 12:00-18:30",
     "symbol": "☕"
    },
@@ -1042,8 +1002,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2371803959,
-    "_type": "node",
     "addr_city": "Merseburg",
     "addr_postcode": "06217",
     "addr_street": "Bahnhofsplatz 1",
@@ -1054,6 +1012,7 @@
     "cuisine": "pizza",
     "icon": "maki_restaurant-pizza",
     "name": "Freddy Fresh",
+    "oid": "n2371803959.",
     "opening_hours": "Mo-Su 10:30-22:00",
     "symbol": "🍕"
    },
@@ -1068,8 +1027,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2415756481,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06110",
     "addr_street": "Willy-Brandt-Straße 44",
@@ -1082,6 +1039,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Hallenser Kartoffelhaus",
+    "oid": "n2415756481.",
     "opening_hours": "Tu-Su 11:30-22:30",
     "symbol": "🍽️"
    },
@@ -1096,8 +1054,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2496741334,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -1111,6 +1067,7 @@
     "icon": "cafe",
     "more_info": true,
     "name": "Nasch Madame - Konditorei",
+    "oid": "n2496741334.",
     "opening_hours": "We-Fr 13:00-18:00; Sa 10:00-18:00; Su 12:00-17:00",
     "symbol": "☕"
    },
@@ -1125,8 +1082,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2531221700,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06122",
@@ -1139,6 +1094,7 @@
     "icon": "fast_food",
     "more_info": true,
     "name": "Subway",
+    "oid": "n2531221700.",
     "opening_hours": "Mo-We 09:00-22:00; Th-Sa 09:00-23:00; Su 10:00-22:00",
     "symbol": "🍔"
    },
@@ -1153,8 +1109,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2715257424,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Pfälzer Ufer 6",
@@ -1168,6 +1122,7 @@
     "icon": "cafe",
     "more_info": true,
     "name": "Sonnendeck",
+    "oid": "n2715257424.",
     "opening_hours": "Mo-Fr 11:00-18:00+; Sa-Su 10:00-18:00+",
     "symbol": "☕"
    },
@@ -1182,8 +1137,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2791600291,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06112",
@@ -1195,6 +1148,7 @@
     "icon": "cafe",
     "more_info": true,
     "name": "Coffee Fellows",
+    "oid": "n2791600291.",
     "opening_hours": "Mo-Fr 07:00-18:00; Sa 08:00-18:00; Su 08:00-18:00",
     "symbol": "☕"
    },
@@ -1209,8 +1163,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2791600304,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06112",
     "addr_street": "Hans-Dietrich-Genscher-Platz 1",
@@ -1219,6 +1171,7 @@
     "cuisine": "juices",
     "icon": "fast_food",
     "name": "mein Obstladen Saftbar",
+    "oid": "n2791600304.",
     "opening_hours": "Mo-Su, PH 08:00-20:00",
     "symbol": "🍔"
    },
@@ -1233,8 +1186,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2874464836,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06114",
@@ -1247,6 +1198,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Mextreme",
+    "oid": "n2874464836.",
     "opening_hours": "Mo-Th 17:00-23:00; Fr-Sa 17:00-21:00; Su 17:00-22:00",
     "symbol": "🍽️"
    },
@@ -1261,8 +1213,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2876264915,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -1274,6 +1224,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Sao Mai",
+    "oid": "n2876264915.",
     "opening_hours": "Tu-Sa 11:00-22:30; Su,PH 12:00-22:00; Mo off",
     "symbol": "🍽️"
    },
@@ -1288,8 +1239,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2932869816,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06110",
@@ -1300,6 +1249,7 @@
     "icon": "fast_food",
     "more_info": true,
     "name": "Yasmin",
+    "oid": "n2932869816.",
     "opening_hours": "Mo-Su 11:00-22:00",
     "symbol": "🍔"
    },
@@ -1314,8 +1264,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2969150134,
-    "_type": "node",
     "addr_city": "Teutschenthal",
     "addr_country": "DE",
     "addr_postcode": "06179",
@@ -1329,6 +1277,7 @@
     "icon": "bakery",
     "more_info": true,
     "name": "Schäl",
+    "oid": "n2969150134.",
     "opening_hours": "Mo 06:00-13:00; Tu-Fr 06:00-16:30; Sa 06:00-10:00; Su,PH off",
     "shop": "bakery",
     "symbol": "🥨"
@@ -1344,8 +1293,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 2986723100,
-    "_type": "node",
     "addr_city": "Leuna",
     "addr_postcode": "06237",
     "category": "vegan_friendly",
@@ -1353,6 +1300,7 @@
     "cuisine": "donut;coffee_shop",
     "icon": "fast_food",
     "name": "Dunkin'",
+    "oid": "n2986723100.",
     "opening_hours": "Mo-Sa 10:00-20:00; Su off",
     "symbol": "🍔"
    },
@@ -1367,8 +1315,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 3052291182,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -1381,6 +1327,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Seoul Kulinarisch",
+    "oid": "n3052291182.",
     "opening_hours": "Mo-Sa 11:00-15:00, 17:00-20:00",
     "symbol": "🍽️"
    },
@@ -1395,8 +1342,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 3122763481,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06110",
@@ -1407,6 +1352,7 @@
     "cuisine": "pizza",
     "icon": "maki_restaurant-pizza",
     "name": "Domino's",
+    "oid": "n3122763481.",
     "opening_hours": "Mo-Su , PH 11:00-23:00",
     "symbol": "🍕"
    },
@@ -1421,8 +1367,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 3208898648,
-    "_type": "node",
     "addr_city": "Leuna",
     "addr_postcode": "06237",
     "addr_street": "Einkaufszentrum NOVA",
@@ -1433,6 +1377,7 @@
     "icon": "cafe",
     "more_info": true,
     "name": "Coffee Fellows",
+    "oid": "n3208898648.",
     "opening_hours": "Mo-Th 09:00-20:00; Fr 09:00-22:00; Sa 09:00-20:00; Su off",
     "symbol": "☕"
    },
@@ -1447,8 +1392,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 3387395693,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06122",
     "addr_street": "Neustädter Passage 9",
@@ -1459,6 +1402,7 @@
     "icon": "maki_restaurant-pizza",
     "more_info": true,
     "name": "Papa John's",
+    "oid": "n3387395693.",
     "opening_hours": "Mo-Su 11:00-23:00",
     "symbol": "🍕"
    },
@@ -1473,8 +1417,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 3590210914,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -1488,6 +1430,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Kumara soulfood",
+    "oid": "n3590210914.",
     "opening_hours": "Mo-Fr 11:00-15:00, Fr 18:00-22:00",
     "symbol": "🍽️"
    },
@@ -1502,8 +1445,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 3658458714,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -1515,6 +1456,7 @@
     "icon": "cafe",
     "more_info": true,
     "name": "KornLiebchen",
+    "oid": "n3658458714.",
     "opening_hours": "Tu-Fr 09:00-18:30; Sa 09:00-16:00",
     "shop": "bakery",
     "symbol": "☕"
@@ -1530,8 +1472,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 3724388225,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -1544,6 +1484,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Burgerheart",
+    "oid": "n3724388225.",
     "opening_hours": "Mo-Su 12:00-23:00",
     "symbol": "🍽️"
    },
@@ -1558,8 +1499,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 3752087074,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Große Ulrichstraße 26",
@@ -1571,6 +1510,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Rote Soße",
+    "oid": "n3752087074.",
     "opening_hours": "Mo-Su 17:00-21:00",
     "symbol": "🍽️"
    },
@@ -1585,8 +1525,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 3753966634,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06114",
@@ -1596,6 +1534,7 @@
     "cuisine": "ice_cream",
     "icon": "cafe",
     "name": "Vanilla",
+    "oid": "n3753966634.",
     "opening_hours": "Mo-Su,PH 12:00-19:00",
     "symbol": "☕"
    },
@@ -1610,8 +1549,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 3820929262,
-    "_type": "node",
     "addr_city": "Merseburg",
     "addr_country": "DE",
     "addr_postcode": "06217",
@@ -1623,6 +1560,7 @@
     "icon": "fast_food",
     "more_info": true,
     "name": "Subway",
+    "oid": "n3820929262.",
     "opening_hours": "Mo-Fr 09:00-21:00; Sa 10:00-21:00; Su 12:00-21:00",
     "symbol": "🍔"
    },
@@ -1637,8 +1575,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 3821868244,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Große Ulrichstraße 33",
@@ -1650,6 +1586,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Sakura",
+    "oid": "n3821868244.",
     "opening_hours": "Mo-Sa 11:30-14:30,17:30-23:00; Su,PH 11:30-15:00,17:30-22:00",
     "symbol": "🍽️"
    },
@@ -1664,8 +1601,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 4036431410,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -1680,6 +1615,7 @@
     "icon": "fast_food",
     "more_info": true,
     "name": "Vegs",
+    "oid": "n4036431410.",
     "opening_hours": "Mo-Fr 12:00-20:00; Sa,Su,PH off",
     "symbol": "🍔"
    },
@@ -1694,8 +1630,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 4465518868,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06110",
     "addr_street": "Steinweg 17",
@@ -1705,6 +1639,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Sushifreunde",
+    "oid": "n4465518868.",
     "opening_hours": "Mo-Su 11:30-22:00",
     "symbol": "🍽️"
    },
@@ -1719,8 +1654,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 4730436532,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06114",
     "addr_street": "Burgstraße 47a",
@@ -1728,6 +1661,7 @@
     "cuisine": "ice_cream",
     "icon": "ice_cream",
     "name": "Eisburg",
+    "oid": "n4730436532.",
     "opening_hours": "Mo-Fr 13:00-19:00; Sa, Su 12:00-19:00",
     "symbol": "🍨"
    },
@@ -1742,8 +1676,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 4815463722,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -1755,6 +1687,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Viet Village",
+    "oid": "n4815463722.",
     "opening_hours": "Mo-Su 11:00-23:00",
     "symbol": "🍽️"
    },
@@ -1769,8 +1702,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 4868552820,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06120",
     "addr_street": "Hubertusplatz 1a",
@@ -1781,6 +1712,7 @@
     "icon": "maki_restaurant-pizza",
     "more_info": true,
     "name": "Papa John's",
+    "oid": "n4868552820.",
     "opening_hours": "Mo-Su 11:00-23:00",
     "symbol": "🍕"
    },
@@ -1795,8 +1727,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 4893692292,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06114",
     "addr_street": "Mühlweg 29",
@@ -1805,6 +1735,7 @@
     "icon": "cafe",
     "more_info": true,
     "name": "Café Wittekind",
+    "oid": "n4893692292.",
     "opening_hours": "Mo-Tu off; We-Fr 13:00-21:00; Sa-Su 09:00-21:00",
     "symbol": "☕"
    },
@@ -1819,8 +1750,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 4893782127,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Ludwig-Wucherer-Straße 27",
@@ -1829,6 +1758,7 @@
     "cuisine": "oriental",
     "icon": "fast_food",
     "name": "Yasmine",
+    "oid": "n4893782127.",
     "opening_hours": "Mo-Su 11:00-23:00",
     "symbol": "🍔"
    },
@@ -1843,8 +1773,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 4893812414,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Ludwig-Wucherer-Straße 12",
@@ -1855,6 +1783,7 @@
     "icon": "cafe",
     "more_info": true,
     "name": "TEKİEZ",
+    "oid": "n4893812414.",
     "opening_hours": "Mo-Su 08:00-18:00",
     "symbol": "☕"
    },
@@ -1869,8 +1798,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 4914539421,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Barfüßerstraße 11",
@@ -1883,6 +1810,7 @@
     "icon": "cafe",
     "more_info": true,
     "name": "7 Gramm",
+    "oid": "n4914539421.",
     "opening_hours": "Mo-Fr 08:00-21:00; Sa-Su 09:00-20:00",
     "symbol": "☕"
    },
@@ -1897,8 +1825,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 4948443538,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -1909,6 +1835,7 @@
     "icon": "fast_food",
     "more_info": true,
     "name": "Thang-Long Imbiss",
+    "oid": "n4948443538.",
     "opening_hours": "Mo-Fr 09:30-20:00; Sa 10:30-19:30; Su off",
     "symbol": "🍔"
    },
@@ -1923,8 +1850,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 4971464334,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06114",
     "addr_street": "Eichendorffstraße 20",
@@ -1936,6 +1861,7 @@
     "icon": "cafe",
     "more_info": true,
     "name": "Café Ludwig",
+    "oid": "n4971464334.",
     "opening_hours": "Tu-Fr 13:00-24:00; Sa 10:00-24:00; Su 10:00-19:00",
     "symbol": "☕"
    },
@@ -1950,8 +1876,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 4974999721,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -1964,6 +1888,7 @@
     "icon": "cafe",
     "more_info": true,
     "name": "Bagel 29",
+    "oid": "n4974999721.",
     "opening_hours": "Mo-Sa 10:00-18:00; Su off",
     "symbol": "☕"
    },
@@ -1978,8 +1903,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 5091097909,
-    "_type": "node",
     "addr_city": "Merseburg",
     "addr_country": "DE",
     "addr_postcode": "06217",
@@ -1991,6 +1914,7 @@
     "cuisine": "indian",
     "icon": "restaurant",
     "name": "Taj Mahal",
+    "oid": "n5091097909.",
     "opening_hours": "Mo-Su 11:00-23:00",
     "symbol": "🍽️"
    },
@@ -2005,8 +1929,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 5151602820,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Große Brauhausstraße 2",
@@ -2016,6 +1938,7 @@
     "cuisine": "indian",
     "icon": "restaurant",
     "name": "Himalaya",
+    "oid": "n5151602820.",
     "opening_hours": "Mo-Fr 12:00-14:00,17:30-22:00; Sa 17:30-22:00; PH 12:00-14:00,17:30-22:00",
     "symbol": "🍽️"
    },
@@ -2030,8 +1953,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 5245541311,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Leipziger Straße 100",
@@ -2041,6 +1962,7 @@
     "icon": "supermarket",
     "more_info": true,
     "name": "denn's Biomarkt",
+    "oid": "n5245541311.",
     "opening_hours": "Mo-Sa 08:00-20:00",
     "shop": "supermarket",
     "symbol": "🏪"
@@ -2056,8 +1978,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 5583171123,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06110",
     "addr_street": "Torstraße 1",
@@ -2069,6 +1989,7 @@
     "icon": "convenience",
     "more_info": true,
     "name": "YENSO Asia Markt",
+    "oid": "n5583171123.",
     "opening_hours": "Mo-Sa 09:00-19:00; Su off",
     "shop": "convenience",
     "symbol": "🏪"
@@ -2084,8 +2005,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 5592955318,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06110",
     "addr_street": "Ludwigstraße 37",
@@ -2094,6 +2013,7 @@
     "icon": "maki_star-stroked",
     "more_info": true,
     "name": "VL-Küfa",
+    "oid": "n5592955318.",
     "opening_hours": "Tu 20:00+",
     "symbol": ""
    },
@@ -2108,8 +2028,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 5592987513,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06114",
     "addr_street": "Reilstraße 78",
@@ -2119,6 +2037,7 @@
     "icon": "maki_star-stroked",
     "more_info": true,
     "name": "Reil-Küfa",
+    "oid": "n5592987513.",
     "opening_hours": "Su 19:00+",
     "symbol": ""
    },
@@ -2133,8 +2052,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 5593108867,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06114",
     "addr_street": "Große Brunnenstraße 63",
@@ -2144,6 +2061,7 @@
     "icon": "supermarket",
     "more_info": true,
     "name": "Himmel & Erde",
+    "oid": "n5593108867.",
     "opening_hours": "Mo-Fr 12:00-18:00",
     "shop": "supermarket",
     "symbol": "🏪"
@@ -2159,8 +2077,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 5599806557,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -2173,6 +2089,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Yaman Sham",
+    "oid": "n5599806557.",
     "opening_hours": "Mo-Su 11:00-23:00",
     "symbol": "🍽️"
    },
@@ -2187,8 +2104,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 5868832962,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06110",
     "addr_street": "Liebenauer Straße 1",
@@ -2199,6 +2114,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Tandoori Steakhaus",
+    "oid": "n5868832962.",
     "opening_hours": "Mo-Su 11:30-14:30, 17:30-23:00",
     "symbol": "🍽️"
    },
@@ -2213,8 +2129,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 5942265574,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Leipziger Straße 70",
@@ -2227,6 +2141,7 @@
     "icon": "cafe",
     "more_info": true,
     "name": "Koffij",
+    "oid": "n5942265574.",
     "opening_hours": "Mo-Fr 09:00-20:00; Sa 09:00-18:00; Su off",
     "symbol": "☕"
    },
@@ -2241,8 +2156,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 6033781352,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06114",
@@ -2255,6 +2168,7 @@
     "icon": "cafe",
     "more_info": true,
     "name": "Törtcheneck",
+    "oid": "n6033781352.",
     "opening_hours": "Tu-Sa 11:00-16:00",
     "symbol": "☕"
    },
@@ -2269,8 +2183,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 6058235422,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Große Ulrichstraße 7–9",
@@ -2279,6 +2191,7 @@
     "contact_website": "https://www.arko.de",
     "icon": "cafe",
     "name": "arko",
+    "oid": "n6058235422.",
     "opening_hours": "Mo-Fr 09:00-19:00, Sa 09:00-18:00",
     "symbol": "☕"
    },
@@ -2293,8 +2206,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 6366059605,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06114",
     "addr_street": "Karl-Liebknecht-Straße 23 a",
@@ -2302,6 +2213,7 @@
     "icon": "maki_star-stroked",
     "more_info": true,
     "name": "Rübchen",
+    "oid": "n6366059605.",
     "opening_hours": "Mo 13:00-19:00; Tu-Th 16:00-19:00; Fr 10:00-13:00,16:00-19:00; Sa 10:00-13:00; Su,PH off",
     "shop": "foodcoop",
     "symbol": ""
@@ -2317,8 +2229,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 6569044919,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Pfälzer Ufer 4",
@@ -2327,6 +2237,7 @@
     "icon": "bar",
     "more_info": true,
     "name": "Hafenmeister & Docks",
+    "oid": "n6569044919.",
     "opening_hours": "Mo-Fr 11:30-18:00; Sa 10:00-18:00; Su 09:00-18:00",
     "symbol": "🍸"
    },
@@ -2341,8 +2252,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 6805328949,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06112",
     "addr_street": "Hans-Dietrich-Genscher-Platz 1",
@@ -2350,6 +2259,7 @@
     "icon": "convenience",
     "more_info": true,
     "name": "Bio im Bahnhof",
+    "oid": "n6805328949.",
     "opening_hours": "Mo-Su 08:00-19:00",
     "shop": "convenience",
     "symbol": "🏪"
@@ -2365,8 +2275,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 6814015852,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Hansering 21",
@@ -2374,6 +2282,7 @@
     "contact_website": "https://www.roy-coffee.de",
     "icon": "cafe",
     "name": "Kaffeerösterei Roy",
+    "oid": "n6814015852.",
     "opening_hours": "Mo-Fr 10:00-19:00; Sa 10:00-17:00",
     "symbol": "☕"
    },
@@ -2388,8 +2297,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 6820930072,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06110",
     "addr_street": "Steinweg 29",
@@ -2399,6 +2306,7 @@
     "icon": "cafe",
     "more_info": true,
     "name": "Pirashki",
+    "oid": "n6820930072.",
     "opening_hours": "Mo-Su 15:00-20:00",
     "symbol": "☕"
    },
@@ -2413,8 +2321,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 7026845075,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06112",
     "addr_street": "Hans-Dietrich-Genscher-Platz 1",
@@ -2423,6 +2329,7 @@
     "cuisine": "sandwich",
     "icon": "fast_food",
     "name": "Subway",
+    "oid": "n7026845075.",
     "opening_hours": "Mo-Sa 07:00-20:00; Su,PH 08:00-20:00",
     "symbol": "🍔"
    },
@@ -2437,8 +2344,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 7027316371,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Große Steinstraße 34",
@@ -2448,6 +2353,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Bistro Lorraine",
+    "oid": "n7027316371.",
     "opening_hours": "Mo 12:30-16:00; Tu-Fr 11:30-16:00; Sa,Su,PH off",
     "symbol": "🍽️"
    },
@@ -2462,8 +2368,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 7068127430,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06132",
     "addr_street": "Am Wasserwerk 1",
@@ -2473,6 +2377,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Cancun-Bar",
+    "oid": "n7068127430.",
     "opening_hours": "Mo-Su 10:00-22:00",
     "symbol": "🍽️"
    },
@@ -2487,8 +2392,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 7206763585,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06114",
     "addr_street": "Richard-Wagner-Straße 57",
@@ -2498,6 +2401,7 @@
     "cuisine": "coffee_shop",
     "icon": "restaurant",
     "name": "Oberstübchen",
+    "oid": "n7206763585.",
     "opening_hours": "Mo,We,Th 17:30-23:00; Tu off; Fr,Sa 17:30-02:00; Su 14:30-21:00",
     "symbol": "🍽️"
    },
@@ -2512,8 +2416,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 7388445891,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06114",
     "addr_street": "Richard-Wagner-Straße 60",
@@ -2523,6 +2425,7 @@
     "icon": "fast_food",
     "more_info": true,
     "name": "City Döner",
+    "oid": "n7388445891.",
     "opening_hours": "Mo-Fr 11:00-22:00; Sa 12:00-23:00; Su 12:00-22:00",
     "symbol": "🍔"
    },
@@ -2537,8 +2440,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 8018723343,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Adam-Kuckhoff-Straße 30",
@@ -2550,6 +2451,7 @@
     "icon": "cafe",
     "more_info": true,
     "name": "Café Kuckhoff",
+    "oid": "n8018723343.",
     "opening_hours": "Mo,Tu off; We-Su 09:00-18:00",
     "symbol": "☕"
    },
@@ -2564,8 +2466,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 8018837433,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Neuwerk 7",
@@ -2575,6 +2475,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Mensa Neuwerk",
+    "oid": "n8018837433.",
     "opening_hours": "Mo-Th 11:30-14:00; Fr 11:30-13:30",
     "symbol": "🍽️"
    },
@@ -2589,8 +2490,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 8018875351,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06114",
     "addr_street": "Seebener Straße 5",
@@ -2600,6 +2499,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Restaurant Ruine",
+    "oid": "n8018875351.",
     "opening_hours": "Mo 17:00-24:00; Tu-Th 12:00-24:00; Fr-Su 12:00-01:00",
     "symbol": "🍽️"
    },
@@ -2614,8 +2514,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 8167669673,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06114",
     "addr_street": "Seebener Straße 20",
@@ -2624,7 +2522,8 @@
     "cuisine": "coffee_shop;ice_cream",
     "icon": "cafe",
     "name": "Kaffeehaus Wittekind",
-    "opening_hours": "Eissalon: Mo-So 11:00 - 19:00; Restaurant: Mi-Fr 14:00 - 22:00 + Sa,So 9:00-22:00",
+    "oid": "n8167669673.",
+    "opening_hours": "We-Fr 14:00-22:00; Sa,Su 09:00-22:00",
     "symbol": "☕"
    },
    "type": "Feature"
@@ -2638,8 +2537,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 8357411012,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Universitätsring 6a",
@@ -2651,6 +2548,7 @@
     "icon": "fast_food",
     "more_info": true,
     "name": "Falafello",
+    "oid": "n8357411012.",
     "opening_hours": "Mo-Su,PH 11:00-22:00",
     "symbol": "🍔"
    },
@@ -2665,8 +2563,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 8616778482,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06112",
     "addr_street": "Am Steintor 16",
@@ -2677,6 +2573,7 @@
     "cuisine": "pizza",
     "icon": "maki_restaurant-pizza",
     "name": "World of Pizza",
+    "oid": "n8616778482.",
     "opening_hours": "Mo-Su 11:00-23:00",
     "symbol": "🍕"
    },
@@ -2691,8 +2588,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 8773861578,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06114",
     "addr_street": "Reilstraße 6",
@@ -2705,6 +2600,7 @@
     "icon": "cafe",
     "more_info": true,
     "name": "JUICY",
+    "oid": "n8773861578.",
     "opening_hours": "Mo-Sa 08:00-21:00; Su 10:00-21:00",
     "symbol": "☕"
    },
@@ -2719,8 +2615,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 8793001854,
-    "_type": "node",
     "addr_city": "Merseburg",
     "addr_postcode": "06217",
     "addr_street": "Querfurter Straße 4",
@@ -2730,6 +2624,7 @@
     "cuisine": "sushi",
     "icon": "restaurant",
     "name": "SUSHIdeluxe",
+    "oid": "n8793001854.",
     "opening_hours": "Mo-Su 11:00-20:45",
     "symbol": "🍽️"
    },
@@ -2744,8 +2639,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 8793003720,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06112",
     "addr_street": "Am Steintor 18",
@@ -2755,6 +2648,7 @@
     "cuisine": "sushi",
     "icon": "restaurant",
     "name": "SUSHIdeluxe",
+    "oid": "n8793003720.",
     "opening_hours": "Mo-Fr 11:30-22:00, Sa-Su 17:00-22:00",
     "symbol": "🍽️"
    },
@@ -2769,8 +2663,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 8795957217,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06112",
     "addr_street": "Hans-Dietrich-Genscher-Platz 1",
@@ -2779,6 +2671,7 @@
     "cuisine": "salad;sandwich",
     "icon": "fast_food",
     "name": "dean&david",
+    "oid": "n8795957217.",
     "opening_hours": "Mo-Su 09:00-20:00",
     "symbol": "🍔"
    },
@@ -2793,8 +2686,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 8859490294,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Geiststraße 4",
@@ -2804,6 +2695,7 @@
     "contact_website": "https://eisfvchs.com",
     "icon": "ice_cream",
     "name": "Eisfvchs",
+    "oid": "n8859490294.",
     "opening_hours": "Mo-Su 12:00-17:30",
     "symbol": "🍨"
    },
@@ -2818,8 +2710,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 8867577091,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Salzgrafenstraße 1",
@@ -2829,6 +2719,7 @@
     "icon": "maki_star-stroked",
     "more_info": true,
     "name": "nobelsüß",
+    "oid": "n8867577091.",
     "opening_hours": "Mo-Fr 11:00-17:00; Sa 10:00-16:00",
     "shop": "pastry",
     "symbol": ""
@@ -2844,8 +2735,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 8932643632,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Puschkinstraße 16",
@@ -2856,6 +2745,7 @@
     "icon": "ice_cream",
     "more_info": true,
     "name": "Alik Gelato",
+    "oid": "n8932643632.",
     "opening_hours": "Mo-Su 14:00-18:00",
     "symbol": "🍨"
    },
@@ -2870,8 +2760,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 9033240019,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06114",
     "addr_street": "Mühlweg 22",
@@ -2882,6 +2770,7 @@
     "icon": "maki_restaurant-pizza",
     "more_info": true,
     "name": "Papa John's",
+    "oid": "n9033240019.",
     "opening_hours": "Mo-Su 11:00-23:00",
     "symbol": "🍕"
    },
@@ -2896,8 +2785,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 9140808707,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Ludwig-Wucherer-Straße 62",
@@ -2910,6 +2797,7 @@
     "icon": "cafe",
     "more_info": true,
     "name": "JUICY",
+    "oid": "n9140808707.",
     "opening_hours": "Mo-Su 10:00-21:00",
     "symbol": "☕"
    },
@@ -2924,8 +2812,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 9212628476,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06118",
     "addr_street": "Trothaer Straße 9a",
@@ -2935,6 +2821,7 @@
     "cuisine": "pizza",
     "icon": "maki_restaurant-pizza",
     "name": "Pizza One",
+    "oid": "n9212628476.",
     "opening_hours": "Mo-Su 11:00-24:00",
     "symbol": "🍕"
    },
@@ -2949,8 +2836,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 9343768547,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06114",
     "addr_street": "Händelstraße 38",
@@ -2960,6 +2845,7 @@
     "cuisine": "pizza",
     "icon": "maki_restaurant-pizza",
     "name": "Domino's",
+    "oid": "n9343768547.",
     "opening_hours": "Mo-Su 11:00-23:00",
     "symbol": "🍕"
    },
@@ -2974,8 +2860,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 9474397454,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Leipziger Straße 37",
@@ -2985,6 +2869,7 @@
     "cuisine": "mediterranean;kebab;pizza;shawarma",
     "icon": "fast_food",
     "name": "Mira",
+    "oid": "n9474397454.",
     "opening_hours": "Mo-Su 11:00-21:00",
     "symbol": "🍔"
    },
@@ -2999,8 +2884,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 9572703189,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Große Ulrichtsraße 58",
@@ -3009,6 +2892,7 @@
     "icon": "fast_food",
     "more_info": true,
     "name": "Bowls King",
+    "oid": "n9572703189.",
     "opening_hours": "off",
     "symbol": "🍔"
    },
@@ -3023,8 +2907,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 9572733602,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Ludwig-Wucherer-Straße 62",
@@ -3036,6 +2918,7 @@
     "cuisine": "ice_cream",
     "icon": "ice_cream",
     "name": "Eis-Dealer",
+    "oid": "n9572733602.",
     "opening_hours": "12:00-18:00",
     "symbol": "🍨"
    },
@@ -3050,8 +2933,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 9676330117,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06114",
     "addr_street": "Reilstraße 7",
@@ -3061,6 +2942,7 @@
     "cuisine": "asian",
     "icon": "restaurant",
     "name": "Bay Vegan",
+    "oid": "n9676330117.",
     "opening_hours": "Mo-Su 11:00-15:00, 17:00-23:00",
     "symbol": "🍽️"
    },
@@ -3075,8 +2957,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 9752900958,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06110",
@@ -3087,6 +2967,7 @@
     "contact_website": "https://www.lilobowl.de",
     "icon": "restaurant",
     "name": "lilobowl",
+    "oid": "n9752900958.",
     "opening_hours": "Tu-Th 11:00-20:00; Fr-Sa 11:00-21:00; Su 11:00-20:00",
     "symbol": "🍽️"
    },
@@ -3101,8 +2982,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 9969559755,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06114",
     "addr_street": "Schillerstraße 41",
@@ -3111,6 +2990,7 @@
     "contact_website": "https://www.cafépolenka.de",
     "icon": "cafe",
     "name": "Polenka",
+    "oid": "n9969559755.",
     "opening_hours": "Tu, We 10:00-18:00; Th-Sa 10:00-22:00; Su 10:00-18:00",
     "symbol": "☕"
    },
@@ -3125,8 +3005,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 10057151822,
-    "_type": "node",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06112",
     "addr_street": "Delitzscher Straße 49a",
@@ -3137,6 +3015,7 @@
     "icon": "maki_restaurant-pizza",
     "more_info": true,
     "name": "Freddy Fresh",
+    "oid": "n10057151822.",
     "opening_hours": "Mo-Su 11:00-22:00",
     "symbol": "🍕"
    },
@@ -3151,8 +3030,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 22883232,
-    "_type": "way",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06120",
     "addr_street": "Theodor-Lieser-Straße 7",
@@ -3162,6 +3039,7 @@
     "icon": "fast_food",
     "more_info": true,
     "name": "Heidemensa",
+    "oid": "w22883232.",
     "opening_hours": "Mo-Fr 11:30-14:00",
     "symbol": "🍔"
    },
@@ -3176,8 +3054,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 27177218,
-    "_type": "way",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Universitätsring 5",
@@ -3186,6 +3062,7 @@
     "cuisine": "canteen",
     "icon": "restaurant",
     "name": "Burse zur Tulpe",
+    "oid": "w27177218.",
     "opening_hours": "off",
     "symbol": "🍽️"
    },
@@ -3200,8 +3077,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 47571137,
-    "_type": "way",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06128",
     "addr_street": "Ammendorfer Weg 68",
@@ -3212,6 +3087,7 @@
     "icon": "maki_restaurant-pizza",
     "more_info": true,
     "name": "Papa John's",
+    "oid": "w47571137.",
     "opening_hours": "Mo-Su 11:00-23:00",
     "symbol": "🍕"
    },
@@ -3226,8 +3102,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 61561597,
-    "_type": "way",
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Peißnitzinsel 1",
@@ -3239,6 +3113,7 @@
     "icon": "cafe",
     "more_info": true,
     "name": "Gartenlokal am Peißnitzhaus/Peißnitzhaus-Café",
+    "oid": "w61561597.",
     "opening_hours": "Mo-Fr 11:30-17:00; Sa-Su 10:00-18:00",
     "symbol": "☕"
    },
@@ -3253,8 +3128,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 98848040,
-    "_type": "way",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06118",
@@ -3266,6 +3139,7 @@
     "cuisine": "regional;international;coffee_shop",
     "icon": "cafe",
     "name": "Das Ding in Seeben",
+    "oid": "w98848040.",
     "opening_hours": "Fr-Su 10:00-19:00",
     "symbol": "☕"
    },
@@ -3280,8 +3154,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 120082234,
-    "_type": "way",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06114",
@@ -3294,6 +3166,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Colonne Morris",
+    "oid": "w120082234.",
     "opening_hours": "Mo-Th 09:00-01:00; Fr-Sa 09:00-02:00; Su 09:00-00:00",
     "symbol": "🍽️"
    },
@@ -3308,8 +3181,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 128558823,
-    "_type": "way",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -3321,6 +3192,7 @@
     "cuisine": "oriental",
     "icon": "restaurant",
     "name": "Palmyra",
+    "oid": "w128558823.",
     "opening_hours": "Mo-Su 11:30-14:30,17:00-24:00",
     "symbol": "🍽️"
    },
@@ -3335,8 +3207,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 134238289,
-    "_type": "way",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -3349,6 +3219,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Mönchshof",
+    "oid": "w134238289.",
     "opening_hours": "Tu-Sa 11:00-23:00; Su 11:00-15:00; Mo off",
     "symbol": "🍽️"
    },
@@ -3363,8 +3234,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 134365557,
-    "_type": "way",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -3376,6 +3245,7 @@
     "cuisine": "czech",
     "icon": "restaurant",
     "name": "Wenzel Prager Bierstuben",
+    "oid": "w134365557.",
     "opening_hours": "Mo-Th 11:30-22:00; Fr,Sa 11:30-23:00; Su 11:30-21:00",
     "symbol": "🍽️"
    },
@@ -3390,8 +3260,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 164756625,
-    "_type": "way",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -3404,6 +3272,7 @@
     "icon": "fast_food",
     "more_info": true,
     "name": "Falafello",
+    "oid": "w164756625.",
     "opening_hours": "Mo-Su,PH 11:00-22:00",
     "symbol": "🍔"
    },
@@ -3418,8 +3287,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 164756646,
-    "_type": "way",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -3432,6 +3299,7 @@
     "icon": "fast_food",
     "more_info": true,
     "name": "SPICY",
+    "oid": "w164756646.",
     "opening_hours": "Mo-Su 11:00-21:00",
     "symbol": "🍔"
    },
@@ -3446,8 +3314,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 178744104,
-    "_type": "way",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -3460,6 +3326,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Hallesches Brauhaus",
+    "oid": "w178744104.",
     "opening_hours": "Mo-Fr 16:00-24:00; Sa 11:00-24:00; Su 11:00-21:00; PH 11:00-24:00",
     "symbol": "🍽️"
    },
@@ -3474,8 +3341,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 182854644,
-    "_type": "way",
     "addr_city": "Merseburg",
     "addr_postcode": "06217",
     "addr_street": "Burgstraße 6",
@@ -3485,6 +3350,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Tajmahal",
+    "oid": "w182854644.",
     "opening_hours": "Mo-Su 11:00-23:00",
     "symbol": "🍽️"
    },
@@ -3499,8 +3365,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 255017911,
-    "_type": "way",
     "addr_city": "Leuna",
     "addr_postcode": "06237",
     "addr_street": "Maienweg 1",
@@ -3509,6 +3373,7 @@
     "cuisine": "german;burger;regional;coffee_shop;ice_cream;barbecue;sandwich;chicken",
     "icon": "restaurant",
     "name": "Raffiness",
+    "oid": "w255017911.",
     "opening_hours": "Mo-Fr 11:00-14:00",
     "symbol": "🍽️"
    },
@@ -3523,8 +3388,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 261692804,
-    "_type": "way",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06112",
@@ -3537,6 +3400,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Espitas",
+    "oid": "w261692804.",
     "opening_hours": "Mo-Th 11:00-23:00; Fr 11:00-24:00; Sa 10:00-24:00; Su 10:00-23:00",
     "symbol": "🍽️"
    },
@@ -3551,8 +3415,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 304682735,
-    "_type": "way",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06110",
@@ -3563,6 +3425,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Mensa Franckesche Stiftungen",
+    "oid": "w304682735.",
     "opening_hours": "Mo-Th 10:00-14:15; Fr 10:00-14:00",
     "symbol": "🍽️"
    },
@@ -3577,8 +3440,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 375345326,
-    "_type": "way",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06108",
@@ -3589,6 +3450,7 @@
     "icon": "cafe",
     "more_info": true,
     "name": "Cafebar Steintor-Campus",
+    "oid": "w375345326.",
     "opening_hours": "Mo-Th 08:00-16:30; Fr 08:00-14:30",
     "symbol": "☕"
    },
@@ -3603,8 +3465,6 @@
     "type": "Point"
    },
    "properties": {
-    "_id": 467769739,
-    "_type": "way",
     "addr_city": "Halle (Saale)",
     "addr_country": "DE",
     "addr_postcode": "06114",
@@ -3616,6 +3476,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Goldene Schildkröte",
+    "oid": "w467769739.",
     "opening_hours": "Mo-Su 11:00-22:00",
     "symbol": "🍽️"
    },

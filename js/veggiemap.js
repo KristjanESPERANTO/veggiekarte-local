@@ -292,9 +292,9 @@ function addLibReview(feature) {
 function calculatePopup(layer) {
   // Get the information
   const feature = layer.feature;
-  const eId = feature.properties._id;
+  const eId = feature.properties.id.split("_")[1];
   const eNam = feature.properties.name;
-  const eTyp = feature.properties._type;
+  const eTyp = feature.properties.id.split("_")[0];
   const eCit = feature.properties.addr_city;
   const ePos = feature.properties.addr_postcode;
   const eStr = feature.properties.addr_street;
@@ -456,8 +456,8 @@ function checkData(parentGroupVar) {
   parentGroupVar.eachLayer((layer) => {
     // Collect properties
     const eNam = layer.feature.properties.name;
-    const eId = layer.feature.properties._id;
-    const eTyp = layer.feature.properties._type;
+    const eId = layer.feature.properties.id.split("_")[1];
+    const eTyp = layer.feature.properties.id.split("_")[0];
     const osmUrl = `https://openstreetmap.org/${eTyp}/${eId}`;
     const eOpe = layer.feature.properties.opening_hours;
     const eCit = layer.feature.properties.addr_city;

@@ -117,8 +117,7 @@ def check_data(data):
         tags = osm_element.get("tags", {})
 
         place_check_obj = {"type": "Feature", "properties": {}}
-        place_check_obj["properties"]["_id"] = element_id
-        place_check_obj["properties"]["_type"] = element_type
+        place_check_obj["properties"]["id"] = f"{element_type}_{element_id}"
         place_check_obj["properties"]["undefined"] = []
         place_check_obj["properties"]["issues"] = []
 
