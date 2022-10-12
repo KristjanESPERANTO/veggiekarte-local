@@ -317,7 +317,8 @@ def write_data(data):
             continue
 
         place_obj = {"type": "Feature", "properties": {}}
-        place_obj["properties"]["id"] = f"{element_type}_{element_id}"
+        place_obj["properties"]["_id"] = element_id
+        place_obj["properties"]["_type"] = element_type
 
         if element_type == "node":
             lat = osm_element.get("lat", None)

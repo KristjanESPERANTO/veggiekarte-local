@@ -228,9 +228,9 @@ function calculateTooltip(layer) {
 function calculatePopup(layer) {
   // Get the information
   const feature = layer.feature;
+  const eId = feature.properties._id;
   const eNam = feature.properties.name;
-  const eId = feature.properties.id.split("_")[1];
-  const eTyp = feature.properties.id.split("_")[0];
+  const eTyp = feature.properties._type;
 
   /** * Building the popup content ** */
 
