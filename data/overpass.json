@@ -1,9 +1,9 @@
 {
   "version": 0.6,
-  "generator": "Overpass API 0.7.58.5 b0c4acbb",
+  "generator": "Overpass API 0.7.59 e21c39fe",
   "osm3s": {
-    "timestamp_osm_base": "2022-10-12T22:34:53Z",
-    "timestamp_areas_base": "2022-10-12T21:14:39Z",
+    "timestamp_osm_base": "2022-10-15T15:42:29Z",
+    "timestamp_areas_base": "2022-10-15T13:45:39Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -1329,8 +1329,8 @@
   "lon": 12.1780337,
   "tags": {
     "addr:city": "Leuna",
+    "addr:housename": "Nova Eventis",
     "addr:postcode": "06237",
-    "addr:street": "Einkaufszentrum NOVA",
     "amenity": "cafe",
     "brand": "Coffee Fellows",
     "brand:wikidata": "Q23461429",
@@ -1419,7 +1419,7 @@
     "amenity": "cafe",
     "contact:facebook": "https://www.facebook.com/KornLiebchen-375530942489161/",
     "contact:phone": "+49 345 4723780",
-    "contact:website": "http://www.kornliebchen.de",
+    "contact:website": "https://kornliebchen.de",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "name": "KornLiebchen",
@@ -2154,7 +2154,7 @@
     "addr:postcode": "06108",
     "addr:street": "Pfälzer Ufer",
     "amenity": "bar",
-    "contact:facebook": "https://www.facebook.com/Hafenmeister-Docks-154417685229693/",
+    "contact:facebook": "https://www.facebook.com/hafenmeisterunddocks",
     "diet:vegan": "yes",
     "indoor_seating": "yes",
     "name": "Hafenmeister & Docks",
@@ -2599,14 +2599,14 @@
     "addr:postcode": "06108",
     "addr:street": "Puschkinstraße",
     "amenity": "ice_cream",
+    "contact:email": "lecker@alikgelato.de",
+    "contact:phone": "+49 171 3651504",
+    "contact:website": "https://alikgelato.de",
     "diet:vegan": "limited",
     "diet:vegetarian": "yes",
-    "email": "lecker@alikgelato.de",
     "name": "Alik Gelato",
     "opening_hours": "Mo-Su 14:00-18:00",
-    "outdoor_seating": "yes",
-    "phone": "+49 171 3651504",
-    "website": "http://www.alikgelato.de"
+    "outdoor_seating": "yes"
   }
 },
 {

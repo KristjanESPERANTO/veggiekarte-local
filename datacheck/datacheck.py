@@ -16,10 +16,10 @@ TIMESTAMP = str(datetime.datetime.now())
 # the actual date
 DATE = str(datetime.date.today())
 # the raw overpass output file (useful for later use)
-OVERPASS_FILE = "../data/overpass.json"
-VEGGIEPLACES_CHECK_RESULT_FILE = "../data/check_results.json"   # check results
+OVERPASS_FILE = "./data/overpass.json"
+VEGGIEPLACES_CHECK_RESULT_FILE = "./data/check_results.json"   # check results
 # results of previous url checks
-URL_DATA_FILE = "../data/urldata.json"
+URL_DATA_FILE = "./data/urldata.json"
 
 # variables to handle the json data
 url_data = {}
@@ -100,7 +100,7 @@ def is_url_ok(url):
                         result['isOk'] = False
                         result['text'] = f"HTTP response code {response.status_code}"
                         print(url, ' ', response.status_code)
-                    result['text'] = f"{result['text']} + {response.status_code}"
+                    result['text'] = f"{result['text']} - {response.status_code}"
             else:
                 result['isOk'] = True
                 result['text'] = "Not checked"
@@ -187,12 +187,13 @@ def check_data(data):
                         "cuisine")
 
             # Address
-            if "addr:street" not in tags:
-                place_check_obj["properties"]["undefined"].append(
-                    "addr:street")
-            if "addr:housenumber" not in tags:
-                place_check_obj["properties"]["undefined"].append(
-                    "addr:housenumber")
+            if "addr:housename" not in tags:
+                if "addr:street" not in tags:
+                    place_check_obj["properties"]["undefined"].append(
+                        "addr:street")
+                if "addr:housenumber" not in tags:
+                    place_check_obj["properties"]["undefined"].append(
+                        "addr:housenumber")
             if "addr:city" not in tags:
                 if "addr:suburb" not in tags:
                     place_check_obj["properties"]["undefined"].append(
@@ -319,8 +320,8 @@ def check_data(data):
     return places_data_checks
 
 
-def main():
-    global url_data
+def datacheck():
+    global url_data, URL_DATA_FILE
 
     # Open url data file
     with open(URL_DATA_FILE) as url_json_file:
@@ -362,4 +363,5 @@ def main():
         print("A problem has occurred. url_data is None")
 
 
-main()
+if __name__ == '__main__':
+    datacheck()

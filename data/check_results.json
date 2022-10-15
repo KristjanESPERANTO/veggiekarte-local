@@ -1,5 +1,5 @@
 {
- "_timestamp": "2022-10-15 13:03:02.605415",
+ "_timestamp": "2022-10-15 18:07:33.765669",
  "features": [
   {
    "geometry": {
@@ -50,10 +50,7 @@
     "_id": 302835320,
     "_type": "node",
     "diet_vegan": "yes",
-    "issue_number": 1,
-    "issues": [
-     "'contact:website' URI invalid"
-    ],
+    "issue_number": 0,
     "name": "Telepizza"
    },
    "type": "Feature"
@@ -660,11 +657,7 @@
     "_id": 2068490774,
     "_type": "node",
     "diet_vegan": "yes",
-    "issue_number": 2,
-    "issues": [
-     "'contact:facebook' does not starts with 'https://www.facebook.com/'",
-     "'contact:instagram' does not starts with 'https://www.instagram.com/'"
-    ],
+    "issue_number": 0,
     "name": "the one"
    },
    "type": "Feature"
@@ -902,12 +895,8 @@
     "_id": 2986723100,
     "_type": "node",
     "diet_vegan": "yes",
-    "issue_number": 2,
-    "name": "Dunkin'",
-    "undefined": [
-     "addr:street",
-     "addr:housenumber"
-    ]
+    "issue_number": 0,
+    "name": "Dunkin'"
    },
    "type": "Feature"
   },
@@ -957,11 +946,8 @@
     "_id": 3208898648,
     "_type": "node",
     "diet_vegan": "yes",
-    "issue_number": 1,
-    "name": "Coffee Fellows",
-    "undefined": [
-     "addr:housenumber"
-    ]
+    "issue_number": 0,
+    "name": "Coffee Fellows"
    },
    "type": "Feature"
   },
@@ -1544,10 +1530,7 @@
     "_id": 6569044919,
     "_type": "node",
     "diet_vegan": "yes",
-    "issue_number": 1,
-    "issues": [
-     "'contact:facebook' URI invalid"
-    ],
+    "issue_number": 0,
     "name": "Hafenmeister & Docks"
    },
    "type": "Feature"

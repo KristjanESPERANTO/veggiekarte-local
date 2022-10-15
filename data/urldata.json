@@ -79,6 +79,11 @@
   "isOk": true,
   "text": "Can't do full check: HTTP response: Forbidden"
  },
+ "https://alikgelato.de": {
+  "date": "2022-10-15",
+  "isOk": true,
+  "text": "OK + 200"
+ },
  "https://amasyna.de": {
   "date": "2022-10-15",
   "isOk": true,
@@ -133,6 +138,11 @@
   "date": "2022-10-15",
   "isOk": true,
   "text": "OK"
+ },
+ "https://kornliebchen.de": {
+  "date": "2022-10-15",
+  "isOk": true,
+  "text": "OK + 200"
  },
  "https://moenchshof-halle.de/": {
   "date": "2022-10-15",
@@ -419,6 +429,11 @@
   "isOk": true,
   "text": "OK"
  },
+ "https://www.facebook.com/hafenmeisterunddocks": {
+  "date": "2022-10-15",
+  "isOk": true,
+  "text": "OK + 200"
+ },
  "https://www.facebook.com/hansimglueck.halle.amhaendelhaus": {
   "date": "2022-10-15",
   "isOk": true,
@@ -488,6 +503,11 @@
   "date": "2022-10-15",
   "isOk": true,
   "text": "OK"
+ },
+ "https://www.facebook.com/the.1.halle": {
+  "date": "2022-10-15",
+  "isOk": true,
+  "text": "OK + 200"
  },
  "https://www.facebook.com/vegs.halle/": {
   "date": "2022-10-15",
@@ -841,8 +861,8 @@
  },
  "https://www.telepizza.de/halle/": {
   "date": "2022-10-15",
-  "isOk": false,
-  "text": "Exception: ConnectionError"
+  "isOk": true,
+  "text": "OK - 200"
  },
  "https://www.the-one-halle.de": {
   "date": "2022-10-15",

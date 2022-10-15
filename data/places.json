@@ -1,5 +1,5 @@
 {
- "_timestamp": "2022-10-13 00:33:56.605610",
+ "_timestamp": "2022-10-15 18:00:15.606381",
  "features": [
   {
    "geometry": {
@@ -1347,6 +1347,7 @@
     "_type": "node",
     "addr_city": "Leuna",
     "addr_postcode": "06237",
+    "addr_street": "Nova Eventis",
     "category": "vegan_friendly",
     "contact_website": "https://www.dunkin-donuts.de",
     "cuisine": "donut;coffee_shop",
@@ -1424,7 +1425,7 @@
     "_type": "node",
     "addr_city": "Leuna",
     "addr_postcode": "06237",
-    "addr_street": "Einkaufszentrum NOVA",
+    "addr_street": "Nova Eventis",
     "category": "vegan_friendly",
     "contact_phone": "+49 34638 39793",
     "contact_website": "https://coffee-fellows.com/locations/coffee-fellows-leuna-nova-eventis",
@@ -1510,7 +1511,7 @@
     "category": "vegan_friendly",
     "contact_facebook": "https://www.facebook.com/KornLiebchen-375530942489161",
     "contact_phone": "+49 345 4723780",
-    "contact_website": "http://www.kornliebchen.de",
+    "contact_website": "https://kornliebchen.de",
     "icon": "cafe",
     "more_info": true,
     "name": "KornLiebchen",
@@ -2323,7 +2324,7 @@
     "addr_postcode": "06108",
     "addr_street": "Pfälzer Ufer 4",
     "category": "vegan_friendly",
-    "contact_facebook": "https://www.facebook.com/Hafenmeister-Docks-154417685229693",
+    "contact_facebook": "https://www.facebook.com/hafenmeisterunddocks",
     "icon": "bar",
     "more_info": true,
     "name": "Hafenmeister & Docks",
@@ -2852,7 +2853,7 @@
     "category": "vegan_limited",
     "contact_email": "lecker@alikgelato.de",
     "contact_phone": "+49 171 3651504",
-    "contact_website": "http://www.alikgelato.de",
+    "contact_website": "https://alikgelato.de",
     "icon": "ice_cream",
     "more_info": true,
     "name": "Alik Gelato",
