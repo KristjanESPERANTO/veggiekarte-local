@@ -4,8 +4,7 @@ With this module we check the OpenStreetMap data.
 """
 
 import datetime  # for the timestamp
-import json      # read and write json
-import sys       # to check the python version
+import json  # read and write json
 from urllib.parse import urlparse
 
 import requests  # to check if websites are reachable
@@ -24,6 +23,14 @@ URL_DATA_FILE = "../data/urldata.json"
 
 # variables to handle the json data
 url_data = {}
+
+# don't chack more than 50 url's (because it takes to much time)
+url_check_counter = 0
+
+# headers for the htttp request 
+headers = {
+     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+}
 
 
 # Get the OSM data.
@@ -66,35 +73,42 @@ def is_url_ok(url):
     else:
         # URL not recently checked
         if is_url_format_valid(url):
-            try:
-                # Try to reach the URL
-                response = requests.get(url, timeout=5)
-            except Exception as e:
-                # Catch all exception if the URL isn't reachable
-                result['isOk'] = False
-                result['text'] = f"Exception: {str(e.__class__.__name__)}"
-                print(url, ' ', result['text'])
-            else:
-                # URL is reachable
-                if response.status_code < 400:
-                    # All status_codes below 400 should be fine
-                    result['isOk'] = True
-                    result['text'] = "OK"
-                elif response.status_code == 403:
-                    # We get that status from a lot of websites which are available with a browser
-                    result['isOk'] = True
-                    result['text'] = "Can't do full check: HTTP response: Forbidden"
-                elif response.status_code == 429:
-                    # We get that status from a lot of websites which are available with a browser (especially from instagram)
-                    result['isOk'] = True
-                    result['text'] = "Can't do full check: HTTP response: Too Many Requests"
-                else:
+            if url_check_counter < 50:
+                try:
+                    # Try to reach the URL
+                    response = requests.get(url, headers=headers, timeout=5)
+                except Exception as e:
+                    # Catch all exception if the URL isn't reachable
                     result['isOk'] = False
-                    result['text'] = f"HTTP response code {response.status_code}"
-                    print(url, ' ', response.status_code)
+                    result['text'] = f"Exception: {str(e.__class__.__name__)}"
+                    print(url, ' ', result['text'])
+                else:
+                    # URL is reachable
+                    if response.status_code < 400:
+                        # All status_codes below 400 should be fine
+                        result['isOk'] = True
+                        result['text'] = "OK"
+                    elif response.status_code == 403:
+                        # We get that status from a lot of websites which are available with a browser
+                        result['isOk'] = True
+                        result['text'] = "Can't do full check: HTTP response: Forbidden"
+                    elif response.status_code == 429:
+                        # We get that status from a lot of websites which are available with a browser (especially from instagram)
+                        result['isOk'] = True
+                        result['text'] = "Can't do full check: HTTP response: Too Many Requests"
+                    else:
+                        result['isOk'] = False
+                        result['text'] = f"HTTP response code {response.status_code}"
+                        print(url, ' ', response.status_code)
+                    result['text'] = f"{result['text']} + {response.status_code}"
+            else:
+                result['isOk'] = True
+                result['text'] = "Not checked"
         else:
             result['isOk'] = False
             result['text'] = "No valid URL format"
+        if result['text'] != "Not checked":
+            url_data[url] = result
     return result
 
 
@@ -164,7 +178,6 @@ def check_data(data):
                     "'diet:vegan' has an unusual value: " + diet_vegan)
         else:
             place_check_obj["properties"]["undefined"].append("diet:vegan")
-            #place_check_obj["properties"]["diet_vegan"] = "undefined"
 
         if tags.get("diet:vegan", "") != "no":
             # Cuisine
@@ -188,7 +201,7 @@ def check_data(data):
                 place_check_obj["properties"]["undefined"].append(
                     "addr:postcode")
 
-            # Website (till now we only check if the URI is valid, not if the website is reachable)
+            # Website
             website = 'undefined'
             if "contact:website" in tags:
                 website = tags.get("contact:website", "")
@@ -218,7 +231,7 @@ def check_data(data):
                         "'contact:facebook' starts with 'http' instead of 'https'")
                 elif not contact_facebook.startswith("https://www.facebook.com/"):
                     place_check_obj["properties"]["issues"].append(
-                        "'contact:facebook' does not starts with 'https://www.facebook.com/'")
+                        "'contact:facebook' does't start with 'https://www.facebook.com/'")
                 elif is_url_ok(contact_facebook)['isOk'] is False:
                     place_check_obj["properties"]["issues"].append(
                         "'contact:facebook' URI invalid")
@@ -234,7 +247,7 @@ def check_data(data):
                         "'contact:instagram' starts with 'http' instead of 'https'")
                 elif not contact_instagram.startswith("https://www.instagram.com/"):
                     place_check_obj["properties"]["issues"].append(
-                        "'contact:instagram' does not starts with 'https://www.instagram.com/'")
+                        "'contact:instagram' does't start with 'https://www.instagram.com/'")
                 elif is_url_ok(contact_instagram)['isOk'] is False:
                     place_check_obj["properties"]["issues"].append(
                         "'contact:instagram' URI invalid")
@@ -322,7 +335,7 @@ def main():
             url_data_date = datetime.datetime.strptime(
                 url_data[element]['date'], '%Y-%m-%d')
             delta = today - url_data_date
-            if delta.days > 28:
+            if delta.days > 50:
                 del (url_data[element])
 
     # Call the functions to get and write the osm data.
@@ -341,7 +354,7 @@ def main():
 
     # Write data
     if url_data is not None:
-        print(url_data)
+        # print(url_data)
         url_outfile = open(URL_DATA_FILE, "w")
         url_outfile.write(json.dumps(url_data, indent=1, sort_keys=True))
         url_outfile.close()

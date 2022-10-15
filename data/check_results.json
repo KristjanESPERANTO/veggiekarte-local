@@ -1,5 +1,5 @@
 {
- "_timestamp": "2022-10-13 00:36:44.062697",
+ "_timestamp": "2022-10-15 13:03:02.605415",
  "features": [
   {
    "geometry": {
@@ -660,7 +660,11 @@
     "_id": 2068490774,
     "_type": "node",
     "diet_vegan": "yes",
-    "issue_number": 0,
+    "issue_number": 2,
+    "issues": [
+     "'contact:facebook' does not starts with 'https://www.facebook.com/'",
+     "'contact:instagram' does not starts with 'https://www.instagram.com/'"
+    ],
     "name": "the one"
    },
    "type": "Feature"
@@ -1540,7 +1544,10 @@
     "_id": 6569044919,
     "_type": "node",
     "diet_vegan": "yes",
-    "issue_number": 0,
+    "issue_number": 1,
+    "issues": [
+     "'contact:facebook' URI invalid"
+    ],
     "name": "Hafenmeister & Docks"
    },
    "type": "Feature"
