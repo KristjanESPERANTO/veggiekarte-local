@@ -29,14 +29,10 @@ let map;
 
 function veggiemap() {
   // TileLayer
-  const tileOSM = L.tileLayer(
-    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-    {
-      attribution:
-        "&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap contributors</a>",
-      maxZoom: 18
-    }
-  );
+  const tileOSM = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: "&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap contributors</a>",
+    maxZoom: 18
+  });
 
   // Map
   map = L.map("map", {
@@ -52,22 +48,14 @@ function veggiemap() {
 
   // Define overlays (each marker group gets a layer) + add legend to the description
   const overlays = {
-    "<div class='legend-row'><div class='second-cell'>no issues</div><div class='third-cell' id='issue_number_0'></div></div>":
-      issueNumber0,
-    "<div class='legend-row'><div class='second-cell'>1 issue</div><div class='third-cell' id='issue_number_1'></div></div>":
-      issueNumber1,
-    "<div class='legend-row'><div class='second-cell'>2 issues</div><div class='third-cell' id='issue_number_2'></div></div>":
-      issueNumber2,
-    "<div class='legend-row'><div class='second-cell'>3 issues</div><div class='third-cell' id='issue_number_3'></div></div>":
-      issueNumber3,
-    "<div class='legend-row'><div class='second-cell'>4 issues</div><div class='third-cell' id='issue_number_4'></div></div>":
-      issueNumber4,
-    "<div class='legend-row'><div class='second-cell'>5 issues</div><div class='third-cell' id='issue_number_5'></div></div>":
-      issueNumber5,
-    "<div class='legend-row'><div class='second-cell'>6 issues</div><div class='third-cell' id='issue_number_6'></div></div>":
-      issueNumber6,
-    "<div class='legend-row'><div class='second-cell'>more than 6</div><div class='third-cell' id='issue_number_many'></div></div>":
-      issueNumberMany
+    "<div class='legend-row'><div class='second-cell'>no issues</div><div class='third-cell' id='issue_number_0'></div></div>": issueNumber0,
+    "<div class='legend-row'><div class='second-cell'>1 issue</div><div class='third-cell' id='issue_number_1'></div></div>": issueNumber1,
+    "<div class='legend-row'><div class='second-cell'>2 issues</div><div class='third-cell' id='issue_number_2'></div></div>": issueNumber2,
+    "<div class='legend-row'><div class='second-cell'>3 issues</div><div class='third-cell' id='issue_number_3'></div></div>": issueNumber3,
+    "<div class='legend-row'><div class='second-cell'>4 issues</div><div class='third-cell' id='issue_number_4'></div></div>": issueNumber4,
+    "<div class='legend-row'><div class='second-cell'>5 issues</div><div class='third-cell' id='issue_number_5'></div></div>": issueNumber5,
+    "<div class='legend-row'><div class='second-cell'>6 issues</div><div class='third-cell' id='issue_number_6'></div></div>": issueNumber6,
+    "<div class='legend-row'><div class='second-cell'>more than 6</div><div class='third-cell' id='issue_number_many'></div></div>": issueNumberMany
   };
 
   veggiemapPopulate(parentGroup);
@@ -144,8 +132,7 @@ function statPopulate(markerGroups, date) {
     document.getElementById(categoryName).innerHTML = `(${markerNumber})`;
   }
   // Add the date to the Layer Control
-  const lastEntry =
-    document.getElementById("issue_number_many").parentNode.parentNode;
+  const lastEntry = document.getElementById("issue_number_many").parentNode.parentNode;
   lastEntry.innerHTML += `<br /><div>(${date})</div>`;
 }
 
@@ -208,10 +195,7 @@ function geojsonToMarkerGroups(geojson) {
 
 // Function to get the marker.
 function getMarker(feature) {
-  const eLatLon = [
-    feature.geometry.coordinates[1],
-    feature.geometry.coordinates[0]
-  ];
+  const eLatLon = [feature.geometry.coordinates[1], feature.geometry.coordinates[0]];
   const marker = L.marker(eLatLon);
   marker.feature = feature;
   return marker;
@@ -239,17 +223,12 @@ function calculatePopup(layer) {
 
   // Add undefined keys
   if (feature.properties.undefined !== undefined) {
-    feature.properties.undefined.forEach(
-      (key) =>
-        (popupContent += `<div class='popup-issue'>'${key}' is undefined</div>`)
-    );
+    feature.properties.undefined.forEach((key) => (popupContent += `<div class='popup-issue'>'${key}' is undefined</div>`));
   }
 
   // Add issues
   if (feature.properties.issues !== undefined) {
-    feature.properties.issues.forEach(
-      (issue) => (popupContent += `<div class='popup-issue'>${issue}</div>`)
-    );
+    feature.properties.issues.forEach((issue) => (popupContent += `<div class='popup-issue'>${issue}</div>`));
   }
 
   // OSM link to edit
