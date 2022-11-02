@@ -2,8 +2,8 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.59 e21c39fe",
   "osm3s": {
-    "timestamp_osm_base": "2022-10-15T15:42:29Z",
-    "timestamp_areas_base": "2022-10-15T13:45:39Z",
+    "timestamp_osm_base": "2022-11-02T20:33:21Z",
+    "timestamp_areas_base": "2022-11-02T20:19:08Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -46,6 +46,7 @@
     "diet:vegetarian": "yes",
     "name": "Saalekahn",
     "opening_hours": "Mo-Th 12:00-23:00; Fr-Sa 12:00-24:00; Su,PH 12:00-22:00",
+    "outdoor_seating": "yes",
     "wheelchair": "no"
   }
 },
@@ -260,6 +261,26 @@
 },
 {
   "type": "node",
+  "id": 788792222,
+  "lat": 51.4854326,
+  "lon": 11.9691864,
+  "tags": {
+    "amenity": "pub",
+    "brewery": "Budweiser",
+    "contact:phone": "+49 345 5125948",
+    "diet:vegan": "yes",
+    "diet:vegetarian": "yes",
+    "food": "yes",
+    "indoor_seating": "yes",
+    "name": "Strieses Biertunnel",
+    "opening_hours": "Mo-Su 18:00-24:00",
+    "outdoor_seating": "yes",
+    "smoking": "isolated",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
   "id": 942721131,
   "lat": 51.4871679,
   "lon": 11.9698115,
@@ -300,6 +321,7 @@
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "food": "yes",
+    "indoor_seating": "yes",
     "name": "Nöö",
     "opening_hours": "Su-Th 10:00-01:00; Fr-Sa 10:00-02:00",
     "opening_hours:covid19": "same",
@@ -950,11 +972,12 @@
     "addr:street": "Reilstraße",
     "amenity": "cafe",
     "contact:facebook": "https://www.facebook.com/cupdergutenhoffnung",
+    "contact:website": "http://dascup.de",
     "diet:vegan": "only",
     "diet:vegetarian": "only",
     "internet_access:fee": "no",
     "name": "Cup der guten Hoffnung",
-    "opening_hours": "Mo-Fr 12:00-18:30"
+    "opening_hours": "Mo-Fr 11:30-18:30; Sa-Su off"
   }
 },
 {
@@ -1422,10 +1445,12 @@
     "contact:website": "https://kornliebchen.de",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "name": "KornLiebchen",
     "opening_hours": "Tu-Fr 09:00-18:30; Sa 09:00-16:00",
     "outdoor_seating": "yes",
     "shop": "bakery",
+    "smoking": "outside",
     "toilets:wheelchair": "no",
     "wheelchair": "limited",
     "wheelchair:description": "Rampe vorhanden, Toiletten sehr klein und nicht mit Rolli erreichbar"
@@ -1720,30 +1745,6 @@
     "name": "Yasmine",
     "opening_hours": "Mo-Su 11:00-23:00",
     "outdoor_seating": "yes",
-    "wheelchair": "no"
-  }
-},
-{
-  "type": "node",
-  "id": 4893812414,
-  "lat": 51.4914512,
-  "lon": 11.9740497,
-  "tags": {
-    "addr:city": "Halle (Saale)",
-    "addr:housenumber": "12",
-    "addr:postcode": "06108",
-    "addr:street": "Ludwig-Wucherer-Straße",
-    "amenity": "cafe",
-    "contact:facebook": "https://www.facebook.com/KiezDoenerLuWu/",
-    "contact:instagram": "https://www.instagram.com/kiezdoenerluwu/",
-    "cuisine": "turkish",
-    "diet:vegan": "yes",
-    "drive_through": "no",
-    "name": "TEKİEZ",
-    "old_name": "Kiez Döner",
-    "opening_hours": "Mo-Su 08:00-18:00",
-    "outdoor_seating": "yes",
-    "takeaway": "yes",
     "wheelchair": "no"
   }
 },
@@ -2160,27 +2161,6 @@
     "name": "Hafenmeister & Docks",
     "opening_hours": "Mo-Fr 11:30-18:00; Sa 10:00-18:00; Su 09:00-18:00",
     "outdoor_seating": "yes"
-  }
-},
-{
-  "type": "node",
-  "id": 6805328949,
-  "lat": 51.4778531,
-  "lon": 11.9872248,
-  "tags": {
-    "addr:city": "Halle (Saale)",
-    "addr:housenumber": "1",
-    "addr:postcode": "06112",
-    "addr:street": "Hans-Dietrich-Genscher-Platz",
-    "diet:halal": "no",
-    "diet:kosher": "no",
-    "diet:vegan": "yes",
-    "diet:vegetarian": "yes",
-    "name": "Bio im Bahnhof",
-    "opening_hours": "Mo-Su 08:00-19:00",
-    "organic": "yes",
-    "shop": "convenience",
-    "wheelchair": "yes"
   }
 },
 {
@@ -3107,6 +3087,7 @@
     "addr:street": "Viktor-Scheffel-Straße",
     "amenity": "restaurant",
     "building": "yes",
+    "check_date:diet:vegetarian": "2022-10-28",
     "contact:facebook": "https://www.facebook.com/colonne.morris/",
     "contact:instagram": "https://www.instagram.com/cafebarcolonne/",
     "contact:phone": "+49 345 27983176",
@@ -3315,16 +3296,14 @@
     "addr:street": "Ludwig-Wucherer-Straße",
     "amenity": "fast_food",
     "building": "yes",
-    "contact:facebook": "https://www.facebook.com/SPICY-Mexican-Streetfood-475148036602683/",
-    "contact:instagram": "https://www.instagram.com/spicy_halle/",
-    "contact:website": "https://www.spicy-halle.de",
-    "cuisine": "mexican",
+    "contact:instagram": "https://www.instagram.com/nice_eatery",
+    "cuisine": "kebab",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "drive_through": "no",
-    "name": "SPICY",
-    "old_name": "NICE",
-    "opening_hours": "Mo-Su 11:00-21:00"
+    "name": "NICE",
+    "old_name": "SPICY",
+    "opening_hours": "Mo-Th 11:00-22:00; Fr-Sa 12:00-24:00; Su 12:00-22:00"
   }
 },
 {

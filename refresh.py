@@ -51,6 +51,8 @@ TOP_URL = "https://www.vegan-in-halle.de/wp/leben/vegane-stadtkarte/"
 # # list of objects which get links to more information
 GET_MORE_INFO = [
     4036431410,  # Vegs
+    2338022982,  # Cup der guten Hoffnung
+    9676330117,  # Bay Vegan
     5592987513,  # VL-Küfa
     5592955318,  # Reil-Küfa
     9572703189,  # Bowls King
@@ -116,9 +118,7 @@ GET_MORE_INFO = [
     304682735,   # Mensa Franckesche Stiftungen
     22883232,    # Heidemensa
     375345326,   # Cafebar Steintor-Campus
-    2338022982,  # Cup der guten Hoffnung
     3364559365,  # The Shabby
-    4893812414,  # TEKİEZ
     8018723343,  # Café Kuckhoff
     2496741334,  # Naschmadame
     6033781352,  # Törtcheneck
@@ -143,7 +143,6 @@ GET_MORE_INFO = [
     1943778686,  # BioRio
     1902279166,  # Biomarkt am Reileck
     1701119442,  # Naturata
-    6805328949,  # Bio im Bahnhof
     5245541311,  # denns
     5583171123,  # Europasia
     2322858124,  # Weltladen

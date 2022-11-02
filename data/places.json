@@ -1,5 +1,5 @@
 {
- "_timestamp": "2022-10-15 18:00:15.606381",
+ "_timestamp": "2022-11-02 21:30:49.341821",
  "features": [
   {
    "geometry": {
@@ -255,6 +255,26 @@
     "name": "Hans im Glück",
     "opening_hours": "Mo-Th,Su 11:00-23:00; Fr,Sa 11:00-00:00",
     "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9691864,
+     51.4854326
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 788792222,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 345 5125948",
+    "icon": "pub",
+    "name": "Strieses Biertunnel",
+    "opening_hours": "Mo-Su 18:00-24:00",
+    "symbol": "🍻"
    },
    "type": "Feature"
   },
@@ -1025,10 +1045,11 @@
     "addr_street": "Reilstraße 129",
     "category": "vegan_only",
     "contact_facebook": "https://www.facebook.com/cupdergutenhoffnung",
+    "contact_website": "http://dascup.de",
     "icon": "cafe",
     "more_info": true,
     "name": "Cup der guten Hoffnung",
-    "opening_hours": "Mo-Fr 12:00-18:30",
+    "opening_hours": "Mo-Fr 11:30-18:30; Sa-Su off",
     "symbol": "☕"
    },
    "type": "Feature"
@@ -1837,32 +1858,6 @@
   {
    "geometry": {
     "coordinates": [
-     11.9740497,
-     51.4914512
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 4893812414,
-    "_type": "node",
-    "addr_city": "Halle (Saale)",
-    "addr_postcode": "06108",
-    "addr_street": "Ludwig-Wucherer-Straße 12",
-    "category": "vegan_friendly",
-    "contact_facebook": "https://www.facebook.com/KiezDoenerLuWu",
-    "contact_instagram": "https://www.instagram.com/kiezdoenerluwu",
-    "cuisine": "turkish",
-    "icon": "cafe",
-    "more_info": true,
-    "name": "TEKİEZ",
-    "opening_hours": "Mo-Su 08:00-18:00",
-    "symbol": "☕"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
      11.9699118,
      51.4854444
     ],
@@ -2330,30 +2325,6 @@
     "name": "Hafenmeister & Docks",
     "opening_hours": "Mo-Fr 11:30-18:00; Sa 10:00-18:00; Su 09:00-18:00",
     "symbol": "🍸"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9872248,
-     51.4778531
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 6805328949,
-    "_type": "node",
-    "addr_city": "Halle (Saale)",
-    "addr_postcode": "06112",
-    "addr_street": "Hans-Dietrich-Genscher-Platz 1",
-    "category": "vegan_friendly",
-    "icon": "convenience",
-    "more_info": true,
-    "name": "Bio im Bahnhof",
-    "opening_hours": "Mo-Su 08:00-19:00",
-    "shop": "convenience",
-    "symbol": "🏪"
    },
    "type": "Feature"
   },
@@ -3061,6 +3032,7 @@
     "contact_phone": "+49 162 6678968",
     "cuisine": "asian",
     "icon": "restaurant",
+    "more_info": true,
     "name": "Bay Vegan",
     "opening_hours": "Mo-Su 11:00-15:00, 17:00-23:00",
     "symbol": "🍽️"
@@ -3426,14 +3398,12 @@
     "addr_postcode": "06108",
     "addr_street": "Ludwig-Wucherer-Straße 43",
     "category": "vegan_friendly",
-    "contact_facebook": "https://www.facebook.com/SPICY-Mexican-Streetfood-475148036602683",
-    "contact_instagram": "https://www.instagram.com/spicy_halle",
-    "contact_website": "https://www.spicy-halle.de",
-    "cuisine": "mexican",
+    "contact_instagram": "https://www.instagram.com/nice_eatery",
+    "cuisine": "kebab",
     "icon": "fast_food",
     "more_info": true,
-    "name": "SPICY",
-    "opening_hours": "Mo-Su 11:00-21:00",
+    "name": "NICE",
+    "opening_hours": "Mo-Th 11:00-22:00; Fr-Sa 12:00-24:00; Su 12:00-22:00",
     "symbol": "🍔"
    },
    "type": "Feature"
