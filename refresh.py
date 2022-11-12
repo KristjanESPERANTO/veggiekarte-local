@@ -384,7 +384,7 @@ def write_data(data):
             if "addr:housenumber" in tags:
                 place_obj["properties"]["addr_street"] += " " + tags["addr:housenumber"]
         elif "addr:housename" in tags:
-                place_obj["properties"]["addr_street"] = tags["addr:housename"]
+            place_obj["properties"]["addr_street"] = tags["addr:housename"]
         if "addr:city" in tags:
             place_obj["properties"]["addr_city"] = tags["addr:city"]
         else:
