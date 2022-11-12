@@ -6,23 +6,21 @@ const parentGroup = L.markerClusterGroup({
   showCoverageOnHover: false,
   maxClusterRadius: 20
 });
-const issueNumber0 = L.featureGroup.subGroup(parentGroup, {});
-const issueNumber1 = L.featureGroup.subGroup(parentGroup, {});
-const issueNumber2 = L.featureGroup.subGroup(parentGroup, {});
-const issueNumber3 = L.featureGroup.subGroup(parentGroup, {});
-const issueNumber4 = L.featureGroup.subGroup(parentGroup, {});
-const issueNumber5 = L.featureGroup.subGroup(parentGroup, {});
-const issueNumber6 = L.featureGroup.subGroup(parentGroup, {});
-const issueNumberMany = L.featureGroup.subGroup(parentGroup, {});
+const issueCount1 = L.featureGroup.subGroup(parentGroup, {});
+const issueCount2 = L.featureGroup.subGroup(parentGroup, {});
+const issueCount3 = L.featureGroup.subGroup(parentGroup, {});
+const issueCount4 = L.featureGroup.subGroup(parentGroup, {});
+const issueCount5 = L.featureGroup.subGroup(parentGroup, {});
+const issueCount6 = L.featureGroup.subGroup(parentGroup, {});
+const issueCountMany = L.featureGroup.subGroup(parentGroup, {});
 const subgroups = {
-  issue_number_0: issueNumber0,
-  issue_number_1: issueNumber1,
-  issue_number_2: issueNumber2,
-  issue_number_3: issueNumber3,
-  issue_number_4: issueNumber4,
-  issue_number_5: issueNumber5,
-  issue_number_6: issueNumber6,
-  issue_number_many: issueNumberMany
+  issue_count_1: issueCount1,
+  issue_count_2: issueCount2,
+  issue_count_3: issueCount3,
+  issue_count_4: issueCount4,
+  issue_count_5: issueCount5,
+  issue_count_6: issueCount6,
+  issue_count_many: issueCountMany
 };
 
 let map;
@@ -48,14 +46,13 @@ function veggiemap() {
 
   // Define overlays (each marker group gets a layer) + add legend to the description
   const overlays = {
-    "<div class='legend-row'><div class='second-cell'>no issues</div><div class='third-cell' id='issue_number_0'></div></div>": issueNumber0,
-    "<div class='legend-row'><div class='second-cell'>1 issue</div><div class='third-cell' id='issue_number_1'></div></div>": issueNumber1,
-    "<div class='legend-row'><div class='second-cell'>2 issues</div><div class='third-cell' id='issue_number_2'></div></div>": issueNumber2,
-    "<div class='legend-row'><div class='second-cell'>3 issues</div><div class='third-cell' id='issue_number_3'></div></div>": issueNumber3,
-    "<div class='legend-row'><div class='second-cell'>4 issues</div><div class='third-cell' id='issue_number_4'></div></div>": issueNumber4,
-    "<div class='legend-row'><div class='second-cell'>5 issues</div><div class='third-cell' id='issue_number_5'></div></div>": issueNumber5,
-    "<div class='legend-row'><div class='second-cell'>6 issues</div><div class='third-cell' id='issue_number_6'></div></div>": issueNumber6,
-    "<div class='legend-row'><div class='second-cell'>more than 6</div><div class='third-cell' id='issue_number_many'></div></div>": issueNumberMany
+    "<div class='legend-row'><div class='second-cell'>1 issue</div><div class='third-cell' id='issue_count_1'></div></div>": issueCount1,
+    "<div class='legend-row'><div class='second-cell'>2 issues</div><div class='third-cell' id='issue_count_2'></div></div>": issueCount2,
+    "<div class='legend-row'><div class='second-cell'>3 issues</div><div class='third-cell' id='issue_count_3'></div></div>": issueCount3,
+    "<div class='legend-row'><div class='second-cell'>4 issues</div><div class='third-cell' id='issue_count_4'></div></div>": issueCount4,
+    "<div class='legend-row'><div class='second-cell'>5 issues</div><div class='third-cell' id='issue_count_5'></div></div>": issueCount5,
+    "<div class='legend-row'><div class='second-cell'>6 issues</div><div class='third-cell' id='issue_count_6'></div></div>": issueCount6,
+    "<div class='legend-row'><div class='second-cell'>more than 6</div><div class='third-cell' id='issue_count_many'></div></div>": issueCountMany
   };
 
   veggiemapPopulate(parentGroup);
@@ -83,8 +80,6 @@ function veggiemap() {
   // Add button to search own position
   L.control
     .locate({
-      icon: "locate-icon",
-      iconLoading: "loading-icon",
       showCompass: true,
       locateOptions: { maxZoom: 16 },
       position: "topright"
@@ -132,7 +127,7 @@ function statPopulate(markerGroups, date) {
     document.getElementById(categoryName).innerHTML = `(${markerNumber})`;
   }
   // Add the date to the Layer Control
-  const lastEntry = document.getElementById("issue_number_many").parentNode.parentNode;
+  const lastEntry = document.getElementById("issue_count_many").parentNode.parentNode;
   lastEntry.innerHTML += `<br /><div>(${date})</div>`;
 }
 
@@ -152,9 +147,6 @@ function veggiemapPopulate(parentGroupVar) {
         subgroup.addLayer(L.layerGroup(markerGroups[key]));
         map.addLayer(subgroup);
       });
-
-      // Don't show markers without issues
-      map.removeLayer(issueNumber0);
 
       // Reveal all the markers and clusters on the map in one go
       map.addLayer(parentGroupVar);
@@ -181,11 +173,11 @@ function geojsonToMarkerGroups(geojson) {
   const date = geojson._timestamp.split(" ")[0];
   const groups = {};
   geojson.features.forEach((feature) => {
-    let eCat = "issue_number_";
-    if (feature.properties.issue_number > 6) {
+    let eCat = "issue_count_";
+    if (feature.properties.issue_count > 6) {
       eCat += "many";
     } else {
-      eCat += feature.properties.issue_number;
+      eCat += feature.properties.issue_count;
     }
     if (!groups[eCat]) groups[eCat] = [];
     groups[eCat].push(getMarker(feature));
@@ -232,8 +224,10 @@ function calculatePopup(layer) {
   }
 
   // OSM link to edit
-  const osmUrl = `https://openstreetmap.org/${eTyp}/${eId}`;
-  popupContent += `<hr/><div class='map-editor-link'><a href='${osmUrl}' target='_blank' rel='noopener noreferrer'>(Edit on OpenStreetMap)</a></div>`;
+  const osmShowUrl = `https://openstreetmap.org/${eTyp}/${eId}`;
+  const osmEditUrl = `https://www.openstreetmap.org/edit?${eTyp}=${eId}`;
+  popupContent += `<hr/><div class='map-editor-link'><a href='${osmShowUrl}' target='_blank' rel='noopener noreferrer'>Show on OpenStreetMap</a><br>
+  <a href='${osmEditUrl}' target='_blank' rel='noopener noreferrer'>Edit on OpenStreetMap</a></div>`;
 
   return popupContent;
 }

@@ -1,4 +1,9 @@
 {
+ "http://dascup.de": {
+  "date": "2022-11-12",
+  "isOk": true,
+  "text": "OK - 200"
+ },
  "http://seoulkulinarisch.cafelists.com/": {
   "date": "2022-10-15",
   "isOk": true,
@@ -213,6 +218,11 @@
   "date": "2022-10-15",
   "isOk": true,
   "text": "OK"
+ },
+ "https://www.cafe-n8.de": {
+  "date": "2022-11-12",
+  "isOk": true,
+  "text": "OK - 200"
  },
  "https://www.cafeludwig-halle.de": {
   "date": "2022-10-15",
@@ -469,6 +479,11 @@
   "isOk": true,
   "text": "OK"
  },
+ "https://www.facebook.com/pages/Strieses-Biertunnel/480254735329722": {
+  "date": "2022-11-12",
+  "isOk": true,
+  "text": "OK - 200"
+ },
  "https://www.facebook.com/pages/category/Sandwich-Shop/Subway-Halle-Neustadt-223215021143927/": {
   "date": "2022-10-15",
   "isOk": true,
@@ -544,10 +559,25 @@
   "isOk": true,
   "text": "Can't do full check: HTTP response: Forbidden"
  },
+ "https://www.hallenserkartoffelhaus.de": {
+  "date": "2022-11-12",
+  "isOk": true,
+  "text": "OK - 200"
+ },
  "https://www.halleschesbrauhaus.de": {
   "date": "2022-10-15",
   "isOk": true,
   "text": "OK"
+ },
+ "https://www.hanoier-bistro.de": {
+  "date": "2022-11-12",
+  "isOk": true,
+  "text": "OK - 200"
+ },
+ "https://www.haus-und-hof.biz": {
+  "date": "2022-11-12",
+  "isOk": true,
+  "text": "OK - 200"
  },
  "https://www.himalaya-halle.de": {
   "date": "2022-10-15",
@@ -674,6 +704,11 @@
   "isOk": true,
   "text": "OK"
  },
+ "https://www.instagram.com/nice_eatery": {
+  "date": "2022-11-12",
+  "isOk": true,
+  "text": "OK - 200"
+ },
  "https://www.instagram.com/nobelsuess/": {
   "date": "2022-10-15",
   "isOk": true,
@@ -708,6 +743,11 @@
   "date": "2022-10-15",
   "isOk": true,
   "text": "OK"
+ },
+ "https://www.instagram.com/vanilladereisladen": {
+  "date": "2022-11-12",
+  "isOk": true,
+  "text": "OK - 200"
  },
  "https://www.instagram.com/vegs.halle/": {
   "date": "2022-10-15",
@@ -834,6 +874,11 @@
   "isOk": true,
   "text": "OK"
  },
+ "https://www.studentenwerk-halle.de/mensen-cafebars/mensen-in-halle/mensa-burg": {
+  "date": "2022-11-12",
+  "isOk": true,
+  "text": "OK - 200"
+ },
  "https://www.studentenwerk-halle.de/mensen-cafebars/mensen-in-halle/mensa-franckesche-stiftungen": {
   "date": "2022-10-15",
   "isOk": true,
@@ -848,6 +893,11 @@
   "date": "2022-10-15",
   "isOk": true,
   "text": "OK"
+ },
+ "https://www.studentenwerk-halle.de/mensen-cafebars/mensen-in-halle/weinbergmensa-mit-cafebar": {
+  "date": "2022-11-12",
+  "isOk": true,
+  "text": "OK - 200"
  },
  "https://www.subway-halle.de": {
   "date": "2022-10-15",

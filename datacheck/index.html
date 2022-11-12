@@ -24,7 +24,8 @@
     <link rel="stylesheet" href="../third-party/leaflet.locatecontrol/L.Control.Locate.min.css" />
     <link rel="stylesheet" href="../third-party/leaflet.easybutton/easy-button.css" />
 
-    <!-- Own style -->
+    <!-- Own styles -->
+    <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/datacheck.css" />
   </head>
 
@@ -35,13 +36,16 @@
     <!-- Info box -->
     <div id="information">
       <div id="close" onclick="toggleInfo()">✖</div>
-      <div id="spinner" class="loading-icon"></div>
+      <div id="spinner"></div>
       <div id="content">
         <h1>Veggiekarte Data Check</h1>
         <h2>About</h2>
         <p>This page shows the result of different checks of the data of vegan and vegetarian locations from OpenStreetMap (OSM).</p>
         <p>We check inconsistencies, completeness, format of URIs, validation of email adresses, correct use of OSM tags, etc.</p>
-        <p>So this page can help you to improve the data quality of the locations near you or even worldwide.</p>
+        <p>
+          So this map and <a href="datacheck_table.html" target="_blank">this table (it takes a few seconds to load)</a> can help you to improve the data quality of the locations
+          near you or even worldwide.
+        </p>
 
         <h2>Using</h2>
         <p>If you are already used to edit OSM data, simply take a look at the information in the popup boxes.</p>
@@ -60,8 +64,8 @@
 
         <h2>Who will benefit if you help improve the data?</h2>
         <p>
-          We built this site mainly to improve the <a href="https://veggiekarte.de" rel="noopener noreferrer">Veggiekarte</a>. But there are many more profiteurs. When you are
-          improving the data of OSM, all apps and their users will have an advantage and therefore also the operators of the veggie locations.
+          We built this site mainly to improve the data for <a href="https://veggiekarte.de" rel="noopener noreferrer">Veggiekarte</a>. But there are many more profiteurs. When you
+          are improving the data of OSM, all apps and their users will have an advantage and therefore also the operators of the veggie locations.
         </p>
       </div>
     </div>

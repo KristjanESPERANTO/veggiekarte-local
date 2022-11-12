@@ -57,6 +57,7 @@ function veggiemap() {
     }
   });
 
+  // Load the places and put them on the map
   veggiemapPopulate(parentGroup);
 
   // Add hash to the url
@@ -81,8 +82,6 @@ function veggiemap() {
 
   // Add button to search own position
   document.locateControl = L.control.locate({
-    icon: "locate-icon",
-    iconLoading: "loading-icon",
     showCompass: true,
     locateOptions: { maxZoom: 16 },
     position: "topright"
@@ -261,14 +260,14 @@ function calculatePopup(layer) {
   const eEma = feature.properties.contact_email;
   let ePho = feature.properties.contact_phone;
   const eWeb = feature.properties.contact_website;
-  const eFac = feature.properties.contact_facebook;
-  const eIns = feature.properties.contact_instagram;
+  let eFac = feature.properties.contact_facebook;
+  let eIns = feature.properties.contact_instagram;
   const eCui = feature.properties.cuisine;
   const eInf = feature.properties.more_info;
   const eOpe = feature.properties.opening_hours;
   const eSym = feature.properties.symbol;
 
-  /* Building the popup content */
+  /** * Building the popup content ** */
   let popupContent = `<div class='map-popup-title'>${eSym} ${eNam}`; // Symbol and name
 
   // OSM link for popup
@@ -372,12 +371,18 @@ function calculatePopup(layer) {
     )}</a></div></div>`;
   }
   if (eFac !== undefined) {
+    if (!eFac.startsWith("http")) {
+      eFac = `https://www.facebook.com/${eFac}`;
+    }
     popupContent += `<div class='popupflex-container'><div>🇫</div><div><a href='${eFac}' target='_blank' rel='noopener noreferrer'>${decodeURI(eFac).replace(
       "https://",
       ""
     )}</a></div></div>`;
   }
   if (eIns !== undefined) {
+    if (!eIns.startsWith("http")) {
+      eIns = `https://www.instagram.com/${eIns}`;
+    }
     popupContent += `<div class='popupflex-container'><div>📸</div><div><a href='${eIns}' target='_blank' rel='noopener noreferrer'>${eIns.replace(
       "https://",
       ""

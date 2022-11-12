@@ -1,18 +1,18 @@
 #!/usr/bin/python
+
 """
 With this module we get the POIs with the tags diet:vegan = * and
 diet:vegetarian = * from OpenStreetMap and fill them in a file.
 """
-import datetime  # for the timestamp
-import gzip  # for compressing the json file
-import json  # read and write json
-import sys  # to check the python version
-import time  # for sleep
 from pathlib import Path  # for handling files
 
-import urllib3  # for the HTTP GET request
+import datetime           # for the timestamp
+import gzip               # for compressing the json file
+import json               # read and write json
+import sys                # to check the python version
+import time               # for sleep
+import urllib3            # for the HTTP GET request
 
-from datacheck.datacheck import datacheck
 
 # constants for the overpass request
 
@@ -400,13 +400,21 @@ def write_data(data):
         elif "website" in tags:
             place_obj["properties"]["contact_website"] = tags["website"].rstrip("/")
         if "contact:facebook" in tags:
-            place_obj["properties"]["contact_facebook"] = tags["contact:facebook"].rstrip("/")
+            facebook = tags["contact:facebook"].rstrip("/")
+            facebook = facebook.replace("https://www.facebook.com/", "")
+            place_obj["properties"]["contact_facebook"] = facebook
         elif "facebook" in tags:
-            place_obj["properties"]["contact_facebook"] = tags["facebook"].rstrip("/")
+            facebook = tags["facebook"].rstrip("/")
+            facebook = facebook.replace("https://www.facebook.com/", "")
+            place_obj["properties"]["contact_facebook"] = facebook
         if "contact:instagram" in tags:
-            place_obj["properties"]["contact_instagram"] = tags["contact:instagram"].rstrip("/")
+            instagram = tags["contact:instagram"].rstrip("/")
+            instagram = instagram.replace("https://www.instagram.com/", "")
+            place_obj["properties"]["contact_instagram"] = instagram
         elif "instagram" in tags:
-            place_obj["properties"]["contact_instagram"] = tags["instagram"].rstrip("/")
+            instagram = tags["instagram"].rstrip("/")
+            instagram = instagram.replace("https://www.instagram.com/", "")
+            place_obj["properties"]["contact_instagram"] = instagram
         if "contact:email" in tags:
             place_obj["properties"]["contact_email"] = tags["contact:email"]
         elif "email" in tags:
@@ -483,12 +491,6 @@ def check_data():
             VEGGIESTAT_FILE.touch()
             VEGGIESTAT_FILE.write_text(json.dumps(stat_data, indent=1, sort_keys=True))
 
-            # Ensure that the DATACHECK is only executed once a day
-            NOW = datetime.datetime.now()
-            BEFORE0030 = NOW.replace(hour=0, minute=30)
-            if NOW < BEFORE0030:
-                print(BEFORE0030)
-                datacheck()
         else:
             print("New gzip temp file is too small!")
             print(VEGGIEPLACES_TEMPFILE_GZIP.stat().st_size)

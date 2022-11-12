@@ -2,8 +2,8 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.59 e21c39fe",
   "osm3s": {
-    "timestamp_osm_base": "2022-11-02T20:33:21Z",
-    "timestamp_areas_base": "2022-11-02T20:19:08Z",
+    "timestamp_osm_base": "2022-11-12T19:59:09Z",
+    "timestamp_areas_base": "2022-11-12T19:05:09Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -27,6 +27,31 @@
     "phone": "+49 3462 542280",
     "tourism": "hotel",
     "website": "https://www.hotel-alte-apotheke.de"
+  }
+},
+{
+  "type": "node",
+  "id": 274238828,
+  "lat": 51.3485675,
+  "lon": 12.1824546,
+  "tags": {
+    "amenity": "restaurant",
+    "brand": "IKEA",
+    "brand:wikidata": "Q54078",
+    "brand:wikipedia": "en:IKEA",
+    "changing_table": "yes",
+    "changing_table:location": "dedicated_room",
+    "cuisine": "swedish",
+    "diet:vegan": "yes",
+    "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
+    "name": "IKEA Restaurant",
+    "opening_hours": "Mo-Sa 10:00-20:00",
+    "outdoor_seating": "no",
+    "smoking": "separated",
+    "takeaway": "yes",
+    "toilets:wheelchair": "yes",
+    "wheelchair": "yes"
   }
 },
 {
@@ -124,6 +149,32 @@
     "name": "Maxi Bistro",
     "opening_hours": "Mo-Su 11:00-23:00",
     "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 390948585,
+  "lat": 51.4841721,
+  "lon": 11.9679664,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:housenumber": "8",
+    "addr:postcode": "06108",
+    "addr:street": "Große Nikolaistraße",
+    "amenity": "restaurant",
+    "brewery": "Carlsberg;Heineken;Duckstein;Erdinger",
+    "changing_table": "yes",
+    "check_date:opening_hours": "2022-08-16",
+    "contact:phone": "+49 345 2002910",
+    "contact:website": "https://www.cafe-n8.de",
+    "diet:vegan": "yes",
+    "diet:vegetarian": "yes",
+    "name": "N8 Café-Dinner-Bar",
+    "opening_hours": "Su-Fr 09:00-01:00, Sa 09:00-02:00",
+    "outdoor_seating": "sidewalk",
+    "toilets:wheelchair": "no",
+    "wheelchair": "limited",
+    "wheelchair:description": "keine behindertengerechte Toilette, ebenerdiger Eingang, Parkhaus Händelhauskarree"
   }
 },
 {
@@ -265,8 +316,13 @@
   "lat": 51.4854326,
   "lon": 11.9691864,
   "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:housenumber": "2",
+    "addr:postcode": "06108",
+    "addr:street": "Schulstraße",
     "amenity": "pub",
     "brewery": "Budweiser",
+    "contact:facebook": "https://www.facebook.com/pages/Strieses-Biertunnel/480254735329722",
     "contact:phone": "+49 345 5125948",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
@@ -939,6 +995,28 @@
 },
 {
   "type": "node",
+  "id": 2268889185,
+  "lat": 51.4947726,
+  "lon": 11.9658066,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:housenumber": "14",
+    "addr:postcode": "06108",
+    "addr:street": "Bernburger Straße",
+    "amenity": "restaurant",
+    "contact:email": "post@haus-und-hof.biz",
+    "contact:phone": "+49 345 52162669",
+    "contact:website": "https://www.haus-und-hof.biz",
+    "cuisine": "german",
+    "diet:vegan": "yes",
+    "diet:vegetarian": "yes",
+    "name": "Haus und Hof",
+    "opening_hours": "Mo-Su 09:00-23:00",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "node",
   "id": 2322858124,
   "lat": 51.4796143,
   "lon": 11.9703883,
@@ -1014,11 +1092,11 @@
     "addr:postcode": "06110",
     "addr:street": "Willy-Brandt-Straße",
     "amenity": "restaurant",
-    "contact:email": "info@hallenser-kartoffelhaus.de",
+    "contact:email": "info@hallenserkartoffelhaus.de",
     "contact:facebook": "https://www.facebook.com/Hallenser.Kartoffelhaus/",
     "contact:fax": "+49 345 2038792",
     "contact:phone": "+49 345 502545",
-    "contact:website": "https://www.hallenser-kartoffelhaus.de/",
+    "contact:website": "https://www.hallenserkartoffelhaus.de",
     "cuisine": "regional",
     "diet:vegan": "yes",
     "name": "Hallenser Kartoffelhaus",
@@ -1131,6 +1209,7 @@
     "contact:website": "https://coffee-fellows.com/",
     "cuisine": "coffee_shop",
     "diet:halal": "no",
+    "diet:kosher": "no",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "internet_access": "wlan",
@@ -1159,7 +1238,7 @@
     "diet:vegan": "yes",
     "diet:vegetarian": "only",
     "level": "-1",
-    "name": "mein Obstladen Saftbar",
+    "name": "Haferkater",
     "opening_hours": "Mo-Su, PH 08:00-20:00",
     "wheelchair": "yes"
   }
@@ -1516,7 +1595,7 @@
     "addr:postcode": "06114",
     "addr:street": "Schleiermacherstraße",
     "amenity": "cafe",
-    "contact:facebook": "https://www.facebook.com/Vanilla-der-Eisladen-121869997866052/timeline/",
+    "contact:instagram": "https://www.instagram.com/vanilladereisladen",
     "cuisine": "ice_cream",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
@@ -1706,6 +1785,28 @@
     "takeaway": "yes",
     "wheelchair": "yes",
     "wheelchair:description": "unklar ob nur Lieferservice oder auch Restaurant bzw. Imbiss"
+  }
+},
+{
+  "type": "node",
+  "id": 4876452522,
+  "lat": 51.4913316,
+  "lon": 11.9660518,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:country": "DE",
+    "addr:housenumber": "33",
+    "addr:postcode": "06108",
+    "addr:street": "Geiststraße",
+    "amenity": "fast_food",
+    "contact:phone": "+49 345 4700631",
+    "contact:website": "https://www.hanoier-bistro.de",
+    "cuisine": "asian",
+    "diet:vegan": "yes",
+    "diet:vegetarian": "yes",
+    "name": "Hanoier Bistro",
+    "opening_hours": "Su-Fr 10:30-21:00",
+    "wheelchair": "no"
   }
 },
 {
@@ -2326,6 +2427,28 @@
     "diet:vegetarian": "yes",
     "name": "Café Kuckhoff",
     "opening_hours": "Mo,Tu off; We-Su 09:00-18:00"
+  }
+},
+{
+  "type": "node",
+  "id": 8018835847,
+  "lat": 51.5028650,
+  "lon": 11.9550278,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:housenumber": "1",
+    "addr:postcode": "06114",
+    "addr:street": "Seebener Straße",
+    "amenity": "restaurant",
+    "contact:website": "https://www.studentenwerk-halle.de/mensen-cafebars/mensen-in-halle/mensa-burg",
+    "cuisine": "canteen",
+    "diet:vegan": "limited",
+    "diet:vegetarian": "yes",
+    "name": "Mensa Burg",
+    "opening_hours": "Mo-Th 09:30-14:15; Fr 09:30-13:45; Sa,Su off",
+    "opening_hours:covid19": "off",
+    "outdoor_seating": "yes",
+    "smoking": "no"
   }
 },
 {
@@ -2965,6 +3088,46 @@
     "takeaway": "yes",
     "toilets:wheelchair": "no",
     "wheelchair": "no"
+  }
+},
+{
+  "type": "way",
+  "id": 57961250,
+  "center": {
+    "lat": 51.4986311,
+    "lon": 11.9434794
+  },
+  "nodes": [
+    719186432,
+    719186512,
+    4942765957,
+    4942765956,
+    1968747239,
+    719186533,
+    1607317827,
+    719186406,
+    1607317830,
+    4942765802,
+    4942765797,
+    719186432
+  ],
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:country": "DE",
+    "addr:housename": "Weinbergmensa",
+    "addr:housenumber": "3",
+    "addr:postcode": "06120",
+    "addr:street": "Wolfgang-Langenbeck-Straße",
+    "amenity": "fast_food",
+    "building": "yes",
+    "contact:website": "https://www.studentenwerk-halle.de/mensen-cafebars/mensen-in-halle/weinbergmensa-mit-cafebar",
+    "diet:vegan": "limited",
+    "diet:vegetarian": "yes",
+    "name": "Weinbergmensa",
+    "opening_hours": "Mo-Fr 11:30-14:00",
+    "operator": "Studentenwerk Halle",
+    "smoking": "no",
+    "wheelchair": "yes"
   }
 },
 {
