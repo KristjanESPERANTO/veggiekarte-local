@@ -1,29 +1,6 @@
 {
- "_timestamp": "2022-11-12 21:33:09.036088",
+ "_timestamp": "2022-11-12 22:40:45.673757",
  "features": [
-  {
-   "geometry": {
-    "coordinates": [
-     12.1824546,
-     51.3485675
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 274238828,
-    "_type": "node",
-    "diet_vegan": "yes",
-    "issue_count": 4,
-    "name": "IKEA Restaurant",
-    "undefined": [
-     "addr:street",
-     "addr:housenumber",
-     "addr:city/suburb",
-     "addr:postcode"
-    ]
-   },
-   "type": "Feature"
-  },
   {
    "geometry": {
     "coordinates": [
@@ -160,48 +137,6 @@
     "name": "DINEA",
     "undefined": [
      "cuisine"
-    ]
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     12.177683,
-     51.344328
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 2986723100,
-    "_type": "node",
-    "diet_vegan": "yes",
-    "issue_count": 2,
-    "name": "Dunkin'",
-    "undefined": [
-     "addr:street",
-     "addr:housenumber"
-    ]
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     12.1780337,
-     51.3439014
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 3208898648,
-    "_type": "node",
-    "diet_vegan": "yes",
-    "issue_count": 2,
-    "name": "Coffee Fellows",
-    "undefined": [
-     "addr:street",
-     "addr:housenumber"
     ]
    },
    "type": "Feature"

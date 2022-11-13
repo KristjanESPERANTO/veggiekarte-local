@@ -2,8 +2,8 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.59 e21c39fe",
   "osm3s": {
-    "timestamp_osm_base": "2022-11-12T19:59:09Z",
-    "timestamp_areas_base": "2022-11-12T19:05:09Z",
+    "timestamp_osm_base": "2022-11-12T21:39:39Z",
+    "timestamp_areas_base": "2022-11-12T21:07:09Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -35,7 +35,11 @@
   "lat": 51.3485675,
   "lon": 12.1824546,
   "tags": {
-    "amenity": "restaurant",
+    "addr:city": "Leuna OT Kötschlitz",
+    "addr:housenumber": "17",
+    "addr:postcode": "06237",
+    "addr:street": "Nordpark",
+    "amenity": "fast_food",
     "brand": "IKEA",
     "brand:wikidata": "Q54078",
     "brand:wikipedia": "en:IKEA",
@@ -46,6 +50,7 @@
     "diet:vegetarian": "yes",
     "indoor_seating": "yes",
     "name": "IKEA Restaurant",
+    "name:ru": "Ресторан ИКЕА",
     "opening_hours": "Mo-Sa 10:00-20:00",
     "outdoor_seating": "no",
     "smoking": "separated",

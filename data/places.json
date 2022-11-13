@@ -1,5 +1,5 @@
 {
- "_timestamp": "2022-11-12 21:36:06.580527",
+ "_timestamp": "2022-11-12 22:40:39.089531",
  "features": [
   {
    "geometry": {
@@ -38,12 +38,15 @@
    "properties": {
     "_id": 274238828,
     "_type": "node",
+    "addr_city": "Leuna OT Kötschlitz",
+    "addr_postcode": "06237",
+    "addr_street": "Nordpark 17",
     "category": "vegan_friendly",
     "cuisine": "swedish",
-    "icon": "restaurant",
+    "icon": "fast_food",
     "name": "IKEA Restaurant",
     "opening_hours": "Mo-Sa 10:00-20:00",
-    "symbol": "🍽️"
+    "symbol": "🍔"
    },
    "type": "Feature"
   },
