@@ -281,14 +281,14 @@ def check_data(data):
             # Phone
             if "contact:phone" in tags:
                 contact_phone = tags.get("contact:phone", "")
-                if not contact_phone.startswith("+"):
+                if not contact_phone.startswith("+") or (contact_phone.count(" ") + contact_phone.count("-")) < 2:
                     place_check_obj["properties"]["issues"].append(
-                        "'contact:phone' has no international format like '+44 20 84527891'")
+                        "'contact:phone' does not conform to the international format (like '+44 99 123456789')")
             if "phone" in tags:
                 phone = tags.get("phone", "")
-                if not phone.startswith("+"):
+                if not phone.startswith("+") or (phone.count(" ") + phone.count("-")) < 2:
                     place_check_obj["properties"]["issues"].append(
-                        "'phone' has no international format like '+44 20 84527891'")
+                        "'phone' does not conform to the international format (like '+44 99 123456789')")
             if "contact:phone" in tags and "phone" in tags:
                 place_check_obj["properties"]["issues"].append(
                     "'phone' and 'contact:phone' defined -> remove one")
