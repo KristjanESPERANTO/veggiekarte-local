@@ -1,5 +1,5 @@
 {
- "_timestamp": "2022-12-09 23:11:19.692839",
+ "_timestamp": "2022-12-09 23:59:17.461007",
  "features": [
   {
    "geometry": {
@@ -118,7 +118,7 @@
     "category": "vegan_friendly",
     "contact_email": "indian.restaurent_shiva@hotmail.de",
     "contact_phone": "+49 345 4789517",
-    "contact_website": "http://www.shiva-halle.de",
+    "contact_website": "https://shiva-indian-restaurant-halle.webnode.page",
     "cuisine": "indian",
     "icon": "restaurant",
     "more_info": true,

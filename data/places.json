@@ -1,5 +1,5 @@
 {
- "_timestamp": "2022-12-09 23:59:17.461007",
+ "_timestamp": "2022-12-10 03:19:12.053689",
  "features": [
   {
    "geometry": {
@@ -65,7 +65,7 @@
     "addr_postcode": "06108",
     "addr_street": "Ankerstraße 2",
     "category": "vegan_friendly",
-    "contact_phone": "+49 345 2323 200",
+    "contact_phone": "+49 345 2323200",
     "contact_website": "https://www.ankerhof.de/htdocs/saalekahn.shtml",
     "icon": "restaurant",
     "more_info": true,
@@ -863,7 +863,7 @@
     "addr_street": "August-Bebel-Straße 53",
     "category": "vegan_friendly",
     "contact_email": "info@amasyna.de",
-    "contact_phone": "+49 176 610962284",
+    "contact_phone": "+49 176 61096284",
     "contact_website": "https://amasyna.de",
     "cuisine": "pizza;burger;kebab;barbecue;mediterranean;american;arab",
     "icon": "maki_restaurant-pizza",
@@ -3405,7 +3405,7 @@
     "category": "vegan_friendly",
     "contact_facebook": "peissnitzhauspiraten",
     "contact_instagram": "peissnitzhaus",
-    "contact_website": "https://www.peissnitzhaus.de/index.php/gartenlokal",
+    "contact_website": "https://www.peissnitzhaus.de/gastronomie",
     "cuisine": "regional;coffee_shop",
     "icon": "cafe",
     "more_info": true,

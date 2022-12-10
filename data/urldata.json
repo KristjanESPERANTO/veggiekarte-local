@@ -784,6 +784,11 @@
   "isOk": true,
   "text": "OK - 200"
  },
+ "https://www.peissnitzhaus.de/gastronomie": {
+  "date": "2022-12-10",
+  "isOk": true,
+  "text": "OK - 200"
+ },
  "https://www.peissnitzhaus.de/index.php/gartenlokal": {
   "date": "2022-12-09",
   "isOk": false,

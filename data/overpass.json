@@ -2,8 +2,8 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.59 e21c39fe",
   "osm3s": {
-    "timestamp_osm_base": "2022-12-09T22:57:54Z",
-    "timestamp_areas_base": "2022-12-09T22:23:07Z",
+    "timestamp_osm_base": "2022-12-10T02:17:28Z",
+    "timestamp_areas_base": "2022-12-10T01:23:15Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -70,7 +70,7 @@
     "addr:postcode": "06108",
     "addr:street": "Ankerstraße",
     "amenity": "restaurant",
-    "contact:phone": "+49 345 2323 200",
+    "contact:phone": "+49 345 2323200",
     "contact:website": "https://www.ankerhof.de/htdocs/saalekahn.shtml",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
@@ -830,7 +830,7 @@
     "amenity": "restaurant",
     "capacity": "30",
     "contact:email": "info@amasyna.de",
-    "contact:phone": "+49 176 610962284",
+    "contact:phone": "+49 176 61096284",
     "cuisine": "pizza;burger;kebab;barbecue;mediterranean;american;arab",
     "diet:vegan": "yes",
     "name": "Amasyna",
@@ -3216,7 +3216,7 @@
     "building": "yes",
     "contact:facebook": "https://www.facebook.com/peissnitzhauspiraten/",
     "contact:instagram": "https://www.instagram.com/peissnitzhaus/",
-    "contact:website": "https://www.peissnitzhaus.de/index.php/gartenlokal",
+    "contact:website": "https://www.peissnitzhaus.de/gastronomie",
     "cuisine": "regional;coffee_shop",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
@@ -3226,7 +3226,6 @@
     "opening_hours": "Mo-Fr 11:30-17:00; Sa-Su 10:00-18:00",
     "outdoor_seating": "yes",
     "payment:girocard": "yes",
-    "source": "https://www.peissnitzhaus.de/index.php/gartenlokal",
     "toilets:wheelchair": "yes",
     "wheelchair": "yes",
     "wheelchair:description": "doppelter Eintrag (siehe Peißnitzhaus)"
