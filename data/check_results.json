@@ -1,5 +1,5 @@
 {
- "_timestamp": "2022-11-12 22:40:45.673757",
+ "_timestamp": "2022-12-09 23:59:55.652576",
  "features": [
   {
    "geometry": {
@@ -264,6 +264,26 @@
   {
    "geometry": {
     "coordinates": [
+     11.9953039,
+     51.4849661
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 9801803441,
+    "_type": "node",
+    "diet_vegan": "limited",
+    "issue_count": 1,
+    "name": "SWH Betriebsrestaurant",
+    "undefined": [
+     "cuisine"
+    ]
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9434794,
      51.4986311
     ],
@@ -278,6 +298,26 @@
     "undefined": [
      "cuisine"
     ]
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9475137,
+     51.4936383
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 61561597,
+    "_type": "way",
+    "diet_vegan": "yes",
+    "issue_count": 1,
+    "issues": [
+     "'contact:website' HTTP response error - 404"
+    ],
+    "name": "Gartenlokal am Pei\u00dfnitzhaus/Pei\u00dfnitzhaus-Caf\u00e9"
    },
    "type": "Feature"
   }

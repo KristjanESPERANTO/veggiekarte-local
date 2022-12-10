@@ -2,8 +2,8 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.59 e21c39fe",
   "osm3s": {
-    "timestamp_osm_base": "2022-11-12T21:39:39Z",
-    "timestamp_areas_base": "2022-11-12T21:07:09Z",
+    "timestamp_osm_base": "2022-12-09T22:57:54Z",
+    "timestamp_areas_base": "2022-12-09T22:23:07Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -124,13 +124,15 @@
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "email": "indian.restaurent_shiva@hotmail.de",
+    "indoor_seating": "yes",
     "internet_access": "no",
     "name": "Shiva",
     "opening_hours": "Mo-Su 11:30-15:00,17:30-23:30",
     "operator": "Top Bahadur Basnet",
+    "outdoor_seating": "yes",
     "phone": "+49 345 4789517",
     "smoking": "no",
-    "website": "http://www.shiva-halle.de",
+    "website": "https://shiva-indian-restaurant-halle.webnode.page",
     "wheelchair": "limited"
   }
 },
@@ -1239,12 +1241,15 @@
     "addr:postcode": "06112",
     "addr:street": "Hans-Dietrich-Genscher-Platz",
     "amenity": "fast_food",
-    "cuisine": "juices",
+    "contact:facebook": "https://www.facebook.com/Haferkater",
+    "contact:instagram": "https://www.instagram.com/haferkater",
+    "contact:website": "https://haferkater.com/stores/halle/",
+    "cuisine": "bowls;porridge",
     "diet:vegan": "yes",
     "diet:vegetarian": "only",
     "level": "-1",
     "name": "Haferkater",
-    "opening_hours": "Mo-Su, PH 08:00-20:00",
+    "opening_hours": "Mo-Fr 06:00-20:00; Sa-Su 07:00-20:00",
     "wheelchair": "yes"
   }
 },
@@ -1701,6 +1706,31 @@
 },
 {
   "type": "node",
+  "id": 4218926289,
+  "lat": 51.4851383,
+  "lon": 11.9687663,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:country": "DE",
+    "addr:housenumber": "52",
+    "addr:postcode": "06108",
+    "addr:street": "Große Ulrichstraße",
+    "amenity": "cafe",
+    "diet:vegan": "yes",
+    "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
+    "name": "Konditorei Wendl",
+    "opening_hours": "Mo-Fr 07:00-19:00; Sa,Su 07:00-18:00",
+    "outdoor_seating": "no",
+    "phone": "+49 345 47898218",
+    "smoking": "no",
+    "takeaway": "yes",
+    "toilets:wheelchair": "no",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
   "id": 4465518868,
   "lat": 51.4758258,
   "lon": 11.9703747,
@@ -1759,6 +1789,7 @@
     "name": "Viet Village",
     "opening_hours": "Mo-Su 11:00-23:00",
     "outdoor_seating": "yes",
+    "smoking": "outside",
     "website": "http://vietvillageasianstreetfood.cafelists.com/",
     "wheelchair:description": "keine Angaben, Eckgebäude zur Ulrichstraße"
   }
@@ -2186,29 +2217,6 @@
     "payment:debit_cards": "yes",
     "toilets:wheelchair": "yes",
     "wheelchair": "yes"
-  }
-},
-{
-  "type": "node",
-  "id": 6033781352,
-  "lat": 51.4956871,
-  "lon": 11.9655416,
-  "tags": {
-    "addr:city": "Halle (Saale)",
-    "addr:country": "DE",
-    "addr:housenumber": "32",
-    "addr:postcode": "06114",
-    "addr:street": "Reilstraße",
-    "amenity": "cafe",
-    "contact:instagram": "https://www.instagram.com/toertcheneck.konditorei/",
-    "contact:phone": "+49 345 13252434",
-    "contact:website": "https://www.toertcheneck.de",
-    "cuisine": "cake",
-    "diet:vegan": "yes",
-    "diet:vegetarian": "only",
-    "name": "Törtcheneck",
-    "opening_hours": "Tu-Sa 11:00-16:00",
-    "outdoor_seating": "no"
   }
 },
 {
@@ -2935,6 +2943,25 @@
 },
 {
   "type": "node",
+  "id": 9801803441,
+  "lat": 51.4849661,
+  "lon": 11.9953039,
+  "tags": {
+    "access": "yes",
+    "addr:city": "Halle (Saale)",
+    "addr:country": "DE",
+    "addr:housenumber": "75",
+    "addr:postcode": "06112",
+    "addr:street": "Freiimfelder Straße",
+    "amenity": "canteen",
+    "diet:vegan": "limited",
+    "diet:vegetarian": "yes",
+    "name": "SWH Betriebsrestaurant",
+    "opening_hours": "Mo-Fr 07:00-13:30"
+  }
+},
+{
+  "type": "node",
   "id": 9969559755,
   "lat": 51.4929992,
   "lon": 11.9793497,
@@ -2972,6 +2999,26 @@
     "name": "Freddy Fresh",
     "opening_hours": "Mo-Su 11:00-22:00",
     "wheelchair": "limited"
+  }
+},
+{
+  "type": "node",
+  "id": 10229383864,
+  "lat": 51.4785715,
+  "lon": 12.0127258,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:housenumber": "16",
+    "addr:postcode": "06116",
+    "addr:street": "Fiete-Schulze-Straße",
+    "amenity": "fast_food",
+    "contact:phone": "+49 345 22605363",
+    "contact:website": "https://kimviet.de",
+    "cuisine": "asian",
+    "diet:vegan": "limited",
+    "diet:vegetarian": "yes",
+    "name": "Kim Viet",
+    "opening_hours": "Mo off; Tu-Th 10:30-21:00; Fr-Sa 10:30-21:30; Su 11:00-21:00"
   }
 },
 {
@@ -3236,6 +3283,7 @@
   },
   "nodes": [
     1347317717,
+    10181340171,
     1347317685,
     1347317707,
     1347317686,
@@ -3391,9 +3439,12 @@
     "diet:vegetarian": "yes",
     "email": "halle@wenzel-prager-bierstuben.de",
     "fax": "+49 345 4704998-1",
+    "indoor_seating": "yes",
     "name": "Wenzel Prager Bierstuben",
     "opening_hours": "Mo-Th 11:30-22:00; Fr,Sa 11:30-23:00; Su 11:30-21:00",
+    "outdoor_seating": "yes",
     "phone": "+49 345 4704998-0",
+    "smoking": "outside",
     "toilets:wheelchair": "yes",
     "website": "http://www.wenzel-prager-bierstuben.de",
     "wheelchair": "limited",
