@@ -5,9 +5,8 @@ With this module we check the OpenStreetMap data.
 
 import datetime  # for the timestamp
 import json  # read and write json
-import phonenumbers # to check phone numbers
 from urllib.parse import urlparse
-
+import phonenumbers # to check phone numbers
 import requests  # to check if websites are reachable
 from email_validator import EmailNotValidError, validate_email
 
@@ -183,9 +182,18 @@ def check_data(data):
         if tags.get("diet:vegan", "") != "no":
             # Cuisine
             if "cuisine" not in tags and "shop" not in tags:
+                # Everything except cafeś and shops should have a cuisine tag
                 if tags.get("amenity", "") != "cafe" and tags.get("amenity", "") != "ice_cream" and tags.get("amenity", "") != "bar":
                     place_check_obj["properties"]["undefined"].append(
                         "cuisine")
+
+            if "cuisine" in tags:
+                # The old values "vegan" and "vegetarian" should no longer be used
+                cuisine = tags["cuisine"]
+                if "vegan" in cuisine:
+                    place_check_obj["properties"]["issues"].append("There is 'vegan' in the cuisine tag. Remove it and create a 'diet:vegan' tag if there is none.")
+                if "vegetarian" in cuisine:
+                    place_check_obj["properties"]["issues"].append("There is 'vegetarian' in the cuisine tag. Remove it and create a 'diet:vegetarian' tag if there is none.")
 
             # Address
             if "addr:housename" not in tags:
@@ -289,6 +297,9 @@ def check_data(data):
             if "contact:phone" in tags:
                 tag_name = "contact:phone"
                 check_phone_number(place_check_obj, tag_name, tags)
+            if "contact:mobile" in tags:
+                tag_name = "contact:mobile"
+                check_phone_number(place_check_obj, tag_name, tags)
             if "phone" in tags:
                 tag_name = "phone"
                 check_phone_number(place_check_obj, tag_name, tags)
@@ -331,6 +342,7 @@ def check_data(data):
             if place_check_obj["properties"]["issue_count"] > 0:
                 places_data_checks["features"].append(place_check_obj)
     print(osm_elements_number, ' elements.')
+    places_data_checks["features"] = sorted(places_data_checks["features"], key = lambda x : x["properties"]["issue_count"], reverse=True)
     return places_data_checks
 
 def check_phone_number(place_check_obj, tag_name, tags):
@@ -342,8 +354,9 @@ def check_phone_number(place_check_obj, tag_name, tags):
         tags (object): All tags of a place.
     """
 
-    # TODO: Prüfung evtl. auf Validierung beschränken. Parsing und Formatierung evtl. in Refresh-Skript verschieben.
+    # TODO: Also use parsing and formatting in refresh script.
     phone_number = tags.get(tag_name, "")
+    phone_number = phone_number.split(";")[0] # Use only the first phone number
     try:
         parsed_number = phonenumbers.parse(phone_number, None)
         if phonenumbers.is_valid_number(parsed_number):
