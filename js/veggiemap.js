@@ -295,7 +295,7 @@ function calculatePopup(layer) {
   if (eCit !== undefined) {
     eAddr += `${eCit} `;
   } // City
-  // if (eCou !== undefined) { eAddr += "<br/>" + eCou } // Country
+  // if (eCou !== undefined) { eAddr += `<br/>${eCou}`; // Country
 
   // Adding address information to popup
   if (eAddr !== "") {

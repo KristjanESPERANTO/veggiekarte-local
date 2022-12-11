@@ -25,7 +25,7 @@ URL_DATA_FILE = "../data/urldata.json"
 # don't check more than 100 url's (because it takes to much time)
 MAX_URL_CHECKS = 100
 
-# don't check URLs that have already been tested within MAX
+# don't check URLs that have already been tested within the last x days
 MIN_URL_CHECK_AGE = 50
 
 # headers for the htttp request
