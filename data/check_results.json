@@ -1,5 +1,5 @@
 {
- "_timestamp": "2022-12-09 23:59:55.652576",
+ "_timestamp": "2022-12-11 17:23:30.994749",
  "features": [
   {
    "geometry": {
@@ -144,6 +144,106 @@
   {
    "geometry": {
     "coordinates": [
+     11.9708458,
+     51.4877831
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1538147900,
+    "_type": "node",
+    "diet_vegan": "yes",
+    "issue_count": 1,
+    "issues": [
+     "'contact:phone' does not conform to the ITU-T E.123 pattern. It's '+49 345 13 25 96 69' but it should be '+49 345 13259669'."
+    ],
+    "name": "Le Feu"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.967368,
+     51.4873171
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2068490774,
+    "_type": "node",
+    "diet_vegan": "yes",
+    "issue_count": 1,
+    "issues": [
+     "'contact:phone' does not conform to the ITU-T E.123 pattern. It's '+49 157 75356067' but it should be '+49 1577 5356067'."
+    ],
+    "name": "the one"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9701334,
+     51.475815
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2932869816,
+    "_type": "node",
+    "diet_vegan": "yes",
+    "issue_count": 1,
+    "issues": [
+     "'phone' does not conform to the ITU-T E.123 pattern. It's '+49 157 72543654' but it should be '+49 1577 2543654'."
+    ],
+    "name": "Yasmin"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9703938,
+     51.4754624
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3122763481,
+    "_type": "node",
+    "diet_vegan": "yes",
+    "issue_count": 1,
+    "issues": [
+     "'contact:phone' does not conform to the ITU-T E.123 pattern. It's '+49 345 68 57 999' but it should be '+49 345 6857999'."
+    ],
+    "name": "Domino's"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9699118,
+     51.4854444
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 4914539421,
+    "_type": "node",
+    "diet_vegan": "yes",
+    "issue_count": 1,
+    "issues": [
+     "'phone' does not conform to the ITU-T E.123 pattern. It's '+49 151 43239924' but it should be '+49 1514 3239924'."
+    ],
+    "name": "7 Gramm"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9632008,
      51.4707364
     ],
@@ -184,6 +284,26 @@
   {
    "geometry": {
     "coordinates": [
+     11.9678025,
+     51.4854936
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 5599806557,
+    "_type": "node",
+    "diet_vegan": "yes",
+    "issue_count": 1,
+    "issues": [
+     "'contact:phone' does not conform to the ITU-T E.123 pattern. It's '+49 152 21488547' but it should be '+49 1522 1488547'."
+    ],
+    "name": "Yaman Sham"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9569211,
      51.5030097
     ],
@@ -204,6 +324,26 @@
   {
    "geometry": {
     "coordinates": [
+     11.9660441,
+     51.4962832
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 8773861578,
+    "_type": "node",
+    "diet_vegan": "yes",
+    "issue_count": 1,
+    "issues": [
+     "'contact:phone' does not conform to the ITU-T E.123 pattern. It's '+49 176 800 605 78' but it should be '+49 176 80060578'."
+    ],
+    "name": "JUICY"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9831239,
      51.3704679
     ],
@@ -218,6 +358,26 @@
      "fixme: seit Mai neu im MerseCenter, an welcher Stelle ist mir aber nicht bekannt"
     ],
     "name": "SUSHIdeluxe"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9715732,
+     51.4929765
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 9140808707,
+    "_type": "node",
+    "diet_vegan": "yes",
+    "issue_count": 1,
+    "issues": [
+     "'contact:phone' does not conform to the ITU-T E.123 pattern. It's '+49 176 800 605 78' but it should be '+49 176 80060578'."
+    ],
+    "name": "JUICY"
    },
    "type": "Feature"
   },
@@ -304,20 +464,40 @@
   {
    "geometry": {
     "coordinates": [
-     11.9475137,
-     51.4936383
+     11.9685284,
+     51.4840732
     ],
     "type": "Point"
    },
    "properties": {
-    "_id": 61561597,
+    "_id": 134365557,
     "_type": "way",
     "diet_vegan": "yes",
     "issue_count": 1,
     "issues": [
-     "'contact:website' HTTP response error - 404"
+     "'phone' does not conform to the ITU-T E.123 pattern. It's '+49 345 4704998-0' but it should be '+49 345 47049980'."
     ],
-    "name": "Gartenlokal am Pei\u00dfnitzhaus/Pei\u00dfnitzhaus-Caf\u00e9"
+    "name": "Wenzel Prager Bierstuben"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9659804,
+     51.4973787
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 467769739,
+    "_type": "way",
+    "diet_vegan": "limited",
+    "issue_count": 1,
+    "issues": [
+     "'contact:phone': Validation of number '+1 345 6846567' failed. Is this number correct?."
+    ],
+    "name": "Goldene Schildkr\u00f6te"
    },
    "type": "Feature"
   }
