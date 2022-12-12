@@ -1,26 +1,6 @@
 {
- "_timestamp": "2022-12-11 17:41:17.062708",
+ "_timestamp": "2022-12-12 19:20:45.293355",
  "features": [
-  {
-   "geometry": {
-    "coordinates": [
-     11.9610093,
-     51.4823823
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 282473154,
-    "_type": "node",
-    "diet_vegan": "yes",
-    "issue_count": 1,
-    "name": "Saalekahn",
-    "undefined": [
-     "cuisine"
-    ]
-   },
-   "type": "Feature"
-  },
   {
    "geometry": {
     "coordinates": [
@@ -35,46 +15,6 @@
     "diet_vegan": "yes",
     "issue_count": 1,
     "name": "N8 Caf\u00e9-Dinner-Bar",
-    "undefined": [
-     "cuisine"
-    ]
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9691864,
-     51.4854326
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 788792222,
-    "_type": "node",
-    "diet_vegan": "yes",
-    "issue_count": 1,
-    "name": "Strieses Biertunnel",
-    "undefined": [
-     "cuisine"
-    ]
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9649977,
-     51.4832003
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 1034448971,
-    "_type": "node",
-    "diet_vegan": "yes",
-    "issue_count": 1,
-    "name": "N\u00f6\u00f6",
     "undefined": [
      "cuisine"
     ]
@@ -124,26 +64,6 @@
   {
    "geometry": {
     "coordinates": [
-     11.9708081,
-     51.482779
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 1531995016,
-    "_type": "node",
-    "diet_vegan": "yes",
-    "issue_count": 1,
-    "name": "DINEA",
-    "undefined": [
-     "cuisine"
-    ]
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
      11.9632008,
      51.4707364
     ],
@@ -184,26 +104,6 @@
   {
    "geometry": {
     "coordinates": [
-     11.9569211,
-     51.5030097
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 8018875351,
-    "_type": "node",
-    "diet_vegan": "yes",
-    "issue_count": 1,
-    "name": "Restaurant Ruine",
-    "undefined": [
-     "cuisine"
-    ]
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
      11.9831239,
      51.3704679
     ],
@@ -218,46 +118,6 @@
      "fixme: seit Mai neu im MerseCenter, an welcher Stelle ist mir aber nicht bekannt"
     ],
     "name": "SUSHIdeluxe"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9695742,
-     51.4843564
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 9572703189,
-    "_type": "node",
-    "diet_vegan": "limited",
-    "issue_count": 1,
-    "name": "Bowls King",
-    "undefined": [
-     "cuisine"
-    ]
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.964367,
-     51.4738689
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 9752900958,
-    "_type": "node",
-    "diet_vegan": "yes",
-    "issue_count": 1,
-    "name": "lilobowl",
-    "undefined": [
-     "cuisine"
-    ]
    },
    "type": "Feature"
   },

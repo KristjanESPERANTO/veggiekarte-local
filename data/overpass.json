@@ -2,8 +2,8 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.59 e21c39fe",
   "osm3s": {
-    "timestamp_osm_base": "2022-12-11T16:39:40Z",
-    "timestamp_areas_base": "2022-12-11T16:37:36Z",
+    "timestamp_osm_base": "2022-12-12T18:19:09Z",
+    "timestamp_areas_base": "2022-12-12T17:50:36Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -72,6 +72,7 @@
     "amenity": "restaurant",
     "contact:phone": "+49 345 2323200",
     "contact:website": "https://www.ankerhof.de/htdocs/saalekahn.shtml",
+    "cuisine": "german",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "name": "Saalekahn",
@@ -331,6 +332,7 @@
     "brewery": "Budweiser",
     "contact:facebook": "https://www.facebook.com/pages/Strieses-Biertunnel/480254735329722",
     "contact:phone": "+49 345 5125948",
+    "cuisine": "german",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "food": "yes",
@@ -381,6 +383,7 @@
     "addr:street": "Große Klausstraße",
     "amenity": "pub",
     "contact:facebook": "https://www.facebook.com/Kaffee1990/",
+    "cuisine": "german",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "food": "yes",
@@ -434,7 +437,6 @@
     "brewery": "yes;Guinness;Killkenny",
     "contact:facebook": "https://www.facebook.com/kaffeeschuppen",
     "contact:phone": "+49 345 2080803",
-    "contact:website": "https://www.kaffeeschuppen.de/",
     "description": "lots of whiskey, single malt too",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
@@ -623,6 +625,7 @@
     "amenity": "restaurant",
     "contact:phone": "+49 345 7749361",
     "contact:website": "https://galeria-restaurant.de/fillialen-galeria-restaurant-halle-martkplatz-20/",
+    "cuisine": "german",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "kids_area": "yes",
@@ -1273,7 +1276,8 @@
     "diet:vegetarian": "yes",
     "name": "Mextreme",
     "opening_hours": "Mo-Th 17:00-23:00; Fr-Sa 17:00-21:00; Su 17:00-22:00",
-    "wheelchair": "no"
+    "wheelchair": "no",
+    "wikimedia_commons": "File:HAL-Reilstr131.JPG"
   }
 },
 {
@@ -2497,6 +2501,7 @@
     "amenity": "restaurant",
     "contact:phone": "+49 345 47823360",
     "contact:website": "https://www.objekt5.com/index.php/kontakte/restaurant-ruine",
+    "cuisine": "pizza;pasta;german;dessert",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "name": "Restaurant Ruine",
@@ -2859,7 +2864,8 @@
     "addr:postcode": "06108",
     "addr:street": "Große Ulrichtsraße",
     "amenity": "fast_food",
-    "contact:instagram": "https://www.instagram.com/bowlsking/",
+    "contact:website": "https://bowlsking.de",
+    "cuisine": "smoothie;soup;bowl",
     "delivery": "yes",
     "diet:vegan": "limited",
     "diet:vegetarian": "yes",
@@ -2910,7 +2916,7 @@
     "contact:phone": "+49 162 6678968",
     "cuisine": "asian",
     "diet:vegan": "only",
-    "diet:vegetarian": "yes",
+    "diet:vegetarian": "only",
     "level": "0",
     "name": "Bay Vegan",
     "opening_hours": "Mo-Su 11:00-15:00, 17:00-23:00",
@@ -2936,6 +2942,7 @@
     "contact:instagram": "https://www.instagram.com/lilobowl/",
     "contact:phone": "+49 345 13256860",
     "contact:website": "https://www.lilobowl.de",
+    "cuisine": "bowl;waffle",
     "diet:vegan": "yes",
     "name": "lilobowl",
     "opening_hours": "Tu-Th 11:00-20:00; Fr-Sa 11:00-21:00; Su 11:00-20:00"

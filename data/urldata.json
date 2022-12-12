@@ -89,6 +89,11 @@
   "isOk": true,
   "text": "OK - 200"
  },
+ "https://bowlsking.de": {
+  "date": "2022-12-12",
+  "isOk": true,
+  "text": "OK - 200"
+ },
  "https://coffee-fellows.com/": {
   "date": "2022-12-09",
   "isOk": true,

@@ -1,5 +1,5 @@
 {
- "_timestamp": "2022-12-11 17:40:59.180272",
+ "_timestamp": "2022-12-12 19:20:35.348134",
  "features": [
   {
    "geometry": {
@@ -67,6 +67,7 @@
     "category": "vegan_friendly",
     "contact_phone": "+49 345 2323200",
     "contact_website": "https://www.ankerhof.de/htdocs/saalekahn.shtml",
+    "cuisine": "german",
     "icon": "restaurant",
     "more_info": true,
     "name": "Saalekahn",
@@ -322,6 +323,7 @@
     "category": "vegan_friendly",
     "contact_facebook": "pages/Strieses-Biertunnel/480254735329722",
     "contact_phone": "+49 345 5125948",
+    "cuisine": "german",
     "icon": "pub",
     "name": "Strieses Biertunnel",
     "opening_hours": "Mo-Su 18:00-24:00",
@@ -372,6 +374,7 @@
     "addr_street": "Große Klausstraße 11",
     "category": "vegan_friendly",
     "contact_facebook": "Kaffee1990",
+    "cuisine": "german",
     "icon": "pub",
     "more_info": true,
     "name": "Nöö",
@@ -423,7 +426,6 @@
     "category": "vegan_friendly",
     "contact_facebook": "kaffeeschuppen",
     "contact_phone": "+49 345 2080803",
-    "contact_website": "https://www.kaffeeschuppen.de",
     "icon": "pub",
     "more_info": true,
     "name": "Kaffeeschuppen",
@@ -631,6 +633,7 @@
     "category": "vegan_friendly",
     "contact_phone": "+49 345 7749361",
     "contact_website": "https://galeria-restaurant.de/fillialen-galeria-restaurant-halle-martkplatz-20",
+    "cuisine": "german",
     "icon": "restaurant",
     "name": "DINEA",
     "opening_hours": "Mo-Sa 09:30-17:00; Su,PH off",
@@ -2695,11 +2698,12 @@
     "category": "vegan_friendly",
     "contact_phone": "+49 345 47823360",
     "contact_website": "https://www.objekt5.com/index.php/kontakte/restaurant-ruine",
-    "icon": "restaurant",
+    "cuisine": "pizza;pasta;german;dessert",
+    "icon": "maki_restaurant-pizza",
     "more_info": true,
     "name": "Restaurant Ruine",
     "opening_hours": "Mo 17:00-24:00; Tu-Th 12:00-24:00; Fr-Su 12:00-01:00",
-    "symbol": "🍽️"
+    "symbol": "🍕"
    },
    "type": "Feature"
   },
@@ -3103,7 +3107,8 @@
     "addr_postcode": "06108",
     "addr_street": "Große Ulrichtsraße 58",
     "category": "vegan_limited",
-    "contact_instagram": "bowlsking",
+    "contact_website": "https://bowlsking.de",
+    "cuisine": "smoothie;soup;bowl",
     "icon": "fast_food",
     "more_info": true,
     "name": "Bowls King",
@@ -3184,6 +3189,7 @@
     "contact_instagram": "lilobowl",
     "contact_phone": "+49 345 13256860",
     "contact_website": "https://www.lilobowl.de",
+    "cuisine": "bowl;waffle",
     "icon": "restaurant",
     "name": "lilobowl",
     "opening_hours": "Tu-Th 11:00-20:00; Fr-Sa 11:00-21:00; Su 11:00-20:00",
