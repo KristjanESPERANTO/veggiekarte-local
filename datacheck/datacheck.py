@@ -173,9 +173,16 @@ def check_data(data):
         if "diet:vegan" in tags:
             diet_vegan = tags.get("diet:vegan", "")
             place_check_obj["properties"]["diet_vegan"] = diet_vegan
+            # Check if "diet:vegan" has unusual values
             if diet_vegan != "only" and diet_vegan != "yes" and diet_vegan != "limited" and diet_vegan != "no":
                 place_check_obj["properties"]["issues"].append(
                     "'diet:vegan' has an unusual value: " + diet_vegan)
+            # If "diet:vegan" is "only", "diet:vegetarian" should not have another value.
+            elif "diet:vegetarian" in tags and diet_vegan == "only":
+                diet_vegetarian = tags.get("diet:vegetarian", "")
+                if diet_vegetarian != "only":
+                    place_check_obj["properties"]["issues"].append(
+                    "'diet:vegan' is 'only', then 'diet:vegetarian' should be too.")
         else:
             place_check_obj["properties"]["undefined"].append("diet:vegan")
 
@@ -342,6 +349,8 @@ def check_data(data):
             if place_check_obj["properties"]["issue_count"] > 0:
                 places_data_checks["features"].append(place_check_obj)
     print(osm_elements_number, ' elements.')
+
+    # Sort list by issue count
     places_data_checks["features"] = sorted(places_data_checks["features"], key = lambda x : x["properties"]["issue_count"], reverse=True)
     return places_data_checks
 
@@ -375,7 +384,7 @@ def check_phone_number(place_check_obj, tag_name, tags):
                     f"'{tag_name}': Validation of number '{phone_number}' failed. Is this number correct?.")
     except Exception as error:
         place_check_obj["properties"]["issues"].append(
-                    "'contact:phone' corresponds neither to the ITU-T E.123 pattern (like '+44 99 123456789') nor to the RFC 3966 pattern (like '+1-710-555-2333') - Error message: " + "".join(error.args))
+                    f"'{tag_name}' corresponds neither to the ITU-T E.123 pattern (like '+44 99 123456789') nor to the RFC 3966 pattern (like '+1-710-555-2333') - Error message: " + "".join(error.args))
 
 
 def main():
