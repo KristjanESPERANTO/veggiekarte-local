@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/KristjanESPERANTO/veggiekarte-local",
   "devDependencies": {
-    "eslint": "^8.29.0",
+    "eslint": "^8.30.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
@@ -38,8 +38,8 @@
     "stylelint-prettier": "^2.0.0"
   },
   "scripts": {
-    "lint": "eslint . && stylelint **/*.css && npx prettier --check .",
-    "lint:fix": "eslint --fix . && stylelint --fix **/*.css && npx prettier --write .",
+    "lint": "eslint . && stylelint **/*.css && prettier --check .",
+    "lint:fix": "eslint --fix . && stylelint --fix **/*.css && prettier --write .",
     "test": "npm run lint",
     "prepare": "husky install"
   },

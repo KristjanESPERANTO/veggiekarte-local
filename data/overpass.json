@@ -2,8 +2,8 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.59 e21c39fe",
   "osm3s": {
-    "timestamp_osm_base": "2022-12-12T18:19:09Z",
-    "timestamp_areas_base": "2022-12-12T17:50:36Z",
+    "timestamp_osm_base": "2022-12-19T19:41:54Z",
+    "timestamp_areas_base": "2022-12-19T19:14:24Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -246,6 +246,7 @@
     "addr:postcode": "06108",
     "addr:street": "Bernburger Straße",
     "amenity": "bar",
+    "check_date:opening_hours": "2022-12-13",
     "contact:facebook": "https://www.facebook.com/mosdaniels/",
     "contact:phone": "+49 345 6869800",
     "contact:website": "http://www.mosdaniels.de",
@@ -626,8 +627,8 @@
     "contact:phone": "+49 345 7749361",
     "contact:website": "https://galeria-restaurant.de/fillialen-galeria-restaurant-halle-martkplatz-20/",
     "cuisine": "german",
-    "diet:vegan": "yes",
-    "diet:vegetarian": "yes",
+    "diet:vegan": "limited",
+    "diet:vegetarian": "limited",
     "kids_area": "yes",
     "kids_area:indoor": "yes",
     "name": "DINEA",
