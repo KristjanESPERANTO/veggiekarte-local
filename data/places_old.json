@@ -1,5 +1,5 @@
 {
- "_timestamp": "2022-12-12 19:20:35.348134",
+ "_timestamp": "2022-12-19 22:44:44.575634",
  "features": [
   {
    "geometry": {
@@ -630,7 +630,7 @@
     "addr_country": "DE",
     "addr_postcode": "06108",
     "addr_street": "Marktplatz 24",
-    "category": "vegan_friendly",
+    "category": "vegan_limited",
     "contact_phone": "+49 345 7749361",
     "contact_website": "https://galeria-restaurant.de/fillialen-galeria-restaurant-halle-martkplatz-20",
     "cuisine": "german",
