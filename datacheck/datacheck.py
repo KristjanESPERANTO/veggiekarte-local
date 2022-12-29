@@ -223,18 +223,18 @@ def check_data(data):
 
             # Address
             if "addr:housename" not in tags:
-                if "addr:street" not in tags:
+                if "addr:street" not in tags and "contact:street" not in tags:
                     place_check_obj["properties"]["undefined"].append("addr:street")
-                if "addr:housenumber" not in tags:
+                if "addr:housenumber" not in tags and "contact:housenumber" not in tags:
                     place_check_obj["properties"]["undefined"].append(
                         "addr:housenumber"
                     )
-            if "addr:city" not in tags:
+            if "addr:city" not in tags and "contact:city" not in tags:
                 if "addr:suburb" not in tags:
                     place_check_obj["properties"]["undefined"].append(
                         "addr:city/suburb"
                     )
-            if "addr:postcode" not in tags:
+            if "addr:postcode" not in tags and "contact:postcode" not in tags:
                 place_check_obj["properties"]["undefined"].append("addr:postcode")
 
             # Website
@@ -434,33 +434,25 @@ def check_phone_number(place_check_obj, tag_name, tags):
             phone_number_itute123_pattern = phonenumbers.format_number(
                 parsed_number, phonenumbers.PhoneNumberFormat.INTERNATIONAL
             )
-            phone_number_rfc3966_pattern = phonenumbers.format_number(
-                parsed_number, phonenumbers.PhoneNumberFormat.RFC3966
-            )
             phone_number_e164_pattern = phonenumbers.format_number(
                 parsed_number, phonenumbers.PhoneNumberFormat.E164
             )
-            phone_number_rfc3966_pattern = phone_number_rfc3966_pattern.replace(
-                "tel:", ""
-            )
-            if (phone_number_itute123_pattern != phone_number and
-                phone_number_rfc3966_pattern != phone_number and
-                phone_number_e164_pattern != phone_number):
-                if phone_number.startswith("+1"):
-                    place_check_obj["properties"]["issues"].append(
-                        f"'{tag_name}' does not conform to the RFC 3966 pattern. It's '{phone_number}' but it should be '{phone_number_rfc3966_pattern}'."
-                    )
-                else:
-                    place_check_obj["properties"]["issues"].append(
-                        f"'{tag_name}' does not conform to the ITU-T E.123 pattern. It's '{phone_number}' but it should be '{phone_number_itute123_pattern}'."
-                    )
+
+            if (
+                phone_number_itute123_pattern != phone_number
+                and phone_number_e164_pattern != phone_number
+            ):
+
+                place_check_obj["properties"]["issues"].append(
+                    f"'{tag_name}' does not conform to the ITU-T E.123 pattern. It's '{phone_number}' but it should be '{phone_number_itute123_pattern}'."
+                )
         else:
             place_check_obj["properties"]["issues"].append(
                 f"'{tag_name}': Validation of number '{phone_number}' failed. Is this number correct?."
             )
     except Exception as error:
         place_check_obj["properties"]["issues"].append(
-            f"'{tag_name}' corresponds neither to the ITU-T E.123 pattern (like '+44 99 123456789') nor to the RFC 3966 pattern (like '+1-710-555-2333') - Error message: "
+            f"'{tag_name}' corresponds not to the ITU-T E.123 pattern (like '+44 99 123456789' or '+1 710-555-2333') - Error message: "
             + "".join(error.args)
         )
 
@@ -492,7 +484,7 @@ def main():
 
         # Write check result file in pretty format
         outfile = open(VEGGIEPLACES_CHECK_RESULT_FILE, "w", encoding="utf-8")
-        outfile.write(json.dumps(check_result, indent=1, sort_keys=True))
+        outfile.write(json.dumps(check_result, indent=1, sort_keys=True, ensure_ascii=False))
         outfile.close()
     else:
         print("A problem has occurred. osm_data is None")

@@ -2,8 +2,8 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.59 e21c39fe",
   "osm3s": {
-    "timestamp_osm_base": "2022-12-24T23:48:09Z",
-    "timestamp_areas_base": "2022-12-24T23:01:40Z",
+    "timestamp_osm_base": "2022-12-29T14:41:10Z",
+    "timestamp_areas_base": "2022-12-29T13:47:25Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -1251,9 +1251,11 @@
     "cuisine": "bowls;porridge",
     "diet:vegan": "yes",
     "diet:vegetarian": "only",
+    "indoor_seating": "yes",
     "level": "-1",
     "name": "Haferkater",
     "opening_hours": "Mo-Fr 06:00-20:00; Sa-Su 07:00-20:00",
+    "outdoor_seating": "no",
     "wheelchair": "yes"
   }
 },
@@ -1845,8 +1847,10 @@
     "cuisine": "asian",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "name": "Hanoier Bistro",
     "opening_hours": "Su-Fr 10:30-21:00",
+    "outdoor_seating": "no",
     "wheelchair": "no"
   }
 },

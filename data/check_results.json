@@ -1,5 +1,5 @@
 {
- "_timestamp": "2022-12-25 00:48:53.864923",
+ "_timestamp": "2022-12-29 16:08:37.369201",
  "features": [
   {
    "geometry": {
@@ -14,7 +14,7 @@
     "_type": "node",
     "diet_vegan": "yes",
     "issue_count": 1,
-    "name": "N8 Caf\u00e9-Dinner-Bar",
+    "name": "N8 Café-Dinner-Bar",
     "undefined": [
      "cuisine"
     ]
@@ -34,7 +34,7 @@
     "_type": "node",
     "diet_vegan": "yes",
     "issue_count": 1,
-    "name": "\u00d6koase",
+    "name": "Ökoase",
     "undefined": [
      "cuisine"
     ]
@@ -74,7 +74,7 @@
     "_type": "node",
     "diet_vegan": "only",
     "issue_count": 1,
-    "name": "VL-K\u00fcfa",
+    "name": "VL-Küfa",
     "undefined": [
      "cuisine"
     ]
@@ -94,7 +94,7 @@
     "_type": "node",
     "diet_vegan": "only",
     "issue_count": 1,
-    "name": "Reil-K\u00fcfa",
+    "name": "Reil-Küfa",
     "undefined": [
      "cuisine"
     ]
