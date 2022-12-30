@@ -434,25 +434,28 @@ def check_phone_number(place_check_obj, tag_name, tags):
             phone_number_itute123_pattern = phonenumbers.format_number(
                 parsed_number, phonenumbers.PhoneNumberFormat.INTERNATIONAL
             )
+            phone_number_rfc3966_pattern = phonenumbers.format_number(
+                parsed_number, phonenumbers.PhoneNumberFormat.RFC3966
+            )
             phone_number_e164_pattern = phonenumbers.format_number(
                 parsed_number, phonenumbers.PhoneNumberFormat.E164
             )
-
-            if (
-                phone_number_itute123_pattern != phone_number
-                and phone_number_e164_pattern != phone_number
-            ):
-
-                place_check_obj["properties"]["issues"].append(
-                    f"'{tag_name}' does not conform to the ITU-T E.123 pattern. It's '{phone_number}' but it should be '{phone_number_itute123_pattern}'."
-                )
+            phone_number_rfc3966_pattern = phone_number_rfc3966_pattern.replace(
+                "tel:", ""
+            )
+            if (phone_number_itute123_pattern != phone_number and
+                phone_number_rfc3966_pattern != phone_number and
+                phone_number_e164_pattern != phone_number):
+                    place_check_obj["properties"]["issues"].append(
+                        f"'{tag_name}' does not conform to the ITU-T E.123, E.164 or RFC 3966 pattern. It's '{phone_number}' but '{phone_number_itute123_pattern}' (E.123) is recommended."
+                    )
         else:
             place_check_obj["properties"]["issues"].append(
                 f"'{tag_name}': Validation of number '{phone_number}' failed. Is this number correct?."
             )
     except Exception as error:
         place_check_obj["properties"]["issues"].append(
-            f"'{tag_name}' corresponds not to the ITU-T E.123 pattern (like '+44 99 123456789' or '+1 710-555-2333') - Error message: "
+            f"'{tag_name}' not corresponds to the ITU-T E.123, E.164 nor RFC 3966 pattern (like '+44 99 123456789', '+4499123456789' or '+44-99-123456789') - Error message: "
             + "".join(error.args)
         )
 
