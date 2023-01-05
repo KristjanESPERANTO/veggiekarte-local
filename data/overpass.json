@@ -2,8 +2,8 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.59 e21c39fe",
   "osm3s": {
-    "timestamp_osm_base": "2022-12-29T14:41:10Z",
-    "timestamp_areas_base": "2022-12-29T13:47:25Z",
+    "timestamp_osm_base": "2023-01-05T21:50:09Z",
+    "timestamp_areas_base": "2023-01-05T21:12:23Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -1308,34 +1308,6 @@
     "wheelchair": "no",
     "wheelchair:description": "Hohe Stufe in den Gastraum aber auf der anderen Straßenseite befindet sich ein kleiner Biergarten wo Speisen und Getränke serviert werden. Biergarten ist mit einem Rollstuhl befahrbar",
     "wikidata": "Q98116261"
-  }
-},
-{
-  "type": "node",
-  "id": 2932869816,
-  "lat": 51.4758150,
-  "lon": 11.9701334,
-  "tags": {
-    "addr:city": "Halle (Saale)",
-    "addr:country": "DE",
-    "addr:housenumber": "39",
-    "addr:postcode": "06110",
-    "addr:street": "Steinweg",
-    "amenity": "fast_food",
-    "cafe": "yes",
-    "cuisine": "arab;syrian",
-    "diet:halal": "yes",
-    "diet:vegan": "yes",
-    "diet:vegetarian": "yes",
-    "internet_access": "no",
-    "name": "Yasmin",
-    "name:ar": "ياسمين",
-    "name:de": "Yasmin",
-    "opening_hours": "Mo-Su 11:00-22:00",
-    "phone": "+49 1577 2543654",
-    "shisha": "yes",
-    "takeaway": "yes",
-    "wheelchair": "no"
   }
 },
 {
