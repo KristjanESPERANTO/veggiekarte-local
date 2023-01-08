@@ -2,8 +2,8 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.59 e21c39fe",
   "osm3s": {
-    "timestamp_osm_base": "2023-01-05T21:50:09Z",
-    "timestamp_areas_base": "2023-01-05T21:12:23Z",
+    "timestamp_osm_base": "2023-01-08T02:41:27Z",
+    "timestamp_areas_base": "2023-01-08T02:38:38Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -1823,46 +1823,6 @@
     "name": "Hanoier Bistro",
     "opening_hours": "Su-Fr 10:30-21:00",
     "outdoor_seating": "no",
-    "wheelchair": "no"
-  }
-},
-{
-  "type": "node",
-  "id": 4893692292,
-  "lat": 51.4939567,
-  "lon": 11.9687571,
-  "tags": {
-    "addr:city": "Halle (Saale)",
-    "addr:housenumber": "29",
-    "addr:postcode": "06114",
-    "addr:street": "Mühlweg",
-    "amenity": "cafe",
-    "cuisine": "coffee;kuchen",
-    "diet:vegan": "yes",
-    "name": "Café Wittekind",
-    "opening_hours": "Mo-Tu off; We-Fr 13:00-21:00; Sa-Su 09:00-21:00",
-    "outdoor_seating": "yes",
-    "wheelchair": "limited"
-  }
-},
-{
-  "type": "node",
-  "id": 4893782127,
-  "lat": 51.4929590,
-  "lon": 11.9708593,
-  "tags": {
-    "addr:city": "Halle (Saale)",
-    "addr:housenumber": "27",
-    "addr:postcode": "06108",
-    "addr:street": "Ludwig-Wucherer-Straße",
-    "amenity": "fast_food",
-    "contact:facebook": "https://www.facebook.com/Yasmine-Grillhaus-Oriental-Diner-107727340809090/",
-    "cuisine": "oriental",
-    "diet:vegan": "limited",
-    "diet:vegetarian": "yes",
-    "name": "Yasmine",
-    "opening_hours": "Mo-Su 11:00-23:00",
-    "outdoor_seating": "yes",
     "wheelchair": "no"
   }
 },

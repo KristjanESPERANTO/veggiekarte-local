@@ -1,5 +1,5 @@
 {
- "_timestamp": "2022-12-29 15:42:56.590543",
+ "_timestamp": "2023-01-05 22:51:53.040755",
  "features": [
   {
    "geometry": {
@@ -1385,32 +1385,6 @@
   {
    "geometry": {
     "coordinates": [
-     11.9701334,
-     51.475815
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 2932869816,
-    "_type": "node",
-    "addr_city": "Halle (Saale)",
-    "addr_country": "DE",
-    "addr_postcode": "06110",
-    "addr_street": "Steinweg 39",
-    "category": "vegan_friendly",
-    "contact_phone": "+49 1577 2543654",
-    "cuisine": "arab;syrian",
-    "icon": "fast_food",
-    "more_info": true,
-    "name": "Yasmin",
-    "opening_hours": "Mo-Su 11:00-22:00",
-    "symbol": "🍔"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
      11.7833499,
      51.4661476
     ],
@@ -1982,6 +1956,7 @@
     "contact_facebook": "Yasmine-Grillhaus-Oriental-Diner-107727340809090",
     "cuisine": "oriental",
     "icon": "fast_food",
+    "more_info": true,
     "name": "Yasmine",
     "opening_hours": "Mo-Su 11:00-23:00",
     "symbol": "🍔"

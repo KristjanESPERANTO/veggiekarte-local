@@ -65,7 +65,6 @@ GET_MORE_INFO = [
     8357411012,  # Falafello 2
     711744198,   # Hans im Glück
     1538147900,  # Le Feu
-    4893782127,  # Yasmine
     261692804,   # Espitas
     1038238639,  # Enchilada
     2874464836,  # Mextreme
