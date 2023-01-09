@@ -2,8 +2,8 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.59 e21c39fe",
   "osm3s": {
-    "timestamp_osm_base": "2023-01-08T02:41:27Z",
-    "timestamp_areas_base": "2023-01-08T02:38:38Z",
+    "timestamp_osm_base": "2023-01-09T20:35:39Z",
+    "timestamp_areas_base": "2023-01-09T19:50:53Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -794,8 +794,11 @@
     "addr:street": "Diesterwegstraße",
     "amenity": "ice_cream",
     "diet:vegan": "yes",
+    "indoor_seating": "yes",
     "name": "Eiscafe Rimini",
     "opening_hours": "Mo off; Tu-Su 12:00-18:00",
+    "outdoor_seating": "yes",
+    "smoking": "outside",
     "toilets:wheelchair": "no",
     "wheelchair": "yes"
   }
@@ -1024,6 +1027,39 @@
     "name": "Haus und Hof",
     "opening_hours": "Mo-Su 09:00-23:00",
     "wheelchair": "limited"
+  }
+},
+{
+  "type": "node",
+  "id": 2280832862,
+  "lat": 51.4645476,
+  "lon": 11.9705374,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:housenumber": "38",
+    "addr:postcode": "06110",
+    "addr:street": "Beesener Straße",
+    "amenity": "restaurant",
+    "capacity": "50",
+    "cuisine": "vietnamese",
+    "delivery": "no",
+    "diet:vegan": "limited",
+    "diet:vegetarian": "yes",
+    "email": "mysen@mysen-restaurant.de",
+    "fax": "+49 345 1227706",
+    "name": "My Sen",
+    "note": "My Sen - Meine Lotusblume",
+    "opening_hours": "Tu-Sa 11:00-15:00,17:00-22:00; Su,PH 11:00-15:00,17:00-21:00",
+    "outdoor_seating": "summer",
+    "payment:coins": "yes",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
+    "payment:notes": "yes",
+    "phone": "+49 345 1206932",
+    "smoking": "outside",
+    "takeaway": "yes",
+    "website": "https://www.mysen-restaurant.de/",
+    "wheelchair": "yes"
   }
 },
 {
@@ -1644,43 +1680,6 @@
     "opening_hours": "Mo-Sa 11:30-14:30,17:30-23:00; Su,PH 11:30-15:00,17:30-22:00",
     "wheelchair": "limited",
     "wheelchair:description": "Fahrstuhl vorhanden!"
-  }
-},
-{
-  "type": "node",
-  "id": 4036431410,
-  "lat": 51.4933783,
-  "lon": 11.9699697,
-  "tags": {
-    "addr:city": "Halle (Saale)",
-    "addr:country": "DE",
-    "addr:housenumber": "29",
-    "addr:postcode": "06108",
-    "addr:street": "Ludwig-Wucherer-Straße",
-    "amenity": "fast_food",
-    "contact:email": "vegs.halle@gmx.de",
-    "contact:facebook": "https://www.facebook.com/vegs.halle/",
-    "contact:instagram": "https://www.instagram.com/vegs.halle/",
-    "contact:phone": "+49 176 20796828",
-    "contact:website": "https://www.vegs-halle.de",
-    "cuisine": "wraps",
-    "delivery": "no",
-    "description": "Halles einzige ausschließlich-vegane Gastronomie",
-    "diet:dairy_free": "only",
-    "diet:lactose_free": "only",
-    "diet:vegan": "only",
-    "diet:vegetarian": "only",
-    "drink:club-mate": "yes",
-    "drive_through": "no",
-    "name": "Vegs",
-    "opening_hours": "Mo-Fr 12:00-20:00; Sa,Su,PH off",
-    "outdoor_seating": "limited",
-    "payment:cash": "yes",
-    "payment:maestro": "yes",
-    "smoking": "outside",
-    "takeaway": "yes",
-    "toilets:wheelchair": "no",
-    "wheelchair": "no"
   }
 },
 {

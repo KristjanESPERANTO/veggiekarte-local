@@ -50,7 +50,6 @@ TOP_URL = "https://www.vegan-in-halle.de/wp/leben/vegane-stadtkarte/"
 
 # # list of objects which get links to more information
 GET_MORE_INFO = [
-    4036431410,  # Vegs
     2338022982,  # Cup der guten Hoffnung
     9676330117,  # Bay Vegan
     5592987513,  # VL-Küfa

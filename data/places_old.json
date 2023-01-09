@@ -1,5 +1,5 @@
 {
- "_timestamp": "2023-01-05 22:51:53.040755",
+ "_timestamp": "2023-01-09 21:31:06.506804",
  "features": [
   {
    "geometry": {
@@ -1084,6 +1084,32 @@
   {
    "geometry": {
     "coordinates": [
+     11.9705374,
+     51.4645476
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2280832862,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06110",
+    "addr_street": "Beesener Straße 38",
+    "category": "vegan_friendly",
+    "contact_email": "mysen@mysen-restaurant.de",
+    "contact_phone": "+49 345 1206932",
+    "contact_website": "https://www.mysen-restaurant.de",
+    "cuisine": "vietnamese",
+    "icon": "restaurant",
+    "name": "My Sen",
+    "opening_hours": "Tu-Sa 11:00-15:00,17:00-22:00; Su,PH 11:00-15:00,17:00-21:00",
+    "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9703883,
      51.4796143
     ],
@@ -1736,36 +1762,6 @@
   {
    "geometry": {
     "coordinates": [
-     11.9699697,
-     51.4933783
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 4036431410,
-    "_type": "node",
-    "addr_city": "Halle (Saale)",
-    "addr_country": "DE",
-    "addr_postcode": "06108",
-    "addr_street": "Ludwig-Wucherer-Straße 29",
-    "category": "vegan_only",
-    "contact_email": "vegs.halle@gmx.de",
-    "contact_facebook": "vegs.halle",
-    "contact_instagram": "vegs.halle",
-    "contact_phone": "+49 176 20796828",
-    "contact_website": "https://www.vegs-halle.de",
-    "cuisine": "wraps",
-    "icon": "fast_food",
-    "more_info": true,
-    "name": "Vegs",
-    "opening_hours": "Mo-Fr 12:00-20:00; Sa,Su,PH off",
-    "symbol": "🍔"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
      11.9687663,
      51.4851383
     ],
@@ -1910,55 +1906,6 @@
     "icon": "fast_food",
     "name": "Hanoier Bistro",
     "opening_hours": "Su-Fr 10:30-21:00",
-    "symbol": "🍔"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9687571,
-     51.4939567
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 4893692292,
-    "_type": "node",
-    "addr_city": "Halle (Saale)",
-    "addr_postcode": "06114",
-    "addr_street": "Mühlweg 29",
-    "category": "vegan_friendly",
-    "cuisine": "coffee;kuchen",
-    "icon": "cafe",
-    "more_info": true,
-    "name": "Café Wittekind",
-    "opening_hours": "Mo-Tu off; We-Fr 13:00-21:00; Sa-Su 09:00-21:00",
-    "symbol": "☕"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9708593,
-     51.492959
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 4893782127,
-    "_type": "node",
-    "addr_city": "Halle (Saale)",
-    "addr_postcode": "06108",
-    "addr_street": "Ludwig-Wucherer-Straße 27",
-    "category": "vegan_limited",
-    "contact_facebook": "Yasmine-Grillhaus-Oriental-Diner-107727340809090",
-    "cuisine": "oriental",
-    "icon": "fast_food",
-    "more_info": true,
-    "name": "Yasmine",
-    "opening_hours": "Mo-Su 11:00-23:00",
     "symbol": "🍔"
    },
    "type": "Feature"

@@ -764,6 +764,11 @@
   "isOk": true,
   "text": "OK - 200"
  },
+ "https://www.mysen-restaurant.de/": {
+  "date": "2023-01-09",
+  "isOk": true,
+  "text": "OK - 200"
+ },
  "https://www.naturata-halle.de": {
   "date": "2022-12-09",
   "isOk": true,
