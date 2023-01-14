@@ -2,8 +2,8 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.59 e21c39fe",
   "osm3s": {
-    "timestamp_osm_base": "2023-01-09T20:35:39Z",
-    "timestamp_areas_base": "2023-01-09T19:50:53Z",
+    "timestamp_osm_base": "2023-01-14T10:03:39Z",
+    "timestamp_areas_base": "2023-01-14T10:01:39Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -556,8 +556,10 @@
     "amenity": "bar",
     "contact:facebook": "https://www.facebook.com/zweiZKB/",
     "diet:vegan": "limited",
+    "indoor_seating": "yes",
     "name": "Zwei Zimmer Küche Bar",
     "opening_hours": "Su-Th 12:00-02:00; Fr-Sa 12:00-03:00",
+    "outdoor_seating": "yes",
     "wheelchair": "limited"
   }
 },
@@ -889,8 +891,10 @@
     "diet:vegan:labeled": "no",
     "diet:vegetarian": "yes",
     "drink:club-mate": "yes",
+    "indoor_seating": "yes",
     "name": "Tomate Döner",
     "opening_hours": "Mo-Su 11:00-22:00",
+    "outdoor_seating": "yes",
     "wheelchair": "no"
   }
 },
@@ -1100,9 +1104,11 @@
     "contact:website": "http://dascup.de",
     "diet:vegan": "only",
     "diet:vegetarian": "only",
+    "indoor_seating": "yes",
     "internet_access:fee": "no",
     "name": "Cup der guten Hoffnung",
-    "opening_hours": "Mo-Fr 11:30-18:30; Sa-Su off"
+    "opening_hours": "Mo-Fr 11:30-18:30; Sa-Su off",
+    "outdoor_seating": "yes"
   }
 },
 {
@@ -1313,8 +1319,10 @@
     "cuisine": "mexican",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "name": "Mextreme",
     "opening_hours": "Mo-Th 17:00-23:00; Fr-Sa 17:00-21:00; Su 17:00-22:00",
+    "outdoor_seating": "yes",
     "wheelchair": "no",
     "wikimedia_commons": "File:HAL-Reilstr131.JPG"
   }
@@ -1416,8 +1424,10 @@
     "cuisine": "asian",
     "diet:vegan": "limited",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "name": "Seoul Kulinarisch",
     "opening_hours": "Mo-Sa 11:00-15:00, 17:00-20:00",
+    "outdoor_seating": "yes",
     "toilets:wheelchair": "no",
     "wheelchair": "limited"
   }
@@ -1594,15 +1604,18 @@
     "addr:postcode": "06108",
     "addr:street": "Große Ulrichstraße",
     "amenity": "restaurant",
-    "contact:facebook": "https://www.facebook.com/rotesossehalle/",
+    "contact:facebook": "https://www.facebook.com/rotesosse",
+    "contact:instagram": "https://www.instagram.com/rotesosse",
     "contact:phone": "+49 345 68252080",
     "contact:website": "https://www.rotesosse.de",
     "cuisine": "italian",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
+    "email": "pizza@rotesosse.de",
     "name": "Rote Soße",
     "opening_hours": "Mo-Su 12:00-22:00",
-    "opening_hours:covid19": "Mo-Su 17:00-21:00",
+    "operator": "Andrej Sikan",
+    "takeaway": "yes",
     "toilets:wheelchair": "no",
     "wheelchair": "limited",
     "wheelchair:description": "eine Stufe am Eingang"
@@ -2686,10 +2699,12 @@
     "delivery": "yes",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
+    "indoor_seating": "no",
     "name": "Papa John's",
     "opening_hours": "Mo-Su 11:00-23:00",
     "operator": "UP Gastro GmbH",
-    "takeaway": "yes",
+    "outdoor_seating": "no",
+    "takeaway": "only",
     "toilets:wheelchair": "no",
     "wheelchair": "limited"
   }
@@ -3423,6 +3438,7 @@
     "diet:vegan": "yes",
     "diet:vegetarian": "only",
     "drive_through": "no",
+    "indoor_seating": "yes",
     "name": "Falafello",
     "opening_hours": "Mo-Su,PH 10:00-24:00",
     "opening_hours:covid19": "Mo-Su,PH 11:00-22:00",

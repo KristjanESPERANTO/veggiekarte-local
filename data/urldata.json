@@ -169,6 +169,11 @@
   "isOk": true,
   "text": "OK - 200"
  },
+ "https://rotesosse.de/": {
+  "date": "2023-01-14",
+  "isOk": true,
+  "text": "OK - 200"
+ },
  "https://saltlabs.de/koffij/": {
   "date": "2022-12-09",
   "isOk": true,
@@ -494,6 +499,11 @@
   "isOk": true,
   "text": "OK - 200"
  },
+ "https://www.facebook.com/rotesosse": {
+  "date": "2023-01-14",
+  "isOk": true,
+  "text": "OK - 200"
+ },
  "https://www.facebook.com/rotesossehalle/": {
   "date": "2022-12-09",
   "isOk": true,
@@ -706,6 +716,11 @@
  },
  "https://www.instagram.com/peissnitzhaus/": {
   "date": "2022-12-09",
+  "isOk": true,
+  "text": "OK - 200"
+ },
+ "https://www.instagram.com/rotesosse": {
+  "date": "2023-01-14",
   "isOk": true,
   "text": "OK - 200"
  },

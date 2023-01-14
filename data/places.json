@@ -1,5 +1,5 @@
 {
- "_timestamp": "2023-01-09 21:36:34.766591",
+ "_timestamp": "2023-01-14 11:04:51.476707",
  "features": [
   {
    "geometry": {
@@ -1668,14 +1668,16 @@
     "addr_postcode": "06108",
     "addr_street": "Große Ulrichstraße 26",
     "category": "vegan_friendly",
-    "contact_facebook": "rotesossehalle",
+    "contact_email": "pizza@rotesosse.de",
+    "contact_facebook": "rotesosse",
+    "contact_instagram": "rotesosse",
     "contact_phone": "+49 345 68252080",
     "contact_website": "https://www.rotesosse.de",
     "cuisine": "italian",
     "icon": "restaurant",
     "more_info": true,
     "name": "Rote Soße",
-    "opening_hours": "Mo-Su 17:00-21:00",
+    "opening_hours": "Mo-Su 12:00-22:00",
     "symbol": "🍽️"
    },
    "type": "Feature"
