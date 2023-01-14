@@ -390,6 +390,15 @@ def check_data(data):
                                 place_check_obj["properties"]["issues"].append(f"opening_hours: {line}")
                     except pyopening_hours.ParseException as error:
                         place_check_obj["properties"]["issues"].append(f"opening_hours: {error.message}")
+                    except json.decoder.JSONDecodeError as error:
+                        print(error)
+                        place_check_obj["properties"]["issues"].append(f"opening_hours: {error}")
+                    except BrokenPipeError as error:
+                        print(error)
+                        place_check_obj["properties"]["issues"].append(f"opening_hours: {error}")
+                    except ImportError as error:
+                        print(error)
+                        place_check_obj["properties"]["issues"].append(f"opening_hours: {error}")
 
             # Disused
             if "disused" in "".join(tags):
