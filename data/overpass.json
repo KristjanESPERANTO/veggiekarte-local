@@ -2,8 +2,8 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.59 e21c39fe",
   "osm3s": {
-    "timestamp_osm_base": "2023-01-14T10:03:39Z",
-    "timestamp_areas_base": "2023-01-14T10:01:39Z",
+    "timestamp_osm_base": "2023-02-03T23:07:39Z",
+    "timestamp_areas_base": "2023-02-03T22:52:24Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -535,9 +535,11 @@
     "amenity": "cafe",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "name": "Rosenburg",
     "opening_hours": "Mo-Su 10:00-19:00",
     "opening_hours:covid19": "Mo-Su 10:00-17:00",
+    "outdoor_seating": "yes",
     "toilets:wheelchair": "no",
     "wheelchair": "limited"
   }
@@ -710,11 +712,13 @@
     "cuisine": "waffle",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "internet_access": "wlan",
     "internet_access:fee": "no",
     "name": "Bewaffel Dich",
     "opening_hours": "Mo-Su 09:00-22:00",
     "outdoor_seating": "yes",
+    "smoking": "outside",
     "wheelchair": "limited"
   }
 },
@@ -838,7 +842,6 @@
     "addr:street": "August-Bebel-Straße",
     "amenity": "restaurant",
     "capacity": "30",
-    "contact:email": "info@amasyna.de",
     "contact:phone": "+49 176 61096284",
     "cuisine": "pizza;burger;kebab;barbecue;mediterranean;american;arab",
     "diet:vegan": "yes",
@@ -852,7 +855,6 @@
     "start_date": "2022-06-13",
     "takeaway": "yes",
     "toilets:wheelchair": "no",
-    "website": "https://amasyna.de",
     "wheelchair": "no"
   }
 },
@@ -2203,6 +2205,7 @@
     "addr:housenumber": "23 a",
     "addr:postcode": "06114",
     "addr:street": "Karl-Liebknecht-Straße",
+    "check_date:opening_hours": "2023-01-23",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "name": "Rübchen",
@@ -2349,6 +2352,7 @@
     "cuisine": "coffee_shop",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "name": "Oberstübchen",
     "old_name": "Laube 57",
     "opening_hours": "Mo,We,Th 17:30-23:00; Tu off; Fr,Sa 17:30-02:00; Su 14:30-21:00",
@@ -3053,7 +3057,7 @@
     "diet:vegan": "limited",
     "diet:vegetarian": "yes",
     "name": "Burse zur Tulpe",
-    "opening_hours": "Mo-Th 09:00-19:00; Fr 09:00-15:00; Sa 12:00-14:00; Su off",
+    "opening_hours": "Mo-Th 09:00-16:00; Fr 09:00-14:30",
     "opening_hours:covid19": "off",
     "toilets:wheelchair": "yes",
     "website": "https://www.studentenwerk-halle.de/mensen-cafebars/mensen-in-halle/mensa-tulpe",
@@ -3714,8 +3718,10 @@
     "delivery": "yes",
     "diet:vegan": "limited",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "name": "Goldene Schildkröte",
     "opening_hours": "Mo-Su 11:00-22:00",
+    "outdoor_seating": "yes",
     "source": "Bing",
     "wheelchair": "limited",
     "wheelchair:description": "Eingang mit Rampe, kein behindertengerechtes WC"

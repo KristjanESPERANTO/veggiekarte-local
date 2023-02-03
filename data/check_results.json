@@ -1,5 +1,5 @@
 {
- "_timestamp": "2023-01-14 11:05:43.952027",
+ "_timestamp": "2023-02-04 00:08:43.539388",
  "features": [
   {
    "geometry": {
@@ -58,6 +58,26 @@
     "undefined": [
      "cuisine"
     ]
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9708081,
+     51.482779
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1531995016,
+    "_type": "node",
+    "diet_vegan": "limited",
+    "issue_count": 1,
+    "issues": [
+     "'contact:website' HTTP response error - 404"
+    ],
+    "name": "DINEA"
    },
    "type": "Feature"
   },

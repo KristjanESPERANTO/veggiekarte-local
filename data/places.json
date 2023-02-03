@@ -1,5 +1,5 @@
 {
- "_timestamp": "2023-01-14 11:04:51.476707",
+ "_timestamp": "2023-02-04 00:08:27.660338",
  "features": [
   {
    "geometry": {
@@ -865,9 +865,7 @@
     "addr_postcode": "06108",
     "addr_street": "August-Bebel-Straße 53",
     "category": "vegan_friendly",
-    "contact_email": "info@amasyna.de",
     "contact_phone": "+49 176 61096284",
-    "contact_website": "https://amasyna.de",
     "cuisine": "pizza;burger;kebab;barbecue;mediterranean;american;arab",
     "icon": "maki_restaurant-pizza",
     "name": "Amasyna",

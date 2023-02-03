@@ -5,167 +5,107 @@
   "text": "OK - 200"
  },
  "http://seoulkulinarisch.cafelists.com/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "http://vietvillageasianstreetfood.cafelists.com/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "http://www.biomarkt-halle.de": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "http://www.bistro-sundarban.de": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "http://www.kim-halle.de/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "http://www.mextreme.net": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "http://www.mosdaniels.de": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "http://www.nasch-madame.de": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "http://www.oekoase-halle.de": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
- },
- "http://www.palmyra-halle.de": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "Can't do full check: HTTP response: Forbidden - 403"
- },
- "http://www.shiva-halle.de": {
-  "date": "2022-12-09",
-  "isOk": false,
-  "text": "HTTP response error - 404"
  },
  "http://www.sushifreunde.de/anfahrt-kontakt/#sctab541": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "http://www.wenzel-prager-bierstuben.de": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://7gramm.com": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": false,
   "text": "Exception: ConnectionError"
  },
- "https://alikgelato.de": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://amasyna.de": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
  "https://bagel29.hpage.com": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://bowlsking.de": {
-  "date": "2022-12-12",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://coffee-fellows.com/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://coffee-fellows.com/locations/coffee-fellows-leuna-nova-eventis": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://deananddavid.com/halle-hans-dietrich-genscher-platz/": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://eisfvchs.com": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://galeria-restaurant.de/fillialen-galeria-restaurant-halle-martkplatz-20/": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
+  "date": "2023-02-04",
+  "isOk": false,
+  "text": "HTTP response error - 404"
  },
  "https://haferkater.com/stores/halle/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://halle.burgerheart.com": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://halle.enchilada.de": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://hansimglueck-burgergrill.de/standort/halle-am-haendelhaus/": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://kimviet.de": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://kleinfolgenreich.de/archive/himmel-und-erde/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://kornliebchen.de": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://moenchshof-halle.de/": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://nobelsuess.eu": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://restaurants.subway.com/germany/st/merseburg/konig-heinrich-stra%C3%9Fe-2": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
@@ -174,58 +114,33 @@
   "isOk": true,
   "text": "OK - 200"
  },
- "https://saltlabs.de/koffij/": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
  "https://shiva-indian-restaurant-halle.webnode.page": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://sonnendeckhalle.wixsite.com/sonnendeckhalle/": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://sushideluxe.de/restaurants/halle/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://tajmahal-merseburg.de": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.ankerhof.de/htdocs/saalekahn.shtml": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.aramark.de/": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.arko.de/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.bewaffel-dich.de": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.b\u00e4ckerei-sch\u00e4l.de": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.cafe-kuckhoff.de": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
@@ -235,242 +150,152 @@
   "text": "OK - 200"
  },
  "https://www.cafeludwig-halle.de": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.caf\u00e9polenka.de": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.das-ding-in-seeben.de": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.denns-biomarkt.de/halle-leipziger-str-100/marktseite/": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.dominos.de/kaufhaus/de-hallereileck-33831": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.dominos.de/kaufhaus/de-hallesteinweg-33848": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.dunkin-donuts.de": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.eisdeal.de": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.espitas.de/restaurants/espitas-halle": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.facebook.com/7Grammcafe": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.facebook.com/B%C3%A4ckerei-Sch%C3%A4l-467517753397255/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.facebook.com/Bagel29Halle/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.facebook.com/Bistro-Sundarban-am-Steintor-571323043020423/": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.facebook.com/BistroLorraine": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.facebook.com/Czech-139350349441083/": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.facebook.com/Eisfvchs-322558108503412": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.facebook.com/Espitas.Halle/": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.facebook.com/Falafello-593697840999599/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.facebook.com/Haferkater": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.facebook.com/Hallenser.Kartoffelhaus/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.facebook.com/Himmel-Erde-HalleSaale-148488261909246/": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.facebook.com/JUICY-Donuts-Bagels-101929962043700": {
-  "date": "2022-12-11",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.facebook.com/Kaffee1990/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.facebook.com/KornLiebchen-375530942489161/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.facebook.com/KumaraAnne/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.facebook.com/LeFeuHalle": {
-  "date": "2022-12-11",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.facebook.com/MextremeRestaurantBar/": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.facebook.com/Pirashki-Halle-464419094098752/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.facebook.com/TandooriSteakhaus/": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.facebook.com/WORLD-OF-PIZZA-102007615226988": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.facebook.com/Yaman.Sham.Restaurant": {
-  "date": "2022-12-11",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.facebook.com/Yasmine-Grillhaus-Oriental-Diner-107727340809090/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.facebook.com/bewaffeldich/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.facebook.com/burgerheart.halle": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.facebook.com/cafebaroberstuebchen/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.facebook.com/cafeludwig/": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.facebook.com/colonne.morris/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.facebook.com/cupdergutenhoffnung": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.facebook.com/eisdeal.de": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.facebook.com/enchilada.hal/": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.facebook.com/hafenmeisterunddocks": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.facebook.com/hansimglueck.halle.amhaendelhaus": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.facebook.com/kaffeeschuppen": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.facebook.com/koffij.hal/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.facebook.com/mosdaniels/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.facebook.com/naschmadame": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.facebook.com/nudelmacher": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.facebook.com/pages/Seoul-Kulinarisch/1448074335456319": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
@@ -480,22 +305,12 @@
   "text": "OK - 200"
  },
  "https://www.facebook.com/pages/category/Sandwich-Shop/Subway-Halle-Neustadt-223215021143927/": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.facebook.com/palmyrainhalle": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.facebook.com/peissnitzhauspiraten/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.facebook.com/reil78/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
@@ -504,63 +319,43 @@
   "isOk": true,
   "text": "OK - 200"
  },
- "https://www.facebook.com/rotesossehalle/": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
  "https://www.facebook.com/sakurahalle/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.facebook.com/sonnendeckhalle/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.facebook.com/the.1.halle": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.facebook.com/vegs.halle/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.facebook.com/vietvillagehalle": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.facebook.com/yenso.markt/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.facebook.com/zweiZKB/": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.falafello.de": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.freddy-fresh.de": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.hallenserkartoffelhaus.de": {
   "date": "2023-01-05",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.halleschesbrauhaus.de": {
-  "date": "2022-12-09",
   "isOk": true,
   "text": "OK - 200"
  },
@@ -575,127 +370,67 @@
   "text": "OK - 200"
  },
  "https://www.himalaya-halle.de": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.hotel-alte-apotheke.de": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.house-of-india.de/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.indien-masala-halle-saale.de": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.instagram.com/bay.vegan/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.instagram.com/bewaffeldich/": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.instagram.com/bowlsking/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.instagram.com/burgerheart_halle": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.instagram.com/cafebar_oberstuebchen/": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.instagram.com/cafebarcolonne/": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.instagram.com/cafekuckhoff/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.instagram.com/czech_bar/": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.instagram.com/eisdealerhalle": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.instagram.com/eisfvchs/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.instagram.com/enchilada_halle/": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.instagram.com/falafello_the_world_of_falafel/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.instagram.com/haferkater": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.instagram.com/juicy_halle": {
-  "date": "2022-12-11",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.instagram.com/koffijhalle/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.instagram.com/kumara.soulfood/": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.instagram.com/lilobowl/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.instagram.com/ludwigcafe/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.instagram.com/martin.schael": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.instagram.com/mirarestauranthalle/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.instagram.com/naschmadame": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
@@ -704,18 +439,8 @@
   "isOk": true,
   "text": "OK - 200"
  },
- "https://www.instagram.com/nobelsuess/": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
  "https://www.instagram.com/nudelnmachengluecklich/": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.instagram.com/peissnitzhaus/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
@@ -725,12 +450,12 @@
   "text": "OK - 200"
  },
  "https://www.instagram.com/sonnendeckhalle/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.instagram.com/the_one_halle": {
-  "date": "2022-12-11",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
@@ -739,43 +464,18 @@
   "isOk": true,
   "text": "OK - 200"
  },
- "https://www.instagram.com/vegs.halle/": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.juicy-halle.de": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.kaffeeschuppen.de/": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "Can't do full check: HTTP response: Forbidden - 403"
- },
  "https://www.kumara-soulfood.de": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.lefeu.de/le-feu-halle-saale": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.lilobowl.de": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.ludwigstrasse37.de/kuefa.html": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.mayamare.de/sauna-wellness/#cancunbar": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
@@ -785,107 +485,57 @@
   "text": "OK - 200"
  },
  "https://www.naturata-halle.de": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.naturell-halle.de": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.nudelmanufaktur-halle.de": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.objekt5.com/index.php/kontakte/restaurant-ruine": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.papajohns.de/papa-johns-halle/": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.peissnitzhaus.de/gastronomie": {
-  "date": "2022-12-10",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.peissnitzhaus.de/index.php/gartenlokal": {
-  "date": "2022-12-09",
-  "isOk": false,
-  "text": "HTTP response error - 404"
- },
- "https://www.pizzaone-halle.de": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.reil78.de": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.rotesosse.de": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.roy-coffee.de": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.sakura-halle.de": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.saomai-halle.de/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.sham-restaurant.com": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.studentenwerk-halle.de/mensen-cafebars/mensen-in-halle/cafebar-steintor-campus": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.studentenwerk-halle.de/mensen-cafebars/mensen-in-halle/harzmensa/": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.studentenwerk-halle.de/mensen-cafebars/mensen-in-halle/heidemensa-mit-cafebar": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.studentenwerk-halle.de/mensen-cafebars/mensen-in-halle/mensa-burg": {
   "date": "2023-01-05",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.studentenwerk-halle.de/mensen-cafebars/mensen-in-halle/mensa-franckesche-stiftungen": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.studentenwerk-halle.de/mensen-cafebars/mensen-in-halle/mensa-neuwerk": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.studentenwerk-halle.de/mensen-cafebars/mensen-in-halle/mensa-tulpe": {
-  "date": "2022-12-09",
   "isOk": true,
   "text": "OK - 200"
  },
@@ -895,42 +545,32 @@
   "text": "OK - 200"
  },
  "https://www.subway-halle.de": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.tandoori-halle.de/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.telepizza.de/halle/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.the-one-halle.de": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.vegs-halle.de": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.weltladenhalle.de/": {
-  "date": "2022-12-09",
-  "isOk": true,
-  "text": "OK - 200"
- },
- "https://www.world-of-pizza.de/halle-saale-city/": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  },
  "https://www.yenso.eu": {
-  "date": "2022-12-09",
+  "date": "2023-02-04",
   "isOk": true,
   "text": "OK - 200"
  }
