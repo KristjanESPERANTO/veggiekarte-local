@@ -5,7 +5,7 @@ With this module we check the OpenStreetMap data.
 
 import datetime  # for the timestamp
 import json  # read and write json
-import re # to check characters in phone numbers
+import re  # to check characters in phone numbers
 from urllib.parse import urlparse
 from pathlib import Path
 import phonenumbers  # to check phone numbers
@@ -382,39 +382,29 @@ def check_data(data):
                 opening_hours = tags["opening_hours"]
             else:
                 place_check_obj["properties"]["undefined"].append("opening_hours")
-            if "\n" in opening_hours or "\r" in opening_hours:
-                place_check_obj["properties"]["issues"].append(
-                    "There is a line break in 'opening_hours' -> remove"
-                )
             if opening_hours != "undefined":
+                if "\n" in opening_hours or "\r" in opening_hours:
+                    place_check_obj["properties"]["issues"].append(
+                        "There is a line break in 'opening_hours' -> remove"
+                    )
                 if "SH" not in opening_hours:
                     try:
                         oh = pyopening_hours.OpeningHours(opening_hours)
                         oh_warnings = oh.getWarnings()
                         if oh_warnings != []:
                             for line in oh_warnings:
-                                place_check_obj["properties"]["issues"].append(
-                                    f"opening_hours: {line}"
-                                )
+                                place_check_obj["properties"]["issues"].append(f"opening_hours: {line}")
                     except pyopening_hours.ParseException as error:
-                        place_check_obj["properties"]["issues"].append(
-                            f"opening_hours: {error.message}"
-                        )
+                        place_check_obj["properties"]["issues"].append(f"opening_hours: {error.message}")
                     except json.decoder.JSONDecodeError as error:
                         print(error)
-                        place_check_obj["properties"]["issues"].append(
-                            f"opening_hours: {error}"
-                        )
+                        place_check_obj["properties"]["issues"].append(f"opening_hours: {error}")
                     except BrokenPipeError as error:
                         print(error)
-                        place_check_obj["properties"]["issues"].append(
-                            f"opening_hours: {error}"
-                        )
+                        place_check_obj["properties"]["issues"].append(f"opening_hours: {error}")
                     except ImportError as error:
                         print(error)
-                        place_check_obj["properties"]["issues"].append(
-                            f"opening_hours: {error}"
-                        )
+                        place_check_obj["properties"]["issues"].append(f"opening_hours: {error}")
 
             # Disused
             if "disused" in "".join(tags):
@@ -465,7 +455,6 @@ def check_phone_number(place_check_obj, tag_name, tags):
     phone_number = tags.get(tag_name, "")
 
     phone_number_characters = re.sub('[0-9]|\ |\+|\;|\-', '', phone_number)
-
     if len(phone_number_characters) > 0:
         place_check_obj["properties"]["issues"].append(
             f"'{tag_name}' contains characters that are not allowed: '{phone_number_characters}'"
@@ -487,14 +476,12 @@ def check_phone_number(place_check_obj, tag_name, tags):
             phone_number_rfc3966_pattern = phone_number_rfc3966_pattern.replace(
                 "tel:", ""
             )
-            if (
-                phone_number_itute123_pattern != phone_number
-                and phone_number_rfc3966_pattern != phone_number
-                and phone_number_e164_pattern != phone_number
-            ):
-                place_check_obj["properties"]["issues"].append(
-                    f"'{tag_name}' does not conform to the ITU-T E.123, E.164 or RFC 3966 pattern. It's '{phone_number}' but '{phone_number_itute123_pattern}' (E.123) is recommended."
-                )
+            if (phone_number_itute123_pattern != phone_number and
+                phone_number_rfc3966_pattern != phone_number and
+                phone_number_e164_pattern != phone_number):
+                    place_check_obj["properties"]["issues"].append(
+                        f"'{tag_name}' does not conform to the ITU-T E.123, E.164 or RFC 3966 pattern. It's '{phone_number}' but '{phone_number_itute123_pattern}' (E.123) is recommended."
+                    )
         else:
             place_check_obj["properties"]["issues"].append(
                 f"'{tag_name}': Validation of number '{phone_number}' failed. Is this number correct?."
@@ -533,9 +520,7 @@ def main():
 
         # Write check result file in pretty format
         outfile = open(VEGGIEPLACES_CHECK_RESULT_FILE, "w", encoding="utf-8")
-        outfile.write(
-            json.dumps(check_result, indent=1, sort_keys=True, ensure_ascii=False)
-        )
+        outfile.write(json.dumps(check_result, indent=1, sort_keys=True, ensure_ascii=False))
         outfile.close()
     else:
         print("A problem has occurred. osm_data is None")

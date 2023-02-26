@@ -2,8 +2,8 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.59 e21c39fe",
   "osm3s": {
-    "timestamp_osm_base": "2023-02-03T23:07:39Z",
-    "timestamp_areas_base": "2023-02-03T22:52:24Z",
+    "timestamp_osm_base": "2023-02-26T22:01:35Z",
+    "timestamp_areas_base": "2023-02-26T21:33:10Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -464,13 +464,15 @@
     "addr:postcode": "06108",
     "addr:street": "Mittelstraße",
     "amenity": "bar",
-    "contact:facebook": "https://www.facebook.com/Czech-139350349441083/",
-    "contact:instagram": "https://www.instagram.com/czech_bar/",
+    "contact:email": "chezbarac@gmail.com",
+    "contact:facebook": "https://www.facebook.com/profile.php?id=100083347681877",
+    "contact:instagram": "https://www.instagram.com/chezbarac/",
+    "contact:phone": "+49 162 1625973",
+    "contact:website": "https://maisondebarac.com/",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
-    "name": "Czech",
-    "opening_hours": "Mo-Fr 11:00-01:00; Sa-Su 18:00-00:30",
-    "opening_hours:covid19": "same",
+    "name": "chez Barac",
+    "opening_hours": "We-Sa 18:30-05:00",
     "payment:cash": "yes",
     "wheelchair": "no"
   }
@@ -487,12 +489,14 @@
     "addr:postcode": "06108",
     "addr:street": "Große Ulrichstraße",
     "amenity": "restaurant",
+    "contact:email": "mimi.asiacuisine@gmail.com",
+    "contact:website": "https://www.mimi-halle.de/",
     "cuisine": "asian",
     "diet:vegan": "limited",
     "diet:vegetarian": "yes",
-    "name": "Anh Asia",
-    "opening_hours": "Tu-Th 10:30-21:30; Fr-Sa 10:30-23:00; Su 11:00-22:00",
-    "phone": "+49 345 52485122",
+    "name": "Mimi",
+    "opening_hours": "Tu-Th 11:00-15:00,17:00-22:00; Fr-Su 11:00-22:00",
+    "phone": "+49 345 13176141",
     "wheelchair": "no"
   }
 },
@@ -613,35 +617,6 @@
     "toilets:wheelchair": "no",
     "wheelchair": "yes",
     "wheelchair:description": "Rampe, Aufzug, Behinderten-WC und -Parkplatz vorhanden (Parkhaus Händelhauskarree)."
-  }
-},
-{
-  "type": "node",
-  "id": 1531995016,
-  "lat": 51.4827790,
-  "lon": 11.9708081,
-  "tags": {
-    "addr:city": "Halle (Saale)",
-    "addr:country": "DE",
-    "addr:floor": "4",
-    "addr:housenumber": "24",
-    "addr:postcode": "06108",
-    "addr:street": "Marktplatz",
-    "amenity": "restaurant",
-    "contact:phone": "+49 345 7749361",
-    "contact:website": "https://galeria-restaurant.de/fillialen-galeria-restaurant-halle-martkplatz-20/",
-    "cuisine": "german",
-    "diet:vegan": "limited",
-    "diet:vegetarian": "limited",
-    "kids_area": "yes",
-    "kids_area:indoor": "yes",
-    "name": "DINEA",
-    "opening_hours": "Mo-Sa 09:30-17:00; Su,PH off",
-    "operator": "DINEA Gastronomie GmbH",
-    "outdoor_seating": "yes",
-    "toilets:wheelchair": "yes",
-    "wheelchair": "yes",
-    "wheelchair:description": "Fahrstuhl in alle Etagen, Behindertengerechtes WC eine Etage tiefer, Behindertenparkplätze Rathausstraße oder Parkhaus Hansering"
   }
 },
 {
@@ -1085,7 +1060,7 @@
     "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-14:00",
     "phone": "+49 345 2901049",
     "shop": "convenience",
-    "source": "www.weltladenhalle.de",
+    "source": "https://www.weltladenhalle.de/",
     "website": "https://www.weltladenhalle.de/",
     "wheelchair": "limited"
   }
@@ -1105,12 +1080,12 @@
     "contact:facebook": "https://www.facebook.com/cupdergutenhoffnung",
     "contact:website": "http://dascup.de",
     "diet:vegan": "only",
-    "diet:vegetarian": "only",
     "indoor_seating": "yes",
     "internet_access:fee": "no",
     "name": "Cup der guten Hoffnung",
     "opening_hours": "Mo-Fr 11:30-18:30; Sa-Su off",
-    "outdoor_seating": "yes"
+    "outdoor_seating": "yes",
+    "phone": "+4917672239985"
   }
 },
 {
@@ -1430,6 +1405,7 @@
     "name": "Seoul Kulinarisch",
     "opening_hours": "Mo-Sa 11:00-15:00, 17:00-20:00",
     "outdoor_seating": "yes",
+    "smoking": "outside",
     "toilets:wheelchair": "no",
     "wheelchair": "limited"
   }
@@ -2380,6 +2356,37 @@
 },
 {
   "type": "node",
+  "id": 7984926715,
+  "lat": 51.4366866,
+  "lon": 11.9760862,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:housenumber": "250",
+    "addr:postcode": "06132",
+    "addr:street": "Alte Heerstraße",
+    "amenity": "fast_food",
+    "cuisine": "american",
+    "delivery": "yes",
+    "diet:vegan": "yes",
+    "diet:vegetarian": "yes",
+    "email": "halle-sued@freddy-fresh.de",
+    "name": "Freddy Fresh",
+    "opening_hours": "Mo-Th 11:00-21:00; Fr-Su 11:00-22:00",
+    "operator": "Marcel Kitzing",
+    "payment:apple_pay": "yes",
+    "payment:coins": "yes",
+    "payment:diners_club": "yes",
+    "payment:discover_card": "yes",
+    "payment:google_pay": "yes",
+    "payment:mastercard": "yes",
+    "payment:notes": "yes",
+    "payment:visa": "yes",
+    "phone": "+49 345 68597862",
+    "website": "https://www.freddy-fresh.de/"
+  }
+},
+{
+  "type": "node",
   "id": 8018723343,
   "lat": 51.4910051,
   "lon": 11.9718784,
@@ -2620,6 +2627,27 @@
     "opening_hours": "Mo-Su 09:00-20:00",
     "start_date": "2021",
     "takeaway": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 8838713031,
+  "lat": 51.4836971,
+  "lon": 11.9944151,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:postcode": "06112",
+    "addr:street": "Freiimfelder Straße",
+    "amenity": "restaurant",
+    "contact:facebook": "pho35halle",
+    "contact:phone": "+49 1523 7604306",
+    "contact:website": "https://pho35.de/",
+    "cuisine": "asian",
+    "diet:vegan": "yes",
+    "diet:vegetarian": "yes",
+    "fixme": "Hausnummer (laut der Adresse des Gebäudes hier in OSM müsste es die 34 sein, es gibt aber mehrere Hinweise, dass es die 35 ist) - es müsste vor Ort gerüft werden",
+    "name": "Pho35",
+    "opening_hours": "Tu-Su 11:00-22:00"
   }
 },
 {
@@ -3398,7 +3426,7 @@
     "cuisine": "czech",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
-    "email": "halle@wenzel-prager-bierstuben.de",
+    "email": "halle@wenzel-restaurant.de",
     "fax": "+49 345 47049981",
     "indoor_seating": "yes",
     "name": "Wenzel Prager Bierstuben",
@@ -3407,7 +3435,7 @@
     "phone": "+49 345 47049980",
     "smoking": "outside",
     "toilets:wheelchair": "yes",
-    "website": "http://www.wenzel-prager-bierstuben.de",
+    "website": "https://www.wenzel-restaurant.de/standorte/wenzel-halle/",
     "wheelchair": "limited",
     "wheelchair:description": "Stufen am Eingang, aber (etwas steile) Rampe vorhanden, Vorsicht mit Elektrorolli!"
   }

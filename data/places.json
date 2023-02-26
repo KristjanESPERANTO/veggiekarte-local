@@ -1,5 +1,5 @@
 {
- "_timestamp": "2023-02-04 00:08:27.660338",
+ "_timestamp": "2023-02-26 23:02:29.306602",
  "features": [
   {
    "geometry": {
@@ -450,12 +450,15 @@
     "addr_postcode": "06108",
     "addr_street": "Mittelstraße 7",
     "category": "vegan_friendly",
-    "contact_facebook": "Czech-139350349441083",
-    "contact_instagram": "czech_bar",
+    "contact_email": "chezbarac@gmail.com",
+    "contact_facebook": "profile.php?id=100083347681877",
+    "contact_instagram": "chezbarac",
+    "contact_phone": "+49 162 1625973",
+    "contact_website": "https://maisondebarac.com",
     "icon": "bar",
     "more_info": true,
-    "name": "Czech",
-    "opening_hours": "Mo-Fr 11:00-01:00; Sa-Su 18:00-00:30",
+    "name": "chez Barac",
+    "opening_hours": "We-Sa 18:30-05:00",
     "symbol": "🍸"
    },
    "type": "Feature"
@@ -476,12 +479,14 @@
     "addr_postcode": "06108",
     "addr_street": "Große Ulrichstraße 41",
     "category": "vegan_limited",
-    "contact_phone": "+49 345 52485122",
+    "contact_email": "mimi.asiacuisine@gmail.com",
+    "contact_phone": "+49 345 13176141",
+    "contact_website": "https://www.mimi-halle.de",
     "cuisine": "asian",
     "icon": "restaurant",
     "more_info": true,
-    "name": "Anh Asia",
-    "opening_hours": "Tu-Th 10:30-21:30; Fr-Sa 10:30-23:00; Su 11:00-22:00",
+    "name": "Mimi",
+    "opening_hours": "Tu-Th 11:00-15:00,17:00-22:00; Fr-Su 11:00-22:00",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -611,32 +616,6 @@
     "more_info": true,
     "name": "Rossini",
     "opening_hours": "Mo-Sa 09:00-22:00; Su 10:00-22:00",
-    "symbol": "🍽️"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9708081,
-     51.482779
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 1531995016,
-    "_type": "node",
-    "addr_city": "Halle (Saale)",
-    "addr_country": "DE",
-    "addr_postcode": "06108",
-    "addr_street": "Marktplatz 24",
-    "category": "vegan_limited",
-    "contact_phone": "+49 345 7749361",
-    "contact_website": "https://galeria-restaurant.de/fillialen-galeria-restaurant-halle-martkplatz-20",
-    "cuisine": "german",
-    "icon": "restaurant",
-    "name": "DINEA",
-    "opening_hours": "Mo-Sa 09:30-17:00; Su,PH off",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -1149,6 +1128,7 @@
     "addr_street": "Reilstraße 129",
     "category": "vegan_only",
     "contact_facebook": "cupdergutenhoffnung",
+    "contact_phone": "+4917672239985",
     "contact_website": "http://dascup.de",
     "icon": "cafe",
     "more_info": true,
@@ -2530,6 +2510,32 @@
   {
    "geometry": {
     "coordinates": [
+     11.9760862,
+     51.4366866
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 7984926715,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06132",
+    "addr_street": "Alte Heerstraße 250",
+    "category": "vegan_friendly",
+    "contact_email": "halle-sued@freddy-fresh.de",
+    "contact_phone": "+49 345 68597862",
+    "contact_website": "https://www.freddy-fresh.de",
+    "cuisine": "american",
+    "icon": "fast_food",
+    "name": "Freddy Fresh",
+    "opening_hours": "Mo-Th 11:00-21:00; Fr-Su 11:00-22:00",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9718784,
      51.4910051
     ],
@@ -2805,6 +2811,32 @@
     "name": "dean&david",
     "opening_hours": "Mo-Su 09:00-20:00",
     "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9944151,
+     51.4836971
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 8838713031,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06112",
+    "addr_street": "Freiimfelder Straße",
+    "category": "vegan_friendly",
+    "contact_facebook": "pho35halle",
+    "contact_phone": "+49 1523 7604306",
+    "contact_website": "https://pho35.de",
+    "cuisine": "asian",
+    "icon": "restaurant",
+    "name": "Pho35",
+    "opening_hours": "Tu-Su 11:00-22:00",
+    "symbol": "🍽️"
    },
    "type": "Feature"
   },
@@ -3469,9 +3501,9 @@
     "addr_postcode": "06108",
     "addr_street": "Große Nikolaistraße 10-11",
     "category": "vegan_friendly",
-    "contact_email": "halle@wenzel-prager-bierstuben.de",
+    "contact_email": "halle@wenzel-restaurant.de",
     "contact_phone": "+49 345 47049980",
-    "contact_website": "http://www.wenzel-prager-bierstuben.de",
+    "contact_website": "https://www.wenzel-restaurant.de/standorte/wenzel-halle",
     "cuisine": "czech",
     "icon": "restaurant",
     "name": "Wenzel Prager Bierstuben",
