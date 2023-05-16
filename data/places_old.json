@@ -1,5 +1,5 @@
 {
- "_timestamp": "2023-02-26 22:54:43.885469",
+ "_timestamp": "2023-05-16 23:04:02.358743",
  "features": [
   {
    "geometry": {
@@ -466,8 +466,8 @@
   {
    "geometry": {
     "coordinates": [
-     11.9676866,
-     51.4863816
+     11.9675758,
+     51.4863329
     ],
     "type": "Point"
    },
@@ -806,6 +806,32 @@
   {
    "geometry": {
     "coordinates": [
+     11.966532,
+     51.4857355
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1808909596,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Kleine Ulrichstraße 26",
+    "category": "vegan_limited",
+    "contact_phone": "+49 345 68457969",
+    "contact_website": "https://website--8249614022100970096181-japaneserestaurant.business.site",
+    "cuisine": "japanese",
+    "icon": "restaurant",
+    "name": "Kohaku",
+    "opening_hours": "Mo-Su 11:00-23:00",
+    "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.965024,
      51.4959637
     ],
@@ -892,10 +918,11 @@
     "addr_postcode": "06114",
     "addr_street": "Reilstraße 133",
     "category": "vegan_limited",
+    "contact_phone": "+49 345 24995856",
     "cuisine": "kebab",
     "icon": "fast_food",
     "name": "Tomate Döner",
-    "opening_hours": "Mo-Su 11:00-22:00",
+    "opening_hours": "Mo-Th 10:00-23:00; Fr, Sa 10:00-01:00; Su 11:00-23:00",
     "symbol": "🍔"
    },
    "type": "Feature"
@@ -1006,6 +1033,32 @@
   {
    "geometry": {
     "coordinates": [
+     11.9675695,
+     51.488122
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2068490770,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Harz 1",
+    "category": "vegan_friendly",
+    "contact_facebook": "theshabby",
+    "contact_instagram": "the_shabby",
+    "contact_website": "https://theshabby.de",
+    "icon": "cafe",
+    "name": "The Shabby",
+    "opening_hours": "Fr-Tu 09:00-16:00; We-Th off",
+    "symbol": "☕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.967368,
      51.4873171
     ],
@@ -1061,8 +1114,8 @@
   {
    "geometry": {
     "coordinates": [
-     11.9705374,
-     51.4645476
+     11.9705319,
+     51.4645947
     ],
     "type": "Point"
    },
@@ -1135,32 +1188,6 @@
     "name": "Cup der guten Hoffnung",
     "opening_hours": "Mo-Fr 11:30-18:30; Sa-Su off",
     "symbol": "☕"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9911235,
-     51.3569726
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 2371803959,
-    "_type": "node",
-    "addr_city": "Merseburg",
-    "addr_postcode": "06217",
-    "addr_street": "Bahnhofsplatz 1",
-    "category": "vegan_friendly",
-    "contact_email": "merseburg@freddy-fresh.de",
-    "contact_phone": "+49 3461 2897799",
-    "contact_website": "https://www.freddy-fresh.de",
-    "cuisine": "pizza",
-    "icon": "maki_restaurant-pizza",
-    "name": "Freddy Fresh",
-    "opening_hours": "Mo-Su 10:30-22:00",
-    "symbol": "🍕"
    },
    "type": "Feature"
   },
@@ -1497,6 +1524,31 @@
   {
    "geometry": {
     "coordinates": [
+     11.9659188,
+     51.4954589
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3173527817,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06114",
+    "addr_street": "Richard-Wagner-Straße 1",
+    "category": "vegan_only",
+    "contact_instagram": "verwoener",
+    "cuisine": "kebab",
+    "icon": "fast_food",
+    "name": "verwöner",
+    "opening_hours": "Tu-Th 11:30-22:00; Fr,Sa 11:30-01:00; Su 11:30-22:00",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      12.1780337,
      51.3439014
     ],
@@ -1543,6 +1595,25 @@
     "name": "Papa John's",
     "opening_hours": "Mo-Su 11:00-23:00",
     "symbol": "🍕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9757346,
+     51.4911895
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3451705002,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "icon": "ice_cream",
+    "name": "Bunte Eisträumerei",
+    "opening_hours": "Mo-Fr 13:00-18:00; Sa,Su 13:00-18:00",
+    "symbol": "🍨"
    },
    "type": "Feature"
   },
@@ -1634,8 +1705,8 @@
   {
    "geometry": {
     "coordinates": [
-     11.966905,
-     51.4863948
+     11.9669324,
+     51.4863726
     ],
     "type": "Point"
    },
@@ -1726,7 +1797,7 @@
     "addr_city": "Halle (Saale)",
     "addr_postcode": "06108",
     "addr_street": "Große Ulrichstraße 33",
-    "category": "vegan_limited",
+    "category": "vegan_friendly",
     "contact_facebook": "sakurahalle",
     "contact_phone": "+49 345 97606360",
     "contact_website": "https://www.sakura-halle.de",
@@ -2171,6 +2242,7 @@
     "addr_street": "Große Brunnenstraße 63",
     "category": "vegan_friendly",
     "contact_facebook": "Himmel-Erde-HalleSaale-148488261909246",
+    "contact_phone": "+4917630589867",
     "contact_website": "https://kleinfolgenreich.de/archive/himmel-und-erde",
     "icon": "supermarket",
     "more_info": true,
@@ -3319,7 +3391,7 @@
     "icon": "maki_restaurant-pizza",
     "more_info": true,
     "name": "Papa John's",
-    "opening_hours": "Mo-Su 11:00-23:00",
+    "opening_hours": "Mo 11:00-23:00; Tu-Su 11:00-24:00",
     "symbol": "🍕"
    },
    "type": "Feature"
@@ -3609,7 +3681,7 @@
     "addr_postcode": "06237",
     "addr_street": "Maienweg 1",
     "category": "vegan_friendly",
-    "contact_website": "https://www.aramark.de",
+    "contact_website": "https://www.wisag.de",
     "cuisine": "german;burger;regional;coffee_shop;ice_cream;barbecue;sandwich;chicken",
     "icon": "restaurant",
     "name": "Raffiness",

@@ -1,5 +1,5 @@
 {
- "_timestamp": "2023-02-26 23:02:41.530361",
+ "_timestamp": "2023-05-16 23:39:39.493979",
  "features": [
   {
    "geometry": {
@@ -81,6 +81,46 @@
     "undefined": [
      "cuisine"
     ]
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9701334,
+     51.475815
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2932869816,
+    "_type": "node",
+    "diet_vegan": "limited",
+    "issue_count": 1,
+    "name": "Yasmin",
+    "undefined": [
+     "opening_hours"
+    ]
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     12.177683,
+     51.344328
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2986723100,
+    "_type": "node",
+    "diet_vegan": "yes",
+    "issue_count": 1,
+    "issues": [
+     "'contact:website' Exception: ReadTimeout"
+    ],
+    "name": "Dunkin'"
    },
    "type": "Feature"
   },

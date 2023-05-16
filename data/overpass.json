@@ -1,9 +1,9 @@
 {
   "version": 0.6,
-  "generator": "Overpass API 0.7.59 e21c39fe",
+  "generator": "Overpass API 0.7.60 f4c14d41",
   "osm3s": {
-    "timestamp_osm_base": "2023-02-26T22:01:35Z",
-    "timestamp_areas_base": "2023-02-26T21:33:10Z",
+    "timestamp_osm_base": "2023-05-16T21:38:21Z",
+    "timestamp_areas_base": "2023-05-16T19:23:26Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -480,8 +480,8 @@
 {
   "type": "node",
   "id": 1037236274,
-  "lat": 51.4863816,
-  "lon": 11.9676866,
+  "lat": 51.4863329,
+  "lon": 11.9675758,
   "tags": {
     "addr:city": "Halle (Saale)",
     "addr:country": "DE",
@@ -545,7 +545,7 @@
     "opening_hours:covid19": "Mo-Su 10:00-17:00",
     "outdoor_seating": "yes",
     "toilets:wheelchair": "no",
-    "wheelchair": "limited"
+    "wheelchair": "no"
   }
 },
 {
@@ -709,6 +709,7 @@
     "addr:postcode": "06108",
     "addr:street": "Große Ulrichstraße",
     "amenity": "restaurant",
+    "check_date:opening_hours": "2023-04-21",
     "cuisine": "indian",
     "diet:vegan": "limited",
     "diet:vegetarian": "yes",
@@ -757,9 +758,11 @@
     "contact:website": "https://www.indien-masala-halle-saale.de",
     "cuisine": "indian",
     "diet:vegan": "yes",
+    "indoor_seating": "yes",
     "name": "Indian Masala",
     "old_name": "Geschwister Knoll",
     "opening_hours": "Mo-Sa 10:30-14:30, 16:00-22:00; Su 10:30-22:00",
+    "outdoor_seating": "yes",
     "wheelchair": "no"
   }
 },
@@ -786,6 +789,31 @@
 },
 {
   "type": "node",
+  "id": 1808909596,
+  "lat": 51.4857355,
+  "lon": 11.9665320,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:country": "DE",
+    "addr:housenumber": "26",
+    "addr:postcode": "06108",
+    "addr:street": "Kleine Ulrichstraße",
+    "amenity": "restaurant",
+    "check_date:opening_hours": "2021-03-06",
+    "contact:website": "https://website--8249614022100970096181-japaneserestaurant.business.site/",
+    "cuisine": "japanese",
+    "diet:vegan": "limited",
+    "diet:vegan:description": "Haben nichts veganes in der Karte. Auf Nachfrage kann vegetarisches vegan zubereitet werden.",
+    "diet:vegetarian": "yes",
+    "name": "Kohaku",
+    "opening_hours": "Mo-Su 11:00-23:00",
+    "phone": "+49 345 68457969",
+    "toilets:wheelchair": "no",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
   "id": 1902279166,
   "lat": 51.4959637,
   "lon": 11.9650240,
@@ -801,7 +829,7 @@
     "organic": "only",
     "shop": "convenience",
     "website": "http://www.biomarkt-halle.de",
-    "wheelchair": "no"
+    "wheelchair": "limited"
   }
 },
 {
@@ -870,8 +898,10 @@
     "drink:club-mate": "yes",
     "indoor_seating": "yes",
     "name": "Tomate Döner",
-    "opening_hours": "Mo-Su 11:00-22:00",
+    "opening_hours": "Mo-Th 10:00-23:00; Fr, Sa 10:00-01:00; Su 11:00-23:00",
     "outdoor_seating": "yes",
+    "phone": "+49 345 24995856",
+    "takeaway": "yes",
     "wheelchair": "no"
   }
 },
@@ -886,6 +916,7 @@
     "addr:postcode": "06112",
     "addr:street": "Am Steintor",
     "amenity": "fast_food",
+    "check_date:opening_hours": "2023-04-27",
     "cuisine": "asian",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
@@ -964,6 +995,28 @@
 },
 {
   "type": "node",
+  "id": 2068490770,
+  "lat": 51.4881220,
+  "lon": 11.9675695,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:country": "DE",
+    "addr:housenumber": "1",
+    "addr:postcode": "06108",
+    "addr:street": "Harz",
+    "amenity": "cafe",
+    "contact:facebook": "https://www.facebook.com/theshabby",
+    "contact:instagram": "https://www.instagram.com/the_shabby/",
+    "contact:website": "https://theshabby.de/",
+    "diet:vegan": "yes",
+    "name": "The Shabby",
+    "old_name": "Mad Monkey Burgers;Amasia",
+    "opening_hours": "Fr-Tu 09:00-16:00; We-Th off",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
   "id": 2068490774,
   "lat": 51.4873171,
   "lon": 11.9673680,
@@ -1013,8 +1066,8 @@
 {
   "type": "node",
   "id": 2280832862,
-  "lat": 51.4645476,
-  "lon": 11.9705374,
+  "lat": 51.4645947,
+  "lon": 11.9705319,
   "tags": {
     "addr:city": "Halle (Saale)",
     "addr:housenumber": "38",
@@ -1086,29 +1139,6 @@
     "opening_hours": "Mo-Fr 11:30-18:30; Sa-Su off",
     "outdoor_seating": "yes",
     "phone": "+4917672239985"
-  }
-},
-{
-  "type": "node",
-  "id": 2371803959,
-  "lat": 51.3569726,
-  "lon": 11.9911235,
-  "tags": {
-    "addr:city": "Merseburg",
-    "addr:housenumber": "1",
-    "addr:postcode": "06217",
-    "addr:street": "Bahnhofsplatz",
-    "amenity": "fast_food",
-    "contact:email": "merseburg@freddy-fresh.de",
-    "contact:phone": "+49 3461 2897799",
-    "contact:website": "https://www.freddy-fresh.de",
-    "cuisine": "pizza",
-    "diet:vegan": "yes",
-    "diet:vegetarian": "yes",
-    "level": "0",
-    "name": "Freddy Fresh",
-    "opening_hours": "Mo-Su 10:30-22:00",
-    "wheelchair": "yes"
   }
 },
 {
@@ -1333,6 +1363,28 @@
 },
 {
   "type": "node",
+  "id": 2932869816,
+  "lat": 51.4758150,
+  "lon": 11.9701334,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:country": "DE",
+    "addr:housenumber": "39",
+    "addr:postcode": "06110",
+    "addr:street": "Steinweg",
+    "amenity": "fast_food",
+    "cuisine": "oriental",
+    "diet:vegan": "limited",
+    "diet:vegetarian": "yes",
+    "name": "Yasmin",
+    "name:ar": "ياسمين",
+    "name:de": "Yasmin",
+    "takeaway": "yes",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
   "id": 2969150134,
   "lat": 51.4661476,
   "lon": 11.7833499,
@@ -1439,6 +1491,27 @@
 },
 {
   "type": "node",
+  "id": 3173527817,
+  "lat": 51.4954589,
+  "lon": 11.9659188,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:country": "DE",
+    "addr:housenumber": "1",
+    "addr:postcode": "06114",
+    "addr:street": "Richard-Wagner-Straße",
+    "amenity": "fast_food",
+    "contact:instagram": "https://www.instagram.com/verwoener/",
+    "cuisine": "kebab",
+    "diet:vegan": "only",
+    "name": "verwöner",
+    "old_name": "Burgerservice",
+    "opening_date": "2023-04-14",
+    "opening_hours": "Tu-Th 11:30-22:00; Fr,Sa 11:30-01:00; Su 11:30-22:00"
+  }
+},
+{
+  "type": "node",
   "id": 3208898648,
   "lat": 51.3439014,
   "lon": 12.1780337,
@@ -1491,6 +1564,26 @@
     "operator": "UP Gastro GmbH",
     "takeaway": "yes",
     "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 3451705002,
+  "lat": 51.4911895,
+  "lon": 11.9757346,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:housenumber": "1",
+    "addr:postcode": "06114",
+    "addr:street": "Lessingstraße",
+    "amenity": "ice_cream",
+    "contact:instagram": "https://www.instagram.com/bunteeis.traeumerei/",
+    "diet:vegan": "yes",
+    "diet:vegetarian": "only",
+    "indoor_seating": "yes",
+    "name": "Bunte Eisträumerei",
+    "opening_hours": "Mo-Fr 13:00-18:00; Sa,Su 13:00-18:00",
+    "outdoor_seating": "yes"
   }
 },
 {
@@ -1574,8 +1667,8 @@
 {
   "type": "node",
   "id": 3752087074,
-  "lat": 51.4863948,
-  "lon": 11.9669050,
+  "lat": 51.4863726,
+  "lon": 11.9669324,
   "tags": {
     "addr:city": "Halle (Saale)",
     "addr:housenumber": "26",
@@ -1584,8 +1677,6 @@
     "amenity": "restaurant",
     "contact:facebook": "https://www.facebook.com/rotesosse",
     "contact:instagram": "https://www.instagram.com/rotesosse",
-    "contact:phone": "+49 345 68252080",
-    "contact:website": "https://www.rotesosse.de",
     "cuisine": "italian",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
@@ -1593,8 +1684,10 @@
     "name": "Rote Soße",
     "opening_hours": "Mo-Su 12:00-22:00",
     "operator": "Andrej Sikan",
+    "phone": "+49 345 68252080",
     "takeaway": "yes",
     "toilets:wheelchair": "no",
+    "website": "https://rotesosse.de/",
     "wheelchair": "limited",
     "wheelchair:description": "eine Stufe am Eingang"
   }
@@ -1665,7 +1758,7 @@
     "contact:phone": "+49 345 97606360",
     "contact:website": "https://www.sakura-halle.de",
     "cuisine": "japanese",
-    "diet:vegan": "limited",
+    "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "name": "Sakura",
     "opening_hours": "Mo-Sa 11:30-14:30,17:30-23:00; Su,PH 11:30-15:00,17:30-22:00",
@@ -1716,7 +1809,7 @@
     "name": "Sushifreunde",
     "opening_hours": "Mo-Su 11:30-22:00",
     "takeaway": "yes",
-    "website": "http://www.sushifreunde.de/anfahrt-kontakt/#sctab541"
+    "website": "https://sushifreunde.de/restaurants/halle/"
   }
 },
 {
@@ -1828,6 +1921,7 @@
     "addr:street": "Barfüßerstraße",
     "amenity": "cafe",
     "contact:facebook": "https://www.facebook.com/7Grammcafe",
+    "contact:instagram": "https://www.instagram.com/7gramm_cafe/",
     "cuisine": "coffee_shop",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
@@ -1836,7 +1930,6 @@
     "name": "7 Gramm",
     "opening_hours": "Mo-Fr 08:00-21:00; Sa-Su 09:00-20:00",
     "phone": "+49 1514 3239924",
-    "website": "https://7gramm.com",
     "wheelchair": "limited",
     "wikidata": "Q98642649"
   }
@@ -1906,6 +1999,7 @@
     "diet:vegetarian": "yes",
     "name": "Bagel 29",
     "opening_hours": "Mo-Sa 10:00-18:00; Su off",
+    "outdoor_seating": "no",
     "wheelchair": "yes",
     "wheelchair:description": "Rampe wird auf Nachfrage ausgelegt"
   }
@@ -2060,7 +2154,9 @@
     "diet:vegetarian": "yes",
     "name": "Himmel & Erde",
     "opening_hours": "Mo-Fr 12:00-18:00",
+    "operator": "Katrin Langheinrich",
     "organic": "only",
+    "phone": "+4917630589867",
     "shop": "supermarket"
   }
 },
@@ -2350,8 +2446,10 @@
     "cuisine": "kebab",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "name": "City Döner",
-    "opening_hours": "Mo-Fr 11:00-22:00; Sa 12:00-23:00; Su 12:00-22:00"
+    "opening_hours": "Mo-Fr 11:00-22:00; Sa 12:00-23:00; Su 12:00-22:00",
+    "outdoor_seating": "yes"
   }
 },
 {
@@ -2402,8 +2500,10 @@
     "contact:website": "https://www.cafe-kuckhoff.de",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "name": "Café Kuckhoff",
-    "opening_hours": "Mo,Tu off; We-Su 09:00-18:00"
+    "opening_hours": "Mo,Tu off; We-Su 09:00-18:00",
+    "outdoor_seating": "yes"
   }
 },
 {
@@ -3113,6 +3213,7 @@
     "addr:housenumber": "68",
     "addr:postcode": "06128",
     "addr:street": "Ammendorfer Weg",
+    "air_conditioning": "no",
     "amenity": "fast_food",
     "brand": "Papa John's",
     "brand:wikidata": "Q2759586",
@@ -3124,9 +3225,12 @@
     "delivery": "yes",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "name": "Papa John's",
-    "opening_hours": "Mo-Su 11:00-23:00",
+    "opening_hours": "Mo 11:00-23:00; Tu-Su 11:00-24:00",
     "operator": "UP Gastro GmbH",
+    "outdoor_seating": "yes",
+    "smoking": "no",
     "takeaway": "yes",
     "toilets:wheelchair": "no",
     "wheelchair": "no"
@@ -3462,6 +3566,7 @@
     "addr:street": "Bernburger Straße",
     "amenity": "fast_food",
     "building": "yes",
+    "check_date": "2023-05-13",
     "contact:facebook": "https://www.facebook.com/Falafello-593697840999599/",
     "contact:instagram": "https://www.instagram.com/falafello_the_world_of_falafel/",
     "contact:website": "https://www.falafello.de",
@@ -3472,9 +3577,11 @@
     "drive_through": "no",
     "indoor_seating": "yes",
     "name": "Falafello",
-    "opening_hours": "Mo-Su,PH 10:00-24:00",
+    "opening_hours": "Mo-Fr 11:00-22:00; Sa-Su 12:00-22:00",
     "opening_hours:covid19": "Mo-Su,PH 11:00-22:00",
     "outdoor_seating": "yes",
+    "payment:mastercard": "yes",
+    "payment:visa": "yes",
     "takeaway": "yes",
     "toilets:wheelchair": "no",
     "wheelchair": "limited"
@@ -3585,7 +3692,7 @@
     "outdoor_seating": "yes",
     "smoking": "separated",
     "takeaway": "yes",
-    "website": "https://www.aramark.de/",
+    "website": "https://www.wisag.de/",
     "wheelchair": "yes"
   }
 },
