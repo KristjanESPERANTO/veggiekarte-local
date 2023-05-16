@@ -256,7 +256,7 @@ def check_data(data):
             if "website" in tags:
                 website = tags.get("website", "")
                 check = is_url_ok(website)
-                if check is False:
+                if check["isOk"] is False:
                     place_check_obj["properties"]["issues"].append(
                         f"'website' {check['text']}"
                     )
@@ -368,6 +368,10 @@ def check_data(data):
             if "contact:phone" in tags and "phone" in tags:
                 place_check_obj["properties"]["issues"].append(
                     "'phone' and 'contact:phone' defined -> remove one"
+                )
+            if "mobile" in tags:
+                place_check_obj["properties"]["issues"].append(
+                    "'mobile' tag is not an offial tag and should therefore not be used. -> change it to 'contact:mobile'"
                 )
 
             # Opening hours
