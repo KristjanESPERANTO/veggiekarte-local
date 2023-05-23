@@ -1,5 +1,5 @@
 {
- "_timestamp": "2023-05-16 23:04:02.358743",
+ "_timestamp": "2023-05-16 23:38:48.534963",
  "features": [
   {
    "geometry": {
@@ -1416,6 +1416,29 @@
   {
    "geometry": {
     "coordinates": [
+     11.9701334,
+     51.475815
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2932869816,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06110",
+    "addr_street": "Steinweg 39",
+    "category": "vegan_limited",
+    "cuisine": "oriental",
+    "icon": "fast_food",
+    "name": "Yasmin",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.7833499,
      51.4661476
     ],
@@ -1609,7 +1632,11 @@
    "properties": {
     "_id": 3451705002,
     "_type": "node",
-    "category": "vegan_friendly",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06114",
+    "addr_street": "Lessingstraße 1",
+    "category": "vegetarian_only",
+    "contact_instagram": "bunteeis.traeumerei",
     "icon": "ice_cream",
     "name": "Bunte Eisträumerei",
     "opening_hours": "Mo-Fr 13:00-18:00; Sa,Su 13:00-18:00",
@@ -1721,7 +1748,7 @@
     "contact_facebook": "rotesosse",
     "contact_instagram": "rotesosse",
     "contact_phone": "+49 345 68252080",
-    "contact_website": "https://www.rotesosse.de",
+    "contact_website": "https://rotesosse.de",
     "cuisine": "italian",
     "icon": "restaurant",
     "more_info": true,
@@ -1849,7 +1876,7 @@
     "addr_postcode": "06110",
     "addr_street": "Steinweg 17",
     "category": "vegan_friendly",
-    "contact_website": "http://www.sushifreunde.de/anfahrt-kontakt/#sctab541",
+    "contact_website": "https://sushifreunde.de/restaurants/halle",
     "cuisine": "sushi",
     "icon": "restaurant",
     "more_info": true,
@@ -1978,8 +2005,8 @@
     "category": "vegan_friendly",
     "contact_email": "cafe@7gramm.com",
     "contact_facebook": "7Grammcafe",
+    "contact_instagram": "7gramm_cafe",
     "contact_phone": "+49 1514 3239924",
-    "contact_website": "https://7gramm.com",
     "cuisine": "coffee_shop",
     "icon": "cafe",
     "more_info": true,

@@ -199,6 +199,11 @@
   "isOk": true,
   "text": "OK - 200"
  },
+ "https://verliebtingiulia.de/": {
+  "date": "2023-05-23",
+  "isOk": true,
+  "text": "OK - 200"
+ },
  "https://website--8249614022100970096181-japaneserestaurant.business.site/": {
   "date": "2023-05-16",
   "isOk": true,
@@ -636,6 +641,11 @@
  },
  "https://www.instagram.com/chezbarac/": {
   "date": "2023-05-16",
+  "isOk": true,
+  "text": "OK - 200"
+ },
+ "https://www.instagram.com/creperie_halle/": {
+  "date": "2023-05-23",
   "isOk": true,
   "text": "OK - 200"
  },

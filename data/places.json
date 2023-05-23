@@ -1,5 +1,5 @@
 {
- "_timestamp": "2023-05-16 23:38:48.534963",
+ "_timestamp": "2023-05-23 22:03:53.311534",
  "features": [
   {
    "geometry": {
@@ -1991,6 +1991,32 @@
   {
    "geometry": {
     "coordinates": [
+     11.9687332,
+     51.4939639
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 4893692292,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06114",
+    "addr_street": "Mühlweg 29",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 345 22608719",
+    "contact_website": "https://verliebtingiulia.de",
+    "cuisine": "italian",
+    "icon": "restaurant",
+    "more_info": true,
+    "name": "Verliebt in Giulia",
+    "opening_hours": "Mo-Su 12:00-22:00",
+    "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9699118,
      51.4854444
     ],
@@ -3057,15 +3083,13 @@
     "addr_postcode": "06108",
     "addr_street": "Ludwig-Wucherer-Straße 62",
     "category": "vegan_friendly",
-    "contact_facebook": "JUICY-Donuts-Bagels-101929962043700",
-    "contact_instagram": "juicy_halle",
-    "contact_phone": "+49 176 80060578",
-    "contact_website": "https://www.juicy-halle.de",
-    "cuisine": "donut;bagel",
+    "contact_instagram": "creperie_halle",
+    "contact_phone": "+49 178 5172353",
+    "cuisine": "crepe",
     "icon": "cafe",
     "more_info": true,
-    "name": "JUICY",
-    "opening_hours": "Mo-Su 10:00-21:00",
+    "name": "Crêperie Bonjour",
+    "opening_hours": "Mo-Su 11:00-21:00",
     "symbol": "☕"
    },
    "type": "Feature"
@@ -3148,8 +3172,8 @@
   {
    "geometry": {
     "coordinates": [
-     11.9695742,
-     51.4843564
+     11.9695648,
+     51.4843667
     ],
     "type": "Point"
    },

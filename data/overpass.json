@@ -1,9 +1,9 @@
 {
   "version": 0.6,
-  "generator": "Overpass API 0.7.60 f4c14d41",
+  "generator": "Overpass API 0.7.60.2 e4cf9f7a",
   "osm3s": {
-    "timestamp_osm_base": "2023-05-16T21:38:21Z",
-    "timestamp_areas_base": "2023-05-16T19:23:26Z",
+    "timestamp_osm_base": "2023-05-23T20:02:54Z",
+    "timestamp_areas_base": "2023-05-23T15:11:15Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -1911,6 +1911,28 @@
 },
 {
   "type": "node",
+  "id": 4893692292,
+  "lat": 51.4939639,
+  "lon": 11.9687332,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:housenumber": "29",
+    "addr:postcode": "06114",
+    "addr:street": "Mühlweg",
+    "amenity": "restaurant",
+    "cuisine": "italian",
+    "diet:vegan": "yes",
+    "name": "Verliebt in Giulia",
+    "old_name": "Café Wittekind",
+    "opening_hours": "Mo-Su 12:00-22:00",
+    "outdoor_seating": "yes",
+    "phone": "+49 345 22608719",
+    "website": "https://verliebtingiulia.de/",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "node",
   "id": 4914539421,
   "lat": 51.4854444,
   "lon": 11.9699118,
@@ -2852,15 +2874,14 @@
     "addr:postcode": "06108",
     "addr:street": "Ludwig-Wucherer-Straße",
     "amenity": "cafe",
-    "contact:facebook": "https://www.facebook.com/JUICY-Donuts-Bagels-101929962043700",
-    "contact:instagram": "https://www.instagram.com/juicy_halle",
-    "contact:phone": "+49 176 80060578",
-    "contact:website": "https://www.juicy-halle.de",
-    "cuisine": "donut;bagel",
+    "contact:instagram": "https://www.instagram.com/creperie_halle/",
+    "contact:phone": "+49 178 5172353",
+    "cuisine": "crepe",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
-    "name": "JUICY",
-    "opening_hours": "Mo-Su 10:00-21:00"
+    "name": "Crêperie Bonjour",
+    "old_name": "JUICY",
+    "opening_hours": "Mo-Su 11:00-21:00"
   }
 },
 {
@@ -2939,8 +2960,8 @@
 {
   "type": "node",
   "id": 9572703189,
-  "lat": 51.4843564,
-  "lon": 11.9695742,
+  "lat": 51.4843667,
+  "lon": 11.9695648,
   "tags": {
     "addr:city": "Halle (Saale)",
     "addr:housenumber": "58",

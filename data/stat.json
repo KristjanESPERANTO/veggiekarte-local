@@ -587,6 +587,13 @@
    "n_vegan_limited": 28,
    "n_vegan_only": 5,
    "n_vegetarian_only": 9
+  },
+  {
+   "date": "2023-05-23",
+   "n_vegan_friendly": 106,
+   "n_vegan_limited": 28,
+   "n_vegan_only": 5,
+   "n_vegetarian_only": 9
   }
  ]
 }
