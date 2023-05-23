@@ -11,6 +11,7 @@ const languages = {
   en: "English",
   eo: "Esperanto",
   fi: "suomi",
+  ko: "한국인",
   fr: "Français"
 };
 
