@@ -2,8 +2,8 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.60.2 e4cf9f7a",
   "osm3s": {
-    "timestamp_osm_base": "2023-05-23T20:02:54Z",
-    "timestamp_areas_base": "2023-05-23T15:11:15Z",
+    "timestamp_osm_base": "2023-05-28T10:57:39Z",
+    "timestamp_areas_base": "2023-05-28T08:11:39Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -2959,27 +2959,6 @@
 },
 {
   "type": "node",
-  "id": 9572703189,
-  "lat": 51.4843667,
-  "lon": 11.9695648,
-  "tags": {
-    "addr:city": "Halle (Saale)",
-    "addr:housenumber": "58",
-    "addr:postcode": "06108",
-    "addr:street": "Große Ulrichtsraße",
-    "amenity": "fast_food",
-    "contact:website": "https://bowlsking.de",
-    "cuisine": "smoothie;soup;bowl",
-    "delivery": "yes",
-    "diet:vegan": "limited",
-    "diet:vegetarian": "yes",
-    "name": "Bowls King",
-    "opening_hours": "off",
-    "takeaway": "yes"
-  }
-},
-{
-  "type": "node",
   "id": 9572733602,
   "lat": 51.4929347,
   "lon": 11.9716439,
@@ -3503,12 +3482,14 @@
     "addr:street": "Talamtstraße",
     "amenity": "restaurant",
     "building": "apartments",
+    "check_date:opening_hours": "2023-05-27",
     "cuisine": "german",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "email": "kontakt@moenchshof-halle.de",
     "fax": "+49 345 2091065",
     "historic": "yes",
+    "indoor_seating": "yes",
     "name": "Mönchshof",
     "opening_hours": "Tu-Sa 11:00-23:00; Su 11:00-15:00; Mo off",
     "operator": "Jens Liebezeit",

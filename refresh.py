@@ -54,7 +54,6 @@ GET_MORE_INFO = [
     9676330117,  # Bay Vegan
     5592987513,  # VL-Küfa
     5592955318,  # Reil-Küfa
-    9572703189,  # Bowls King
     3658458714,  # Kornliebchen
     3590210914,  # Kumara
     1034449861,  # Ökoase

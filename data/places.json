@@ -1,5 +1,5 @@
 {
- "_timestamp": "2023-05-23 22:03:53.311534",
+ "_timestamp": "2023-05-28 12:58:10.652303",
  "features": [
   {
    "geometry": {
@@ -3165,31 +3165,6 @@
     "icon": "fast_food",
     "name": "Mira",
     "opening_hours": "Mo-Su 11:00-21:00",
-    "symbol": "🍔"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9695648,
-     51.4843667
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 9572703189,
-    "_type": "node",
-    "addr_city": "Halle (Saale)",
-    "addr_postcode": "06108",
-    "addr_street": "Große Ulrichtsraße 58",
-    "category": "vegan_limited",
-    "contact_website": "https://bowlsking.de",
-    "cuisine": "smoothie;soup;bowl",
-    "icon": "fast_food",
-    "more_info": true,
-    "name": "Bowls King",
-    "opening_hours": "off",
     "symbol": "🍔"
    },
    "type": "Feature"
