@@ -1,6 +1,30 @@
 {
- "_timestamp": "2023-05-28 12:58:51.092929",
+ "_timestamp": "2023-06-27 22:51:24.897728",
  "features": [
+  {
+   "geometry": {
+    "coordinates": [
+     11.8182082,
+     51.3171654
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2399144768,
+    "_type": "node",
+    "diet_vegan": "yes",
+    "issue_count": 5,
+    "name": "Beach Club",
+    "undefined": [
+     "cuisine",
+     "addr:street",
+     "addr:housenumber",
+     "addr:city/suburb",
+     "addr:postcode"
+    ]
+   },
+   "type": "Feature"
+  },
   {
    "geometry": {
     "coordinates": [
@@ -80,26 +104,6 @@
     "name": "Kaffeeschuppen",
     "undefined": [
      "cuisine"
-    ]
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9701334,
-     51.475815
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 2932869816,
-    "_type": "node",
-    "diet_vegan": "limited",
-    "issue_count": 1,
-    "name": "Yasmin",
-    "undefined": [
-     "opening_hours"
     ]
    },
    "type": "Feature"
@@ -187,6 +191,46 @@
   {
    "geometry": {
     "coordinates": [
+     11.9549594,
+     51.5601745
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 9073603964,
+    "_type": "node",
+    "diet_vegan": "yes",
+    "issue_count": 1,
+    "name": "Eislust",
+    "undefined": [
+     "opening_hours"
+    ]
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9682863,
+     51.4879503
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 9236644686,
+    "_type": "node",
+    "diet_vegan": "yes",
+    "issue_count": 1,
+    "name": "Mc-FT",
+    "undefined": [
+     "opening_hours"
+    ]
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9953039,
      51.4849661
     ],
@@ -201,6 +245,26 @@
     "undefined": [
      "cuisine"
     ]
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9721356,
+     51.4856145
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 10983113691,
+    "_type": "node",
+    "diet_vegan": "yes",
+    "issue_count": 1,
+    "issues": [
+     "'contact:website' Exception: ReadTimeout"
+    ],
+    "name": "NEKO"
    },
    "type": "Feature"
   },

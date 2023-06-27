@@ -1,9 +1,9 @@
 {
   "version": 0.6,
-  "generator": "Overpass API 0.7.60.2 e4cf9f7a",
+  "generator": "Overpass API 0.7.60.6 e2dc3e5b",
   "osm3s": {
-    "timestamp_osm_base": "2023-05-28T10:57:39Z",
-    "timestamp_areas_base": "2023-05-28T08:11:39Z",
+    "timestamp_osm_base": "2023-06-27T20:23:44Z",
+    "timestamp_areas_base": "2023-06-27T17:23:30Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -541,9 +541,10 @@
     "diet:vegetarian": "yes",
     "indoor_seating": "yes",
     "name": "Rosenburg",
-    "opening_hours": "Mo-Su 10:00-19:00",
+    "opening_hours": "Mo-Su 10:00-18:00",
     "opening_hours:covid19": "Mo-Su 10:00-17:00",
-    "outdoor_seating": "yes",
+    "outdoor_seating": "sidewalk",
+    "smoking": "outside",
     "toilets:wheelchair": "no",
     "wheelchair": "no"
   }
@@ -694,7 +695,8 @@
     "opening_hours": "Mo-Su 09:00-22:00",
     "outdoor_seating": "yes",
     "smoking": "outside",
-    "wheelchair": "limited"
+    "toilets": "yes",
+    "wheelchair": "no"
   }
 },
 {
@@ -805,8 +807,10 @@
     "diet:vegan": "limited",
     "diet:vegan:description": "Haben nichts veganes in der Karte. Auf Nachfrage kann vegetarisches vegan zubereitet werden.",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "name": "Kohaku",
     "opening_hours": "Mo-Su 11:00-23:00",
+    "outdoor_seating": "yes",
     "phone": "+49 345 68457969",
     "toilets:wheelchair": "no",
     "wheelchair": "yes"
@@ -920,6 +924,7 @@
     "cuisine": "asian",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "name": "Asia Snack",
     "opening_hours": "Mo-Fr 10:30-21:00; Su 11:00-21:00",
     "outdoor_seating": "yes",
@@ -1035,8 +1040,10 @@
     "cuisine": "burger",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "name": "the one",
     "opening_hours": "Tu-Th 17:00-22:00; Fr,Sa 17:00-00:00; Mo,Su,PH off",
+    "outdoor_seating": "yes",
     "smoking": "separated",
     "wheelchair": "no"
   }
@@ -1139,6 +1146,19 @@
     "opening_hours": "Mo-Fr 11:30-18:30; Sa-Su off",
     "outdoor_seating": "yes",
     "phone": "+4917672239985"
+  }
+},
+{
+  "type": "node",
+  "id": 2399144768,
+  "lat": 51.3171654,
+  "lon": 11.8182082,
+  "tags": {
+    "amenity": "fast_food",
+    "diet:vegan": "yes",
+    "diet:vegetarian": "yes",
+    "name": "Beach Club",
+    "opening_hours": "Mo-Fr 11:00-16:00; Sa-Su 10:00-18:00"
   }
 },
 {
@@ -1272,11 +1292,13 @@
     "diet:kosher": "no",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "internet_access": "wlan",
     "internet_access:fee": "no",
     "level": "-1",
     "name": "Coffee Fellows",
     "opening_hours": "Mo-Fr 07:00-18:00; Sa 08:00-18:00; Su 08:00-18:00",
+    "outdoor_seating": "no",
     "phone": "+49 345 29989903",
     "smoking": "no",
     "takeaway": "yes",
@@ -1337,8 +1359,8 @@
 {
   "type": "node",
   "id": 2876264915,
-  "lat": 51.4793653,
-  "lon": 11.9797147,
+  "lat": 51.4793746,
+  "lon": 11.9797333,
   "tags": {
     "addr:city": "Halle (Saale)",
     "addr:country": "DE",
@@ -1348,6 +1370,7 @@
     "amenity": "restaurant",
     "capacity": "25",
     "check_date:opening_hours": "2022-08-16",
+    "contact:website": "https://www.saomai-halle.de/",
     "cuisine": "vietnamese",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
@@ -1355,7 +1378,6 @@
     "opening_hours": "Tu-Sa 11:00-22:30; Su,PH 12:00-22:00; Mo off",
     "phone": "+49 345 4722962",
     "toilets:wheelchair": "no",
-    "website": "https://www.saomai-halle.de/",
     "wheelchair": "no",
     "wheelchair:description": "Hohe Stufe in den Gastraum aber auf der anderen Straßenseite befindet sich ein kleiner Biergarten wo Speisen und Getränke serviert werden. Biergarten ist mit einem Rollstuhl befahrbar",
     "wikidata": "Q98116261"
@@ -1373,12 +1395,18 @@
     "addr:postcode": "06110",
     "addr:street": "Steinweg",
     "amenity": "fast_food",
+    "check_date": "2023-06-11",
     "cuisine": "oriental",
+    "delivery": "no",
     "diet:vegan": "limited",
     "diet:vegetarian": "yes",
     "name": "Yasmin",
     "name:ar": "ياسمين",
     "name:de": "Yasmin",
+    "opening_hours": "11:00-22:00",
+    "outdoor_seating": "yes",
+    "phone": "+49 1577 2543655",
+    "source": "survey",
     "takeaway": "yes",
     "wheelchair": "no"
   }
@@ -1477,6 +1505,7 @@
     "brand": "Domino's",
     "brand:wikidata": "Q839466",
     "brand:wikipedia": "en:Domino's Pizza",
+    "check_date": "2023-06-11",
     "contact:phone": "+49 345 6857999",
     "contact:website": "https://www.dominos.de/kaufhaus/de-hallesteinweg-33848",
     "cuisine": "pizza",
@@ -1484,8 +1513,10 @@
     "diet:vegetarian": "yes",
     "name": "Domino's",
     "opening_hours": "Mo-Su , PH 11:00-23:00",
+    "payment:mastercard": "yes",
+    "payment:visa": "yes",
     "short_name": "Domino's",
-    "takeaway": "yes",
+    "takeaway": "only",
     "wheelchair": "yes"
   }
 },
@@ -1711,7 +1742,8 @@
     "name": "Vanilla",
     "opening_hours": "12:00-19:00",
     "opening_hours:covid19": "Mo-Su,PH 12:00-19:00",
-    "outdoor_seating": "yes"
+    "outdoor_seating": "yes",
+    "wheelchair": "no"
   }
 },
 {
@@ -1760,8 +1792,10 @@
     "cuisine": "japanese",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "name": "Sakura",
     "opening_hours": "Mo-Sa 11:30-14:30,17:30-23:00; Su,PH 11:30-15:00,17:30-22:00",
+    "outdoor_seating": "yes",
     "wheelchair": "limited",
     "wheelchair:description": "Fahrstuhl vorhanden!"
   }
@@ -1826,9 +1860,14 @@
     "cuisine": "ice_cream",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "name": "Eisburg",
     "opening_hours": "Mo-Fr 13:00-19:00; Sa, Su 12:00-19:00",
-    "outdoor_seating": "yes"
+    "outdoor_seating": "yes",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
+    "smoking": "outside",
+    "wheelchair": "no"
   }
 },
 {
@@ -1853,6 +1892,7 @@
     "outdoor_seating": "yes",
     "smoking": "outside",
     "website": "http://vietvillageasianstreetfood.cafelists.com/",
+    "wheelchair": "limited",
     "wheelchair:description": "keine Angaben, Eckgebäude zur Ulrichstraße"
   }
 },
@@ -1948,9 +1988,11 @@
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "email": "cafe@7gramm.com",
+    "indoor_seating": "yes",
     "internet_access": "wlan",
     "name": "7 Gramm",
     "opening_hours": "Mo-Fr 08:00-21:00; Sa-Su 09:00-20:00",
+    "outdoor_seating": "yes",
     "phone": "+49 1514 3239924",
     "wheelchair": "limited",
     "wikidata": "Q98642649"
@@ -2111,6 +2153,7 @@
     "addr:housenumber": "1",
     "addr:postcode": "06110",
     "addr:street": "Torstraße",
+    "check_date": "2023-06-11",
     "contact:email": "info@yenso.eu",
     "contact:facebook": "https://www.facebook.com/yenso.markt/",
     "contact:phone": "+49 176 57882542",
@@ -2119,6 +2162,9 @@
     "diet:vegetarian": "yes",
     "name": "YENSO Asia Markt",
     "opening_hours": "Mo-Sa 09:00-19:00; Su off",
+    "payment:cash": "yes",
+    "payment:mastercard": "yes",
+    "payment:visa": "yes",
     "shop": "convenience",
     "wheelchair": "no"
   }
@@ -2257,6 +2303,7 @@
     "diet:halal": "yes",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "internet_access": "wlan",
     "internet_access:fee": "no",
     "name": "Koffij",
@@ -2324,7 +2371,8 @@
     "indoor_seating": "yes",
     "name": "Hafenmeister & Docks",
     "opening_hours": "Mo-Fr 11:30-18:00; Sa 10:00-18:00; Su 09:00-18:00",
-    "outdoor_seating": "yes"
+    "outdoor_seating": "yes",
+    "wheelchair": "no"
   }
 },
 {
@@ -2344,25 +2392,6 @@
     "name": "Kaffeerösterei Roy",
     "opening_hours": "Mo-Fr 10:00-19:00; Sa 10:00-17:00",
     "website": "https://www.roy-coffee.de"
-  }
-},
-{
-  "type": "node",
-  "id": 6820930072,
-  "lat": 51.4740020,
-  "lon": 11.9700357,
-  "tags": {
-    "addr:city": "Halle (Saale)",
-    "addr:housenumber": "29",
-    "addr:postcode": "06110",
-    "addr:street": "Steinweg",
-    "amenity": "cafe",
-    "contact:facebook": "https://www.facebook.com/Pirashki-Halle-464419094098752/",
-    "cuisine": "russian",
-    "diet:vegan": "yes",
-    "diet:vegetarian": "yes",
-    "name": "Pirashki",
-    "opening_hours": "Mo-Su 15:00-20:00"
   }
 },
 {
@@ -2788,8 +2817,10 @@
     "contact:website": "https://eisfvchs.com",
     "diet:vegan": "yes",
     "diet:vegetarian": "only",
+    "indoor_seating": "yes",
     "name": "Eisfvchs",
-    "opening_hours": "Mo-Su 12:00-17:30"
+    "opening_hours": "Mo-Su 12:00-17:30",
+    "outdoor_seating": "yes"
   }
 },
 {
@@ -2865,6 +2896,29 @@
 },
 {
   "type": "node",
+  "id": 9073603964,
+  "lat": 51.5601745,
+  "lon": 11.9549594,
+  "tags": {
+    "addr:city": "Petersberg",
+    "addr:housenumber": "5",
+    "addr:postcode": "06193",
+    "addr:street": "August-Bebel-Straße",
+    "addr:suburb": "Teicha",
+    "amenity": "ice_cream",
+    "contact:email": "teicha@meineeislust.de",
+    "contact:facebook": "https://www.facebook.com/EislustTeicha",
+    "contact:instagram": "https://www.instagram.com/eislust.teicha",
+    "contact:website": "https://www.meineeislust.de/standorte/teicha-bei-halle-saale",
+    "diet:vegan": "yes",
+    "indoor_seating": "no",
+    "name": "Eislust",
+    "operator": "Jörg-Thoralf Kottwitz",
+    "outdoor_seating": "yes"
+  }
+},
+{
+  "type": "node",
   "id": 9140808707,
   "lat": 51.4929765,
   "lon": 11.9715732,
@@ -2904,6 +2958,34 @@
     "name": "Pizza One",
     "opening_hours": "Mo-Su 11:00-24:00",
     "takeaway": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 9236644686,
+  "lat": 51.4879503,
+  "lon": 11.9682863,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:housenumber": "2",
+    "addr:postcode": "06108",
+    "addr:street": "Weidenplan",
+    "amenity": "fast_food",
+    "contact:facebook": "https://www.facebook.com/McFt.Halle",
+    "cuisine": "mediterranean;falafel;pizza;steak;burger",
+    "delivery": "yes",
+    "diet:halal": "only",
+    "diet:vegan": "yes",
+    "diet:vegetarian": "yes",
+    "drive_through": "no",
+    "language:ar": "yes",
+    "language:de": "yes",
+    "level": "0",
+    "name": "Mc-FT",
+    "outdoor_seating": "yes",
+    "phone": "+49 178 6805167",
+    "takeaway": "yes",
+    "wheelchair": "no"
   }
 },
 {
@@ -2977,7 +3059,7 @@
     "diet:vegan": "yes",
     "diet:vegetarian": "only",
     "name": "Eis-Dealer",
-    "opening_hours": "12:00-18:00",
+    "opening_hours": "12:00-22:00",
     "outdoor_seating": "no",
     "takeaway": "yes",
     "toilets:wheelchair": "no",
@@ -3072,6 +3154,27 @@
 },
 {
   "type": "node",
+  "id": 9977296080,
+  "lat": 51.4366984,
+  "lon": 11.9762498,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:country": "DE",
+    "addr:housenumber": "250",
+    "addr:postcode": "06132",
+    "addr:street": "Alte Heerstraße",
+    "amenity": "fast_food",
+    "cuisine": "american",
+    "delivery": "yes",
+    "diet:vegan": "yes",
+    "name": "SubWay",
+    "note": "geöffnet seit 05.06.2023",
+    "opening_hours": "Mo-Su 12:00-22:00",
+    "phone": "+49 345 77788107"
+  }
+},
+{
+  "type": "node",
   "id": 10057151822,
   "lat": 51.4799496,
   "lon": 11.9981254,
@@ -3109,6 +3212,49 @@
     "diet:vegetarian": "yes",
     "name": "Kim Viet",
     "opening_hours": "Mo off; Tu-Th 10:30-21:00; Fr-Sa 10:30-21:30; Su 11:00-21:00"
+  }
+},
+{
+  "type": "node",
+  "id": 10983113691,
+  "lat": 51.4856145,
+  "lon": 11.9721356,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:housenumber": "1",
+    "addr:postcode": "06108",
+    "addr:street": "Joliot-Curie-Platz",
+    "amenity": "cafe",
+    "contact:instagram": "https://www.instagram.com/neko.cafe.halle/",
+    "contact:website": "https://neko-cafe.de/",
+    "diet:vegan": "yes",
+    "name": "NEKO",
+    "opening_hours": "Tu-Sa 10:00-18:00; Su-Mo off",
+    "outdoor_seating": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 11010885982,
+  "lat": 51.4802809,
+  "lon": 11.9751294,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:housenumber": "1",
+    "addr:postcode": "06108",
+    "addr:street": "Am Bauhof",
+    "amenity": "fast_food",
+    "contact:facebook": "https://www.facebook.com/grillalbalad",
+    "cuisine": "falafel;sandwich;burger;shawarma;arab",
+    "diet:halal": "yes",
+    "diet:vegan": "yes",
+    "drive_through": "no",
+    "level": "0;1",
+    "name": "Grill Albalad",
+    "opening_hours": "Mo-Th 10:30-23:00; Fr-Sa 10:30-0:00; Su 10:30-23:00",
+    "outdoor_seating": "yes",
+    "phone": "+49 162 9417060",
+    "takeaway": "yes"
   }
 },
 {

@@ -144,6 +144,11 @@
   "isOk": true,
   "text": "OK - 200"
  },
+ "https://neko-cafe.de/": {
+  "date": "2023-06-27",
+  "isOk": false,
+  "text": "Exception: ReadTimeout"
+ },
  "https://nobelsuess.eu": {
   "date": "2023-05-16",
   "isOk": true,
@@ -314,6 +319,11 @@
   "isOk": true,
   "text": "OK - 200"
  },
+ "https://www.facebook.com/EislustTeicha": {
+  "date": "2023-06-27",
+  "isOk": true,
+  "text": "OK - 200"
+ },
  "https://www.facebook.com/Espitas.Halle/": {
   "date": "2023-05-16",
   "isOk": true,
@@ -361,6 +371,11 @@
  },
  "https://www.facebook.com/LeFeuHalle": {
   "date": "2023-05-16",
+  "isOk": true,
+  "text": "OK - 200"
+ },
+ "https://www.facebook.com/McFt.Halle": {
+  "date": "2023-06-27",
   "isOk": true,
   "text": "OK - 200"
  },
@@ -426,6 +441,11 @@
  },
  "https://www.facebook.com/enchilada.hal/": {
   "date": "2023-05-16",
+  "isOk": true,
+  "text": "OK - 200"
+ },
+ "https://www.facebook.com/grillalbalad": {
+  "date": "2023-06-27",
   "isOk": true,
   "text": "OK - 200"
  },
@@ -659,6 +679,11 @@
   "isOk": true,
   "text": "OK - 200"
  },
+ "https://www.instagram.com/eislust.teicha": {
+  "date": "2023-06-27",
+  "isOk": true,
+  "text": "OK - 200"
+ },
  "https://www.instagram.com/enchilada_halle/": {
   "date": "2023-05-16",
   "isOk": true,
@@ -711,6 +736,11 @@
  },
  "https://www.instagram.com/naschmadame": {
   "date": "2023-05-16",
+  "isOk": true,
+  "text": "OK - 200"
+ },
+ "https://www.instagram.com/neko.cafe.halle/": {
+  "date": "2023-06-27",
   "isOk": true,
   "text": "OK - 200"
  },
@@ -791,6 +821,11 @@
  },
  "https://www.mayamare.de/sauna-wellness/#cancunbar": {
   "date": "2023-05-16",
+  "isOk": true,
+  "text": "OK - 200"
+ },
+ "https://www.meineeislust.de/standorte/teicha-bei-halle-saale": {
+  "date": "2023-06-27",
   "isOk": true,
   "text": "OK - 200"
  },

@@ -1,5 +1,5 @@
 {
- "_timestamp": "2023-05-28 12:55:05.214766",
+ "_timestamp": "2023-06-27 21:52:56.781302",
  "features": [
   {
    "geometry": {
@@ -1194,6 +1194,25 @@
   {
    "geometry": {
     "coordinates": [
+     11.8182082,
+     51.3171654
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2399144768,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "icon": "fast_food",
+    "name": "Beach Club",
+    "opening_hours": "Mo-Fr 11:00-16:00; Sa-Su 10:00-18:00",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9778323,
      51.4754283
     ],
@@ -1389,8 +1408,8 @@
   {
    "geometry": {
     "coordinates": [
-     11.9797147,
-     51.4793653
+     11.9797333,
+     51.4793746
     ],
     "type": "Point"
    },
@@ -1429,9 +1448,11 @@
     "addr_postcode": "06110",
     "addr_street": "Steinweg 39",
     "category": "vegan_limited",
+    "contact_phone": "+49 1577 2543655",
     "cuisine": "oriental",
     "icon": "fast_food",
     "name": "Yasmin",
+    "opening_hours": "11:00-22:00",
     "symbol": "🍔"
    },
    "type": "Feature"
@@ -2486,31 +2507,6 @@
   {
    "geometry": {
     "coordinates": [
-     11.9700357,
-     51.474002
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 6820930072,
-    "_type": "node",
-    "addr_city": "Halle (Saale)",
-    "addr_postcode": "06110",
-    "addr_street": "Steinweg 29",
-    "category": "vegan_friendly",
-    "contact_facebook": "Pirashki-Halle-464419094098752",
-    "cuisine": "russian",
-    "icon": "cafe",
-    "more_info": true,
-    "name": "Pirashki",
-    "opening_hours": "Mo-Su 15:00-20:00",
-    "symbol": "☕"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
      11.986994,
      51.4774619
     ],
@@ -3071,6 +3067,31 @@
   {
    "geometry": {
     "coordinates": [
+     11.9549594,
+     51.5601745
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 9073603964,
+    "_type": "node",
+    "addr_city": "Petersberg",
+    "addr_postcode": "06193",
+    "addr_street": "August-Bebel-Straße 5",
+    "category": "vegan_friendly",
+    "contact_email": "teicha@meineeislust.de",
+    "contact_facebook": "EislustTeicha",
+    "contact_instagram": "eislust.teicha",
+    "contact_website": "https://www.meineeislust.de/standorte/teicha-bei-halle-saale",
+    "icon": "ice_cream",
+    "name": "Eislust",
+    "symbol": "🍨"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9715732,
      51.4929765
     ],
@@ -3116,6 +3137,30 @@
     "name": "Pizza One",
     "opening_hours": "Mo-Su 11:00-24:00",
     "symbol": "🍕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9682863,
+     51.4879503
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 9236644686,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06108",
+    "addr_street": "Weidenplan 2",
+    "category": "vegan_friendly",
+    "contact_facebook": "McFt.Halle",
+    "contact_phone": "+49 178 6805167",
+    "cuisine": "mediterranean;falafel;pizza;steak;burger",
+    "icon": "fast_food",
+    "name": "Mc-FT",
+    "symbol": "🍔"
    },
    "type": "Feature"
   },
@@ -3172,26 +3217,6 @@
   {
    "geometry": {
     "coordinates": [
-     11.9695648,
-     51.4843667
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 9572703189,
-    "_type": "node",
-    "category": "vegan_limited",
-    "cuisine": "smoothie;soup;bowl",
-    "icon": "maki_star-stroked",
-    "name": "node 9572703189",
-    "opening_hours": "off",
-    "symbol": ""
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
      11.9716439,
      51.4929347
     ],
@@ -3211,7 +3236,7 @@
     "cuisine": "ice_cream",
     "icon": "ice_cream",
     "name": "Eis-Dealer",
-    "opening_hours": "12:00-18:00",
+    "opening_hours": "12:00-22:00",
     "symbol": "🍨"
    },
    "type": "Feature"
@@ -3319,6 +3344,31 @@
   {
    "geometry": {
     "coordinates": [
+     11.9762498,
+     51.4366984
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 9977296080,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06132",
+    "addr_street": "Alte Heerstraße 250",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 345 77788107",
+    "cuisine": "american",
+    "icon": "fast_food",
+    "name": "SubWay",
+    "opening_hours": "Mo-Su 12:00-22:00",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9981254,
      51.4799496
     ],
@@ -3363,6 +3413,55 @@
     "icon": "fast_food",
     "name": "Kim Viet",
     "opening_hours": "Mo off; Tu-Th 10:30-21:00; Fr-Sa 10:30-21:30; Su 11:00-21:00",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9721356,
+     51.4856145
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 10983113691,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06108",
+    "addr_street": "Joliot-Curie-Platz 1",
+    "category": "vegan_friendly",
+    "contact_instagram": "neko.cafe.halle",
+    "contact_website": "https://neko-cafe.de",
+    "icon": "cafe",
+    "name": "NEKO",
+    "opening_hours": "Tu-Sa 10:00-18:00; Su-Mo off",
+    "symbol": "☕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9751294,
+     51.4802809
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 11010885982,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06108",
+    "addr_street": "Am Bauhof 1",
+    "category": "vegan_friendly",
+    "contact_facebook": "grillalbalad",
+    "contact_phone": "+49 162 9417060",
+    "cuisine": "falafel;sandwich;burger;shawarma;arab",
+    "icon": "fast_food",
+    "name": "Grill Albalad",
+    "opening_hours": "Mo-Th 10:30-23:00; Fr-Sa 10:30-0:00; Su 10:30-23:00",
     "symbol": "🍔"
    },
    "type": "Feature"
