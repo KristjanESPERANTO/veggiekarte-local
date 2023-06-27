@@ -11,8 +11,9 @@ const languages = {
   en: "English",
   eo: "Esperanto",
   fi: "suomi",
-  ko: "한국인",
-  fr: "Français"
+  fr: "Français",
+  it: "Italiano",
+  ko: "한국어"
 };
 
 function setUserLanguage(language) {
