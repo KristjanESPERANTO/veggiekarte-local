@@ -1,5 +1,5 @@
 {
- "_timestamp": "2023-06-27 22:51:24.897728",
+ "_timestamp": "2023-07-17 21:15:18.550234",
  "features": [
   {
    "geometry": {
@@ -13,14 +13,12 @@
     "_id": 2399144768,
     "_type": "node",
     "diet_vegan": "yes",
-    "issue_count": 5,
+    "issue_count": 3,
     "name": "Beach Club",
     "undefined": [
      "cuisine",
      "addr:street",
-     "addr:housenumber",
-     "addr:city/suburb",
-     "addr:postcode"
+     "addr:housenumber"
     ]
    },
    "type": "Feature"
@@ -111,26 +109,6 @@
   {
    "geometry": {
     "coordinates": [
-     12.177683,
-     51.344328
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 2986723100,
-    "_type": "node",
-    "diet_vegan": "yes",
-    "issue_count": 1,
-    "issues": [
-     "'contact:website' Exception: ReadTimeout"
-    ],
-    "name": "Dunkin'"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
      11.9632008,
      51.4707364
     ],
@@ -171,6 +149,26 @@
   {
    "geometry": {
     "coordinates": [
+     11.9550278,
+     51.502865
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 8018835847,
+    "_type": "node",
+    "diet_vegan": "limited",
+    "issue_count": 1,
+    "issues": [
+     "'contact:website' Exception: ReadTimeout"
+    ],
+    "name": "Mensa Burg"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9831239,
      51.3704679
     ],
@@ -191,6 +189,26 @@
   {
    "geometry": {
     "coordinates": [
+     11.9659497,
+     51.4907608
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 8978714142,
+    "_type": "node",
+    "diet_vegan": "limited",
+    "issue_count": 1,
+    "name": "Damas Halle",
+    "undefined": [
+     "opening_hours"
+    ]
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9549594,
      51.5601745
     ],
@@ -202,26 +220,6 @@
     "diet_vegan": "yes",
     "issue_count": 1,
     "name": "Eislust",
-    "undefined": [
-     "opening_hours"
-    ]
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9682863,
-     51.4879503
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 9236644686,
-    "_type": "node",
-    "diet_vegan": "yes",
-    "issue_count": 1,
-    "name": "Mc-FT",
     "undefined": [
      "opening_hours"
     ]
@@ -285,6 +283,26 @@
     "undefined": [
      "cuisine"
     ]
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9842788,
+     51.2814207
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 255017911,
+    "_type": "way",
+    "diet_vegan": "yes",
+    "issue_count": 1,
+    "issues": [
+     "'website' Exception: SSLError"
+    ],
+    "name": "Raffiness"
    },
    "type": "Feature"
   }

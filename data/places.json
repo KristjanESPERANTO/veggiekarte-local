@@ -1,5 +1,5 @@
 {
- "_timestamp": "2023-06-27 22:24:04.183745",
+ "_timestamp": "2023-07-17 21:15:10.424444",
  "features": [
   {
    "geometry": {
@@ -218,7 +218,7 @@
     "addr_street": "Fiete-Schulze-Straße 14",
     "category": "vegan_friendly",
     "contact_phone": "+49 345 6788999",
-    "contact_website": "https://www.papajohns.de/papa-johns-halle",
+    "contact_website": "https://www.papajohns.de",
     "cuisine": "pizza",
     "icon": "maki_restaurant-pizza",
     "more_info": true,
@@ -1202,6 +1202,8 @@
    "properties": {
     "_id": 2399144768,
     "_type": "node",
+    "addr_city": "Mücheln",
+    "addr_postcode": "06249",
     "category": "vegan_friendly",
     "icon": "fast_food",
     "name": "Beach Club",
@@ -1542,6 +1544,31 @@
   {
    "geometry": {
     "coordinates": [
+     11.9703845,
+     51.4755744
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3122730907,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06110",
+    "addr_street": "Steinweg 19",
+    "category": "vegan_limited",
+    "contact_phone": "+49 345 56642467",
+    "cuisine": "kebab;doner",
+    "icon": "fast_food",
+    "name": "Babylon-Bistro",
+    "opening_hours": "Mo-Sa 11:00-24:00; Su 11:00-23:00",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9703938,
      51.4754624
     ],
@@ -1632,7 +1659,7 @@
     "addr_street": "Neustädter Passage 9",
     "category": "vegan_friendly",
     "contact_phone": "+49 345 6788999",
-    "contact_website": "https://www.papajohns.de/papa-johns-halle",
+    "contact_website": "https://www.papajohns.de",
     "cuisine": "pizza",
     "icon": "maki_restaurant-pizza",
     "more_info": true,
@@ -1691,34 +1718,6 @@
     "name": "Kumara soulfood",
     "opening_hours": "Mo-Fr 11:00-15:00, Fr 18:00-22:00",
     "symbol": "🍽️"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9674203,
-     51.4864335
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 3658458714,
-    "_type": "node",
-    "addr_city": "Halle (Saale)",
-    "addr_country": "DE",
-    "addr_postcode": "06108",
-    "addr_street": "Große Ulrichstraße 40",
-    "category": "vegan_friendly",
-    "contact_facebook": "KornLiebchen-375530942489161",
-    "contact_phone": "+49 345 4723780",
-    "contact_website": "https://kornliebchen.de",
-    "icon": "cafe",
-    "more_info": true,
-    "name": "KornLiebchen",
-    "opening_hours": "Tu-Fr 09:00-18:30; Sa 09:00-16:00",
-    "shop": "bakery",
-    "symbol": "☕"
    },
    "type": "Feature"
   },
@@ -1973,7 +1972,7 @@
     "addr_street": "Hubertusplatz 1a",
     "category": "vegan_friendly",
     "contact_phone": "+49 345 6788999",
-    "contact_website": "https://www.papajohns.de/papa-johns-halle",
+    "contact_website": "https://www.papajohns.de",
     "cuisine": "pizza",
     "icon": "maki_restaurant-pizza",
     "more_info": true,
@@ -3041,6 +3040,31 @@
   {
    "geometry": {
     "coordinates": [
+     11.9659497,
+     51.4907608
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 8978714142,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Geiststraße 39",
+    "category": "vegan_limited",
+    "contact_phone": "+4917662834995",
+    "contact_website": "https://www.damas-halle.de",
+    "cuisine": "arab;syrian",
+    "icon": "restaurant",
+    "name": "Damas Halle",
+    "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9663524,
      51.4938316
     ],
@@ -3054,7 +3078,7 @@
     "addr_street": "Mühlweg 22",
     "category": "vegan_friendly",
     "contact_phone": "+49 345 6788999",
-    "contact_website": "https://www.papajohns.de/papa-johns-halle",
+    "contact_website": "https://www.papajohns.de",
     "cuisine": "pizza",
     "icon": "maki_restaurant-pizza",
     "more_info": true,
@@ -3160,7 +3184,34 @@
     "cuisine": "mediterranean;falafel;pizza;steak;burger",
     "icon": "fast_food",
     "name": "Mc-FT",
+    "opening_hours": "Mo-Su 08:00-22:00",
     "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9619153,
+     51.4816133
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 9249179435,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_postcode": "06108",
+    "addr_street": "Mansfelder Straße 11",
+    "category": "vegan_friendly",
+    "contact_email": "bereketmana1992@gmail.com",
+    "contact_phone": "+49 345 2831259",
+    "contact_website": "https://de.restaurantguru.com/Zum-Salzwirker-Halle-Saale",
+    "cuisine": "african",
+    "icon": "restaurant",
+    "name": "Asmara Bar & Restaurant",
+    "opening_hours": "Tu-Sa 13:00-23:30; Su 14:00-22:00",
+    "symbol": "🍽️"
    },
    "type": "Feature"
   },
@@ -3531,7 +3582,7 @@
     "addr_street": "Ammendorfer Weg 68",
     "category": "vegan_friendly",
     "contact_phone": "+49 345 6788999",
-    "contact_website": "https://www.papajohns.de/papa-johns-halle",
+    "contact_website": "https://www.papajohns.de",
     "cuisine": "pizza",
     "icon": "maki_restaurant-pizza",
     "more_info": true,
