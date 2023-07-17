@@ -14,7 +14,7 @@ import "../third-party/leaflet.languageselector/leaflet.languageselector.js";
 
 // Import own scripts
 import { setUserLanguage, getUserLanguage, addLanguageRecources } from "./i18n.js";
-import { getIcon } from "./veggiemap-icons.js";
+import getIcon from "./veggiemap-icons.js";
 
 // Define marker groups
 const parentGroup = L.markerClusterGroup({
