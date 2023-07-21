@@ -1,11 +1,11 @@
 {
- "_timestamp": "2023-07-22 00:27:26.815724",
+ "_timestamp": "2023-07-22 00:53:06.744227",
  "features": [
   {
    "geometry": {
     "coordinates": [
-     12.0612878,
-     51.2974302
+     12.0612751,
+     51.2974368
     ],
     "type": "Point"
    },
@@ -15,14 +15,14 @@
     "addr_city": "Bad Dürrenberg",
     "addr_postcode": "06231",
     "addr_street": "Apothekerberg 16",
-    "category": "vegan_friendly",
+    "category": "vegan_limited",
     "contact_phone": "+49 3462 542280",
     "contact_website": "https://www.hotel-alte-apotheke.de",
     "cuisine": "german",
     "icon": "restaurant",
     "more_info": true,
     "name": "Alte Apotheke",
-    "opening_hours": "Mo-Fr 06:30+; Sa,Su 08:00+",
+    "opening_hours": "Mo-Su 11:30+",
     "symbol": "🍽️"
    },
    "type": "Feature"

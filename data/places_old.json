@@ -1,5 +1,5 @@
 {
- "_timestamp": "2023-07-17 21:15:10.424444",
+ "_timestamp": "2023-07-22 00:27:26.815724",
  "features": [
   {
    "geometry": {
@@ -2695,7 +2695,7 @@
     "addr_postcode": "06114",
     "addr_street": "Seebener Straße 1",
     "category": "vegan_limited",
-    "contact_website": "https://www.studentenwerk-halle.de/mensen-cafebars/mensen-in-halle/mensa-burg",
+    "contact_website": "https://studentenwerk-halle.de/mensen-cafebars/mensen-in-halle/mensa-burg",
     "cuisine": "canteen",
     "icon": "restaurant",
     "name": "Mensa Burg",
@@ -3053,11 +3053,12 @@
     "addr_postcode": "06108",
     "addr_street": "Geiststraße 39",
     "category": "vegan_limited",
-    "contact_phone": "+4917662834995",
+    "contact_phone": "+49 176 62834995",
     "contact_website": "https://www.damas-halle.de",
     "cuisine": "arab;syrian",
     "icon": "restaurant",
     "name": "Damas Halle",
+    "opening_hours": "Mo-Su 11:00-22:45",
     "symbol": "🍽️"
    },
    "type": "Feature"

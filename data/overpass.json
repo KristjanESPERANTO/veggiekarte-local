@@ -2,7 +2,7 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.61.2 bd0cdeae",
   "osm3s": {
-    "timestamp_osm_base": "2023-07-21T22:26:58Z",
+    "timestamp_osm_base": "2023-07-21T22:52:29Z",
     "timestamp_areas_base": "2023-07-21T17:35:15Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
@@ -11,8 +11,8 @@
 {
   "type": "node",
   "id": 252918375,
-  "lat": 51.2974302,
-  "lon": 12.0612878,
+  "lat": 51.2974368,
+  "lon": 12.0612751,
   "tags": {
     "addr:city": "Bad Dürrenberg",
     "addr:housenumber": "16",
@@ -20,12 +20,11 @@
     "addr:street": "Apothekerberg",
     "amenity": "restaurant",
     "cuisine": "german",
-    "diet:vegan": "yes",
+    "diet:vegan": "limited",
     "diet:vegetarian": "yes",
     "name": "Alte Apotheke",
-    "opening_hours": "Mo-Fr 06:30+; Sa,Su 08:00+",
+    "opening_hours": "Mo-Su 11:30+",
     "phone": "+49 3462 542280",
-    "tourism": "hotel",
     "website": "https://www.hotel-alte-apotheke.de"
   }
 },
