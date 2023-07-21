@@ -1,5 +1,5 @@
 {
- "_timestamp": "2023-07-17 20:54:40.871041",
+ "_timestamp": "2023-07-17 21:15:10.424444",
  "features": [
   {
    "geometry": {
@@ -218,7 +218,7 @@
     "addr_street": "Fiete-Schulze-Straße 14",
     "category": "vegan_friendly",
     "contact_phone": "+49 345 6788999",
-    "contact_website": "https://www.papajohns.de/papa-johns-halle",
+    "contact_website": "https://www.papajohns.de",
     "cuisine": "pizza",
     "icon": "maki_restaurant-pizza",
     "more_info": true,
@@ -874,7 +874,7 @@
     "cuisine": "pizza;burger;kebab;barbecue;mediterranean;american;arab",
     "icon": "maki_restaurant-pizza",
     "name": "Amasyna",
-    "opening_hours": "Mo-Th 11:00-21:00; fr 11:00-22:00; Sa 12:00-22:00; Su 13:00-21:00",
+    "opening_hours": "Mo-Th 11:00-21:00; Fr 11:00-22:00; Sa 12:00-22:00; Su 13:00-21:00",
     "symbol": "🍕"
    },
    "type": "Feature"
@@ -1202,6 +1202,8 @@
    "properties": {
     "_id": 2399144768,
     "_type": "node",
+    "addr_city": "Mücheln",
+    "addr_postcode": "06249",
     "category": "vegan_friendly",
     "icon": "fast_food",
     "name": "Beach Club",
@@ -1657,7 +1659,7 @@
     "addr_street": "Neustädter Passage 9",
     "category": "vegan_friendly",
     "contact_phone": "+49 345 6788999",
-    "contact_website": "https://www.papajohns.de/papa-johns-halle",
+    "contact_website": "https://www.papajohns.de",
     "cuisine": "pizza",
     "icon": "maki_restaurant-pizza",
     "more_info": true,
@@ -1970,7 +1972,7 @@
     "addr_street": "Hubertusplatz 1a",
     "category": "vegan_friendly",
     "contact_phone": "+49 345 6788999",
-    "contact_website": "https://www.papajohns.de/papa-johns-halle",
+    "contact_website": "https://www.papajohns.de",
     "cuisine": "pizza",
     "icon": "maki_restaurant-pizza",
     "more_info": true,
@@ -3076,7 +3078,7 @@
     "addr_street": "Mühlweg 22",
     "category": "vegan_friendly",
     "contact_phone": "+49 345 6788999",
-    "contact_website": "https://www.papajohns.de/papa-johns-halle",
+    "contact_website": "https://www.papajohns.de",
     "cuisine": "pizza",
     "icon": "maki_restaurant-pizza",
     "more_info": true,
@@ -3182,6 +3184,7 @@
     "cuisine": "mediterranean;falafel;pizza;steak;burger",
     "icon": "fast_food",
     "name": "Mc-FT",
+    "opening_hours": "Mo-Su 08:00-22:00",
     "symbol": "🍔"
    },
    "type": "Feature"
@@ -3509,7 +3512,7 @@
     "cuisine": "falafel;sandwich;burger;shawarma;arab",
     "icon": "fast_food",
     "name": "Grill Albalad",
-    "opening_hours": "Mo-Th 10:30-23:00; Fr-Sa 10:30-0:00; Su 10:30-23:00",
+    "opening_hours": "Mo-Th 10:30-23:00; Fr-Sa 10:30-00:00; Su 10:30-23:00",
     "symbol": "🍔"
    },
    "type": "Feature"
@@ -3579,7 +3582,7 @@
     "addr_street": "Ammendorfer Weg 68",
     "category": "vegan_friendly",
     "contact_phone": "+49 345 6788999",
-    "contact_website": "https://www.papajohns.de/papa-johns-halle",
+    "contact_website": "https://www.papajohns.de",
     "cuisine": "pizza",
     "icon": "maki_restaurant-pizza",
     "more_info": true,

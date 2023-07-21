@@ -1,5 +1,5 @@
 {
- "_timestamp": "2023-07-17 21:15:18.550234",
+ "_timestamp": "2023-07-22 00:27:36.071911",
  "features": [
   {
    "geometry": {
@@ -149,26 +149,6 @@
   {
    "geometry": {
     "coordinates": [
-     11.9550278,
-     51.502865
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 8018835847,
-    "_type": "node",
-    "diet_vegan": "limited",
-    "issue_count": 1,
-    "issues": [
-     "'contact:website' Exception: ReadTimeout"
-    ],
-    "name": "Mensa Burg"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
      11.9831239,
      51.3704679
     ],
@@ -183,26 +163,6 @@
      "fixme: seit Mai neu im MerseCenter, an welcher Stelle ist mir aber nicht bekannt"
     ],
     "name": "SUSHIdeluxe"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9659497,
-     51.4907608
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 8978714142,
-    "_type": "node",
-    "diet_vegan": "limited",
-    "issue_count": 1,
-    "name": "Damas Halle",
-    "undefined": [
-     "opening_hours"
-    ]
    },
    "type": "Feature"
   },

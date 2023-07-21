@@ -1,9 +1,9 @@
 {
   "version": 0.6,
-  "generator": "Overpass API 0.7.60.6 e2dc3e5b",
+  "generator": "Overpass API 0.7.61.2 bd0cdeae",
   "osm3s": {
-    "timestamp_osm_base": "2023-07-17T19:14:14Z",
-    "timestamp_areas_base": "2023-07-17T16:09:24Z",
+    "timestamp_osm_base": "2023-07-21T22:26:58Z",
+    "timestamp_areas_base": "2023-07-21T17:35:15Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -855,7 +855,7 @@
     "diet:vegan": "yes",
     "name": "Amasyna",
     "old_name": "Afamia Eck",
-    "opening_hours": "Mo-Th 11:00-21:00; fr 11:00-22:00; Sa 12:00-22:00; Su 13:00-21:00",
+    "opening_hours": "Mo-Th 11:00-21:00; Fr 11:00-22:00; Sa 12:00-22:00; Su 13:00-21:00",
     "outdoor_seating": "no",
     "payment:cash": "yes",
     "reservation": "yes",
@@ -2587,7 +2587,7 @@
     "addr:postcode": "06114",
     "addr:street": "Seebener Straße",
     "amenity": "restaurant",
-    "contact:website": "https://www.studentenwerk-halle.de/mensen-cafebars/mensen-in-halle/mensa-burg",
+    "contact:website": "https://studentenwerk-halle.de/mensen-cafebars/mensen-in-halle/mensa-burg",
     "cuisine": "canteen",
     "diet:vegan": "limited",
     "diet:vegetarian": "yes",
@@ -2895,7 +2895,7 @@
     "addr:postcode": "06108",
     "addr:street": "Geiststraße",
     "amenity": "restaurant",
-    "contact:lieferando": "https://www.lieferando.de/speisekarte/damas-halle-2",
+    "contact:mobile": "+49 176 62834995",
     "cuisine": "arab;syrian",
     "delivery": "yes",
     "diet:halal": "only",
@@ -2906,8 +2906,8 @@
     "name": "Damas Halle",
     "name:ar": "داماس هاله",
     "name:de": "Damas Halle",
+    "opening_hours": "Mo-Su 11:00-22:45",
     "outdoor_seating": "yes",
-    "phone": "+4917662834995",
     "takeaway": "yes",
     "website": "https://www.damas-halle.de/"
   }
@@ -3328,7 +3328,7 @@
     "drive_through": "no",
     "level": "0;1",
     "name": "Grill Albalad",
-    "opening_hours": "Mo-Th 10:30-23:00; Fr-Sa 10:30-0:00; Su 10:30-23:00",
+    "opening_hours": "Mo-Th 10:30-23:00; Fr-Sa 10:30-00:00; Su 10:30-23:00",
     "outdoor_seating": "yes",
     "phone": "+49 162 9417060",
     "takeaway": "yes"
