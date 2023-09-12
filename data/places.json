@@ -1,5 +1,5 @@
 {
- "_timestamp": "2023-07-22 00:53:06.744227",
+ "_timestamp": "2023-09-12 20:55:42.776316",
  "features": [
   {
    "geometry": {
@@ -66,7 +66,7 @@
     "addr_street": "Ankerstraße 2",
     "category": "vegan_friendly",
     "contact_phone": "+49 345 2323200",
-    "contact_website": "https://www.ankerhof.de/htdocs/saalekahn.shtml",
+    "contact_website": "https://ankerhof.de/saalekahn",
     "cuisine": "german",
     "icon": "restaurant",
     "more_info": true,
@@ -96,7 +96,7 @@
     "cuisine": "pizza",
     "icon": "maki_restaurant-pizza",
     "name": "Telepizza",
-    "opening_hours": "11:00-22:00",
+    "opening_hours": "Mo-Fr 11:00-14:00,16:30-21:30; PH,Sa,Su 11:00-21:30",
     "symbol": "🍕"
    },
    "type": "Feature"
@@ -820,7 +820,7 @@
     "addr_street": "Kleine Ulrichstraße 26",
     "category": "vegan_limited",
     "contact_phone": "+49 345 68457969",
-    "contact_website": "https://website--8249614022100970096181-japaneserestaurant.business.site",
+    "contact_website": "https://kohaku-sushi.de",
     "cuisine": "japanese",
     "icon": "restaurant",
     "name": "Kohaku",
@@ -870,11 +870,13 @@
     "addr_postcode": "06108",
     "addr_street": "August-Bebel-Straße 53",
     "category": "vegan_friendly",
+    "contact_facebook": "amasynarestaurant",
+    "contact_instagram": "amasynahalle",
     "contact_phone": "+49 176 61096284",
     "cuisine": "pizza;burger;kebab;barbecue;mediterranean;american;arab",
     "icon": "maki_restaurant-pizza",
     "name": "Amasyna",
-    "opening_hours": "Mo-Th 11:00-21:00; Fr 11:00-22:00; Sa 12:00-22:00; Su 13:00-21:00",
+    "opening_hours": "Mo-Th 11:00-21:00; Fr-Sa 11:00-22:00",
     "symbol": "🍕"
    },
    "type": "Feature"
@@ -1050,6 +1052,7 @@
     "contact_instagram": "the_shabby",
     "contact_website": "https://theshabby.de",
     "icon": "cafe",
+    "more_info": true,
     "name": "The Shabby",
     "opening_hours": "Fr-Tu 09:00-16:00; We-Th off",
     "symbol": "☕"
@@ -1402,7 +1405,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Mextreme",
-    "opening_hours": "Mo-Th 17:00-23:00; Fr-Sa 17:00-21:00; Su 17:00-22:00",
+    "opening_hours": "Tu-Th 17:00-23:00; Fr,Sa 17:00-24:00",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -1611,6 +1614,7 @@
     "contact_instagram": "verwoener",
     "cuisine": "kebab",
     "icon": "fast_food",
+    "more_info": true,
     "name": "verwöner",
     "opening_hours": "Tu-Th 11:30-22:00; Fr,Sa 11:30-01:00; Su 11:30-22:00",
     "symbol": "🍔"
@@ -1689,35 +1693,6 @@
     "name": "Bunte Eisträumerei",
     "opening_hours": "Mo-Fr 13:00-18:00; Sa,Su 13:00-18:00",
     "symbol": "🍨"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9690337,
-     51.4912396
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 3590210914,
-    "_type": "node",
-    "addr_city": "Halle (Saale)",
-    "addr_country": "DE",
-    "addr_postcode": "06108",
-    "addr_street": "August-Bebel-Straße 18",
-    "category": "vegan_friendly",
-    "contact_facebook": "KumaraAnne",
-    "contact_instagram": "kumara.soulfood",
-    "contact_phone": "+49 163 3849254",
-    "contact_website": "https://www.kumara-soulfood.de",
-    "cuisine": "organic",
-    "icon": "restaurant",
-    "more_info": true,
-    "name": "Kumara soulfood",
-    "opening_hours": "Mo-Fr 11:00-15:00, Fr 18:00-22:00",
-    "symbol": "🍽️"
    },
    "type": "Feature"
   },
@@ -2186,12 +2161,13 @@
     "addr_postcode": "06108",
     "addr_street": "Große Brauhausstraße 2",
     "category": "vegan_friendly",
+    "contact_facebook": "profile.php?id=100063483312099",
     "contact_phone": "+49 345 4704425",
     "contact_website": "https://www.himalaya-halle.de",
     "cuisine": "indian",
     "icon": "restaurant",
     "name": "Himalaya",
-    "opening_hours": "Mo-Fr 12:00-14:00,17:30-22:00; Sa 17:30-22:00; PH 12:00-14:00,17:30-22:00",
+    "opening_hours": "Tu-Sa 12:00-14:00,17:00-21:00; Su 12:00-14:00, 17:00-21:00; PH 12:00-14:00,17:00-21:00",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -2219,6 +2195,30 @@
     "opening_hours": "Mo-Sa 08:00-20:00",
     "shop": "supermarket",
     "symbol": "🏪"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9657113,
+     51.4907734
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 5352939109,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Geiststraße 26-27",
+    "category": "vegan_friendly",
+    "cuisine": "pizza",
+    "icon": "maki_restaurant-pizza",
+    "name": "Pizza Triangolo",
+    "opening_hours": "Tu-Su 16:00-21:30",
+    "symbol": "🍕"
    },
    "type": "Feature"
   },
@@ -2447,6 +2447,7 @@
     "addr_postcode": "06114",
     "addr_street": "Karl-Liebknecht-Straße 23 a",
     "category": "vegan_friendly",
+    "contact_website": "https://ruebchen-halle.de",
     "icon": "maki_star-stroked",
     "more_info": true,
     "name": "Rübchen",
@@ -3717,7 +3718,7 @@
     "category": "vegan_friendly",
     "contact_facebook": "palmyrainhalle",
     "contact_phone": "+49 345 4458082",
-    "contact_website": "http://www.palmyra-halle.de",
+    "contact_website": "https://palmyrarestaurant.de",
     "cuisine": "oriental",
     "icon": "restaurant",
     "name": "Palmyra",
@@ -3784,8 +3785,8 @@
   {
    "geometry": {
     "coordinates": [
-     11.9664306,
-     51.4945584
+     11.9664241,
+     51.4945552
     ],
     "type": "Point"
    },

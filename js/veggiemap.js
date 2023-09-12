@@ -266,10 +266,40 @@ function addLibReview(feature) {
     });
 }
 
+async function fetchData(url) {
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log(data[0]);
+    const result = await `<div class="popupflex-container"><div>🤩</div><div>${data[0].osm_type}</div>`;
+    return result;
+  } catch (error) {
+    console.info("There is no Nominatiom information of this place or Nominatiom API isn't available.");
+  }
+  return false;
+}
+
+// Nominatiom link to get information like the adress
+
+/*
++ places.json wird kleiner
++ Adressen auch wenn am node keine Adresse sondern vom umgebenden Gebäude
++ Internationale Namen von Städten (testen)
+*/
+// eslint-disable-next-line no-unused-vars
+async function addNominatiomInformation(eTyp, eId) {
+  const osmId = eTyp[0].toUpperCase() + eId;
+  const url = `https://nominatim.openstreetmap.org/lookup?osm_ids=${osmId}&extratags=1&format=json`;
+  console.log(url);
+  const result = await fetchData(url);
+  return result;
+}
+
 // Calculate popup content for a given marker layer
 function calculatePopup(layer) {
   // Get the information
   const feature = layer.feature;
+  // console.log(feature);
   const eId = feature.properties._id;
   const eNam = feature.properties.name;
   const eTyp = feature.properties._type;
@@ -411,6 +441,10 @@ function calculatePopup(layer) {
     popupContent += `<hr/><div class='popupflex-container'><div>ℹ️</div>
       <div><a href="https://www.vegan-in-halle.de/wp/leben/vegane-stadtkarte/#${eTyp}${eId}" target="_top">${i18next.t("texts.more_info")}</a></div>`;
   }
+
+  // Add information from Nominatiom API
+  // popupContent += "<div id='Nominatiom'></div>";
+  // popupContent += addNominatiomInformation(eTyp, eId);
 
   // Add review entry from lib.reviews if exists
   popupContent += "<div id='libreviews'></div>";

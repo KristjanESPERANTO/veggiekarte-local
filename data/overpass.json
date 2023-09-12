@@ -1,9 +1,9 @@
 {
   "version": 0.6,
-  "generator": "Overpass API 0.7.61.2 bd0cdeae",
+  "generator": "Overpass API 0.7.61.5 4133829e",
   "osm3s": {
-    "timestamp_osm_base": "2023-07-21T22:52:29Z",
-    "timestamp_areas_base": "2023-07-21T17:35:15Z",
+    "timestamp_osm_base": "2023-09-12T18:55:15Z",
+    "timestamp_areas_base": "2023-09-12T15:27:27Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -70,7 +70,7 @@
     "addr:street": "Ankerstraße",
     "amenity": "restaurant",
     "contact:phone": "+49 345 2323200",
-    "contact:website": "https://www.ankerhof.de/htdocs/saalekahn.shtml",
+    "contact:website": "https://ankerhof.de/saalekahn/",
     "cuisine": "german",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
@@ -100,7 +100,7 @@
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "name": "Telepizza",
-    "opening_hours": "11:00-22:00",
+    "opening_hours": "Mo-Fr 11:00-14:00,16:30-21:30; PH,Sa,Su 11:00-21:30",
     "takeaway": "yes",
     "toilets:wheelchair": "no",
     "wheelchair": "no",
@@ -391,7 +391,6 @@
     "indoor_seating": "yes",
     "name": "Nöö",
     "opening_hours": "Su-Th 10:00-01:00; Fr-Sa 10:00-02:00",
-    "opening_hours:covid19": "same",
     "outdoor_seating": "yes",
     "payment:cash": "yes",
     "payment:debit_cards": "yes",
@@ -735,6 +734,7 @@
     "addr:housenumber": "14",
     "addr:postcode": "06118",
     "addr:street": "Trothaer Straße",
+    "check_date": "2023-07-29",
     "contact:website": "https://www.naturata-halle.de",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
@@ -760,6 +760,7 @@
     "contact:website": "https://www.indien-masala-halle-saale.de",
     "cuisine": "indian",
     "diet:vegan": "yes",
+    "diet:vegetarian": "yes",
     "indoor_seating": "yes",
     "name": "Indian Masala",
     "old_name": "Geschwister Knoll",
@@ -802,7 +803,7 @@
     "addr:street": "Kleine Ulrichstraße",
     "amenity": "restaurant",
     "check_date:opening_hours": "2021-03-06",
-    "contact:website": "https://website--8249614022100970096181-japaneserestaurant.business.site/",
+    "contact:website": "https://kohaku-sushi.de",
     "cuisine": "japanese",
     "diet:vegan": "limited",
     "diet:vegan:description": "Haben nichts veganes in der Karte. Auf Nachfrage kann vegetarisches vegan zubereitet werden.",
@@ -849,12 +850,14 @@
     "addr:street": "August-Bebel-Straße",
     "amenity": "restaurant",
     "capacity": "30",
+    "contact:facebook": "https://www.facebook.com/amasynarestaurant",
+    "contact:instagram": "https://www.instagram.com/amasynahalle/",
     "contact:phone": "+49 176 61096284",
     "cuisine": "pizza;burger;kebab;barbecue;mediterranean;american;arab",
     "diet:vegan": "yes",
     "name": "Amasyna",
     "old_name": "Afamia Eck",
-    "opening_hours": "Mo-Th 11:00-21:00; Fr 11:00-22:00; Sa 12:00-22:00; Su 13:00-21:00",
+    "opening_hours": "Mo-Th 11:00-21:00; Fr-Sa 11:00-22:00",
     "outdoor_seating": "no",
     "payment:cash": "yes",
     "reservation": "yes",
@@ -1145,7 +1148,9 @@
     "name": "Cup der guten Hoffnung",
     "opening_hours": "Mo-Fr 11:30-18:30; Sa-Su off",
     "outdoor_seating": "yes",
-    "phone": "+4917672239985"
+    "phone": "+4917672239985",
+    "smoking": "outside",
+    "wheelchair": "limited"
   }
 },
 {
@@ -1331,6 +1336,7 @@
     "name": "Haferkater",
     "opening_hours": "Mo-Fr 06:00-20:00; Sa-Su 07:00-20:00",
     "outdoor_seating": "no",
+    "smoking": "no",
     "wheelchair": "yes"
   }
 },
@@ -1354,8 +1360,9 @@
     "diet:vegetarian": "yes",
     "indoor_seating": "yes",
     "name": "Mextreme",
-    "opening_hours": "Mo-Th 17:00-23:00; Fr-Sa 17:00-21:00; Su 17:00-22:00",
+    "opening_hours": "Tu-Th 17:00-23:00; Fr,Sa 17:00-24:00",
     "outdoor_seating": "yes",
+    "smoking": "outside",
     "wheelchair": "no",
     "wikimedia_commons": "File:HAL-Reilstr131.JPG"
   }
@@ -1576,10 +1583,12 @@
     "contact:instagram": "https://www.instagram.com/verwoener/",
     "cuisine": "kebab",
     "diet:vegan": "only",
+    "indoor_seating": "no",
     "name": "verwöner",
     "old_name": "Burgerservice",
     "opening_date": "2023-04-14",
-    "opening_hours": "Tu-Th 11:30-22:00; Fr,Sa 11:30-01:00; Su 11:30-22:00"
+    "opening_hours": "Tu-Th 11:30-22:00; Fr,Sa 11:30-01:00; Su 11:30-22:00",
+    "outdoor_seating": "yes"
   }
 },
 {
@@ -1656,33 +1665,6 @@
     "name": "Bunte Eisträumerei",
     "opening_hours": "Mo-Fr 13:00-18:00; Sa,Su 13:00-18:00",
     "outdoor_seating": "yes"
-  }
-},
-{
-  "type": "node",
-  "id": 3590210914,
-  "lat": 51.4912396,
-  "lon": 11.9690337,
-  "tags": {
-    "addr:city": "Halle (Saale)",
-    "addr:country": "DE",
-    "addr:housenumber": "18",
-    "addr:postcode": "06108",
-    "addr:street": "August-Bebel-Straße",
-    "amenity": "restaurant",
-    "contact:facebook": "https://www.facebook.com/KumaraAnne/",
-    "contact:instagram": "https://www.instagram.com/kumara.soulfood/",
-    "contact:phone": "+49 163 3849254",
-    "contact:website": "https://www.kumara-soulfood.de",
-    "cuisine": "organic",
-    "delivery": "no",
-    "diet:organic": "only",
-    "diet:vegan": "yes",
-    "diet:vegetarian": "yes",
-    "name": "Kumara soulfood",
-    "opening_hours": "Mo-Fr 11:00-15:00, Fr 18:00-22:00",
-    "takeaway": "yes",
-    "wheelchair": "limited"
   }
 },
 {
@@ -1950,6 +1932,7 @@
     "addr:postcode": "06108",
     "addr:street": "Geiststraße",
     "amenity": "fast_food",
+    "check_date:opening_hours": "2023-08-18",
     "contact:phone": "+49 345 4700631",
     "contact:website": "https://www.hanoier-bistro.de",
     "cuisine": "asian",
@@ -1975,6 +1958,7 @@
     "amenity": "restaurant",
     "cuisine": "italian",
     "diet:vegan": "yes",
+    "indoor_seating": "yes",
     "name": "Verliebt in Giulia",
     "old_name": "Café Wittekind",
     "opening_hours": "Mo-Su 12:00-22:00",
@@ -2125,12 +2109,14 @@
     "addr:postcode": "06108",
     "addr:street": "Große Brauhausstraße",
     "amenity": "restaurant",
+    "contact:facebook": "https://www.facebook.com/profile.php?id=100063483312099",
     "contact:phone": "+49 345 4704425",
-    "contact:website": "https://www.himalaya-halle.de",
+    "contact:tripadvisor": "https://www.tripadvisor.de/Restaurant_Review-g187405-d1353853-Reviews-Indian_Restaurant_Himalaya-Halle_Saale_Saxony_Anhalt.html",
+    "contact:website": "https://www.himalaya-halle.de/",
     "cuisine": "indian",
     "diet:vegan": "yes",
     "name": "Himalaya",
-    "opening_hours": "Mo-Fr 12:00-14:00,17:30-22:00; Sa 17:30-22:00; PH 12:00-14:00,17:30-22:00"
+    "opening_hours": "Tu-Sa 12:00-14:00,17:00-21:00; Su 12:00-14:00, 17:00-21:00; PH 12:00-14:00,17:00-21:00"
   }
 },
 {
@@ -2156,6 +2142,29 @@
     "organic": "only",
     "shop": "supermarket",
     "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5352939109,
+  "lat": 51.4907734,
+  "lon": 11.9657113,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:country": "DE",
+    "addr:housenumber": "26-27",
+    "addr:postcode": "06108",
+    "addr:street": "Geiststraße",
+    "amenity": "restaurant",
+    "cuisine": "pizza",
+    "diet:vegan": "yes",
+    "drive_through": "no",
+    "indoor_seating": "yes",
+    "name": "Pizza Triangolo",
+    "old_name": "Gemüse-Döner El Bakali",
+    "opening_hours": "Tu-Su 16:00-21:30",
+    "outdoor_seating": "yes",
+    "wheelchair": "no"
   }
 },
 {
@@ -2194,6 +2203,7 @@
     "addr:housenumber": "37",
     "addr:postcode": "06110",
     "addr:street": "Ludwigstraße",
+    "check_date:opening_hours": "2023-08-16",
     "description": "Veganes Essen gegen Spende. Jeden Dienstag ab 20:00 Uhr.",
     "diet:vegan": "only",
     "diet:vegetarian": "only",
@@ -2361,13 +2371,16 @@
     "addr:housenumber": "23 a",
     "addr:postcode": "06114",
     "addr:street": "Karl-Liebknecht-Straße",
+    "check_date": "2023-08-04",
     "check_date:opening_hours": "2023-01-23",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "name": "Rübchen",
     "opening_hours": "Mo 13:00-19:00; Tu-Th 16:00-19:00; Fr 10:00-13:00,16:00-19:00; Sa 10:00-13:00; Su,PH off",
+    "operator": "rübchen e.V.",
     "organic": "only",
-    "shop": "foodcoop"
+    "shop": "foodcoop",
+    "website": "https://ruebchen-halle.de/"
   }
 },
 {
@@ -2651,6 +2664,7 @@
     "cuisine": "coffee_shop;ice_cream",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "name": "Kaffeehaus Wittekind",
     "note": "eröffnet 27.02.2021, bis 2020 Caffee Schade",
     "opening_hours": "We-Fr 14:00-22:00; Sa,Su 09:00-22:00",
@@ -2693,6 +2707,7 @@
     "addr:postcode": "06112",
     "addr:street": "Am Steintor",
     "amenity": "restaurant",
+    "check_date:opening_hours": "2023-08-11",
     "contact:facebook": "https://www.facebook.com/WORLD-OF-PIZZA-102007615226988",
     "contact:phone": "+49 345 78283878",
     "contact:website": "https://www.world-of-pizza.de/halle-saale-city/",
@@ -2907,8 +2922,10 @@
     "name:de": "Damas Halle",
     "opening_hours": "Mo-Su 11:00-22:45",
     "outdoor_seating": "yes",
+    "smoking": "outside",
     "takeaway": "yes",
-    "website": "https://www.damas-halle.de/"
+    "website": "https://www.damas-halle.de/",
+    "wheelchair": "no"
   }
 },
 {
@@ -3082,10 +3099,12 @@
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "drive_through": "no",
+    "indoor_seating": "no",
     "name": "Domino's",
     "opening_hours": "Mo-Su 11:00-23:00",
+    "outdoor_seating": "no",
     "phone": "+49 345 530130",
-    "takeaway": "yes",
+    "takeaway": "only",
     "website": "https://www.dominos.de/kaufhaus/de-hallereileck-33831",
     "wheelchair": "limited"
   }
@@ -3134,9 +3153,10 @@
     "delivery": "no",
     "diet:vegan": "yes",
     "diet:vegetarian": "only",
+    "indoor_seating": "yes",
     "name": "Eis-Dealer",
     "opening_hours": "12:00-22:00",
-    "outdoor_seating": "no",
+    "outdoor_seating": "yes",
     "takeaway": "yes",
     "toilets:wheelchair": "no",
     "wheelchair": "no"
@@ -3158,6 +3178,7 @@
     "cuisine": "asian",
     "diet:vegan": "only",
     "diet:vegetarian": "only",
+    "indoor_seating": "yes",
     "level": "0",
     "name": "Bay Vegan",
     "opening_hours": "Mo-Su 11:00-15:00, 17:00-23:00",
@@ -3165,6 +3186,8 @@
     "payment:cards": "yes",
     "payment:cash": "yes",
     "start_date": "2022-04-12",
+    "toilets": "yes",
+    "toilets:wheelchair": "yes",
     "wheelchair": "limited"
   }
 },
@@ -3625,10 +3648,12 @@
     "cuisine": "crepe;french;breakfast;coffee_shop;cake;pasta;tea",
     "diet:vegan": "limited",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "internet_access": "wlan",
     "internet_access:fee": "no",
     "name": "Colonne Morris",
     "opening_hours": "Mo-Th 09:00-01:00; Fr-Sa 09:00-02:00; Su 09:00-00:00",
+    "outdoor_seating": "yes",
     "toilets:wheelchair": "no",
     "wheelchair": "no"
   }
@@ -3658,7 +3683,7 @@
     "building": "yes",
     "contact:facebook": "https://www.facebook.com/palmyrainhalle",
     "contact:phone": "+49 345 4458082",
-    "contact:website": "http://www.palmyra-halle.de",
+    "contact:website": "https://palmyrarestaurant.de",
     "cuisine": "oriental",
     "delivery": "yes",
     "diet:halal": "yes",
@@ -3772,14 +3797,18 @@
   "type": "way",
   "id": 164756625,
   "center": {
-    "lat": 51.4945584,
-    "lon": 11.9664306
+    "lat": 51.4945552,
+    "lon": 11.9664241
   },
   "nodes": [
     1763600536,
     1763600538,
     1763600545,
     1763600544,
+    11138865487,
+    11138865489,
+    11138865490,
+    11138865488,
     1763600536
   ],
   "tags": {
@@ -3806,6 +3835,7 @@
     "outdoor_seating": "yes",
     "payment:mastercard": "yes",
     "payment:visa": "yes",
+    "smoking": "outside",
     "takeaway": "yes",
     "toilets:wheelchair": "no",
     "wheelchair": "limited"
@@ -3934,6 +3964,7 @@
     2672936939,
     2672936933,
     2672936936,
+    11111261760,
     2672936941
   ],
   "tags": {
@@ -4073,6 +4104,7 @@
     "addr:street": "Reilstraße",
     "amenity": "restaurant",
     "building": "yes",
+    "changing_table": "no",
     "contact:phone": "+49 345 6846567",
     "contact:website": "http://www.kim-halle.de/",
     "cuisine": "asian",
@@ -4084,6 +4116,8 @@
     "opening_hours": "Mo-Su 11:00-22:00",
     "outdoor_seating": "yes",
     "source": "Bing",
+    "toilets": "yes",
+    "toilets:wheelchair": "no",
     "wheelchair": "limited",
     "wheelchair:description": "Eingang mit Rampe, kein behindertengerechtes WC"
   }

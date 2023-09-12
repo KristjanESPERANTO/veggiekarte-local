@@ -52,10 +52,9 @@ TOP_URL = "https://www.vegan-in-halle.de/wp/leben/vegane-stadtkarte/"
 GET_MORE_INFO = [
     2338022982,  # Cup der guten Hoffnung
     9676330117,  # Bay Vegan
+    3173527817,  # Verwöner
     5592987513,  # VL-Küfa
     5592955318,  # Reil-Küfa
-    3658458714,  # Kornliebchen
-    3590210914,  # Kumara
     1034449861,  # Ökoase
     61561597,    # Gartenlokal am Peißnitzhaus
     1037059970,  # Kaffeeschuppen
@@ -115,7 +114,7 @@ GET_MORE_INFO = [
     304682735,   # Mensa Franckesche Stiftungen
     22883232,    # Heidemensa
     375345326,   # Cafebar Steintor-Campus
-    3364559365,  # The Shabby
+    2068490770,  # The Shabby
     8018723343,  # Café Kuckhoff
     2496741334,  # Naschmadame
     1037235900,  # Czech
