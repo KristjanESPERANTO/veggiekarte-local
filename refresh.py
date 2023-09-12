@@ -104,7 +104,6 @@ GET_MORE_INFO = [
     4815463722,  # Viet Village
     5599806557,  # Sham Restaurant
     2415756481,  # Hallenser Kartoffelhaus
-    6820930072,  # Pirashki
     8018875351,  # Restaurant Ruine
     2068490774,  # The One
     5868832962,  # Tandoori Steakhaus
