@@ -2,8 +2,8 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.61.5 4133829e",
   "osm3s": {
-    "timestamp_osm_base": "2023-09-12T18:55:15Z",
-    "timestamp_areas_base": "2023-09-12T15:27:27Z",
+    "timestamp_osm_base": "2023-10-08T21:31:16Z",
+    "timestamp_areas_base": "2023-10-08T18:30:08Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -414,7 +414,7 @@
     "diet:vegan": "yes",
     "diet:vegetarian": "only",
     "name": "Ökoase",
-    "opening_hours": "Mo-Su 11:00-18:00",
+    "opening_hours": "Mo-Fr 11:00-15:00",
     "phone": "+49 345 2901604",
     "toilets:wheelchair": "no",
     "website": "http://www.oekoase-halle.de",
@@ -493,8 +493,10 @@
     "cuisine": "asian",
     "diet:vegan": "limited",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "name": "Mimi",
     "opening_hours": "Tu-Th 11:00-15:00,17:00-22:00; Fr-Su 11:00-22:00",
+    "outdoor_seating": "yes",
     "phone": "+49 345 13176141",
     "wheelchair": "no"
   }
@@ -878,6 +880,7 @@
     "addr:housenumber": "16",
     "addr:postcode": "06108",
     "addr:street": "Große Ulrichstraße",
+    "check_date": "2023-10-05",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "name": "biorio",
@@ -973,8 +976,7 @@
     "addr:street": "Geiststraße",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
-    "name": "ÖkoHalle",
-    "opening_hours": "Mo-Fr 09:00-13:00, Mo-Th 15:00-18:00, Sa 09:00-13:00; PH,Su off",
+    "name": "BioLogisch LogischBio",
     "organic": "only",
     "shop": "convenience",
     "wheelchair": "no"
@@ -1686,7 +1688,7 @@
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "name": "Burgerheart",
-    "opening_hours": "Mo-Su 12:00-23:00",
+    "opening_hours": "Mo-Fr 17:00-18:00+; Sa,Su 12:00-18:00+",
     "wheelchair": "no"
   }
 },
@@ -1857,7 +1859,7 @@
     "diet:vegetarian": "yes",
     "indoor_seating": "yes",
     "name": "Eisburg",
-    "opening_hours": "Mo-Fr 13:00-19:00; Sa, Su 12:00-19:00",
+    "opening_hours": "Mo-Fr 13:00-18:00; Sa, Su 12:00-18:00",
     "outdoor_seating": "yes",
     "payment:credit_cards": "yes",
     "payment:debit_cards": "yes",
@@ -2132,6 +2134,7 @@
     "brand": "denn's Biomarkt",
     "brand:wikidata": "Q48883773",
     "brand:wikipedia": "de:Denn’s Biomarkt",
+    "check_date": "2023-10-05",
     "check_date:opening_hours": "2022-08-16",
     "contact:phone": "+49 345 68169155",
     "contact:website": "https://www.denns-biomarkt.de/halle-leipziger-str-100/marktseite/",
@@ -3157,6 +3160,7 @@
     "name": "Eis-Dealer",
     "opening_hours": "12:00-22:00",
     "outdoor_seating": "yes",
+    "smoking": "no",
     "takeaway": "yes",
     "toilets:wheelchair": "no",
     "wheelchair": "no"
@@ -3689,11 +3693,13 @@
     "diet:halal": "yes",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "internet_access": "wlan",
     "name": "Palmyra",
     "name:ar": "تدمر",
     "name:de": "Palmyra",
     "opening_hours": "Mo-Su 11:30-14:30,17:00-24:00",
+    "outdoor_seating": "yes",
     "smoking": "separated",
     "takeaway": "yes",
     "wheelchair": "no"
@@ -4070,7 +4076,7 @@
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "name": "Cafebar Steintor-Campus",
-    "opening_hours": "Mo-Th 08:00-16:30; Fr 08:00-14:30",
+    "opening_hours": "Mo-Th 08:00-17:00; Fr 08:00-14:30",
     "operator": "Studentenwerk Halle",
     "outdoor_seating": "yes",
     "smoking": "no",

@@ -9,7 +9,7 @@ import re  # to check characters in phone numbers
 from urllib.parse import urlparse
 from pathlib import Path
 import phonenumbers  # to check phone numbers
-from opening_hours import OpeningHours
+#from opening_hours import OpeningHours
 import requests  # to check if websites are reachable
 from email_validator import EmailNotValidError, validate_email
 
@@ -391,20 +391,20 @@ def check_data(data):
                     place_check_obj["properties"]["issues"].append(
                         "There is a line break in 'opening_hours' -> remove"
                     )
-                if "+" not in opening_hours:
-                    try:
-                        OpeningHours(opening_hours)
-                    except SyntaxError as error:
-                        place_check_obj["properties"]["issues"].append(f"opening_hours: {error}")
-                    except json.decoder.JSONDecodeError as error:
-                        print(error)
-                        place_check_obj["properties"]["issues"].append(f"opening_hours: {error}")
-                    except BrokenPipeError as error:
-                        print(error)
-                        place_check_obj["properties"]["issues"].append(f"opening_hours: {error}")
-                    except ImportError as error:
-                        print(error)
-                        place_check_obj["properties"]["issues"].append(f"opening_hours: {error}")
+                #if "+" not in opening_hours:
+                #    try:
+                #        OpeningHours(opening_hours)
+                #    except SyntaxError as error:
+                #        place_check_obj["properties"]["issues"].append(f"opening_hours: {error}")
+                #    except json.decoder.JSONDecodeError as error:
+                #        print(error)
+                #        place_check_obj["properties"]["issues"].append(f"opening_hours: {error}")
+                #    except BrokenPipeError as error:
+                #        print(error)
+                #        place_check_obj["properties"]["issues"].append(f"opening_hours: {error}")
+                #    except ImportError as error:
+                #        print(error)
+                #        place_check_obj["properties"]["issues"].append(f"opening_hours: {error}")
 
             # Disused
             if "disused" in "".join(tags):

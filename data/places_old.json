@@ -1,5 +1,5 @@
 {
- "_timestamp": "2023-09-12 20:49:25.209181",
+ "_timestamp": "2023-09-12 20:55:42.776316",
  "features": [
   {
    "geometry": {
@@ -1052,6 +1052,7 @@
     "contact_instagram": "the_shabby",
     "contact_website": "https://theshabby.de",
     "icon": "cafe",
+    "more_info": true,
     "name": "The Shabby",
     "opening_hours": "Fr-Tu 09:00-16:00; We-Th off",
     "symbol": "☕"

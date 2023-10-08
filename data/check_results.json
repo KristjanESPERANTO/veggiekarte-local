@@ -1,5 +1,5 @@
 {
- "_timestamp": "2023-09-12 20:49:52.355028",
+ "_timestamp": "2023-10-08 23:37:50.228970",
  "features": [
   {
    "geometry": {
@@ -143,6 +143,26 @@
     "name": "Kaffeeschuppen",
     "undefined": [
      "cuisine"
+    ]
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9655845,
+     51.4899957
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2051567009,
+    "_type": "node",
+    "diet_vegan": "yes",
+    "issue_count": 1,
+    "name": "BioLogisch LogischBio",
+    "undefined": [
+     "opening_hours"
     ]
    },
    "type": "Feature"

@@ -133,7 +133,7 @@ GET_MORE_INFO = [
     2715257424,  # Sonnendeck
     2065237786,  # Naturell
     8867577091,  # nobelsüß
-    2051567009,  # ÖkoHalle
+    2051567009,  # BioLogisch LogischBio
     1943778686,  # BioRio
     1902279166,  # Biomarkt am Reileck
     1701119442,  # Naturata

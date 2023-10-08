@@ -1,5 +1,5 @@
 {
- "_timestamp": "2023-09-12 20:55:42.776316",
+ "_timestamp": "2023-10-08 23:31:59.720454",
  "features": [
   {
    "geometry": {
@@ -403,7 +403,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Ökoase",
-    "opening_hours": "Mo-Su 11:00-18:00",
+    "opening_hours": "Mo-Fr 11:00-15:00",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -999,8 +999,7 @@
     "category": "vegan_friendly",
     "icon": "convenience",
     "more_info": true,
-    "name": "ÖkoHalle",
-    "opening_hours": "Mo-Fr 09:00-13:00, Mo-Th 15:00-18:00, Sa 09:00-13:00; PH,Su off",
+    "name": "BioLogisch LogischBio",
     "shop": "convenience",
     "symbol": "🏪"
    },
@@ -1719,7 +1718,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Burgerheart",
-    "opening_hours": "Mo-Su 12:00-23:00",
+    "opening_hours": "Mo-Fr 17:00-18:00+; Sa,Su 12:00-18:00+",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -1899,7 +1898,7 @@
     "cuisine": "ice_cream",
     "icon": "ice_cream",
     "name": "Eisburg",
-    "opening_hours": "Mo-Fr 13:00-19:00; Sa, Su 12:00-19:00",
+    "opening_hours": "Mo-Fr 13:00-18:00; Sa, Su 12:00-18:00",
     "symbol": "🍨"
    },
    "type": "Feature"
@@ -3963,7 +3962,7 @@
     "icon": "cafe",
     "more_info": true,
     "name": "Cafebar Steintor-Campus",
-    "opening_hours": "Mo-Th 08:00-16:30; Fr 08:00-14:30",
+    "opening_hours": "Mo-Th 08:00-17:00; Fr 08:00-14:30",
     "symbol": "☕"
    },
    "type": "Feature"
