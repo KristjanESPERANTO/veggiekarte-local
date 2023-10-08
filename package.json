@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/KristjanESPERANTO/veggiekarte-local",
   "devDependencies": {
-    "eslint": "^8.49.0",
+    "eslint": "^8.51.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-import": "^2.28.1",
@@ -48,6 +48,7 @@
     "*.css": "stylelint --fix"
   },
   "dependencies": {
-    "mangrove-reviews": "^0.1.4"
+    "mangrove-reviews": "^0.1.4",
+    "mangrove-reviews-typescript": "^1.1.0"
   }
 }
