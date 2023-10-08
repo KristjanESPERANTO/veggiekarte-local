@@ -63,36 +63,36 @@ function getUserLanguage() {
   return userLanguage;
 }
 
-function addLanguageRecources(language) {
-  const languageFile = `./locales/${language}.json`;
-  fetch(languageFile)
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      }
-      console.error("error");
-      throw new Error(response.statusText);
-    })
-    .then((data) => {
-      if (i18next.isInitialized) {
-        const translations = data[language].translation;
-        i18next.addResourceBundle(language, "translation", translations);
-        updateContent();
-      } else {
-        // Merge new data per spread operator
-        languageRecources = { ...languageRecources, ...data };
+async function addLanguageRecources(language) {
+  try {
+    const languageFile = `./locales/${language}.json`;
+    const response = await fetch(languageFile);
 
-        if (language !== fallbackLanguage) {
-          // Get fallback language recources
-          addLanguageRecources(fallbackLanguage);
-        } else {
-          initTranslate(userLanguage);
-        }
+    if (!response.ok) {
+      console.error("Error");
+      throw new Error(response.statusText);
+    }
+
+    const data = await response.json();
+
+    if (i18next.isInitialized) {
+      const translations = data[language].translation;
+      i18next.addResourceBundle(language, "translation", translations);
+      updateContent();
+    } else {
+      // Merge new data per spread operator
+      languageRecources = { ...languageRecources, ...data };
+
+      if (language !== fallbackLanguage) {
+        // Get fallback language recources
+        await addLanguageRecources(fallbackLanguage);
+      } else {
+        initTranslate(userLanguage);
       }
-    })
-    .catch((err) => {
-      console.error(err);
-    });
+    }
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 function initTranslate(language) {
