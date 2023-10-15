@@ -82,7 +82,6 @@ GET_MORE_INFO = [
     1037236274,  # Anh Asia
     164756646,   # SPICY
     8773861578,  # JUICY - Reileck
-    9140808707,  # Crêperie Bonjour
     7388445891,  # City Döner
     578246181,   # Mo’s Daniel’s
     2876264915,  # Sao Mai

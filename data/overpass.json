@@ -2,8 +2,8 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.61.5 4133829e",
   "osm3s": {
-    "timestamp_osm_base": "2023-10-08T21:31:16Z",
-    "timestamp_areas_base": "2023-10-08T18:30:08Z",
+    "timestamp_osm_base": "2023-10-15T14:36:14Z",
+    "timestamp_areas_base": "2023-10-15T11:07:15Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -1387,8 +1387,10 @@
     "cuisine": "vietnamese",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "name": "Sao Mai",
     "opening_hours": "Tu-Sa 11:00-22:30; Su,PH 12:00-22:00; Mo off",
+    "outdoor_seating": "yes",
     "phone": "+49 345 4722962",
     "toilets:wheelchair": "no",
     "wheelchair": "no",
@@ -2131,7 +2133,7 @@
     "addr:housenumber": "100",
     "addr:postcode": "06108",
     "addr:street": "Leipziger Straße",
-    "brand": "denn's Biomarkt",
+    "brand": "Denns BioMarkt",
     "brand:wikidata": "Q48883773",
     "brand:wikipedia": "de:Denn’s Biomarkt",
     "check_date": "2023-10-05",
@@ -2140,8 +2142,10 @@
     "contact:website": "https://www.denns-biomarkt.de/halle-leipziger-str-100/marktseite/",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
-    "name": "denn's Biomarkt",
+    "name": "Denns BioMarkt",
     "opening_hours": "Mo-Sa 08:00-20:00",
+    "operator": "Dennree GmbH",
+    "operator:wikidata": "Q1189641",
     "organic": "only",
     "shop": "supermarket",
     "wheelchair": "yes"
@@ -2982,27 +2986,6 @@
     "name": "Eislust",
     "operator": "Jörg-Thoralf Kottwitz",
     "outdoor_seating": "yes"
-  }
-},
-{
-  "type": "node",
-  "id": 9140808707,
-  "lat": 51.4929765,
-  "lon": 11.9715732,
-  "tags": {
-    "addr:city": "Halle (Saale)",
-    "addr:housenumber": "62",
-    "addr:postcode": "06108",
-    "addr:street": "Ludwig-Wucherer-Straße",
-    "amenity": "cafe",
-    "contact:instagram": "https://www.instagram.com/creperie_halle/",
-    "contact:phone": "+49 178 5172353",
-    "cuisine": "crepe",
-    "diet:vegan": "yes",
-    "diet:vegetarian": "yes",
-    "name": "Crêperie Bonjour",
-    "old_name": "JUICY",
-    "opening_hours": "Mo-Su 11:00-21:00"
   }
 },
 {
