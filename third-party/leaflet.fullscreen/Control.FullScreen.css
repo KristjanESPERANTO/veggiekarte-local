@@ -1,5 +1,5 @@
 .fullscreen-icon {
-  background-image: url("icon-fullscreen.svg");
+  background-image: url('icon-fullscreen.svg');
   background-size: 26px 52px;
 }
 
@@ -13,6 +13,14 @@
 
 .leaflet-touch .fullscreen-icon.leaflet-fullscreen-on {
   background-position: 2px -24px;
+}
+
+/* Safari still needs this vendor-prefix: https://caniuse.com/mdn-css_selectors_fullscreen */
+/* stylelint-disable-next-line selector-no-vendor-prefix */
+.leaflet-container:-webkit-full-screen {
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 99999;
 }
 
 .leaflet-container:fullscreen {
