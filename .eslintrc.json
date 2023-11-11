@@ -9,7 +9,7 @@
     "sourceType": "module"
   },
   "root": true,
-  "ignorePatterns": ["third-party/"],
+  "ignorePatterns": ["bundle.js", "rollup.config.js", "third-party/"],
   "rules": {
     "no-console": "off",
     "prefer-destructuring": "off",
