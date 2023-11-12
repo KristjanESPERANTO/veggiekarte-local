@@ -36,7 +36,7 @@ You can find an overview of which other keys we use at [Taginfo](https://taginfo
 
 ## Website
 
-- <www.veggiekarte.de>
+[www.veggiekarte.de](https://www.veggiekarte.de)
 
 ## Third-party software and data
 
