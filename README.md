@@ -1,10 +1,5 @@
 # Veggiekarte
 
-[![Issues](https://img.shields.io/codeberg/issues/piratenpanda/veggiekarte)](https://codeberg.org/piratenpanda/veggiekarte/issues)
-[![Forks](https://img.shields.io/codeberg/forks/piratenpanda/veggiekarte)](https://codeberg.org/piratenpanda/veggiekarte/network)
-[![Stars](https://img.shields.io/codeberg/stars/piratenpanda/veggiekarte)](https://codeberg.org/piratenpanda/veggiekarte/stargazers)
-[![License](https://img.shields.io/codeberg/license/piratenpanda/veggiekarte?style=plastic)](https://codeberg.org/piratenpanda/veggiekarte/blob/master/LICENSE)
-
 ## Description
 
 A OpenStreetMap based map to easily find places, like restaurants and cafes, with vegetarian and vegan options.
