@@ -132,40 +132,41 @@ function statPopulate(markerGroups, date) {
 }
 
 // Function to get the information from the places json file.
-function veggiemapPopulate(parentGroupVar) {
+async function veggiemapPopulate(parentGroupVar) {
   const url = "../data/check_results.json";
-  fetch(url)
-    .then((response) => response.json())
-    .then((geojson) => geojsonToMarkerGroups(geojson))
-    .then((markerGroupsAndDate) => {
-      const markerGroups = markerGroupsAndDate[0];
-      const date = markerGroupsAndDate[1];
 
-      Object.entries(subgroups).forEach(([key, subgroup]) => {
-        // Bulk add all the markers from a markerGroup to a subgroup in one go
-        // Source: https://github.com/ghybs/Leaflet.FeatureGroup.SubGroup/issues/5
-        subgroup.addLayer(L.layerGroup(markerGroups[key]));
-        map.addLayer(subgroup);
-      });
+  try {
+    const response = await fetch(url);
+    const geojson = await response.json();
+    const markerGroupsAndDate = await geojsonToMarkerGroups(geojson);
 
-      // Reveal all the markers and clusters on the map in one go
-      map.addLayer(parentGroupVar);
+    const markerGroups = markerGroupsAndDate[0];
+    const date = markerGroupsAndDate[1];
 
-      // Call the function to put the numbers into the legend
-      statPopulate(markerGroups, date);
-
-      // Enable the on-demand popup and tooltip calculation
-      parentGroup.eachLayer((layer) => {
-        layer.bindPopup(calculatePopup);
-        layer.bindTooltip(calculateTooltip);
-      });
-
-      // Hide spinner
-      hideSpinner();
-    })
-    .catch((error) => {
-      console.log("Request failed", error);
+    Object.entries(subgroups).forEach(([key, subgroup]) => {
+      // Bulk add all the markers from a markerGroup to a subgroup in one go
+      // Source: https://github.com/ghybs/Leaflet.FeatureGroup.SubGroup/issues/5
+      subgroup.addLayer(L.layerGroup(markerGroups[key]));
+      map.addLayer(subgroup);
     });
+
+    // Reveal all the markers and clusters on the map in one go
+    map.addLayer(parentGroupVar);
+
+    // Call the function to put the numbers into the legend
+    statPopulate(markerGroups, date);
+
+    // Enable the on-demand popup and tooltip calculation
+    parentGroupVar.eachLayer((layer) => {
+      layer.bindPopup(calculatePopup);
+      layer.bindTooltip(calculateTooltip);
+    });
+
+    // Hide spinner
+    hideSpinner();
+  } catch (error) {
+    console.log("Request failed", error);
+  }
 }
 
 // Process the places GeoJSON into the groups of markers
