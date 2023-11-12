@@ -15,7 +15,7 @@
         "content-reviews-heading": "Recensioni",
         "content-reviews-text": "<a href='https://lib.reviews/' target='_blank' rel='noopener noreferrer'>lib.reviews</a> è una piattaforma libera e aperta per recensire ogni cosa. Se c'è una recensione di un locale, verrà visualizzata con un link qui dentro.",
         "content-further-heading": "Altro",
-        "content-further-text": "Veggiekarte è aggiornata automaticamente ogni ora. Puoi trovare il codice su <a href='https://github.com/piratenpanda/veggiekarte' target='_blank' rel='noopener noreferrer'>GitHub</a>. E come espediente abbiamo anche un piccolo e interessante diagramma <a href='data_chart.html'>qui</a>.",
+        "content-further-text": "Veggiekarte è aggiornata automaticamente ogni ora. Puoi trovare il codice su <a href='https://codeberg.org/piratenpanda/veggiekarte' target='_blank' rel='noopener noreferrer'>Codeberg</a>. E come espediente abbiamo anche un piccolo e interessante diagramma <a href='data_chart.html'>qui</a>.",
         "i18n_vegan_only": "solo vegano",
         "i18n_vegan_only_title": "Offre esclusivamente piatti vegani.",
         "i18n_vegetarian_only": "solo vegetariano e vegano",
