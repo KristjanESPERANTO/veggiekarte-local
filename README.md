@@ -1,11 +1,6 @@
 # Veggiekarte local
 
-[![GitHub issues](https://img.shields.io/github/issues/KristjanESPERANTO/veggiekarte-local)](https://github.com/KristjanESPERANTO/veggiekarte-local/issues)
-[![GitHub forks](https://img.shields.io/github/forks/KristjanESPERANTO/veggiekarte-local)](https://github.com/KristjanESPERANTO/veggiekarte-local/network)
-[![GitHub stars](https://img.shields.io/github/stars/KristjanESPERANTO/veggiekarte-local)](https://github.com/KristjanESPERANTO/veggiekarte-local/stargazers)
-[![GitHub license](https://img.shields.io/github/license/KristjanESPERANTO/veggiekarte-local?style=plastic)](https://github.com/KristjanESPERANTO/veggiekarte-local/blob/master/LICENSE)
-
-This is a fork of the world wide map [veggiekarte from piratenpanda](https://github.com/piratenpanda/veggiekarte). This map is for local use. Improvements will be added to the upstream project.
+This is a fork of the world wide map [veggiekarte from piratenpanda](https://codeberg.org/piratenpanda/veggiekarte). This map is for local use. Improvements will be added to the upstream project.
 
 ## Description
 
@@ -38,7 +33,7 @@ You can find an overview of which other keys we use at [Taginfo](https://taginfo
 
 ## Website
 
-- <www.veggiekarte.de>
+[www.veggiekarte.de](https://www.veggiekarte.de)
 
 ## Third-party software and data
 
@@ -46,8 +41,8 @@ This is an overview of the third-party software and data we use. Many thanks to 
 
 | software                                                                                   | license                                                                                                          | version | purpose                                                                               |
 | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------------- |
-| [chart.js](https://github.com/chartjs/Chart.js)                                            | MIT [\*](https://github.com/chartjs/Chart.js/blob/master/LICENSE.md)                                             | 4.3.0   | JavaScript library to creat charts. We use this in the `data_chart.html`.             |
-| [i18next](https://github.com/i18next/i18next)                                              | MIT [\*](https://github.com/i18next/i18next/blob/master/LICENSE)                                                 | 23.2.11 | JavaScript internationalization framework.                                            |
+| [chart.js](https://github.com/chartjs/Chart.js)                                            | MIT [\*](https://github.com/chartjs/Chart.js/blob/master/LICENSE.md)                                             | 4.4.0   | JavaScript library to creat charts. We use this in the `data_chart.html`.             |
+| [i18next](https://github.com/i18next/i18next)                                              | MIT [\*](https://github.com/i18next/i18next/blob/master/LICENSE)                                                 | 23.7.3  | JavaScript internationalization framework.                                            |
 | [leaflet](https://github.com/Leaflet/Leaflet/)                                             | BSD-2-Clause [\*](https://github.com/Leaflet/Leaflet/blob/master/LICENSE)                                        | 1.9.4   | JavaScript library to create interactive maps.                                        |
 | [leaflet.control.geocoder](https://github.com/perliedman/leaflet-control-geocoder/)        | BSD-2-Clause [\*](https://github.com/perliedman/leaflet-control-geocoder/blob/master/LICENSE)                    | 2.4.0   | A control to locate places. The button with the magnifier 🔍.                         |
 | [leaflet.easybutton](https://github.com/CliffCloud/Leaflet.EasyButton)                     | MIT [\*](https://github.com/CliffCloud/Leaflet.EasyButton/blob/master/LICENSE)                                   | 2.4.0   | Adding buttons. We are using it for the info button.                                  |

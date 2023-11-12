@@ -298,7 +298,6 @@ async function addNominatiomInformation(eTyp, eId) {
 function calculatePopup(layer) {
   // Get the information
   const feature = layer.feature;
-  // console.log(feature);
   const eId = feature.properties._id;
   const eNam = feature.properties.name;
   const eTyp = feature.properties._type;

@@ -15,7 +15,7 @@
         "content-reviews-heading": "Reviews",
         "content-reviews-text": "<a href='https://lib.reviews/' target='_blank' rel='noopener noreferrer'>lib.reviews</a> is a free and open platform for reviewing anything. If there is a review of a place there, we will show a link to it.",
         "content-further-heading": "Further",
-        "content-further-text": "Veggiekarte is updated automatically every hour. You can find the code on <a href='https://github.com/piratenpanda/veggiekarte' target='_blank' rel='noopener noreferrer'>GitHub</a>. And as a little gimmick we also have a little diagram <a href='data_chart.html'>here</a>.",
+        "content-further-text": "Veggiekarte is updated automatically every hour. You can find the code on <a href='https://codeberg.org/piratenpanda/veggiekarte' target='_blank' rel='noopener noreferrer'>Codeberg</a>. And as a little gimmick we also have a little diagram <a href='data_chart.html'>here</a>.",
         "i18n_vegan_only": "vegan only",
         "i18n_vegan_only_title": "Place which offers exclusively vegan food.",
         "i18n_vegetarian_only": "vegetarian and vegan only",

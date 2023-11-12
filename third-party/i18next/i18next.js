@@ -491,7 +491,8 @@
               usedKey: key,
               exactUsedKey: key,
               usedLng: lng,
-              usedNS: namespace
+              usedNS: namespace,
+              usedParams: this.getUsedParamsDetails(options)
             };
           }
           return `${namespace}${nsSeparator}${key}`;
@@ -502,7 +503,8 @@
             usedKey: key,
             exactUsedKey: key,
             usedLng: lng,
-            usedNS: namespace
+            usedNS: namespace,
+            usedParams: this.getUsedParamsDetails(options)
           };
         }
         return key;
@@ -527,6 +529,7 @@
           }) : `key '${key} (${this.language})' returned an object instead of string.`;
           if (returnDetails) {
             resolved.res = r;
+            resolved.usedParams = this.getUsedParamsDetails(options);
             return resolved;
           }
           return r;
@@ -627,6 +630,7 @@
       }
       if (returnDetails) {
         resolved.res = res;
+        resolved.usedParams = this.getUsedParamsDetails(options);
         return resolved;
       }
       return res;
@@ -637,7 +641,7 @@
         res = this.i18nFormat.parse(res, {
           ...this.options.interpolation.defaultVariables,
           ...options
-        }, resolved.usedLng, resolved.usedNS, resolved.usedKey, {
+        }, options.lng || this.language || resolved.usedLng, resolved.usedNS, resolved.usedKey, {
           resolved
         });
       } else if (!options.skipInterpolation) {
@@ -684,7 +688,10 @@
       const postProcessorNames = typeof postProcess === 'string' ? [postProcess] : postProcess;
       if (res !== undefined && res !== null && postProcessorNames && postProcessorNames.length && options.applyPostProcessor !== false) {
         res = postProcessor.handle(postProcessorNames, res, key, this.options && this.options.postProcessPassResolved ? {
-          i18nResolved: resolved,
+          i18nResolved: {
+            ...resolved,
+            usedParams: this.getUsedParamsDetails(options)
+          },
           ...options
         } : options, this);
       }
@@ -775,6 +782,30 @@
       let options = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};
       if (this.i18nFormat && this.i18nFormat.getResource) return this.i18nFormat.getResource(code, ns, key, options);
       return this.resourceStore.getResource(code, ns, key, options);
+    }
+    getUsedParamsDetails() {
+      let options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      const optionsKeys = ['defaultValue', 'ordinal', 'context', 'replace', 'lng', 'lngs', 'fallbackLng', 'ns', 'keySeparator', 'nsSeparator', 'returnObjects', 'returnDetails', 'joinArrays', 'postProcess', 'interpolation'];
+      const useOptionsReplaceForData = options.replace && typeof options.replace !== 'string';
+      let data = useOptionsReplaceForData ? options.replace : options;
+      if (useOptionsReplaceForData && typeof options.count !== 'undefined') {
+        data.count = options.count;
+      }
+      if (this.options.interpolation.defaultVariables) {
+        data = {
+          ...this.options.interpolation.defaultVariables,
+          ...data
+        };
+      }
+      if (!useOptionsReplaceForData) {
+        data = {
+          ...data
+        };
+        for (const key of optionsKeys) {
+          delete data[key];
+        }
+      }
+      return data;
     }
     static hasDefaultValue(options) {
       const prefix = 'defaultValue';
@@ -1956,12 +1987,14 @@
       const usedLng = typeof language === 'string' ? language : this.language;
       if (typeof language === 'function') usedCallback = language;
       if (!this.options.resources || this.options.partialBundledLanguages) {
-        if (usedLng && usedLng.toLowerCase() === 'cimode') return usedCallback();
+        if (usedLng && usedLng.toLowerCase() === 'cimode' && (!this.options.preload || this.options.preload.length === 0)) return usedCallback();
         const toLoad = [];
         const append = lng => {
           if (!lng) return;
+          if (lng === 'cimode') return;
           const lngs = this.services.languageUtils.toResolveHierarchy(lng);
           lngs.forEach(l => {
+            if (l === 'cimode') return;
             if (toLoad.indexOf(l) < 0) toLoad.push(l);
           });
         };

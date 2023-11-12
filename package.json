@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/KristjanESPERANTO/veggiekarte-local/issues"
   },
-  "homepage": "https://github.com/KristjanESPERANTO/veggiekarte-local",
+  "homepage": "https://map.vegan-in-halle.de/",
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.4",
     "eslint": "^8.53.0",
