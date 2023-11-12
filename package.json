@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://codeberg.org/piratenpanda/veggiekarte/issues"
   },
-  "homepage": "https://codeberg.org/piratenpanda",
+  "homepage": "https://veggiekarte.de/",
   "devDependencies": {
     "eslint": "^8.45.0",
     "eslint-config-airbnb-base": "^15.0.0",
