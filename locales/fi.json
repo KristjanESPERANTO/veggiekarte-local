@@ -15,7 +15,7 @@
         "content-reviews-heading": "Arvostelu",
         "content-reviews-text": "<a href='https://lib.reviews/' target='_blank' rel='noopener noreferrer'>lib.reviews</a> on ilmainen ja avoin foorumi kaiken tarkastelemiseen. Jos siellä on arvostelu paikasta, näytämme linkin siihen.",
         "content-further-heading": "Lisäksi",
-        "content-further-text": "Veggiekarte.de päivittyy automaattisesti tunnin välein. Lähdekoodi on saatavilla <a href='https://github.com/piratenpanda/veggiekarte' target='_blank' rel='noopener noreferrer'>GitHubista</a>. Ja pikku temppuna meillä on myös pikkuinen diagrammi <a href='data_chart.html'>täällä</a>.",
+        "content-further-text": "Veggiekarte.de päivittyy automaattisesti tunnin välein. Lähdekoodi on saatavilla <a href='https://codeberg.org/piratenpanda/veggiekarte' target='_blank' rel='noopener noreferrer'>Codeberg</a>. Ja pikku temppuna meillä on myös pikkuinen diagrammi <a href='data_chart.html'>täällä</a>.",
         "i18n_vegan_only": "kaikki vegaanista",
         "i18n_vegan_only_title": "Paikka, joka tarjoaa pelkästään vegaaniruokaa.",
         "i18n_vegetarian_only": "vain kasvista ja vegaanista",
