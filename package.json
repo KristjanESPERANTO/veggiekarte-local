@@ -4,7 +4,7 @@
   "description": "A OpenStreetMap based map to easily find places, like restaurants and cafes, with vegetarian and vegan options.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/piratenpanda/veggiekarte"
+    "url": "https://codeberg.org/piratenpanda/veggiekarte"
   },
   "keywords": [
     "vegan",
@@ -12,16 +12,13 @@
   ],
   "author": {
     "name": "piratenpanda",
-    "url": "https://github.com/piratenpanda"
+    "url": "https://codeberg.org/piratenpanda"
   },
-  "contributors": [
-    "https://github.com/piratenpanda/veggiekarte/graphs/contributors"
-  ],
   "license": "GNU General Public License v3.0",
   "bugs": {
-    "url": "https://github.com/piratenpanda/veggiekarte/issues"
+    "url": "https://codeberg.org/piratenpanda/veggiekarte/issues"
   },
-  "homepage": "https://github.com/piratenpanda/veggiekarte",
+  "homepage": "https://codeberg.org/piratenpanda",
   "devDependencies": {
     "eslint": "^8.45.0",
     "eslint-config-airbnb-base": "^15.0.0",

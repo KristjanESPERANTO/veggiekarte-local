@@ -1,9 +1,9 @@
 # Veggiekarte
 
-[![GitHub issues](https://img.shields.io/github/issues/piratenpanda/veggiekarte)](https://github.com/piratenpanda/veggiekarte/issues)
-[![GitHub forks](https://img.shields.io/github/forks/piratenpanda/veggiekarte)](https://github.com/piratenpanda/veggiekarte/network)
-[![GitHub stars](https://img.shields.io/github/stars/piratenpanda/veggiekarte)](https://github.com/piratenpanda/veggiekarte/stargazers)
-[![GitHub license](https://img.shields.io/github/license/piratenpanda/veggiekarte?style=plastic)](https://github.com/piratenpanda/veggiekarte/blob/master/LICENSE)
+[![Issues](https://img.shields.io/codeberg/issues/piratenpanda/veggiekarte)](https://codeberg.org/piratenpanda/veggiekarte/issues)
+[![Forks](https://img.shields.io/codeberg/forks/piratenpanda/veggiekarte)](https://codeberg.org/piratenpanda/veggiekarte/network)
+[![Stars](https://img.shields.io/codeberg/stars/piratenpanda/veggiekarte)](https://codeberg.org/piratenpanda/veggiekarte/stargazers)
+[![License](https://img.shields.io/codeberg/license/piratenpanda/veggiekarte?style=plastic)](https://codeberg.org/piratenpanda/veggiekarte/blob/master/LICENSE)
 
 ## Description
 
