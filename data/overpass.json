@@ -2,8 +2,8 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.61.5 4133829e",
   "osm3s": {
-    "timestamp_osm_base": "2023-10-15T14:36:14Z",
-    "timestamp_areas_base": "2023-10-15T11:07:15Z",
+    "timestamp_osm_base": "2023-11-12T21:57:41Z",
+    "timestamp_areas_base": "2023-11-12T19:27:45Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -171,13 +171,13 @@
     "amenity": "restaurant",
     "brewery": "Carlsberg;Heineken;Duckstein;Erdinger",
     "changing_table": "yes",
-    "check_date:opening_hours": "2022-08-16",
+    "check_date:opening_hours": "2023-11-06",
     "contact:phone": "+49 345 2002910",
     "contact:website": "https://www.cafe-n8.de",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "name": "N8 Café-Dinner-Bar",
-    "opening_hours": "Su-Fr 09:00-01:00, Sa 09:00-02:00",
+    "opening_hours": "Mo-Th 09:00-23:00; Fr,Sa 09:00-01:00",
     "outdoor_seating": "sidewalk",
     "toilets:wheelchair": "no",
     "wheelchair": "limited",
@@ -307,7 +307,8 @@
     "diet:vegetarian": "yes",
     "drink:cocktail": "served",
     "name": "Hans im Glück",
-    "opening_hours": "Mo-Th,Su 11:00-23:00; Fr,Sa 11:00-00:00",
+    "opening_hours": "Mo-Th,Su 11:00-23:00; Fr,Sa 11:00-00:00; Su,PH 11:00-23:00",
+    "opening_hours:kitchen": "Mo-Th,Su 11:00-22:00; Fr,Sa 11:00-23:00; Su,PH 11:00-22:00",
     "outdoor_seating": "yes",
     "payment:cash": "yes",
     "payment:girocard": "yes",
@@ -410,14 +411,14 @@
     "addr:postcode": "06108",
     "addr:street": "Kleine Ulrichstraße",
     "amenity": "restaurant",
-    "description": "Vegetarisches Bistro und Restaurant\nauf der Tageskarte werden vegane Gerichte angeboten\nvegane Gerichte sind als solche auch gekennzeichnet",
+    "description": "Vegetarisches Bistro und Restaurant auf der Tageskarte werden vegane Gerichte angeboten vegane Gerichte sind als solche auch gekennzeichnet",
     "diet:vegan": "yes",
     "diet:vegetarian": "only",
     "name": "Ökoase",
     "opening_hours": "Mo-Fr 11:00-15:00",
     "phone": "+49 345 2901604",
     "toilets:wheelchair": "no",
-    "website": "http://www.oekoase-halle.de",
+    "website": "https://oekoase-halle.de/",
     "wheelchair": "limited",
     "wheelchair:description": "Kleine Stufe am Eingang, leicht zu überwinden, oder Rampe kann angelegt werden. Parkplatz im Parkhaus Händelhauskarree oder Große Nikolaistraße (direkt vor dem Händel-Haus). Behinderten-WC nicht vorhanden."
   }
@@ -804,7 +805,7 @@
     "addr:postcode": "06108",
     "addr:street": "Kleine Ulrichstraße",
     "amenity": "restaurant",
-    "check_date:opening_hours": "2021-03-06",
+    "check_date:opening_hours": "2023-10-24",
     "contact:website": "https://kohaku-sushi.de",
     "cuisine": "japanese",
     "diet:vegan": "limited",
@@ -1216,7 +1217,7 @@
     "diet:vegan": "yes",
     "diet:vegetarian": "only",
     "name": "Nasch Madame - Konditorei",
-    "opening_hours": "We-Fr 13:00-18:00; Sa 10:00-18:00; Su 12:00-17:00",
+    "opening_hours": "We-Sa 13:00-17:00",
     "toilets:wheelchair": "no",
     "wheelchair": "no"
   }
@@ -1401,8 +1402,8 @@
 {
   "type": "node",
   "id": 2932869816,
-  "lat": 51.4758150,
-  "lon": 11.9701334,
+  "lat": 51.4757221,
+  "lon": 11.9701338,
   "tags": {
     "addr:city": "Halle (Saale)",
     "addr:country": "DE",
@@ -1890,7 +1891,9 @@
     "opening_hours": "Mo-Su 11:00-23:00",
     "outdoor_seating": "yes",
     "smoking": "outside",
-    "website": "http://vietvillageasianstreetfood.cafelists.com/",
+    "toilets": "yes",
+    "toilets:wheelchair": "no",
+    "website": "https://vietvillageasianstreetfood.cafelists.com/",
     "wheelchair": "limited",
     "wheelchair:description": "keine Angaben, Eckgebäude zur Ulrichstraße"
   }
@@ -2817,7 +2820,8 @@
     "name": "dean&david",
     "opening_hours": "Mo-Su 09:00-20:00",
     "start_date": "2021",
-    "takeaway": "yes"
+    "takeaway": "yes",
+    "wheelchair": "yes"
   }
 },
 {
@@ -2873,6 +2877,7 @@
     "addr:housenumber": "1",
     "addr:postcode": "06108",
     "addr:street": "Salzgrafenstraße",
+    "check_date": "2023-11-03",
     "contact:instagram": "https://www.instagram.com/nobelsuess/",
     "contact:website": "https://nobelsuess.eu",
     "diet:vegan": "yes",
@@ -3161,7 +3166,7 @@
     "addr:street": "Reilstraße",
     "amenity": "restaurant",
     "contact:instagram": "https://www.instagram.com/bay.vegan/",
-    "contact:phone": "+49 162 6678968",
+    "contact:phone": "+49 345 13256806",
     "cuisine": "asian",
     "diet:vegan": "only",
     "diet:vegetarian": "only",

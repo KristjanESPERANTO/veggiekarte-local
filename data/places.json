@@ -1,5 +1,5 @@
 {
- "_timestamp": "2023-10-15 16:37:08.431922",
+ "_timestamp": "2023-11-12 22:59:07.098808",
  "features": [
   {
    "geometry": {
@@ -172,7 +172,7 @@
     "contact_website": "https://www.cafe-n8.de",
     "icon": "restaurant",
     "name": "N8 Café-Dinner-Bar",
-    "opening_hours": "Su-Fr 09:00-01:00, Sa 09:00-02:00",
+    "opening_hours": "Mo-Th 09:00-23:00; Fr,Sa 09:00-01:00",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -301,7 +301,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Hans im Glück",
-    "opening_hours": "Mo-Th,Su 11:00-23:00; Fr,Sa 11:00-00:00",
+    "opening_hours": "Mo-Th,Su 11:00-22:00; Fr,Sa 11:00-23:00; Su,PH 11:00-22:00",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -399,7 +399,7 @@
     "addr_street": "Kleine Ulrichstraße 2",
     "category": "vegetarian_only",
     "contact_phone": "+49 345 2901604",
-    "contact_website": "http://www.oekoase-halle.de",
+    "contact_website": "https://oekoase-halle.de",
     "icon": "restaurant",
     "more_info": true,
     "name": "Ökoase",
@@ -1266,7 +1266,7 @@
     "icon": "cafe",
     "more_info": true,
     "name": "Nasch Madame - Konditorei",
-    "opening_hours": "We-Fr 13:00-18:00; Sa 10:00-18:00; Su 12:00-17:00",
+    "opening_hours": "We-Sa 13:00-17:00",
     "symbol": "☕"
    },
    "type": "Feature"
@@ -1439,8 +1439,8 @@
   {
    "geometry": {
     "coordinates": [
-     11.9701334,
-     51.475815
+     11.9701338,
+     51.4757221
     ],
     "type": "Point"
    },
@@ -1920,7 +1920,7 @@
     "addr_street": "Bergstraße 1",
     "category": "vegan_limited",
     "contact_facebook": "vietvillagehalle",
-    "contact_website": "http://vietvillageasianstreetfood.cafelists.com",
+    "contact_website": "https://vietvillageasianstreetfood.cafelists.com",
     "cuisine": "vietnamese",
     "icon": "restaurant",
     "more_info": true,
@@ -3283,7 +3283,7 @@
     "addr_street": "Reilstraße 7",
     "category": "vegan_only",
     "contact_instagram": "bay.vegan",
-    "contact_phone": "+49 162 6678968",
+    "contact_phone": "+49 345 13256806",
     "cuisine": "asian",
     "icon": "restaurant",
     "more_info": true,

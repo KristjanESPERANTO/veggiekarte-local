@@ -1,5 +1,5 @@
 {
- "_timestamp": "2023-10-08 23:31:59.720454",
+ "_timestamp": "2023-10-15 16:37:08.431922",
  "features": [
   {
    "geometry": {
@@ -2190,7 +2190,7 @@
     "contact_website": "https://www.denns-biomarkt.de/halle-leipziger-str-100/marktseite",
     "icon": "supermarket",
     "more_info": true,
-    "name": "denn's Biomarkt",
+    "name": "Denns BioMarkt",
     "opening_hours": "Mo-Sa 08:00-20:00",
     "shop": "supermarket",
     "symbol": "🏪"
@@ -3111,32 +3111,6 @@
     "icon": "ice_cream",
     "name": "Eislust",
     "symbol": "🍨"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9715732,
-     51.4929765
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 9140808707,
-    "_type": "node",
-    "addr_city": "Halle (Saale)",
-    "addr_postcode": "06108",
-    "addr_street": "Ludwig-Wucherer-Straße 62",
-    "category": "vegan_friendly",
-    "contact_instagram": "creperie_halle",
-    "contact_phone": "+49 178 5172353",
-    "cuisine": "crepe",
-    "icon": "cafe",
-    "more_info": true,
-    "name": "Crêperie Bonjour",
-    "opening_hours": "Mo-Su 11:00-21:00",
-    "symbol": "☕"
    },
    "type": "Feature"
   },
