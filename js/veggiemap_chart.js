@@ -10,14 +10,15 @@ const dataVegetarianOnly = [];
 let lastElementDate = new Date();
 
 // Load statisctics data and call funtion to handle the data
-function getStatistics() {
+async function getStatistics() {
   const url = "data/stat.json";
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => handleData(data.stat))
-    .catch((error) => {
-      console.log("Request failed", error);
-    });
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    handleData(data.stat);
+  } catch (error) {
+    console.log("Request failed", error);
+  }
 }
 
 function handleData(data) {

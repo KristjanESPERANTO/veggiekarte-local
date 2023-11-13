@@ -1,7 +1,10 @@
-const url = "../data/check_results.json";
-fetch(url)
-  .then((response) => response.json())
-  .then((geojson) => {
+async function fetchData() {
+  const url = "../data/check_results.json";
+
+  try {
+    const response = await fetch(url);
+    const geojson = await response.json();
+
     const markerGroups = geojson.features;
     const date = geojson._timestamp.split(" ")[0];
     const output = document.getElementById("output");
@@ -56,7 +59,9 @@ fetch(url)
     output.appendChild(head);
     output.appendChild(issuesDiv);
     output.appendChild(table);
-  })
-  .catch((error) => {
+  } catch (error) {
     console.log("Request failed", error);
-  });
+  }
+}
+
+fetchData();
