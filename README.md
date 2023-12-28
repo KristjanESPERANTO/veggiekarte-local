@@ -58,6 +58,12 @@ This is an overview of the third-party software and data we use. Many thanks to 
 | icons from [Maki](https://labs.mapbox.com/maki-icons/)                                     | CC0                                                                                                              |         | Fallback marker icons                                                                 |
 | [veggiepenguin](https://openclipart.org/detail/189178/veggiepenguin)                       | CC0 [\*](https://openclipart.org/share)                                                                          |         | Favicon                                                                               |
 
+## Scripts
+
+Run `python3 refresh.py` to get new data from OpenStreetmap.
+
+Run `python3 datacheck/datacheck.py` to run the data check on the data.
+
 ## For developers
 
 To produce a more consistent code we use node.js to prettify and lint the code. But node.js is not required to run Veggiekarte.
