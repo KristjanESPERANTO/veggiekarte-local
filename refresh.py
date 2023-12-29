@@ -451,6 +451,9 @@ def write_data(data):
         if element_id in GET_MORE_INFO:  # More information and Link for those who use the map in a local website.
             place_obj["properties"]["more_info"] = True
 
+        if "diet:vegan:description" in tags:
+            place_obj["properties"]["vegan_description"] = tags["diet:vegan:description"]
+
         places_data["features"].append(place_obj)
 
     # Print number of elements

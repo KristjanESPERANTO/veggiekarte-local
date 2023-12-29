@@ -313,6 +313,7 @@ function calculatePopup(layer) {
   const eInf = feature.properties.more_info;
   const eOpe = feature.properties.opening_hours;
   const eSym = feature.properties.symbol;
+  const veganDescription = feature.properties.vegan_description;
 
   let popupContent = `
       <div class='popup-category ${feature.properties.category}'>
@@ -440,9 +441,14 @@ function calculatePopup(layer) {
       ""
     )}</a></div></div>`;
   }
+
+  if (veganDescription !== undefined) {
+    popupContent += `<div class='popupflex-container'><div>🗒️</div>
+      <div>${veganDescription}</div></div>`;
+  }
   if (eInf !== undefined) {
     popupContent += `<hr/><div class='popupflex-container'><div>ℹ️</div>
-      <div><a href="https://www.vegan-in-halle.de/wp/leben/vegane-stadtkarte/#${eTyp}${eId}" target="_top">${i18next.t("texts.more_info")}</a></div>`;
+      <div><a href="https://www.vegan-in-halle.de/wp/leben/vegane-stadtkarte/#${eTyp}${eId}" target="_top">${i18next.t("texts.more_info")}</a></div></div>`;
   }
 
   // Add information from Nominatiom API
