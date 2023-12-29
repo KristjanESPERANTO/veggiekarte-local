@@ -107,12 +107,14 @@ a:hover {
 .vegan_only {
   background: #050;
   border-color: #172;
+  color: white;
 }
 
 /* stylelint-disable-next-line selector-class-pattern */
 .vegetarian_only {
   background: #181;
   border-color: #181;
+  color: white;
 }
 
 /* stylelint-disable-next-line selector-class-pattern */
