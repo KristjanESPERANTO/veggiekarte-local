@@ -2,8 +2,8 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.61.5 4133829e",
   "osm3s": {
-    "timestamp_osm_base": "2023-11-12T21:57:41Z",
-    "timestamp_areas_base": "2023-11-12T19:27:45Z",
+    "timestamp_osm_base": "2023-12-28T19:22:43Z",
+    "timestamp_areas_base": "2023-12-28T14:36:55Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -251,8 +251,10 @@
     "contact:website": "http://www.mosdaniels.de",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "name": "Mo's Daniel's",
     "opening_hours": "Mo-Sa 18:00-01:00",
+    "outdoor_seating": "no",
     "wheelchair": "limited"
   }
 },
@@ -383,6 +385,7 @@
     "addr:housenumber": "11",
     "addr:postcode": "06108",
     "addr:street": "Große Klausstraße",
+    "air_conditioning": "no",
     "amenity": "pub",
     "contact:facebook": "https://www.facebook.com/Kaffee1990/",
     "cuisine": "german",
@@ -392,7 +395,7 @@
     "indoor_seating": "yes",
     "name": "Nöö",
     "opening_hours": "Su-Th 10:00-01:00; Fr-Sa 10:00-02:00",
-    "outdoor_seating": "yes",
+    "outdoor_seating": "terrace",
     "payment:cash": "yes",
     "payment:debit_cards": "yes",
     "smoking": "outside",
@@ -636,9 +639,9 @@
     "amenity": "restaurant",
     "contact:facebook": "https://www.facebook.com/LeFeuHalle",
     "contact:phone": "+49 345 13259669",
-    "contact:website": "https://www.lefeu.de/le-feu-halle-saale",
+    "contact:website": "https://www.lefeu.de/le-feu-flammkuchen-halle-saale/",
     "cuisine": "french",
-    "description": "omnivores Flammkuchen-Restaurant\ngroß Auswahl an vegan bestellbaren Flammkuchen - diese sind gut gekennzeichnet",
+    "description": "omnivores Flammkuchen-Restaurant, große Auswahl an veganen Flammkuchen - diese sind gut gekennzeichnet.",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "name": "Le Feu",
@@ -858,6 +861,7 @@
     "contact:phone": "+49 176 61096284",
     "cuisine": "pizza;burger;kebab;barbecue;mediterranean;american;arab",
     "diet:vegan": "yes",
+    "diet:vegetarian": "yes",
     "name": "Amasyna",
     "old_name": "Afamia Eck",
     "opening_hours": "Mo-Th 11:00-21:00; Fr-Sa 11:00-22:00",
@@ -1508,6 +1512,41 @@
 },
 {
   "type": "node",
+  "id": 3085104533,
+  "lat": 51.4792577,
+  "lon": 11.9793930,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:country": "DE",
+    "addr:housenumber": "43",
+    "addr:postcode": "06108",
+    "addr:street": "Leipziger Straße",
+    "amenity": "fast_food",
+    "check_date": "2023-12-11",
+    "contact:facebook": "https://www.facebook.com/grillalbalad",
+    "cuisine": "kebab;syrian;falafel;barbecue;sandwich;burger;shawarma;arab",
+    "diet:halal": "yes",
+    "diet:meat": "yes",
+    "diet:vegan": "yes",
+    "diet:vegan:description": "Zwei als vegan gekennzeichnete Wraps im Angebot.",
+    "diet:vegan:labeled": "yes",
+    "diet:vegetarian": "yes",
+    "drive_through": "no",
+    "email": "grill.albalad@gmail.com",
+    "level": "0;1",
+    "name": "Grill al Balad",
+    "name:ar": "مطعم البلد",
+    "name:de": "Grill al Balad",
+    "opening_hours": "10:30-23:00",
+    "phone": "+4915786392434",
+    "takeaway": "yes",
+    "toilets:wheelchair": "no",
+    "wheelchair": "no",
+    "wheelchair:description": "3 hohe Stufen am Eingang"
+  }
+},
+{
+  "type": "node",
   "id": 3122730907,
   "lat": 51.4755744,
   "lon": 11.9703845,
@@ -1623,6 +1662,30 @@
     "takeaway": "yes",
     "toilets:wheelchair": "yes",
     "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 3364559365,
+  "lat": 51.4923117,
+  "lon": 11.9721865,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:country": "DE",
+    "addr:housenumber": "22",
+    "addr:postcode": "06108",
+    "addr:street": "Puschkinstraße",
+    "amenity": "restaurant",
+    "contact:instagram": "https://www.instagram.com/p22cafebar/",
+    "contact:tiktok": "https://www.tiktok.com/@p22.caf.bar",
+    "cuisine": "turkish;azerbaijan",
+    "diet:vegan": "yes",
+    "name": "P22",
+    "opening_date": "2022-02-03",
+    "opening_hours": "Mo-Sa 09:00-18:00; Su 09:00-14:00",
+    "operator": "Naila Talibova",
+    "phone": "+49 171 3651504",
+    "wheelchair": "no"
   }
 },
 {
@@ -1890,6 +1953,7 @@
     "name": "Viet Village",
     "opening_hours": "Mo-Su 11:00-23:00",
     "outdoor_seating": "yes",
+    "phone": "+4934569152981",
     "smoking": "outside",
     "toilets": "yes",
     "toilets:wheelchair": "no",
@@ -2043,7 +2107,7 @@
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "name": "Café Ludwig",
-    "opening_hours": "Tu-Fr 13:00-24:00; Sa 10:00-24:00; Su 10:00-19:00",
+    "opening_hours": "We-Fr 13:00-24:00; Sa 10:00-24:00; PH,Su 10:00-19:00; Mo,Tu off",
     "outdoor_seating": "yes",
     "payment:cash": "yes",
     "wheelchair": "no"
@@ -2052,8 +2116,8 @@
 {
   "type": "node",
   "id": 4974999721,
-  "lat": 51.4867456,
-  "lon": 11.9667696,
+  "lat": 51.4867214,
+  "lon": 11.9667873,
   "tags": {
     "addr:city": "Halle (Saale)",
     "addr:country": "DE",
@@ -2102,7 +2166,8 @@
     "smoking": "outside",
     "smoking:outside": "outside",
     "website": "https://tajmahal-merseburg.de",
-    "website:menu": "https://tajmahal-merseburg.de/food-items/"
+    "website:menu": "https://tajmahal-merseburg.de/food-items/",
+    "wheelchair": "yes"
   }
 },
 {
@@ -2390,7 +2455,8 @@
     "operator": "rübchen e.V.",
     "organic": "only",
     "shop": "foodcoop",
-    "website": "https://ruebchen-halle.de/"
+    "website": "https://ruebchen-halle.de/",
+    "wheelchair": "limited"
   }
 },
 {
@@ -2459,25 +2525,6 @@
     "outdoor_seating": "no",
     "takeaway": "only",
     "wheelchair": "yes"
-  }
-},
-{
-  "type": "node",
-  "id": 7027316371,
-  "lat": 51.4875765,
-  "lon": 11.9764108,
-  "tags": {
-    "addr:city": "Halle (Saale)",
-    "addr:housenumber": "34",
-    "addr:postcode": "06108",
-    "addr:street": "Große Steinstraße",
-    "amenity": "restaurant",
-    "contact:facebook": "https://www.facebook.com/BistroLorraine",
-    "cuisine": "international",
-    "diet:vegan": "yes",
-    "diet:vegetarian": "yes",
-    "name": "Bistro Lorraine",
-    "opening_hours": "Mo 12:30-16:00; Tu-Fr 11:30-16:00; Sa,Su,PH off"
   }
 },
 {
@@ -2595,7 +2642,8 @@
     "indoor_seating": "yes",
     "name": "Café Kuckhoff",
     "opening_hours": "Mo,Tu off; We-Su 09:00-18:00",
-    "outdoor_seating": "yes"
+    "outdoor_seating": "yes",
+    "wheelchair": "yes"
   }
 },
 {
@@ -2726,8 +2774,10 @@
     "diet:vegan": "yes",
     "diet:vegan:labeled": "yes",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "name": "World of Pizza",
-    "opening_hours": "Mo-Su 11:00-23:00"
+    "opening_hours": "Mo-Su 11:00-23:00",
+    "outdoor_seating": "no"
   }
 },
 {
@@ -3260,7 +3310,13 @@
     "diet:vegan": "yes",
     "name": "SubWay",
     "note": "geöffnet seit 05.06.2023",
-    "opening_hours": "Mo-Su 12:00-22:00",
+    "opening_hours": "Mo-Su 12:00-22:00, PH 12:00-20:00",
+    "payment:cash": "yes",
+    "payment:diners_club": "yes",
+    "payment:jcb": "yes",
+    "payment:maestro": "yes",
+    "payment:mastercard": "yes",
+    "payment:visa": "yes",
     "phone": "+49 345 77788107"
   }
 },
@@ -3635,10 +3691,10 @@
     "building": "yes",
     "check_date:diet:vegetarian": "2022-10-28",
     "contact:facebook": "https://www.facebook.com/colonne.morris/",
-    "contact:instagram": "https://www.instagram.com/cafebarcolonne/",
+    "contact:instagram": "https://www.instagram.com/colonnemorris_cafe_bar/",
     "contact:phone": "+49 345 27983176",
     "cuisine": "crepe;french;breakfast;coffee_shop;cake;pasta;tea",
-    "diet:vegan": "limited",
+    "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "indoor_seating": "yes",
     "internet_access": "wlan",
@@ -3869,7 +3925,8 @@
     "name": "NICE",
     "old_name": "SPICY",
     "opening_hours": "Mo-Th 11:00-22:00; Fr-Sa 12:00-24:00; Su 12:00-22:00",
-    "outdoor_seating": "yes"
+    "outdoor_seating": "yes",
+    "wheelchair": "no"
   }
 },
 {

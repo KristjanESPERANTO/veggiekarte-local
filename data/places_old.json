@@ -1,5 +1,5 @@
 {
- "_timestamp": "2023-10-15 16:37:08.431922",
+ "_timestamp": "2023-12-28 20:22:23.382449",
  "features": [
   {
    "geometry": {
@@ -172,7 +172,7 @@
     "contact_website": "https://www.cafe-n8.de",
     "icon": "restaurant",
     "name": "N8 Café-Dinner-Bar",
-    "opening_hours": "Su-Fr 09:00-01:00, Sa 09:00-02:00",
+    "opening_hours": "Mo-Th 09:00-23:00; Fr,Sa 09:00-01:00",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -301,7 +301,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Hans im Glück",
-    "opening_hours": "Mo-Th,Su 11:00-23:00; Fr,Sa 11:00-00:00",
+    "opening_hours": "Mo-Th,Su 11:00-22:00; Fr,Sa 11:00-23:00; Su,PH 11:00-22:00",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -399,7 +399,7 @@
     "addr_street": "Kleine Ulrichstraße 2",
     "category": "vegetarian_only",
     "contact_phone": "+49 345 2901604",
-    "contact_website": "http://www.oekoase-halle.de",
+    "contact_website": "https://oekoase-halle.de",
     "icon": "restaurant",
     "more_info": true,
     "name": "Ökoase",
@@ -638,7 +638,7 @@
     "category": "vegan_friendly",
     "contact_facebook": "LeFeuHalle",
     "contact_phone": "+49 345 13259669",
-    "contact_website": "https://www.lefeu.de/le-feu-halle-saale",
+    "contact_website": "https://www.lefeu.de/le-feu-flammkuchen-halle-saale",
     "cuisine": "french",
     "icon": "restaurant",
     "more_info": true,
@@ -825,7 +825,8 @@
     "icon": "restaurant",
     "name": "Kohaku",
     "opening_hours": "Mo-Su 11:00-23:00",
-    "symbol": "🍽️"
+    "symbol": "🍽️",
+    "vegan_description": "Haben nichts veganes in der Karte. Auf Nachfrage kann vegetarisches vegan zubereitet werden."
    },
    "type": "Feature"
   },
@@ -1266,7 +1267,7 @@
     "icon": "cafe",
     "more_info": true,
     "name": "Nasch Madame - Konditorei",
-    "opening_hours": "We-Fr 13:00-18:00; Sa 10:00-18:00; Su 12:00-17:00",
+    "opening_hours": "We-Sa 13:00-17:00",
     "symbol": "☕"
    },
    "type": "Feature"
@@ -1439,8 +1440,8 @@
   {
    "geometry": {
     "coordinates": [
-     11.9701334,
-     51.475815
+     11.9701338,
+     51.4757221
     ],
     "type": "Point"
    },
@@ -1546,6 +1547,34 @@
   {
    "geometry": {
     "coordinates": [
+     11.979393,
+     51.4792577
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3085104533,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Leipziger Straße 43",
+    "category": "vegan_friendly",
+    "contact_email": "grill.albalad@gmail.com",
+    "contact_facebook": "grillalbalad",
+    "contact_phone": "+4915786392434",
+    "cuisine": "kebab;syrian;falafel;barbecue;sandwich;burger;shawarma;arab",
+    "icon": "fast_food",
+    "name": "Grill al Balad",
+    "opening_hours": "10:30-23:00",
+    "symbol": "🍔",
+    "vegan_description": "Zwei als vegan gekennzeichnete Wraps im Angebot."
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9703845,
      51.4755744
     ],
@@ -1643,6 +1672,32 @@
     "name": "Coffee Fellows",
     "opening_hours": "Mo-Th 09:00-20:00; Fr 09:00-22:00; Sa 09:00-20:00; Su off",
     "symbol": "☕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9721865,
+     51.4923117
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3364559365,
+    "_type": "node",
+    "addr_city": "Halle (Saale)",
+    "addr_country": "DE",
+    "addr_postcode": "06108",
+    "addr_street": "Puschkinstraße 22",
+    "category": "vegan_friendly",
+    "contact_instagram": "p22cafebar",
+    "contact_phone": "+49 171 3651504",
+    "cuisine": "turkish;azerbaijan",
+    "icon": "restaurant",
+    "name": "P22",
+    "opening_hours": "Mo-Sa 09:00-18:00; Su 09:00-14:00",
+    "symbol": "🍽️"
    },
    "type": "Feature"
   },
@@ -1920,7 +1975,8 @@
     "addr_street": "Bergstraße 1",
     "category": "vegan_limited",
     "contact_facebook": "vietvillagehalle",
-    "contact_website": "http://vietvillageasianstreetfood.cafelists.com",
+    "contact_phone": "+4934569152981",
+    "contact_website": "https://vietvillageasianstreetfood.cafelists.com",
     "cuisine": "vietnamese",
     "icon": "restaurant",
     "more_info": true,
@@ -2084,7 +2140,7 @@
     "icon": "cafe",
     "more_info": true,
     "name": "Café Ludwig",
-    "opening_hours": "Tu-Fr 13:00-24:00; Sa 10:00-24:00; Su 10:00-19:00",
+    "opening_hours": "We-Fr 13:00-24:00; Sa 10:00-24:00; PH,Su 10:00-19:00; Mo,Tu off",
     "symbol": "☕"
    },
    "type": "Feature"
@@ -2092,8 +2148,8 @@
   {
    "geometry": {
     "coordinates": [
-     11.9667696,
-     51.4867456
+     11.9667873,
+     51.4867214
     ],
     "type": "Point"
    },
@@ -2524,31 +2580,6 @@
     "name": "Subway",
     "opening_hours": "Mo-Sa 07:00-20:00; Su,PH 08:00-20:00",
     "symbol": "🍔"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9764108,
-     51.4875765
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 7027316371,
-    "_type": "node",
-    "addr_city": "Halle (Saale)",
-    "addr_postcode": "06108",
-    "addr_street": "Große Steinstraße 34",
-    "category": "vegan_friendly",
-    "contact_facebook": "BistroLorraine",
-    "cuisine": "international",
-    "icon": "restaurant",
-    "more_info": true,
-    "name": "Bistro Lorraine",
-    "opening_hours": "Mo 12:30-16:00; Tu-Fr 11:30-16:00; Sa,Su,PH off",
-    "symbol": "🍽️"
    },
    "type": "Feature"
   },
@@ -3283,7 +3314,7 @@
     "addr_street": "Reilstraße 7",
     "category": "vegan_only",
     "contact_instagram": "bay.vegan",
-    "contact_phone": "+49 162 6678968",
+    "contact_phone": "+49 345 13256806",
     "cuisine": "asian",
     "icon": "restaurant",
     "more_info": true,
@@ -3387,7 +3418,7 @@
     "cuisine": "american",
     "icon": "fast_food",
     "name": "SubWay",
-    "opening_hours": "Mo-Su 12:00-22:00",
+    "opening_hours": "Mo-Su 12:00-22:00, PH 12:00-20:00",
     "symbol": "🍔"
    },
    "type": "Feature"
@@ -3660,7 +3691,7 @@
     "addr_country": "DE",
     "addr_postcode": "06114",
     "addr_street": "Viktor-Scheffel-Straße 8",
-    "category": "vegan_limited",
+    "category": "vegan_friendly",
     "contact_facebook": "colonne.morris",
     "contact_instagram": "cafebarcolonne",
     "contact_phone": "+49 345 27983176",

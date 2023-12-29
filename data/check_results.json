@@ -1,5 +1,5 @@
 {
- "_timestamp": "2023-10-15 16:37:27.794093",
+ "_timestamp": "2023-12-28 20:24:28.118175",
  "features": [
   {
    "geometry": {
@@ -26,27 +26,6 @@
   {
    "geometry": {
     "coordinates": [
-     11.9831239,
-     51.3704679
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 8793001854,
-    "_type": "node",
-    "diet_vegan": "yes",
-    "issue_count": 2,
-    "issues": [
-     "'contact:website' Exception: ReadTimeout",
-     "fixme: seit Mai neu im MerseCenter, an welcher Stelle ist mir aber nicht bekannt"
-    ],
-    "name": "SUSHIdeluxe"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
      11.9944151,
      51.4836971
     ],
@@ -64,26 +43,6 @@
     "undefined": [
      "addr:housenumber"
     ]
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9793227,
-     51.48059
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 309747715,
-    "_type": "node",
-    "diet_vegan": "yes",
-    "issue_count": 1,
-    "issues": [
-     "'website' Exception: ReadTimeout"
-    ],
-    "name": "Shiva"
    },
    "type": "Feature"
   },
@@ -210,20 +169,40 @@
   {
    "geometry": {
     "coordinates": [
-     11.978945,
-     51.4883301
+     11.9831239,
+     51.3704679
     ],
     "type": "Point"
    },
    "properties": {
-    "_id": 8793003720,
+    "_id": 8793001854,
     "_type": "node",
     "diet_vegan": "yes",
     "issue_count": 1,
     "issues": [
-     "'contact:website' Exception: ReadTimeout"
+     "fixme: seit Mai neu im MerseCenter, an welcher Stelle ist mir aber nicht bekannt"
     ],
     "name": "SUSHIdeluxe"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9710526,
+     51.4918307
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 8932643632,
+    "_type": "node",
+    "diet_vegan": "limited",
+    "issue_count": 1,
+    "issues": [
+     "'contact:website' Exception: SSLError"
+    ],
+    "name": "Alik Gelato"
    },
    "type": "Feature"
   },
@@ -270,6 +249,26 @@
   {
    "geometry": {
     "coordinates": [
+     11.9793497,
+     51.4929992
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 9969559755,
+    "_type": "node",
+    "diet_vegan": "yes",
+    "issue_count": 1,
+    "issues": [
+     "'website' Exception: ConnectionError"
+    ],
+    "name": "Polenka"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9721356,
      51.4856145
     ],
@@ -304,26 +303,6 @@
     "undefined": [
      "cuisine"
     ]
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9842788,
-     51.2814207
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 255017911,
-    "_type": "way",
-    "diet_vegan": "yes",
-    "issue_count": 1,
-    "issues": [
-     "'website' Exception: SSLError"
-    ],
-    "name": "Raffiness"
    },
    "type": "Feature"
   }
