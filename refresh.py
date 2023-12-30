@@ -79,7 +79,7 @@ GET_MORE_INFO = [
     1676156956,  # House of India
     2791600302,  # Hotdog King
     3052291182,  # Seoul Kulinarisch
-    1037236274,  # Anh Asia
+    1037236274,  # Mimi
     164756646,   # SPICY
     8773861578,  # JUICY - Reileck
     7388445891,  # City Döner
