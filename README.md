@@ -85,3 +85,11 @@ to this
 `<script src="js/veggiemap.js" type="module"></script>`
 
 in the index.html.
+
+### Manually update data
+
+Run `python3 refresh.py` to get new data from OpenStreetmap.
+
+### Check data
+
+Run `python3 datacheck/datacheck.py` to run the data check on the data.
