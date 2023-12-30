@@ -129,6 +129,11 @@
   "isOk": false,
   "text": "Exception: ReadTimeout"
  },
+ "https://nice-healthy-kebab.de/": {
+  "date": "2023-12-30",
+  "isOk": true,
+  "text": "OK - 200"
+ },
  "https://nobelsuess.eu": {
   "date": "2023-12-28",
   "isOk": true,
@@ -788,6 +793,11 @@
   "date": "2023-12-28",
   "isOk": true,
   "text": "OK - 200"
+ },
+ "https://www.kaffeeschuppen-halle.de/": {
+  "date": "2023-12-30",
+  "isOk": false,
+  "text": "Exception: ReadTimeout"
  },
  "https://www.lefeu.de/le-feu-flammkuchen-halle-saale/": {
   "date": "2023-12-28",

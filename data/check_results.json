@@ -1,5 +1,5 @@
 {
- "_timestamp": "2023-12-28 20:24:28.118175",
+ "_timestamp": "2023-12-30 21:02:36.463750",
  "features": [
   {
    "geometry": {
@@ -19,6 +19,29 @@
      "cuisine",
      "addr:street",
      "addr:housenumber"
+    ]
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9663357,
+     51.4856228
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1037059970,
+    "_type": "node",
+    "diet_vegan": "yes",
+    "issue_count": 2,
+    "issues": [
+     "'contact:website' Exception: ReadTimeout"
+    ],
+    "name": "Kaffeeschuppen",
+    "undefined": [
+     "cuisine"
     ]
    },
    "type": "Feature"
@@ -80,26 +103,6 @@
     "diet_vegan": "yes",
     "issue_count": 1,
     "name": "Ökoase",
-    "undefined": [
-     "cuisine"
-    ]
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9663357,
-     51.4856228
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 1037059970,
-    "_type": "node",
-    "diet_vegan": "yes",
-    "issue_count": 1,
-    "name": "Kaffeeschuppen",
     "undefined": [
      "cuisine"
     ]
