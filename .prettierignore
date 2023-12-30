@@ -1,4 +1,4 @@
-# Ignore artifacts:
 data/*
 node_modules/*
 third-party/*
+bundle.js
