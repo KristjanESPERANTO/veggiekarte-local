@@ -1,7 +1,7 @@
 {
   "env": {
     "browser": true,
-    "es2022": true
+    "es2023": true
   },
   "extends": ["airbnb-base", "plugin:json/recommended", "plugin:prettier/recommended"],
   "parserOptions": {
@@ -9,7 +9,7 @@
     "sourceType": "module"
   },
   "root": true,
-  "ignorePatterns": ["third-party/"],
+  "ignorePatterns": ["bundle.js", "rollup.config.js", "third-party/"],
   "rules": {
     "no-console": "off",
     "prefer-destructuring": "off",

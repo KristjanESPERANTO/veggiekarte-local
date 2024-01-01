@@ -58,8 +58,38 @@ This is an overview of the third-party software and data we use. Many thanks to 
 
 ## For developers
 
-To produce a more consistent code we use node.js to prettify and lint the code. But node.js is not required to run Veggiekarte.
+We use node.js for a few developer tools. For the operation of veggiekarte node.js is not necessary.
 
-To use the tests you have to run `npm install` once to install the required packages. The prerequisite is that you have node.js installed on your system.
+To use the tools you have to run `npm install` once to install the required packages. The prerequisite is that you have node.js installed on your system.
 
-Then, to run the tests, run `npm run test`.
+### Linter and Formatter
+
+To produce a more consistent code we use ESLint and Prettier.
+
+To test whether the linter and prettier rules are complied with in the code, execute the following command: `npm run lint`.
+
+If errors occur, you can use the following command to eliminate some of the errors: `npm run lint:fix`.
+
+### Bundler
+
+We use some 3rd party software for veggiekarte. So that the browser doesn't have to download an extra JavaScript file for each one, we bundle our JavaScript code with the 3rd party software in one package. In some cases, unused code is also discarded (treeshaking) - but unfortunately not all plugins are designed for treeshaking yet. This makes the website load faster.
+
+A new bundle must be build after each change to the code. Use this command to do that: `npm run build`.
+
+For test purposes, you can also bypass the bundling process by changing this line
+
+`<script src="js/bundle.js" type="module"></script>`
+
+to this
+
+`<script src="js/veggiemap.js" type="module"></script>`
+
+in the index.html.
+
+### Manually update data
+
+Run `python3 refresh.py` to get new data from OpenStreetmap.
+
+### Check data
+
+Run `python3 datacheck/datacheck.py` to run the data check on the data.

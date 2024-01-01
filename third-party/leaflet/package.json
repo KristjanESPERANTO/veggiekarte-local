@@ -4,7 +4,6 @@
   "homepage": "https://leafletjs.com/",
   "description": "JavaScript library for mobile-friendly interactive maps",
   "devDependencies": {
-    "@mapbox/eslint-plugin-script-tags": "^1.0.0",
     "@rollup/plugin-json": "^4.1.0",
     "bundlemon": "^1.4.0",
     "eslint": "^8.23.0",
@@ -73,10 +72,6 @@
       "amd": true,
       "node": false
     },
-    "extends": "mourner",
-    "plugins": [
-      "@mapbox/eslint-plugin-script-tags"
-    ],
     "parserOptions": {
       "ecmaVersion": 6,
       "sourceType": "module"
