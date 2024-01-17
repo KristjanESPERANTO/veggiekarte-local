@@ -2,8 +2,8 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.61.5 4133829e",
   "osm3s": {
-    "timestamp_osm_base": "2023-12-30T20:00:59Z",
-    "timestamp_areas_base": "2023-12-30T19:06:45Z",
+    "timestamp_osm_base": "2024-01-17T17:56:48Z",
+    "timestamp_areas_base": "2024-01-17T12:30:15Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -419,12 +419,12 @@
     "amenity": "restaurant",
     "contact:email": "info@oekoase-halle.de",
     "diet:vegan": "yes",
+    "diet:vegan:description": "Vegetarisches Bistro und Restaurant. Auf der Tageskarte werden vegane Gerichte angeboten vegane Gerichte sind als solche auch gekennzeichnet.",
     "diet:vegetarian": "only",
     "name": "Ökoase",
     "opening_hours": "Mo-Fr 11:00-15:00",
     "phone": "+49 345 2901604",
     "toilets:wheelchair": "no",
-    "vegan:description": "Vegetarisches Bistro und Restaurant. Auf der Tageskarte werden vegane Gerichte angeboten vegane Gerichte sind als solche auch gekennzeichnet.",
     "website": "https://oekoase-halle.de/",
     "wheelchair": "limited",
     "wheelchair:description": "Kleine Stufe am Eingang, leicht zu überwinden, oder Rampe kann angelegt werden. Parkplatz im Parkhaus Händelhauskarree oder Große Nikolaistraße (direkt vor dem Händel-Haus). Behinderten-WC nicht vorhanden."
@@ -1624,29 +1624,6 @@
 },
 {
   "type": "node",
-  "id": 3173527817,
-  "lat": 51.4954589,
-  "lon": 11.9659188,
-  "tags": {
-    "addr:city": "Halle (Saale)",
-    "addr:country": "DE",
-    "addr:housenumber": "1",
-    "addr:postcode": "06114",
-    "addr:street": "Richard-Wagner-Straße",
-    "amenity": "fast_food",
-    "contact:instagram": "https://www.instagram.com/verwoener/",
-    "cuisine": "kebab",
-    "diet:vegan": "only",
-    "indoor_seating": "no",
-    "name": "verwöner",
-    "old_name": "Burgerservice",
-    "opening_date": "2023-04-14",
-    "opening_hours": "Tu-Th 11:30-22:00; Fr,Sa 11:30-01:00; Su 11:30-22:00",
-    "outdoor_seating": "yes"
-  }
-},
-{
-  "type": "node",
   "id": 3208898648,
   "lat": 51.3439014,
   "lon": 12.1780337,
@@ -1890,7 +1867,7 @@
     "diet:vegetarian": "yes",
     "indoor_seating": "yes",
     "name": "Konditorei Wendl",
-    "opening_hours": "Mo-Fr 07:00-19:00; Sa,Su 07:00-18:00",
+    "opening_hours": "Mo-Fr 07:00-19:00; Sa 07:00-18:00; Su 07:00-13:00",
     "outdoor_seating": "no",
     "phone": "+49 345 47898218",
     "smoking": "no",
@@ -2715,8 +2692,10 @@
     "cuisine": "pizza;pasta;german;dessert",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "name": "Restaurant Ruine",
-    "opening_hours": "Mo 17:00-24:00; Tu-Th 12:00-24:00; Fr-Su 12:00-01:00"
+    "opening_hours": "Mo 17:00-24:00; Tu-Th 12:00-24:00; Fr-Su 12:00-01:00",
+    "outdoor_seating": "terrace"
   }
 },
 {
@@ -3319,10 +3298,12 @@
     "addr:postcode": "06132",
     "addr:street": "Alte Heerstraße",
     "amenity": "fast_food",
-    "cuisine": "american",
+    "brand": "Subway",
+    "brand:wikidata": "Q244457",
+    "cuisine": "sandwich",
     "delivery": "yes",
     "diet:vegan": "yes",
-    "name": "SubWay",
+    "name": "Subway",
     "note": "geöffnet seit 05.06.2023",
     "opening_hours": "Mo-Su 12:00-22:00, PH 12:00-20:00",
     "payment:cash": "yes",
@@ -3331,7 +3312,8 @@
     "payment:maestro": "yes",
     "payment:mastercard": "yes",
     "payment:visa": "yes",
-    "phone": "+49 345 77788107"
+    "phone": "+49 345 77788107",
+    "takeaway": "yes"
   }
 },
 {
@@ -3969,6 +3951,7 @@
     "addr:street": "Große Nikolaistraße",
     "amenity": "restaurant",
     "building": "yes",
+    "check_date": "2024-01-06",
     "contact:email": "info@halleschesbrauhaus.de",
     "contact:phone": "+49 345 212570",
     "contact:website": "https://www.halleschesbrauhaus.de",
