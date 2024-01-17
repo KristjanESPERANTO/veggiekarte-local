@@ -52,7 +52,6 @@ TOP_URL = "https://www.vegan-in-halle.de/wp/leben/vegane-stadtkarte/"
 GET_MORE_INFO = [
     2338022982,  # Cup der guten Hoffnung
     9676330117,  # Bay Vegan
-    3173527817,  # Verwöner
     5592987513,  # VL-Küfa
     5592955318,  # Reil-Küfa
     1034449861,  # Ökoase
@@ -372,30 +371,6 @@ def write_data(data):
 
         if "cuisine" in tags:
             place_obj["properties"]["cuisine"] = tags["cuisine"]
-        if "addr:street" in tags:
-            place_obj["properties"]["addr_street"] = tags["addr:street"]
-            if "addr:housenumber" in tags:
-                place_obj["properties"]["addr_street"] += " " + tags["addr:housenumber"]
-        elif "contact:street" in tags:
-            place_obj["properties"]["addr_street"] = tags["contact:street"]
-            if "contact:housenumber" in tags:
-                place_obj["properties"]["addr_street"] += " " + tags["contact:housenumber"]
-        elif "addr:housename" in tags:
-            place_obj["properties"]["addr_street"] = tags["addr:housename"]
-        if "addr:city" in tags:
-            place_obj["properties"]["addr_city"] = tags["addr:city"]
-        elif "contact:city" in tags:
-            place_obj["properties"]["addr_city"] = tags["contact:city"]
-        else:
-            if "addr:suburb" in tags:
-                # In some regions (e.g. in the USA and Australia) they often tag suburbs instead of city
-                place_obj["properties"]["addr_city"] = tags["addr:suburb"]
-        if "addr:postcode" in tags:
-            place_obj["properties"]["addr_postcode"] = tags["addr:postcode"]
-        elif "contact:postcode" in tags:
-            place_obj["properties"]["addr_postcode"] = tags["contact:postcode"]
-        if "addr:country" in tags:
-            place_obj["properties"]["addr_country"] = tags["addr:country"]
         if "contact:website" in tags:
             place_obj["properties"]["contact_website"] = tags["contact:website"].rstrip("/")
         elif "website" in tags:

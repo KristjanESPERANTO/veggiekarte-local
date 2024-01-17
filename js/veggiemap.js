@@ -201,8 +201,8 @@ async function veggiemapPopulate(parentGroupVar) {
   statPopulate(markerGroups, date);
 
   // Enable the on-demand popup and tooltip calculation
-  parentGroup.eachLayer((layer) => {
-    layer.bindPopup(calculatePopup);
+  parentGroup.eachLayer(async (layer) => {
+    layer.bindPopup(await calculatePopup);
     layer.bindTooltip(calculateTooltip);
   });
 
@@ -250,8 +250,8 @@ function calculateTooltip(layer) {
  * Check if there is an entry for a place (feature) on https://lib.reviews/.
  * @param  {Object} feature
  */
-async function addLibReview(feature) {
-  const url = `https://lib.reviews/api/thing?url=https://www.openstreetmap.org/${feature.properties._type}/${feature.properties._id}`;
+async function addLibReview(element) {
+  const url = `https://lib.reviews/api/thing?url=https://www.openstreetmap.org/${element.feature.properties._type}/${element.feature.properties._id}`;
 
   try {
     const response = await fetch(url);
@@ -265,45 +265,65 @@ async function addLibReview(feature) {
   }
 }
 
-async function fetchData(url) {
+// Get information like the adress from Nominatim API
+async function addNominatimInformation(element) {
+  const type = element.feature.properties._type;
+  const id = element.feature.properties._id;
+  const osmId = type[0] + id;
+  const locale = getUserLanguage();
+  const url = `https://nominatim.openstreetmap.org/lookup?osm_ids=${osmId}&extratags=1&format=json&accept-language=${locale}`;
+
   try {
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data[0]);
-    const result = await `<div class="popupflex-container"><div>🤩</div><div>${data[0].osm_type}</div>`;
-    return result;
+    console.log(data[0].address);
+    const address = data[0].address;
+
+    // Address
+    let adressString = "";
+    // Collecting address information
+    if (address.road !== undefined) {
+      adressString += `${address.road} `; // Street
+      if (address.house_number !== undefined) {
+        adressString += `${address.house_number}`; // House number
+      }
+      adressString += "<br/>";
+    }
+    if (address.city !== undefined || address.town !== undefined) {
+      if (address.postcode !== undefined) {
+        adressString += `${address.postcode} `; // Postcode
+      }
+      if (address.town !== undefined) {
+        adressString += `${address.town} `; // Town
+      } else {
+        adressString += `${address.city} `; // City
+      }
+    }
+    if (address.country !== undefined) {
+      adressString += `<br/>${address.country}`;
+    }
+
+    adressString = `<div class="popupflex-container"><div>📍</div>${adressString}</div>`;
+
+    console.log(element._popup._content);
+
+    setTimeout(function () {
+      if (adressString !== "") {
+        document.getElementById("adress").innerHTML = adressString;
+      }
+    }, 150);
   } catch (error) {
-    console.info("There is no Nominatiom information of this place or Nominatiom API isn't available.");
+    console.info("Can't get information from Nominatim API.");
   }
-  return false;
-}
-
-// Nominatiom link to get information like the adress
-
-/*
-+ places.json wird kleiner
-+ Adressen auch wenn am node keine Adresse sondern vom umgebenden Gebäude
-+ Internationale Namen von Städten (testen)
-*/
-// eslint-disable-next-line no-unused-vars
-async function addNominatiomInformation(eTyp, eId) {
-  const osmId = eTyp[0].toUpperCase() + eId;
-  const url = `https://nominatim.openstreetmap.org/lookup?osm_ids=${osmId}&extratags=1&format=json`;
-  console.log(url);
-  const result = await fetchData(url);
-  return result;
 }
 
 // Calculate popup content for a given marker layer
-function calculatePopup(layer) {
+function calculatePopup(element) {
   // Get the information
-  const feature = layer.feature;
+  const feature = element.feature;
   const eId = feature.properties._id;
   const eNam = feature.properties.name;
   const eTyp = feature.properties._type;
-  const eCit = feature.properties.addr_city;
-  const ePos = feature.properties.addr_postcode;
-  const eStr = feature.properties.addr_street;
   const eEma = feature.properties.contact_email;
   let ePho = feature.properties.contact_phone;
   const eWeb = feature.properties.contact_website;
@@ -332,24 +352,7 @@ function calculatePopup(layer) {
     popupContent += `<div class='popupflex-container'><div>👩‍🍳</div><div>${eCui.replaceAll(";", ", ").replaceAll("_", " ")}</div></div>`;
   }
 
-  // Address
-  let eAddr = "";
-  // Collecting address information
-  if (eStr !== undefined) {
-    eAddr += `${eStr}<br/>`;
-  } // Street
-  if (ePos !== undefined) {
-    eAddr += `${ePos} `;
-  } // Postcode
-  if (eCit !== undefined) {
-    eAddr += `${eCit} `;
-  } // City
-  // if (eCou !== undefined) { eAddr += `<br/>${eCou}`; // Country
-
-  // Adding address information to popup
-  if (eAddr !== "") {
-    popupContent += `<div class='popupflex-container'><div>📍</div><div>${eAddr}</div></div>`;
-  }
+  popupContent += "<div class='popupflex-container' id='adress'>&nbsp;</br>&nbsp;</br>&nbsp;</br></div>";
 
   // Adding opening hours to popup
   if (eOpe !== undefined) {
@@ -451,13 +454,12 @@ function calculatePopup(layer) {
       <div><a href="https://www.vegan-in-halle.de/wp/leben/vegane-stadtkarte/#${eTyp}${eId}" target="_top">${i18next.t("texts.more_info")}</a></div></div>`;
   }
 
-  // Add information from Nominatiom API
-  // popupContent += "<div id='Nominatiom'></div>";
-  // popupContent += addNominatiomInformation(eTyp, eId);
-
   // Add review entry from lib.reviews if exists
   popupContent += "<div id='libreviews'></div>";
-  addLibReview(feature);
+  addLibReview(element);
+
+  // Add adress information from Nominatim API
+  addNominatimInformation(element);
 
   return popupContent;
 }
