@@ -1,5 +1,5 @@
 {
- "_timestamp": "2024-01-17 18:58:24.245371",
+ "_timestamp": "2024-02-21 16:01:12.642674",
  "features": [
   {
    "geometry": {
@@ -454,7 +454,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Enchilada",
-    "opening_hours": "Mo-Sa 18:00-01:00, Su off",
+    "opening_hours": "Su off; Mo-Th, Su 17:00-23:00; Fr, Sa 17:00-01:00",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -2546,7 +2546,7 @@
     "cuisine": "sushi",
     "icon": "restaurant",
     "name": "SUSHIdeluxe",
-    "opening_hours": "Mo-Fr 11:30-22:00, Sa-Su 17:00-22:00",
+    "opening_hours": "PH,Mo-Su 11:30-21:30",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -3423,7 +3423,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Mensa Franckesche Stiftungen",
-    "opening_hours": "Mo-Th 10:00-14:15; Fr 10:00-14:00",
+    "opening_hours": "Mo-Fr 11:15-14:00",
     "symbol": "🍽️"
    },
    "type": "Feature"

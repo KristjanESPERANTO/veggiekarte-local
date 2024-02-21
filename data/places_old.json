@@ -1,5 +1,5 @@
 {
- "_timestamp": "2024-01-17 18:54:58.289540",
+ "_timestamp": "2024-01-17 18:58:24.245371",
  "features": [
   {
    "geometry": {
@@ -1415,27 +1415,6 @@
     "name": "Domino's",
     "opening_hours": "Mo-Su , PH 11:00-23:00",
     "symbol": "🍕"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9659188,
-     51.4954589
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 3173527817,
-    "_type": "node",
-    "category": "vegan_only",
-    "contact_instagram": "verwoener",
-    "cuisine": "kebab",
-    "icon": "fast_food",
-    "name": "verwöner",
-    "opening_hours": "Tu-Th 11:30-22:00; Fr,Sa 11:30-01:00; Su 11:30-22:00",
-    "symbol": "🍔"
    },
    "type": "Feature"
   },

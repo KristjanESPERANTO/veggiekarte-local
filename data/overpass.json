@@ -2,8 +2,8 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.61.5 4133829e",
   "osm3s": {
-    "timestamp_osm_base": "2024-01-17T17:56:48Z",
-    "timestamp_areas_base": "2024-01-17T12:30:15Z",
+    "timestamp_osm_base": "2024-02-21T14:59:59Z",
+    "timestamp_areas_base": "2024-02-21T10:03:55Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -45,6 +45,7 @@
     "brand:wikipedia": "en:IKEA",
     "changing_table": "yes",
     "changing_table:location": "dedicated_room",
+    "check_date:opening_hours": "2024-02-21",
     "cuisine": "swedish",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
@@ -531,7 +532,7 @@
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "name": "Enchilada",
-    "opening_hours": "Mo-Sa 18:00-01:00, Su off",
+    "opening_hours": "Su off; Mo-Th, Su 17:00-23:00; Fr, Sa 17:00-01:00",
     "smoking": "isolated",
     "toilets:wheelchair": "yes",
     "wheelchair": "limited"
@@ -1447,12 +1448,6 @@
   "lat": 51.4661476,
   "lon": 11.7833499,
   "tags": {
-    "addr:city": "Teutschenthal",
-    "addr:country": "DE",
-    "addr:housenumber": "17",
-    "addr:postcode": "06179",
-    "addr:street": "Straße der Einheit",
-    "addr:suburb": "Bahnhof",
     "contact:email": "martin.schael@freenet.de",
     "contact:facebook": "https://www.facebook.com/B%C3%A4ckerei-Sch%C3%A4l-467517753397255/",
     "contact:instagram": "https://www.instagram.com/martin.schael",
@@ -1719,7 +1714,8 @@
     "indoor_seating": "yes",
     "name": "Bunte Eisträumerei",
     "opening_hours": "Mo-Fr 13:00-18:00; Sa,Su 13:00-18:00",
-    "outdoor_seating": "yes"
+    "outdoor_seating": "yes",
+    "wheelchair": "no"
   }
 },
 {
@@ -2837,7 +2833,7 @@
     "diet:vegan:labeled": "yes",
     "diet:vegetarian": "yes",
     "name": "SUSHIdeluxe",
-    "opening_hours": "Mo-Fr 11:30-22:00, Sa-Su 17:00-22:00"
+    "opening_hours": "PH,Mo-Su 11:30-21:30"
   }
 },
 {
@@ -4081,7 +4077,7 @@
     "menu:url": "https://www.studentenwerk-halle.de/mensen-cafebars/speiseplaene",
     "name": "Mensa Franckesche Stiftungen",
     "name:etymology:wikidata": "Q58753",
-    "opening_hours": "Mo-Th 10:00-14:15; Fr 10:00-14:00",
+    "opening_hours": "Mo-Fr 11:15-14:00",
     "operator": "Studentenwerk Halle",
     "outdoor_seating": "yes",
     "smoking": "no",

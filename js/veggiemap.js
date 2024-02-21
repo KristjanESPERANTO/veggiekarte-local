@@ -307,7 +307,7 @@ async function addNominatimInformation(element) {
 
     console.log(element._popup._content);
 
-    setTimeout(function () {
+    setTimeout(() => {
       if (adressString !== "") {
         document.getElementById("adress").innerHTML = adressString;
       }
