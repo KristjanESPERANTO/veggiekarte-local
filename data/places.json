@@ -1,5 +1,5 @@
 {
- "_timestamp": "2024-02-21 16:01:12.642674",
+ "_timestamp": "2024-04-06 15:55:39.863178",
  "features": [
   {
    "geometry": {
@@ -286,7 +286,7 @@
     "cuisine": "german",
     "icon": "pub",
     "name": "Strieses Biertunnel",
-    "opening_hours": "Mo-Su 18:00-24:00",
+    "opening_hours": "Mo-Sa 18:00-23:00",
     "symbol": "🍻"
    },
    "type": "Feature"
@@ -541,6 +541,28 @@
     "name": "Rossini",
     "opening_hours": "Mo-Sa 09:00-22:00; Su 10:00-22:00",
     "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9705711,
+     51.4837788
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1516902469,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_email": "hunger@brotundrind.de",
+    "contact_website": "https://brotundrind.de",
+    "cuisine": "burger",
+    "icon": "fast_food",
+    "name": "Brot & Rind",
+    "opening_hours": "Mo-Sa 11:30-22:00; Su 16:00-22:00",
+    "symbol": "🍔"
    },
    "type": "Feature"
   },
@@ -875,6 +897,7 @@
     "icon": "convenience",
     "more_info": true,
     "name": "BioLogisch LogischBio",
+    "opening_hours": "Mo-Fr 13:00-19:00",
     "shop": "convenience",
     "symbol": "🏪"
    },
@@ -1354,6 +1377,28 @@
   {
    "geometry": {
     "coordinates": [
+     11.8819043,
+     51.5077756
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3056280996,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 163 2409763",
+    "contact_website": "https://de.abasix.com/l/halle-saale/sina-doener-bistro-doelau",
+    "cuisine": "kebab",
+    "icon": "fast_food",
+    "name": "Bistro Dölau",
+    "opening_hours": "Mo-Sa 10:00-21:30; Su 12:00-21:00",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.979393,
      51.4792577
     ],
@@ -1714,6 +1759,27 @@
   {
    "geometry": {
     "coordinates": [
+     11.961939,
+     51.4979599
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 4832028123,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 1521 1220100",
+    "cuisine": "kebab;pizza",
+    "icon": "fast_food",
+    "name": "Döner & Pizza Chef",
+    "opening_hours": "Mo-Fr 11:00-21:30; PH,Sa,Su 11:00-21:00",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9330975,
      51.4994094
     ],
@@ -1947,8 +2013,8 @@
   {
    "geometry": {
     "coordinates": [
-     11.9657113,
-     51.4907734
+     11.9657228,
+     51.4907994
     ],
     "type": "Point"
    },
@@ -2207,7 +2273,7 @@
     "contact_website": "https://www.roy-coffee.de",
     "icon": "cafe",
     "name": "Kaffeerösterei Roy",
-    "opening_hours": "Mo-Fr 10:00-19:00; Sa 10:00-17:00",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-17:00",
     "symbol": "☕"
    },
    "type": "Feature"
@@ -2402,7 +2468,7 @@
     "_type": "node",
     "category": "vegan_friendly",
     "contact_phone": "+49 345 47823360",
-    "contact_website": "https://www.objekt5.com/index.php/kontakte/restaurant-ruine",
+    "contact_website": "https://www.objekt5.com/restaurant-ruine",
     "cuisine": "pizza;pasta;german;dessert",
     "icon": "maki_restaurant-pizza",
     "more_info": true,
@@ -2788,8 +2854,7 @@
     "category": "vegan_friendly",
     "contact_email": "bereketmana1992@gmail.com",
     "contact_phone": "+49 345 2831259",
-    "contact_website": "https://de.restaurantguru.com/Zum-Salzwirker-Halle-Saale",
-    "cuisine": "african",
+    "cuisine": "eritrean;african",
     "icon": "restaurant",
     "name": "Asmara Bar & Restaurant",
     "opening_hours": "Tu-Sa 13:00-23:30; Su 14:00-22:00",
@@ -2934,27 +2999,6 @@
   {
    "geometry": {
     "coordinates": [
-     11.9793497,
-     51.4929992
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 9969559755,
-    "_type": "node",
-    "category": "vegan_friendly",
-    "contact_phone": "+49 176 80642015",
-    "contact_website": "https://www.cafépolenka.de",
-    "icon": "cafe",
-    "name": "Polenka",
-    "opening_hours": "Tu, We 10:00-18:00; Th-Sa 10:00-22:00; Su 10:00-18:00",
-    "symbol": "☕"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
      11.9762498,
      51.4366984
     ],
@@ -3058,6 +3102,28 @@
     "name": "Grill Albalad",
     "opening_hours": "Mo-Th 10:30-23:00; Fr-Sa 10:30-00:00; Su 10:30-23:00",
     "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9777529,
+     51.4886365
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 11637667596,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_email": "info@mola-restaurant.de",
+    "contact_instagram": "mola.halle",
+    "contact_phone": "+49 345 97725843",
+    "contact_website": "https://mola-restaurant.de",
+    "icon": "restaurant",
+    "name": "Mola",
+    "symbol": "🍽️"
    },
    "type": "Feature"
   },

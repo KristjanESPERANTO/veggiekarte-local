@@ -1,9 +1,9 @@
 {
   "version": 0.6,
-  "generator": "Overpass API 0.7.61.5 4133829e",
+  "generator": "Overpass API 0.7.62.1 084b4234",
   "osm3s": {
-    "timestamp_osm_base": "2024-02-21T14:59:59Z",
-    "timestamp_areas_base": "2024-02-21T10:03:55Z",
+    "timestamp_osm_base": "2024-04-06T13:54:44Z",
+    "timestamp_areas_base": "2024-04-06T09:48:16Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -178,9 +178,10 @@
     "contact:website": "https://www.cafe-n8.de",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "name": "N8 Café-Dinner-Bar",
     "opening_hours": "Mo-Th 09:00-23:00; Fr,Sa 09:00-01:00",
-    "outdoor_seating": "sidewalk",
+    "outdoor_seating": "yes",
     "toilets:wheelchair": "no",
     "wheelchair": "limited",
     "wheelchair:description": "keine behindertengerechte Toilette, ebenerdiger Eingang, Parkhaus Händelhauskarree"
@@ -346,7 +347,7 @@
     "food": "yes",
     "indoor_seating": "yes",
     "name": "Strieses Biertunnel",
-    "opening_hours": "Mo-Su 18:00-24:00",
+    "opening_hours": "Mo-Sa 18:00-23:00",
     "outdoor_seating": "yes",
     "smoking": "isolated",
     "wheelchair": "no"
@@ -634,6 +635,25 @@
 },
 {
   "type": "node",
+  "id": 1516902469,
+  "lat": 51.4837788,
+  "lon": 11.9705711,
+  "tags": {
+    "amenity": "fast_food",
+    "cuisine": "burger",
+    "diet:vegan": "yes",
+    "diet:vegetarian": "yes",
+    "email": "hunger@brotundrind.de",
+    "name": "Brot & Rind",
+    "opening_hours": "Mo-Sa 11:30-22:00; Su 16:00-22:00",
+    "operator": "bewaffel dich betriebsgesellschaft mbH",
+    "takeaway": "yes",
+    "website": "https://brotundrind.de/",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "node",
   "id": 1538147900,
   "lat": 51.4877831,
   "lon": 11.9708458,
@@ -669,7 +689,7 @@
     "addr:postcode": "06112",
     "addr:street": "Am Steintor",
     "amenity": "fast_food",
-    "check_date:opening_hours": "2022-02-04",
+    "check_date:opening_hours": "2024-02-28",
     "contact:email": "info@bistro-sundarban.de",
     "contact:facebook": "https://www.facebook.com/Bistro-Sundarban-am-Steintor-571323043020423/",
     "contact:website": "http://www.bistro-sundarban.de",
@@ -990,9 +1010,10 @@
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "name": "BioLogisch LogischBio",
+    "opening_hours": "Mo-Fr 13:00-19:00",
     "organic": "only",
     "shop": "convenience",
-    "wheelchair": "no"
+    "wheelchair": "limited"
   }
 },
 {
@@ -1083,8 +1104,11 @@
     "cuisine": "german",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "name": "Haus und Hof",
     "opening_hours": "Mo-Su 09:00-23:00",
+    "outdoor_seating": "yes",
+    "toilets:wheelchair": "yes",
     "wheelchair": "limited"
   }
 },
@@ -1500,6 +1524,7 @@
     "addr:postcode": "06108",
     "addr:street": "Bernburger Straße",
     "amenity": "restaurant",
+    "check_date": "2024-03-13",
     "contact:facebook": "https://www.facebook.com/pages/Seoul-Kulinarisch/1448074335456319",
     "contact:phone": "+49 345 24980596",
     "contact:website": "http://seoulkulinarisch.cafelists.com/",
@@ -1513,6 +1538,28 @@
     "smoking": "outside",
     "toilets:wheelchair": "no",
     "wheelchair": "limited"
+  }
+},
+{
+  "type": "node",
+  "id": 3056280996,
+  "lat": 51.5077756,
+  "lon": 11.8819043,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:housenumber": "43",
+    "addr:postcode": "06120",
+    "addr:street": "Salzmünder Straße",
+    "amenity": "fast_food",
+    "contact:phone": "+49 163 2409763",
+    "contact:whatsapp": "+49 174 4373427",
+    "cuisine": "kebab",
+    "diet:meat": "yes",
+    "diet:vegan": "yes",
+    "diet:vegetarian": "yes",
+    "name": "Bistro Dölau",
+    "opening_hours": "Mo-Sa 10:00-21:30; Su 12:00-21:00",
+    "website": "https://de.abasix.com/l/halle-saale/sina-doener-bistro-doelau"
   }
 },
 {
@@ -1785,6 +1832,7 @@
     "cuisine": "ice_cream",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "name": "Vanilla",
     "opening_hours": "12:00-19:00",
     "opening_hours:covid19": "Mo-Su,PH 12:00-19:00",
@@ -1948,6 +1996,29 @@
 },
 {
   "type": "node",
+  "id": 4832028123,
+  "lat": 51.4979599,
+  "lon": 11.9619390,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:housenumber": "1",
+    "addr:postcode": "06114",
+    "addr:street": "Triftstraße",
+    "amenity": "fast_food",
+    "contact:mobile": "+49 1521 1220100",
+    "cuisine": "kebab;pizza",
+    "diet:vegan": "yes",
+    "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
+    "name": "Döner & Pizza Chef",
+    "opening_hours": "Mo-Fr 11:00-21:30; PH,Sa,Su 11:00-21:00",
+    "outdoor_seating": "yes",
+    "smoking": "outside",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
   "id": 4868552820,
   "lat": 51.4994094,
   "lon": 11.9330975,
@@ -1960,6 +2031,7 @@
     "brand": "Papa John's",
     "brand:wikidata": "Q2759586",
     "brand:wikipedia": "en:Papa John's Pizza",
+    "check_date": "2024-03-20",
     "contact:phone": "+49 345 6788999",
     "contact:website": "https://www.papajohns.de/",
     "cuisine": "pizza",
@@ -1969,7 +2041,6 @@
     "name": "Papa John's",
     "opening_hours": "Mo-Su 11:00-23:00",
     "operator": "UP Gastro GmbH",
-    "survey:date": "2020-12-25",
     "takeaway": "yes",
     "wheelchair": "yes",
     "wheelchair:description": "unklar ob nur Lieferservice oder auch Restaurant bzw. Imbiss"
@@ -2206,8 +2277,8 @@
 {
   "type": "node",
   "id": 5352939109,
-  "lat": 51.4907734,
-  "lon": 11.9657113,
+  "lat": 51.4907994,
+  "lon": 11.9657228,
   "tags": {
     "addr:city": "Halle (Saale)",
     "addr:country": "DE",
@@ -2215,6 +2286,7 @@
     "addr:postcode": "06108",
     "addr:street": "Geiststraße",
     "amenity": "restaurant",
+    "check_date": "2024-03-06",
     "cuisine": "pizza",
     "diet:vegan": "yes",
     "drive_through": "no",
@@ -2299,6 +2371,7 @@
     "addr:housenumber": "63",
     "addr:postcode": "06114",
     "addr:street": "Große Brunnenstraße",
+    "check_date:opening_hours": "2024-03-21",
     "contact:facebook": "https://www.facebook.com/Himmel-Erde-HalleSaale-148488261909246/",
     "contact:website": "https://kleinfolgenreich.de/archive/himmel-und-erde/",
     "description": "„ausgesuchte Waren des täglichen Bedarfs in Bio-Qualität“\nvegetarische (meist vegane) Tagessuppe",
@@ -2309,7 +2382,8 @@
     "operator": "Katrin Langheinrich",
     "organic": "only",
     "phone": "+4917630589867",
-    "shop": "supermarket"
+    "shop": "supermarket",
+    "wheelchair": "limited"
   }
 },
 {
@@ -2431,7 +2505,7 @@
     "addr:postcode": "06114",
     "addr:street": "Karl-Liebknecht-Straße",
     "check_date": "2023-08-04",
-    "check_date:opening_hours": "2023-01-23",
+    "check_date:opening_hours": "2024-03-29",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "name": "Rübchen",
@@ -2478,7 +2552,7 @@
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "name": "Kaffeerösterei Roy",
-    "opening_hours": "Mo-Fr 10:00-19:00; Sa 10:00-17:00",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-17:00",
     "website": "https://www.roy-coffee.de"
   }
 },
@@ -2684,7 +2758,7 @@
     "addr:street": "Seebener Straße",
     "amenity": "restaurant",
     "contact:phone": "+49 345 47823360",
-    "contact:website": "https://www.objekt5.com/index.php/kontakte/restaurant-ruine",
+    "contact:website": "https://www.objekt5.com/restaurant-ruine",
     "cuisine": "pizza;pasta;german;dessert",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
@@ -2902,7 +2976,8 @@
     "indoor_seating": "yes",
     "name": "Eisfvchs",
     "opening_hours": "Mo-Su 12:00-17:30",
-    "outdoor_seating": "yes"
+    "outdoor_seating": "yes",
+    "wheelchair": "no"
   }
 },
 {
@@ -3089,24 +3164,24 @@
   "lon": 11.9619153,
   "tags": {
     "addr:city": "Halle (Saale)",
+    "addr:country": "DE",
     "addr:housenumber": "11",
     "addr:postcode": "06108",
     "addr:street": "Mansfelder Straße",
     "amenity": "restaurant",
-    "check_date": "2023-07-07",
+    "contact:email": "bereketmana1992@gmail.com",
     "contact:mobile": "+49 1575 3473470",
     "contact:phone": "+49 345 2831259",
-    "cuisine": "african",
+    "cuisine": "eritrean;african",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
-    "email": "bereketmana1992@gmail.com",
     "name": "Asmara Bar & Restaurant",
     "opening_hours": "Tu-Sa 13:00-23:30; Su 14:00-22:00",
     "operator": "Bereket Manay",
     "outdoor_seating": "yes",
     "payment:cash": "yes",
+    "survey:date": "2024-03-16",
     "toilets": "yes",
-    "website": "https://de.restaurantguru.com/Zum-Salzwirker-Halle-Saale",
     "wheelchair": "no"
   }
 },
@@ -3264,26 +3339,6 @@
 },
 {
   "type": "node",
-  "id": 9969559755,
-  "lat": 51.4929992,
-  "lon": 11.9793497,
-  "tags": {
-    "addr:city": "Halle (Saale)",
-    "addr:housenumber": "41",
-    "addr:postcode": "06114",
-    "addr:street": "Schillerstraße",
-    "amenity": "cafe",
-    "diet:vegan": "yes",
-    "diet:vegetarian": "yes",
-    "name": "Polenka",
-    "opening_hours": "Tu, We 10:00-18:00; Th-Sa 10:00-22:00; Su 10:00-18:00",
-    "outdoor_seating": "yes",
-    "phone": "+49 176 80642015",
-    "website": "https://www.cafépolenka.de"
-  }
-},
-{
-  "type": "node",
   "id": 9977296080,
   "lat": 51.4366984,
   "lon": 11.9762498,
@@ -3394,6 +3449,21 @@
     "outdoor_seating": "yes",
     "phone": "+49 162 9417060",
     "takeaway": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 11637667596,
+  "lat": 51.4886365,
+  "lon": 11.9777529,
+  "tags": {
+    "amenity": "restaurant",
+    "contact:email": "info@mola-restaurant.de",
+    "contact:instagram": "mola.halle",
+    "contact:phone": "+49 345 97725843",
+    "contact:website": "https://mola-restaurant.de",
+    "diet:vegan": "yes",
+    "name": "Mola"
   }
 },
 {

@@ -1,6 +1,77 @@
 {
- "_timestamp": "2023-12-30 21:02:36.463750",
+ "_timestamp": "2024-04-06 15:55:52.412646",
  "features": [
+  {
+   "geometry": {
+    "coordinates": [
+     11.9777529,
+     51.4886365
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 11637667596,
+    "_type": "node",
+    "diet_vegan": "yes",
+    "issue_count": 6,
+    "name": "Mola",
+    "undefined": [
+     "cuisine",
+     "addr:street",
+     "addr:housenumber",
+     "addr:city/suburb",
+     "addr:postcode",
+     "opening_hours"
+    ]
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9705711,
+     51.4837788
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1516902469,
+    "_type": "node",
+    "diet_vegan": "yes",
+    "issue_count": 4,
+    "name": "Brot & Rind",
+    "undefined": [
+     "addr:street",
+     "addr:housenumber",
+     "addr:city/suburb",
+     "addr:postcode"
+    ]
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.7833499,
+     51.4661476
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2969150134,
+    "_type": "node",
+    "diet_vegan": "limited",
+    "issue_count": 4,
+    "name": "Schäl",
+    "undefined": [
+     "addr:street",
+     "addr:housenumber",
+     "addr:city/suburb",
+     "addr:postcode"
+    ]
+   },
+   "type": "Feature"
+  },
   {
    "geometry": {
     "coordinates": [
@@ -19,29 +90,6 @@
      "cuisine",
      "addr:street",
      "addr:housenumber"
-    ]
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9663357,
-     51.4856228
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 1037059970,
-    "_type": "node",
-    "diet_vegan": "yes",
-    "issue_count": 2,
-    "issues": [
-     "'contact:website' Exception: ReadTimeout"
-    ],
-    "name": "Kaffeeschuppen",
-    "undefined": [
-     "cuisine"
     ]
    },
    "type": "Feature"
@@ -112,20 +160,40 @@
   {
    "geometry": {
     "coordinates": [
-     11.9655845,
-     51.4899957
+     11.9663357,
+     51.4856228
     ],
     "type": "Point"
    },
    "properties": {
-    "_id": 2051567009,
+    "_id": 1037059970,
     "_type": "node",
     "diet_vegan": "yes",
     "issue_count": 1,
-    "name": "BioLogisch LogischBio",
+    "name": "Kaffeeschuppen",
     "undefined": [
-     "opening_hours"
+     "cuisine"
     ]
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9684121,
+     51.4872362
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1038238639,
+    "_type": "node",
+    "diet_vegan": "yes",
+    "issue_count": 1,
+    "issues": [
+     "'contact:website' Exception: SSLError"
+    ],
+    "name": "Enchilada"
    },
    "type": "Feature"
   },
@@ -246,46 +314,6 @@
     "undefined": [
      "cuisine"
     ]
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9793497,
-     51.4929992
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 9969559755,
-    "_type": "node",
-    "diet_vegan": "yes",
-    "issue_count": 1,
-    "issues": [
-     "'website' Exception: ConnectionError"
-    ],
-    "name": "Polenka"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9721356,
-     51.4856145
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 10983113691,
-    "_type": "node",
-    "diet_vegan": "yes",
-    "issue_count": 1,
-    "issues": [
-     "'contact:website' Exception: ReadTimeout"
-    ],
-    "name": "NEKO"
    },
    "type": "Feature"
   },
