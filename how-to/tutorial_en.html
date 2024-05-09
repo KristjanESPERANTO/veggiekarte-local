@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Add Information to Veggiekarte</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div id="main">
+      <h1>How Can I Add My Favorite Location?</h1>
+      <h2>Preface</h2>
+      <div class="section">
+        We use data from OpenStreetMap for Veggiekarte. This has many advantages, for example, anyone can participate and add or correct information. And when you add new entries for Veggiekarte, not only do users of our site benefit, but also those of many other OpenStreetMap applications.
+      </div>
+      <h2>1. Prerequisite</h2>
+      <div class="section">
+        <p>
+          If you don't have an OpenStreetMap account yet, you can easily create one
+          <a href="https://www.openstreetmap.org/user/new" target="_blank" rel="noopener noreferrer">on this page</a>.
+        </p>
+      </div>
+      <h2>2. Editing</h2>
+      <div class="section">
+        <p>
+          After you've signed up for OpenStreetMap, go to the location of interest on the OpenStreetMap website and click on the green "Edit" button at the top left. This will take you to the editor, which runs directly in the browser. If you've never edited before, you might want to take a look at the introduction offered there, otherwise click on "Edit now."
+        </p>
+        <p>Now there are two cases:</p>
+      </div>
+      <h3>2.1. The location is already in the database</h3>
+      <div class="section">
+        <p>You can tell because it's already displayed on the map (as a point or area).</p>
+        <p>
+          Click on the corresponding object on the map that represents the location. In the left part, you should then see a blue menu item titled "Properties (x)," click on it. With the large plus sign, you can now add new properties to the object. In the left area of the new row, you enter the so-called key, and in the right area, the value.
+        </p>
+        <p>
+          The most important keys for us are
+          <code><a target="_blank" rel="noopener noreferrer" href="https://wiki.openstreetmap.org/wiki/Key:diet:vegan">diet:vegan</a></code>
+          and
+          <code><a target="_blank" rel="noopener noreferrer" href="https://wiki.openstreetmap.org/wiki/Key:diet:vegetarian">diet:vegetarian</a></code
+          >. These keys determine whether a location is displayed on Veggiekarte or not. Here's an overview of the values that are relevant to us:
+        </p>
+        <table>
+          <tr>
+            <th>Key</th>
+            <th>Value</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td rowspan="3">diet:vegan</td>
+            <td>only</td>
+            <td>for locations whose offerings are completely vegan</td>
+          </tr>
+          <tr>
+            <td>yes</td>
+            <td>for locations that also have vegan options</td>
+          </tr>
+          <tr>
+            <td>limited</td>
+            <td>for locations that have vegan options but do not clearly mark them</td>
+          </tr>
+          <tr>
+            <td rowspan="2">diet:vegetarian</td>
+            <td>only</td>
+            <td>for completely vegetarian locations</td>
+          </tr>
+          <tr>
+            <td>yes</td>
+            <td>for locations that also have vegetarian options</td>
+          </tr>
+        </table>
+        <p>Once you've made your entries, just click on "save" at the top and everything is done. That wasn't so hard, was it?</p>
+        <p>Your changes should be visible on Veggiekarte within an hour. Thank you very much!</p>
+      </div>
+      <h3>2.2. The location is not yet in the database</h3>
+      <div class="section">
+        <p>So it's not yet displayed on the map.</p>
+        <p>Compared to point 2.1., a few small preliminary steps are necessary.</p>
+        <p>
+          Select "Point" in the editor menu at the top and then click on the location on the map where the location is. Then select what it is about on the left. 'Café', 'Restaurant' or similar already exist as options. Definitely fill in the name and preferably also the address. Then you can proceed as in point 2.1.
+        </p>
+      </div>
+      <h2>3. In addition</h2>
+      <h3>3.1. Maintain Additional Information</h3>
+      <div class="section">
+        <p>You are welcome to add further keys as additional information to be displayed on Veggiekarte:</p>
+        <ul>
+          <li>
+            <code><a target="_blank" rel="noopener noreferrer" href="https://wiki.openstreetmap.org/wiki/Key:cuisine">cuisine</a></code>
+            Type of offered dishes
+          </li>
+          <li>
+            <code><a target="_blank" rel="noopener noreferrer" href="https://wiki.openstreetmap.org/wiki/Key:addr">addr:*</a></code>
+            Address
+          </li>
+          <li>
+            <code><a target="_blank" rel="noopener noreferrer" href="https://wiki.openstreetmap.org/wiki/Key:opening_hours">opening_hours</a></code>
+            Opening hours
+          </li>
+          <li>
+            <code><a target="_blank" rel="noopener noreferrer" href="https://wiki.openstreetmap.org/wiki/Key:contact">contact:phone</a></code>
+            Phone number (in international format)
+          </li>
+          <li>
+            <code><a target="_blank" rel="noopener noreferrer" href="https://wiki.openstreetmap.org/wiki/Key:contact">contact:email</a></code>
+            Email address
+          </li>
+          <li>
+            <code><a target="_blank" rel="noopener noreferrer" href="https://wiki.openstreetmap.org/wiki/Key:contact">contact:website</a></code>
+            Website
+          </li>
+          <li>
+            <code><a target="_blank" rel="noopener noreferrer" href="https://wiki.openstreetmap.org/wiki/Key:contact">contact:facebook</a></code>
+            Facebook page
+          </li>
+          <li>
+            <code><a target="_blank" rel="noopener noreferrer" href="https://wiki.openstreetmap.org/wiki/Key:contact">contact:instagram</a></code>
+            Instagram page
+          </li>
+
+
+        </ul>
+      </div>
+      <h3>3.2. Increase Data Quality</h3>
+      <div class="section">
+        <p>
+          Since OpenStreetMap is a huge community project, it happens that data is entered incorrectly or becomes outdated. To improve data quality, we have created another <a href="../datacheck/" target="_blank">map</a> and a <a href="../datacheck/datacheck_table.html" target="_blank">table</a> where you can find places where problems have been identified.
+        </p>
+        <p>Not all "problems" listed there need to be true. So please always carefully check the facts before making a change.</p>
+        <p>
+          If you have ideas for further checks, feel free to let us know (e.g. by opening an
+          <a href="https://codeberg.org/piratenpanda/veggiekarte/issues" target="_blank" rel="noopener noreferrer">issue</a> on Codeberg).
+        </p>
+      </div>
+      <h3>3.3. Improve OpenStreetMap</h3>
+      <div class="section">
+        <p>
+          And perhaps you'd like to improve even more on the map, the possibilities are very diverse. An overview of common tags is also provided by the <a href="https://wiki.openstreetmap.org/wiki/Map_Features" target="_blank" rel="noopener noreferrer">OpenStreetMap Wiki</a>. There is also a German forum
+          <a href="https://forum.openstreetmap.org/viewforum.php?id=14" target="_blank" rel="noopener noreferrer">available</a>.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
