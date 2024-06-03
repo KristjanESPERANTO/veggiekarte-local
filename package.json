@@ -44,7 +44,9 @@
     "lint": "eslint . && stylelint **/*.css && prettier --check .",
     "lint:fix": "eslint --fix . && stylelint --fix **/*.css && prettier --write .",
     "test": "npm run lint",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "refresh": "python3 refresh.py",
+    "datacheck": "python3 ./datacheck/datacheck.py"
   },
   "type": "module",
   "lint-staged": {

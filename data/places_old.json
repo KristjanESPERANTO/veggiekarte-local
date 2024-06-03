@@ -1,5 +1,5 @@
 {
- "_timestamp": "2024-04-06 15:52:36.432403",
+ "_timestamp": "2024-06-03 23:45:27.042035",
  "features": [
   {
    "geometry": {
@@ -1543,11 +1543,35 @@
     "_id": 3451705002,
     "_type": "node",
     "category": "vegetarian_only",
+    "contact_facebook": "bunte.eistraumerei",
     "contact_instagram": "bunteeis.traeumerei",
     "icon": "ice_cream",
     "name": "Bunte Eisträumerei",
     "opening_hours": "Mo-Fr 13:00-18:00; Sa,Su 13:00-18:00",
     "symbol": "🍨"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9690337,
+     51.4912396
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3590210914,
+    "_type": "node",
+    "category": "vegetarian_only",
+    "contact_email": "info@june-halle.de",
+    "contact_instagram": "june.halle",
+    "contact_phone": "+49 345 135 066 92",
+    "contact_website": "https://june-halle.de",
+    "icon": "restaurant",
+    "name": "June",
+    "opening_hours": "We-Sa 11:30-16:00,18:00-23:00",
+    "symbol": "🍽️"
    },
    "type": "Feature"
   },
@@ -2407,7 +2431,7 @@
     "icon": "cafe",
     "more_info": true,
     "name": "Café Kuckhoff",
-    "opening_hours": "Mo,Tu off; We-Su 09:00-18:00",
+    "opening_hours": "Mo, Tu off; We, Th 09:00-18:00; Fr, Sa 09:00-21:00; Su 09:00-18:00",
     "symbol": "☕"
    },
    "type": "Feature"
@@ -2490,11 +2514,13 @@
     "_id": 8167669673,
     "_type": "node",
     "category": "vegan_friendly",
+    "contact_email": "post@kaffeehaus-wittekind.de",
     "contact_phone": "+49 345 22602882",
-    "cuisine": "coffee_shop;ice_cream",
+    "contact_website": "https://kaffeehaus-wittekind.de",
+    "cuisine": "coffee_shop;ice_cream;breakfast;cake",
     "icon": "cafe",
     "name": "Kaffeehaus Wittekind",
-    "opening_hours": "We-Fr 14:00-22:00; Sa,Su 09:00-22:00",
+    "opening_hours": "Mo-Fr 13:00-21:00; Sa 09:00-21:00; Su 09:00-19:00",
     "symbol": "☕"
    },
    "type": "Feature"
@@ -2679,7 +2705,8 @@
     "icon": "ice_cream",
     "name": "Eisfvchs",
     "opening_hours": "Mo-Su 12:00-17:30",
-    "symbol": "🍨"
+    "symbol": "🍨",
+    "vegan_description": "Haben einige besondere (nicht nur Sobet-) Sorten."
    },
    "type": "Feature"
   },
@@ -2703,29 +2730,6 @@
     "opening_hours": "Mo-Fr 11:00-17:00; Sa 10:00-16:00",
     "shop": "pastry",
     "symbol": ""
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9710526,
-     51.4918307
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 8932643632,
-    "_type": "node",
-    "category": "vegan_limited",
-    "contact_email": "lecker@alikgelato.de",
-    "contact_phone": "+49 171 3651504",
-    "contact_website": "https://alikgelato.de",
-    "icon": "ice_cream",
-    "more_info": true,
-    "name": "Alik Gelato",
-    "opening_hours": "Mo-Su 14:00-18:00",
-    "symbol": "🍨"
    },
    "type": "Feature"
   },
@@ -2900,8 +2904,8 @@
     "contact_phone": "+49 345 68286058",
     "cuisine": "mediterranean;kebab;pizza;shawarma",
     "icon": "fast_food",
-    "name": "Mira",
-    "opening_hours": "Mo-Su 11:00-21:00",
+    "name": "Palast",
+    "opening_hours": "Mo-Su 10:00-22:00",
     "symbol": "🍔"
    },
    "type": "Feature"
@@ -2999,27 +3003,6 @@
   {
    "geometry": {
     "coordinates": [
-     11.9793497,
-     51.4929992
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 9969559755,
-    "_type": "node",
-    "category": "vegan_friendly",
-    "contact_phone": "+49 176 80642015",
-    "contact_website": "https://www.cafépolenka.de",
-    "icon": "cafe",
-    "name": "Polenka",
-    "opening_hours": "Tu, We 10:00-18:00; Th-Sa 10:00-22:00; Su 10:00-18:00",
-    "symbol": "☕"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
      11.9762498,
      51.4366984
     ],
@@ -3086,6 +3069,29 @@
   {
    "geometry": {
     "coordinates": [
+     11.9663348,
+     51.5005305
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 10261277288,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_email": "info@toertcheneck.de",
+    "contact_phone": "+4934513252434",
+    "contact_website": "https://www.toertcheneck.de",
+    "icon": "maki_star-stroked",
+    "name": "Törtcheneck",
+    "opening_hours": "Tu-Fr 11:00-17:00; Sa 10:00-15:00",
+    "shop": "pastry",
+    "symbol": ""
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9721356,
      51.4856145
     ],
@@ -3145,6 +3151,46 @@
     "icon": "restaurant",
     "name": "Mola",
     "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9661076,
+     51.4889126
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 11696921192,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "icon": "ice_cream",
+    "name": "Janny's",
+    "symbol": "🍨",
+    "vegan_description": "Meist nur ein paar Sorbetsorten. Haben vegane Waffeln."
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9202374,
+     51.4792525
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 11881000170,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_instagram": "fantasy_halle",
+    "contact_website": "https://fantasy-halle.de",
+    "icon": "cafe",
+    "name": "FANTASY - Café & Food",
+    "opening_hours": "Mo-Fr10:00-20:00; Sa 10:00-21:00; Su off",
+    "symbol": "☕"
    },
    "type": "Feature"
   },

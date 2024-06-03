@@ -1,5 +1,5 @@
 {
- "_timestamp": "2024-04-06 15:55:52.412646",
+ "_timestamp": "2024-06-03 23:57:26.120715",
  "features": [
   {
    "geometry": {
@@ -17,6 +17,30 @@
     "name": "Mola",
     "undefined": [
      "cuisine",
+     "addr:street",
+     "addr:housenumber",
+     "addr:city/suburb",
+     "addr:postcode",
+     "opening_hours"
+    ]
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9661076,
+     51.4889126
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 11696921192,
+    "_type": "node",
+    "diet_vegan": "yes",
+    "issue_count": 5,
+    "name": "Janny's",
+    "undefined": [
      "addr:street",
      "addr:housenumber",
      "addr:city/suburb",
@@ -200,6 +224,26 @@
   {
    "geometry": {
     "coordinates": [
+     11.9690337,
+     51.4912396
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3590210914,
+    "_type": "node",
+    "diet_vegan": "yes",
+    "issue_count": 1,
+    "name": "June",
+    "undefined": [
+     "cuisine"
+    ]
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9632008,
      51.4707364
     ],
@@ -240,6 +284,26 @@
   {
    "geometry": {
     "coordinates": [
+     11.9660441,
+     51.4962832
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 8773861578,
+    "_type": "node",
+    "diet_vegan": "yes",
+    "issue_count": 1,
+    "issues": [
+     "'contact:website' HTTP response error - 500"
+    ],
+    "name": "JUICY"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9831239,
      51.3704679
     ],
@@ -254,26 +318,6 @@
      "fixme: seit Mai neu im MerseCenter, an welcher Stelle ist mir aber nicht bekannt"
     ],
     "name": "SUSHIdeluxe"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9710526,
-     51.4918307
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 8932643632,
-    "_type": "node",
-    "diet_vegan": "limited",
-    "issue_count": 1,
-    "issues": [
-     "'contact:website' Exception: SSLError"
-    ],
-    "name": "Alik Gelato"
    },
    "type": "Feature"
   },
@@ -300,6 +344,26 @@
   {
    "geometry": {
     "coordinates": [
+     11.9716439,
+     51.4929347
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 9572733602,
+    "_type": "node",
+    "diet_vegan": "yes",
+    "issue_count": 1,
+    "issues": [
+     "'contact:website' Exception: ConnectionError"
+    ],
+    "name": "Eis-Dealer"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9953039,
      51.4849661
     ],
@@ -314,6 +378,26 @@
     "undefined": [
      "cuisine"
     ]
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9721356,
+     51.4856145
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 10983113691,
+    "_type": "node",
+    "diet_vegan": "yes",
+    "issue_count": 1,
+    "issues": [
+     "'contact:website' Exception: ReadTimeout"
+    ],
+    "name": "NEKO"
    },
    "type": "Feature"
   },

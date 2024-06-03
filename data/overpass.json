@@ -2,8 +2,8 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.62.1 084b4234",
   "osm3s": {
-    "timestamp_osm_base": "2024-04-06T13:54:44Z",
-    "timestamp_areas_base": "2024-04-06T09:48:16Z",
+    "timestamp_osm_base": "2024-06-03T21:55:56Z",
+    "timestamp_areas_base": "2024-06-03T20:04:28Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -248,6 +248,7 @@
     "addr:postcode": "06108",
     "addr:street": "Bernburger Straße",
     "amenity": "bar",
+    "check_date": "2024-05-08",
     "check_date:opening_hours": "2022-12-13",
     "contact:email": "info@mosdaniels.de",
     "contact:facebook": "https://www.facebook.com/mosdaniels/",
@@ -259,6 +260,8 @@
     "name": "Mo's Daniel's",
     "opening_hours": "Mo-Sa 18:00-01:00",
     "outdoor_seating": "no",
+    "toilets": "yes",
+    "toilets:wheelchair": "no",
     "wheelchair": "limited"
   }
 },
@@ -452,10 +455,12 @@
     "description": "lots of whiskey, single malt too",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "name": "Kaffeeschuppen",
     "opening_hours": "Mo-Th 09:00-01:00; Fr-Sa 09:00-02:00; Su 10:00-01:00",
     "opening_hours:url": "https://www.kaffeeschuppen-halle.de/",
     "operator": "Sascha Kluge",
+    "outdoor_seating": "yes",
     "payment:cash": "yes",
     "smoking": "isolated",
     "toilets:wheelchair": "no",
@@ -861,6 +866,7 @@
     "addr:housenumber": "12",
     "addr:postcode": "06114",
     "addr:street": "Stephanusstraße",
+    "check_date": "2024-05-27",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "name": "Biomarkt am Reileck",
@@ -1156,6 +1162,7 @@
     "addr:housenumber": "18",
     "addr:postcode": "06108",
     "addr:street": "Rannische Straße",
+    "check_date:opening_hours": "2024-05-26",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "name": "Weltladen Halle (Saale)",
@@ -1755,14 +1762,45 @@
     "addr:postcode": "06114",
     "addr:street": "Lessingstraße",
     "amenity": "ice_cream",
+    "contact:facebook": "https://www.facebook.com/bunte.eistraumerei/",
     "contact:instagram": "https://www.instagram.com/bunteeis.traeumerei/",
+    "contact:mobile": "+49 176 26940777",
     "diet:vegan": "yes",
     "diet:vegetarian": "only",
     "indoor_seating": "yes",
     "name": "Bunte Eisträumerei",
     "opening_hours": "Mo-Fr 13:00-18:00; Sa,Su 13:00-18:00",
+    "operator": "Heiko Kühnert",
     "outdoor_seating": "yes",
     "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 3590210914,
+  "lat": 51.4912396,
+  "lon": 11.9690337,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:country": "DE",
+    "addr:housenumber": "18",
+    "addr:postcode": "06108",
+    "addr:street": "August-Bebel-Straße",
+    "amenity": "restaurant",
+    "contact:email": "info@june-halle.de",
+    "contact:instagram": "https://www.instagram.com/june.halle/",
+    "contact:phone": "+49 345 13506692",
+    "contact:website": "https://june-halle.de/",
+    "delivery": "no",
+    "diet:vegan": "yes",
+    "diet:vegetarian": "only",
+    "indoor_seating": "yes",
+    "name": "June",
+    "old_name": "Kumara soulfood",
+    "opening_hours": "We-Sa 11:30-16:00,18:00-23:00",
+    "operator": "Benndorf & Janoud GbR",
+    "outdoor_seating": "yes",
+    "wheelchair": "limited"
   }
 },
 {
@@ -1805,9 +1843,11 @@
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "email": "pizza@rotesosse.de",
+    "indoor_seating": "yes",
     "name": "Rote Soße",
     "opening_hours": "Mo-Su 12:00-22:00",
     "operator": "Andrej Sikan",
+    "outdoor_seating": "yes",
     "phone": "+49 345 68252080",
     "takeaway": "yes",
     "toilets:wheelchair": "no",
@@ -1931,6 +1971,7 @@
     "addr:postcode": "06110",
     "addr:street": "Steinweg",
     "amenity": "restaurant",
+    "check_date:opening_hours": "2024-05-18",
     "cuisine": "sushi",
     "delivery": "yes",
     "diet:vegan": "yes",
@@ -2058,6 +2099,7 @@
     "addr:postcode": "06108",
     "addr:street": "Geiststraße",
     "amenity": "fast_food",
+    "check_date": "2024-05-08",
     "check_date:opening_hours": "2023-08-18",
     "contact:phone": "+49 345 4700631",
     "contact:website": "https://www.hanoier-bistro.de",
@@ -2189,7 +2231,7 @@
     "name": "Bagel 29",
     "opening_hours": "Mo-Sa 10:00-18:00; Su off",
     "outdoor_seating": "no",
-    "wheelchair": "yes",
+    "wheelchair": "limited",
     "wheelchair:description": "Rampe wird auf Nachfrage ausgelegt"
   }
 },
@@ -2260,7 +2302,7 @@
     "brand:wikidata": "Q48883773",
     "brand:wikipedia": "de:Denn’s Biomarkt",
     "check_date": "2023-10-05",
-    "check_date:opening_hours": "2022-08-16",
+    "check_date:opening_hours": "2024-05-19",
     "contact:phone": "+49 345 68169155",
     "contact:website": "https://www.denns-biomarkt.de/halle-leipziger-str-100/marktseite/",
     "diet:vegan": "yes",
@@ -2625,7 +2667,8 @@
     "name": "Oberstübchen",
     "old_name": "Laube 57",
     "opening_hours": "Mo,We,Th 17:30-23:00; Tu off; Fr,Sa 17:30-02:00; Su 14:30-21:00",
-    "outdoor_seating": "yes"
+    "outdoor_seating": "yes",
+    "wheelchair": "no"
   }
 },
 {
@@ -2699,7 +2742,7 @@
     "diet:vegetarian": "yes",
     "indoor_seating": "yes",
     "name": "Café Kuckhoff",
-    "opening_hours": "Mo,Tu off; We-Su 09:00-18:00",
+    "opening_hours": "Mo, Tu off; We, Th 09:00-18:00; Fr, Sa 09:00-21:00; Su 09:00-18:00",
     "outdoor_seating": "yes",
     "wheelchair": "yes"
   }
@@ -2779,15 +2822,23 @@
     "addr:postcode": "06114",
     "addr:street": "Seebener Straße",
     "amenity": "cafe",
-    "cuisine": "coffee_shop;ice_cream",
+    "check_date": "2024-05-30",
+    "cuisine": "coffee_shop;ice_cream;breakfast;cake",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
+    "email": "post@kaffeehaus-wittekind.de",
     "indoor_seating": "yes",
+    "internet_access": "wlan",
+    "internet_access:fee": "customers",
     "name": "Kaffeehaus Wittekind",
     "note": "eröffnet 27.02.2021, bis 2020 Caffee Schade",
-    "opening_hours": "We-Fr 14:00-22:00; Sa,Su 09:00-22:00",
+    "opening_hours": "Mo-Fr 13:00-21:00; Sa 09:00-21:00; Su 09:00-19:00",
     "outdoor_seating": "yes",
-    "phone": "+49 345 22602882"
+    "payment:cash": "yes",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
+    "phone": "+49 345 22602882",
+    "website": "https://kaffeehaus-wittekind.de/"
   }
 },
 {
@@ -2972,6 +3023,8 @@
     "contact:instagram": "https://www.instagram.com/eisfvchs/",
     "contact:website": "https://eisfvchs.com",
     "diet:vegan": "yes",
+    "diet:vegan:description": "Haben einige besondere (nicht nur Sobet-) Sorten.",
+    "diet:vegan:labeled": "yes",
     "diet:vegetarian": "only",
     "indoor_seating": "yes",
     "name": "Eisfvchs",
@@ -2999,27 +3052,6 @@
     "opening_hours": "Mo-Fr 11:00-17:00; Sa 10:00-16:00",
     "operator": "Annelie Dorn",
     "shop": "pastry"
-  }
-},
-{
-  "type": "node",
-  "id": 8932643632,
-  "lat": 51.4918307,
-  "lon": 11.9710526,
-  "tags": {
-    "addr:city": "Halle (Saale)",
-    "addr:housenumber": "16",
-    "addr:postcode": "06108",
-    "addr:street": "Puschkinstraße",
-    "amenity": "ice_cream",
-    "contact:email": "lecker@alikgelato.de",
-    "contact:phone": "+49 171 3651504",
-    "contact:website": "https://alikgelato.de",
-    "diet:vegan": "limited",
-    "diet:vegetarian": "yes",
-    "name": "Alik Gelato",
-    "opening_hours": "Mo-Su 14:00-18:00",
-    "outdoor_seating": "yes"
   }
 },
 {
@@ -3067,6 +3099,7 @@
     "brand": "Papa John's",
     "brand:wikidata": "Q2759586",
     "brand:wikipedia": "en:Papa John's Pizza",
+    "check_date": "2024-05-08",
     "contact:phone": "+49 345 6788999",
     "contact:website": "https://www.papajohns.de/",
     "cuisine": "pizza",
@@ -3074,6 +3107,7 @@
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "indoor_seating": "no",
+    "level": "0",
     "name": "Papa John's",
     "opening_hours": "Mo-Su 11:00-23:00",
     "operator": "UP Gastro GmbH",
@@ -3117,6 +3151,7 @@
     "addr:postcode": "06118",
     "addr:street": "Trothaer Straße",
     "amenity": "restaurant",
+    "check_date": "2024-05-03",
     "contact:phone": "+49 345 52387777",
     "contact:website": "https://www.pizzaone-halle.de",
     "cuisine": "pizza",
@@ -3230,8 +3265,9 @@
     "diet:vegan": "limited",
     "diet:vegetarian": "yes",
     "indoor_seating": "yes",
-    "name": "Mira",
-    "opening_hours": "Mo-Su 11:00-21:00",
+    "name": "Palast",
+    "opening_hours": "Mo-Su 10:00-22:00",
+    "operator": "Khali Alawe",
     "outdoor_seating": "yes",
     "payment:girocard": "yes",
     "takeaway": "yes",
@@ -3410,6 +3446,27 @@
 },
 {
   "type": "node",
+  "id": 10261277288,
+  "lat": 51.5005305,
+  "lon": 11.9663348,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:housenumber": "31",
+    "addr:postcode": "06114",
+    "addr:street": "Reilstraße",
+    "check_date": "2024-02-25",
+    "diet:vegan": "yes",
+    "email": "info@toertcheneck.de",
+    "name": "Törtcheneck",
+    "opening_hours": "Tu-Fr 11:00-17:00; Sa 10:00-15:00",
+    "operator": "Anja Meinhardt",
+    "phone": "+4934513252434",
+    "shop": "pastry",
+    "website": "https://www.toertcheneck.de"
+  }
+},
+{
+  "type": "node",
   "id": 10983113691,
   "lat": 51.4856145,
   "lon": 11.9721356,
@@ -3463,7 +3520,44 @@
     "contact:phone": "+49 345 97725843",
     "contact:website": "https://mola-restaurant.de",
     "diet:vegan": "yes",
-    "name": "Mola"
+    "name": "Mola",
+    "toilets:wheelchair": "no",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "node",
+  "id": 11696921192,
+  "lat": 51.4889126,
+  "lon": 11.9661076,
+  "tags": {
+    "amenity": "ice_cream",
+    "check_date": "2024-03-06",
+    "diet:vegan": "yes",
+    "diet:vegan:description": "Meist nur ein paar Sorbetsorten. Haben vegane Waffeln.",
+    "diet:vegan:labeled": "yes",
+    "name": "Janny's",
+    "toilets:wheelchair": "no",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 11881000170,
+  "lat": 51.4792525,
+  "lon": 11.9202374,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:country": "DE",
+    "addr:housenumber": "17d",
+    "addr:postcode": "06122",
+    "addr:street": "Neustädter Passage",
+    "amenity": "cafe",
+    "contact:instagram": "https://www.instagram.com/fantasy_halle",
+    "contact:website": "https://fantasy-halle.de",
+    "diet:vegan": "yes",
+    "name": "FANTASY - Café & Food",
+    "opening_hours": "Mo-Fr10:00-20:00; Sa 10:00-21:00; Su off"
   }
 },
 {
@@ -3663,6 +3757,7 @@
     "amenity": "cafe",
     "biergarten": "yes",
     "building": "yes",
+    "check_date": "2024-04-28",
     "contact:facebook": "https://www.facebook.com/peissnitzhauspiraten/",
     "contact:instagram": "https://www.instagram.com/peissnitzhaus/",
     "contact:website": "https://www.peissnitzhaus.de/gastronomie",
