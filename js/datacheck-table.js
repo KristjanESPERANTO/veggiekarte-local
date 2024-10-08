@@ -26,13 +26,13 @@ async function fetchData() {
 
     markerGroups.forEach((element, index) => {
       const row = document.createElement("tr");
-      // eslint-disable-next-line no-param-reassign
       index += 1;
 
       let undef = element.properties.undefined;
       if (undef === undefined) {
         undef = "-";
-      } else {
+      }
+      else {
         undef = undef.toString();
         undef = undef.replaceAll(",", "<br>");
       }
@@ -40,7 +40,7 @@ async function fetchData() {
       const issueArray = element.properties.issues;
       let issueText = "";
       if (issueArray !== undefined) {
-        // eslint-disable-next-line no-restricted-syntax, guard-for-in
+        // eslint-disable-next-line guard-for-in
         for (const issue in issueArray) {
           issueText += `${issueArray[issue]}<br>`;
         }
@@ -59,7 +59,8 @@ async function fetchData() {
     output.appendChild(head);
     output.appendChild(issuesDiv);
     output.appendChild(table);
-  } catch (error) {
+  }
+  catch (error) {
     console.log("Request failed", error);
   }
 }

@@ -1,3 +1,4 @@
+/* eslint-disable capitalized-comments */
 /* global i18next */
 
 import "../third-party/i18next/i18next.min.js";
@@ -5,7 +6,7 @@ import "../third-party/i18next/i18next.min.js";
 // Declare module variables
 let userLanguage;
 const fallbackLanguage = "en";
-let languageRecources = {};
+let languageResources = {};
 
 // Languages (there has to be a json file for each language)
 const languages = {
@@ -24,11 +25,13 @@ function setUserLanguage(language) {
     i18next.changeLanguage(language);
     if (language in i18next.store.data) {
       console.info(`i18n: Use language data for ${language} from storage.`);
-    } else {
-      console.info(`i18n: Load language data for ${language} from file.`);
-      addLanguageRecources(language);
     }
-  } else {
+    else {
+      console.info(`i18n: Load language data for ${language} from file.`);
+      addLanguageResources(language);
+    }
+  }
+  else {
     initTranslate(language);
   }
 }
@@ -43,14 +46,15 @@ function getUserLanguage() {
     const urlParameters = new URLSearchParams(document.location.search.substring(1));
     const urlLanguage = urlParameters.get("lang");
 
-    if (urlLanguage !== undefined) {
-      console.info(`i18n: Language from URL: ${urlLanguage}`);
-      userLanguage = urlLanguage;
-    } else {
+    if (urlLanguage === undefined) {
       // Get language from browser
       const browserLanguage = navigator.language.split("-")[0];
       console.info(`i18n: Browser language: ${browserLanguage}`);
       userLanguage = browserLanguage;
+    }
+    else {
+      console.info(`i18n: Language from URL: ${urlLanguage}`);
+      userLanguage = urlLanguage;
     }
 
     // Check if we support the taken language
@@ -63,7 +67,7 @@ function getUserLanguage() {
   return userLanguage;
 }
 
-async function addLanguageRecources(language) {
+async function addLanguageResources(language) {
   try {
     const languageFile = `./locales/${language}.json`;
     const response = await fetch(languageFile);
@@ -79,18 +83,21 @@ async function addLanguageRecources(language) {
       const translations = data[language].translation;
       i18next.addResourceBundle(language, "translation", translations);
       updateContent();
-    } else {
+    }
+    else {
       // Merge new data per spread operator
-      languageRecources = { ...languageRecources, ...data };
+      languageResources = { ...languageResources, ...data };
 
-      if (language !== fallbackLanguage) {
-        // Get fallback language recources
-        await addLanguageRecources(fallbackLanguage);
-      } else {
+      if (language === fallbackLanguage) {
         initTranslate(userLanguage);
       }
+      else {
+        // Get fallback language resources
+        await addLanguageResources(fallbackLanguage);
+      }
     }
-  } catch (err) {
+  }
+  catch (err) {
     console.error(err);
   }
 }
@@ -100,7 +107,7 @@ function initTranslate(language) {
     lng: language,
     fallbackLng: fallbackLanguage,
     debug: false,
-    resources: languageRecources
+    resources: languageResources
   });
 }
 
@@ -117,7 +124,7 @@ i18next.on("languageChanged", () => {
  * @return String the changed URL
  */
 function updateURLParameter(url, param, paramVal) {
-  let theAnchor = null;
+  let theAnchor;
   let newAdditionalURL = "";
   let tempArray = url.split("?");
   let baseURL = tempArray[0];
@@ -140,7 +147,8 @@ function updateURLParameter(url, param, paramVal) {
         temp = "&";
       }
     }
-  } else {
+  }
+  else {
     const tmpAnchor = baseURL.split("#");
     const theParams = tmpAnchor[0];
     theAnchor = tmpAnchor[1];
@@ -195,8 +203,8 @@ function updateContent() {
   // document.getElementsByClassName("second-cell")[4].innerText = i18next.t("texts.i18n_vegetarian_friendly");
   // document.getElementsByClassName("legend-row")[4].parentElement.parentElement.title = i18next.t("texts.i18n_vegetarian_friendly_title");
 
-  // Set HTML lang attribut
+  // Set HTML lang attribute
   document.body.parentElement.lang = i18next.language;
 }
 
-export { setUserLanguage, getUserLanguage, addLanguageRecources };
+export { setUserLanguage, getUserLanguage, addLanguageResources };

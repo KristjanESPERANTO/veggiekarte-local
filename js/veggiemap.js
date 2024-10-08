@@ -1,3 +1,8 @@
+/* eslint-disable import-x/no-named-as-default-member */
+/* eslint-disable import-x/no-named-as-default */
+/* eslint-disable import-x/default */
+/* eslint-disable import-x/namespace */
+/* eslint-disable camelcase */
 /* global i18next, L, opening_hours */
 
 // Import third party scripts
@@ -13,7 +18,7 @@ import "../third-party/leaflet.fullscreen/Control.FullScreen.js";
 import "../third-party/leaflet.languageselector/leaflet.languageselector.js";
 
 // Import own scripts
-import { setUserLanguage, getUserLanguage, addLanguageRecources } from "./i18n.js";
+import { addLanguageResources, getUserLanguage, setUserLanguage } from "./i18n.js";
 import getIcon from "./veggiemap-icons.js";
 
 // Define marker groups
@@ -78,6 +83,7 @@ function veggiemap() {
   const hash = new L.Hash(map);
 
   // Add fullscreen control button
+  // eslint-disable-next-line new-cap
   document.fullscreenControl = new L.control.fullscreen({
     position: "topright",
     fullscreenElement: map._container.parentNode
@@ -85,7 +91,7 @@ function veggiemap() {
   document.fullscreenControl.addTo(map);
 
   // Add info button
-  const infoButton = L.easyButton('<div class="info-button"></div>', () => {
+  const infoButton = L.easyButton("<div class='info-button'></div>", () => {
     toggleInfo();
   }).addTo(map);
   infoButton.setPosition("topright");
@@ -129,12 +135,13 @@ function veggiemap() {
 
 // Function to toogle the visibility of the Info box.
 function toggleInfo() {
-  const element = document.getElementById("information"); // get the element of the information window
-  const computedStyle = window.getComputedStyle(element); // get the actual style information
-  if (computedStyle.display !== "block") {
-    element.style.display = "block";
-  } else {
+  const element = document.getElementById("information"); // Get the element of the information window
+  const computedStyle = window.getComputedStyle(element); // Get the actual style information
+  if (computedStyle.display === "block") {
     element.style.display = "none";
+  }
+  else {
+    element.style.display = "block";
   }
 }
 document.toggleInfo = toggleInfo;
@@ -172,7 +179,7 @@ function statPopulate(markerGroups, date) {
 // Function to get the information from the places json file.
 async function veggiemapPopulate(parentGroupVar) {
   // Initiate translations (To have a text in the info box at the first start.)
-  addLanguageRecources(getUserLanguage());
+  addLanguageResources(getUserLanguage());
 
   const url = new URL("data/places.min.json", window.location.href);
   const response = await fetch(url);
@@ -212,7 +219,7 @@ async function veggiemapPopulate(parentGroupVar) {
   // Second call of the translation
   // The legend would not be translated without the second call.
   // TODO: Figure out how to get by without the second call.
-  addLanguageRecources(getUserLanguage());
+  addLanguageResources(getUserLanguage());
 }
 
 // Process the places GeoJSON into the groups of markers
@@ -260,7 +267,9 @@ async function addLibReview(element) {
     document.getElementById("libreviews").innerHTML = `<div class="popupflex-container"><div>📓</div><div><a href="https://lib.reviews/${
       data.thing.urlID
     }" target="_blank" rel="noopener noreferrer">${i18next.t("words.review")}</a></div>`;
-  } catch (error) {
+  }
+  // eslint-disable-next-line no-unused-vars
+  catch (error) {
     console.info("There is no review of this place or lib.reviews isn't available.");
   }
 }
@@ -293,10 +302,11 @@ async function addNominatimInformation(element) {
       if (address.postcode !== undefined) {
         adressString += `${address.postcode} `; // Postcode
       }
-      if (address.town !== undefined) {
-        adressString += `${address.town} `; // Town
-      } else {
+      if (address.town === undefined) {
         adressString += `${address.city} `; // City
+      }
+      else {
+        adressString += `${address.town} `; // Town
       }
     }
     if (address.country !== undefined) {
@@ -312,8 +322,9 @@ async function addNominatimInformation(element) {
         document.getElementById("adress").innerHTML = adressString;
       }
     }, 150);
-  } catch (error) {
-    console.info("Can't get information from Nominatim API.");
+  }
+  catch (error) {
+    console.info("Can't get information from Nominatim API:", error);
   }
 }
 
@@ -363,7 +374,7 @@ function calculatePopup(element) {
     // Get browser language for the warnings and the prettifier
     const locale = getUserLanguage();
 
-    // try block to catch cases where the opening hour string isn't okay
+    // Try block to catch cases where the opening hour string isn't okay
     try {
       // Create opening_hours object
       // eslint-disable-next-line new-cap
@@ -384,8 +395,8 @@ function calculatePopup(element) {
       });
       prettifiedValue = prettifiedValue.replaceAll(",", ", ").replaceAll("PH", i18next.t("words.public_holiday")).replaceAll("SH", i18next.t("words.school_holidays"));
       // Find out the open state
-      let openState = "";
-      let openStateEmoji = "";
+      let openState;
+      let openStateEmoji;
       if (oh.getState()) {
         openState = i18next.t("words.open");
         openStateEmoji = "open";
@@ -393,7 +404,8 @@ function calculatePopup(element) {
           openState += i18next.t("texts.will close soon");
           openStateEmoji = "closes-soon";
         }
-      } else {
+      }
+      else {
         openState = i18next.t("words.closed");
         openStateEmoji = "closed";
         if (oh.getFutureState()) {
@@ -403,7 +415,8 @@ function calculatePopup(element) {
       }
       // Append opening hours to the popup
       popupContent += `<div class='popupflex-container'><div>🕖</div><div><span class='open-state-circle ${openStateEmoji}'></span>${openState}<br />${prettifiedValue}</div></div>`;
-    } catch (error) {
+    }
+    catch (error) {
       popupContent += `<div class='popupflex-container'><div>🕖</div><div>Error: ${error}</div></div>`;
     }
   }
@@ -465,9 +478,8 @@ function calculatePopup(element) {
 }
 
 // Adding function for opening_hours objects to check if place will be open after n minutes (60 minutes as default)
-// eslint-disable-next-line camelcase
 if (!opening_hours.prototype.getFutureState) {
-  // eslint-disable-next-line camelcase, func-names
+  // eslint-disable-next-line func-names
   opening_hours.prototype.getFutureState = function (minutes = 60) {
     const nowPlusHours = new Date();
     nowPlusHours.setUTCMinutes(nowPlusHours.getUTCMinutes() + minutes);
