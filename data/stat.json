@@ -699,6 +699,13 @@
    "n_vegan_limited": 28,
    "n_vegan_only": 4,
    "n_vegetarian_only": 10
+  },
+  {
+   "date": "2024-10-09",
+   "n_vegan_friendly": 120,
+   "n_vegan_limited": 31,
+   "n_vegan_only": 4,
+   "n_vegetarian_only": 10
   }
  ]
 }

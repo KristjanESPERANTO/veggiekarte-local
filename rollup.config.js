@@ -1,6 +1,8 @@
 import banner2 from "rollup-plugin-banner2";
 import terser from "@rollup/plugin-terser";
-import pkg from "./package.json" assert { type: "json" };
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+const pkg = require("./package.json");
 
 const bannerText = `/*! *****************************************************************************
   ${pkg.name}

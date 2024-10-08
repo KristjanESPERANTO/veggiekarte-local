@@ -1,5 +1,5 @@
 {
- "_timestamp": "2024-06-03 23:45:27.042035",
+ "_timestamp": "2024-06-03 23:57:22.030529",
  "features": [
   {
    "geometry": {
@@ -1545,6 +1545,7 @@
     "category": "vegetarian_only",
     "contact_facebook": "bunte.eistraumerei",
     "contact_instagram": "bunteeis.traeumerei",
+    "contact_phone": "+49 176 26940777",
     "icon": "ice_cream",
     "name": "Bunte Eisträumerei",
     "opening_hours": "Mo-Fr 13:00-18:00; Sa,Su 13:00-18:00",
@@ -1566,7 +1567,7 @@
     "category": "vegetarian_only",
     "contact_email": "info@june-halle.de",
     "contact_instagram": "june.halle",
-    "contact_phone": "+49 345 135 066 92",
+    "contact_phone": "+49 345 13506692",
     "contact_website": "https://june-halle.de",
     "icon": "restaurant",
     "name": "June",

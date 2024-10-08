@@ -1,5 +1,5 @@
 {
- "_timestamp": "2024-06-03 23:57:22.030529",
+ "_timestamp": "2024-10-09 00:47:04.472791",
  "features": [
   {
    "geometry": {
@@ -85,7 +85,7 @@
     "cuisine": "pizza",
     "icon": "maki_restaurant-pizza",
     "name": "Telepizza",
-    "opening_hours": "Mo-Fr 11:00-14:00,16:30-21:30; PH,Sa,Su 11:00-21:30",
+    "opening_hours": "Mo-Fr 11:00-14:00,16:30-21:30; Sa,Su,PH 11:00-21:30",
     "symbol": "🍕"
    },
    "type": "Feature"
@@ -241,6 +241,26 @@
     "opening_hours": "Mo-Su 04:00-20:00",
     "shop": "bakery",
     "symbol": "🥨"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9869498,
+     51.477511
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 671764583,
+    "_type": "node",
+    "category": "vegan_limited",
+    "cuisine": "burger",
+    "icon": "fast_food",
+    "name": "McDonald's",
+    "opening_hours": "Su-Th,PH 08:00-24:00, Fr,Sa 08:00-01:00",
+    "symbol": "🍔"
    },
    "type": "Feature"
   },
@@ -436,32 +456,6 @@
   {
    "geometry": {
     "coordinates": [
-     11.9684121,
-     51.4872362
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 1038238639,
-    "_type": "node",
-    "category": "vegan_friendly",
-    "contact_email": "halle@enchilada.de",
-    "contact_facebook": "enchilada.hal",
-    "contact_instagram": "enchilada_halle",
-    "contact_phone": "+49 345 47896090",
-    "contact_website": "https://halle.enchilada.de",
-    "cuisine": "mexican",
-    "icon": "restaurant",
-    "more_info": true,
-    "name": "Enchilada",
-    "opening_hours": "Su off; Mo-Th, Su 17:00-23:00; Fr, Sa 17:00-01:00",
-    "symbol": "🍽️"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
      11.9638301,
      51.497223
     ],
@@ -519,6 +513,28 @@
     "name": "Harzmensa",
     "opening_hours": "Mo-Fr 11:15-14:00",
     "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9832623,
+     51.4897158
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1327808101,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_email": "hunger@brotundrind.de",
+    "contact_phone": "+49 1602335107",
+    "contact_website": "https://www.brotundrind.com",
+    "icon": "fast_food",
+    "name": "Brot & Rind",
+    "opening_hours": "Mo-Su 11:00-22:00",
+    "symbol": "🍔"
    },
    "type": "Feature"
   },
@@ -588,30 +604,6 @@
     "name": "Le Feu",
     "opening_hours": "Su-Th 17:00-22:00; Fr-Sa 17:00-23:00",
     "symbol": "🍽️"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9770411,
-     51.4880551
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 1562519987,
-    "_type": "node",
-    "category": "vegan_friendly",
-    "contact_email": "info@bistro-sundarban.de",
-    "contact_facebook": "Bistro-Sundarban-am-Steintor-571323043020423",
-    "contact_phone": "+49 179 4554442",
-    "contact_website": "http://www.bistro-sundarban.de",
-    "cuisine": "indian;turkish",
-    "icon": "fast_food",
-    "name": "Bistro Sundarban",
-    "opening_hours": "Mo-Sa 11:00-22:00; Su,PH 12:00-22:00",
-    "symbol": "🍔"
    },
    "type": "Feature"
   },
@@ -774,6 +766,26 @@
   {
    "geometry": {
     "coordinates": [
+     11.9323825,
+     51.4997116
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1915728632,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "cuisine": "fast_food",
+    "icon": "fast_food",
+    "name": "Salt-City Burger",
+    "symbol": "🍔",
+    "vegan_description": "Ein veganer Burger."
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9707479,
      51.4881925
     ],
@@ -876,7 +888,7 @@
     "contact_website": "https://www.nudelmanufaktur-halle.de",
     "cuisine": "italian",
     "icon": "restaurant",
-    "name": "Imbiss „Zur Nudelbude“",
+    "name": "Nudelmanufaktur Tranquebar",
     "opening_hours": "Mo 11:30-14:30; Tu-Sa 11:30-14:30,16:30-19:00",
     "symbol": "🍽️"
    },
@@ -1190,23 +1202,39 @@
   {
    "geometry": {
     "coordinates": [
-     11.9870829,
-     51.4777426
+     11.9872323,
+     51.4772967
     ],
     "type": "Point"
    },
    "properties": {
-    "_id": 2791600291,
+    "_id": 2791600298,
     "_type": "node",
-    "category": "vegan_friendly",
-    "contact_phone": "+49 345 29989903",
-    "contact_website": "https://coffee-fellows.com",
-    "cuisine": "coffee_shop",
-    "icon": "cafe",
-    "more_info": true,
-    "name": "Coffee Fellows",
-    "opening_hours": "Mo-Fr 07:00-18:00; Sa 08:00-18:00; Su 08:00-18:00",
-    "symbol": "☕"
+    "category": "vegan_limited",
+    "icon": "bakery",
+    "name": "Erster Wiener",
+    "opening_hours": "Mo-Fr 05:30-20:00; Sa,Su 07:00-22:00",
+    "shop": "bakery",
+    "symbol": "🥨"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9872625,
+     51.4772506
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2791600299,
+    "_type": "node",
+    "category": "vegan_limited",
+    "icon": "fast_food",
+    "name": "Asiahung",
+    "opening_hours": "Mo-Su 11:00-20:00",
+    "symbol": "🍔"
    },
    "type": "Feature"
   },
@@ -1690,8 +1718,31 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Sakura",
-    "opening_hours": "Mo-Sa 11:30-14:30,17:30-23:00; Su,PH 11:30-15:00,17:30-22:00",
+    "opening_hours": "Mo-Th,PH 11:30-15:00,17:30-22:00; Fr-Sa 12:00-22:30; Su,PH 12:00-22:00",
     "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9699697,
+     51.4933783
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 4036431410,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 345 68008253",
+    "contact_website": "https://alforno-webshop.simplywebshop.de",
+    "cuisine": "pizza",
+    "icon": "maki_restaurant-pizza",
+    "name": "Pizza Alforno",
+    "opening_hours": "Su-Th 11:00-00:00; Fr-Sa 11:00-01:00",
+    "symbol": "🍕",
+    "vegan_description": "zwei Pizzen, Wrap, Pizzabrötchen"
    },
    "type": "Feature"
   },
@@ -1898,6 +1949,26 @@
   {
    "geometry": {
     "coordinates": [
+     11.9771587,
+     51.4881582
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 4915180422,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "cuisine": "bubble_tea",
+    "icon": "cafe",
+    "name": "Tea One",
+    "opening_hours": "Mo-Sa 11:00-19:00",
+    "symbol": "☕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9657436,
      51.4909923
     ],
@@ -1936,7 +2007,7 @@
     "icon": "cafe",
     "more_info": true,
     "name": "Café Ludwig",
-    "opening_hours": "We-Fr 13:00-24:00; Sa 10:00-24:00; PH,Su 10:00-19:00; Mo,Tu off",
+    "opening_hours": "Mo-Tu off; We-Fr 13:00-24:00; Sa 10:00-24:00; Su,PH 10:00-19:00",
     "symbol": "☕"
    },
    "type": "Feature"
@@ -1944,8 +2015,8 @@
   {
    "geometry": {
     "coordinates": [
-     11.9667873,
-     51.4867214
+     11.9667745,
+     51.4867544
     ],
     "type": "Point"
    },
@@ -2052,6 +2123,29 @@
     "name": "Pizza Triangolo",
     "opening_hours": "Tu-Su 16:00-21:30",
     "symbol": "🍕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.967874,
+     51.4857154
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 5355456116,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_phone": "+4917634343572",
+    "contact_website": "https://bistro-aldemashky.business.site",
+    "cuisine": "pizza;syrian;arab",
+    "icon": "maki_restaurant-pizza",
+    "name": "Restaurant Aldemashky",
+    "opening_hours": "08:00-20:00",
+    "symbol": "🍕",
+    "vegan_description": "Vegane Teller mit Bohnen, Hummus, Falafel oder Kichererbsen"
    },
    "type": "Feature"
   },
@@ -2197,6 +2291,26 @@
   {
    "geometry": {
     "coordinates": [
+     11.9857205,
+     51.4772743
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 5916973252,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "icon": "bakery",
+    "name": "steinecke",
+    "opening_hours": "Mo-Fr 05:30-20:00; Sa,Su 07:00-20:00",
+    "shop": "bakery",
+    "symbol": "🥨"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9788562,
      51.479147
     ],
@@ -2235,7 +2349,7 @@
     "contact_website": "https://www.arko.de",
     "icon": "cafe",
     "name": "arko",
-    "opening_hours": "Mo-Fr 09:00-19:00, Sa 09:00-18:00",
+    "opening_hours": "Mo-Fr 09:00-18:00; Sa 09:00-16:00",
     "symbol": "☕"
    },
    "type": "Feature"
@@ -2660,7 +2774,6 @@
     "cuisine": "salad;sandwich",
     "icon": "fast_food",
     "name": "dean&david",
-    "opening_hours": "Mo-Su 09:00-20:00",
     "symbol": "🍔"
    },
    "type": "Feature"
@@ -2797,6 +2910,7 @@
     "contact_website": "https://www.meineeislust.de/standorte/teicha-bei-halle-saale",
     "icon": "ice_cream",
     "name": "Eislust",
+    "opening_hours": "Sa 14:00-18:00; Su 12:00-18:00",
     "symbol": "🍨"
    },
    "type": "Feature"
@@ -2954,7 +3068,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Bay Vegan",
-    "opening_hours": "Mo-Su 11:00-15:00, 17:00-23:00",
+    "opening_hours": "Mo-Su 12:00-23:00",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -3070,29 +3184,6 @@
   {
    "geometry": {
     "coordinates": [
-     11.9663348,
-     51.5005305
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 10261277288,
-    "_type": "node",
-    "category": "vegan_friendly",
-    "contact_email": "info@toertcheneck.de",
-    "contact_phone": "+4934513252434",
-    "contact_website": "https://www.toertcheneck.de",
-    "icon": "maki_star-stroked",
-    "name": "Törtcheneck",
-    "opening_hours": "Tu-Fr 11:00-17:00; Sa 10:00-15:00",
-    "shop": "pastry",
-    "symbol": ""
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
      11.9721356,
      51.4856145
     ],
@@ -3192,6 +3283,26 @@
     "name": "FANTASY - Café & Food",
     "opening_hours": "Mo-Fr10:00-20:00; Sa 10:00-21:00; Su off",
     "symbol": "☕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9546396,
+     51.5001778
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 12198747012,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_website": "https://annamueller.eu",
+    "cuisine": "catering",
+    "icon": "restaurant",
+    "name": "Anna Müller Catering",
+    "symbol": "🍽️"
    },
    "type": "Feature"
   },

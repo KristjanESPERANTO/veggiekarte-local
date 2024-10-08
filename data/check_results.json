@@ -1,5 +1,5 @@
 {
- "_timestamp": "2024-06-03 23:57:26.120715",
+ "_timestamp": "2024-10-09 00:47:17.249369",
  "features": [
   {
    "geometry": {
@@ -17,6 +17,30 @@
     "name": "Mola",
     "undefined": [
      "cuisine",
+     "addr:street",
+     "addr:housenumber",
+     "addr:city/suburb",
+     "addr:postcode",
+     "opening_hours"
+    ]
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9323825,
+     51.4997116
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1915728632,
+    "_type": "node",
+    "diet_vegan": "yes",
+    "issue_count": 5,
+    "name": "Salt-City Burger",
+    "undefined": [
      "addr:street",
      "addr:housenumber",
      "addr:city/suburb",
@@ -99,6 +123,52 @@
   {
    "geometry": {
     "coordinates": [
+     11.9771587,
+     51.4881582
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 4915180422,
+    "_type": "node",
+    "diet_vegan": "yes",
+    "issue_count": 4,
+    "name": "Tea One",
+    "undefined": [
+     "addr:street",
+     "addr:housenumber",
+     "addr:city/suburb",
+     "addr:postcode"
+    ]
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9857205,
+     51.4772743
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 5916973252,
+    "_type": "node",
+    "diet_vegan": "yes",
+    "issue_count": 4,
+    "name": "steinecke",
+    "undefined": [
+     "addr:street",
+     "addr:housenumber",
+     "addr:city/suburb",
+     "addr:postcode"
+    ]
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.8182082,
      51.3171654
     ],
@@ -113,6 +183,73 @@
     "undefined": [
      "cuisine",
      "addr:street",
+     "addr:housenumber"
+    ]
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9663357,
+     51.4856228
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1037059970,
+    "_type": "node",
+    "diet_vegan": "yes",
+    "issue_count": 2,
+    "issues": [
+     "'contact:website' HTTP response error - 503"
+    ],
+    "name": "Kaffeeschuppen",
+    "undefined": [
+     "cuisine"
+    ]
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9832623,
+     51.4897158
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1327808101,
+    "_type": "node",
+    "diet_vegan": "yes",
+    "issue_count": 2,
+    "issues": [
+     "'phone' does not conform to the ITU-T E.123, E.164 or RFC 3966 pattern. It's '+49 1602335107' but '+49 160 2335107' (E.123) is recommended."
+    ],
+    "name": "Brot & Rind",
+    "undefined": [
+     "cuisine"
+    ]
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9872625,
+     51.4772506
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 2791600299,
+    "_type": "node",
+    "diet_vegan": "limited",
+    "issue_count": 2,
+    "name": "Asiahung",
+    "undefined": [
+     "cuisine",
      "addr:housenumber"
     ]
    },
@@ -184,40 +321,40 @@
   {
    "geometry": {
     "coordinates": [
-     11.9663357,
-     51.4856228
+     11.9703782,
+     51.4778155
     ],
     "type": "Point"
    },
    "properties": {
-    "_id": 1037059970,
+    "_id": 2018747313,
     "_type": "node",
-    "diet_vegan": "yes",
+    "diet_vegan": "limited",
     "issue_count": 1,
-    "name": "Kaffeeschuppen",
-    "undefined": [
-     "cuisine"
-    ]
+    "issues": [
+     "'contact:facebook' Exception: ReadTimeout"
+    ],
+    "name": "Nudelmanufaktur Tranquebar"
    },
    "type": "Feature"
   },
   {
    "geometry": {
     "coordinates": [
-     11.9684121,
-     51.4872362
+     11.9872323,
+     51.4772967
     ],
     "type": "Point"
    },
    "properties": {
-    "_id": 1038238639,
+    "_id": 2791600298,
     "_type": "node",
-    "diet_vegan": "yes",
+    "diet_vegan": "limited",
     "issue_count": 1,
-    "issues": [
-     "'contact:website' Exception: SSLError"
-    ],
-    "name": "Enchilada"
+    "name": "Erster Wiener",
+    "undefined": [
+     "addr:housenumber"
+    ]
    },
    "type": "Feature"
   },
@@ -284,26 +421,6 @@
   {
    "geometry": {
     "coordinates": [
-     11.9660441,
-     51.4962832
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 8773861578,
-    "_type": "node",
-    "diet_vegan": "yes",
-    "issue_count": 1,
-    "issues": [
-     "'contact:website' HTTP response error - 500"
-    ],
-    "name": "JUICY"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
      11.9831239,
      51.3704679
     ],
@@ -324,40 +441,20 @@
   {
    "geometry": {
     "coordinates": [
-     11.9549594,
-     51.5601745
+     11.9871928,
+     51.4776208
     ],
     "type": "Point"
    },
    "properties": {
-    "_id": 9073603964,
+    "_id": 8795957217,
     "_type": "node",
     "diet_vegan": "yes",
     "issue_count": 1,
-    "name": "Eislust",
+    "name": "dean&david",
     "undefined": [
      "opening_hours"
     ]
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9716439,
-     51.4929347
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 9572733602,
-    "_type": "node",
-    "diet_vegan": "yes",
-    "issue_count": 1,
-    "issues": [
-     "'contact:website' Exception: ConnectionError"
-    ],
-    "name": "Eis-Dealer"
    },
    "type": "Feature"
   },
@@ -384,20 +481,20 @@
   {
    "geometry": {
     "coordinates": [
-     11.9721356,
-     51.4856145
+     11.9546396,
+     51.5001778
     ],
     "type": "Point"
    },
    "properties": {
-    "_id": 10983113691,
+    "_id": 12198747012,
     "_type": "node",
     "diet_vegan": "yes",
     "issue_count": 1,
-    "issues": [
-     "'contact:website' Exception: ReadTimeout"
-    ],
-    "name": "NEKO"
+    "name": "Anna Müller Catering",
+    "undefined": [
+     "opening_hours"
+    ]
    },
    "type": "Feature"
   },
