@@ -33,7 +33,7 @@
     "husky": "^9.0.11",
     "lint-staged": "^15.2.5",
     "prettier": "^3.3.0",
-    "rollup": "^4.18.0",
+    "rollup": "^4.24.0",
     "rollup-plugin-banner2": "latest",
     "stylelint": "^16.6.1",
     "stylelint-config-standard": "latest",
