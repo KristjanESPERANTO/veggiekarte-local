@@ -101,7 +101,7 @@ function veggiemap() {
   document.fullscreenControl.addTo(map);
 
   // Add info button
-  const infoButton = L.easyButton("<div class=\"info-button\"></div>", () => {
+  const infoButton = L.easyButton("<div class='info-button'></div>", () => {
     toggleInfo();
   }).addTo(map);
   infoButton.setPosition("topright");

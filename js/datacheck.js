@@ -69,7 +69,7 @@ function veggiemap() {
   const hash = new L.Hash(map);
 
   // Add info button
-  const infoButton = L.easyButton("<div class=\"info-button\"></div>", () => {
+  const infoButton = L.easyButton("<div class='info-button'></div>", () => {
     toggleInfo();
   }).addTo(map);
   infoButton.setPosition("topright");
