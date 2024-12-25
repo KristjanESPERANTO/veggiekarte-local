@@ -3,14 +3,17 @@ const CACHE_NAME = "veggiekarte";
 console.info(CACHE_NAME);
 
 // List of files to cache here.
-const FILES_TO_CACHE = ["index.html", "data/places.min.json"];
+const FILES_TO_CACHE = [
+  "index.html",
+  "data/places.min.json"
+];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches
       .open(CACHE_NAME)
       .then(cache => cache.addAll(FILES_TO_CACHE))
-      .then(self.skipWaiting())
+      .then(() => self.skipWaiting())
   );
 });
 
@@ -21,14 +24,24 @@ self.addEventListener("activate", (event) => {
 // Service Worker Caching Strategy: Stale-While-Revalidate
 self.addEventListener("fetch", (event) => {
   event.respondWith(
-    caches.open(CACHE_NAME).then(cache =>
-      cache.match(event.request).then((response) => {
-        const fetchPromise = fetch(event.request).then((networkResponse) => {
-          cache.put(event.request, networkResponse.clone());
-          return networkResponse;
-        });
-        return response || fetchPromise;
+    caches.match(event.request)
+      .then((cachedResponse) => {
+        const fetchPromise = fetch(event.request)
+          .then((networkResponse) => {
+            // Update cache with new response
+            if (networkResponse.ok) {
+              caches.open(CACHE_NAME)
+                .then(cache => cache.put(event.request, networkResponse.clone()));
+            }
+            return networkResponse;
+          })
+          .catch((error) => {
+            // Log the error to the console when the fetch fails
+            console.error("Fetch failed:", error);
+          });
+
+        // Return cached response immediately, or wait for network
+        return cachedResponse || fetchPromise;
       })
-    )
   );
 });
