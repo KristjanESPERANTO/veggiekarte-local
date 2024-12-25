@@ -5,7 +5,7 @@ import "../third-party/i18next/i18next.min.js";
 // Declare module variables
 let userLanguage;
 const fallbackLanguage = "en";
-let languageRecourses = {};
+let languageResources = {};
 
 // Languages (there has to be a json file for each language)
 const languages = {
@@ -27,7 +27,7 @@ function setUserLanguage(language) {
     }
     else {
       console.info(`i18n: Load language data for ${language} from file.`);
-      addLanguageRecourses(language);
+      addLanguageResources(language);
     }
   }
   else {
@@ -66,7 +66,7 @@ function getUserLanguage() {
   return userLanguage;
 }
 
-async function addLanguageRecourses(language) {
+async function addLanguageResources(language) {
   try {
     const languageFile = `./locales/${language}.json`;
     const response = await fetch(languageFile);
@@ -85,14 +85,14 @@ async function addLanguageRecourses(language) {
     }
     else {
       // Merge new data per spread operator
-      languageRecourses = { ...languageRecourses, ...data };
+      languageResources = { ...languageResources, ...data };
 
       if (language === fallbackLanguage) {
         initTranslate(userLanguage);
       }
       else {
-        // Get fallback language recourses
-        await addLanguageRecourses(fallbackLanguage);
+        // Get fallback language resources
+        await addLanguageResources(fallbackLanguage);
       }
     }
   }
@@ -106,7 +106,7 @@ function initTranslate(language) {
     lng: language,
     fallbackLng: fallbackLanguage,
     debug: false,
-    resources: languageRecourses
+    resources: languageResources
   });
 }
 
@@ -206,4 +206,4 @@ function updateContent() {
   document.body.parentElement.lang = i18next.language;
 }
 
-export { setUserLanguage, getUserLanguage, addLanguageRecourses };
+export { setUserLanguage, getUserLanguage, addLanguageResources };

@@ -13,7 +13,7 @@ import "../third-party/leaflet.fullscreen/Control.FullScreen.js";
 import "../third-party/leaflet.languageselector/leaflet.languageselector.js";
 
 // Import own scripts
-import { addLanguageRecourses, getUserLanguage, setUserLanguage } from "./i18n.js";
+import { addLanguageResources, getUserLanguage, setUserLanguage } from "./i18n.js";
 import { createHash } from "../third-party/leaflet.hash/leaflet-hash.mjs";
 import getIcon from "./veggiemap-icons.js";
 
@@ -189,7 +189,7 @@ function statPopulate(markerGroups, date) {
 // Function to get the information from the places json file.
 async function veggiemapPopulate(parentGroupVar) {
   // Initiate translations (To have a text in the info box at the first start.)
-  addLanguageRecourses(getUserLanguage());
+  addLanguageResources(getUserLanguage());
 
   const url = new URL("data/places.min.json", window.location.href);
   const response = await fetch(url);
@@ -229,7 +229,7 @@ async function veggiemapPopulate(parentGroupVar) {
   // Second call of the translation
   // The legend would not be translated without the second call.
   // TODO: Figure out how to get by without the second call.
-  addLanguageRecourses(getUserLanguage());
+  addLanguageResources(getUserLanguage());
 }
 
 // Process the places GeoJSON into the groups of markers
