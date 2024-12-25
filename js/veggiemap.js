@@ -6,7 +6,7 @@ import "../third-party/opening_hours/opening_hours+deps.min.js";
 import "../third-party/leaflet/leaflet.js";
 import "../third-party/leaflet.markercluster/leaflet.markercluster.js";
 import "../third-party/leaflet.hash/leaflet-hash.js";
-import "../third-party/leaflet.control.geocoder/Control.Geocoder.min.js";
+import "../third-party/leaflet.control.geocoder/Control.Geocoder.js";
 import "../third-party/leaflet.locatecontrol/L.Control.Locate.min.js";
 import "../third-party/leaflet.easybutton/easy-button.js";
 import "../third-party/leaflet.featuregroup.subgroup/leaflet.featuregroup.subgroup.js";
