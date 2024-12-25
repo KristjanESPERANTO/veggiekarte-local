@@ -16,7 +16,8 @@ async function getStatistics() {
     const response = await fetch(url);
     const data = await response.json();
     handleData(data.stat);
-  } catch (error) {
+  }
+  catch (error) {
     console.log("Request failed", error);
   }
 }

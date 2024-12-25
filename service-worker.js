@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-globals */
 const CACHE_NAME = "veggiekarte";
 
 console.info(CACHE_NAME);
@@ -10,7 +9,7 @@ self.addEventListener("install", (event) => {
   event.waitUntil(
     caches
       .open(CACHE_NAME)
-      .then((cache) => cache.addAll(FILES_TO_CACHE))
+      .then(cache => cache.addAll(FILES_TO_CACHE))
       .then(self.skipWaiting())
   );
 });
@@ -22,7 +21,7 @@ self.addEventListener("activate", (event) => {
 // Service Worker Caching Strategy: Stale-While-Revalidate
 self.addEventListener("fetch", (event) => {
   event.respondWith(
-    caches.open(CACHE_NAME).then((cache) =>
+    caches.open(CACHE_NAME).then(cache =>
       cache.match(event.request).then((response) => {
         const fetchPromise = fetch(event.request).then((networkResponse) => {
           cache.put(event.request, networkResponse.clone());
