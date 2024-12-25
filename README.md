@@ -93,3 +93,13 @@ Run `python3 refresh.py` to get new data from OpenStreetmap.
 ### Check data
 
 Run `python3 datacheck/datacheck.py` to run the data check on the data.
+
+### Release
+
+To create a new release, you have to run the following command: `npm run release`. This will run the following steps:
+
+1. Run the linter and fix some errors.
+2. Build the bundle.
+3. Update the version in the package.json, package-lock.json and the bundle.js. And add a new tag to the git repository.
+
+The changes are not pushed to the repository. You have to do that manually after checking the changes.

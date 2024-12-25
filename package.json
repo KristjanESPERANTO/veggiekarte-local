@@ -37,10 +37,12 @@
   },
   "scripts": {
     "build": "rollup -c",
+    "bump": "npx bumpp package.json package-lock.json js/bundle.js --no-push",
     "lint": "eslint && stylelint **/*.css && prettier --check .",
     "lint:fix": "eslint --fix && stylelint --fix **/*.css && prettier --write .",
-    "test": "npm run lint",
-    "prepare": "husky"
+    "prepare": "husky",
+    "release": "npm run lint:fix && npm run build && npm run bump",
+    "test": "npm run lint"
   },
   "type": "module",
   "lint-staged": {
