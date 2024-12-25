@@ -5,7 +5,6 @@
 import "../third-party/opening_hours/opening_hours+deps.min.js";
 import "../third-party/leaflet/leaflet.js";
 import "../third-party/leaflet.markercluster/leaflet.markercluster.js";
-import "../third-party/leaflet.hash/leaflet-hash.js";
 import "../third-party/leaflet.control.geocoder/Control.Geocoder.js";
 import "../third-party/leaflet.locatecontrol/L.Control.Locate.min.js";
 import "../third-party/leaflet.easybutton/easy-button.js";
@@ -15,6 +14,7 @@ import "../third-party/leaflet.languageselector/leaflet.languageselector.js";
 
 // Import own scripts
 import { addLanguageRecourses, getUserLanguage, setUserLanguage } from "./i18n.js";
+import { createHash } from "../third-party/leaflet.hash/leaflet-hash.mjs";
 import getIcon from "./veggiemap-icons.js";
 
 /* Definition (polyfill) for the function replaceAll
@@ -90,7 +90,7 @@ function veggiemap() {
 
   // Add hash to the url
   // eslint-disable-next-line no-unused-vars
-  const hash = new L.Hash(map);
+  const hash = createHash(map);
 
   // Add fullscreen control button
   // eslint-disable-next-line new-cap

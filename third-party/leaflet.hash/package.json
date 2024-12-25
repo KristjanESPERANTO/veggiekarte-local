@@ -1,28 +1,37 @@
 {
-  "author": "Johannes Rudolph",
-  "name": "leaflet-hash",
-  "description": "linkable location hashes for leaflet",
-  "version": "1.0.1",
-  "homepage": "https://github.com/PowerPan/leaflet-hash",
+  "name": "@qgustavor/leaflet-hash",
+  "version": "1.1.1",
+  "description": "Modern version of leaflet-hash, which adds URL hashes to web pages with Leaflet maps.",
+  "author": "Michael Lawrence Evans",
+  "contributors": [
+    "Gustavo Rodrigues"
+  ],
+  "scripts": {
+    "build": "npm-run-all clean build:browser types",
+    "build:browser": "rollup leaflet-hash.mjs --file dist/leaflet-hash.global.js --format umd --name leafletHash --globals leaflet:L",
+    "test": "standard",
+    "clean": "rimraf dist",
+    "types": "tsc"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/qgustavor/leaflet-hash",
   "repository": {
     "type": "git",
-    "url": "https://github.com/PowerPan/leaflet-hash.git"
+    "url": "https://github.com/qgustavor/leaflet-hash.git"
   },
+  "module": "leaflet-hash.mjs",
+  "main": "dist/leaflet-hash.cjs",
+  "types": "dist/leaflet-hash.d.mts",
+  "files": [
+    "leaflet-hash.mjs",
+    "dist"
+  ],
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-browserify": "5.0.0",
-    "grunt-concat-css": "0.3.1",
-    "grunt-contrib-concat": "1.0.1",
-    "grunt-contrib-csslint": "1.0.0",
-    "grunt-contrib-cssmin": "1.0.2",
-    "grunt-contrib-jshint": "1.0.0",
-    "grunt-contrib-qunit": "1.2.0",
-    "grunt-contrib-uglify": "2.0.0",
-    "grunt-contrib-yuidoc": "1.0.0",
-    "grunt-env": "0.4.4",
-    "grunt-istanbul": "0.7.1",
-    "grunt-mocha-test": "0.12.7",
-    "grunt-jsdoc": "^2.1.0",
-    "mocha": "3.0.2"
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^5.0.7",
+    "rollup": "4.18.0",
+    "standard": "^17.1.0",
+    "standardjs": "^1.0.0-alpha",
+    "typescript": "^5.4.5"
   }
 }
