@@ -9,7 +9,7 @@ const dataVegetarianFriendly = [];
 const dataVegetarianOnly = [];
 let lastElementDate = new Date();
 
-// Load statisctics data and call funtion to handle the data
+// Load statistics data and call function to handle the data
 async function getStatistics() {
   const url = "data/stat.json";
   try {

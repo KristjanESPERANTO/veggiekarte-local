@@ -36,7 +36,7 @@ function setUserLanguage(language) {
 }
 
 function getUserLanguage() {
-  // 1. If set, take language from URL paramter
+  // 1. If set, take language from URL parameter
   // 2. Else take browser language
   // 3. If the taken language isn't one of the translated, return English
 
@@ -161,7 +161,7 @@ function updateURLParameter(url, param, paramVal) {
 }
 
 function updateContent() {
-  // Infobox
+  // Info box
   document.getElementById("content-welcome-heading").innerText = i18next.t("texts.content-welcome-heading");
   document.getElementById("content-welcome-text").innerHTML = i18next.t("texts.content-welcome-text");
   document.getElementById("content-osm-heading").innerText = i18next.t("texts.content-osm-heading");
@@ -202,7 +202,7 @@ function updateContent() {
   document.getElementsByClassName("second-cell")[4].innerText = i18next.t("texts.i18n_vegetarian_friendly");
   document.getElementsByClassName("legend-row")[4].parentElement.parentElement.title = i18next.t("texts.i18n_vegetarian_friendly_title");
 
-  // Set HTML lang attribut
+  // Set HTML lang attribute
   document.body.parentElement.lang = i18next.language;
 }
 

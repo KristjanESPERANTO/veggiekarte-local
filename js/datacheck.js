@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-/* global L */
+/* global createHash, L */
 
 // Define marker groups
 const parentGroup = L.markerClusterGroup({
@@ -66,7 +66,7 @@ function veggiemap() {
 
   // Add hash to the url
   // eslint-disable-next-line no-unused-vars
-  const hash = new L.Hash(map);
+  const hash = createHash(map);
 
   // Add info button
   const infoButton = L.easyButton("<div class='info-button'></div>", () => {
@@ -90,7 +90,7 @@ function veggiemap() {
   L.control.layers(null, overlays).addTo(map);
 }
 
-// Function to toogle the visibility of the Info box.
+// Function to toggle the visibility of the Info box.
 function toggleInfo() {
   const element = document.getElementById("information"); // Get the element of the information window
   const computedStyle = window.getComputedStyle(element); // Get the actual style information
