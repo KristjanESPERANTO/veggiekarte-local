@@ -1,7 +1,8 @@
 import banner2 from "rollup-plugin-banner2";
-import eslint from "@rollup/plugin-eslint";
 import terser from "@rollup/plugin-terser";
-import pkg from "./package.json" assert { type: "json" };
+import { readFileSync } from "fs";
+
+const pkg = JSON.parse(readFileSync("./package.json"));
 
 const bannerText = `/*! *****************************************************************************
   ${pkg.name}
@@ -23,5 +24,5 @@ export default {
     file: "js/bundle.js",
     format: "iife"
   },
-  plugins: [eslint(), terser(), banner2(() => bannerText)]
+  plugins: [terser(), banner2(() => bannerText)]
 };
