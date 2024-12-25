@@ -17,16 +17,6 @@ import { addLanguageResources, getUserLanguage, setUserLanguage } from "./i18n.j
 import { createHash } from "../third-party/leaflet.hash/leaflet-hash.mjs";
 import getIcon from "./veggiemap-icons.js";
 
-/* Definition (polyfill) for the function replaceAll
-   for older browser versions (before 2020)
-   Can be removed after some years. */
-if (!String.prototype.replaceAll) {
-  // eslint-disable-next-line no-extend-native, func-names
-  String.prototype.replaceAll = function (oldStr, newStr) {
-    return this.replace(new RegExp(oldStr, "gu"), newStr);
-  };
-}
-
 // Define marker groups
 const parentGroup = L.markerClusterGroup({
   showCoverageOnHover: false,
