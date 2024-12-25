@@ -37,7 +37,7 @@
   },
   "scripts": {
     "build": "rollup -c",
-    "bump": "npx bumpp package.json package-lock.json js/bundle.js --no-push",
+    "bump": "npx bumpp package.json package-lock.json js/bundle.js service-worker.js --no-push",
     "lint": "eslint && stylelint **/*.css && prettier --check .",
     "lint:fix": "eslint --fix && stylelint --fix **/*.css && prettier --write .",
     "prepare": "husky",
