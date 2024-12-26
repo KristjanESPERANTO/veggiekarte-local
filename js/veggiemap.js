@@ -1,10 +1,8 @@
 /* eslint-disable camelcase */
 /* global i18next, L, opening_hours */
 
-// Import third party scripts
 import "../third-party/opening_hours/opening_hours+deps.min.js";
 import "../third-party/leaflet/leaflet.js";
-import "../third-party/leaflet.markercluster/leaflet.markercluster.js";
 import "../third-party/leaflet.control.geocoder/Control.Geocoder.js";
 import "../third-party/leaflet.locatecontrol/L.Control.Locate.min.js";
 import "../third-party/leaflet.easybutton/easy-button.js";
@@ -12,13 +10,13 @@ import "../third-party/leaflet.featuregroup.subgroup/leaflet.featuregroup.subgro
 import "../third-party/leaflet.fullscreen/Control.FullScreen.js";
 import "../third-party/leaflet.languageselector/leaflet.languageselector.js";
 
-// Import own scripts
 import { addLanguageResources, getUserLanguage, setUserLanguage } from "./i18n.js";
+import { MarkerClusterGroup } from "../third-party/leaflet.markercluster/leaflet.markercluster-esm.js";
 import { createHash } from "../third-party/leaflet.hash/leaflet-hash.mjs";
 import getIcon from "./veggiemap-icons.js";
 
 // Define marker groups
-const parentGroup = L.markerClusterGroup({
+const parentGroup = new MarkerClusterGroup({
   showCoverageOnHover: false,
   maxClusterRadius: 20
 });
