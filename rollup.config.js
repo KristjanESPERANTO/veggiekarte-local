@@ -1,18 +1,17 @@
-import banner2 from "rollup-plugin-banner2";
 import terser from "@rollup/plugin-terser";
 import { readFileSync } from "fs";
 
 const pkg = JSON.parse(readFileSync("./package.json"));
 
-const bannerText = `/*! *****************************************************************************
+const banner = `/*! *****************************************************************************
   ${pkg.name}
   Version ${pkg.version}
 
   ${pkg.description}
   Please submit bugs at ${pkg.bugs.url}
 
-  (c) ${pkg.author.name ? pkg.author.name : pkg.contributors}
-  Licence: ${pkg.license}
+  © ${pkg.author.name ? pkg.author.name : pkg.contributors}
+  License: ${pkg.license}
 
   This file is auto-generated. Do not edit.
 ***************************************************************************** */
@@ -21,8 +20,9 @@ const bannerText = `/*! ********************************************************
 export default {
   input: "js/veggiemap.js",
   output: {
+    banner,
     file: "js/bundle.js",
-    format: "iife"
+    format: "es"
   },
-  plugins: [terser(), banner2(() => bannerText)]
+  plugins: [terser()]
 };
