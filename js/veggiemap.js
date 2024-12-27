@@ -255,8 +255,8 @@ function calculateTooltip(layer) {
  * Check if there is an entry for a place (feature) on https://lib.reviews/.
  * @param  {Object} feature
  */
-async function addLibReview(feature) {
-  const url = `https://lib.reviews/api/thing?url=https://www.openstreetmap.org/${feature.properties._type}/${feature.properties._id}`;
+async function addLibReview(element) {
+  const url = `https://lib.reviews/api/thing?url=https://www.openstreetmap.org/${element.feature.properties._type}/${element.feature.properties._id}`;
 
   try {
     const response = await fetch(url);
@@ -271,17 +271,67 @@ async function addLibReview(feature) {
   }
 }
 
+// Get information like the address from Nominatim API
+async function addNominatimInformation(element) {
+  const type = element.feature.properties._type;
+  const id = element.feature.properties._id;
+  const osmId = type[0] + id;
+  const locale = getUserLanguage();
+  const url = `https://nominatim.openstreetmap.org/lookup?osm_ids=${osmId}&extratags=1&format=json&accept-language=${locale}`;
+
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log(data[0].address);
+    const address = data[0].address;
+
+    // Address
+    let addressString = "";
+    // Collecting address information
+    if (address.road !== undefined) {
+      addressString += `${address.road} `; // Street
+      if (address.house_number !== undefined) {
+        addressString += `${address.house_number}`; // House number
+      }
+      addressString += "<br/>";
+    }
+    if (address.city !== undefined || address.town !== undefined) {
+      if (address.postcode !== undefined) {
+        addressString += `${address.postcode} `; // Postcode
+      }
+      if (address.town === undefined) {
+        addressString += `${address.city} `; // City
+      }
+      else {
+        addressString += `${address.town} `; // Town
+      }
+    }
+    if (address.country !== undefined) {
+      addressString += `<br/>${address.country}`;
+    }
+
+    addressString = `<div class="popupflex-container"><div>📍</div>${addressString}</div>`;
+
+    console.log(element._popup._content);
+
+    setTimeout(() => {
+      if (addressString !== "") {
+        document.getElementById("address").innerHTML = addressString;
+      }
+    }, 150);
+  }
+  catch (error) {
+    console.info("Can't get information from Nominatim API:", error);
+  }
+}
+
 // Calculate popup content for a given marker layer
-function calculatePopup(layer) {
+function calculatePopup(element) {
   // Get the information
-  const feature = layer.feature;
+  const feature = element.feature;
   const eId = feature.properties._id;
   const eNam = feature.properties.name;
   const eTyp = feature.properties._type;
-  const eCit = feature.properties.addr_city;
-  const eCou = feature.properties.addr_country;
-  const ePos = feature.properties.addr_postcode;
-  const eStr = feature.properties.addr_street;
   const eEma = feature.properties.contact_email;
   let ePho = feature.properties.contact_phone;
   const eWeb = feature.properties.contact_website;
@@ -303,26 +353,7 @@ function calculatePopup(layer) {
     popupContent += `<div class='popupflex-container'><div>👩‍🍳</div><div>${eCui.replaceAll(";", ", ").replaceAll("_", " ")}</div></div>`;
   }
 
-  // Address
-  let eAddr = "";
-  // Collecting address information
-  if (eStr !== undefined) {
-    eAddr += `${eStr}<br/>`;
-  } // Street
-  if (ePos !== undefined) {
-    eAddr += `${ePos} `;
-  } // Postcode
-  if (eCit !== undefined) {
-    eAddr += `${eCit} `;
-  } // City
-  if (eCou !== undefined) {
-    eAddr += `<br/>${eCou}`;
-  } // Country
-
-  // Adding address information to popup
-  if (eAddr !== "") {
-    popupContent += `<div class='popupflex-container'><div>📍</div><div>${eAddr}</div></div>`;
-  }
+  popupContent += "<div class='popupflex-container' id='address'>&nbsp;</br>&nbsp;</br>&nbsp;</br></div>";
 
   // Adding opening hours to popup
   if (eOpe !== undefined) {
@@ -419,13 +450,15 @@ function calculatePopup(layer) {
 
   // Add review entry from lib.reviews if exists
   popupContent += "<div id='libreviews'></div>";
-  addLibReview(feature);
+  addLibReview(element);
+
+  // Add address information from Nominatim API
+  addNominatimInformation(element);
 
   return popupContent;
 }
 
 // Adding function for opening_hours objects to check if place will be open after n minutes (60 minutes as default)
-
 if (!opening_hours.prototype.getFutureState) {
   // eslint-disable-next-line func-names
   opening_hours.prototype.getFutureState = function (minutes = 60) {

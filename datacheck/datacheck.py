@@ -227,22 +227,6 @@ def check_data(data):
                         "There is 'vegetarian' in the cuisine tag. Remove it and create a 'diet:vegetarian' tag if there is none."
                     )
 
-            # Address
-            if "addr:housename" not in tags:
-                if "addr:street" not in tags and "contact:street" not in tags:
-                    place_check_obj["properties"]["undefined"].append("addr:street")
-                if "addr:housenumber" not in tags and "contact:housenumber" not in tags:
-                    place_check_obj["properties"]["undefined"].append(
-                        "addr:housenumber"
-                    )
-            if "addr:city" not in tags and "contact:city" not in tags:
-                if "addr:suburb" not in tags:
-                    place_check_obj["properties"]["undefined"].append(
-                        "addr:city/suburb"
-                    )
-            if "addr:postcode" not in tags and "contact:postcode" not in tags:
-                place_check_obj["properties"]["undefined"].append("addr:postcode")
-
             # Website
             website = "undefined"
             if "contact:website" in tags:
