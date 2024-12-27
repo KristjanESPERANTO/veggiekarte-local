@@ -9,14 +9,15 @@ const dataVegetarianFriendly = [];
 const dataVegetarianOnly = [];
 let lastElementDate = new Date();
 
-// Load statisctics data and call funtion to handle the data
+// Load statistics data and call function to handle the data
 async function getStatistics() {
   const url = "data/stat.json";
   try {
     const response = await fetch(url);
     const data = await response.json();
     handleData(data.stat);
-  } catch (error) {
+  }
+  catch (error) {
     console.log("Request failed", error);
   }
 }

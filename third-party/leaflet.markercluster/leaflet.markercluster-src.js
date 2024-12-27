@@ -1,5 +1,5 @@
 /*
- * Leaflet.markercluster 1.5.3+master.e5124b2,
+ * Leaflet.markercluster 1.5.5+main.df6621a,
  * Provides Beautiful Animated Marker Clustering functionality for Leaflet, a JS library for interactive maps.
  * https://github.com/Leaflet/Leaflet.markercluster
  * (c) 2012-2017, Dave Leaver, smartrak
@@ -7,8 +7,8 @@
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
 	typeof define === 'function' && define.amd ? define(['exports'], factory) :
-	(global = global || self, factory((global.Leaflet = global.Leaflet || {}, global.Leaflet.markercluster = {})));
-}(this, function (exports) { 'use strict';
+	(global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global.Leaflet = global.Leaflet || {}, global.Leaflet.markercluster = {})));
+})(this, (function (exports) { 'use strict';
 
 	/*
 	 * L.MarkerClusterGroup extends L.FeatureGroup by clustering the markers contained within
@@ -137,6 +137,10 @@
 			    currentZoom = this._zoom;
 			if (layer.__parent) {
 				while (visibleLayer.__parent._zoom >= currentZoom) {
+					// Check if visibleLayer.__parent is undefined to avoid crashing in the next loop.
+					if (visibleLayer.__parent === undefined) {
+						break;
+					}
 					visibleLayer = visibleLayer.__parent;
 				}
 			}
@@ -304,7 +308,8 @@
 
 				process();
 			} else {
-				var needsClustering = this._needsClustering;
+				var needsClustering = new Array(l - offset);	// improve performance by preallocating the maximum size of our array
+				var tail = 0;
 
 				for (; offset < l; offset++) {
 					m = layersArray[offset];
@@ -330,8 +335,11 @@
 						continue;
 					}
 
-					needsClustering.push(m);
+					needsClustering[tail++] = m;
 				}
+
+				needsClustering = needsClustering.slice(0, tail);	// truncate empty elements
+				this._needsClustering = this._needsClustering.concat(needsClustering);
 			}
 			return this;
 		},
@@ -738,7 +746,7 @@
 			delete e.target.__dragStart;
 			if (dragStart) {
 				this._moveChild(e.target, dragStart, e.target._latlng);
-			}		
+			}
 		},
 
 
@@ -842,7 +850,7 @@
 				c += 'large';
 			}
 
-			return new L.DivIcon({ html: '<div><span>' + childCount + '</span></div>', className: 'marker-cluster' + c, iconSize: new L.Point(40, 40) });
+			return new L.DivIcon({ html: '<div><span>' + childCount + ' <span aria-label="markers"></span>' + '</span></div>', className: 'marker-cluster' + c, iconSize: new L.Point(40, 40) });
 		},
 
 		_bindEvents: function () {
@@ -869,7 +877,7 @@
 			var cluster = e.layer,
 			    bottomCluster = cluster;
 
-			if (e.type === 'clusterkeypress' && e.originalEvent && e.originalEvent.keyCode !== 13) {
+			if (e.type === 'clusterkeypress' && e.originalEvent && e.originalEvent.keyCode !== 13 || e.originalEvent.defaultPrevented) {
 				return;
 			}
 
@@ -980,6 +988,13 @@
 			this._gridUnclustered = {};
 
 			//Set up DistanceGrids for each zoom
+					
+			if (!isFinite(maxZoom) ) {
+	          		throw "Map has no maxZoom specified";
+	        	}
+	        	if (!isFinite(minZoom)) {
+	            		throw "Map has no minZoom specified";
+	        	}
 			for (var zoom = maxZoom; zoom >= minZoom; zoom--) {
 				this._gridClusters[zoom] = new L.DistanceGrid(radiusFn(zoom));
 				this._gridUnclustered[zoom] = new L.DistanceGrid(radiusFn(zoom));
@@ -2709,10 +2724,8 @@
 		}
 	});
 
-	exports.MarkerClusterGroup = MarkerClusterGroup;
 	exports.MarkerCluster = MarkerCluster;
-
-	Object.defineProperty(exports, '__esModule', { value: true });
+	exports.MarkerClusterGroup = MarkerClusterGroup;
 
 }));
 //# sourceMappingURL=leaflet.markercluster-src.js.map

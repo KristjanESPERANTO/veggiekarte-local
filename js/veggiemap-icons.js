@@ -9,13 +9,17 @@ export default function getIcon(symbol, category) {
   let iconColor;
   if (category === "vegan_only") {
     iconColor = whiteIconColor;
-  } else if (category === "vegetarian_only") {
+  }
+  else if (category === "vegetarian_only") {
     iconColor = whiteIconColor;
-  } else if (category === "vegan_friendly") {
+  }
+  else if (category === "vegan_friendly") {
     iconColor = blackIconColor;
-  } else if (category === "vegan_limited") {
+  }
+  else if (category === "vegan_limited") {
     iconColor = blackIconColor;
-  } else if (category === "vegetarian_friendly") {
+  }
+  else if (category === "vegetarian_friendly") {
     iconColor = blackIconColor;
   }
 
@@ -23,9 +27,9 @@ export default function getIcon(symbol, category) {
   let iconPath;
   if (symbol.startsWith("maki_")) {
     iconPath = "third-party/icons/maki/";
-    // eslint-disable-next-line no-param-reassign
     symbol = symbol.replace("maki_", "");
-  } else {
+  }
+  else {
     iconPath = "third-party/icons/openstreetmap-carto/";
   }
 

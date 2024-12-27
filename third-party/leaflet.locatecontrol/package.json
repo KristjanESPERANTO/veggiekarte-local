@@ -1,9 +1,12 @@
 {
   "name": "leaflet.locatecontrol",
-  "version": "0.79.0",
+  "version": "0.82.0",
   "homepage": "https://github.com/domoritz/leaflet-locatecontrol",
   "description": "A useful control to geolocate the user with many options. Used by osm.org and mapbox among many others.",
-  "main": "src/L.Control.Locate.js",
+  "main": "dist/L.Control.Locate.min.js",
+  "unpkg": "dist/L.Control.Locate.min.js",
+  "jsdelivr": "dist/L.Control.Locate.min.js",
+  "module": "dist/L.Control.Locate.esm.js",
   "author": "Dominik Moritz <domoritz@gmail.com>",
   "repository": {
     "type": "git",
@@ -25,20 +28,25 @@
     "start": "grunt connect"
   },
   "devDependencies": {
-    "eslint": "^8.28.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "grunt": "^1.5.3",
+    "@rollup/plugin-commonjs": "^28.0.1",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "eslint": "^9.13.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "grunt": "^1.6.1",
     "grunt-bump": "0.8.0",
-    "grunt-contrib-connect": "^3.0.0",
-    "grunt-contrib-sass": "^2.0.0",
+    "grunt-contrib-connect": "^4.0.0",
     "grunt-contrib-uglify": "^5.2.2",
-    "prettier": "^2.8.0",
-    "sass": "^1.56.1",
-    "stylelint": "^14.15.0",
-    "stylelint-config-prettier-scss": "^0.0.1",
-    "stylelint-config-recommended-scss": "^8.0.0",
-    "stylelint-prettier": "^2.0.0",
-    "stylelint-scss": "^4.3.0"
+    "grunt-rollup": "^12.0.0",
+    "grunt-sass": "^3.1.0",
+    "leaflet": "^1.9.4",
+    "prettier": "^3.3.3",
+    "rollup": "^4.24.3",
+    "sass": "^1.80.4",
+    "stylelint": "^16.10.0",
+    "stylelint-config-prettier-scss": "^1.0.0",
+    "stylelint-config-recommended-scss": "^14.1.0",
+    "stylelint-prettier": "^5.0.2",
+    "stylelint-scss": "^6.8.1"
   }
 }

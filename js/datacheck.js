@@ -1,5 +1,5 @@
-/* eslint-disable no-return-assign */
-/* global L */
+/* eslint-disable camelcase */
+/* global createHash, L */
 
 // Define marker groups
 const parentGroup = L.markerClusterGroup({
@@ -66,10 +66,10 @@ function veggiemap() {
 
   // Add hash to the url
   // eslint-disable-next-line no-unused-vars
-  const hash = new L.Hash(map);
+  const hash = createHash(map);
 
   // Add info button
-  const infoButton = L.easyButton('<div class="info-button"></div>', () => {
+  const infoButton = L.easyButton("<div class='info-button'></div>", () => {
     toggleInfo();
   }).addTo(map);
   infoButton.setPosition("topright");
@@ -90,14 +90,15 @@ function veggiemap() {
   L.control.layers(null, overlays).addTo(map);
 }
 
-// Function to toogle the visibility of the Info box.
+// Function to toggle the visibility of the Info box.
 function toggleInfo() {
-  const element = document.getElementById("information"); // get the element of the information window
-  const computedStyle = window.getComputedStyle(element); // get the actual style information
-  if (computedStyle.display !== "block") {
-    element.style.display = "block";
-  } else {
+  const element = document.getElementById("information"); // Get the element of the information window
+  const computedStyle = window.getComputedStyle(element); // Get the actual style information
+  if (computedStyle.display === "block") {
     element.style.display = "none";
+  }
+  else {
+    element.style.display = "block";
   }
 }
 
@@ -164,7 +165,8 @@ async function veggiemapPopulate(parentGroupVar) {
 
     // Hide spinner
     hideSpinner();
-  } catch (error) {
+  }
+  catch (error) {
     console.log("Request failed", error);
   }
 }
@@ -177,7 +179,8 @@ function geojsonToMarkerGroups(geojson) {
     let eCat = "issue_count_";
     if (feature.properties.issue_count > 6) {
       eCat += "many";
-    } else {
+    }
+    else {
       eCat += feature.properties.issue_count;
     }
     if (!groups[eCat]) groups[eCat] = [];
@@ -216,12 +219,12 @@ function calculatePopup(layer) {
 
   // Add undefined keys
   if (feature.properties.undefined !== undefined) {
-    feature.properties.undefined.forEach((key) => (popupContent += `<div class='popup-issue'>'${key}' is undefined</div>`));
+    feature.properties.undefined.forEach(key => (popupContent += `<div class='popup-issue'>'${key}' is undefined</div>`));
   }
 
   // Add issues
   if (feature.properties.issues !== undefined) {
-    feature.properties.issues.forEach((issue) => (popupContent += `<div class='popup-issue'>${issue}</div>`));
+    feature.properties.issues.forEach(issue => (popupContent += `<div class='popup-issue'>${issue}</div>`));
   }
 
   // OSM link to edit
