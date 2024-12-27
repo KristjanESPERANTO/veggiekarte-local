@@ -341,8 +341,13 @@ function calculatePopup(element) {
   const eOpe = feature.properties.opening_hours;
   const eSym = feature.properties.symbol;
 
+  let popupContent = `
+      <div class='popup-category ${feature.properties.category}'>
+        ${i18next.t(`texts.i18n_${feature.properties.category}`)}
+      </div>`;
+
   /** * Building the popup content ** */
-  let popupContent = `<div class='map-popup-title'>${eSym} ${eNam}`; // Symbol and name
+  popupContent += `<div class='map-popup-title'>${eSym} ${eNam}`; // Symbol and name
 
   // OSM link for popup
   const osmUrl = `https://openstreetmap.org/${eTyp}/${eId}`;

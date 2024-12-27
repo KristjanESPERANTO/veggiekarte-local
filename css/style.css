@@ -101,17 +101,19 @@ a:hover {
   padding: 3px;
 }
 
-/* Categorie properties */
+/* Category properties */
 /* stylelint-disable-next-line selector-class-pattern */
 .vegan_only {
   background: #050;
   border-color: #172;
+  color: white;
 }
 
 /* stylelint-disable-next-line selector-class-pattern */
 .vegetarian_only {
   background: #181;
   border-color: #181;
+  color: white;
 }
 
 /* stylelint-disable-next-line selector-class-pattern */
@@ -171,6 +173,21 @@ a:hover {
 .popupflex-container > div {
   min-width: 2em;
   padding-bottom: 7px;
+}
+
+.leaflet-popup-content {
+  margin-top: 45px;
+}
+
+.popup-category {
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  border-radius: 12px 12px 0 0;
+  padding: 12px 0;
+  margin-left: -21px;
+  width: 100%;
+  text-align: center;
 }
 
 /* The i symbol in the information button */
