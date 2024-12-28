@@ -1,6 +1,6 @@
 /*! *****************************************************************************
   veggiekarte
-  Version 1.1.1
+  Version 1.1.2
 
   A OpenStreetMap based map to easily find places, like restaurants and cafes, with vegetarian and vegan options.
   Please submit bugs at https://codeberg.org/piratenpanda/veggiekarte/issues
