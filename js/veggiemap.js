@@ -282,7 +282,6 @@ async function addNominatimInformation(element) {
   try {
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data[0].address);
     const address = data[0].address;
 
     // Address
@@ -311,8 +310,6 @@ async function addNominatimInformation(element) {
     }
 
     addressString = `<div class="popupflex-container"><div>📍</div>${addressString}</div>`;
-
-    console.log(element._popup._content);
 
     setTimeout(() => {
       if (addressString !== "") {
