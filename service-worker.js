@@ -5,8 +5,9 @@ console.info(CACHE_NAME);
 
 // List of files to cache here.
 const FILES_TO_CACHE = [
+  "data/places.min.json",
   "index.html",
-  "data/places.min.json"
+  "js/bundle.js"
 ];
 
 self.addEventListener("install", (event) => {
