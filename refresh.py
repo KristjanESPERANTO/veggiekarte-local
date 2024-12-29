@@ -363,15 +363,15 @@ def write_data(data):
 
 def check_data():
     """Check the temp file and replace the old VEGGIEPLACES_FILE if it is ok."""
-    if VEGGIEPLACES_TEMPFILE_BR.exists():                            # check if the temp file exists
-        if VEGGIEPLACES_TEMPFILE_BR.stat().st_size > 500:            # check if the temp file isn't too small (see issue #21)
+    if VEGGIEPLACES_TEMPFILE_BR.exists():                              # check if the temp file exists
+        if VEGGIEPLACES_TEMPFILE_BR.stat().st_size > 500:              # check if the temp file isn't too small (see issue #21)
             print("rename " + str(VEGGIEPLACES_TEMPFILE) + " to " + str(VEGGIEPLACES_FILE))
             VEGGIEPLACES_FILE.rename(VEGGIEPLACES_OLDFILE)             # rename old file
             VEGGIEPLACES_TEMPFILE.rename(VEGGIEPLACES_FILE)            # rename temp file to new file
             print("rename " + str(VEGGIEPLACES_TEMPFILE_MIN) + " to " + str(VEGGIEPLACES_FILE_MIN))
             VEGGIEPLACES_TEMPFILE_MIN.rename(VEGGIEPLACES_FILE_MIN)    # rename minimized temp file to new file
             print("rename " + str(VEGGIEPLACES_TEMPFILE_BR) + " to " + str(VEGGIEPLACES_FILE_BR))
-            VEGGIEPLACES_TEMPFILE_BR.rename(VEGGIEPLACES_FILE_BR)      # rename brotli temp file to new file
+            VEGGIEPLACES_TEMPFILE_BR.rename(VEGGIEPLACES_FILE_BR)      # rename compressed temp file to new file
             # Write the new statistic file
             VEGGIESTAT_FILE.touch()
             VEGGIESTAT_FILE.write_text(json.dumps(stat_data, indent=1, sort_keys=True))
@@ -380,7 +380,7 @@ def check_data():
             print("New compressed temp file is too small!")
             print(VEGGIEPLACES_TEMPFILE_BR.stat().st_size)
     else:
-        print("temp file don't exists!")
+        print("temp file doesn't exist!")
 
 
 def main():
