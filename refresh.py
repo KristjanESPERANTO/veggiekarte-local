@@ -7,7 +7,6 @@ diet:vegetarian = * from OpenStreetMap and fill them in a file.
 from pathlib import Path  # for handling files
 
 import datetime           # for the timestamp
-import gzip               # for compressing the json file
 import json               # read and write json
 import sys                # to check the python version
 import time               # for sleep
@@ -36,11 +35,9 @@ DATE = str(datetime.date.today())                              # the actual date
 DATA_DIR = Path("./data/")                                     # get the path of the directory of this script
 VEGGIEPLACES_TEMPFILE = DATA_DIR / "places_temp.json"          # the temp file to store the data
 VEGGIEPLACES_TEMPFILE_MIN = DATA_DIR / "places_temp.min.json"  # the minimized temp file
-VEGGIEPLACES_TEMPFILE_GZIP = DATA_DIR / "places_temp.min.json.gz"  # the gzipped temp file
 VEGGIEPLACES_TEMPFILE_BR = DATA_DIR / "places_temp.min.json.br"  # the brotli compressed temp file
 VEGGIEPLACES_FILE = DATA_DIR / "places.json"                   # the data file which will be used for the map
 VEGGIEPLACES_FILE_MIN = DATA_DIR / "places.min.json"           # the minimized data file which will be used for the map
-VEGGIEPLACES_FILE_GZIP = DATA_DIR / "places.min.json.gz"       # the gzipped data file which will be used for the map
 VEGGIEPLACES_FILE_BR = DATA_DIR / "places.min.json.br"         # the brotli compressed data file which will be used for the map
 VEGGIESTAT_FILE = DATA_DIR / "stat.json"                       # the statistics data file which will be used for the map
 VEGGIEPLACES_OLDFILE = DATA_DIR / "places_old.json"            # previous version of the data file (helpful to examine changes)
@@ -366,15 +363,13 @@ def write_data(data):
 
 def check_data():
     """Check the temp file and replace the old VEGGIEPLACES_FILE if it is ok."""
-    if VEGGIEPLACES_TEMPFILE_GZIP.exists():                            # check if the temp file exists
-        if VEGGIEPLACES_TEMPFILE_GZIP.stat().st_size > 500:            # check if the temp file isn't too small (see issue #21)
+    if VEGGIEPLACES_TEMPFILE_BR.exists():                            # check if the temp file exists
+        if VEGGIEPLACES_TEMPFILE_BR.stat().st_size > 500:            # check if the temp file isn't too small (see issue #21)
             print("rename " + str(VEGGIEPLACES_TEMPFILE) + " to " + str(VEGGIEPLACES_FILE))
             VEGGIEPLACES_FILE.rename(VEGGIEPLACES_OLDFILE)             # rename old file
             VEGGIEPLACES_TEMPFILE.rename(VEGGIEPLACES_FILE)            # rename temp file to new file
             print("rename " + str(VEGGIEPLACES_TEMPFILE_MIN) + " to " + str(VEGGIEPLACES_FILE_MIN))
             VEGGIEPLACES_TEMPFILE_MIN.rename(VEGGIEPLACES_FILE_MIN)    # rename minimized temp file to new file
-            print("rename " + str(VEGGIEPLACES_TEMPFILE_GZIP) + " to " + str(VEGGIEPLACES_FILE_GZIP))
-            VEGGIEPLACES_TEMPFILE_GZIP.rename(VEGGIEPLACES_FILE_GZIP)  # rename gzip temp file to new file
             print("rename " + str(VEGGIEPLACES_TEMPFILE_BR) + " to " + str(VEGGIEPLACES_FILE_BR))
             VEGGIEPLACES_TEMPFILE_BR.rename(VEGGIEPLACES_FILE_BR)      # rename brotli temp file to new file
             # Write the new statistic file
@@ -382,8 +377,8 @@ def check_data():
             VEGGIESTAT_FILE.write_text(json.dumps(stat_data, indent=1, sort_keys=True))
 
         else:
-            print("New gzip temp file is too small!")
-            print(VEGGIEPLACES_TEMPFILE_GZIP.stat().st_size)
+            print("New compressed temp file is too small!")
+            print(VEGGIEPLACES_TEMPFILE_BR.stat().st_size)
     else:
         print("temp file don't exists!")
 
@@ -409,10 +404,6 @@ def main():
         # Write file in minimized format
         VEGGIEPLACES_TEMPFILE_MIN.touch()
         VEGGIEPLACES_TEMPFILE_MIN.write_text(json.dumps(places_data, indent=None, sort_keys=True, separators=(",", ":"), ensure_ascii=False))
-
-        # Write file in gzipped format
-        with gzip.open(VEGGIEPLACES_TEMPFILE_GZIP, "wt", encoding="UTF-8") as outfile_gzip:
-            outfile_gzip.write(json.dumps(places_data, indent=None, sort_keys=True, separators=(',', ':')))
 
         # Write file in brotli compressed format
         compressed_data = brotli.compress(json.dumps(places_data, separators=(',', ':')).encode("utf-8"))
