@@ -22,7 +22,8 @@ export default {
   output: {
     banner,
     file: "js/bundle.js",
-    format: "es"
+    format: "es",
+    sourcemap: true
   },
   plugins: [terser()]
 };
