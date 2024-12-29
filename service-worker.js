@@ -19,7 +19,20 @@ self.addEventListener("install", (event) => {
 });
 
 self.addEventListener("activate", (event) => {
-  event.waitUntil(self.clients.claim());
+  event.waitUntil(
+    Promise.all([
+      // Delete old caches
+      caches.keys().then(cacheNames =>
+        Promise.all(
+          cacheNames.map(cacheName =>
+            cacheName === CACHE_NAME ? null : caches.delete(cacheName)
+          )
+        )
+      ),
+      // Claim all clients
+      self.clients.claim()
+    ])
+  );
 });
 
 // Service Worker Caching Strategy: Stale-While-Revalidate
