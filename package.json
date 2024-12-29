@@ -14,6 +14,9 @@
     "name": "piratenpanda",
     "url": "https://codeberg.org/piratenpanda"
   },
+  "contributors": [
+    "https://codeberg.org/piratenpanda/veggiekarte/activity/contributors"
+  ],
   "license": "GPL-3.0-only",
   "bugs": {
     "url": "https://codeberg.org/piratenpanda/veggiekarte/issues"
