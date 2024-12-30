@@ -1,12 +1,13 @@
 // Version will be updated by the build process
-const CACHE_NAME = "veggiekarte_v1.1.2";
+const CACHE_NAME = "veggiekarte_v1.1.3";
 
 console.info(CACHE_NAME);
 
 // List of files to cache here.
 const FILES_TO_CACHE = [
+  "data/places.min.json",
   "index.html",
-  "data/places.min.json"
+  "js/bundle.js"
 ];
 
 self.addEventListener("install", (event) => {
@@ -19,7 +20,20 @@ self.addEventListener("install", (event) => {
 });
 
 self.addEventListener("activate", (event) => {
-  event.waitUntil(self.clients.claim());
+  event.waitUntil(
+    Promise.all([
+      // Delete old caches
+      caches.keys().then(cacheNames =>
+        Promise.all(
+          cacheNames.map(cacheName =>
+            cacheName === CACHE_NAME ? null : caches.delete(cacheName)
+          )
+        )
+      ),
+      // Claim all clients
+      self.clients.claim()
+    ])
+  );
 });
 
 // Service Worker Caching Strategy: Stale-While-Revalidate

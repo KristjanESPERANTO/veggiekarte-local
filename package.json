@@ -1,6 +1,6 @@
 {
   "name": "veggiekarte",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "A OpenStreetMap based map to easily find places, like restaurants and cafes, with vegetarian and vegan options.",
   "repository": {
     "type": "git",
@@ -14,6 +14,9 @@
     "name": "piratenpanda",
     "url": "https://codeberg.org/piratenpanda"
   },
+  "contributors": [
+    "https://codeberg.org/piratenpanda/veggiekarte/activity/contributors"
+  ],
   "license": "GPL-3.0-only",
   "bugs": {
     "url": "https://codeberg.org/piratenpanda/veggiekarte/issues"
