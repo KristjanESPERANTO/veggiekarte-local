@@ -5,7 +5,6 @@ const dateArray = [];
 const dataVeganFriendly = [];
 const dataVeganLimited = [];
 const dataVeganOnly = [];
-const dataVegetarianFriendly = [];
 const dataVegetarianOnly = [];
 let lastElementDate = new Date();
 
@@ -45,7 +44,6 @@ function getValues(element) {
     dataVegetarianOnly.push(element.n_vegetarian_only);
     dataVeganFriendly.push(element.n_vegan_friendly);
     dataVeganLimited.push(element.n_vegan_limited);
-    dataVegetarianFriendly.push(element.n_vegetarian_friendly);
     lastElementDate = currentElementDate;
   }
 }
@@ -82,13 +80,6 @@ function buildConfig() {
           borderColor: "Orange",
           backgroundColor: "Orange",
           data: dataVeganLimited,
-          fill: false
-        },
-        {
-          label: "vegetarian friendly",
-          borderColor: "lightgrey",
-          backgroundColor: "lightgrey",
-          data: dataVegetarianFriendly,
           fill: false
         }
       ]

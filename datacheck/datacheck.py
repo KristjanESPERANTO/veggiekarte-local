@@ -5,10 +5,11 @@ With this module we check the OpenStreetMap data.
 
 import datetime  # for the timestamp
 import json  # read and write json
+import re  # to check characters in phone numbers
 from urllib.parse import urlparse
 from pathlib import Path
 import phonenumbers  # to check phone numbers
-import pyopening_hours  # to check opening_hours
+#from opening_hours import OpeningHours
 import requests  # to check if websites are reachable
 from email_validator import EmailNotValidError, validate_email
 
@@ -374,24 +375,20 @@ def check_data(data):
                     place_check_obj["properties"]["issues"].append(
                         "There is a line break in 'opening_hours' -> remove"
                     )
-                if "SH" not in opening_hours:
-                    try:
-                        oh = pyopening_hours.OpeningHours(opening_hours)
-                        oh_warnings = oh.getWarnings()
-                        if oh_warnings != []:
-                            for line in oh_warnings:
-                                place_check_obj["properties"]["issues"].append(f"opening_hours: {line}")
-                    except pyopening_hours.ParseException as error:
-                        place_check_obj["properties"]["issues"].append(f"opening_hours: {error.message}")
-                    except json.decoder.JSONDecodeError as error:
-                        print(error)
-                        place_check_obj["properties"]["issues"].append(f"opening_hours: {error}")
-                    except BrokenPipeError as error:
-                        print(error)
-                        place_check_obj["properties"]["issues"].append(f"opening_hours: {error}")
-                    except ImportError as error:
-                        print(error)
-                        place_check_obj["properties"]["issues"].append(f"opening_hours: {error}")
+                #if "+" not in opening_hours:
+                #    try:
+                #        OpeningHours(opening_hours)
+                #    except SyntaxError as error:
+                #        place_check_obj["properties"]["issues"].append(f"opening_hours: {error}")
+                #    except json.decoder.JSONDecodeError as error:
+                #        print(error)
+                #        place_check_obj["properties"]["issues"].append(f"opening_hours: {error}")
+                #    except BrokenPipeError as error:
+                #        print(error)
+                #        place_check_obj["properties"]["issues"].append(f"opening_hours: {error}")
+                #    except ImportError as error:
+                #        print(error)
+                #        place_check_obj["properties"]["issues"].append(f"opening_hours: {error}")
 
             # Disused
             if "disused" in "".join(tags):
@@ -440,6 +437,13 @@ def check_phone_number(place_check_obj, tag_name, tags):
 
     # TODO: Also use parsing and formatting in refresh script.
     phone_number = tags.get(tag_name, "")
+
+    phone_number_characters = re.sub('[0-9]|\ |\+|\;|\-', '', phone_number)
+    if len(phone_number_characters) > 0:
+        place_check_obj["properties"]["issues"].append(
+            f"'{tag_name}' contains characters that are not allowed: '{phone_number_characters}'"
+        )
+
     phone_number = phone_number.split(";")[0]  # Use only the first phone number
     try:
         parsed_number = phonenumbers.parse(phone_number, None)

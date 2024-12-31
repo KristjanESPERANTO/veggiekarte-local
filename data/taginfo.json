@@ -37,6 +37,10 @@
       "description": "⚪ Used to create markers on a map"
     },
     {
+      "key": "diet:vegan:description",
+      "description": "ℹ️ Used for detailed information in popup"
+    },
+    {
       "key": "cuisine",
       "description": "👩‍🍳 Emoji and value displayed in popup"
     },
