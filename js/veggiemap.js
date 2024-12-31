@@ -337,6 +337,7 @@ function calculatePopup(element) {
   const eCui = feature.properties.cuisine;
   const eOpe = feature.properties.opening_hours;
   const eSym = feature.properties.symbol;
+  const veganDescription = feature.properties.vegan_description;
 
   let popupContent = `
       <div class='popup-category ${feature.properties.category}'>
@@ -448,6 +449,10 @@ function calculatePopup(element) {
       "https://",
       ""
     )}</a></div></div>`;
+  }
+  if (veganDescription !== undefined) {
+    popupContent += `<div class='popupflex-container'><div>🗒️</div>
+      <div>${veganDescription}</div></div>`;
   }
 
   // Add review entry from lib.reviews if exists
