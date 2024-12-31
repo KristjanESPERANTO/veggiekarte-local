@@ -31,7 +31,7 @@
 }
 /* Safari renders non-retina tile on retina better with this, but Chrome is worse */
 .leaflet-safari .leaflet-tile {
-	image-rendering: -webkit-optimize-contrast;
+	image-rendering: auto;
 	}
 /* hack that prevents hw layers "stretching" when loading new tiles */
 .leaflet-safari .leaflet-tile-container {
@@ -121,7 +121,6 @@
 	height: 1px;
 	}
 .lvml {
-	behavior: url(#default#VML);
 	display: inline-block;
 	position: absolute;
 	}
@@ -179,7 +178,6 @@
 .leaflet-fade-anim .leaflet-popup {
 	opacity: 0;
 	-webkit-transition: opacity 0.2s linear;
-	   -moz-transition: opacity 0.2s linear;
 	        transition: opacity 0.2s linear;
 	}
 .leaflet-fade-anim .leaflet-map-pane .leaflet-popup {
@@ -196,13 +194,11 @@ svg.leaflet-zoom-animated {
 
 .leaflet-zoom-anim .leaflet-zoom-animated {
 	-webkit-transition: -webkit-transform 0.25s cubic-bezier(0,0,0.25,1);
-	   -moz-transition:    -moz-transform 0.25s cubic-bezier(0,0,0.25,1);
 	        transition:         transform 0.25s cubic-bezier(0,0,0.25,1);
 	}
 .leaflet-zoom-anim .leaflet-tile,
 .leaflet-pan-anim .leaflet-tile {
 	-webkit-transition: none;
-	   -moz-transition: none;
 	        transition: none;
 	}
 
@@ -547,13 +543,6 @@ svg.leaflet-image-layer.leaflet-interactive path {
 
 .leaflet-oldie .leaflet-popup-content-wrapper {
 	-ms-zoom: 1;
-	}
-.leaflet-oldie .leaflet-popup-tip {
-	width: 24px;
-	margin: 0 auto;
-
-	-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678)";
-	filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678);
 	}
 
 .leaflet-oldie .leaflet-control-zoom,
