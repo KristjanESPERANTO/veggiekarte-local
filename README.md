@@ -6,7 +6,7 @@ A OpenStreetMap based map to easily find places, like restaurants and cafes, wit
 
 ## Usage
 
-You can use it in any modern browser or install it as an app (as an [PWA](https://en.wikipedia.org/wiki/Progressive_web_application)).
+You can use it in any modern browser or install it as an app (as a [PWA](https://en.wikipedia.org/wiki/Progressive_web_application)).
 
 ## Get involved
 
