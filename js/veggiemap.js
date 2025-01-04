@@ -114,7 +114,8 @@ function veggiemap() {
       L.langObject("fi", "fi - suomi", "./third-party/leaflet.languageselector/images/fi.svg"),
       L.langObject("fr", "fr - Français", "./third-party/leaflet.languageselector/images/fr.svg"),
       L.langObject("it", "it - Italiano", "./third-party/leaflet.languageselector/images/it.svg"),
-      L.langObject("ko", "ko - 한국어", "./third-party/leaflet.languageselector/images/ko.svg")
+      L.langObject("ko", "ko - 한국어", "./third-party/leaflet.languageselector/images/ko.svg"),
+      L.langObject("ru", "ru - Русский", "./third-party/leaflet.languageselector/images/ru.svg")
     ],
     callback: setUserLanguage,
     initialLanguage: getUserLanguage(),
@@ -337,6 +338,7 @@ function calculatePopup(element) {
   const eCui = feature.properties.cuisine;
   const eOpe = feature.properties.opening_hours;
   const eSym = feature.properties.symbol;
+  const veganDescription = feature.properties.vegan_description;
 
   let popupContent = `
       <div class='popup-category ${feature.properties.category}'>
@@ -448,6 +450,10 @@ function calculatePopup(element) {
       "https://",
       ""
     )}</a></div></div>`;
+  }
+  if (veganDescription !== undefined) {
+    popupContent += `<div class='popupflex-container'><div>🗒️</div>
+      <div>${veganDescription}</div></div>`;
   }
 
   // Add review entry from lib.reviews if exists

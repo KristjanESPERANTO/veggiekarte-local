@@ -1,0 +1,63 @@
+{
+  "ru": {
+    "translation": {
+      "__comment__": "Russian localization (Please review!)",
+      "texts": {
+        "will open soon": ", но скоро откроется",
+        "will close soon": ", но скоро закроется",
+        "more_info": "Подробнее",
+        "content-welcome-heading": "Добро пожаловать",
+        "content-welcome-text": "На veggiekarte.de вы найдете все веганские и вегетарианские рестораны, кафе-мороженое, кафе и т.д., зарегистрированные в OpenStreetMap. Просто используйте поле поиска, чтобы найти свой район или улицу. Все значки с зеленым фоном - это заведения с веганскими опциями, а значки с белым фоном предлагают вегетарианские, но не веганские опции.",
+        "content-osm-heading": "Об OpenStreetMap",
+        "content-osm-text": "<a href='https://www.openstreetmap.org' target='_blank' rel='noopener noreferrer'>OpenStreetMap</a> - это бесплатная карта мира, работающая по принципу Википедии. Каждый может участвовать и вносить информацию. Это означает, что карта полна полезной информации и постоянно обновляется. Любой, у кого есть предложения по улучшению или кто находит ошибки на карте, может просто внести или исправить данные.",
+        "content-contribute-heading": "Внести информацию",
+        "content-contribute-text": "Если вы знаете рестораны, кафе, кафе-мороженое или киоски с едой, которых еще нет на карте, или управляете ими, вы можете просто добавить их сами. Для этого нужно отметить заведение в OpenStreetMap тегом 'diet:vegan' или 'diet:vegetarian' (\"Типы питания\"). Инструкции доступны <a href='how-to/tutorial_en.html' target='_blank' rel='noopener noreferrer'>здесь</a>.",
+        "content-reviews-heading": "Отзывы",
+        "content-reviews-text": "<a href='https://lib.reviews/' target='_blank' rel='noopener noreferrer'>lib.reviews</a> - это бесплатная и открытая платформа для отзывов о чем угодно. Если там есть отзыв о месте, мы покажем на него ссылку.",
+        "content-further-heading": "Дополнительно",
+        "content-further-text": "Veggiekarte обновляется автоматически каждый час. Код можно найти на <a href='https://codeberg.org/piratenpanda/veggiekarte' target='_blank' rel='noopener noreferrer'>Codeberg</a>. И в качестве небольшого дополнения у нас есть диаграмма <a href='data_chart.html'>здесь</a>.",
+        "i18n_vegan_only": "только веганское",
+        "i18n_vegan_only_title": "Заведение, предлагающее исключительно веганскую еду.",
+        "i18n_vegetarian_only": "только вегетарианское и веганское",
+        "i18n_vegetarian_only_title": "Заведение, предлагающее исключительно вегетарианскую и веганскую еду.",
+        "i18n_vegan_friendly": "дружелюбно к веганам",
+        "i18n_vegan_friendly_title": "Заведение, которое также предлагает веганскую еду.",
+        "i18n_vegan_limited": "ограниченное веганское меню",
+        "i18n_vegan_limited_title": "Заведение с ограниченным веганским предложением (часто нужно спрашивать отдельно от меню).",
+        "i18n_vegetarian_friendly": "вегетарианское",
+        "i18n_vegetarian_friendly_title": "Заведение, предлагающее вегетарианскую еду, но не веганскую."
+      },
+      "words": {
+        "open": "открыто",
+        "unknown": "неизвестно",
+        "closed": "закрыто",
+        "public_holiday": "праздник",
+        "review": "отзыв",
+        "school_holidays": "школьные каникулы"
+      },
+      "leaflet": {
+        "L-control-fullscreen": {
+          "fullscreen": "Полный экран",
+          "exitFullscreen": "Выйти из полного экрана"
+        },
+        "L-control-geocoder": {
+          "title": "Поиск",
+          "placeholder": "Поиск…",
+          "error_message": "Ничего не найдено."
+        },
+        "L-control-infoButton": {
+          "title": "Информация о сайте"
+        },
+        "L-control-locate": {
+          "where_am_i": "Показать, где я!",
+          "meter": "метров",
+          "distance": "Вы находитесь в пределах {distance} {unit} от этой точки."
+        },
+        "L-control-zoom": {
+          "zoom_in": "Приблизить",
+          "zoom_out": "Отдалить"
+        }
+      }
+    }
+  }
+}

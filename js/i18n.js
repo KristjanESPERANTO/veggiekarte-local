@@ -15,7 +15,8 @@ const languages = {
   fi: "suomi",
   fr: "Français",
   it: "Italiano",
-  ko: "한국어"
+  ko: "한국어",
+  ru: "Русский"
 };
 
 function setUserLanguage(language) {
