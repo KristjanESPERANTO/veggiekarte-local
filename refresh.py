@@ -13,7 +13,6 @@ import time               # for sleep
 import brotli             # for compressing the data
 import urllib3            # for the HTTP GET request
 
-assert sys.version_info >= (3, 0)
 
 # constants for the overpass request
 
@@ -45,6 +44,104 @@ OVERPASS_FILE = DATA_DIR / "overpass.json"                     # the raw overpas
 
 # variables to handle the json data
 stat_data = {}
+
+# only for Halle
+TOP_URL = "https://www.vegan-in-halle.de/wp/leben/vegane-stadtkarte/"
+
+# # list of objects which get links to more information
+GET_MORE_INFO = [
+    2338022982,  # Cup der guten Hoffnung
+    9676330117,  # Bay Vegan
+    5592987513,  # VL-Küfa
+    5592955318,  # Reil-Küfa
+    1034449861,  # Ökoase
+    61561597,    # Gartenlokal am Peißnitzhaus
+    1037059970,  # Kaffeeschuppen
+    164756625,   # Falafello 1
+    8357411012,  # Falafello 2
+    711744198,   # Hans im Glück
+    1538147900,  # Le Feu
+    261692804,   # Espitas
+    1038238639,  # Enchilada
+    2874464836,  # Mextreme
+    252918375,   # Alte Apotheke
+    4974999721,  # Bagel 29
+    3821868244,  # Sakura
+    282473154,   # Saalekahn
+    1034448971,  # Café Nöö
+    2531221700,  # Subway Neustadt
+    942721131,   # Subway Zentrum
+    3820929262,  # Subway Merseburg
+    467769739,   # Goldene Schildkröte
+    309747715,   # Shiva
+    1781737776,  # Indian Masala
+    1676156956,  # House of India
+    2791600302,  # Hotdog King
+    3052291182,  # Seoul Kulinarisch
+    1037236274,  # Mimi
+    164756646,   # SPICY
+    8773861578,  # JUICY - Reileck
+    7388445891,  # City Döner
+    578246181,   # Mo’s Daniel’s
+    2876264915,  # Sao Mai
+    178744104,   # Hallesches Brauhaus
+    3752087074,  # Rote Soße
+    10057151822, # Freddy Fresh
+    9033240019,  # Papa John's - Innenstadt
+    471978357,   # Papa John's - Büschdorf
+    47571137,    # Papa John's - Südstadt
+    3387395693,  # Papa John's - Neustadt
+    4868552820,  # Papa John's - Heide Süd
+    4948443538,  # Thang Long
+    134238289,   # Mönchshof
+    4465518868,  # Sushifreunde
+    1475009992,  # Rossini
+    4893692292,  # Café Wittekind
+    3724388225,  # Burgerheart
+    5091097909,  # Tajmahal
+    4815463722,  # Viet Village
+    5599806557,  # Sham Restaurant
+    2415756481,  # Hallenser Kartoffelhaus
+    8018875351,  # Restaurant Ruine
+    2068490774,  # The One
+    5868832962,  # Tandoori Steakhaus
+    8932643632,  # Alik GELATO
+    1185202509,  # Harzmensa
+    8018837433,  # Mensa Neuwerk
+    304682735,   # Mensa Franckesche Stiftungen
+    22883232,    # Heidemensa
+    375345326,   # Cafebar Steintor-Campus
+    2068490770,  # The Shabby
+    8018723343,  # Café Kuckhoff
+    2496741334,  # Naschmadame
+    1037235900,  # Czech
+    4914539421,  # 7 Gramm
+    2791600291,  # Coffee Fellows im Hauptbahnhof
+    3208898648,  # Coffee Fellows - Nova Eventis
+    1639760594,  # Bewaffel dich
+    6569044919,  # Hafenmeister & Docks
+    5942265574,  # Koffij
+    1045144852,  # Rosenburg
+    7027316371,  # Bistro Lorraine
+    5593108867,  # Himmel & Erde
+    120082234,   # Colonne Morris
+    1045144871,  # Zwei Zimmer, Küche, Bar
+    4971464334,  # Café Ludwig
+    3724402925,  # I LOVE Icecream
+    2715257424,  # Sonnendeck
+    2065237786,  # Naturell
+    8867577091,  # nobelsüß
+    2051567009,  # BioLogisch LogischBio
+    1943778686,  # BioRio
+    1902279166,  # Biomarkt am Reileck
+    1701119442,  # Naturata
+    5245541311,  # denns
+    5583171123,  # Europasia
+    2322858124,  # Weltladen
+    6366059605,  # Rübchen
+    7068127430,  # Cancun-Bar
+    2969150134   # Bäckerei Schäl
+]
 
 # icon mapping
 # (the first element of the array is for the icon in the marker, the second is an emoji which is used in the title)
@@ -130,13 +227,16 @@ def get_osm_data():
 
     # Preparing the string for the Overpass request
     # Define export format
-    overpass_query = "?data=[out:json][timeout:900];("
+    overpass_query = "?data=[out:json][timeout:900];"
+
+    # # Define the area - Halle + Saalekreis
+    overpass_query += "area['de:amtlicher_gemeindeschluessel'='15002000']->.halle;" \
+                      "area['de:amtlicher_gemeindeschluessel'='15088']->.saalekreis;" \
+                      "(.halle;.saalekreis;)->.searchArea;"
     # # Collect the vegan nodes, ways and relations
-    overpass_query += "nwr['diet:vegan'~'yes|only|limited'];"
-    # # Collect the vegetarian nodes, ways and relations
-    overpass_query += "nwr['diet:vegetarian'~'yes|only'];"
+    overpass_query += "nwr(area.searchArea)['diet:vegan'~'yes|only|limited'];"
     # # End of the query and use "out center" to reduce the geometry of ways and relations to a single coordinate
-    overpass_query += ");out+center;"
+    overpass_query += "out+center;"
 
     # Sending a request to one server after another until one gives a valid answer or
     # the end of the server list is reached.
@@ -185,7 +285,6 @@ def write_data(data):
     n_vegetarian_only = 0
     n_vegan_friendly = 0
     n_vegan_limited = 0
-    n_vegetarian_friendly = 0
 
     # Adding timestamp
     places_data["_timestamp"] = TIMESTAMP
@@ -268,8 +367,7 @@ def write_data(data):
             place_obj["properties"]["category"] = "vegan_limited"
             n_vegan_limited += 1
         else:
-            place_obj["properties"]["category"] = "vegetarian_friendly"
-            n_vegetarian_friendly += 1
+            continue
 
         if "cuisine" in tags:
             place_obj["properties"]["cuisine"] = tags["cuisine"]
@@ -325,6 +423,9 @@ def write_data(data):
             place_obj["properties"]["opening_hours"] = opening_hours
         if "shop" in tags:
             place_obj["properties"]["shop"] = tags["shop"]
+        if element_id in GET_MORE_INFO:  # More information and Link for those who use the map in a local website.
+            place_obj["properties"]["more_info"] = True
+
         if "diet:vegan:description" in tags:
             place_obj["properties"]["vegan_description"] = tags["diet:vegan:description"]
 
@@ -339,8 +440,7 @@ def write_data(data):
         "n_vegan_only": n_vegan_only,
         "n_vegetarian_only": n_vegetarian_only,
         "n_vegan_friendly": n_vegan_friendly,
-        "n_vegan_limited": n_vegan_limited,
-        "n_vegetarian_friendly": n_vegetarian_friendly,
+        "n_vegan_limited": n_vegan_limited
     }
 
     # Open statistic data file
