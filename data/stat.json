@@ -748,6 +748,13 @@
    "n_vegan_limited": 31,
    "n_vegan_only": 4,
    "n_vegetarian_only": 10
+  },
+  {
+   "date": "2025-02-04",
+   "n_vegan_friendly": 119,
+   "n_vegan_limited": 31,
+   "n_vegan_only": 4,
+   "n_vegetarian_only": 10
   }
  ]
 }

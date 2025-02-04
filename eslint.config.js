@@ -51,7 +51,7 @@ const config = [
       "complexity": "off",
       "curly": ["error", "multi-line"],
       "func-style": "off",
-      "id-length": ["error", { exceptions: ["i"] }],
+      "id-length": ["error", { exceptions: ["i", "L"] }],
       "import-x/no-unresolved": ["error", { ignore: ["eslint-plugin-package-json/configs/recommended"] }],
       "init-declarations": "off",
       "max-depth": ["warn", 5],
