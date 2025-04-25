@@ -339,7 +339,7 @@ function calculatePopup(element) {
   const eOpe = feature.properties.opening_hours;
   const eSym = feature.properties.symbol;
   const veganDescription = feature.properties.vegan_description;
-  const eMenu = feature.properties["website:menu"];
+  const eMenu = feature.properties.menu_url;
 
   let popupContent = `
       <div class='popup-category ${feature.properties.category}'>
