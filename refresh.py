@@ -327,6 +327,8 @@ def write_data(data):
             place_obj["properties"]["shop"] = tags["shop"]
         if "diet:vegan:description" in tags:
             place_obj["properties"]["vegan_description"] = tags["diet:vegan:description"]
+        if "website:menu" in tags:
+            place_obj["properties"]["menu_url"] = tags["website:menu"].rstrip("/")
 
         places_data["features"].append(place_obj)
 

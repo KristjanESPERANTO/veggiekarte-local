@@ -339,6 +339,7 @@ function calculatePopup(element) {
   const eOpe = feature.properties.opening_hours;
   const eSym = feature.properties.symbol;
   const veganDescription = feature.properties.vegan_description;
+  const eMenu = feature.properties.menu_url;
 
   let popupContent = `
       <div class='popup-category ${feature.properties.category}'>
@@ -432,6 +433,9 @@ function calculatePopup(element) {
       "https://",
       ""
     )}</a></div></div>`;
+  }
+  if (eMenu !== undefined) {
+    popupContent += `<div class='popupflex-container'><div>📋</div><div><a href='${eMenu}' target='_blank' rel='noopener noreferrer'>Speisekarte</a></div></div>`;
   }
   if (eFac !== undefined) {
     if (!eFac.startsWith("http")) {
