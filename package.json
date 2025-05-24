@@ -23,14 +23,16 @@
   },
   "homepage": "https://map.vegan-in-halle.de/",
   "devDependencies": {
+    "@eslint/css": "^0.8.1",
     "@eslint/js": "^9.27.0",
+    "@eslint/markdown": "^6.4.0",
     "@rollup/plugin-terser": "^0.4.4",
     "@stylistic/eslint-plugin": "^4.4.0",
     "autoprefixer": "^10.4.21",
     "cssnano": "^7.0.7",
     "eslint": "^9.27.0",
     "eslint-plugin-import-x": "^4.12.2",
-    "eslint-plugin-jsonc": "^2.20.1",
+    "globals": "^16.1.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.0.0",
     "postcss": "^8.5.3",
@@ -45,8 +47,8 @@
   "scripts": {
     "build": "rollup -c && postcss ./css/main.css -o ./css/bundle.css",
     "bump": "npx bumpp package.json package-lock.json js/bundle.js service-worker.js --no-push",
-    "lint": "eslint && stylelint **/*.css && prettier --check .",
-    "lint:fix": "eslint --fix && stylelint --fix **/*.css && prettier --write .",
+    "lint": "eslint && prettier . --check",
+    "lint:fix": "eslint --fix && prettier . --write",
     "prepare": "husky",
     "refresh": "python3 refresh.py",
     "release": "npm run lint:fix && npm run build && npm run bump",
@@ -55,7 +57,9 @@
   },
   "type": "module",
   "lint-staged": {
-    "*.js": "eslint --cache --fix",
-    "*.css": "stylelint --fix"
+    "*": [
+      "eslint --fix",
+      "prettier --write --ignore-unknown"
+    ]
   }
 }
