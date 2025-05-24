@@ -1,5 +1,5 @@
 {
- "_timestamp": "2025-02-04 22:42:24.168117",
+ "_timestamp": "2025-03-05 16:51:12.776446",
  "features": [
   {
    "geometry": {
@@ -2570,6 +2570,27 @@
   {
    "geometry": {
     "coordinates": [
+     11.9718833,
+     51.492423
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 7778472666,
+    "_type": "node",
+    "category": "vegan_limited",
+    "cuisine": "korean",
+    "icon": "restaurant",
+    "name": "Jin",
+    "opening_hours": "Tu-Sa 17:30-22:00",
+    "symbol": "🍽️",
+    "vegan_description": "Kein Gericht ist als vegan gekennzeichnet. Man kann sich aber eine Supper mit Teigtaschen auf NAchfrage vegan zubereiten lassen."
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9760862,
      51.4366866
     ],
@@ -3195,6 +3216,26 @@
     "name": "Kim Viet",
     "opening_hours": "Mo off; Tu-Th 10:30-21:00; Fr-Sa 10:30-21:30; Su 11:00-21:00",
     "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9665066,
+     51.4861458
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 10786591799,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_phone": "034552386226",
+    "icon": "cafe",
+    "name": "Klubhaus Simon 20",
+    "opening_hours": "Mo-Th 09:00-00:00, Fr-Su 09:00-01:00",
+    "symbol": "☕"
    },
    "type": "Feature"
   },
