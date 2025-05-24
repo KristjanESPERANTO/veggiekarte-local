@@ -1,14 +1,14 @@
-var N = Object.defineProperty;
-var M = (a, t, n) => t in a ? N(a, t, { enumerable: !0, configurable: !0, writable: !0, value: n }) : a[t] = n;
-var p = (a, t, n) => M(a, typeof t != "symbol" ? t + "" : t, n);
-import * as s from "leaflet";
-function u(a, t) {
-  return s.Util.extend(t, a.geocodingQueryParams);
+var M = Object.defineProperty;
+var D = (i, e, t) => e in i ? M(i, e, { enumerable: !0, configurable: !0, writable: !0, value: t }) : i[e] = t;
+var l = (i, e, t) => D(i, typeof e != "symbol" ? e + "" : e, t);
+import * as n from "leaflet";
+function h(i, e) {
+  return Object.assign(e, i.geocodingQueryParams);
 }
-function h(a, t) {
-  return s.Util.extend(t, a.reverseQueryParams);
+function g(i, e) {
+  return Object.assign(e, i.reverseQueryParams);
 }
-const j = /[&<>"'`]/g, A = /[&<>"'`]/, G = {
+const A = /[&<>"'`]/g, G = /[&<>"'`]/, z = {
   "&": "&amp;",
   "<": "&lt;",
   ">": "&gt;",
@@ -16,262 +16,241 @@ const j = /[&<>"'`]/g, A = /[&<>"'`]/, G = {
   "'": "&#x27;",
   "`": "&#x60;"
 };
-function W(a) {
-  return G[a];
+function W(i) {
+  return z[i];
 }
-function I(a) {
-  return a == null ? "" : a ? (a = "" + a, A.test(a) ? a.replace(j, W) : a) : a + "";
+function I(i) {
+  return i == null ? "" : i ? (i = "" + i, G.test(i) ? i.replace(A, W) : i) : i + "";
 }
-function d(a, t) {
-  const n = { Accept: "application/json" }, e = new URL(a);
-  return Object.entries(t).forEach(([o, i]) => {
-    (Array.isArray(i) ? i : [i]).forEach((r) => {
-      e.searchParams.append(o, r);
+function p(i, e) {
+  const t = { Accept: "application/json" }, s = new URL(i);
+  return Object.entries(e).forEach(([o, r]) => {
+    (Array.isArray(r) ? r : [r]).forEach((a) => {
+      s.searchParams.append(o, a);
     });
-  }), fetch(e.toString(), { headers: n }).then((o) => o.json());
+  }), fetch(s.toString(), { headers: t }).then((o) => o.json());
 }
-function z(a, t) {
-  return a.replace(/\{ *([\w_]+) *\}/g, (n, e) => {
-    let o = t[e];
-    return o === void 0 ? o = "" : typeof o == "function" && (o = o(t)), I(o);
+function q(i, e) {
+  return i.replace(/\{ *([\w_]+) *\}/g, (t, s) => {
+    let o = e[s];
+    return o === void 0 ? o = "" : typeof o == "function" && (o = o(e)), I(o);
   });
 }
-class L {
-  constructor(t) {
-    p(this, "options", {
+class b {
+  constructor(e) {
+    l(this, "options", {
       serviceUrl: "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer",
       apiKey: ""
     });
-    s.Util.setOptions(this, t);
+    n.Util.setOptions(this, e);
   }
-  async geocode(t) {
-    const n = u(this.options, {
+  async geocode(e) {
+    const t = h(this.options, {
       token: this.options.apiKey,
-      SingleLine: t,
+      SingleLine: e,
       outFields: "Addr_Type",
       forStorage: !1,
       maxLocations: 10,
       f: "json"
-    }), e = await d(
+    });
+    return (await p(
       this.options.serviceUrl + "/findAddressCandidates",
-      n
-    ), o = [];
-    if (e.candidates && e.candidates.length)
-      for (let i = 0; i <= e.candidates.length - 1; i++) {
-        const r = e.candidates[i], l = s.latLng(r.location.y, r.location.x), c = s.latLngBounds(
-          s.latLng(r.extent.ymax, r.extent.xmax),
-          s.latLng(r.extent.ymin, r.extent.xmin)
-        );
-        o[i] = {
-          name: r.address,
-          bbox: c,
-          center: l
-        };
-      }
-    return o;
+      t
+    )).candidates.map((o) => {
+      const r = new n.LatLng(o.location.y, o.location.x), a = new n.LatLngBounds(
+        new n.LatLng(o.extent.ymax, o.extent.xmax),
+        new n.LatLng(o.extent.ymin, o.extent.xmin)
+      );
+      return {
+        name: o.address,
+        bbox: a,
+        center: r
+      };
+    });
   }
-  suggest(t) {
-    return this.geocode(t);
+  suggest(e) {
+    return this.geocode(e);
   }
-  async reverse(t, n) {
-    const e = h(this.options, {
-      location: t.lng + "," + t.lat,
+  async reverse(e, t) {
+    const s = g(this.options, {
+      location: e.lng + "," + e.lat,
       distance: 100,
       f: "json"
-    }), o = await d(this.options.serviceUrl + "/reverseGeocode", e), i = [];
-    if (o && !o.error) {
-      const r = s.latLng(o.location.y, o.location.x), l = s.latLngBounds(r, r);
-      i.push({
+    }), o = await p(this.options.serviceUrl + "/reverseGeocode", s);
+    if (!o || o.error)
+      return [];
+    const r = new n.LatLng(o.location.y, o.location.x), a = new n.LatLngBounds(r, r);
+    return [
+      {
         name: o.address.Match_addr,
         center: r,
-        bbox: l
-      });
-    }
-    return i;
+        bbox: a
+      }
+    ];
   }
 }
-function q(a) {
-  return new L(a);
+function H(i) {
+  return new b(i);
 }
 class y {
-  constructor(t) {
-    p(this, "options", {
+  constructor(e) {
+    l(this, "options", {
       serviceUrl: "https://dev.virtualearth.net/REST/v1/Locations/"
     });
-    s.Util.setOptions(this, t);
+    n.Util.setOptions(this, e);
   }
-  async geocode(t) {
-    const n = u(this.options, {
-      query: t,
+  async geocode(e) {
+    const t = h(this.options, {
+      query: e,
       key: this.options.apiKey
-    }), e = await d(this.options.serviceUrl, n), o = [];
-    if (e.resourceSets.length > 0)
-      for (let i = e.resourceSets[0].resources.length - 1; i >= 0; i--) {
-        const r = e.resourceSets[0].resources[i], l = r.bbox;
-        o[i] = {
-          name: r.name,
-          bbox: s.latLngBounds([l[0], l[1]], [l[2], l[3]]),
-          center: s.latLng(r.point.coordinates)
-        };
-      }
-    return o;
+    }), s = await p(this.options.serviceUrl, t);
+    return this._parseResults(s);
   }
-  async reverse(t, n) {
-    const e = h(this.options, {
+  async reverse(e, t) {
+    const s = g(this.options, {
       key: this.options.apiKey
-    }), o = await d(
-      this.options.serviceUrl + t.lat + "," + t.lng,
-      e
-    ), i = [];
-    for (let r = o.resourceSets[0].resources.length - 1; r >= 0; r--) {
-      const l = o.resourceSets[0].resources[r], c = l.bbox;
-      i[r] = {
-        name: l.name,
-        bbox: s.latLngBounds([c[0], c[1]], [c[2], c[3]]),
-        center: s.latLng(l.point.coordinates)
+    }), o = await p(
+      this.options.serviceUrl + e.lat + "," + e.lng,
+      s
+    );
+    return this._parseResults(o);
+  }
+  _parseResults(e) {
+    return e.resourceSets[0].resources.map((t) => {
+      const s = t.bbox;
+      return {
+        name: t.name,
+        bbox: new n.LatLngBounds([s[0], s[1]], [s[2], s[3]]),
+        center: new n.LatLng(...t.point.coordinates)
       };
-    }
-    return i;
+    });
   }
 }
-function H(a) {
-  return new y(a);
+function J(i) {
+  return new y(i);
 }
 class x {
-  constructor(t) {
-    p(this, "options", {
+  constructor(e) {
+    l(this, "options", {
       apiKey: "",
       serviceUrl: "https://atlas.microsoft.com/search"
     });
-    if (s.Util.setOptions(this, t), !this.options.apiKey)
+    if (n.Util.setOptions(this, e), !this.options.apiKey)
       throw new Error("Azure Maps Geocoder requires an API key.");
   }
   /**
    * {@inheritdoc}
    * https://learn.microsoft.com/en-us/rest/api/maps/search/get-search-address?view=rest-maps-1.0&tabs=HTTP
    */
-  async geocode(t) {
-    const n = {
+  async geocode(e) {
+    const t = {
       "api-version": "1.0",
-      query: t,
+      query: e,
       "subscription-key": this.options.apiKey
-    }, e = this.options.serviceUrl + "/address/json", o = await d(e, n), i = [];
-    if (o.results && o.results.length > 0)
-      for (const r of o.results)
-        i.push({
-          name: r.address.freeformAddress,
-          bbox: s.latLngBounds(
-            [r.viewport.topLeftPoint.lat, r.viewport.topLeftPoint.lon],
-            [r.viewport.btmRightPoint.lat, r.viewport.btmRightPoint.lon]
-          ),
-          center: s.latLng(r.position.lat, r.position.lon)
-        });
-    return i;
+    }, s = this.options.serviceUrl + "/address/json";
+    return ((await p(s, t)).results || []).map(
+      (r) => ({
+        name: r.address.freeformAddress,
+        bbox: new n.LatLngBounds(
+          [r.viewport.topLeftPoint.lat, r.viewport.topLeftPoint.lon],
+          [r.viewport.btmRightPoint.lat, r.viewport.btmRightPoint.lon]
+        ),
+        center: new n.LatLng(r.position.lat, r.position.lon)
+      })
+    );
   }
   /**
    * {@inheritdoc}
    * https://learn.microsoft.com/en-us/rest/api/maps/search/get-search-address-reverse?view=rest-maps-1.0&tabs=HTTP
    */
-  async reverse(t, n) {
-    const e = {
+  async reverse(e, t) {
+    const s = {
       "api-version": "1.0",
-      query: t.lat + "," + t.lng,
+      query: e.lat + "," + e.lng,
       "subscription-key": this.options.apiKey
-    }, o = this.options.serviceUrl + "/address/reverse/json", i = await d(o, e), r = [];
-    if (i.addresses && i.addresses.length > 0)
-      for (const l of i.addresses)
-        r.push({
-          name: l.address.freeformAddress,
-          bbox: s.latLngBounds(
-            [l.viewport.topLeftPoint.lat, l.viewport.topLeftPoint.lon],
-            [l.viewport.btmRightPoint.lat, l.viewport.btmRightPoint.lon]
-          ),
-          center: s.latLng(t.lat, t.lng)
-        });
-    return r;
+    }, o = this.options.serviceUrl + "/address/reverse/json";
+    return ((await p(o, s)).addresses || []).map(
+      (a) => ({
+        name: a.address.freeformAddress,
+        bbox: new n.LatLngBounds(
+          [a.viewport.topLeftPoint.lat, a.viewport.topLeftPoint.lon],
+          [a.viewport.btmRightPoint.lat, a.viewport.btmRightPoint.lon]
+        ),
+        center: new n.LatLng(e.lat, e.lng)
+      })
+    );
   }
 }
-function J(a) {
-  return new x(a);
-}
-class w {
-  constructor(t) {
-    p(this, "options", {
-      serviceUrl: "https://maps.googleapis.com/maps/api/geocode/json"
-    });
-    s.Util.setOptions(this, t);
-  }
-  async geocode(t) {
-    const n = u(this.options, {
-      key: this.options.apiKey,
-      address: t
-    }), e = await d(this.options.serviceUrl, n), o = [];
-    if (e.results && e.results.length)
-      for (let i = 0; i <= e.results.length - 1; i++) {
-        const r = e.results[i], l = s.latLng(r.geometry.location), c = s.latLngBounds(
-          s.latLng(r.geometry.viewport.northeast),
-          s.latLng(r.geometry.viewport.southwest)
-        );
-        o[i] = {
-          name: r.formatted_address,
-          bbox: c,
-          center: l,
-          properties: r.address_components
-        };
-      }
-    return o;
-  }
-  async reverse(t, n) {
-    const e = h(this.options, {
-      key: this.options.apiKey,
-      latlng: t.lat + "," + t.lng
-    }), o = await d(this.options.serviceUrl, e), i = [];
-    if (o.results && o.results.length)
-      for (let r = 0; r <= o.results.length - 1; r++) {
-        const l = o.results[r], c = s.latLng(l.geometry.location), g = s.latLngBounds(
-          s.latLng(l.geometry.viewport.northeast),
-          s.latLng(l.geometry.viewport.southwest)
-        );
-        i[r] = {
-          name: l.formatted_address,
-          bbox: g,
-          center: c,
-          properties: l.address_components
-        };
-      }
-    return i;
-  }
-}
-function V(a) {
-  return new w(a);
+function V(i) {
+  return new x(i);
 }
 class U {
-  constructor(t) {
-    p(this, "options", {
+  constructor(e) {
+    l(this, "options", {
+      serviceUrl: "https://maps.googleapis.com/maps/api/geocode/json"
+    });
+    n.Util.setOptions(this, e);
+  }
+  async geocode(e) {
+    const t = h(this.options, {
+      key: this.options.apiKey,
+      address: e
+    }), s = await p(this.options.serviceUrl, t);
+    return this._parseResults(s);
+  }
+  async reverse(e, t) {
+    const s = g(this.options, {
+      key: this.options.apiKey,
+      latlng: e.lat + "," + e.lng
+    }), o = await p(this.options.serviceUrl, s);
+    return this._parseResults(o);
+  }
+  _parseResults(e) {
+    var t;
+    return (t = e.results || []) == null ? void 0 : t.map((s) => {
+      const o = new n.LatLng(s.geometry.location.lat, s.geometry.location.lng), r = new n.LatLngBounds(
+        new n.LatLng(s.geometry.viewport.northeast.lat, s.geometry.viewport.northeast.lng),
+        new n.LatLng(s.geometry.viewport.southwest.lat, s.geometry.viewport.southwest.lng)
+      );
+      return {
+        name: s.formatted_address,
+        bbox: r,
+        center: o,
+        properties: s.address_components
+      };
+    });
+  }
+}
+function $(i) {
+  return new U(i);
+}
+class R {
+  constructor(e) {
+    l(this, "options", {
       serviceUrl: "https://geocoder.api.here.com/6.2/",
       app_id: "",
       app_code: "",
       apiKey: "",
       maxResults: 5
     });
-    if (s.Util.setOptions(this, t), t != null && t.apiKey) throw Error("apiKey is not supported, use app_id/app_code instead!");
+    if (n.Util.setOptions(this, e), e != null && e.apiKey) throw Error("apiKey is not supported, use app_id/app_code instead!");
   }
-  geocode(t) {
-    const n = u(this.options, {
-      searchtext: t,
+  geocode(e) {
+    const t = h(this.options, {
+      searchtext: e,
       gen: 9,
       app_id: this.options.app_id,
       app_code: this.options.app_code,
       jsonattributes: 1,
       maxresults: this.options.maxResults
     });
-    return this.getJSON(this.options.serviceUrl + "geocode.json", n);
+    return this.getJSON(this.options.serviceUrl + "geocode.json", t);
   }
-  reverse(t, n) {
-    let e = t.lat + "," + t.lng;
-    this.options.reverseGeocodeProxRadius && (e += "," + this.options.reverseGeocodeProxRadius);
-    const o = h(this.options, {
-      prox: e,
+  reverse(e, t) {
+    let s = e.lat + "," + e.lng;
+    this.options.reverseGeocodeProxRadius && (s += "," + this.options.reverseGeocodeProxRadius);
+    const o = g(this.options, {
+      prox: s,
       mode: "retrieveAddresses",
       app_id: this.options.app_id,
       app_code: this.options.app_code,
@@ -281,670 +260,661 @@ class U {
     });
     return this.getJSON(this.options.serviceUrl + "reversegeocode.json", o);
   }
-  async getJSON(t, n) {
-    const e = await d(t, n), o = [];
-    if (e.response.view && e.response.view.length)
-      for (let i = 0; i <= e.response.view[0].result.length - 1; i++) {
-        const r = e.response.view[0].result[i].location, l = s.latLng(r.displayPosition.latitude, r.displayPosition.longitude), c = s.latLngBounds(
-          s.latLng(r.mapView.topLeft.latitude, r.mapView.topLeft.longitude),
-          s.latLng(r.mapView.bottomRight.latitude, r.mapView.bottomRight.longitude)
-        );
-        o[i] = {
-          name: r.address.label,
-          properties: r.address,
-          bbox: c,
-          center: l
-        };
-      }
-    return o;
+  async getJSON(e, t) {
+    var o, r;
+    return (((r = (o = (await p(e, t)).response.view) == null ? void 0 : o[0]) == null ? void 0 : r.result) || []).map((a) => {
+      const c = a.location, d = new n.LatLng(c.displayPosition.latitude, c.displayPosition.longitude), u = new n.LatLngBounds(
+        new n.LatLng(c.mapView.topLeft.latitude, c.mapView.topLeft.longitude),
+        new n.LatLng(c.mapView.bottomRight.latitude, c.mapView.bottomRight.longitude)
+      );
+      return {
+        name: c.address.label,
+        properties: c.address,
+        bbox: u,
+        center: d
+      };
+    });
   }
 }
-class C {
-  constructor(t) {
-    p(this, "options", {
+class E {
+  constructor(e) {
+    l(this, "options", {
       serviceUrl: "https://geocode.search.hereapi.com/v1",
       apiKey: "",
       app_id: "",
       app_code: "",
       maxResults: 10
     });
-    s.Util.setOptions(this, t);
+    n.Util.setOptions(this, e);
   }
-  geocode(t) {
-    const n = u(this.options, {
-      q: t,
+  geocode(e) {
+    const t = h(this.options, {
+      q: e,
       apiKey: this.options.apiKey,
       limit: this.options.maxResults
     });
-    if (!n.at && !n.in)
+    if (!t.at && !t.in)
       throw Error(
         "at / in parameters not found. Please define coordinates (at=latitude,longitude) or other (in) in your geocodingQueryParams."
       );
-    return this.getJSON(this.options.serviceUrl + "/discover", n);
+    return this.getJSON(this.options.serviceUrl + "/discover", t);
   }
-  reverse(t, n) {
-    const e = h(this.options, {
-      at: t.lat + "," + t.lng,
+  reverse(e, t) {
+    const s = g(this.options, {
+      at: e.lat + "," + e.lng,
       limit: this.options.reverseGeocodeProxRadius,
       apiKey: this.options.apiKey
     });
-    return this.getJSON(this.options.serviceUrl + "/revgeocode", e);
+    return this.getJSON(this.options.serviceUrl + "/revgeocode", s);
   }
-  async getJSON(t, n) {
-    const e = await d(t, n), o = [];
-    if (e.items && e.items.length)
-      for (let i = 0; i <= e.items.length - 1; i++) {
-        const r = e.items[i], l = s.latLng(r.position.lat, r.position.lng);
-        let c;
-        r.mapView ? c = s.latLngBounds(
-          s.latLng(r.mapView.south, r.mapView.west),
-          s.latLng(r.mapView.north, r.mapView.east)
-        ) : c = s.latLngBounds(
-          s.latLng(r.position.lat, r.position.lng),
-          s.latLng(r.position.lat, r.position.lng)
-        ), o[i] = {
-          name: r.address.label,
-          properties: r.address,
-          bbox: c,
-          center: l
-        };
-      }
-    return o;
+  async getJSON(e, t) {
+    return ((await p(e, t)).items || []).map((o) => {
+      const r = new n.LatLng(o.position.lat, o.position.lng);
+      let a;
+      return o.mapView ? a = new n.LatLngBounds(
+        new n.LatLng(o.mapView.south, o.mapView.west),
+        new n.LatLng(o.mapView.north, o.mapView.east)
+      ) : a = new n.LatLngBounds(
+        new n.LatLng(o.position.lat, o.position.lng),
+        new n.LatLng(o.position.lat, o.position.lng)
+      ), {
+        name: o.address.label,
+        properties: o.address,
+        bbox: a,
+        center: r
+      };
+    });
   }
 }
-function $(a) {
-  return a != null && a.apiKey ? new C(a) : new U(a);
+function F(i) {
+  return i != null && i.apiKey ? new E(i) : new R(i);
 }
-function R(a) {
-  let t;
-  if (t = a.match(/^([NS])\s*(\d{1,3}(?:\.\d*)?)\W*([EW])\s*(\d{1,3}(?:\.\d*)?)$/))
-    return s.latLng(
-      (/N/i.test(t[1]) ? 1 : -1) * +t[2],
-      (/E/i.test(t[3]) ? 1 : -1) * +t[4]
+function k(i) {
+  let e;
+  if (e = i.match(/^([NS])\s*(\d{1,3}(?:\.\d*)?)\W*([EW])\s*(\d{1,3}(?:\.\d*)?)$/))
+    return new n.LatLng(
+      (/N/i.test(e[1]) ? 1 : -1) * +e[2],
+      (/E/i.test(e[3]) ? 1 : -1) * +e[4]
     );
-  if (t = a.match(/^(\d{1,3}(?:\.\d*)?)\s*([NS])\W*(\d{1,3}(?:\.\d*)?)\s*([EW])$/))
-    return s.latLng(
-      (/N/i.test(t[2]) ? 1 : -1) * +t[1],
-      (/E/i.test(t[4]) ? 1 : -1) * +t[3]
+  if (e = i.match(/^(\d{1,3}(?:\.\d*)?)\s*([NS])\W*(\d{1,3}(?:\.\d*)?)\s*([EW])$/))
+    return new n.LatLng(
+      (/N/i.test(e[2]) ? 1 : -1) * +e[1],
+      (/E/i.test(e[4]) ? 1 : -1) * +e[3]
     );
-  if (t = a.match(
+  if (e = i.match(
     /^([NS])\s*(\d{1,3})°?\s*(\d{1,3}(?:\.\d*)?)?['′]?\W*([EW])\s*(\d{1,3})°?\s*(\d{1,3}(?:\.\d*)?)?['′]?$/
   ))
-    return s.latLng(
-      (/N/i.test(t[1]) ? 1 : -1) * (+t[2] + +t[3] / 60),
-      (/E/i.test(t[4]) ? 1 : -1) * (+t[5] + +t[6] / 60)
+    return new n.LatLng(
+      (/N/i.test(e[1]) ? 1 : -1) * (+e[2] + +e[3] / 60),
+      (/E/i.test(e[4]) ? 1 : -1) * (+e[5] + +e[6] / 60)
     );
-  if (t = a.match(
+  if (e = i.match(
     /^(\d{1,3})°?\s*(\d{1,3}(?:\.\d*)?)?['′]?\s*([NS])\W*(\d{1,3})°?\s*(\d{1,3}(?:\.\d*)?)?['′]?\s*([EW])$/
   ))
-    return s.latLng(
-      (/N/i.test(t[3]) ? 1 : -1) * (+t[1] + +t[2] / 60),
-      (/E/i.test(t[6]) ? 1 : -1) * (+t[4] + +t[5] / 60)
+    return new n.LatLng(
+      (/N/i.test(e[3]) ? 1 : -1) * (+e[1] + +e[2] / 60),
+      (/E/i.test(e[6]) ? 1 : -1) * (+e[4] + +e[5] / 60)
     );
-  if (t = a.match(
+  if (e = i.match(
     /^([NS])\s*(\d{1,3})°?\s*(\d{1,2})['′]?\s*(\d{1,3}(?:\.\d*)?)?["″]?\W*([EW])\s*(\d{1,3})°?\s*(\d{1,2})['′]?\s*(\d{1,3}(?:\.\d*)?)?["″]?$/
   ))
-    return s.latLng(
-      (/N/i.test(t[1]) ? 1 : -1) * (+t[2] + +t[3] / 60 + +t[4] / 3600),
-      (/E/i.test(t[5]) ? 1 : -1) * (+t[6] + +t[7] / 60 + +t[8] / 3600)
+    return new n.LatLng(
+      (/N/i.test(e[1]) ? 1 : -1) * (+e[2] + +e[3] / 60 + +e[4] / 3600),
+      (/E/i.test(e[5]) ? 1 : -1) * (+e[6] + +e[7] / 60 + +e[8] / 3600)
     );
-  if (t = a.match(
+  if (e = i.match(
     /^(\d{1,3})°?\s*(\d{1,2})['′]?\s*(\d{1,3}(?:\.\d*)?)?["″]\s*([NS])\W*(\d{1,3})°?\s*(\d{1,2})['′]?\s*(\d{1,3}(?:\.\d*)?)?["″]?\s*([EW])$/
   ))
-    return s.latLng(
-      (/N/i.test(t[4]) ? 1 : -1) * (+t[1] + +t[2] / 60 + +t[3] / 3600),
-      (/E/i.test(t[8]) ? 1 : -1) * (+t[5] + +t[6] / 60 + +t[7] / 3600)
+    return new n.LatLng(
+      (/N/i.test(e[4]) ? 1 : -1) * (+e[1] + +e[2] / 60 + +e[3] / 3600),
+      (/E/i.test(e[8]) ? 1 : -1) * (+e[5] + +e[6] / 60 + +e[7] / 3600)
     );
-  if (t = a.match(/^\s*([+-]?\d+(?:\.\d*)?)\s*[\s,]\s*([+-]?\d+(?:\.\d*)?)\s*$/))
-    return s.latLng(+t[1], +t[2]);
+  if (e = i.match(/^\s*([+-]?\d+(?:\.\d*)?)\s*[\s,]\s*([+-]?\d+(?:\.\d*)?)\s*$/))
+    return new n.LatLng(+e[1], +e[2]);
 }
-class E {
-  constructor(t) {
-    p(this, "options", {
+class O {
+  constructor(e) {
+    l(this, "options", {
       next: void 0,
       sizeInMeters: 1e4
     });
-    s.Util.setOptions(this, t);
+    n.Util.setOptions(this, e);
   }
-  async geocode(t) {
-    const n = R(t);
-    return n ? [
+  async geocode(e) {
+    const t = k(e);
+    return t ? [
       {
-        name: t,
-        center: n,
-        bbox: n.toBounds(this.options.sizeInMeters)
+        name: e,
+        center: t,
+        bbox: t.toBounds(this.options.sizeInMeters)
       }
-    ] : this.options.next ? this.options.next.geocode(t) : [];
+    ] : this.options.next ? this.options.next.geocode(e) : [];
   }
 }
-function F(a) {
-  return new E(a);
+function Q(i) {
+  return new O(i);
 }
-class k {
-  constructor(t) {
-    p(this, "options", {
+class C {
+  constructor(e) {
+    l(this, "options", {
       serviceUrl: "https://api.mapbox.com/geocoding/v5/mapbox.places/"
     });
-    s.Util.setOptions(this, t);
+    n.Util.setOptions(this, e);
   }
-  _getProperties(t) {
-    const n = {
-      text: t.text,
-      address: t.address
+  _getProperties(e) {
+    const t = {
+      text: e.text,
+      address: e.address
     };
-    for (let e = 0; e < (t.context || []).length; e++) {
-      const o = t.context[e].id.split(".")[0];
-      n[o] = t.context[e].text, t.context[e].short_code && (n.countryShortCode = t.context[e].short_code);
-    }
-    return n;
+    return (e.context || []).forEach((s) => {
+      const o = s.id.split(".")[0];
+      t[o] = s.text, s.short_code && (t.countryShortCode = s.short_code);
+    }), t;
   }
-  async geocode(t) {
-    const n = this.options.serviceUrl + encodeURIComponent(t) + ".json", e = u(this.options, {
+  async geocode(e) {
+    const t = this.options.serviceUrl + encodeURIComponent(e) + ".json", s = h(this.options, {
       access_token: this.options.apiKey
     });
-    e.proximity !== void 0 && e.proximity.lat !== void 0 && e.proximity.lng !== void 0 && (e.proximity = e.proximity.lng + "," + e.proximity.lat);
-    const o = await d(n, e);
+    s.proximity !== void 0 && s.proximity.lat !== void 0 && s.proximity.lng !== void 0 && (s.proximity = s.proximity.lng + "," + s.proximity.lat);
+    const o = await p(t, s);
     return this._parseResults(o);
   }
-  suggest(t) {
-    return this.geocode(t);
+  suggest(e) {
+    return this.geocode(e);
   }
-  async reverse(t, n) {
-    const e = this.options.serviceUrl + t.lng + "," + t.lat + ".json", o = h(this.options, {
+  async reverse(e, t) {
+    const s = this.options.serviceUrl + e.lng + "," + e.lat + ".json", o = g(this.options, {
       access_token: this.options.apiKey
-    }), i = await d(e, o);
-    return this._parseResults(i);
+    }), r = await p(s, o);
+    return this._parseResults(r);
   }
-  _parseResults(t) {
-    var e;
-    if (!((e = t.features) != null && e.length))
-      return [];
-    const n = [];
-    for (let o = 0; o <= t.features.length - 1; o++) {
-      const i = t.features[o], r = s.latLng(i.center.reverse());
-      let l;
-      i.bbox ? l = s.latLngBounds(
-        s.latLng(i.bbox.slice(0, 2).reverse()),
-        s.latLng(i.bbox.slice(2, 4).reverse())
-      ) : l = s.latLngBounds(r, r), n[o] = {
-        name: i.place_name,
-        bbox: l,
-        center: r,
-        properties: this._getProperties(i)
+  _parseResults(e) {
+    var t;
+    return (t = e.features) != null && t.length ? e.features.map((s) => {
+      const o = new n.LatLng(...s.center.reverse());
+      let r;
+      return s.bbox ? r = new n.LatLngBounds(
+        new n.LatLng(...s.bbox.slice(0, 2).reverse()),
+        new n.LatLng(...s.bbox.slice(2, 4).reverse())
+      ) : r = new n.LatLngBounds(o, o), {
+        name: s.place_name,
+        bbox: r,
+        center: o,
+        properties: this._getProperties(s)
       };
-    }
-    return n;
+    }) : [];
   }
 }
-function Q(a) {
-  return new k(a);
-}
-class D {
-  constructor(t) {
-    p(this, "options", {
-      serviceUrl: "https://www.mapquestapi.com/geocoding/v1"
-    });
-    s.Util.setOptions(this, t), this.options.apiKey = decodeURIComponent(this.options.apiKey);
-  }
-  _formatName(...t) {
-    return t.filter((n) => !!n).join(", ");
-  }
-  async geocode(t) {
-    const n = u(this.options, {
-      key: this.options.apiKey,
-      location: t,
-      limit: 5,
-      outFormat: "json"
-    }), e = await d(this.options.serviceUrl + "/address", n);
-    return this._parseResults(e);
-  }
-  async reverse(t, n) {
-    const e = h(this.options, {
-      key: this.options.apiKey,
-      location: t.lat + "," + t.lng,
-      outputFormat: "json"
-    }), o = await d(this.options.serviceUrl + "/reverse", e);
-    return this._parseResults(o);
-  }
-  _parseResults(t) {
-    const n = [];
-    if (t.results && t.results[0].locations)
-      for (let e = t.results[0].locations.length - 1; e >= 0; e--) {
-        const o = t.results[0].locations[e], i = s.latLng(o.latLng);
-        n[e] = {
-          name: this._formatName(o.street, o.adminArea4, o.adminArea3, o.adminArea1),
-          bbox: s.latLngBounds(i, i),
-          center: i
-        };
-      }
-    return n;
-  }
-}
-function X(a) {
-  return new D(a);
+function Z(i) {
+  return new C(i);
 }
 class B {
-  constructor(t) {
-    p(this, "options", {
+  constructor(e) {
+    l(this, "options", {
+      serviceUrl: "https://www.mapquestapi.com/geocoding/v1"
+    });
+    n.Util.setOptions(this, e), this.options.apiKey = decodeURIComponent(this.options.apiKey);
+  }
+  _formatName(...e) {
+    return e.filter((t) => !!t).join(", ");
+  }
+  async geocode(e) {
+    const t = h(this.options, {
+      key: this.options.apiKey,
+      location: e,
+      limit: 5,
+      outFormat: "json"
+    }), s = await p(this.options.serviceUrl + "/address", t);
+    return this._parseResults(s);
+  }
+  async reverse(e, t) {
+    const s = g(this.options, {
+      key: this.options.apiKey,
+      location: e.lat + "," + e.lng,
+      outputFormat: "json"
+    }), o = await p(this.options.serviceUrl + "/reverse", s);
+    return this._parseResults(o);
+  }
+  _parseResults(e) {
+    var s, o;
+    return (((o = (s = e.results) == null ? void 0 : s[0]) == null ? void 0 : o.locations) || []).map((r) => {
+      const a = new n.LatLng(r.latLng.lat, r.latLng.lng);
+      return {
+        name: this._formatName(r.street, r.adminArea4, r.adminArea3, r.adminArea1),
+        bbox: new n.LatLngBounds(a, a),
+        center: a
+      };
+    });
+  }
+}
+function X(i) {
+  return new B(i);
+}
+class K {
+  constructor(e) {
+    l(this, "options", {
       userId: "",
       apiKey: "",
       serviceUrl: "https://neutrinoapi.com/"
     });
-    s.Util.setOptions(this, t);
+    n.Util.setOptions(this, e);
   }
   // https://www.neutrinoapi.com/api/geocode-address/
-  async geocode(t) {
-    const n = u(this.options, {
+  async geocode(e) {
+    const t = h(this.options, {
       apiKey: this.options.apiKey,
       userId: this.options.userId,
       //get three words and make a dot based string
-      address: t.split(/\s+/).join(".")
-    }), e = await d(this.options.serviceUrl + "geocode-address", n), o = [];
-    if (e.locations) {
-      e.geometry = e.locations[0];
-      const i = s.latLng(e.geometry.latitude, e.geometry.longitude), r = s.latLngBounds(i, i);
-      o[0] = {
-        name: e.geometry.address,
+      address: e.split(/\s+/).join(".")
+    }), s = await p(this.options.serviceUrl + "geocode-address", t);
+    if (!s.locations)
+      return [];
+    s.geometry = s.locations[0];
+    const o = new n.LatLng(s.geometry.latitude, s.geometry.longitude), r = new n.LatLngBounds(o, o);
+    return [
+      {
+        name: s.geometry.address,
         bbox: r,
-        center: i
-      };
-    }
-    return o;
+        center: o
+      }
+    ];
   }
-  suggest(t) {
-    return this.geocode(t);
+  suggest(e) {
+    return this.geocode(e);
   }
   // https://www.neutrinoapi.com/api/geocode-reverse/
-  async reverse(t, n) {
-    const e = h(this.options, {
+  async reverse(e, t) {
+    const s = g(this.options, {
       apiKey: this.options.apiKey,
       userId: this.options.userId,
-      latitude: t.lat,
-      longitude: t.lng
-    }), o = await d(this.options.serviceUrl + "geocode-reverse", e), i = [];
-    if (o.status.status == 200 && o.found) {
-      const r = s.latLng(t.lat, t.lng), l = s.latLngBounds(r, r);
-      i[0] = {
+      latitude: e.lat,
+      longitude: e.lng
+    }), o = await p(this.options.serviceUrl + "geocode-reverse", s);
+    if (o.status.status !== 200 || !o.found)
+      return [];
+    const r = new n.LatLng(e.lat, e.lng), a = new n.LatLngBounds(r, r);
+    return [
+      {
         name: o.address,
-        bbox: l,
+        bbox: a,
         center: r
-      };
-    }
-    return i;
+      }
+    ];
   }
 }
-function Y(a) {
-  return new B(a);
+function Y(i) {
+  return new K(i);
 }
-class f {
-  constructor(t) {
-    p(this, "options", {
+class L {
+  constructor(e) {
+    l(this, "options", {
       serviceUrl: "https://nominatim.openstreetmap.org/",
-      htmlTemplate(t) {
-        const n = t.address;
-        let e;
+      htmlTemplate(e) {
+        const t = e.address;
+        let s;
         const o = [];
-        return (n.road || n.building) && o.push("{building} {road} {house_number}"), (n.city || n.town || n.village || n.hamlet) && (e = o.length > 0 ? "leaflet-control-geocoder-address-detail" : "", o.push(
-          '<span class="' + e + '">{postcode} {city} {town} {village} {hamlet}</span>'
-        )), (n.state || n.country) && (e = o.length > 0 ? "leaflet-control-geocoder-address-context" : "", o.push('<span class="' + e + '">{state} {country}</span>')), z(o.join("<br/>"), n);
+        return (t.road || t.building) && o.push("{building} {road} {house_number}"), (t.city || t.town || t.village || t.hamlet) && (s = o.length > 0 ? "leaflet-control-geocoder-address-detail" : "", o.push(
+          '<span class="' + s + '">{postcode} {city} {town} {village} {hamlet}</span>'
+        )), (t.state || t.country) && (s = o.length > 0 ? "leaflet-control-geocoder-address-context" : "", o.push('<span class="' + s + '">{state} {country}</span>')), q(o.join("<br/>"), t);
       }
     });
-    s.Util.setOptions(this, t || {});
+    n.Util.setOptions(this, e || {});
   }
-  async geocode(t) {
-    const n = u(this.options, {
-      q: t,
+  async geocode(e) {
+    const t = h(this.options, {
+      q: e,
       limit: 5,
       format: "json",
       addressdetails: 1
-    }), e = await d(this.options.serviceUrl + "search", n), o = [];
-    for (let i = e.length - 1; i >= 0; i--) {
-      const r = e[i].boundingbox;
-      o[i] = {
-        icon: e[i].icon,
-        name: e[i].display_name,
-        html: this.options.htmlTemplate ? this.options.htmlTemplate(e[i]) : void 0,
-        bbox: s.latLngBounds([+r[0], +r[2]], [+r[1], +r[3]]),
-        center: s.latLng(+e[i].lat, +e[i].lon),
-        properties: e[i]
+    });
+    return (await p(this.options.serviceUrl + "search", t)).map((o) => {
+      const r = o.boundingbox;
+      return {
+        icon: o.icon,
+        name: o.display_name,
+        html: this.options.htmlTemplate ? this.options.htmlTemplate(o) : void 0,
+        bbox: new n.LatLngBounds([+r[0], +r[2]], [+r[1], +r[3]]),
+        center: new n.LatLng(+o.lat, +o.lon),
+        properties: o
       };
-    }
-    return o;
+    });
   }
-  async reverse(t, n) {
-    const e = h(this.options, {
-      lat: t.lat,
-      lon: t.lng,
-      zoom: Math.round(Math.log(n / 256) / Math.log(2)),
+  async reverse(e, t) {
+    const s = g(this.options, {
+      lat: e.lat,
+      lon: e.lng,
+      zoom: Math.round(Math.log(t / 256) / Math.log(2)),
       addressdetails: 1,
       format: "json"
-    }), o = await d(this.options.serviceUrl + "reverse", e), i = [];
-    if (o && o.lat && o.lon) {
-      const r = s.latLng(+o.lat, +o.lon), l = s.latLngBounds(r, r);
-      i.push({
+    }), o = await p(this.options.serviceUrl + "reverse", s);
+    if (!(o != null && o.lat) || !(o != null && o.lon))
+      return [];
+    const r = new n.LatLng(+o.lat, +o.lon), a = new n.LatLngBounds(r, r);
+    return [
+      {
         name: o.display_name,
         html: this.options.htmlTemplate ? this.options.htmlTemplate(o) : void 0,
         center: r,
-        bbox: l,
+        bbox: a,
         properties: o
-      });
-    }
-    return i;
+      }
+    ];
   }
 }
-function Z(a) {
-  return new f(a);
+function ee(i) {
+  return new L(i);
 }
-class K {
-  constructor(t) {
-    p(this, "options", {});
-    s.Util.setOptions(this, t);
+class j {
+  constructor(e) {
+    l(this, "options", {});
+    n.Util.setOptions(this, e);
   }
-  async geocode(t) {
+  async geocode(e) {
     try {
-      const n = this.options.OpenLocationCode.decode(t);
+      const t = this.options.OpenLocationCode.decode(e);
       return [{
-        name: t,
-        center: s.latLng(n.latitudeCenter, n.longitudeCenter),
-        bbox: s.latLngBounds(
-          s.latLng(n.latitudeLo, n.longitudeLo),
-          s.latLng(n.latitudeHi, n.longitudeHi)
+        name: e,
+        center: new n.LatLng(t.latitudeCenter, t.longitudeCenter),
+        bbox: new n.LatLngBounds(
+          new n.LatLng(t.latitudeLo, t.longitudeLo),
+          new n.LatLng(t.latitudeHi, t.longitudeHi)
         )
       }];
-    } catch (n) {
-      return console.warn(n), [];
+    } catch (t) {
+      return console.warn(t), [];
     }
   }
-  async reverse(t, n) {
+  async reverse(e, t) {
     try {
       return [{
         name: this.options.OpenLocationCode.encode(
-          t.lat,
-          t.lng,
+          e.lat,
+          e.lng,
           this.options.codeLength
         ),
-        center: s.latLng(t.lat, t.lng),
-        bbox: s.latLngBounds(
-          s.latLng(t.lat, t.lng),
-          s.latLng(t.lat, t.lng)
+        center: new n.LatLng(e.lat, e.lng),
+        bbox: new n.LatLngBounds(
+          new n.LatLng(e.lat, e.lng),
+          new n.LatLng(e.lat, e.lng)
         )
       }];
-    } catch (e) {
-      return console.warn(e), [];
+    } catch (s) {
+      return console.warn(s), [];
     }
   }
 }
-function tt(a) {
-  return new K(a);
+function te(i) {
+  return new j(i);
 }
-class S {
-  constructor(t) {
-    p(this, "options", {
+class P {
+  constructor(e) {
+    l(this, "options", {
       serviceUrl: "https://api.opencagedata.com/geocode/v1/json"
     });
-    s.Util.setOptions(this, t);
+    n.Util.setOptions(this, e);
   }
-  async geocode(t) {
-    const n = u(this.options, {
+  async geocode(e) {
+    const t = h(this.options, {
       key: this.options.apiKey,
-      q: t
-    }), e = await d(this.options.serviceUrl, n);
-    return this._parseResults(e);
+      q: e
+    }), s = await p(this.options.serviceUrl, t);
+    return this._parseResults(s);
   }
-  suggest(t) {
-    return this.geocode(t);
+  suggest(e) {
+    return this.geocode(e);
   }
-  async reverse(t, n) {
-    const e = h(this.options, {
+  async reverse(e, t) {
+    const s = g(this.options, {
       key: this.options.apiKey,
-      q: [t.lat, t.lng].join(",")
-    }), o = await d(this.options.serviceUrl, e);
+      q: [e.lat, e.lng].join(",")
+    }), o = await p(this.options.serviceUrl, s);
     return this._parseResults(o);
   }
-  _parseResults(t) {
-    const n = [];
-    if (t.results && t.results.length)
-      for (let e = 0; e < t.results.length; e++) {
-        const o = t.results[e], i = s.latLng(o.geometry);
-        let r;
-        o.annotations && o.annotations.bounds ? r = s.latLngBounds(
-          s.latLng(o.annotations.bounds.northeast),
-          s.latLng(o.annotations.bounds.southwest)
-        ) : r = s.latLngBounds(i, i), n.push({
-          name: o.formatted,
-          bbox: r,
-          center: i
-        });
-      }
-    return n;
+  _parseResults(e) {
+    return (e.results || []).map((t) => {
+      const s = new n.LatLng(t.geometry.lat, t.geometry.lng), o = t.annotations && t.annotations.bounds ? new n.LatLngBounds(
+        new n.LatLng(t.annotations.bounds.northeast.lat, t.annotations.bounds.northeast.lng),
+        new n.LatLng(t.annotations.bounds.southwest.lat, t.annotations.bounds.southwest.lng)
+      ) : new n.LatLngBounds(s, s);
+      return {
+        name: t.formatted,
+        bbox: o,
+        center: s,
+        properties: t
+      };
+    });
   }
 }
-function et(a) {
-  return new S(a);
+function se(i) {
+  return new P(i);
 }
 class m {
-  constructor(t) {
-    p(this, "options", {
+  constructor(e) {
+    l(this, "options", {
       serviceUrl: "https://api.geocode.earth/v1"
     });
-    s.Util.setOptions(this, t);
+    n.Util.setOptions(this, e);
   }
-  async geocode(t) {
-    const n = u(this.options, {
+  async geocode(e) {
+    const t = h(this.options, {
       api_key: this.options.apiKey,
-      text: t
-    }), e = await d(this.options.serviceUrl + "/search", n);
-    return this._parseResults(e, "bbox");
+      text: e
+    }), s = await p(this.options.serviceUrl + "/search", t);
+    return this._parseResults(s, "bbox");
   }
-  async suggest(t) {
-    const n = u(this.options, {
+  async suggest(e) {
+    const t = h(this.options, {
       api_key: this.options.apiKey,
-      text: t
-    }), e = await d(this.options.serviceUrl + "/autocomplete", n);
-    return this._parseResults(e, "bbox");
+      text: e
+    }), s = await p(this.options.serviceUrl + "/autocomplete", t);
+    return this._parseResults(s, "bbox");
   }
-  async reverse(t, n) {
-    const e = h(this.options, {
+  async reverse(e, t) {
+    const s = g(this.options, {
       api_key: this.options.apiKey,
-      "point.lat": t.lat,
-      "point.lon": t.lng
-    }), o = await d(this.options.serviceUrl + "/reverse", e);
+      "point.lat": e.lat,
+      "point.lon": e.lng
+    }), o = await p(this.options.serviceUrl + "/reverse", s);
     return this._parseResults(o, "bounds");
   }
-  _parseResults(t, n) {
-    const e = [];
-    return s.geoJSON(t, {
-      pointToLayer(o, i) {
-        return s.circleMarker(i);
+  _parseResults(e, t) {
+    const s = [];
+    return new n.GeoJSON(e, {
+      pointToLayer(o, r) {
+        return new n.CircleMarker(r, { radius: 10 });
       },
-      onEachFeature(o, i) {
-        const r = {};
-        let l, c;
-        i.getBounds ? (l = i.getBounds(), c = l.getCenter()) : i.feature.bbox ? (c = i.getLatLng(), l = s.latLngBounds(
-          s.GeoJSON.coordsToLatLng(i.feature.bbox.slice(0, 2)),
-          s.GeoJSON.coordsToLatLng(i.feature.bbox.slice(2, 4))
-        )) : (c = i.getLatLng(), l = s.latLngBounds(c, c)), r.name = i.feature.properties.label, r.center = c, r[n] = l, r.properties = i.feature.properties, e.push(r);
+      onEachFeature(o, r) {
+        const a = {};
+        let c, d;
+        r.getBounds ? (c = r.getBounds(), d = c.getCenter()) : r.feature.bbox ? (d = r.getLatLng(), c = new n.LatLngBounds(
+          n.GeoJSON.coordsToLatLng(r.feature.bbox.slice(0, 2)),
+          n.GeoJSON.coordsToLatLng(r.feature.bbox.slice(2, 4))
+        )) : (d = r.getLatLng(), c = new n.LatLngBounds(d, d)), a.name = r.feature.properties.label, a.center = d, a[t] = c, a.properties = r.feature.properties, s.push(a);
       }
-    }), e;
+    }), s;
   }
 }
-function v(a) {
-  return new m(a);
+function w(i) {
+  return new m(i);
 }
-const st = m, ot = v, nt = m, it = v;
-class O extends m {
-  constructor(t) {
+const oe = m, ne = w, ie = m, re = w;
+class S extends m {
+  constructor(e) {
     super(
-      s.Util.extend(
+      Object.assign(
         {
           serviceUrl: "https://api.openrouteservice.org/geocode"
         },
-        t
+        e
       )
     );
   }
 }
-function rt(a) {
-  return new O(a);
+function ae(i) {
+  return new S(i);
 }
-class P {
-  constructor(t) {
-    p(this, "options", {
+class T {
+  constructor(e) {
+    l(this, "options", {
       serviceUrl: "https://photon.komoot.io/api/",
       reverseUrl: "https://photon.komoot.io/reverse/",
       nameProperties: ["name", "street", "suburb", "hamlet", "town", "city", "state", "country"]
     });
-    s.Util.setOptions(this, t);
+    n.Util.setOptions(this, e);
   }
-  async geocode(t) {
-    const n = u(this.options, { q: t }), e = await d(this.options.serviceUrl, n);
-    return this._parseResults(e);
+  async geocode(e, t) {
+    var c, d, u, _;
+    const s = h(this.options, { q: e }), o = (d = (c = t == null ? void 0 : t.map) == null ? void 0 : c.getCenter) == null ? void 0 : d.call(c);
+    o && (s.lat = o.lat, s.lon = o.lng);
+    const r = (_ = (u = t == null ? void 0 : t.map) == null ? void 0 : u.getZoom) == null ? void 0 : _.call(u);
+    r && (s.zoom = r);
+    const a = await p(this.options.serviceUrl, s);
+    return this._parseResults(a);
   }
-  suggest(t) {
-    return this.geocode(t);
+  suggest(e) {
+    return this.geocode(e);
   }
-  async reverse(t, n) {
-    const e = h(this.options, {
-      lat: t.lat,
-      lon: t.lng
-    }), o = await d(this.options.reverseUrl, e);
+  async reverse(e, t) {
+    const s = g(this.options, {
+      lat: e.lat,
+      lon: e.lng
+    }), o = await p(this.options.reverseUrl, s);
     return this._parseResults(o);
   }
-  _parseResults(t) {
-    var e;
-    const n = [];
-    if (t && t.features)
-      for (let o = 0; o < t.features.length; o++) {
-        const i = t.features[o], r = i.geometry.coordinates, l = s.latLng(r[1], r[0]), c = (e = i.properties) == null ? void 0 : e.extent, g = c ? s.latLngBounds([c[1], c[0]], [c[3], c[2]]) : s.latLngBounds(l, l);
-        n.push({
-          name: this._decodeFeatureName(i),
-          html: this.options.htmlTemplate ? this.options.htmlTemplate(i) : void 0,
-          center: l,
-          bbox: g,
-          properties: i.properties
-        });
-      }
-    return n;
+  _parseResults(e) {
+    return (e.features || []).map((t) => {
+      var c;
+      const s = t.geometry.coordinates, o = new n.LatLng(s[1], s[0]), r = (c = t.properties) == null ? void 0 : c.extent, a = r ? new n.LatLngBounds([r[1], r[0]], [r[3], r[2]]) : new n.LatLngBounds(o, o);
+      return {
+        name: this._decodeFeatureName(t),
+        html: this.options.htmlTemplate ? this.options.htmlTemplate(t) : void 0,
+        center: o,
+        bbox: a,
+        properties: t.properties
+      };
+    });
   }
-  _decodeFeatureName(t) {
-    return (this.options.nameProperties || []).map((n) => {
-      var e;
-      return (e = t.properties) == null ? void 0 : e[n];
-    }).filter((n) => !!n).join(", ");
+  _decodeFeatureName(e) {
+    return (this.options.nameProperties || []).map((t) => {
+      var s;
+      return (s = e.properties) == null ? void 0 : s[t];
+    }).filter((t) => !!t).join(", ");
   }
 }
-function at(a) {
-  return new P(a);
+function ce(i) {
+  return new T(i);
 }
-class T {
-  constructor(t) {
-    p(this, "options", {
+class N {
+  constructor(e) {
+    l(this, "options", {
       serviceUrl: "https://api.what3words.com/v2/"
     });
-    s.Util.setOptions(this, t);
+    n.Util.setOptions(this, e);
   }
-  async geocode(t) {
-    const n = await d(
+  async geocode(e) {
+    const t = await p(
       this.options.serviceUrl + "forward",
-      u(this.options, {
-        key: this.options.apiKey,
-        //get three words and make a dot based string
-        addr: t.split(/\s+/).join(".")
-      })
-    ), e = [];
-    if (n.geometry) {
-      const o = s.latLng(n.geometry.lat, n.geometry.lng), i = s.latLngBounds(o, o);
-      e[0] = {
-        name: n.words,
-        bbox: i,
-        center: o
-      };
-    }
-    return e;
-  }
-  suggest(t) {
-    return this.geocode(t);
-  }
-  async reverse(t, n) {
-    const e = await d(
-      this.options.serviceUrl + "reverse",
       h(this.options, {
         key: this.options.apiKey,
-        coords: [t.lat, t.lng].join(",")
+        //get three words and make a dot based string
+        addr: e.split(/\s+/).join(".")
       })
-    ), o = [];
-    if (e.status.status == 200) {
-      const i = s.latLng(e.geometry.lat, e.geometry.lng), r = s.latLngBounds(i, i);
-      o[0] = {
-        name: e.words,
+    );
+    if (!t.geometry)
+      return [];
+    const s = new n.LatLng(t.geometry.lat, t.geometry.lng), o = new n.LatLngBounds(s, s);
+    return [
+      {
+        name: t.words,
+        bbox: o,
+        center: s
+      }
+    ];
+  }
+  suggest(e) {
+    return this.geocode(e);
+  }
+  async reverse(e, t) {
+    const s = await p(
+      this.options.serviceUrl + "reverse",
+      g(this.options, {
+        key: this.options.apiKey,
+        coords: [e.lat, e.lng].join(",")
+      })
+    );
+    if (s.status.status != 200)
+      return [];
+    const o = new n.LatLng(s.geometry.lat, s.geometry.lng), r = new n.LatLngBounds(o, o);
+    return [
+      {
+        name: s.words,
         bbox: r,
-        center: i
-      };
-    }
-    return o;
+        center: o
+      }
+    ];
   }
 }
-function lt(a) {
-  return new T(a);
+function le(i) {
+  return new N(i);
 }
-const ct = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const pe = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  ArcGis: L,
+  ArcGis: b,
   AzureMaps: x,
   Bing: y,
-  GeocodeEarth: st,
-  Google: w,
-  HERE: U,
-  HEREv2: C,
-  LatLng: E,
-  MapQuest: D,
-  Mapbox: k,
-  Mapzen: nt,
-  Neutrino: B,
-  Nominatim: f,
-  OpenCage: S,
-  OpenLocationCode: K,
-  Openrouteservice: O,
+  GeocodeEarth: oe,
+  Google: U,
+  HERE: R,
+  HEREv2: E,
+  LatLng: O,
+  MapQuest: B,
+  Mapbox: C,
+  Mapzen: ie,
+  Neutrino: K,
+  Nominatim: L,
+  OpenCage: P,
+  OpenLocationCode: j,
+  Openrouteservice: S,
   Pelias: m,
-  Photon: P,
-  What3Words: T,
-  arcgis: q,
-  azure: J,
-  bing: H,
-  geocodeEarth: ot,
-  geocodingParams: u,
-  google: V,
-  here: $,
-  latLng: F,
+  Photon: T,
+  What3Words: N,
+  arcgis: H,
+  azure: V,
+  bing: J,
+  geocodeEarth: ne,
+  geocodingParams: h,
+  google: $,
+  here: F,
+  latLng: Q,
   mapQuest: X,
-  mapbox: Q,
-  mapzen: it,
+  mapbox: Z,
+  mapzen: re,
   neutrino: Y,
-  nominatim: Z,
-  openLocationCode: tt,
-  opencage: et,
-  openrouteservice: rt,
-  parseLatLng: R,
-  pelias: v,
-  photon: at,
-  reverseParams: h,
-  what3words: lt
+  nominatim: ee,
+  openLocationCode: te,
+  opencage: se,
+  openrouteservice: ae,
+  parseLatLng: k,
+  pelias: w,
+  photon: ce,
+  reverseParams: g,
+  what3words: le
 }, Symbol.toStringTag, { value: "Module" }));
-class _ {
+class f {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  constructor(...t) {
+  constructor(...e) {
   }
 }
-s.Util.extend(_.prototype, s.Control.prototype);
-s.Util.extend(_.prototype, s.Evented.prototype);
-class b extends _ {
+Object.assign(f.prototype, n.Control.prototype);
+Object.assign(f.prototype, n.Evented.prototype);
+class v extends f {
   /**
    * Instantiates a geocoder control (to be invoked using `new`)
    * @param options the options
    */
-  constructor(n) {
-    super(n);
-    p(this, "options", {
+  constructor(t) {
+    super(t);
+    l(this, "options", {
       showUniqueResult: !0,
       showResultIcons: !1,
       collapsed: !0,
@@ -959,139 +929,124 @@ class b extends _ {
       suggestTimeout: 250,
       defaultMarkGeocode: !0
     });
-    p(this, "_alts");
-    p(this, "_container");
-    p(this, "_errorElement");
-    p(this, "_geocodeMarker");
-    p(this, "_input");
-    p(this, "_lastGeocode");
-    p(this, "_map");
-    p(this, "_preventBlurCollapse");
-    p(this, "_requestCount", 0);
-    p(this, "_results");
-    p(this, "_selection");
-    p(this, "_suggestTimeout");
-    s.Util.setOptions(this, n), this.options.geocoder || (this.options.geocoder = new f());
+    l(this, "_alts");
+    l(this, "_container");
+    l(this, "_errorElement");
+    l(this, "_geocodeMarker");
+    l(this, "_input");
+    l(this, "_lastGeocode");
+    l(this, "_map");
+    l(this, "_preventBlurCollapse");
+    l(this, "_requestCount", 0);
+    l(this, "_results");
+    l(this, "_selection");
+    l(this, "_suggestTimeout");
+    n.Util.setOptions(this, t), this.options.geocoder || (this.options.geocoder = new L());
   }
   addThrobberClass() {
-    s.DomUtil.addClass(this._container, "leaflet-control-geocoder-throbber");
+    this._container.classList.add("leaflet-control-geocoder-throbber");
   }
   removeThrobberClass() {
-    s.DomUtil.removeClass(this._container, "leaflet-control-geocoder-throbber");
+    this._container.classList.remove("leaflet-control-geocoder-throbber");
   }
   /**
    * Returns the container DOM element for the control and add listeners on relevant map events.
    * @param map the map instance
    * @see https://leafletjs.com/reference.html#control-onadd
    */
-  onAdd(n) {
-    var c;
-    const e = "leaflet-control-geocoder", o = s.DomUtil.create("div", e + " leaflet-bar"), i = s.DomUtil.create("button", e + "-icon", o), r = s.DomUtil.create("div", e + "-form", o);
-    this._map = n, this._container = o, i.innerHTML = "&nbsp;", i.type = "button", i.setAttribute("aria-label", this.options.iconLabel);
-    const l = this._input = s.DomUtil.create("input", "", r);
-    return l.type = "search", l.value = this.options.query, l.placeholder = this.options.placeholder, s.DomEvent.disableClickPropagation(l), this._errorElement = s.DomUtil.create(
-      "div",
-      e + "-form-no-error",
-      o
-    ), this._errorElement.innerHTML = this.options.errorMessage, this._alts = s.DomUtil.create(
+  onAdd(t) {
+    var d;
+    const s = "leaflet-control-geocoder", o = n.DomUtil.create("div", s + " leaflet-bar"), r = n.DomUtil.create("button", s + "-icon", o), a = n.DomUtil.create("div", s + "-form", o);
+    this._map = t, this._container = o, r.innerHTML = "&nbsp;", r.type = "button", r.setAttribute("aria-label", this.options.iconLabel);
+    const c = this._input = n.DomUtil.create("input", "", a);
+    return c.type = "search", c.value = this.options.query, c.placeholder = this.options.placeholder, n.DomEvent.disableClickPropagation(c), this._errorElement = n.DomUtil.create("div", s + "-form-no-error", o), this._errorElement.innerHTML = this.options.errorMessage, this._alts = n.DomUtil.create(
       "ul",
-      e + "-alternatives leaflet-control-geocoder-alternatives-minimized",
+      s + "-alternatives leaflet-control-geocoder-alternatives-minimized",
       o
-    ), s.DomEvent.disableClickPropagation(this._alts), s.DomEvent.addListener(l, "keydown", this._keydown, this), (c = this.options.geocoder) != null && c.suggest && s.DomEvent.addListener(l, "input", this._change, this), s.DomEvent.addListener(l, "blur", () => {
+    ), n.DomEvent.disableClickPropagation(this._alts), n.DomEvent.addListener(c, "keydown", this._keydown, this), (d = this.options.geocoder) != null && d.suggest && n.DomEvent.addListener(c, "input", this._change, this), n.DomEvent.addListener(c, "blur", () => {
       this.options.collapsed && !this._preventBlurCollapse && this._collapse(), this._preventBlurCollapse = !1;
-    }), this.options.collapsed ? this.options.expand === "click" ? s.DomEvent.addListener(o, "click", (g) => {
-      g.button === 0 && g.detail !== 2 && this._toggle();
-    }) : this.options.expand === "touch" ? s.DomEvent.addListener(
+    }), this.options.collapsed ? this.options.expand === "click" ? n.DomEvent.addListener(o, "click", (u) => {
+      u.button === 0 && u.detail !== 2 && this._toggle();
+    }) : this.options.expand === "touch" ? n.DomEvent.addListener(
       o,
-      s.Browser.touch ? "touchstart mousedown" : "mousedown",
-      (g) => {
-        this._toggle(), g.preventDefault(), g.stopPropagation();
+      n.Browser.touch ? "touchstart mousedown" : "mousedown",
+      (u) => {
+        this._toggle(), u.preventDefault(), u.stopPropagation();
       },
       this
-    ) : (s.DomEvent.addListener(o, "mouseover", this._expand, this), s.DomEvent.addListener(o, "mouseout", this._collapse, this), this._map.on("movestart", this._collapse, this)) : (this._expand(), s.Browser.touch ? s.DomEvent.addListener(o, "touchstart", () => this._geocode()) : s.DomEvent.addListener(o, "click", () => this._geocode())), this.options.defaultMarkGeocode && this.on("markgeocode", this.markGeocode, this), this.on("startgeocode", this.addThrobberClass, this), this.on("finishgeocode", this.removeThrobberClass, this), this.on("startsuggest", this.addThrobberClass, this), this.on("finishsuggest", this.removeThrobberClass, this), s.DomEvent.disableClickPropagation(o), o;
+    ) : (n.DomEvent.addListener(o, "mouseover", this._expand, this), n.DomEvent.addListener(o, "mouseout", this._collapse, this), this._map.on("movestart", this._collapse, this)) : (this._expand(), n.Browser.touch ? n.DomEvent.addListener(o, "touchstart", () => this._geocode()) : n.DomEvent.addListener(o, "click", () => this._geocode())), this.options.defaultMarkGeocode && this.on("markgeocode", this.markGeocode, this), this.on("startgeocode", this.addThrobberClass, this), this.on("finishgeocode", this.removeThrobberClass, this), this.on("startsuggest", this.addThrobberClass, this), this.on("finishsuggest", this.removeThrobberClass, this), n.DomEvent.disableClickPropagation(o), o;
   }
   /**
    * Sets the query string on the text input
    * @param string the query string
    */
-  setQuery(n) {
-    return this._input.value = n, this;
+  setQuery(t) {
+    return this._input.value = t, this;
   }
-  _geocodeResult(n, e) {
-    if (!e && this.options.showUniqueResult && n.length === 1)
-      this._geocodeResultSelected(n[0]);
-    else if (n.length > 0) {
-      this._alts.innerHTML = "", this._results = n, s.DomUtil.removeClass(this._alts, "leaflet-control-geocoder-alternatives-minimized"), s.DomUtil.addClass(this._container, "leaflet-control-geocoder-options-open");
-      for (let o = 0; o < n.length; o++)
-        this._alts.appendChild(this._createAlt(n[o], o));
-    } else
-      s.DomUtil.addClass(this._container, "leaflet-control-geocoder-options-error"), s.DomUtil.addClass(this._errorElement, "leaflet-control-geocoder-error");
+  _geocodeResult(t, s) {
+    !s && this.options.showUniqueResult && t.length === 1 ? this._geocodeResultSelected(t[0]) : t.length > 0 ? (this._alts.innerHTML = "", this._results = t, this._alts.classList.remove("leaflet-control-geocoder-alternatives-minimized"), this._container.classList.add("leaflet-control-geocoder-options-open"), this._results.forEach((o, r) => this._alts.appendChild(this._createAlt(o, r)))) : (this._container.classList.add("leaflet-control-geocoder-options-error"), this._errorElement.classList.add("leaflet-control-geocoder-error"));
   }
   /**
    * Marks a geocoding result on the map
    * @param result the geocoding result
    */
-  markGeocode(n) {
-    const e = n.geocode;
-    return this._map.fitBounds(e.bbox), this._geocodeMarker && this._map.removeLayer(this._geocodeMarker), this._geocodeMarker = new s.Marker(e.center).bindPopup(e.html || e.name).addTo(this._map).openPopup(), this;
+  markGeocode(t) {
+    const s = t.geocode;
+    return this._map.fitBounds(s.bbox), this._geocodeMarker && this._map.removeLayer(this._geocodeMarker), this._geocodeMarker = new n.Marker(s.center).bindPopup(s.html || s.name).addTo(this._map).openPopup(), this;
   }
-  async _geocode(n = !1) {
-    const e = this._input.value;
-    if (!n && e.length < this.options.queryMinLength)
+  async _geocode(t = !1) {
+    const s = this._input.value;
+    if (!t && s.length < this.options.queryMinLength)
       return;
     const o = ++this._requestCount;
-    this._lastGeocode = e, n || this._clearResults();
-    const i = { input: e };
-    this.fire(n ? "startsuggest" : "startgeocode", i);
-    const r = n ? await this.options.geocoder.suggest(e) : await this.options.geocoder.geocode(e);
+    this._lastGeocode = s, t || this._clearResults();
+    const r = { input: s };
+    this.fire(t ? "startsuggest" : "startgeocode", r);
+    const a = { map: this._map }, c = t ? await this.options.geocoder.suggest(s, a) : await this.options.geocoder.geocode(s, a);
     if (o === this._requestCount) {
-      const l = { input: e, results: r };
-      this.fire(n ? "finishsuggest" : "finishgeocode", l), this._geocodeResult(r, n);
+      const d = { input: s, results: c };
+      this.fire(t ? "finishsuggest" : "finishgeocode", d), this._geocodeResult(c, t);
     }
   }
-  _geocodeResultSelected(n) {
-    const e = { geocode: n };
-    this.fire("markgeocode", e);
+  _geocodeResultSelected(t) {
+    const s = { geocode: t };
+    this.fire("markgeocode", s);
   }
   _toggle() {
-    s.DomUtil.hasClass(this._container, "leaflet-control-geocoder-expanded") ? this._collapse() : this._expand();
+    this._container.classList.contains("leaflet-control-geocoder-expanded") ? this._collapse() : this._expand();
   }
   _expand() {
-    s.DomUtil.addClass(this._container, "leaflet-control-geocoder-expanded"), this._input.select(), this.fire("expand");
+    this._container.classList.add("leaflet-control-geocoder-expanded"), this._input.select(), this.fire("expand");
   }
   _collapse() {
-    s.DomUtil.removeClass(this._container, "leaflet-control-geocoder-expanded"), s.DomUtil.addClass(this._alts, "leaflet-control-geocoder-alternatives-minimized"), s.DomUtil.removeClass(this._errorElement, "leaflet-control-geocoder-error"), s.DomUtil.removeClass(this._container, "leaflet-control-geocoder-options-open"), s.DomUtil.removeClass(this._container, "leaflet-control-geocoder-options-error"), this._input.blur(), this.fire("collapse");
+    this._container.classList.remove("leaflet-control-geocoder-expanded"), this._alts.classList.add("leaflet-control-geocoder-alternatives-minimized"), this._errorElement.classList.remove("leaflet-control-geocoder-error"), this._container.classList.remove("leaflet-control-geocoder-options-open"), this._container.classList.remove("leaflet-control-geocoder-options-error"), this._input.blur(), this.fire("collapse");
   }
   _clearResults() {
-    s.DomUtil.addClass(this._alts, "leaflet-control-geocoder-alternatives-minimized"), this._selection = null, s.DomUtil.removeClass(this._errorElement, "leaflet-control-geocoder-error"), s.DomUtil.removeClass(this._container, "leaflet-control-geocoder-options-open"), s.DomUtil.removeClass(this._container, "leaflet-control-geocoder-options-error");
+    this._alts.classList.add("leaflet-control-geocoder-alternatives-minimized"), this._selection = null, this._errorElement.classList.remove("leaflet-control-geocoder-error"), this._container.classList.remove("leaflet-control-geocoder-options-open"), this._container.classList.remove("leaflet-control-geocoder-options-error");
   }
-  _createAlt(n, e) {
-    const o = s.DomUtil.create("li", ""), i = s.DomUtil.create("a", "", o), r = this.options.showResultIcons && n.icon ? s.DomUtil.create("img", "", i) : null, l = n.html ? void 0 : document.createTextNode(n.name), c = (g) => {
-      this._preventBlurCollapse = !0, s.DomEvent.stop(g), this._geocodeResultSelected(n), s.DomEvent.on(o, "click touchend", () => {
+  _createAlt(t, s) {
+    const o = n.DomUtil.create("li", ""), r = n.DomUtil.create("a", "", o), a = this.options.showResultIcons && t.icon ? n.DomUtil.create("img", "", r) : null, c = t.html ? void 0 : document.createTextNode(t.name), d = (u) => {
+      this._preventBlurCollapse = !0, n.DomEvent.stop(u), this._geocodeResultSelected(t), n.DomEvent.on(o, "click touchend", () => {
         this.options.collapsed ? this._collapse() : this._clearResults();
       });
     };
-    return r && (r.src = n.icon), o.setAttribute("data-result-index", String(e)), n.html ? i.innerHTML = i.innerHTML + n.html : l && i.appendChild(l), s.DomEvent.addListener(o, "mousedown touchstart", c, this), o;
+    return a && (a.src = t.icon), o.setAttribute("data-result-index", String(s)), t.html ? r.innerHTML = r.innerHTML + t.html : c && r.appendChild(c), n.DomEvent.addListener(o, "mousedown touchstart", d, this), o;
   }
-  _keydown(n) {
-    const e = (o) => {
-      this._selection && (s.DomUtil.removeClass(this._selection, "leaflet-control-geocoder-selected"), this._selection = this._selection[o > 0 ? "nextSibling" : "previousSibling"]), this._selection || (this._selection = this._alts[o > 0 ? "firstChild" : "lastChild"]), this._selection && s.DomUtil.addClass(this._selection, "leaflet-control-geocoder-selected");
+  _keydown(t) {
+    const s = (o) => {
+      this._selection && (this._selection.classList.remove("leaflet-control-geocoder-selected"), this._selection = this._selection[o > 0 ? "nextSibling" : "previousSibling"]), this._selection || (this._selection = this._alts[o > 0 ? "firstChild" : "lastChild"]), this._selection && this._selection.classList.add("leaflet-control-geocoder-selected");
     };
-    switch (n.keyCode) {
-      // Escape
-      case 27:
+    switch (t.key) {
+      case "Escape":
         this.options.collapsed ? this._collapse() : this._clearResults();
         break;
-      // Up
-      case 38:
-        e(-1);
+      case "ArrowUp":
+        s(-1);
         break;
-      // Up
-      case 40:
-        e(1);
+      case "ArrowDown":
+        s(1);
         break;
-      // Enter
-      case 13:
+      case "Enter":
         if (this._selection) {
           const o = parseInt(this._selection.getAttribute("data-result-index"), 10);
           this._geocodeResultSelected(this._results[o]), this._clearResults();
@@ -1101,15 +1056,15 @@ class b extends _ {
       default:
         return;
     }
-    s.DomEvent.preventDefault(n);
+    n.DomEvent.preventDefault(t);
   }
   _change() {
-    const n = this._input.value;
-    n !== this._lastGeocode && (clearTimeout(this._suggestTimeout), n.length >= this.options.suggestMinLength ? this._suggestTimeout = setTimeout(() => this._geocode(!0), this.options.suggestTimeout) : this._clearResults());
+    const t = this._input.value;
+    t !== this._lastGeocode && (clearTimeout(this._suggestTimeout), t.length >= this.options.suggestMinLength ? this._suggestTimeout = setTimeout(() => this._geocode(!0), this.options.suggestTimeout) : this._clearResults());
   }
 }
-function pt(a) {
-  return new b(a);
+function de(i) {
+  return new v(i);
 }
 /* @preserve
  * Leaflet Control Geocoder
@@ -1119,15 +1074,15 @@ function pt(a) {
  * Copyright (c) 2018 Per Liedman
  * All rights reserved.
  */
-s.Util.extend(b, ct);
-s.Util.extend(s.Control, {
-  Geocoder: b,
-  geocoder: pt
+Object.assign(v, pe);
+Object.assign(n.Control, {
+  Geocoder: v,
+  geocoder: de
 });
 export {
-  b as Geocoder,
-  b as default,
-  pt as geocoder,
-  ct as geocoders
+  v as Geocoder,
+  v as default,
+  de as geocoder,
+  pe as geocoders
 };
 //# sourceMappingURL=Control.Geocoder.modern.js.map
