@@ -1,5 +1,5 @@
 {
- "_timestamp": "2025-01-06 15:25:50.282469",
+ "_timestamp": "2025-02-04 22:42:24.168117",
  "features": [
   {
    "geometry": {
@@ -109,7 +109,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Shiva",
-    "opening_hours": "Mo-Su 11:30-15:00,17:30-23:30",
+    "opening_hours": "Tu-Su 11:30-14:30,17:30-22:00",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -350,7 +350,7 @@
     "cuisine": "german",
     "icon": "pub",
     "more_info": true,
-    "name": "Nöö",
+    "name": "ÖÖ",
     "opening_hours": "Su-Th 10:00-01:00; Fr-Sa 10:00-02:00",
     "symbol": "🍻"
    },
@@ -497,6 +497,26 @@
   {
    "geometry": {
     "coordinates": [
+     11.9874688,
+     51.4776724
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1142002515,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "cuisine": "sushi",
+    "icon": "fast_food",
+    "name": "Fresh Zone",
+    "opening_hours": "Mo-Su,PH 08:00-20:00",
+    "symbol": "🍔"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9676367,
      51.4896696
     ],
@@ -519,8 +539,8 @@
   {
    "geometry": {
     "coordinates": [
-     11.9832623,
-     51.4897158
+     11.9828458,
+     51.4897422
     ],
     "type": "Point"
    },
@@ -531,6 +551,7 @@
     "contact_email": "hunger@brotundrind.de",
     "contact_phone": "+49 160 2335107",
     "contact_website": "https://www.brotundrind.com",
+    "cuisine": "burger",
     "icon": "fast_food",
     "name": "Brot & Rind",
     "opening_hours": "Mo-Su 11:00-22:00",
@@ -555,7 +576,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Rossini",
-    "opening_hours": "Mo-Sa 09:00-22:00; Su 10:00-22:00",
+    "opening_hours": "Mo-Su 10:00-24:00",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -680,6 +701,26 @@
   {
    "geometry": {
     "coordinates": [
+     11.9868373,
+     51.4777398
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1706189129,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "cuisine": "coffee_shop",
+    "icon": "cafe",
+    "name": "Starbucks",
+    "opening_hours": "Mo-Su 06:00-20:00",
+    "symbol": "☕"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9718584,
      51.4802718
     ],
@@ -689,13 +730,15 @@
     "_id": 1781737776,
     "_type": "node",
     "category": "vegan_friendly",
-    "contact_website": "https://www.indien-masala-halle-saale.de",
+    "contact_phone": "+49 345 47047070",
+    "contact_website": "https://www.namasteindia-halle.de",
     "cuisine": "indian",
     "icon": "restaurant",
     "more_info": true,
-    "name": "Indian Masala",
-    "opening_hours": "Mo-Sa 10:30-14:30, 16:00-22:00; Su 10:30-22:00",
-    "symbol": "🍽️"
+    "name": "Namaste India",
+    "opening_hours": "Mo-Su 11:00-22:00",
+    "symbol": "🍽️",
+    "vegan_description": "Gute Auswahl an als vegan gekennzeichneten Speisen."
    },
    "type": "Feature"
   },
@@ -1231,6 +1274,7 @@
     "_id": 2791600299,
     "_type": "node",
     "category": "vegan_limited",
+    "cuisine": "asian",
     "icon": "fast_food",
     "name": "Asiahung",
     "opening_hours": "Mo-Su 11:00-20:00",
@@ -1305,7 +1349,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Sao Mai",
-    "opening_hours": "Tu-Sa 11:00-22:30; Su,PH 12:00-22:00; Mo off",
+    "opening_hours": "Tu-Sa 11:00-22:00; Su,PH 12:00-22:00; Mo off",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -2158,7 +2202,7 @@
     "_type": "node",
     "category": "vegan_friendly",
     "contact_phone": "+4917634343572",
-    "contact_website": "https://bistro-aldemashky.business.site",
+    "contact_website": "https://salla-kazan.com/aldemashky-restaurent-%D8%A7%D9%84%D9%85%D8%B7%D8%B9%D9%85-%D8%A7%D9%84%D8%AF%D9%85%D8%B4%D9%82%D9%8A-%D9%81%D9%8A-%D9%85%D8%AF%D9%8A%D9%86%D8%A9-%D9%87%D8%A7%D9%84%D8%A9-halle",
     "cuisine": "pizza;syrian;arab",
     "icon": "maki_restaurant-pizza",
     "name": "Restaurant Aldemashky",
@@ -2347,7 +2391,7 @@
     "icon": "cafe",
     "more_info": true,
     "name": "Koffij",
-    "opening_hours": "Mo-Fr 09:00-20:00; Sa 09:00-18:00; Su off",
+    "opening_hours": "Mo-Fr 09:00-19:00; Sa 09:00-18:00; Su off",
     "symbol": "☕"
    },
    "type": "Feature"
@@ -2365,10 +2409,10 @@
     "_type": "node",
     "category": "vegan_friendly",
     "contact_phone": "+49 345 69499674",
-    "contact_website": "https://www.arko.de",
     "icon": "cafe",
     "name": "arko",
     "opening_hours": "Mo-Fr 09:00-18:00; Sa 09:00-16:00",
+    "shop": "confectionery",
     "symbol": "☕"
    },
    "type": "Feature"
@@ -2452,7 +2496,7 @@
     "cuisine": "sandwich",
     "icon": "fast_food",
     "name": "Subway",
-    "opening_hours": "Mo-Sa 07:00-20:00; Su,PH 08:00-20:00",
+    "opening_hours": "Mo-Th 08:00-21:00; Fr 08:00-22:00; Sa,Su 09:00-22:00",
     "symbol": "🍔"
    },
    "type": "Feature"
@@ -2719,11 +2763,9 @@
     "_id": 8773861578,
     "_type": "node",
     "category": "vegan_friendly",
-    "contact_email": "kontakt@juicy-halle.de",
-    "contact_facebook": "JUICY-Donuts-Bagels-101929962043700",
+    "contact_facebook": "profile.php?id=100066969551141",
     "contact_instagram": "juicy_halle",
     "contact_phone": "+49 176 80060578",
-    "contact_website": "https://www.juicy-halle.de",
     "cuisine": "donut;bagel",
     "icon": "cafe",
     "more_info": true,
@@ -2769,7 +2811,6 @@
     "category": "vegan_friendly",
     "contact_facebook": "pho35halle",
     "contact_phone": "+49 1523 7604306",
-    "contact_website": "https://pho35.de",
     "cuisine": "asian",
     "icon": "restaurant",
     "name": "Pho35",
@@ -3017,7 +3058,6 @@
     "contact_email": "info@eisdeal.de",
     "contact_facebook": "eisdeal.de",
     "contact_instagram": "eisdealerhalle",
-    "contact_website": "https://www.eisdeal.de",
     "cuisine": "ice_cream",
     "icon": "ice_cream",
     "name": "Eis-Dealer",
@@ -3174,7 +3214,7 @@
     "contact_website": "https://neko-cafe.de",
     "icon": "cafe",
     "name": "NEKO",
-    "opening_hours": "Tu-Sa 10:00-18:00; Su-Mo off",
+    "opening_hours": "Tu-Sa 09:00-18:00",
     "symbol": "☕"
    },
    "type": "Feature"
@@ -3217,27 +3257,6 @@
     "name": "Janny's",
     "symbol": "🍨",
     "vegan_description": "Meist nur ein paar Sorbetsorten. Haben vegane Waffeln."
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9202374,
-     51.4792525
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 11881000170,
-    "_type": "node",
-    "category": "vegan_friendly",
-    "contact_instagram": "fantasy_halle",
-    "contact_website": "https://fantasy-halle.de",
-    "icon": "cafe",
-    "name": "FANTASY - Café & Food",
-    "opening_hours": "Mo-Fr10:00-20:00; Sa 10:00-21:00; Su off",
-    "symbol": "☕"
    },
    "type": "Feature"
   },
@@ -3299,7 +3318,7 @@
     "cuisine": "canteen",
     "icon": "restaurant",
     "name": "Burse zur Tulpe",
-    "opening_hours": "off",
+    "opening_hours": "Mo-Th 09:00-16:00; Fr 09:00-14:30",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -3669,7 +3688,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Goldene Schildkröte",
-    "opening_hours": "Mo,Tu,Th 10:30-22:30; Fr-Su 10:45-23:00",
+    "opening_hours": "Mo, Tu, Th 10:30-14:30, 17:00-22:30; Fr, Sa 10:45-14:30, 17:00-23:00; Su 10:45-14:30, 17:00-22:30",
     "symbol": "🍽️"
    },
    "type": "Feature"

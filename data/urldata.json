@@ -774,6 +774,11 @@
   "isOk": true,
   "text": "OK - 200"
  },
+ "https://www.instagram.com/neko.cafe.halle": {
+  "date": "2025-02-04",
+  "isOk": true,
+  "text": "OK - 200"
+ },
  "https://www.instagram.com/neko.cafe.halle/": {
   "date": "2025-01-06",
   "isOk": true,
@@ -876,6 +881,11 @@
  },
  "https://www.mysen-restaurant.de/": {
   "date": "2024-12-25",
+  "isOk": true,
+  "text": "OK - 200"
+ },
+ "https://www.namasteindia-halle.de/": {
+  "date": "2025-02-04",
   "isOk": true,
   "text": "OK - 200"
  },

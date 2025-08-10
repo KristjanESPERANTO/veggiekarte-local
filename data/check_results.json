@@ -1,5 +1,5 @@
 {
- "_timestamp": "2025-01-06 21:55:47.882293",
+ "_timestamp": "2025-02-04 22:42:29.125287",
  "features": [
   {
    "geometry": {
@@ -105,26 +105,6 @@
   {
    "geometry": {
     "coordinates": [
-     11.9832623,
-     51.4897158
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 1327808101,
-    "_type": "node",
-    "diet_vegan": "yes",
-    "issue_count": 1,
-    "name": "Brot & Rind",
-    "undefined": [
-     "cuisine"
-    ]
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
      11.9323825,
      51.4997116
     ],
@@ -176,26 +156,6 @@
     "diet_vegan": "yes",
     "issue_count": 1,
     "name": "Beach Club",
-    "undefined": [
-     "cuisine"
-    ]
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9872625,
-     51.4772506
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 2791600299,
-    "_type": "node",
-    "diet_vegan": "limited",
-    "issue_count": 1,
-    "name": "Asiahung",
     "undefined": [
      "cuisine"
     ]
