@@ -438,7 +438,8 @@ def check_phone_number(place_check_obj, tag_name, tags):
     # TODO: Also use parsing and formatting in refresh script.
     phone_number = tags.get(tag_name, "")
 
-    phone_number_characters = re.sub('[0-9]|\ |\+|\;|\-', '', phone_number)
+    # Remove allowed characters (digits, space, plus, semicolon, dash) to detect any invalid ones
+    phone_number_characters = re.sub(r"[0-9 \+;\-]", "", phone_number)
     if len(phone_number_characters) > 0:
         place_check_obj["properties"]["issues"].append(
             f"'{tag_name}' contains characters that are not allowed: '{phone_number_characters}'"
