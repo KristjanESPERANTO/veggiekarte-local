@@ -98,7 +98,7 @@ GET_MORE_INFO = [
     1475009992,  # Rossini
     4893692292,  # Café Wittekind
     3724388225,  # Burgerheart
-    5091097909,  # Tajmahal
+    19243922,    # Tajmahal
     4815463722,  # Viet Village
     5599806557,  # Sham Restaurant
     2415756481,  # Hallenser Kartoffelhaus

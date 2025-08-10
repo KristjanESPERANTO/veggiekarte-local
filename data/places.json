@@ -1,5 +1,5 @@
 {
- "_timestamp": "2025-05-24 21:39:00.273634",
+ "_timestamp": "2025-08-10 21:47:28.139686",
  "features": [
   {
    "geometry": {
@@ -491,6 +491,28 @@
     "name": "Zwei Zimmer Küche Bar",
     "opening_hours": "Su-Th 12:00-01:00, Fr,Sa 12:00-02:00",
     "symbol": "🍸"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9846463,
+     51.371767
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1116613205,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 3461 231781",
+    "contact_website": "http://www.mcdonald.de",
+    "cuisine": "burger",
+    "icon": "fast_food",
+    "name": "McDonald's",
+    "opening_hours": "Mo-Sa 07:00-01:00; So 08:00-01:00",
+    "symbol": "🍔"
    },
    "type": "Feature"
   },
@@ -1714,7 +1736,7 @@
     "icon": "fast_food",
     "more_info": true,
     "name": "Subway",
-    "opening_hours": "Mo-Fr 09:00-21:00; Sa 10:00-21:00; Su 12:00-21:00",
+    "opening_hours": "Mo-Fr 11:00-20:00; Sa 14:00-20:00; Su 15:00-20:00",
     "symbol": "🍔"
    },
    "type": "Feature"
@@ -2075,30 +2097,6 @@
     "name": "Bagel 29",
     "opening_hours": "Mo-Sa 10:00-18:00; Su off",
     "symbol": "☕"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9993352,
-     51.3558738
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 5091097909,
-    "_type": "node",
-    "category": "vegan_friendly",
-    "contact_email": "info@tajmahal-merseburg.de",
-    "contact_phone": "+49 3461 2769066",
-    "contact_website": "https://tajmahal-merseburg.de",
-    "cuisine": "indian",
-    "icon": "restaurant",
-    "more_info": true,
-    "name": "Taj Mahal",
-    "opening_hours": "Mo-Su 11:00-23:00",
-    "symbol": "🍽️"
    },
    "type": "Feature"
   },
@@ -2769,8 +2767,8 @@
     "cuisine": "donut;bagel",
     "icon": "cafe",
     "more_info": true,
-    "name": "JUICY",
-    "opening_hours": "Mo-Sa 08:00-21:00; Su 10:00-21:00",
+    "name": "Juicy",
+    "opening_hours": "Mo 10:00-21:00; We-Su 10:00-21:00",
     "symbol": "☕"
    },
    "type": "Feature"
@@ -3085,7 +3083,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Bay Vegan",
-    "opening_hours": "Mo-Su 12:00-23:00",
+    "opening_hours": "Mo-Su 12:00-22:00",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -3346,8 +3344,8 @@
   {
    "geometry": {
     "coordinates": [
-     11.9339655,
-     51.4965308
+     11.9339661,
+     51.4965316
     ],
     "type": "Point"
    },
@@ -3444,7 +3442,7 @@
     "contact_facebook": "peissnitzhauspiraten",
     "contact_instagram": "peissnitzhaus",
     "contact_website": "https://www.peissnitzhaus.de/gastronomie",
-    "cuisine": "regional;coffee_shop",
+    "cuisine": "regional;coffee_shop;burger;tarte_flambee",
     "icon": "cafe",
     "more_info": true,
     "name": "Gartenlokal am Peißnitzhaus/Peißnitzhaus-Café",
@@ -3542,7 +3540,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Mönchshof",
-    "opening_hours": "Tu-Sa 11:00-23:00; Su 11:00-15:00; Mo off",
+    "opening_hours": "Tu-Sa 11:00-23:00; Su,PH 11:00-15:00; Mo off",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -3622,6 +3620,29 @@
   {
    "geometry": {
     "coordinates": [
+     11.9956376,
+     51.3542192
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 183547917,
+    "_type": "way",
+    "category": "vegan_friendly",
+    "contact_phone": "+49 3461 7449425",
+    "contact_website": "https://wilhelmbusch-merseburg.de",
+    "cuisine": "german",
+    "icon": "restaurant",
+    "menu_url": "https://card.wilhelmbusch-merseburg.de",
+    "name": "Restaurant Wilhelm B. 18-32",
+    "opening_hours": "Mo, We-Fr 17:00-22:00; Sa, Su 11:00-14:00, 17:00-22:00",
+    "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9842788,
      51.2814207
     ],
@@ -3678,7 +3699,7 @@
     "_id": 304682735,
     "_type": "way",
     "category": "vegan_limited",
-    "contact_phone": "++49 345 2098603",
+    "contact_phone": "+49 345 2098603",
     "contact_website": "https://www.studentenwerk-halle.de/mensen-cafebars/mensen-in-halle/mensa-franckesche-stiftungen",
     "cuisine": "canteen",
     "icon": "restaurant",
@@ -3714,6 +3735,27 @@
   {
    "geometry": {
     "coordinates": [
+     11.9754753,
+     51.5066748
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 384171246,
+    "_type": "way",
+    "category": "vegan_friendly",
+    "contact_phone": "+49152/26391285",
+    "contact_website": "https://kgv-galgenberg-1-ev.de",
+    "icon": "restaurant",
+    "name": "RABATZ Gartenlokal am Galgenberg",
+    "opening_hours": "Tu 15:00-18:00,Fr 15:00-22:00,Sa 15:00-22:00,Su Tu 15:00 - 18:00",
+    "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9659804,
      51.4973787
     ],
@@ -3730,6 +3772,31 @@
     "more_info": true,
     "name": "Goldene Schildkröte",
     "opening_hours": "Mo, Tu, Th 10:30-22:30; Fr-Su 10:45-23:00; Su 10:45-14:30, 17:00-22:30",
+    "symbol": "🍽️"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9992634,
+     51.3559013
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 19243922,
+    "_type": "relation",
+    "category": "vegan_friendly",
+    "contact_email": "info@tajmahal-merseburg.de",
+    "contact_phone": "+49 3461 2769066",
+    "contact_website": "https://tajmahal-merseburg.de",
+    "cuisine": "indian",
+    "icon": "restaurant",
+    "menu_url": "https://www.tajmahal-merseburg.de/Frontend/menucard1",
+    "more_info": true,
+    "name": "Taj Mahal",
+    "opening_hours": "Mo-Su 11:00-23:00",
     "symbol": "🍽️"
    },
    "type": "Feature"
