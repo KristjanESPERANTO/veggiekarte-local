@@ -1,10 +1,10 @@
 {
-  "name": "veggiekarte",
+  "name": "veggiekarte-local",
   "version": "1.2.0",
   "description": "A OpenStreetMap based map to easily find places, like restaurants and cafes, with vegetarian and vegan options.",
   "repository": {
     "type": "git",
-    "url": "https://codeberg.org/piratenpanda/veggiekarte"
+    "url": "https://github.com/KristjanESPERANTO/veggiekarte-local/"
   },
   "keywords": [
     "vegan",
@@ -19,32 +19,39 @@
   ],
   "license": "GPL-3.0-only",
   "bugs": {
-    "url": "https://codeberg.org/piratenpanda/veggiekarte/issues"
+    "url": "https://github.com/KristjanESPERANTO/veggiekarte-local/issues"
   },
-  "homepage": "https://veggiekarte.de/",
+  "homepage": "https://map.vegan-in-halle.de/",
   "devDependencies": {
     "@eslint/js": "^9.17.0",
     "@rollup/plugin-terser": "^0.4.4",
     "@stylistic/eslint-plugin": "^2.12.1",
+    "autoprefixer": "^10.4.20",
+    "cssnano": "^7.0.6",
     "eslint": "^9.17.0",
     "eslint-plugin-import-x": "^4.6.1",
     "eslint-plugin-jsonc": "^2.18.2",
     "husky": "^9.1.7",
-    "lint-staged": "^15.2.11",
+    "lint-staged": "^15.3.0",
+    "postcss": "^8.4.49",
+    "postcss-cli": "^11.0.0",
+    "postcss-import": "^16.1.0",
     "prettier": "^3.4.2",
-    "rollup": "^4.29.1",
+    "rollup": "^4.30.0",
     "stylelint": "^16.12.0",
     "stylelint-config-standard": "^36.0.1",
     "stylelint-prettier": "^5.0.2"
   },
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c && postcss ./css/main.css -o ./css/bundle.css",
     "bump": "npx bumpp package.json package-lock.json js/bundle.js service-worker.js --no-push",
     "lint": "eslint && stylelint **/*.css && prettier --check .",
     "lint:fix": "eslint --fix && stylelint --fix **/*.css && prettier --write .",
     "prepare": "husky",
+    "refresh": "python3 refresh.py",
     "release": "npm run lint:fix && npm run build && npm run bump",
-    "test": "npm run lint"
+    "test": "npm run lint",
+    "datacheck": "python3 ./datacheck/datacheck.py"
   },
   "type": "module",
   "lint-staged": {
