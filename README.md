@@ -66,15 +66,15 @@ To use the tools you have to run `npm install` once to install the required pack
 
 To produce a more consistent code we use ESLint and Prettier.
 
-To test whether the linter and prettier rules are complied with in the code, execute the following command: `npm run lint`.
+To test whether the linter and prettier rules are complied with in the code, execute the following command: `node --run lint`.
 
-If errors occur, you can use the following command to eliminate some of the errors: `npm run lint:fix`.
+If errors occur, you can use the following command to eliminate some of the errors: `node --run lint:fix`.
 
 ### Bundler
 
 We use some 3rd party software for veggiekarte. So that the browser doesn't have to download an extra JavaScript file for each one, we bundle our JavaScript code with the 3rd party software in one package. In some cases, unused code is also discarded (treeshaking) - but unfortunately not all plugins are designed for treeshaking yet. This makes the website load faster.
 
-A new bundle must be build after each change to the code. Use this command to do that: `npm run build`.
+A new bundle must be build after each change to the code. Use this command to do that: `node --run build`.
 
 For test purposes, you can also bypass the bundling process by changing this line
 
@@ -96,7 +96,7 @@ Run `python3 datacheck/datacheck.py` to run the data check on the data.
 
 ### Release
 
-To create a new release, you have to run the following command: `npm run release`. This will run the following steps:
+To create a new release, you have to run the following command: `node --run release`. This will run the following steps:
 
 1. Run the linter and fix some errors.
 2. Build the bundle.
