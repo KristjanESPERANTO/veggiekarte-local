@@ -8,6 +8,7 @@ import stylistic from "@stylistic/eslint-plugin";
 
 export default defineConfig([
   globalIgnores([
+    ".venv/",
     "css/bundle.css",
     "js/bundle.js",
     "package-lock.json",
