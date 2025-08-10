@@ -23,7 +23,9 @@
   },
   "homepage": "https://veggiekarte.de/",
   "devDependencies": {
+    "@eslint/css": "^0.10.0",
     "@eslint/js": "^9.33.0",
+    "@eslint/markdown": "^7.1.0",
     "@rollup/plugin-terser": "^0.4.4",
     "@stylistic/eslint-plugin": "^5.2.3",
     "eslint": "^9.33.0",
@@ -32,23 +34,22 @@
     "husky": "^9.1.7",
     "lint-staged": "^16.1.5",
     "prettier": "^3.6.2",
-    "rollup": "^4.46.2",
-    "stylelint": "^16.23.1",
-    "stylelint-config-standard": "^39.0.0",
-    "stylelint-prettier": "^5.0.3"
+    "rollup": "^4.46.2"
   },
   "scripts": {
     "build": "rollup -c",
     "bump": "npx bumpp package.json package-lock.json js/bundle.js service-worker.js --no-push",
-    "lint": "eslint && stylelint **/*.css && prettier --check .",
-    "lint:fix": "eslint --fix && stylelint --fix **/*.css && prettier --write .",
+    "lint": "eslint && prettier --check .",
+    "lint:fix": "eslint --fix && prettier --write .",
     "prepare": "husky",
     "release": "npm run lint:fix && npm run build && npm run bump",
     "test": "npm run lint"
   },
   "type": "module",
   "lint-staged": {
-    "*.js": "eslint --cache --fix",
-    "*.css": "stylelint --fix"
+    "*": [
+      "eslint --fix",
+      "prettier --write --ignore-unknown"
+    ]
   }
 }

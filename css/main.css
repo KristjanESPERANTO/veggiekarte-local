@@ -111,33 +111,28 @@ a:hover {
 }
 
 /* Category properties */
-/* stylelint-disable-next-line selector-class-pattern */
 .vegan_only {
   background: #050;
   border-color: #172;
   color: white;
 }
 
-/* stylelint-disable-next-line selector-class-pattern */
 .vegetarian_only {
   background: #181;
   border-color: #181;
   color: white;
 }
 
-/* stylelint-disable-next-line selector-class-pattern */
 .vegan_friendly {
   background: #00bc00;
   border-color: #00bc00;
 }
 
-/* stylelint-disable-next-line selector-class-pattern */
 .vegan_limited {
   background: #afa;
   border-color: seagreen;
 }
 
-/* stylelint-disable-next-line selector-class-pattern */
 .vegetarian_friendly {
   background: #fefefe;
   border-color: darkgreen;
