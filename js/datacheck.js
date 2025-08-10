@@ -183,7 +183,7 @@ function geojsonToMarkerGroups(geojson) {
     else {
       eCat += feature.properties.issue_count;
     }
-    if (!groups[eCat]) groups[eCat] = [];
+    if (!groups[eCat]) { groups[eCat] = []; }
     groups[eCat].push(getMarker(feature));
   });
   return [groups, date];
