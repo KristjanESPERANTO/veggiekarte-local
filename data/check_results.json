@@ -1,6 +1,53 @@
 {
- "_timestamp": "2025-02-04 22:42:29.125287",
+ "_timestamp": "2025-08-10 23:16:17.785630",
  "features": [
+  {
+   "geometry": {
+    "coordinates": [
+     11.9754753,
+     51.5066748
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 384171246,
+    "_type": "way",
+    "diet_vegan": "yes",
+    "issue_count": 3,
+    "issues": [
+     "'phone' contains characters that are not allowed: '/'",
+     "'phone' does not conform to the ITU-T E.123, E.164 or RFC 3966 pattern. It's '+49152/26391285' but '+49 1522 6391285' (E.123) is recommended."
+    ],
+    "name": "RABATZ Gartenlokal am Galgenberg",
+    "undefined": [
+     "cuisine"
+    ]
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9708291,
+     51.4826808
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 1475009992,
+    "_type": "node",
+    "diet_vegan": "limited",
+    "issue_count": 2,
+    "issues": [
+     "There is a 'disused' tag: Check whether this tag is correct. If so please remove the diet tags."
+    ],
+    "name": "node 1475009992",
+    "undefined": [
+     "name"
+    ]
+   },
+   "type": "Feature"
+  },
   {
    "geometry": {
     "coordinates": [
@@ -136,7 +183,7 @@
     "diet_vegan": "yes",
     "issue_count": 1,
     "issues": [
-     "'contact:website' HTTP response error - 404"
+     "'contact:website' Exception: SSLError"
     ],
     "name": "Naturell"
    },
@@ -185,6 +232,26 @@
   {
    "geometry": {
     "coordinates": [
+     12.1780337,
+     51.3439014
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 3208898648,
+    "_type": "node",
+    "diet_vegan": "yes",
+    "issue_count": 1,
+    "issues": [
+     "'contact:website' HTTP response error - 404"
+    ],
+    "name": "Coffee Fellows"
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9690337,
      51.4912396
     ],
@@ -199,6 +266,26 @@
     "undefined": [
      "cuisine"
     ]
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9660518,
+     51.4913316
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 4876452522,
+    "_type": "node",
+    "diet_vegan": "yes",
+    "issue_count": 1,
+    "issues": [
+     "'contact:website' Exception: ConnectionError"
+    ],
+    "name": "Hanoier Bistro"
    },
    "type": "Feature"
   },
@@ -265,20 +352,20 @@
   {
    "geometry": {
     "coordinates": [
-     11.9944151,
-     51.4836971
+     11.9678025,
+     51.4854936
     ],
     "type": "Point"
    },
    "properties": {
-    "_id": 8838713031,
+    "_id": 5599806557,
     "_type": "node",
     "diet_vegan": "yes",
     "issue_count": 1,
     "issues": [
-     "fixme: Hausnummer (laut der Adresse des Gebäudes hier in OSM müsste es die 34 sein, es gibt aber mehrere Hinweise, dass es die 35 ist) - es müsste vor Ort gerüft werden"
+     "'contact:website' HTTP response error - 503"
     ],
-    "name": "Pho35"
+    "name": "Yaman Sham"
    },
    "type": "Feature"
   },
@@ -299,6 +386,26 @@
     "undefined": [
      "cuisine"
     ]
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.9665066,
+     51.4861458
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 10786591799,
+    "_type": "node",
+    "diet_vegan": "yes",
+    "issue_count": 1,
+    "issues": [
+     "'phone' not corresponds to the ITU-T E.123, E.164 nor RFC 3966 pattern (like '+44 99 123456789', '+4499123456789' or '+44-99-123456789') - Error message: Missing or invalid default region."
+    ],
+    "name": "Klubhaus Simon 20"
    },
    "type": "Feature"
   },
@@ -336,6 +443,26 @@
     "diet_vegan": "yes",
     "issue_count": 1,
     "name": "Anna Müller Catering",
+    "undefined": [
+     "opening_hours"
+    ]
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.966838,
+     51.4948868
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 12779743840,
+    "_type": "node",
+    "diet_vegan": "yes",
+    "issue_count": 1,
+    "name": "TASTY BITE",
     "undefined": [
      "opening_hours"
     ]
