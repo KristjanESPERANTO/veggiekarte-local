@@ -268,45 +268,46 @@ async function addLibReview(element) {
   }
 }
 
+// Build a human-readable address string from a Nominatim result
+function buildAddressStringFromNominatim(result) {
+  const address = result && result.address;
+  if (!address) {
+    return (result && result.display_name) || "";
+  }
+
+  const parts = [];
+  const street = address.road ? `${address.road}${address.house_number ? ` ${address.house_number}` : ""}` : "";
+  if (street) { parts.push(street); }
+
+  const place = address.city || address.town || address.village || address.hamlet || "";
+  const locality = `${address.postcode ? `${address.postcode} ` : ""}${place}`.trim();
+  if (locality) { parts.push(locality); }
+
+  if (address.country) { parts.push(address.country); }
+
+  if (parts.length === 0) {
+    return (result && result.display_name) || "";
+  }
+  return parts.join("<br/>");
+}
+
 // Get information like the address from Nominatim API
 async function addNominatimInformation(element) {
   const type = element.feature.properties._type;
   const id = element.feature.properties._id;
-  const osmId = type[0] + id;
+  const osmType = type[0];
+  const osmId = `${osmType}${id}`;
   const locale = getUserLanguage();
-  const url = `https://nominatim.openstreetmap.org/lookup?osm_ids=${osmId}&extratags=1&format=json&accept-language=${locale}`;
+  const url = `https://nominatim.openstreetmap.org/lookup?osm_ids=${osmId}&extratags=1&addressdetails=1&format=json&accept-language=${locale}`;
 
   try {
-    const response = await fetch(url);
+    const response = await fetch(url, { headers: { Accept: "application/json" } });
+    if (!response.ok) { throw new Error(`HTTP ${response.status}`); }
     const data = await response.json();
-    const address = data[0].address;
-
-    // Address
-    let addressString = "";
-    // Collecting address information
-    if (address.road !== undefined) {
-      addressString += `${address.road} `; // Street
-      if (address.house_number !== undefined) {
-        addressString += `${address.house_number}`; // House number
-      }
-      addressString += "<br/>";
-    }
-    if (address.city !== undefined || address.town !== undefined) {
-      if (address.postcode !== undefined) {
-        addressString += `${address.postcode} `; // Postcode
-      }
-      if (address.town === undefined) {
-        addressString += `${address.city} `; // City
-      }
-      else {
-        addressString += `${address.town} `; // Town
-      }
-    }
-    if (address.country !== undefined) {
-      addressString += `<br/>${address.country}`;
-    }
-
-    addressString = `<div class="popupflex-container"><div>📍</div>${addressString}</div>`;
+    if (!Array.isArray(data) || data.length === 0) { throw new Error("No result from Nominatim"); }
+    const result = data[0];
+    const addressStringRaw = buildAddressStringFromNominatim(result);
+    const addressString = `<div class="popupflex-container"><div>📍</div>${addressStringRaw}</div>`;
 
     setTimeout(() => {
       if (addressString !== "") {
