@@ -223,7 +223,7 @@ function geojsonToMarkerGroups(geojson) {
   const groups = {};
   geojson.features.forEach((feature) => {
     const eCat = feature.properties.category;
-    if (!groups[eCat]) groups[eCat] = [];
+    if (!groups[eCat]) { groups[eCat] = []; }
     groups[eCat].push(getMarker(feature));
   });
   return [groups, date];
