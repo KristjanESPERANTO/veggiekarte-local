@@ -2,8 +2,8 @@
   "version": 0.6,
   "generator": "Overpass API 0.7.62.5 1bd436f1",
   "osm3s": {
-    "timestamp_osm_base": "2025-03-05T15:49:44Z",
-    "timestamp_areas_base": "2025-02-06T02:17:44Z",
+    "timestamp_osm_base": "2025-05-24T19:37:30Z",
+    "timestamp_areas_base": "2025-05-20T05:45:31Z",
     "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
   },
   "elements": [
@@ -671,7 +671,7 @@
     "indoor_seating": "no",
     "name": "Brot & Rind",
     "note": "Öffnungszeiten sind Lieferzeiten",
-    "opening_hours": "Mo-Su 11:00-22:00",
+    "opening_hours": "Mo-Su 11:00-21:50",
     "outdoor_seating": "no",
     "payment:credit_cards": "yes",
     "payment:debit_cards": "yes",
@@ -692,12 +692,12 @@
     "addr:housenumber": "24",
     "addr:postcode": "06108",
     "addr:street": "Marktplatz",
-    "amenity": "restaurant",
     "cuisine": "italian",
     "diet:vegan": "limited",
     "diet:vegetarian": "yes",
+    "disused:amenity": "restaurant",
+    "disused:name": "Rossini",
     "indoor_seating": "yes",
-    "name": "Rossini",
     "opening_hours": "Mo-Su 10:00-24:00",
     "outdoor_seating": "yes",
     "phone": "+49 345 6856521",
@@ -1036,8 +1036,9 @@
     "check_date": "2024-11-14",
     "check_date:smoking": "2024-11-14",
     "cuisine": "kebab",
-    "diet:vegan": "limited",
-    "diet:vegan:labeled": "no",
+    "diet:vegan": "yes",
+    "diet:vegan:description": "Seitan-Dürüm  und Seitan-Döner",
+    "diet:vegan:labeled": "yes",
     "diet:vegetarian": "yes",
     "drink:club-mate": "yes",
     "drive_through": "no",
@@ -1460,6 +1461,8 @@
     "addr:postcode": "06112",
     "addr:street": "Hans-Dietrich-Genscher-Platz",
     "amenity": "fast_food",
+    "brand": "Asiahung",
+    "brand:wikidata": "Q100406310",
     "check_date": "2023-07-02",
     "cuisine": "asian",
     "diet:vegan": "limited",
@@ -1470,6 +1473,7 @@
     "payment:cash": "yes",
     "payment:contactless": "yes",
     "payment:girocard": "yes",
+    "takeaway": "yes",
     "wheelchair": "yes"
   }
 },
@@ -1655,7 +1659,7 @@
     "diet:vegetarian": "yes",
     "indoor_seating": "yes",
     "name": "Seoul Kulinarisch",
-    "opening_hours": "Mo-Sa 11:00-15:00, 17:00-20:00",
+    "opening_hours": "Mo-We 17:30-20:00; Th-Sa 12:00-14:00, 17:30-20:00",
     "outdoor_seating": "yes",
     "smoking": "outside",
     "toilets:wheelchair": "no",
@@ -2717,13 +2721,13 @@
   "lat": 51.4772743,
   "lon": 11.9857205,
   "tags": {
-    "brand": "steinecke",
+    "brand": "Steinecke",
     "brand:wikidata": "Q57516278",
     "brand:wikipedia": "de:Meisterbäckerei_Steinecke",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
     "indoor_seating": "yes",
-    "name": "steinecke",
+    "name": "Steinecke",
     "opening_hours": "Mo-Fr 05:30-20:00; Sa,Su 07:00-20:00",
     "outdoor_seating": "yes",
     "shop": "bakery",
@@ -2959,7 +2963,7 @@
     "check_date:opening_hours": "2023-12-17",
     "cuisine": "korean",
     "diet:vegan": "limited",
-    "diet:vegan:description": "Kein Gericht ist als vegan gekennzeichnet. Man kann sich aber eine Supper mit Teigtaschen auf NAchfrage vegan zubereiten lassen.",
+    "diet:vegan:description": "Kein Gericht ist als vegan gekennzeichnet. Man kann sich aber eine Suppe mit Teigtaschen auf Nachfrage vegan zubereiten lassen.",
     "diet:vegetarian": "yes",
     "name": "Jin",
     "opening_hours": "Tu-Sa 17:30-22:00",
@@ -3250,6 +3254,7 @@
     "addr:postcode": "06108",
     "addr:street": "Geiststraße",
     "amenity": "ice_cream",
+    "check_date": "2025-05-17",
     "contact:facebook": "https://www.facebook.com/Eisfvchs-322558108503412",
     "contact:instagram": "https://www.instagram.com/eisfvchs/",
     "contact:website": "https://eisfvchs.com",
@@ -3331,6 +3336,7 @@
     "brand": "Papa John's",
     "brand:wikidata": "Q2759586",
     "brand:wikipedia": "en:Papa John's Pizza",
+    "changing_table": "no",
     "check_date": "2024-10-17",
     "contact:phone": "+49 345 6788999",
     "contact:website": "https://www.papajohns.de/",
@@ -3355,8 +3361,8 @@
 {
   "type": "node",
   "id": 9073603964,
-  "lat": 51.5601745,
-  "lon": 11.9549594,
+  "lat": 51.5601632,
+  "lon": 11.9549247,
   "tags": {
     "addr:city": "Petersberg",
     "addr:housenumber": "5",
@@ -3374,7 +3380,8 @@
     "name": "Eislust",
     "opening_hours": "Sa 14:00-18:00; Su 12:00-18:00",
     "operator": "Jörg-Thoralf Kottwitz",
-    "outdoor_seating": "yes"
+    "outdoor_seating": "yes",
+    "takeaway": "yes"
   }
 },
 {
@@ -3656,6 +3663,8 @@
     "addr:postcode": "06112",
     "addr:street": "Delitzscher Straße",
     "amenity": "fast_food",
+    "brand": "Freddy Fresh",
+    "brand:wikidata": "Q124255344",
     "contact:phone": "+49 345 68597862",
     "contact:website": "https://www.freddy-fresh.de",
     "cuisine": "pizza",
@@ -3663,6 +3672,7 @@
     "diet:vegetarian": "yes",
     "name": "Freddy Fresh",
     "opening_hours": "Mo-Su 11:00-22:00",
+    "takeaway": "yes",
     "wheelchair": "limited"
   }
 },
@@ -3764,8 +3774,10 @@
     "diet:vegan": "yes",
     "diet:vegan:description": "Meist nur ein paar Sorbetsorten. Haben vegane Waffeln.",
     "diet:vegan:labeled": "yes",
+    "indoor_seating": "yes",
     "name": "Janny's",
     "opening_hours:signed": "no",
+    "outdoor_seating": "yes",
     "toilets:wheelchair": "no",
     "wheelchair": "yes"
   }
@@ -3787,6 +3799,40 @@
     "name": "Anna Müller Catering",
     "organic": "only",
     "website": "https://annamueller.eu"
+  }
+},
+{
+  "type": "node",
+  "id": 12714457889,
+  "lat": 51.4841064,
+  "lon": 11.9948153,
+  "tags": {
+    "addr:city": "Halle (Saale)",
+    "addr:housenumber": "81",
+    "addr:postcode": "06112",
+    "addr:street": "Freiimfelder Straße",
+    "amenity": "fast_food",
+    "cuisine": "kebab;oriental",
+    "diet:vegan": "limited",
+    "diet:vegan:description": "Pomes mit Falafel und Ketchup.",
+    "name": "Nihat Bistro",
+    "opening_hours": "Mo-Su 10:00-22:00"
+  }
+},
+{
+  "type": "node",
+  "id": 12779743840,
+  "lat": 51.4948868,
+  "lon": 11.9668380,
+  "tags": {
+    "amenity": "fast_food",
+    "contact:instagram": "https://www.instagram.com/tasty_bite_grill1",
+    "cuisine": "kebab",
+    "diet:vegan": "yes",
+    "diet:vegan:description": "Verschiedene, als vegan kekennzeichnete, Angebote. Z.B. Dürüm, Kumpir, Falafel und Plant Chicken Nuggets.",
+    "name": "TASTY BITE",
+    "old_name": "NICE",
+    "website": "https://tasty-bite-grill.sumupstore.com/"
   }
 },
 {
@@ -4281,45 +4327,6 @@
 },
 {
   "type": "way",
-  "id": 164756646,
-  "center": {
-    "lat": 51.4948689,
-    "lon": 11.9668081
-  },
-  "nodes": [
-    1763600575,
-    1763600594,
-    1763600559,
-    1763600558,
-    1763600557,
-    1763600563,
-    1763600560,
-    1763600575
-  ],
-  "tags": {
-    "addr:city": "Halle (Saale)",
-    "addr:country": "DE",
-    "addr:housenumber": "43",
-    "addr:postcode": "06108",
-    "addr:street": "Ludwig-Wucherer-Straße",
-    "amenity": "fast_food",
-    "building": "yes",
-    "contact:instagram": "https://www.instagram.com/nice_eatery",
-    "contact:website": "https://nice-healthy-kebab.de/",
-    "cuisine": "kebab",
-    "diet:vegan": "yes",
-    "diet:vegetarian": "yes",
-    "drive_through": "no",
-    "indoor_seating": "yes",
-    "name": "NICE",
-    "old_name": "SPICY",
-    "opening_hours": "Mo-Th 11:00-22:00; Fr-Sa 12:00-24:00; Su 12:00-22:00",
-    "outdoor_seating": "yes",
-    "wheelchair": "no"
-  }
-},
-{
-  "type": "way",
   "id": 178744104,
   "center": {
     "lat": 51.4838231,
@@ -4480,6 +4487,7 @@
     "opening_hours": "Mo-Fr 11:15-14:00",
     "operator": "Studentenwerk Halle",
     "outdoor_seating": "yes",
+    "phone": "++49 345 2098603",
     "smoking": "no",
     "takeaway": "yes",
     "toilets:wheelchair": "no",
@@ -4497,6 +4505,7 @@
   },
   "nodes": [
     3787144821,
+    12695305730,
     3787144822,
     3787144825,
     3787144826,
@@ -4516,6 +4525,7 @@
     "contact:website": "https://www.studentenwerk-halle.de/mensen-cafebars/mensen-in-halle/cafebar-steintor-campus",
     "diet:vegan": "yes",
     "diet:vegetarian": "yes",
+    "indoor_seating": "yes",
     "name": "Cafebar Steintor-Campus",
     "opening_hours": "Mo-Th 08:00-17:00; Fr 08:00-14:30",
     "operator": "Studentenwerk Halle",
@@ -4564,7 +4574,7 @@
     "diet:vegetarian": "yes",
     "indoor_seating": "yes",
     "name": "Goldene Schildkröte",
-    "opening_hours": "Mo, Tu, Th 10:30-14:30, 17:00-22:30; Fr, Sa 10:45-14:30, 17:00-23:00; Su 10:45-14:30, 17:00-22:30",
+    "opening_hours": "Mo, Tu, Th 10:30-22:30; Fr-Su 10:45-23:00; Su 10:45-14:30, 17:00-22:30",
     "outdoor_seating": "sidewalk",
     "smoking": "no",
     "source": "Bing",

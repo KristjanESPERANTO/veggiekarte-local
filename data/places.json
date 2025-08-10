@@ -1,5 +1,5 @@
 {
- "_timestamp": "2025-03-05 16:51:12.776446",
+ "_timestamp": "2025-05-24 21:39:00.273634",
  "features": [
   {
    "geometry": {
@@ -554,30 +554,8 @@
     "cuisine": "burger",
     "icon": "fast_food",
     "name": "Brot & Rind",
-    "opening_hours": "Mo-Su 11:00-22:00",
+    "opening_hours": "Mo-Su 11:00-21:50",
     "symbol": "🍔"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
-     11.9708291,
-     51.4826808
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 1475009992,
-    "_type": "node",
-    "category": "vegan_limited",
-    "contact_phone": "+49 345 6856521",
-    "cuisine": "italian",
-    "icon": "restaurant",
-    "more_info": true,
-    "name": "Rossini",
-    "opening_hours": "Mo-Su 10:00-24:00",
-    "symbol": "🍽️"
    },
    "type": "Feature"
   },
@@ -881,13 +859,14 @@
    "properties": {
     "_id": 1955876490,
     "_type": "node",
-    "category": "vegan_limited",
+    "category": "vegan_friendly",
     "contact_phone": "+49 345 24995856",
     "cuisine": "kebab",
     "icon": "fast_food",
     "name": "Tomate Döner",
     "opening_hours": "Mo-Th 10:00-23:00; Fr-Sa 10:00-01:00; Su,PH 11:00-22:30",
-    "symbol": "🍔"
+    "symbol": "🍔",
+    "vegan_description": "Seitan-Dürüm  und Seitan-Döner"
    },
    "type": "Feature"
   },
@@ -1441,7 +1420,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Seoul Kulinarisch",
-    "opening_hours": "Mo-Sa 11:00-15:00, 17:00-20:00",
+    "opening_hours": "Mo-We 17:30-20:00; Th-Sa 12:00-14:00, 17:30-20:00",
     "symbol": "🍽️"
    },
    "type": "Feature"
@@ -2364,7 +2343,7 @@
     "_type": "node",
     "category": "vegan_friendly",
     "icon": "bakery",
-    "name": "steinecke",
+    "name": "Steinecke",
     "opening_hours": "Mo-Fr 05:30-20:00; Sa,Su 07:00-20:00",
     "shop": "bakery",
     "symbol": "🥨"
@@ -2584,7 +2563,7 @@
     "name": "Jin",
     "opening_hours": "Tu-Sa 17:30-22:00",
     "symbol": "🍽️",
-    "vegan_description": "Kein Gericht ist als vegan gekennzeichnet. Man kann sich aber eine Supper mit Teigtaschen auf NAchfrage vegan zubereiten lassen."
+    "vegan_description": "Kein Gericht ist als vegan gekennzeichnet. Man kann sich aber eine Suppe mit Teigtaschen auf Nachfrage vegan zubereiten lassen."
    },
    "type": "Feature"
   },
@@ -2934,8 +2913,8 @@
   {
    "geometry": {
     "coordinates": [
-     11.9549594,
-     51.5601745
+     11.9549247,
+     51.5601632
     ],
     "type": "Point"
    },
@@ -3324,6 +3303,49 @@
   {
    "geometry": {
     "coordinates": [
+     11.9948153,
+     51.4841064
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 12714457889,
+    "_type": "node",
+    "category": "vegan_limited",
+    "cuisine": "kebab;oriental",
+    "icon": "fast_food",
+    "name": "Nihat Bistro",
+    "opening_hours": "Mo-Su 10:00-22:00",
+    "symbol": "🍔",
+    "vegan_description": "Pomes mit Falafel und Ketchup."
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
+     11.966838,
+     51.4948868
+    ],
+    "type": "Point"
+   },
+   "properties": {
+    "_id": 12779743840,
+    "_type": "node",
+    "category": "vegan_friendly",
+    "contact_instagram": "tasty_bite_grill1",
+    "contact_website": "https://tasty-bite-grill.sumupstore.com",
+    "cuisine": "kebab",
+    "icon": "fast_food",
+    "name": "TASTY BITE",
+    "symbol": "🍔",
+    "vegan_description": "Verschiedene, als vegan kekennzeichnete, Angebote. Z.B. Dürüm, Kumpir, Falafel und Plant Chicken Nuggets."
+   },
+   "type": "Feature"
+  },
+  {
+   "geometry": {
+    "coordinates": [
      11.9339655,
      51.4965308
     ],
@@ -3576,29 +3598,6 @@
   {
    "geometry": {
     "coordinates": [
-     11.9668081,
-     51.4948689
-    ],
-    "type": "Point"
-   },
-   "properties": {
-    "_id": 164756646,
-    "_type": "way",
-    "category": "vegan_friendly",
-    "contact_instagram": "nice_eatery",
-    "contact_website": "https://nice-healthy-kebab.de",
-    "cuisine": "kebab",
-    "icon": "fast_food",
-    "more_info": true,
-    "name": "NICE",
-    "opening_hours": "Mo-Th 11:00-22:00; Fr-Sa 12:00-24:00; Su 12:00-22:00",
-    "symbol": "🍔"
-   },
-   "type": "Feature"
-  },
-  {
-   "geometry": {
-    "coordinates": [
      11.968599,
      51.4838231
     ],
@@ -3679,6 +3678,7 @@
     "_id": 304682735,
     "_type": "way",
     "category": "vegan_limited",
+    "contact_phone": "++49 345 2098603",
     "contact_website": "https://www.studentenwerk-halle.de/mensen-cafebars/mensen-in-halle/mensa-franckesche-stiftungen",
     "cuisine": "canteen",
     "icon": "restaurant",
@@ -3729,7 +3729,7 @@
     "icon": "restaurant",
     "more_info": true,
     "name": "Goldene Schildkröte",
-    "opening_hours": "Mo, Tu, Th 10:30-14:30, 17:00-22:30; Fr, Sa 10:45-14:30, 17:00-23:00; Su 10:45-14:30, 17:00-22:30",
+    "opening_hours": "Mo, Tu, Th 10:30-22:30; Fr-Su 10:45-23:00; Su 10:45-14:30, 17:00-22:30",
     "symbol": "🍽️"
    },
    "type": "Feature"
