@@ -51,8 +51,8 @@
     "lint:fix": "eslint --fix && prettier . --write",
     "prepare": "husky",
     "refresh": "python3 refresh.py",
-    "release": "npm run lint:fix && npm run build && npm run bump",
-    "test": "npm run lint",
+    "release": "node --run lint:fix && node --run build && node --run bump",
+    "test": "node --run lint",
     "datacheck": "python3 ./datacheck/datacheck.py"
   },
   "type": "module",
