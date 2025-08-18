@@ -5,6 +5,7 @@ With this module we check the OpenStreetMap data.
 
 import datetime  # for the timestamp
 import json  # read and write json
+import re  # to check characters in phone numbers
 from urllib.parse import urlparse
 from pathlib import Path
 import phonenumbers  # to check phone numbers
@@ -438,8 +439,15 @@ def check_phone_number(place_check_obj, tag_name, tags):
         tags (object): All tags of a place.
     """
 
-    # TODO: Also use parsing and formatting in refresh script.
     phone_number = tags.get(tag_name, "")
+
+    # Remove allowed characters (digits, space, plus, semicolon, dash) to detect any invalid ones
+    phone_number_characters = re.sub(r"[0-9 \+;\-]", "", phone_number)
+    if len(phone_number_characters) > 0:
+        place_check_obj["properties"]["issues"].append(
+            f"'{tag_name}' contains characters that are not allowed: '{phone_number_characters}'"
+        )
+
     phone_number = phone_number.split(";")[0]  # Use only the first phone number
     try:
         parsed_number = phonenumbers.parse(phone_number, None)
