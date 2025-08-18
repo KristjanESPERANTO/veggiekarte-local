@@ -44,10 +44,15 @@
     "stylelint-config-standard": "^39.0.0",
     "stylelint-prettier": "^5.0.3"
   },
+  "dependencies": {
+    "email-validator": "^2.0.4",
+    "libphonenumber-js": "^1.11.17",
+    "opening_hours": "^3.9.0"
+  },
   "scripts": {
     "build": "rollup -c && postcss ./css/main.css -o ./css/bundle.css",
     "bump": "npx bumpp package.json package-lock.json js/bundle.js service-worker.js --no-push",
-    "datacheck": "python3 ./datacheck/datacheck.py",
+    "datacheck": "node ./datacheck/datacheck.js",
     "lint": "eslint && prettier . --check",
     "lint:fix": "eslint --fix && prettier . --write",
     "prepare": "husky",
