@@ -295,7 +295,7 @@ function fillSocial(extratags, container) {
 /** Vegan / description fill. */
 function fillVeganDescription(extratags, container) {
   if (container.dataset.filled) { return; }
-  const desc = extratags["diet:vegan:description"] || extratags.vegan_description || extratags.description;
+  const desc = extratags["diet:vegan:description"];
   if (!desc) { return; }
   const row = makeRow("🗒️", [desc]);
   container.replaceChildren(...row.childNodes);
@@ -306,7 +306,7 @@ function fillVeganDescription(extratags, container) {
 /** Menu link fill. */
 function fillMenu(extratags, container) {
   if (container.dataset.filled) { return; }
-  const menu = extratags.menu || extratags["contact:menu"] || extratags.menu_url;
+  const menu = extratags["website:menu"] || extratags["contact:website:menu"];
   if (!menu) { return; }
   const shortMenu = menu.replace(/^https?:\/\//u, "");
   const row = makeRow("📋", [makeLink(menu, shortMenu)]);
