@@ -39,11 +39,13 @@
   "scripts": {
     "build": "rollup -c",
     "bump": "npx bumpp package.json package-lock.json js/bundle.js service-worker.js --no-push",
-    "lint": "eslint && prettier --check .",
-    "lint:fix": "eslint --fix && prettier --write .",
+    "datacheck": "python3 ./datacheck/datacheck.py",
+    "lint": "eslint && prettier . --check",
+    "lint:fix": "eslint --fix && prettier . --write",
     "prepare": "husky",
-    "release": "npm run lint:fix && npm run build && npm run bump",
-    "test": "npm run lint"
+    "refresh": "python3 refresh.py",
+    "release": "node --run lint:fix && node --run build && node --run bump",
+    "test": "node --run lint"
   },
   "type": "module",
   "lint-staged": {
