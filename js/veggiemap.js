@@ -84,7 +84,7 @@ function veggiemap() {
   // eslint-disable-next-line new-cap
   document.fullscreenControl = new L.control.fullscreen({
     position: "topright",
-    fullscreenElement: map._container.parentNode
+    fullscreenElement: map.getContainer().parentNode
   });
   document.fullscreenControl.addTo(map);
 
