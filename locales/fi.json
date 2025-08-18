@@ -28,6 +28,7 @@
         "i18n_vegetarian_friendly_title": "Paikka, joka tarjoaa myös kasvisruokaa mutta ei vegaanista."
       },
       "words": {
+        "loading": "Lataaminen ...",
         "open": "auki",
         "unknown": "ei tiedossa",
         "closed": "kiinni",

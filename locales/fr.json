@@ -28,6 +28,7 @@
         "i18n_vegetarian_friendly_title": "Place avec un végétarien, mais pas d'offre végétalienne."
       },
       "words": {
+        "loading": "Chargement ...",
         "open": "ouvert",
         "unknown": "indéterminé",
         "closed": "fermé",

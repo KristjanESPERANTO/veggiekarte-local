@@ -28,6 +28,7 @@
         "i18n_vegetarian_friendly_title": "Loko, kiu ofertas ankaŭ vegetaran manĝaĵon, sed neniu vegana."
       },
       "words": {
+        "loading": "Ŝarĝante ...",
         "open": "malfermita",
         "unknown": "nekonata",
         "closed": "fermita",
