@@ -20,7 +20,7 @@ export default defineConfig([
     "data/places.json",
     "data/places_old.json"
   ]),
-  { files: ["**/*.css"], plugins: { css }, language: "css/css", extends: ["css/recommended"], rules: { "css/no-important": "off" } },
+  { files: ["**/*.css"], plugins: { css }, language: "css/css", extends: ["css/recommended"], rules: { "css/no-important": "off", "css/use-baseline": "off" } },
   {
     files: ["**/*.js"],
     languageOptions: { ecmaVersion: "latest", globals: globals.browser },

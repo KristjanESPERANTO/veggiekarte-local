@@ -1,7 +1,6 @@
 /* eslint-disable camelcase */
-/* global i18next, L, opening_hours */
+/* global L */
 
-import "../third-party/opening_hours/opening_hours+deps.min.js";
 import "../third-party/leaflet/leaflet.js";
 import "../third-party/leaflet.control.geocoder/Control.Geocoder.js";
 import "../third-party/leaflet.locatecontrol/L.Control.Locate.min.js";
@@ -11,6 +10,7 @@ import "../third-party/leaflet.fullscreen/Control.FullScreen.js";
 import "../third-party/leaflet.languageselector/leaflet.languageselector.js";
 
 import { addLanguageResources, getUserLanguage, setUserLanguage } from "./i18n.js";
+import { addNominatimInformation, calculatePopup } from "./popup.js";
 import { MarkerClusterGroup } from "../third-party/leaflet.markercluster/leaflet.markercluster-esm.js";
 import { createHash } from "../third-party/leaflet.hash/leaflet-hash.mjs";
 import getIcon from "./veggiemap-icons.js";
@@ -130,8 +130,15 @@ function veggiemap() {
 
   // Add scale control
   L.control.scale().addTo(map);
-}
 
+  // Inject Nominatim data into the popup once it opens
+  map.on("popupopen", (evt) => {
+    const popupElement = evt.popup.getElement();
+    if (!popupElement) { return; }
+    const marker = evt.popup._source; // Marker that owns the popup
+    if (marker) { addNominatimInformation(marker, popupElement); }
+  });
+}
 // Function to toggle the visibility of the Info box.
 function toggleInfo() {
   const element = document.getElementById("information"); // Get the element of the information window
@@ -172,7 +179,7 @@ function statPopulate(markerGroups, date) {
   }
   // Add the date to the Layer Control
   const lastEntry = document.getElementById("n_vegetarian_friendly").parentNode.parentNode;
-  lastEntry.innerHTML += `<br /><div>(${date})</div>`;
+  lastEntry.innerHTML += `<br><div>(${date})</div>`;
 }
 
 // Function to get the information from the places json file.
@@ -250,234 +257,6 @@ function calculateTooltip(layer) {
   const eSym = feature.properties.symbol;
   const eNam = feature.properties.name;
   return `${eSym} ${eNam}`;
-}
-
-/**
- * Check if there is an entry for a place (feature) on https://lib.reviews/.
- * @param  {Object} feature
- */
-async function addLibReview(element) {
-  const url = `https://lib.reviews/api/thing?url=https://www.openstreetmap.org/${element.feature.properties._type}/${element.feature.properties._id}`;
-
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-
-    document.getElementById("libreviews").innerHTML = `<div class="popupflex-container"><div>📓</div><div><a href="https://lib.reviews/${
-      data.thing.urlID
-    }" target="_blank" rel="noopener noreferrer">${i18next.t("words.review")}</a></div>`;
-  }
-  catch {
-    console.info("There is no review of this place or lib.reviews isn't available.");
-  }
-}
-
-// Get information like the address from Nominatim API
-async function addNominatimInformation(element) {
-  const type = element.feature.properties._type;
-  const id = element.feature.properties._id;
-  const osmId = type[0] + id;
-  const locale = getUserLanguage();
-  const url = `https://nominatim.openstreetmap.org/lookup?osm_ids=${osmId}&extratags=1&format=json&accept-language=${locale}`;
-
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-    const address = data[0].address;
-
-    // Address
-    let addressString = "";
-    // Collecting address information
-    if (address.road !== undefined) {
-      addressString += `${address.road} `; // Street
-      if (address.house_number !== undefined) {
-        addressString += `${address.house_number}`; // House number
-      }
-      addressString += "<br/>";
-    }
-    if (address.city !== undefined || address.town !== undefined) {
-      if (address.postcode !== undefined) {
-        addressString += `${address.postcode} `; // Postcode
-      }
-      if (address.town === undefined) {
-        addressString += `${address.city} `; // City
-      }
-      else {
-        addressString += `${address.town} `; // Town
-      }
-    }
-    if (address.country !== undefined) {
-      addressString += `<br/>${address.country}`;
-    }
-
-    addressString = `<div class="popupflex-container"><div>📍</div>${addressString}</div>`;
-
-    setTimeout(() => {
-      if (addressString !== "") {
-        document.getElementById("address").innerHTML = addressString;
-      }
-    }, 150);
-  }
-  catch (error) {
-    console.info("Can't get information from Nominatim API:", error);
-  }
-}
-
-// Calculate popup content for a given marker layer
-function calculatePopup(element) {
-  // Get the information
-  const feature = element.feature;
-  const eId = feature.properties._id;
-  const eNam = feature.properties.name;
-  const eTyp = feature.properties._type;
-  const eEma = feature.properties.contact_email;
-  let ePho = feature.properties.contact_phone;
-  const eWeb = feature.properties.contact_website;
-  let eFac = feature.properties.contact_facebook;
-  let eIns = feature.properties.contact_instagram;
-  const eCui = feature.properties.cuisine;
-  const eOpe = feature.properties.opening_hours;
-  const eSym = feature.properties.symbol;
-  const veganDescription = feature.properties.vegan_description;
-  const eMenu = feature.properties.menu_url;
-
-  let popupContent = `
-      <div class='popup-category ${feature.properties.category}'>
-        ${i18next.t(`texts.i18n_${feature.properties.category}`)}
-      </div>`;
-
-  /** * Building the popup content ** */
-  popupContent += `<div class='map-popup-title'>${eSym} ${eNam}`; // Symbol and name
-
-  // OSM link for popup
-  const osmUrl = `https://openstreetmap.org/${eTyp}/${eId}`;
-  popupContent += `<a href='${osmUrl}' target='_blank' rel='noopener noreferrer'> *</a></div><hr/>`; // OSM link
-
-  // Adding cuisine information to popup
-  if (eCui !== undefined) {
-    popupContent += `<div class='popupflex-container'><div>👩‍🍳</div><div>${eCui.replaceAll(";", ", ").replaceAll("_", " ")}</div></div>`;
-  }
-
-  popupContent += "<div class='popupflex-container' id='address'>&nbsp;</br>&nbsp;</br>&nbsp;</br></div>";
-
-  // Adding opening hours to popup
-  if (eOpe !== undefined) {
-    // Country: Germany
-    const countryCode = "de";
-    // State: Sachsen-Anhalt
-    const state = "Sachsen-Anhalt";
-    // Get browser language for the warnings and the prettifier
-    const locale = getUserLanguage();
-
-    // Catch cases where the opening hour string isn't okay
-    try {
-      // Create opening_hours object
-      // eslint-disable-next-line new-cap
-      const oh = new opening_hours(
-        eOpe,
-        {
-          address: { country_code: countryCode, state }
-        },
-        { locale }
-      );
-      let prettifiedValue = oh.prettifyValue({
-        conf: {
-          locale,
-          rule_sep_string: "<br />",
-          print_semicolon: false,
-          sep_one_day_between: ", "
-        }
-      });
-      prettifiedValue = prettifiedValue.replaceAll(",", ", ").replaceAll("PH", i18next.t("words.public_holiday")).replaceAll("SH", i18next.t("words.school_holidays"));
-      // Find out the open state
-      let openState;
-      let openStateEmoji;
-      if (oh.getState()) {
-        openState = i18next.t("words.open");
-        openStateEmoji = "open";
-        if (!oh.getFutureState()) {
-          openState += i18next.t("texts.will close soon");
-          openStateEmoji = "closes-soon";
-        }
-      }
-      else {
-        openState = i18next.t("words.closed");
-        openStateEmoji = "closed";
-        if (oh.getFutureState()) {
-          openState += i18next.t("texts.will open soon");
-          openStateEmoji = "opens-soon";
-        }
-      }
-      // Append opening hours to the popup
-      popupContent += `<div class='popupflex-container'><div>🕖</div><div><span class='open-state-circle ${openStateEmoji}'></span>${openState}<br />${prettifiedValue}</div></div>`;
-    }
-    catch (error) {
-      popupContent += `<div class='popupflex-container'><div>🕖</div><div>Error: ${error}</div></div>`;
-    }
-  }
-
-  // Adding addidtional information to popup
-  if (ePho !== undefined) {
-    // Split the value for the case that there are more then one phone number
-    ePho = ePho.split(";");
-    popupContent += `<div class='popupflex-container'><div>☎️</div><div><a href='tel:${ePho[0]}' target='_blank' rel='noopener noreferrer'>${ePho[0]}</a></div></div>`;
-    if (ePho[1] !== undefined) {
-      popupContent += `<div class='popupflex-container'><div></div><div><a href='tel:${ePho[1]}' target='_blank' rel='noopener noreferrer'>${ePho[1]}</a></div></div>`;
-    }
-  }
-  if (eEma !== undefined) {
-    popupContent += `<div class='popupflex-container'><div>📧</div><div><a href='mailto:${eEma}' target='_blank' rel='noopener noreferrer'>${eEma}</a></div></div>`;
-  }
-  if (eWeb !== undefined) {
-    popupContent += `<div class='popupflex-container'><div>🌐</div><div><a href='${eWeb}' target='_blank' rel='noopener noreferrer'>${eWeb.replace(
-      "https://",
-      ""
-    )}</a></div></div>`;
-  }
-  if (eMenu !== undefined) {
-    popupContent += `<div class='popupflex-container'><div>📋</div><div><a href='${eMenu}' target='_blank' rel='noopener noreferrer'>Speisekarte</a></div></div>`;
-  }
-  if (eFac !== undefined) {
-    if (!eFac.startsWith("http")) {
-      eFac = `https://www.facebook.com/${eFac}`;
-    }
-    popupContent += `<div class='popupflex-container'><div>🇫</div><div><a href='${eFac}' target='_blank' rel='noopener noreferrer'>${decodeURI(eFac).replace(
-      "https://",
-      ""
-    )}</a></div></div>`;
-  }
-  if (eIns !== undefined) {
-    if (!eIns.startsWith("http")) {
-      eIns = `https://www.instagram.com/${eIns}`;
-    }
-    popupContent += `<div class='popupflex-container'><div>📸</div><div><a href='${eIns}' target='_blank' rel='noopener noreferrer'>${eIns.replace(
-      "https://",
-      ""
-    )}</a></div></div>`;
-  }
-  if (veganDescription !== undefined) {
-    popupContent += `<div class='popupflex-container'><div>🗒️</div>
-      <div>${veganDescription}</div></div>`;
-  }
-
-  // Add review entry from lib.reviews if exists
-  popupContent += "<div id='libreviews'></div>";
-  addLibReview(element);
-
-  // Add address information from Nominatim API
-  addNominatimInformation(element);
-
-  return popupContent;
-}
-
-// Adding function for opening_hours objects to check if place will be open after n minutes (60 minutes as default)
-if (!opening_hours.prototype.getFutureState) {
-  // eslint-disable-next-line func-names
-  opening_hours.prototype.getFutureState = function (minutes = 60) {
-    const nowPlusHours = new Date();
-    nowPlusHours.setUTCMinutes(nowPlusHours.getUTCMinutes() + minutes);
-    return this.getState(nowPlusHours);
-  };
 }
 
 // Main function
