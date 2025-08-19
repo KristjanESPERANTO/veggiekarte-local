@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-/* global createHash, L */
+/* global L */
 
 // Define marker groups
 const parentGroup = L.markerClusterGroup({
@@ -44,18 +44,19 @@ function veggiemap() {
   // Add zoom control
   L.control.zoom({ position: "topright" }).addTo(map);
 
-  // Define overlays (each marker group gets a layer) + add legend to the description
-  const overlays = {
-    "<div class='legend-row'><div class='second-cell'>1 issue</div><div class='third-cell' id='issue_count_1'></div></div>": issueCount1,
-    "<div class='legend-row'><div class='second-cell'>2 issues</div><div class='third-cell' id='issue_count_2'></div></div>": issueCount2,
-    "<div class='legend-row'><div class='second-cell'>3 issues</div><div class='third-cell' id='issue_count_3'></div></div>": issueCount3,
-    "<div class='legend-row'><div class='second-cell'>4 issues</div><div class='third-cell' id='issue_count_4'></div></div>": issueCount4,
-    "<div class='legend-row'><div class='second-cell'>5 issues</div><div class='third-cell' id='issue_count_5'></div></div>": issueCount5,
-    "<div class='legend-row'><div class='second-cell'>6 issues</div><div class='third-cell' id='issue_count_6'></div></div>": issueCount6,
-    "<div class='legend-row'><div class='second-cell'>more than 6</div><div class='third-cell' id='issue_count_many'></div></div>": issueCountMany
-  };
-
-  veggiemapPopulate(parentGroup);
+  // Populate map async then add overlays
+  veggiemapPopulate(parentGroup).then(() => {
+    const overlays = {
+      "<div class='legend-row'><div class='second-cell'>1 issue</div><div class='third-cell' id='issue_count_1'></div></div>": issueCount1,
+      "<div class='legend-row'><div class='second-cell'>2 issues</div><div class='third-cell' id='issue_count_2'></div></div>": issueCount2,
+      "<div class='legend-row'><div class='second-cell'>3 issues</div><div class='third-cell' id='issue_count_3'></div></div>": issueCount3,
+      "<div class='legend-row'><div class='second-cell'>4 issues</div><div class='third-cell' id='issue_count_4'></div></div>": issueCount4,
+      "<div class='legend-row'><div class='second-cell'>5 issues</div><div class='third-cell' id='issue_count_5'></div></div>": issueCount5,
+      "<div class='legend-row'><div class='second-cell'>6 issues</div><div class='third-cell' id='issue_count_6'></div></div>": issueCount6,
+      "<div class='legend-row'><div class='second-cell'>more than 6</div><div class='third-cell' id='issue_count_many'></div></div>": issueCountMany
+    };
+    L.control.layers(null, overlays).addTo(map);
+  });
 
   // Close the tooltip when opening the popup
   parentGroup.on("click", () => {
@@ -64,9 +65,29 @@ function veggiemap() {
     }
   });
 
-  // Add hash to the url
-  // eslint-disable-next-line no-unused-vars
-  const hash = createHash(map);
+  // Basic hash (zoom/lat/lon) handling (replacement for leaflet-hash)
+  function setHash() {
+    const mapCenter = map.getCenter();
+    const mapZoomValue = map.getZoom();
+    const precision = Math.max(0, Math.ceil(Math.log(mapZoomValue) / Math.LN2));
+    const hashStr = `#${mapZoomValue}/${mapCenter.lat.toFixed(precision)}/${mapCenter.lng.toFixed(precision)}`;
+    if (location.hash !== hashStr) { history.replaceState(null, "", hashStr); }
+  }
+  function parseHash() {
+    if (location.hash && location.hash.startsWith("#")) {
+      const parts = location.hash.slice(1).split("/");
+      if (parts.length === 3) {
+        const parsedValue = parseInt(parts[0], 10);
+        const lat = parseFloat(parts[1]);
+        const lon = parseFloat(parts[2]);
+        if (!Number.isNaN(parsedValue) && !Number.isNaN(lat) && !Number.isNaN(lon)) {
+          map.setView([lat, lon], parsedValue);
+        }
+      }
+    }
+  }
+  map.on("moveend", setHash);
+  parseHash();
 
   // Add info button
   const infoButton = L.easyButton("<div class='info-button'></div>", () => {
@@ -85,9 +106,6 @@ function veggiemap() {
       position: "topright"
     })
     .addTo(map);
-
-  // Add layer control button
-  L.control.layers(null, overlays).addTo(map);
 }
 
 // Function to toggle the visibility of the Info box.
@@ -125,11 +143,14 @@ function statPopulate(markerGroups, date) {
     // Get the number of the markers
     const markerNumber = markerGroups[categoryName].length;
     // Add the number to the category entry
-    document.getElementById(categoryName).innerHTML = `(${markerNumber})`;
+    const el = document.getElementById(categoryName);
+    if (el) { el.innerHTML = `(${markerNumber})`; }
   }
   // Add the date to the Layer Control
-  const lastEntry = document.getElementById("issue_count_many").parentNode.parentNode;
-  lastEntry.innerHTML += `<br /><div>(${date})</div>`;
+  const lastEntryRef = document.getElementById("issue_count_many");
+  if (lastEntryRef && lastEntryRef.parentNode && lastEntryRef.parentNode.parentNode) {
+    lastEntryRef.parentNode.parentNode.innerHTML += `<br /><div>(${date})</div>`;
+  }
 }
 
 // Function to get the information from the places json file.
@@ -183,7 +204,7 @@ function geojsonToMarkerGroups(geojson) {
     else {
       eCat += feature.properties.issue_count;
     }
-    if (!groups[eCat]) groups[eCat] = [];
+    if (!groups[eCat]) { groups[eCat] = []; }
     groups[eCat].push(getMarker(feature));
   });
   return [groups, date];

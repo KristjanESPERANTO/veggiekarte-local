@@ -28,6 +28,7 @@
         "i18n_vegetarian_friendly_title": "Place which offers also vegetarian food, but no vegan."
       },
       "words": {
+        "loading": "Loading ...",
         "open": "open",
         "unknown": "unknown",
         "closed": "closed",

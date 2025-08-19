@@ -28,6 +28,7 @@
         "i18n_vegetarian_friendly_title": "Ort mit vegetarischem, aber keinem veganen Angebot."
       },
       "words": {
+        "loading": "Lade...",
         "open": "geöffnet",
         "unknown": "unbekannt",
         "closed": "geschlossen",

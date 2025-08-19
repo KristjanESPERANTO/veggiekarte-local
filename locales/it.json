@@ -28,6 +28,7 @@
         "i18n_vegetarian_friendly_title": "Offre anche piatti vegetariani ma non solo, ma niente di vegano."
       },
       "words": {
+        "loading": "Caricamento ...",
         "open": "aperto",
         "unknown": "sconosciuto",
         "closed": "chiuso",

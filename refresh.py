@@ -271,64 +271,9 @@ def write_data(data):
             place_obj["properties"]["category"] = "vegetarian_friendly"
             n_vegetarian_friendly += 1
 
-        if "cuisine" in tags:
-            place_obj["properties"]["cuisine"] = tags["cuisine"]
-        if "contact:website" in tags:
-            place_obj["properties"]["contact_website"] = tags["contact:website"].rstrip("/")
-        elif "website" in tags:
-            place_obj["properties"]["contact_website"] = tags["website"].rstrip("/")
-        elif "brand:website" in tags:
-            place_obj["properties"]["contact_website"] = tags["brand:website"].rstrip("/")
-        if "contact:facebook" in tags:
-            facebook = tags["contact:facebook"]
-        elif "facebook" in tags:
-            facebook = tags["facebook"]
-        if "contact:facebook" in tags or "facebook" in tags:
-            facebook = facebook.rstrip("/")
-            facebook = facebook.replace("https://www.facebook.com/", "")
-            facebook = facebook.replace("https://facebook.com/", "")
-            place_obj["properties"]["contact_facebook"] = facebook
-        if "contact:instagram" in tags:
-            instagram = tags["contact:instagram"]
-        elif "instagram" in tags:
-            instagram = tags["instagram"]
-        if "contact:instagram" in tags or "instagram" in tags:
-            instagram = instagram.rstrip("/")
-            instagram = instagram.replace("https://www.instagram.com/", "")
-            instagram = instagram.replace("https://instagram.com/", "")
-            place_obj["properties"]["contact_instagram"] = instagram
-        if "contact:email" in tags:
-            email = tags["contact:email"]
-        elif "email" in tags:
-            email = tags["email"]
-        if "contact:email" in tags or "email" in tags:
-            email = email.split(";")[0] # Use only the first email address
-            place_obj["properties"]["contact_email"] = email
-        if "contact:phone" in tags:
-            place_obj["properties"]["contact_phone"] = tags["contact:phone"]
-        elif "contact:mobile" in tags:
-            place_obj["properties"]["contact_phone"] = tags["contact:mobile"]
-        elif "phone" in tags:
-            place_obj["properties"]["contact_phone"] = tags["phone"]
-
-        opening_hours = None
-        if "opening_hours:covid19" in tags and tags["opening_hours:covid19"] != "same" and tags["opening_hours:covid19"] != "restricted":
-            opening_hours = tags["opening_hours:covid19"]
-        elif "opening_hours:kitchen" in tags:
-            opening_hours = tags["opening_hours:kitchen"]
-        elif "opening_hours" in tags:
-            opening_hours = tags["opening_hours"]
-        if opening_hours is not None:
-            # Replacing line breaks with spaces (Usually there should be no line breaks,
-            # but if they do appear, they break the structure of the places.json).
-            opening_hours = opening_hours.replace("\n", "").replace("\r", "")
-            place_obj["properties"]["opening_hours"] = opening_hours
-        if "shop" in tags:
-            place_obj["properties"]["shop"] = tags["shop"]
-        if "diet:vegan:description" in tags:
-            place_obj["properties"]["vegan_description"] = tags["diet:vegan:description"]
-        if "website:menu" in tags:
-            place_obj["properties"]["menu_url"] = tags["website:menu"].rstrip("/")
+    # The following detailed fields (cuisine, contacts, opening hours, descriptions, menu)
+    # are intentionally omitted to shrink the base dataset. They are now fetched lazily
+    # from Nominatim (extratags) when a popup opens.
 
         places_data["features"].append(place_obj)
 
@@ -345,19 +290,38 @@ def write_data(data):
         "n_vegetarian_friendly": n_vegetarian_friendly,
     }
 
+    # Check if the local statistic file exists
+    if not VEGGIESTAT_FILE.exists():
+        print(f"Local statistic file {VEGGIESTAT_FILE} not found. Downloading from remote source...")
+        remote_stat_url = "https://veggiekarte.de/data/stat.json"
+        try:
+            response = HTTP.request("GET", remote_stat_url)
+            if response.status == 200:
+                VEGGIESTAT_FILE.touch()
+                VEGGIESTAT_FILE.write_text(response.data.decode("utf-8"))
+                print("Downloaded and saved remote statistic file.")
+            else:
+                print(f"Failed to download remote statistic file. HTTP status: {response.status}")
+                stat_data["stat"] = []
+        except Exception as e:
+            print(f"Error while downloading remote statistic file: {e}")
+            stat_data["stat"] = []
+    else:
+        print(f"Local statistic file {VEGGIESTAT_FILE} found.")
+
     # Open statistic data file
     with VEGGIESTAT_FILE.open() as json_file:
-
         # Get previous statistic data
         previous_stat_data = json.load(json_file)
-        stat_data["stat"] = previous_stat_data["stat"]
+        stat_data["stat"] = previous_stat_data.get("stat", [])
 
         # Get date from the last entry
-        last_date = stat_data["stat"][-1]["date"]
+        if stat_data["stat"]:
+            last_date = stat_data["stat"][-1]["date"]
 
-        # Ensure that there is only one entry each day
-        if DATE == last_date:
-            stat_data["stat"].pop(-1)
+            # Ensure that there is only one entry each day
+            if DATE == last_date:
+                stat_data["stat"].pop(-1)
 
         # Append the new data
         stat_data["stat"].append(stat_obj)

@@ -1,44 +1,69 @@
-/*
- * SPDX-FileCopyrightText: 2012-2013 Dmitry Marakasov
- * SPDX-FileCopyrightText: 2013-2021 Robin `ypid` Schneider <ypid@riseup.net>
- *
- * SPDX-License-Identifier: LGPL-3.0-only
- *
- * This file is based on work under the following copyright and permission
- * notice:
- *
- *     Copyright (c) 2012-2013 Dmitry Marakasov
- *     All rights reserved.
- *
- *     Redistribution and use in source and binary forms, with or without
- *     modification, are permitted provided that the following conditions are met:
- *
- *     1. Redistributions of source code must retain the above copyright notice, this
- *     list of conditions and the following disclaimer.
- *
- *     2. Redistributions in binary form must reproduce the above copyright notice,
- *     this list of conditions and the following disclaimer in the documentation
- *     and/or other materials provided with the distribution.
- *
- *     THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- *     ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- *     WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
- *     DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
- *     FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
- *     DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
- *     SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
- *     CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
- *     OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
- *     OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
-
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
-  (global = global || self, global.opening_hours = factory());
-}(this, (function () { 'use strict';
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.opening_hours = factory());
+})(this, (function () { 'use strict';
 
-  var data = { PH:[ { name:"Neujahrstag",
+  var data$D = { PH:[ { name:"Año Nuevo",
+        fixed_date:[ 1,
+          1 ] },
+      { name:"Carnaval",
+        variable_date:"easter",
+        offset:-48 },
+      { name:"Carnaval",
+        variable_date:"easter",
+        offset:-47 },
+      { name:"Día Nacional de la Memoria por la Verdad y la Justicia",
+        fixed_date:[ 3,
+          24 ] },
+      { name:"Viernes Santo",
+        variable_date:"easter",
+        offset:-2 },
+      { name:"Feriado con fines turísticos",
+        fixed_date:[ 4,
+          1 ] },
+      { name:"Día del Veterano y de los Caídos en la Guerra de Malvinas",
+        fixed_date:[ 4,
+          2 ] },
+      { name:"Día del Trabajador",
+        fixed_date:[ 5,
+          1 ] },
+      { name:"Día de la Revolución de Mayo",
+        fixed_date:[ 5,
+          25 ] },
+      { name:"Paso a la Inmortalidad del Gral. Don Martín Miguel de Güemes",
+        fixed_date:[ 6,
+          17 ] },
+      { name:"Paso a la Inmortalidad del General Manuel Belgrano",
+        fixed_date:[ 6,
+          20 ] },
+      { name:"Feriado con fines turísticos",
+        fixed_date:[ 6,
+          21 ] },
+      { name:"Día de la Independencia",
+        fixed_date:[ 7,
+          9 ] },
+      { name:"Paso a la Inmortalidad del Gral. José de San Martín",
+        fixed_date:[ 8,
+          17 ] },
+      { name:"Feriado con fines turísticos",
+        fixed_date:[ 10,
+          11 ] },
+      { name:"Día del Respeto a la Diversidad Cultural",
+        fixed_date:[ 10,
+          12 ] },
+      { name:"Día de la Soberanía Nacional",
+        fixed_date:[ 11,
+          18 ] },
+      { name:"Inmaculada Concepción de María",
+        fixed_date:[ 12,
+          8 ] },
+      { name:"Navidad",
+        fixed_date:[ 12,
+          25 ] } ] };
+  data$D.PH;
+
+  var data$C = { PH:[ { name:"Neujahrstag",
         fixed_date:[ 1,
           1 ] },
       { name:"Heilige Drei Könige",
@@ -77,583 +102,1010 @@
       { name:"Stefanitag",
         fixed_date:[ 12,
           26 ] } ],
-    SH:[ { "2017":[ 4,
+    SH:[ { 2017:[ 4,
           8,
           4,
           18 ],
-        "2018":[ 3,
+        2018:[ 3,
           24,
           4,
           3 ],
-        "2019":[ 4,
+        2019:[ 4,
           13,
           4,
           23 ],
-        "2020":[ 4,
+        2020:[ 4,
           4,
           4,
           14 ],
-        "2021":[ 3,
+        2021:[ 3,
           27,
           4,
-          6 ],
-        "2022":[ 4,
+          5 ],
+        2022:[ 4,
           9,
           4,
-          19 ],
-        "2023":[ 4,
+          18 ],
+        2023:[ 4,
           1,
           4,
-          11 ],
-        "2024":[ 3,
+          10 ],
+        2024:[ 3,
           23,
           4,
-          2 ],
+          1 ],
+        2025:[ 4,
+          12,
+          4,
+          21 ],
+        2026:[ 3,
+          28,
+          4,
+          6 ],
         name:"Osterferien" },
-      { "2017":[ 6,
+      { 2017:[ 6,
           3,
           6,
           6 ],
-        "2018":[ 5,
+        2018:[ 5,
           19,
           5,
           22 ],
-        "2019":[ 6,
+        2019:[ 6,
           8,
           6,
           11 ],
-        "2020":[ 5,
+        2020:[ 5,
           30,
           6,
           2 ],
-        "2021":[ 5,
+        2021:[ 5,
           22,
           5,
-          25 ],
-        "2022":[ 6,
+          24 ],
+        2022:[ 6,
           4,
           6,
-          7 ],
-        "2023":[ 5,
-          57,
+          6 ],
+        2023:[ 5,
+          27,
           5,
-          30 ],
-        "2024":[ 5,
+          29 ],
+        2024:[ 5,
           18,
           5,
-          21 ],
+          20 ],
+        2025:[ 6,
+          7,
+          6,
+          9 ],
+        2026:[ 5,
+          23,
+          5,
+          25 ],
         name:"Pfingstferien" },
-      { "2016":[ 11,
+      { 2021:[ 10,
+          27,
+          10,
+          31 ],
+        2022:[ 10,
+          27,
+          10,
+          31 ],
+        2023:[ 10,
+          27,
+          10,
+          31 ],
+        2024:[ 10,
+          28,
+          10,
+          31 ],
+        2025:[ 10,
+          27,
+          10,
+          31 ],
+        2026:[ 10,
+          27,
+          10,
+          31 ],
+        name:"Herbstferien" },
+      { 2016:[ 11,
           2 ],
-        "2017":[ 11,
+        2017:[ 11,
           2 ],
-        "2018":[ 11,
+        2018:[ 11,
           2 ],
-        "2019":[ 11,
+        2019:[ 11,
           2 ],
-        "2020":[ 11,
+        2020:[ 11,
           2 ],
-        "2021":[ 11,
+        2021:[ 11,
           2 ],
-        "2022":[ 11,
+        2022:[ 11,
           2 ],
-        "2023":[ 11,
+        2023:[ 11,
+          2 ],
+        2024:[ 11,
+          2 ],
+        2025:[ 11,
+          2 ],
+        2026:[ 11,
           2 ],
         name:"Allerseelen" },
-      { "2016":[ 12,
+      { 2016:[ 12,
           24,
           1,
           7 ],
-        "2017":[ 12,
+        2017:[ 12,
           24,
           1,
           6 ],
-        "2018":[ 12,
+        2018:[ 12,
           24,
           1,
           6 ],
-        "2019":[ 12,
+        2019:[ 12,
           23,
           1,
           6 ],
-        "2020":[ 12,
+        2020:[ 12,
           24,
           1,
           6 ],
-        "2021":[ 12,
+        2021:[ 12,
           24,
           1,
           6 ],
-        "2022":[ 12,
+        2022:[ 12,
           24,
           1,
           6 ],
-        "2023":[ 12,
+        2023:[ 12,
+          23,
+          1,
+          6 ],
+        2024:[ 12,
+          23,
+          1,
+          6 ],
+        2025:[ 12,
+          24,
+          1,
+          6 ],
+        2026:[ 12,
           24,
           1,
           6 ],
         name:"Weihnachtsferien" } ],
     Burgenland:{ _state_code:1,
-      SH:[ { "2016":[ 2,
+      SH:[ { 2016:[ 2,
             8,
             2,
             13 ],
-          "2017":[ 2,
+          2017:[ 2,
             13,
             2,
             18 ],
-          "2018":[ 2,
+          2018:[ 2,
             12,
             2,
             17 ],
-          "2019":[ 2,
+          2019:[ 2,
             11,
             2,
             16 ],
-          "2020":[ 2,
+          2020:[ 2,
             10,
             2,
             15 ],
-          "2021":[ 2,
+          2021:[ 2,
             8,
             2,
             13 ],
+          2022:[ 2,
+            14,
+            2,
+            19 ],
+          2023:[ 2,
+            13,
+            2,
+            18 ],
+          2024:[ 2,
+            12,
+            2,
+            17 ],
+          2025:[ 2,
+            10,
+            2,
+            15 ],
+          2026:[ 2,
+            9,
+            2,
+            14 ],
           name:"Semesterferien" },
-        { "2016":[ 7,
+        { 2016:[ 7,
             2,
             9,
             3 ],
-          "2017":[ 7,
+          2017:[ 7,
             1,
             9,
             3 ],
-          "2018":[ 6,
+          2018:[ 6,
             30,
             9,
             2 ],
-          "2019":[ 6,
+          2019:[ 6,
             29,
             9,
             1 ],
-          "2020":[ 7,
+          2020:[ 7,
             4,
             9,
             6 ],
-          "2021":[ 7,
+          2021:[ 7,
             3,
             9,
+            5 ],
+          2022:[ 7,
+            2,
+            9,
             4 ],
+          2023:[ 7,
+            1,
+            9,
+            3 ],
+          2024:[ 6,
+            29,
+            9,
+            1 ],
+          2025:[ 6,
+            28,
+            8,
+            31 ],
+          2026:[ 7,
+            4,
+            9,
+            6 ],
           name:"Sommerferien" } ] },
     "Kärnten":{ _state_code:2,
-      SH:[ { "2016":[ 2,
+      SH:[ { 2016:[ 2,
             8,
             2,
             13 ],
-          "2017":[ 2,
+          2017:[ 2,
             13,
             2,
             18 ],
-          "2018":[ 2,
+          2018:[ 2,
             12,
             2,
             17 ],
-          "2019":[ 2,
+          2019:[ 2,
             11,
             2,
             16 ],
-          "2020":[ 2,
+          2020:[ 2,
             10,
             2,
             15 ],
-          "2021":[ 2,
+          2021:[ 2,
             8,
             2,
             13 ],
-          name:"Semesterferien" },
-        { "2016":[ 7,
-            9,
-            9,
-            10 ],
-          "2017":[ 7,
-            8,
-            9,
-            10 ],
-          "2018":[ 7,
-            7,
-            9,
-            9 ],
-          "2019":[ 7,
-            6,
-            9,
-            8 ],
-          "2020":[ 7,
-            11,
-            9,
-            13 ],
-          "2021":[ 7,
-            10,
-            9,
-            11 ],
-          name:"Sommerferien" } ] },
-    "Niederösterreich":{ _state_code:3,
-      SH:[ { "2016":[ 2,
-            1,
+          2022:[ 2,
+            14,
             2,
-            6 ],
-          "2017":[ 2,
-            6,
-            2,
-            11 ],
-          "2018":[ 2,
-            5,
-            2,
-            10 ],
-          "2019":[ 2,
-            4,
-            2,
-            9 ],
-          "2020":[ 2,
-            3,
-            2,
-            8 ],
-          "2021":[ 2,
-            1,
-            2,
-            6 ],
-          name:"Semesterferien" },
-        { "2016":[ 7,
-            2,
-            9,
-            3 ],
-          "2017":[ 7,
-            1,
-            9,
-            3 ],
-          "2018":[ 6,
-            30,
-            9,
-            2 ],
-          "2019":[ 6,
-            29,
-            9,
-            1 ],
-          "2020":[ 7,
-            4,
-            9,
-            6 ],
-          "2021":[ 7,
-            3,
-            9,
-            4 ],
-          name:"Sommerferien" } ] },
-    "Oberösterreich":{ _state_code:4,
-      SH:[ { "2016":[ 2,
-            15,
-            2,
-            20 ],
-          "2017":[ 2,
-            20,
-            2,
-            25 ],
-          "2018":[ 2,
-            19,
-            2,
-            24 ],
-          "2019":[ 2,
-            18,
-            2,
-            23 ],
-          "2020":[ 2,
-            17,
-            2,
-            22 ],
-          "2021":[ 2,
-            15,
-            2,
-            20 ],
-          name:"Semesterferien" },
-        { "2016":[ 7,
-            9,
-            9,
-            10 ],
-          "2017":[ 7,
-            8,
-            9,
-            10 ],
-          "2018":[ 7,
-            7,
-            9,
-            9 ],
-          "2019":[ 7,
-            6,
-            9,
-            8 ],
-          "2020":[ 7,
-            11,
-            9,
-            13 ],
-          "2021":[ 7,
-            10,
-            9,
-            11 ],
-          name:"Sommerferien" } ] },
-    Salzburg:{ _state_code:5,
-      SH:[ { "2016":[ 2,
-            8,
-            2,
-            13 ],
-          "2017":[ 2,
+            19 ],
+          2023:[ 2,
             13,
             2,
             18 ],
-          "2018":[ 2,
+          2024:[ 2,
             12,
             2,
             17 ],
-          "2019":[ 2,
-            11,
-            2,
-            16 ],
-          "2020":[ 2,
+          2025:[ 2,
             10,
             2,
             15 ],
-          "2021":[ 2,
-            8,
+          2026:[ 2,
+            9,
             2,
-            13 ],
+            14 ],
           name:"Semesterferien" },
-        { "2016":[ 7,
+        { 2016:[ 7,
             9,
             9,
             10 ],
-          "2017":[ 7,
+          2017:[ 7,
             8,
             9,
             10 ],
-          "2018":[ 7,
+          2018:[ 7,
             7,
             9,
             9 ],
-          "2019":[ 7,
+          2019:[ 7,
             6,
             9,
             8 ],
-          "2020":[ 7,
+          2020:[ 7,
             11,
             9,
             13 ],
-          "2021":[ 7,
-            10,
-            9,
-            11 ],
-          name:"Sommerferien" } ] },
-    Steiermark:{ _state_code:6,
-      SH:[ { "2016":[ 2,
-            15,
-            2,
-            20 ],
-          "2017":[ 2,
-            20,
-            2,
-            25 ],
-          "2018":[ 2,
-            19,
-            2,
-            24 ],
-          "2019":[ 2,
-            18,
-            2,
-            23 ],
-          "2020":[ 2,
-            17,
-            2,
-            22 ],
-          "2021":[ 2,
-            15,
-            2,
-            20 ],
-          name:"Semesterferien" },
-        { "2016":[ 7,
-            9,
-            9,
-            10 ],
-          "2017":[ 7,
-            8,
-            9,
-            10 ],
-          "2018":[ 7,
-            7,
-            9,
-            9 ],
-          "2019":[ 7,
-            6,
-            9,
-            8 ],
-          "2020":[ 7,
-            11,
-            9,
-            13 ],
-          "2021":[ 7,
+          2021:[ 7,
             10,
             9,
             12 ],
-          name:"Sommerferien" } ] },
-    Tirol:{ _state_code:7,
-      SH:[ { "2016":[ 2,
-            8,
-            2,
-            13 ],
-          "2017":[ 2,
-            13,
-            2,
-            18 ],
-          "2018":[ 2,
-            12,
-            2,
-            17 ],
-          "2019":[ 2,
-            11,
-            2,
-            16 ],
-          "2020":[ 2,
-            10,
-            2,
-            15 ],
-          "2021":[ 2,
-            8,
-            2,
-            13 ],
-          name:"Semesterferien" },
-        { "2016":[ 7,
+          2022:[ 7,
             9,
             9,
-            10 ],
-          "2017":[ 7,
+            11 ],
+          2023:[ 7,
             8,
             9,
             10 ],
-          "2018":[ 7,
-            7,
-            9,
-            9 ],
-          "2019":[ 7,
+          2024:[ 7,
             6,
             9,
             8 ],
-          "2020":[ 7,
-            11,
-            9,
-            13 ],
-          "2021":[ 7,
-            10,
-            9,
-            11 ],
-          name:"Sommerferien" } ] },
-    Vorarlberg:{ _state_code:8,
-      SH:[ { "2016":[ 2,
-            15,
-            2,
-            20 ],
-          "2017":[ 2,
-            13,
-            2,
-            18 ],
-          "2018":[ 2,
+          2025:[ 7,
             5,
-            2,
-            10 ],
-          "2019":[ 2,
-            11,
-            2,
-            16 ],
-          "2020":[ 2,
-            10,
-            2,
-            15 ],
-          "2021":[ 2,
-            8,
-            2,
-            13 ],
-          name:"Semesterferien" },
-        { "2016":[ 7,
             9,
-            9,
-            10 ],
-          "2017":[ 7,
-            8,
-            9,
-            10 ],
-          "2018":[ 7,
-            7,
-            9,
-            9 ],
-          "2019":[ 7,
-            6,
-            9,
-            8 ],
-          "2020":[ 7,
+            7 ],
+          2026:[ 7,
             11,
             9,
             13 ],
-          "2021":[ 7,
-            10,
-            9,
-            11 ],
           name:"Sommerferien" } ] },
-    Wien:{ _state_code:9,
-      SH:[ { "2016":[ 2,
+    "Niederösterreich":{ _state_code:3,
+      SH:[ { 2016:[ 2,
             1,
             2,
             6 ],
-          "2017":[ 2,
+          2017:[ 2,
             6,
             2,
             11 ],
-          "2018":[ 2,
+          2018:[ 2,
             5,
             2,
             10 ],
-          "2019":[ 2,
+          2019:[ 2,
             4,
             2,
             9 ],
-          "2020":[ 2,
+          2020:[ 2,
             3,
             2,
             8 ],
-          "2021":[ 2,
+          2021:[ 2,
             1,
             2,
             6 ],
+          2022:[ 2,
+            7,
+            2,
+            12 ],
+          2023:[ 2,
+            6,
+            2,
+            11 ],
+          2024:[ 2,
+            5,
+            2,
+            10 ],
+          2025:[ 2,
+            3,
+            2,
+            8 ],
+          2026:[ 2,
+            2,
+            2,
+            7 ],
           name:"Semesterferien" },
-        { "2016":[ 7,
+        { 2016:[ 7,
             2,
             9,
             3 ],
-          "2017":[ 7,
+          2017:[ 7,
             1,
             9,
             3 ],
-          "2018":[ 6,
+          2018:[ 6,
             30,
             9,
             2 ],
-          "2019":[ 6,
+          2019:[ 6,
             29,
             9,
             1 ],
-          "2020":[ 7,
+          2020:[ 7,
             4,
             9,
             6 ],
-          "2021":[ 7,
+          2021:[ 7,
             3,
             9,
+            5 ],
+          2022:[ 7,
+            2,
+            9,
             4 ],
+          2023:[ 7,
+            1,
+            9,
+            3 ],
+          2024:[ 6,
+            29,
+            9,
+            1 ],
+          2025:[ 6,
+            28,
+            8,
+            31 ],
+          2026:[ 7,
+            4,
+            9,
+            6 ],
+          name:"Sommerferien" } ] },
+    "Oberösterreich":{ _state_code:4,
+      SH:[ { 2016:[ 2,
+            15,
+            2,
+            20 ],
+          2017:[ 2,
+            20,
+            2,
+            25 ],
+          2018:[ 2,
+            19,
+            2,
+            24 ],
+          2019:[ 2,
+            18,
+            2,
+            23 ],
+          2020:[ 2,
+            17,
+            2,
+            22 ],
+          2021:[ 2,
+            15,
+            2,
+            20 ],
+          2022:[ 2,
+            21,
+            2,
+            26 ],
+          2023:[ 2,
+            20,
+            2,
+            25 ],
+          2024:[ 2,
+            19,
+            2,
+            24 ],
+          2025:[ 2,
+            17,
+            2,
+            22 ],
+          2026:[ 2,
+            16,
+            2,
+            21 ],
+          name:"Semesterferien" },
+        { 2016:[ 7,
+            9,
+            9,
+            10 ],
+          2017:[ 7,
+            8,
+            9,
+            10 ],
+          2018:[ 7,
+            7,
+            9,
+            9 ],
+          2019:[ 7,
+            6,
+            9,
+            8 ],
+          2020:[ 7,
+            11,
+            9,
+            13 ],
+          2021:[ 7,
+            10,
+            9,
+            12 ],
+          2022:[ 7,
+            9,
+            9,
+            11 ],
+          2023:[ 7,
+            8,
+            9,
+            10 ],
+          2024:[ 7,
+            6,
+            9,
+            8 ],
+          2025:[ 7,
+            5,
+            9,
+            7 ],
+          2026:[ 7,
+            11,
+            9,
+            13 ],
+          name:"Sommerferien" } ] },
+    Salzburg:{ _state_code:5,
+      SH:[ { 2016:[ 2,
+            8,
+            2,
+            13 ],
+          2017:[ 2,
+            13,
+            2,
+            18 ],
+          2018:[ 2,
+            12,
+            2,
+            17 ],
+          2019:[ 2,
+            11,
+            2,
+            16 ],
+          2020:[ 2,
+            10,
+            2,
+            15 ],
+          2021:[ 2,
+            8,
+            2,
+            13 ],
+          2022:[ 2,
+            14,
+            2,
+            19 ],
+          2023:[ 2,
+            13,
+            2,
+            18 ],
+          2024:[ 2,
+            12,
+            2,
+            17 ],
+          2025:[ 2,
+            10,
+            2,
+            15 ],
+          2026:[ 2,
+            9,
+            2,
+            14 ],
+          name:"Semesterferien" },
+        { 2016:[ 7,
+            9,
+            9,
+            10 ],
+          2017:[ 7,
+            8,
+            9,
+            10 ],
+          2018:[ 7,
+            7,
+            9,
+            9 ],
+          2019:[ 7,
+            6,
+            9,
+            8 ],
+          2020:[ 7,
+            11,
+            9,
+            13 ],
+          2021:[ 7,
+            10,
+            9,
+            12 ],
+          2022:[ 7,
+            9,
+            9,
+            11 ],
+          2023:[ 7,
+            8,
+            9,
+            10 ],
+          2024:[ 7,
+            6,
+            9,
+            8 ],
+          2025:[ 7,
+            5,
+            9,
+            7 ],
+          2026:[ 7,
+            11,
+            9,
+            13 ],
+          name:"Sommerferien" } ] },
+    Steiermark:{ _state_code:6,
+      SH:[ { 2016:[ 2,
+            15,
+            2,
+            20 ],
+          2017:[ 2,
+            20,
+            2,
+            25 ],
+          2018:[ 2,
+            19,
+            2,
+            24 ],
+          2019:[ 2,
+            18,
+            2,
+            23 ],
+          2020:[ 2,
+            17,
+            2,
+            22 ],
+          2021:[ 2,
+            15,
+            2,
+            20 ],
+          2022:[ 2,
+            21,
+            2,
+            26 ],
+          2023:[ 2,
+            20,
+            2,
+            25 ],
+          2024:[ 2,
+            19,
+            2,
+            24 ],
+          2025:[ 2,
+            17,
+            2,
+            22 ],
+          2026:[ 2,
+            16,
+            2,
+            21 ],
+          name:"Semesterferien" },
+        { 2016:[ 7,
+            9,
+            9,
+            10 ],
+          2017:[ 7,
+            8,
+            9,
+            10 ],
+          2018:[ 7,
+            7,
+            9,
+            9 ],
+          2019:[ 7,
+            6,
+            9,
+            8 ],
+          2020:[ 7,
+            11,
+            9,
+            13 ],
+          2021:[ 7,
+            10,
+            9,
+            12 ],
+          2022:[ 7,
+            9,
+            9,
+            11 ],
+          2023:[ 7,
+            8,
+            9,
+            10 ],
+          2024:[ 7,
+            6,
+            9,
+            8 ],
+          2025:[ 7,
+            5,
+            9,
+            7 ],
+          2026:[ 7,
+            11,
+            9,
+            13 ],
+          name:"Sommerferien" } ] },
+    Tirol:{ _state_code:7,
+      SH:[ { 2016:[ 2,
+            8,
+            2,
+            13 ],
+          2017:[ 2,
+            13,
+            2,
+            18 ],
+          2018:[ 2,
+            12,
+            2,
+            17 ],
+          2019:[ 2,
+            11,
+            2,
+            16 ],
+          2020:[ 2,
+            10,
+            2,
+            15 ],
+          2021:[ 2,
+            8,
+            2,
+            13 ],
+          2022:[ 2,
+            14,
+            2,
+            19 ],
+          2023:[ 2,
+            13,
+            2,
+            18 ],
+          2024:[ 2,
+            12,
+            2,
+            17 ],
+          2025:[ 2,
+            10,
+            2,
+            15 ],
+          2026:[ 2,
+            9,
+            2,
+            14 ],
+          name:"Semesterferien" },
+        { 2016:[ 7,
+            9,
+            9,
+            10 ],
+          2017:[ 7,
+            8,
+            9,
+            10 ],
+          2018:[ 7,
+            7,
+            9,
+            9 ],
+          2019:[ 7,
+            6,
+            9,
+            8 ],
+          2020:[ 7,
+            11,
+            9,
+            13 ],
+          2021:[ 7,
+            10,
+            9,
+            12 ],
+          2022:[ 7,
+            9,
+            9,
+            11 ],
+          2023:[ 7,
+            8,
+            9,
+            10 ],
+          2024:[ 7,
+            6,
+            9,
+            8 ],
+          2025:[ 7,
+            5,
+            9,
+            7 ],
+          2026:[ 7,
+            11,
+            9,
+            13 ],
+          name:"Sommerferien" } ] },
+    Vorarlberg:{ _state_code:8,
+      SH:[ { 2016:[ 2,
+            15,
+            2,
+            20 ],
+          2017:[ 2,
+            13,
+            2,
+            18 ],
+          2018:[ 2,
+            5,
+            2,
+            10 ],
+          2019:[ 2,
+            11,
+            2,
+            16 ],
+          2020:[ 2,
+            10,
+            2,
+            15 ],
+          2021:[ 2,
+            8,
+            2,
+            13 ],
+          2022:[ 2,
+            14,
+            2,
+            19 ],
+          2023:[ 2,
+            13,
+            2,
+            18 ],
+          2024:[ 2,
+            5,
+            2,
+            10 ],
+          2025:[ 2,
+            10,
+            2,
+            15 ],
+          2026:[ 2,
+            9,
+            2,
+            14 ],
+          name:"Semesterferien" },
+        { 2016:[ 7,
+            9,
+            9,
+            10 ],
+          2017:[ 7,
+            8,
+            9,
+            10 ],
+          2018:[ 7,
+            7,
+            9,
+            9 ],
+          2019:[ 7,
+            6,
+            9,
+            8 ],
+          2020:[ 7,
+            11,
+            9,
+            13 ],
+          2021:[ 7,
+            10,
+            9,
+            12 ],
+          2022:[ 7,
+            9,
+            9,
+            11 ],
+          2023:[ 7,
+            8,
+            9,
+            10 ],
+          2024:[ 7,
+            6,
+            9,
+            8 ],
+          2025:[ 7,
+            5,
+            9,
+            7 ],
+          2026:[ 7,
+            11,
+            9,
+            13 ],
+          name:"Sommerferien" } ] },
+    Wien:{ _state_code:9,
+      SH:[ { 2016:[ 2,
+            1,
+            2,
+            6 ],
+          2017:[ 2,
+            6,
+            2,
+            11 ],
+          2018:[ 2,
+            5,
+            2,
+            10 ],
+          2019:[ 2,
+            4,
+            2,
+            9 ],
+          2020:[ 2,
+            3,
+            2,
+            8 ],
+          2021:[ 2,
+            1,
+            2,
+            6 ],
+          2022:[ 2,
+            7,
+            2,
+            12 ],
+          2023:[ 2,
+            6,
+            2,
+            11 ],
+          2024:[ 2,
+            5,
+            2,
+            10 ],
+          2025:[ 2,
+            3,
+            2,
+            8 ],
+          2026:[ 2,
+            2,
+            2,
+            7 ],
+          name:"Semesterferien" },
+        { 2016:[ 7,
+            2,
+            9,
+            3 ],
+          2017:[ 7,
+            1,
+            9,
+            3 ],
+          2018:[ 6,
+            30,
+            9,
+            2 ],
+          2019:[ 6,
+            29,
+            9,
+            1 ],
+          2020:[ 7,
+            4,
+            9,
+            6 ],
+          2021:[ 7,
+            3,
+            9,
+            5 ],
+          2022:[ 7,
+            2,
+            9,
+            4 ],
+          2023:[ 7,
+            1,
+            9,
+            3 ],
+          2024:[ 6,
+            29,
+            9,
+            1 ],
+          2025:[ 6,
+            28,
+            8,
+            31 ],
+          2026:[ 7,
+            4,
+            9,
+            6 ],
           name:"Sommerferien" } ] } };
+  data$C.PH;
+  data$C.SH;
+  data$C.Burgenland;
+  data$C.Salzburg;
+  data$C.Steiermark;
+  data$C.Tirol;
+  data$C.Vorarlberg;
+  data$C.Wien;
 
-  var data$1 = { PH:[ { name:"New Years Day",
+  var data$B = { PH:[ { name:"New Years Day",
         fixed_date:[ 1,
           1 ] },
       { name:"Australia Day",
@@ -930,8 +1382,12 @@
         { name:"Boxing Day",
           fixed_date:[ 12,
             26 ] } ] } };
+  data$B.PH;
+  data$B.Queensland;
+  data$B.Tasmania;
+  data$B.Victoria;
 
-  var data$2 = { PH:[ { name:"Nieuwjaar - Jour de l'an",
+  var data$A = { PH:[ { name:"Nieuwjaar - Jour de l'an",
         fixed_date:[ 1,
           1 ] },
       { name:"Paasmaandag - Lundi de Pâques",
@@ -961,93 +1417,215 @@
       { name:"Kerstmis - Noël",
         fixed_date:[ 12,
           25 ] } ],
-    SH:[ { "2020":[ 2,
+    SH:[ { 2020:[ 2,
           24,
           3,
           1 ],
-        "2021":[ 2,
+        2021:[ 2,
           15,
           2,
           21 ],
-        "2022":[ 2,
+        2022:[ 2,
           28,
           3,
           6 ],
-        "2023":[ 2,
+        2023:[ 2,
           20,
           2,
           26 ],
+        2024:[ 2,
+          12,
+          2,
+          18 ],
+        2025:[ 3,
+          3,
+          3,
+          9 ],
+        2026:[ 2,
+          16,
+          2,
+          22 ],
+        2027:[ 2,
+          8,
+          2,
+          14 ],
+        2028:[ 2,
+          28,
+          3,
+          5 ],
+        2029:[ 2,
+          12,
+          2,
+          18 ],
         name:"Krokusvakantie - Vacances de carnaval" },
-      { "2020":[ 4,
+      { 2020:[ 4,
           6,
           4,
           19 ],
-        "2021":[ 4,
+        2021:[ 4,
           5,
           4,
           18 ],
-        "2022":[ 4,
+        2022:[ 4,
           4,
           4,
           18 ],
-        "2023":[ 4,
+        2023:[ 4,
           3,
           4,
           16 ],
+        2024:[ 4,
+          1,
+          4,
+          14 ],
+        2025:[ 4,
+          7,
+          4,
+          21 ],
+        2026:[ 4,
+          6,
+          4,
+          19 ],
+        2027:[ 3,
+          29,
+          4,
+          11 ],
+        2028:[ 4,
+          3,
+          4,
+          17 ],
+        2029:[ 4,
+          2,
+          4,
+          15 ],
         name:"Paasvakantie - Vacances de pâques" },
-      { "2020":[ 7,
+      { 2020:[ 7,
           1,
           8,
           31 ],
-        "2021":[ 7,
+        2021:[ 7,
           1,
           8,
           31 ],
-        "2022":[ 7,
+        2022:[ 7,
           1,
           8,
           31 ],
-        "2023":[ 7,
+        2023:[ 7,
+          1,
+          8,
+          31 ],
+        2024:[ 7,
+          1,
+          8,
+          31 ],
+        2025:[ 7,
+          1,
+          8,
+          31 ],
+        2026:[ 7,
+          1,
+          8,
+          31 ],
+        2027:[ 7,
+          1,
+          8,
+          31 ],
+        2028:[ 7,
+          1,
+          8,
+          31 ],
+        2029:[ 7,
           1,
           8,
           31 ],
         name:"Zomervakantie - Vacances d'été" },
-      { "2019":[ 10,
+      { 2019:[ 10,
           28,
           11,
           3 ],
-        "2020":[ 11,
+        2020:[ 11,
           2,
           11,
           15 ],
-        "2021":[ 11,
+        2021:[ 11,
           1,
           11,
           7 ],
-        "2022":[ 10,
+        2022:[ 10,
           31,
           11,
           6 ],
+        2023:[ 10,
+          30,
+          11,
+          5 ],
+        2024:[ 10,
+          28,
+          11,
+          3 ],
+        2025:[ 10,
+          27,
+          11,
+          2 ],
+        2026:[ 11,
+          2,
+          11,
+          8 ],
+        2027:[ 11,
+          1,
+          11,
+          7 ],
+        2028:[ 10,
+          30,
+          11,
+          5 ],
         name:"Herfstvakantie - Vacances automne" },
-      { "2019":[ 12,
+      { 2019:[ 12,
           23,
           1,
           5 ],
-        "2020":[ 12,
+        2020:[ 12,
           21,
           1,
           3 ],
-        "2021":[ 12,
+        2021:[ 12,
           27,
           1,
           9 ],
-        "2022":[ 12,
+        2022:[ 12,
           26,
           1,
           8 ],
+        2023:[ 12,
+          25,
+          1,
+          7 ],
+        2024:[ 12,
+          23,
+          1,
+          5 ],
+        2025:[ 12,
+          22,
+          1,
+          4 ],
+        2026:[ 12,
+          21,
+          1,
+          3 ],
+        2027:[ 12,
+          27,
+          1,
+          9 ],
+        2028:[ 12,
+          25,
+          1,
+          7 ],
         name:"Kerstvakantie - Vacances de Noël" } ] };
+  data$A.PH;
+  data$A.SH;
 
-  var data$3 = { PH:[ { name:"Ano Novo",
+  var data$z = { PH:[ { name:"Ano Novo",
         fixed_date:[ 1,
           1 ] },
       { name:"Carnaval",
@@ -2102,8 +2680,17 @@
         { name:"Natal",
           fixed_date:[ 12,
             25 ] } ] } };
+  data$z.PH;
+  data$z.Acre;
+  data$z.Alagoas;
+  data$z.Amazonas;
+  data$z.Bahia;
+  data$z.Pernambuco;
+  data$z.Roraima;
+  data$z.Sergipe;
+  data$z.Tocantins;
 
-  var data$4 = { PH:[ { name:"New Year's Day",
+  var data$y = { PH:[ { name:"New Year's Day",
         fixed_date:[ 1,
           1 ] },
       { name:"Good Friday",
@@ -2480,8 +3067,16 @@
         { name:"Boxing Day",
           fixed_date:[ 12,
             26 ] } ] } };
+  data$y.PH;
+  data$y.Alberta;
+  data$y.Manitoba;
+  data$y.Nunavut;
+  data$y.Ontario;
+  data$y.Quebec;
+  data$y.Saskatchewan;
+  data$y.Yukon;
 
-  var data$5 = { PH:[ { name:"Neujahrstag/Nouvel an/Capo d'anno",
+  var data$x = { PH:[ { name:"Neujahrstag/Nouvel an/Capo d'anno",
         fixed_date:[ 1,
           1 ] },
       { name:"Berchtoldstag/2 janvier",
@@ -2779,8 +3374,28 @@
     Wallis:{ _state_code:"vs" },
     Zug:{ _state_code:"zg" },
     "Zürich":{ _state_code:"zh" } };
+  data$x.PH;
+  data$x.Aargau;
+  data$x.Bern;
+  data$x.Freiburg;
+  data$x.Genf;
+  data$x.Glarus;
+  data$x.Jura;
+  data$x.Luzern;
+  data$x.Neuenburg;
+  data$x.Nidwalden;
+  data$x.Obwalden;
+  data$x.Schaffhausen;
+  data$x.Schwyz;
+  data$x.Solothurn;
+  data$x.Tessin;
+  data$x.Thurgau;
+  data$x.Uri;
+  data$x.Waadt;
+  data$x.Wallis;
+  data$x.Zug;
 
-  var data$6 = { PH:[ { name:"Fête du 1ᵉʳ janvier",
+  var data$w = { PH:[ { name:"Fête du 1ᵉʳ janvier",
         fixed_date:[ 1,
           1 ] },
       { name:"Lundi de Pâques",
@@ -2816,8 +3431,62 @@
           25 ] },
       { name:"Lendemain de la Fête de Noël",
         variable_date:"nextMo-Sa25December" } ] };
+  data$w.PH;
 
-  var data$7 = { PH:[ { name:"Den obnovy samostatného českého státu",
+  var data$v = { PH:[ { name:"元旦",
+        fixed_date:[ 1,
+          1 ] },
+      { name:"妇女节",
+        fixed_date:[ 3,
+          8 ] },
+      { name:"劳动节",
+        fixed_date:[ 5,
+          1 ] },
+      { name:"青年节",
+        fixed_date:[ 5,
+          4 ] },
+      { name:"儿童节",
+        fixed_date:[ 6,
+          1 ] },
+      { name:"国庆节",
+        fixed_date:[ 10,
+          1 ] },
+      { name:"国庆节休息日",
+        fixed_date:[ 10,
+          2 ] },
+      { name:"国庆节休息日",
+        fixed_date:[ 10,
+          3 ] } ],
+    "西藏自治区":{ PH:[ { name:"元旦",
+          fixed_date:[ 1,
+            1 ] },
+        { name:"西藏百万农奴解放纪念日",
+          fixed_date:[ 3,
+            28 ] },
+        { name:"妇女节",
+          fixed_date:[ 3,
+            8 ] },
+        { name:"劳动节",
+          fixed_date:[ 5,
+            1 ] },
+        { name:"青年节",
+          fixed_date:[ 5,
+            4 ] },
+        { name:"儿童节",
+          fixed_date:[ 6,
+            1 ] },
+        { name:"国庆节",
+          fixed_date:[ 10,
+            1 ] },
+        { name:"国庆节休息日",
+          fixed_date:[ 10,
+            2 ] },
+        { name:"国庆节休息日",
+          fixed_date:[ 10,
+            3 ] } ] } };
+  data$v.PH;
+
+  var data$u = { PH:[ { name:"Den obnovy samostatného českého státu",
         fixed_date:[ 1,
           1 ] },
       { name:"Velký pátek",
@@ -2856,8 +3525,9 @@
       { name:"2. svátek vánoční",
         fixed_date:[ 12,
           26 ] } ] };
+  data$u.PH;
 
-  var data$8 = { PH:[ { name:"Neujahrstag",
+  var data$t = { PH:[ { name:"Neujahrstag",
         fixed_date:[ 1,
           1 ] },
       { name:"Heilige Drei Könige",
@@ -2869,7 +3539,8 @@
       { name:"Frauentag",
         fixed_date:[ 3,
           8 ],
-        only_states:[ "Berlin" ] },
+        only_states:[ "Berlin",
+          "Mecklenburg-Vorpommern" ] },
       { name:"Tag der Arbeit",
         fixed_date:[ 5,
           1 ] },
@@ -2942,23 +3613,23 @@
         fixed_date:[ 12,
           26 ] } ],
     "Baden-Württemberg":{ _state_code:"bw",
-      SH:[ { "2012":[ 4,
+      SH:[ { 2012:[ 4,
             2,
             4,
             13 ],
-          "2013":[ 3,
+          2013:[ 3,
             25,
             4,
             5 ],
-          "2014":[ 4,
+          2014:[ 4,
             14,
             4,
             25 ],
-          "2015":[ 3,
+          2015:[ 3,
             30,
             4,
             10 ],
-          "2016":[ 3,
+          2016:[ 3,
             24,
             3,
             24,
@@ -2966,126 +3637,178 @@
             29,
             4,
             2 ],
-          "2017":[ 4,
+          2017:[ 4,
             10,
             4,
             21 ],
-          "2018":[ 3,
+          2018:[ 3,
             26,
             4,
             6 ],
-          "2019":[ 4,
+          2019:[ 4,
             15,
             4,
             27 ],
-          "2020":[ 4,
+          2020:[ 4,
             6,
             4,
             18 ],
+          2022:[ 4,
+            14,
+            4,
+            14 ],
+          2023:[ 4,
+            6,
+            4,
+            6,
+            4,
+            11,
+            4,
+            15 ],
+          2024:[ 3,
+            23,
+            4,
+            5 ],
+          2025:[ 4,
+            14,
+            4,
+            26 ],
+          2026:[ 3,
+            30,
+            4,
+            11 ],
           name:"Osterferien" },
-        { "2012":[ 5,
+        { 2012:[ 5,
             29,
             6,
             9 ],
-          "2013":[ 5,
+          2013:[ 5,
             21,
             6,
             1 ],
-          "2014":[ 6,
+          2014:[ 6,
             10,
             6,
             21 ],
-          "2015":[ 5,
+          2015:[ 5,
             26,
             6,
             6 ],
-          "2016":[ 5,
+          2016:[ 5,
             17,
             5,
             28 ],
-          "2017":[ 6,
+          2017:[ 6,
             6,
             6,
             16 ],
-          "2018":[ 5,
+          2018:[ 5,
             22,
             6,
             2 ],
-          "2019":[ 6,
+          2019:[ 6,
             11,
             6,
             21 ],
-          "2020":[ 6,
+          2020:[ 6,
             2,
             6,
             13 ],
+          2022:[ 6,
+            7,
+            6,
+            18 ],
+          2023:[ 5,
+            30,
+            6,
+            9 ],
+          2024:[ 5,
+            21,
+            5,
+            31 ],
+          2025:[ 6,
+            10,
+            6,
+            20 ],
+          2026:[ 5,
+            26,
+            6,
+            5 ],
           name:"Pfingstferien" },
-        { "2012":[ 7,
+        { 2012:[ 7,
             26,
             9,
             8 ],
-          "2013":[ 7,
+          2013:[ 7,
             25,
             9,
             7 ],
-          "2014":[ 7,
+          2014:[ 7,
             31,
             9,
             13 ],
-          "2015":[ 7,
+          2015:[ 7,
             30,
             9,
             12 ],
-          "2016":[ 7,
+          2016:[ 7,
             28,
             9,
             10 ],
-          "2017":[ 7,
+          2017:[ 7,
             27,
             9,
             9 ],
-          "2018":[ 7,
+          2018:[ 7,
             26,
             9,
             8 ],
-          "2019":[ 7,
+          2019:[ 7,
             29,
             9,
             10 ],
-          "2020":[ 7,
+          2020:[ 7,
             30,
             9,
             12 ],
-          "2021":[ 7,
+          2021:[ 7,
             29,
             9,
             11 ],
-          "2022":[ 7,
+          2022:[ 7,
             28,
             9,
             10 ],
-          "2023":[ 7,
+          2023:[ 7,
             27,
             9,
             9 ],
-          "2024":[ 7,
+          2024:[ 7,
             25,
             9,
             7 ],
+          2025:[ 7,
+            31,
+            9,
+            13 ],
+          2026:[ 7,
+            30,
+            9,
+            12 ],
           name:"Sommerferien" },
-        { "2012":[ 10,
+        { 2012:[ 10,
             29,
             11,
             2 ],
-          "2013":[ 10,
+          2013:[ 10,
             28,
             10,
             30 ],
-          "2014":[ 10,
+          2014:[ 10,
             27,
             10,
             30 ],
-          "2015":[ 10,
+          2015:[ 10,
             31,
             10,
             31,
@@ -3093,7 +3816,7 @@
             2,
             11,
             6 ],
-          "2016":[ 10,
+          2016:[ 10,
             31,
             10,
             31,
@@ -3101,278 +3824,362 @@
             2,
             11,
             4 ],
-          "2017":[ 10,
+          2017:[ 10,
             30,
             11,
             3 ],
-          "2018":[ 10,
+          2018:[ 10,
             29,
             11,
             2 ],
-          "2019":[ 10,
+          2019:[ 10,
             28,
             10,
             30 ],
+          2022:[ 10,
+            31,
+            10,
+            31 ],
+          2023:[ 10,
+            30,
+            11,
+            3 ],
+          2024:[ 10,
+            28,
+            10,
+            30,
+            10,
+            31,
+            10,
+            31 ],
+          2025:[ 10,
+            27,
+            10,
+            30,
+            10,
+            31,
+            10,
+            31 ],
+          2026:[ 10,
+            26,
+            10,
+            30,
+            10,
+            31,
+            10,
+            31 ],
           name:"Herbstferien" },
-        { "2011":[ 12,
+        { 2011:[ 12,
             23,
             1,
             5 ],
-          "2012":[ 12,
+          2012:[ 12,
             24,
             1,
             5 ],
-          "2013":[ 12,
+          2013:[ 12,
             23,
             1,
             4 ],
-          "2014":[ 12,
+          2014:[ 12,
             22,
             1,
             5 ],
-          "2015":[ 12,
+          2015:[ 12,
             23,
             1,
             9 ],
-          "2016":[ 12,
+          2016:[ 12,
             23,
             1,
             7 ],
-          "2017":[ 12,
+          2017:[ 12,
             22,
             1,
             5 ],
-          "2018":[ 12,
+          2018:[ 12,
             24,
             1,
             5 ],
-          "2019":[ 12,
+          2019:[ 12,
             23,
             1,
             4 ],
+          2022:[ 12,
+            21,
+            1,
+            7 ],
+          2023:[ 12,
+            23,
+            1,
+            5 ],
+          2024:[ 12,
+            23,
+            1,
+            4 ],
+          2025:[ 12,
+            22,
+            1,
+            5 ],
+          2026:[ 12,
+            23,
+            1,
+            9 ],
           name:"Weihnachtsferien" } ] },
     Bayern:{ _state_code:"by",
-      SH:[ { "2012":[ 2,
+      SH:[ { 2012:[ 2,
             20,
             2,
             24 ],
-          "2013":[ 2,
+          2013:[ 2,
             11,
             2,
             15 ],
-          "2014":[ 3,
+          2014:[ 3,
             3,
             3,
             7 ],
-          "2015":[ 2,
+          2015:[ 2,
             16,
             2,
             20 ],
-          "2016":[ 2,
+          2016:[ 2,
             8,
             2,
             12 ],
-          "2017":[ 2,
+          2017:[ 2,
             27,
             3,
             3 ],
-          "2018":[ 2,
+          2018:[ 2,
             12,
             2,
             16 ],
-          "2019":[ 3,
+          2019:[ 3,
             4,
             3,
             8 ],
-          "2020":[ 2,
+          2020:[ 2,
             24,
             2,
             28 ],
-          "2021":[ 2,
+          2021:[ 2,
             15,
             2,
             19 ],
-          "2022":[ 2,
+          2022:[ 2,
             28,
             3,
             4 ],
-          "2023":[ 2,
+          2023:[ 2,
             20,
             2,
             24 ],
-          "2024":[ 2,
+          2024:[ 2,
             12,
             2,
             16 ],
+          2025:[ 3,
+            3,
+            3,
+            7 ],
+          2026:[ 2,
+            16,
+            2,
+            20 ],
           name:"Winterferien" },
-        { "2012":[ 4,
+        { 2012:[ 4,
             2,
             4,
             14 ],
-          "2013":[ 3,
+          2013:[ 3,
             25,
             4,
             6 ],
-          "2014":[ 4,
+          2014:[ 4,
             14,
             4,
             26 ],
-          "2015":[ 3,
+          2015:[ 3,
             30,
             4,
             11 ],
-          "2016":[ 3,
+          2016:[ 3,
             21,
             4,
             1 ],
-          "2017":[ 4,
+          2017:[ 4,
             10,
             4,
             22 ],
-          "2018":[ 3,
+          2018:[ 3,
             26,
             4,
             7 ],
-          "2019":[ 4,
+          2019:[ 4,
             15,
             4,
             27 ],
-          "2020":[ 4,
+          2020:[ 4,
             6,
             4,
             18 ],
-          "2021":[ 3,
+          2021:[ 3,
             29,
             4,
             10 ],
-          "2022":[ 4,
+          2022:[ 4,
             11,
             4,
             23 ],
-          "2023":[ 4,
+          2023:[ 4,
             3,
             4,
             15 ],
-          "2024":[ 3,
+          2024:[ 3,
             25,
             4,
             6 ],
+          2025:[ 4,
+            14,
+            4,
+            25 ],
+          2026:[ 3,
+            30,
+            4,
+            10 ],
           name:"Osterferien" },
-        { "2012":[ 5,
+        { 2012:[ 5,
             29,
             6,
             9 ],
-          "2013":[ 5,
+          2013:[ 5,
             21,
             5,
             31 ],
-          "2014":[ 6,
+          2014:[ 6,
             10,
             6,
             21 ],
-          "2015":[ 5,
+          2015:[ 5,
             26,
             6,
             5 ],
-          "2016":[ 5,
+          2016:[ 5,
             17,
             5,
             28 ],
-          "2017":[ 6,
+          2017:[ 6,
             6,
             6,
             16 ],
-          "2018":[ 5,
+          2018:[ 5,
             22,
             6,
             2 ],
-          "2019":[ 6,
+          2019:[ 6,
             11,
             6,
             21 ],
-          "2020":[ 6,
+          2020:[ 6,
             2,
             6,
             13 ],
-          "2021":[ 5,
+          2021:[ 5,
             25,
             6,
             4 ],
-          "2022":[ 6,
+          2022:[ 6,
             7,
             6,
             18 ],
-          "2023":[ 5,
+          2023:[ 5,
             30,
             6,
             9 ],
-          "2024":[ 5,
+          2024:[ 5,
             21,
             6,
             1 ],
+          2025:[ 6,
+            10,
+            6,
+            20 ],
+          2026:[ 5,
+            26,
+            6,
+            5 ],
           name:"Pfingstferien" },
-        { "2012":[ 8,
+        { 2012:[ 8,
             1,
             9,
             12 ],
-          "2013":[ 7,
+          2013:[ 7,
             31,
             9,
             11 ],
-          "2014":[ 7,
+          2014:[ 7,
             30,
             9,
             15 ],
-          "2015":[ 8,
+          2015:[ 8,
             1,
             9,
             14 ],
-          "2016":[ 7,
+          2016:[ 7,
             30,
             9,
             12 ],
-          "2017":[ 7,
+          2017:[ 7,
             29,
             9,
             11 ],
-          "2018":[ 7,
+          2018:[ 7,
             30,
             9,
             10 ],
-          "2019":[ 7,
+          2019:[ 7,
             29,
             9,
             9 ],
-          "2020":[ 7,
+          2020:[ 7,
             27,
             9,
             7 ],
-          "2021":[ 7,
+          2021:[ 7,
             30,
             9,
             13 ],
-          "2022":[ 8,
+          2022:[ 8,
             1,
             9,
             12 ],
-          "2023":[ 7,
+          2023:[ 7,
             31,
             9,
             11 ],
-          "2024":[ 7,
+          2024:[ 7,
             29,
             9,
             9 ],
+          2025:[ 8,
+            1,
+            9,
+            15 ],
+          2026:[ 8,
+            3,
+            9,
+            14 ],
           name:"Sommerferien" },
-        { "2012":[ 10,
+        { 2012:[ 10,
             29,
             11,
             3 ],
-          "2013":[ 10,
+          2013:[ 10,
             28,
             10,
             31 ],
-          "2014":[ 10,
+          2014:[ 10,
             27,
             10,
             31,
@@ -3380,7 +4187,7 @@
             19,
             11,
             19 ],
-          "2015":[ 11,
+          2015:[ 11,
             2,
             11,
             7,
@@ -3388,7 +4195,7 @@
             18,
             11,
             18 ],
-          "2016":[ 10,
+          2016:[ 10,
             31,
             11,
             4,
@@ -3396,7 +4203,7 @@
             16,
             11,
             16 ],
-          "2017":[ 10,
+          2017:[ 10,
             30,
             11,
             3,
@@ -3404,7 +4211,7 @@
             22,
             11,
             22 ],
-          "2018":[ 10,
+          2018:[ 10,
             29,
             11,
             2,
@@ -3412,7 +4219,7 @@
             21,
             11,
             21 ],
-          "2019":[ 10,
+          2019:[ 10,
             28,
             10,
             31,
@@ -3420,7 +4227,7 @@
             20,
             11,
             20 ],
-          "2020":[ 10,
+          2020:[ 10,
             31,
             11,
             6,
@@ -3428,7 +4235,7 @@
             18,
             11,
             18 ],
-          "2021":[ 11,
+          2021:[ 11,
             2,
             11,
             5,
@@ -3436,7 +4243,7 @@
             17,
             11,
             17 ],
-          "2022":[ 10,
+          2022:[ 10,
             31,
             11,
             4,
@@ -3444,7 +4251,7 @@
             16,
             11,
             16 ],
-          "2023":[ 10,
+          2023:[ 10,
             30,
             11,
             3,
@@ -3452,115 +4259,159 @@
             22,
             11,
             22 ],
+          2024:[ 10,
+            28,
+            10,
+            31,
+            11,
+            20,
+            11,
+            20 ],
+          2025:[ 11,
+            3,
+            11,
+            7,
+            11,
+            19,
+            11,
+            19 ],
+          2026:[ 11,
+            2,
+            11,
+            6,
+            11,
+            18,
+            11,
+            18 ],
           name:"Herbstferien" },
-        { "2011":[ 12,
+        { 2011:[ 12,
             27,
             1,
             5 ],
-          "2012":[ 12,
+          2012:[ 12,
             24,
             1,
             5 ],
-          "2013":[ 12,
+          2013:[ 12,
             23,
             1,
             4 ],
-          "2014":[ 12,
+          2014:[ 12,
             24,
             1,
             5 ],
-          "2015":[ 12,
+          2015:[ 12,
             24,
             1,
             5 ],
-          "2016":[ 12,
+          2016:[ 12,
             24,
             1,
             5 ],
-          "2017":[ 12,
+          2017:[ 12,
             23,
             1,
             5 ],
-          "2018":[ 12,
+          2018:[ 12,
             22,
             1,
             5 ],
-          "2019":[ 12,
+          2019:[ 12,
             23,
             1,
             4 ],
-          "2020":[ 12,
+          2020:[ 12,
             23,
             1,
             9 ],
-          "2021":[ 12,
+          2021:[ 12,
             24,
             1,
             8 ],
-          "2022":[ 12,
+          2022:[ 12,
             24,
             1,
             7 ],
-          "2023":[ 12,
+          2023:[ 12,
             23,
             1,
             5 ],
+          2024:[ 12,
+            23,
+            1,
+            3 ],
+          2025:[ 12,
+            22,
+            1,
+            5 ],
+          2026:[ 12,
+            24,
+            1,
+            8 ],
           name:"Weihnachtsferien" } ] },
     Berlin:{ _state_code:"be",
-      SH:[ { "2012":[ 1,
+      SH:[ { 2012:[ 1,
             30,
             2,
             4 ],
-          "2013":[ 2,
+          2013:[ 2,
             4,
             2,
             9 ],
-          "2014":[ 2,
+          2014:[ 2,
             3,
             2,
             8 ],
-          "2015":[ 2,
+          2015:[ 2,
             2,
             2,
             7 ],
-          "2016":[ 2,
+          2016:[ 2,
             1,
             2,
             6 ],
-          "2017":[ 1,
+          2017:[ 1,
             30,
             2,
             3 ],
-          "2018":[ 2,
+          2018:[ 2,
             5,
             2,
             10 ],
-          "2019":[ 2,
+          2019:[ 2,
             4,
             2,
             9 ],
-          "2020":[ 2,
+          2020:[ 2,
             3,
             2,
             8 ],
-          "2021":[ 2,
+          2021:[ 2,
             1,
             2,
             6 ],
-          "2022":[ 1,
+          2022:[ 1,
             29,
             2,
             5 ],
-          "2023":[ 1,
+          2023:[ 1,
             30,
             2,
             4 ],
-          "2024":[ 2,
+          2024:[ 2,
             5,
             2,
             10 ],
+          2025:[ 2,
+            3,
+            2,
+            8 ],
+          2026:[ 2,
+            2,
+            2,
+            7 ],
           name:"Winterferien" },
-        { "2012":[ 4,
+        { 2012:[ 4,
             2,
             4,
             14,
@@ -3568,11 +4419,11 @@
             30,
             4,
             30 ],
-          "2013":[ 3,
+          2013:[ 3,
             25,
             4,
             6 ],
-          "2014":[ 4,
+          2014:[ 4,
             14,
             4,
             26,
@@ -3580,52 +4431,72 @@
             2,
             5,
             2 ],
-          "2015":[ 3,
+          2015:[ 3,
             30,
             4,
             11 ],
-          "2016":[ 3,
+          2016:[ 3,
             21,
             4,
             2 ],
-          "2017":[ 4,
+          2017:[ 4,
             10,
             4,
             18 ],
-          "2018":[ 3,
+          2018:[ 3,
             26,
             4,
             6 ],
-          "2019":[ 4,
+          2019:[ 4,
             15,
             4,
             26 ],
-          "2020":[ 4,
+          2020:[ 4,
             6,
             4,
             17 ],
-          "2021":[ 3,
+          2021:[ 3,
             29,
             4,
             10 ],
-          "2022":[ 4,
+          2022:[ 4,
             11,
             4,
             23 ],
-          "2023":[ 4,
+          2023:[ 4,
             3,
             4,
             14 ],
-          "2024":[ 3,
+          2024:[ 3,
             25,
             4,
             5 ],
+          2025:[ 4,
+            14,
+            4,
+            25,
+            5,
+            2,
+            5,
+            2,
+            5,
+            30,
+            5,
+            30 ],
+          2026:[ 3,
+            30,
+            4,
+            10,
+            5,
+            15,
+            5,
+            15 ],
           name:"Osterferien" },
-        { "2012":[ 5,
+        { 2012:[ 5,
             18,
             5,
             18 ],
-          "2013":[ 5,
+          2013:[ 5,
             10,
             5,
             10,
@@ -3633,11 +4504,11 @@
             21,
             5,
             21 ],
-          "2014":[ 5,
+          2014:[ 5,
             30,
             5,
             30 ],
-          "2015":[ 5,
+          2015:[ 5,
             15,
             5,
             15,
@@ -3645,7 +4516,7 @@
             26,
             5,
             26 ],
-          "2016":[ 5,
+          2016:[ 5,
             6,
             5,
             6,
@@ -3653,7 +4524,7 @@
             17,
             5,
             18 ],
-          "2017":[ 5,
+          2017:[ 5,
             24,
             5,
             24,
@@ -3665,7 +4536,7 @@
             6,
             6,
             9 ],
-          "2018":[ 4,
+          2018:[ 4,
             30,
             4,
             30,
@@ -3677,7 +4548,7 @@
             22,
             5,
             22 ],
-          "2019":[ 5,
+          2019:[ 5,
             31,
             5,
             31,
@@ -3685,15 +4556,15 @@
             11,
             6,
             11 ],
-          "2020":[ 5,
+          2020:[ 5,
             22,
             5,
             22 ],
-          "2021":[ 5,
+          2021:[ 5,
             14,
             5,
             14 ],
-          "2022":[ 5,
+          2022:[ 5,
             27,
             5,
             27,
@@ -3701,7 +4572,7 @@
             7,
             6,
             7 ],
-          "2023":[ 5,
+          2023:[ 5,
             19,
             5,
             19,
@@ -3709,85 +4580,101 @@
             30,
             5,
             30 ],
-          "2024":[ 5,
+          2024:[ 5,
             10,
             5,
             10 ],
+          2025:[ 6,
+            10,
+            6,
+            10 ],
+          2026:[ 5,
+            26,
+            5,
+            26 ],
           name:"Pfingstferien" },
-        { "2012":[ 6,
+        { 2012:[ 6,
             20,
             8,
             3 ],
-          "2013":[ 6,
+          2013:[ 6,
             19,
             8,
             2 ],
-          "2014":[ 7,
+          2014:[ 7,
             9,
             8,
             22 ],
-          "2015":[ 7,
+          2015:[ 7,
             16,
             8,
             28 ],
-          "2016":[ 7,
+          2016:[ 7,
             21,
             9,
             2 ],
-          "2017":[ 7,
+          2017:[ 7,
             20,
             9,
             1 ],
-          "2018":[ 7,
+          2018:[ 7,
             5,
             8,
             17 ],
-          "2019":[ 6,
+          2019:[ 6,
             20,
             8,
             2 ],
-          "2020":[ 6,
+          2020:[ 6,
             25,
             8,
             7 ],
-          "2021":[ 6,
+          2021:[ 6,
             24,
             8,
             6 ],
-          "2022":[ 7,
+          2022:[ 7,
             7,
             8,
             19 ],
-          "2023":[ 7,
+          2023:[ 7,
             13,
             8,
             25 ],
-          "2024":[ 7,
+          2024:[ 7,
             18,
             8,
             30 ],
+          2025:[ 7,
+            24,
+            9,
+            6 ],
+          2026:[ 7,
+            9,
+            8,
+            22 ],
           name:"Sommerferien" },
-        { "2012":[ 10,
+        { 2012:[ 10,
             1,
             10,
             13 ],
-          "2013":[ 9,
+          2013:[ 9,
             30,
             10,
             12 ],
-          "2014":[ 10,
+          2014:[ 10,
             20,
             11,
             1 ],
-          "2015":[ 10,
+          2015:[ 10,
             19,
             10,
             31 ],
-          "2016":[ 10,
+          2016:[ 10,
             17,
             10,
             28 ],
-          "2017":[ 10,
+          2017:[ 10,
             2,
             10,
             2,
@@ -3795,11 +4682,11 @@
             23,
             11,
             4 ],
-          "2018":[ 10,
+          2018:[ 10,
             22,
             11,
             2 ],
-          "2019":[ 10,
+          2019:[ 10,
             4,
             10,
             4,
@@ -3807,19 +4694,19 @@
             7,
             10,
             19 ],
-          "2020":[ 10,
+          2020:[ 10,
             12,
             10,
             24 ],
-          "2021":[ 10,
+          2021:[ 10,
             11,
             10,
             23 ],
-          "2022":[ 10,
+          2022:[ 10,
             24,
             11,
             5 ],
-          "2023":[ 10,
+          2023:[ 10,
             2,
             10,
             2,
@@ -3827,115 +4714,151 @@
             23,
             11,
             4 ],
+          2024:[ 10,
+            4,
+            10,
+            4,
+            10,
+            21,
+            11,
+            2 ],
+          2025:[ 10,
+            20,
+            11,
+            1 ],
+          2026:[ 10,
+            19,
+            10,
+            31 ],
           name:"Herbstferien" },
-        { "2011":[ 12,
+        { 2011:[ 12,
             23,
             1,
             3 ],
-          "2012":[ 12,
+          2012:[ 12,
             24,
             1,
             4 ],
-          "2013":[ 12,
+          2013:[ 12,
             23,
             1,
             3 ],
-          "2014":[ 12,
+          2014:[ 12,
             22,
             1,
             2 ],
-          "2015":[ 12,
+          2015:[ 12,
             23,
             1,
             2 ],
-          "2016":[ 12,
+          2016:[ 12,
             23,
             1,
             3 ],
-          "2017":[ 12,
+          2017:[ 12,
             21,
             1,
             2 ],
-          "2018":[ 12,
+          2018:[ 12,
             22,
             1,
             5 ],
-          "2019":[ 12,
+          2019:[ 12,
             23,
             1,
             4 ],
-          "2020":[ 12,
+          2020:[ 12,
             21,
             1,
             2 ],
-          "2021":[ 12,
+          2021:[ 12,
             23,
             12,
             31 ],
-          "2022":[ 12,
+          2022:[ 12,
             22,
             1,
             2 ],
-          "2023":[ 12,
+          2023:[ 12,
             23,
             1,
             5 ],
+          2024:[ 12,
+            23,
+            12,
+            31 ],
+          2025:[ 12,
+            22,
+            1,
+            2 ],
+          2026:[ 12,
+            23,
+            1,
+            2 ],
           name:"Weihnachtsferien" } ] },
     Brandenburg:{ _state_code:"bb",
-      SH:[ { "2012":[ 1,
+      SH:[ { 2012:[ 1,
             30,
             2,
             4 ],
-          "2013":[ 2,
+          2013:[ 2,
             4,
             2,
             9 ],
-          "2014":[ 2,
+          2014:[ 2,
             3,
             2,
             8 ],
-          "2015":[ 2,
+          2015:[ 2,
             2,
             2,
             7 ],
-          "2016":[ 2,
+          2016:[ 2,
             1,
             2,
             6 ],
-          "2017":[ 1,
+          2017:[ 1,
             30,
             2,
             4 ],
-          "2018":[ 2,
+          2018:[ 2,
             5,
             2,
             10 ],
-          "2019":[ 2,
+          2019:[ 2,
             4,
             2,
             9 ],
-          "2020":[ 2,
+          2020:[ 2,
             3,
             2,
             8 ],
-          "2021":[ 2,
+          2021:[ 2,
             1,
             2,
             6 ],
-          "2022":[ 1,
+          2022:[ 1,
             31,
             2,
             5 ],
-          "2023":[ 1,
+          2023:[ 1,
             30,
             2,
             3 ],
-          "2024":[ 2,
+          2024:[ 2,
             5,
             2,
             9 ],
+          2025:[ 2,
+            3,
+            2,
+            8 ],
+          2026:[ 2,
+            2,
+            2,
+            7 ],
           name:"Winterferien" },
-        { "2012":[ 4,
+        { 2012:[ 4,
             4,
             4,
             14,
@@ -3943,11 +4866,11 @@
             30,
             4,
             30 ],
-          "2013":[ 3,
+          2013:[ 3,
             27,
             4,
             6 ],
-          "2014":[ 4,
+          2014:[ 4,
             16,
             4,
             26,
@@ -3955,64 +4878,84 @@
             2,
             5,
             2 ],
-          "2015":[ 4,
+          2015:[ 4,
             1,
             4,
             11 ],
-          "2016":[ 3,
+          2016:[ 3,
             23,
             4,
             2 ],
-          "2017":[ 4,
+          2017:[ 4,
             10,
             4,
             22 ],
-          "2018":[ 3,
+          2018:[ 3,
             26,
             4,
             6 ],
-          "2019":[ 4,
+          2019:[ 4,
             15,
             4,
             26 ],
-          "2020":[ 4,
+          2020:[ 4,
             6,
             4,
             17 ],
-          "2021":[ 3,
+          2021:[ 3,
             29,
             4,
             9 ],
-          "2022":[ 4,
+          2022:[ 4,
             11,
             4,
             23 ],
-          "2023":[ 4,
+          2023:[ 4,
             3,
             4,
             14 ],
-          "2024":[ 3,
+          2024:[ 3,
             25,
             4,
             5 ],
-          name:"Osterferien" },
-        { "2012":[ 5,
-            18,
+          2025:[ 4,
+            14,
+            4,
+            25,
             5,
-            18 ],
-          "2013":[ 5,
-            10,
+            2,
             5,
-            10 ],
-          "2014":[ 5,
+            2,
+            5,
             30,
             5,
             30 ],
-          "2015":[ 5,
+          2026:[ 3,
+            30,
+            4,
+            10,
+            5,
             15,
             5,
             15 ],
-          "2016":[ 5,
+          name:"Osterferien" },
+        { 2012:[ 5,
+            18,
+            5,
+            18 ],
+          2013:[ 5,
+            10,
+            5,
+            10 ],
+          2014:[ 5,
+            30,
+            5,
+            30 ],
+          2015:[ 5,
+            15,
+            5,
+            15 ],
+          2016:[ 5,
             6,
             5,
             6,
@@ -4020,11 +4963,11 @@
             17,
             5,
             17 ],
-          "2017":[ 5,
+          2017:[ 5,
             26,
             5,
             26 ],
-          "2018":[ 4,
+          2018:[ 4,
             30,
             4,
             30,
@@ -4032,89 +4975,105 @@
             11,
             5,
             11 ],
-          "2019":[ 5,
+          2019:[ 5,
             31,
             5,
             31 ],
-          "2020":[ 5,
+          2020:[ 5,
             22,
             5,
             22 ],
-          "2021":[ 5,
+          2021:[ 5,
             14,
             5,
             14 ],
-          "2022":[ 5,
+          2022:[ 5,
             27,
             5,
             27 ],
-          "2023":[ 5,
+          2023:[ 5,
             19,
             5,
             19 ],
-          "2024":[ 5,
+          2024:[ 5,
             10,
             5,
             10 ],
+          2025:[ 6,
+            10,
+            6,
+            10 ],
+          2026:[ 5,
+            26,
+            5,
+            26 ],
           name:"Pfingstferien" },
-        { "2012":[ 6,
+        { 2012:[ 6,
             21,
             8,
             3 ],
-          "2013":[ 6,
+          2013:[ 6,
             20,
             8,
             2 ],
-          "2014":[ 7,
+          2014:[ 7,
             10,
             8,
             22 ],
-          "2015":[ 7,
+          2015:[ 7,
             16,
             8,
             28 ],
-          "2016":[ 7,
+          2016:[ 7,
             21,
             9,
             3 ],
-          "2017":[ 7,
+          2017:[ 7,
             20,
             9,
             1 ],
-          "2018":[ 7,
+          2018:[ 7,
             5,
             8,
             18 ],
-          "2019":[ 6,
+          2019:[ 6,
             20,
             8,
             3 ],
-          "2020":[ 6,
+          2020:[ 6,
             25,
             8,
             8 ],
-          "2021":[ 6,
+          2021:[ 6,
             24,
             8,
             7 ],
-          "2022":[ 7,
+          2022:[ 7,
             7,
             8,
             20 ],
-          "2023":[ 7,
+          2023:[ 7,
             13,
             8,
             26 ],
-          "2024":[ 7,
+          2024:[ 7,
             18,
             8,
             31 ],
+          2025:[ 7,
+            24,
+            9,
+            6 ],
+          2026:[ 7,
+            9,
+            8,
+            22 ],
           name:"Sommerferien" },
-        { "2012":[ 10,
+        { 2012:[ 10,
             1,
             10,
             13 ],
-          "2013":[ 9,
+          2013:[ 9,
             30,
             10,
             12,
@@ -4122,19 +5081,19 @@
             1,
             11,
             1 ],
-          "2014":[ 10,
+          2014:[ 10,
             20,
             11,
             1 ],
-          "2015":[ 10,
+          2015:[ 10,
             19,
             10,
             30 ],
-          "2016":[ 10,
+          2016:[ 10,
             17,
             10,
             28 ],
-          "2017":[ 10,
+          2017:[ 10,
             2,
             10,
             2,
@@ -4142,11 +5101,11 @@
             23,
             11,
             4 ],
-          "2018":[ 10,
+          2018:[ 10,
             22,
             11,
             2 ],
-          "2019":[ 10,
+          2019:[ 10,
             4,
             10,
             18,
@@ -4154,19 +5113,19 @@
             1,
             11,
             1 ],
-          "2020":[ 10,
+          2020:[ 10,
             12,
             10,
             24 ],
-          "2021":[ 10,
+          2021:[ 10,
             11,
             10,
             23 ],
-          "2022":[ 10,
+          2022:[ 10,
             24,
             11,
             5 ],
-          "2023":[ 10,
+          2023:[ 10,
             2,
             10,
             2,
@@ -4174,115 +5133,151 @@
             23,
             11,
             4 ],
+          2024:[ 10,
+            4,
+            10,
+            4,
+            10,
+            21,
+            11,
+            2 ],
+          2025:[ 10,
+            20,
+            11,
+            1 ],
+          2026:[ 10,
+            19,
+            10,
+            30 ],
           name:"Herbstferien" },
-        { "2011":[ 12,
+        { 2011:[ 12,
             23,
             1,
             3 ],
-          "2012":[ 12,
+          2012:[ 12,
             24,
             1,
             4 ],
-          "2013":[ 12,
+          2013:[ 12,
             23,
             1,
             3 ],
-          "2014":[ 12,
+          2014:[ 12,
             22,
             1,
             2 ],
-          "2015":[ 12,
+          2015:[ 12,
             23,
             1,
             2 ],
-          "2016":[ 12,
+          2016:[ 12,
             23,
             1,
             3 ],
-          "2017":[ 12,
+          2017:[ 12,
             21,
             1,
             2 ],
-          "2018":[ 12,
+          2018:[ 12,
             21,
             1,
             5 ],
-          "2019":[ 12,
+          2019:[ 12,
             23,
             1,
             3 ],
-          "2020":[ 12,
+          2020:[ 12,
             21,
             1,
             2 ],
-          "2021":[ 12,
+          2021:[ 12,
             23,
             12,
             31 ],
-          "2022":[ 12,
+          2022:[ 12,
             22,
             1,
             3 ],
-          "2023":[ 12,
+          2023:[ 12,
             23,
             1,
             5 ],
+          2024:[ 12,
+            23,
+            12,
+            31 ],
+          2025:[ 12,
+            22,
+            1,
+            2 ],
+          2026:[ 12,
+            23,
+            1,
+            2 ],
           name:"Weihnachtsferien" } ] },
     Bremen:{ _state_code:"hb",
-      SH:[ { "2012":[ 1,
+      SH:[ { 2012:[ 1,
             30,
             1,
             31 ],
-          "2013":[ 1,
+          2013:[ 1,
             31,
             2,
             1 ],
-          "2014":[ 1,
+          2014:[ 1,
             30,
             1,
             31 ],
-          "2015":[ 2,
+          2015:[ 2,
             2,
             2,
             3 ],
-          "2016":[ 1,
+          2016:[ 1,
             28,
             1,
             29 ],
-          "2017":[ 1,
+          2017:[ 1,
             30,
             1,
             31 ],
-          "2018":[ 2,
+          2018:[ 2,
             1,
             2,
             2 ],
-          "2019":[ 1,
+          2019:[ 1,
             31,
             2,
             1 ],
-          "2020":[ 2,
+          2020:[ 2,
             3,
             2,
             4 ],
-          "2021":[ 2,
+          2021:[ 2,
             1,
             2,
             2 ],
-          "2022":[ 1,
+          2022:[ 1,
             31,
             2,
             1 ],
-          "2023":[ 1,
+          2023:[ 1,
             30,
             1,
             31 ],
-          "2024":[ 2,
+          2024:[ 2,
             1,
             2,
             2 ],
+          2025:[ 2,
+            3,
+            2,
+            4 ],
+          2026:[ 2,
+            2,
+            2,
+            3 ],
           name:"Winterferien" },
-        { "2012":[ 3,
+        { 2012:[ 3,
             26,
             4,
             11,
@@ -4290,11 +5285,11 @@
             30,
             4,
             30 ],
-          "2013":[ 3,
+          2013:[ 3,
             16,
             4,
             2 ],
-          "2014":[ 4,
+          2014:[ 4,
             3,
             4,
             22,
@@ -4302,48 +5297,56 @@
             2,
             5,
             2 ],
-          "2015":[ 3,
+          2015:[ 3,
             25,
             4,
             10 ],
-          "2016":[ 3,
+          2016:[ 3,
             18,
             4,
             2 ],
-          "2017":[ 4,
+          2017:[ 4,
             10,
             4,
             22 ],
-          "2018":[ 3,
+          2018:[ 3,
             19,
             4,
             3 ],
-          "2019":[ 4,
+          2019:[ 4,
             6,
             4,
             23 ],
-          "2020":[ 3,
+          2020:[ 3,
             28,
             4,
             14 ],
-          "2021":[ 3,
+          2021:[ 3,
             27,
             4,
             10 ],
-          "2022":[ 4,
+          2022:[ 4,
             4,
             4,
             19 ],
-          "2023":[ 3,
+          2023:[ 3,
             27,
             4,
             11 ],
-          "2024":[ 3,
+          2024:[ 3,
             18,
+            3,
+            28 ],
+          2025:[ 4,
+            7,
             4,
-            2 ],
+            19 ],
+          2026:[ 3,
+            23,
+            4,
+            7 ],
           name:"Osterferien" },
-        { "2012":[ 5,
+        { 2012:[ 5,
             18,
             5,
             18,
@@ -4351,7 +5354,7 @@
             29,
             5,
             29 ],
-          "2013":[ 5,
+          2013:[ 5,
             10,
             5,
             10,
@@ -4359,7 +5362,7 @@
             21,
             5,
             21 ],
-          "2014":[ 5,
+          2014:[ 5,
             30,
             5,
             30,
@@ -4367,7 +5370,7 @@
             10,
             6,
             10 ],
-          "2015":[ 5,
+          2015:[ 5,
             15,
             5,
             15,
@@ -4375,7 +5378,7 @@
             26,
             5,
             26 ],
-          "2016":[ 5,
+          2016:[ 5,
             6,
             5,
             6,
@@ -4383,7 +5386,7 @@
             17,
             5,
             17 ],
-          "2017":[ 5,
+          2017:[ 5,
             26,
             5,
             26,
@@ -4391,7 +5394,7 @@
             6,
             6,
             6 ],
-          "2018":[ 4,
+          2018:[ 4,
             30,
             4,
             30,
@@ -4403,7 +5406,7 @@
             22,
             5,
             22 ],
-          "2019":[ 5,
+          2019:[ 5,
             31,
             5,
             31,
@@ -4411,7 +5414,7 @@
             11,
             6,
             11 ],
-          "2020":[ 5,
+          2020:[ 5,
             22,
             5,
             22,
@@ -4419,7 +5422,7 @@
             2,
             6,
             2 ],
-          "2021":[ 5,
+          2021:[ 5,
             14,
             5,
             14,
@@ -4427,7 +5430,7 @@
             25,
             5,
             25 ],
-          "2022":[ 5,
+          2022:[ 5,
             27,
             5,
             27,
@@ -4435,7 +5438,7 @@
             7,
             6,
             7 ],
-          "2023":[ 5,
+          2023:[ 5,
             19,
             5,
             19,
@@ -4443,7 +5446,7 @@
             30,
             5,
             30 ],
-          "2024":[ 5,
+          2024:[ 5,
             10,
             5,
             10,
@@ -4451,81 +5454,113 @@
             21,
             5,
             21 ],
+          2025:[ 4,
+            30,
+            4,
+            30,
+            5,
+            2,
+            5,
+            2,
+            5,
+            30,
+            5,
+            30,
+            6,
+            10,
+            6,
+            10 ],
+          2026:[ 5,
+            15,
+            5,
+            15,
+            5,
+            26,
+            5,
+            26 ],
           name:"Pfingstferien" },
-        { "2012":[ 7,
+        { 2012:[ 7,
             23,
             8,
             31 ],
-          "2013":[ 6,
+          2013:[ 6,
             27,
             8,
             7 ],
-          "2014":[ 7,
+          2014:[ 7,
             31,
             9,
             10 ],
-          "2015":[ 7,
+          2015:[ 7,
             23,
             9,
             2 ],
-          "2016":[ 6,
+          2016:[ 6,
             23,
             8,
             3 ],
-          "2017":[ 6,
+          2017:[ 6,
             22,
             8,
             2 ],
-          "2018":[ 6,
+          2018:[ 6,
             28,
             8,
             8 ],
-          "2019":[ 7,
+          2019:[ 7,
             4,
             8,
             14 ],
-          "2020":[ 7,
+          2020:[ 7,
             16,
             8,
             26 ],
-          "2021":[ 7,
+          2021:[ 7,
             22,
             9,
             1 ],
-          "2022":[ 7,
+          2022:[ 7,
             14,
             8,
             24 ],
-          "2023":[ 7,
+          2023:[ 7,
             6,
             8,
             16 ],
-          "2024":[ 6,
+          2024:[ 6,
             24,
             8,
             2 ],
+          2025:[ 7,
+            3,
+            8,
+            13 ],
+          2026:[ 7,
+            2,
+            8,
+            12 ],
           name:"Sommerferien" },
-        { "2012":[ 10,
+        { 2012:[ 10,
             22,
             11,
             3 ],
-          "2013":[ 10,
+          2013:[ 10,
             4,
             10,
             18 ],
-          "2014":[ 10,
+          2014:[ 10,
             27,
             11,
             8 ],
-          "2015":[ 10,
+          2015:[ 10,
             19,
             10,
             31 ],
-          "2016":[ 10,
+          2016:[ 10,
             4,
             10,
             15 ],
-          "2017":[ 10,
+          2017:[ 10,
             2,
             10,
             14,
@@ -4533,27 +5568,27 @@
             30,
             10,
             30 ],
-          "2018":[ 10,
+          2018:[ 10,
             1,
             10,
             13 ],
-          "2019":[ 10,
+          2019:[ 10,
             4,
             10,
             18 ],
-          "2020":[ 10,
+          2020:[ 10,
             12,
             10,
             24 ],
-          "2021":[ 10,
+          2021:[ 10,
             18,
             10,
             30 ],
-          "2022":[ 10,
+          2022:[ 10,
             17,
             10,
             29 ],
-          "2023":[ 10,
+          2023:[ 10,
             2,
             10,
             2,
@@ -4561,139 +5596,175 @@
             16,
             10,
             28 ],
+          2024:[ 10,
+            4,
+            10,
+            19,
+            11,
+            1,
+            11,
+            1 ],
+          2025:[ 10,
+            13,
+            10,
+            25 ],
+          2026:[ 10,
+            12,
+            10,
+            24 ],
           name:"Herbstferien" },
-        { "2011":[ 12,
+        { 2011:[ 12,
             23,
             1,
             4 ],
-          "2012":[ 12,
+          2012:[ 12,
             24,
             1,
             5 ],
-          "2013":[ 12,
+          2013:[ 12,
             23,
             1,
             3 ],
-          "2014":[ 12,
+          2014:[ 12,
             22,
             1,
             5 ],
-          "2015":[ 12,
+          2015:[ 12,
             23,
             1,
             6 ],
-          "2016":[ 12,
+          2016:[ 12,
             21,
             1,
             6 ],
-          "2017":[ 12,
+          2017:[ 12,
             22,
             1,
             6 ],
-          "2018":[ 12,
+          2018:[ 12,
             24,
             1,
             4 ],
-          "2019":[ 12,
+          2019:[ 12,
             21,
             1,
             6 ],
-          "2020":[ 12,
+          2020:[ 12,
             23,
             1,
             8 ],
-          "2021":[ 12,
+          2021:[ 12,
             23,
             1,
             8 ],
-          "2022":[ 12,
+          2022:[ 12,
             23,
             1,
             6 ],
-          "2023":[ 12,
+          2023:[ 12,
             23,
             1,
             5 ],
+          2024:[ 12,
+            23,
+            1,
+            4 ],
+          2025:[ 12,
+            22,
+            1,
+            5 ],
+          2026:[ 12,
+            23,
+            1,
+            9 ],
           name:"Weihnachtsferien" } ] },
     Hamburg:{ _state_code:"hh",
-      SH:[ { "2012":[ 1,
+      SH:[ { 2012:[ 1,
             30,
             1,
             30 ],
-          "2013":[ 2,
+          2013:[ 2,
             1,
             2,
             1 ],
-          "2014":[ 1,
+          2014:[ 1,
             31,
             1,
             31 ],
-          "2015":[ 1,
+          2015:[ 1,
             30,
             1,
             30 ],
-          "2016":[ 1,
+          2016:[ 1,
             29,
             1,
             29 ],
-          "2017":[ 1,
+          2017:[ 1,
             30,
             1,
             30 ],
-          "2018":[ 2,
+          2018:[ 2,
             2,
             2,
             2 ],
-          "2019":[ 2,
+          2019:[ 2,
             1,
             2,
             1 ],
-          "2020":[ 1,
+          2020:[ 1,
             31,
             1,
             31 ],
-          "2021":[ 1,
+          2021:[ 1,
             29,
             1,
             29 ],
-          "2022":[ 1,
+          2022:[ 1,
             28,
             1,
             28 ],
-          "2023":[ 1,
+          2023:[ 1,
             27,
             1,
             27 ],
-          "2024":[ 2,
+          2024:[ 2,
             2,
             2,
             2 ],
+          2025:[ 1,
+            31,
+            1,
+            31 ],
+          2026:[ 1,
+            30,
+            1,
+            30 ],
           name:"Winterferien" },
-        { "2012":[ 3,
+        { 2012:[ 3,
             5,
             3,
             16 ],
-          "2013":[ 3,
+          2013:[ 3,
             4,
             3,
             15 ],
-          "2014":[ 3,
+          2014:[ 3,
             3,
             3,
             14 ],
-          "2015":[ 3,
+          2015:[ 3,
             2,
             3,
             13 ],
-          "2016":[ 3,
+          2016:[ 3,
             7,
             3,
             18 ],
-          "2017":[ 3,
+          2017:[ 3,
             6,
             3,
             17 ],
-          "2018":[ 3,
+          2018:[ 3,
             5,
             3,
             16,
@@ -4701,32 +5772,40 @@
             30,
             4,
             30 ],
-          "2019":[ 3,
+          2019:[ 3,
             4,
             3,
             15 ],
-          "2020":[ 3,
+          2020:[ 3,
             2,
             3,
             13 ],
-          "2021":[ 3,
+          2021:[ 3,
             1,
             3,
             12 ],
-          "2022":[ 3,
+          2022:[ 3,
             7,
             3,
             18 ],
-          "2023":[ 3,
+          2023:[ 3,
             6,
             3,
             17 ],
-          "2024":[ 3,
+          2024:[ 3,
             18,
             3,
             28 ],
+          2025:[ 3,
+            10,
+            3,
+            21 ],
+          2026:[ 3,
+            2,
+            3,
+            13 ],
           name:"Osterferien" },
-        { "2012":[ 4,
+        { 2012:[ 4,
             30,
             5,
             4,
@@ -4734,11 +5813,11 @@
             18,
             5,
             18 ],
-          "2013":[ 5,
+          2013:[ 5,
             2,
             5,
             10 ],
-          "2014":[ 4,
+          2014:[ 4,
             28,
             5,
             2,
@@ -4746,11 +5825,11 @@
             30,
             5,
             30 ],
-          "2015":[ 5,
+          2015:[ 5,
             11,
             5,
             15 ],
-          "2016":[ 5,
+          2016:[ 5,
             6,
             5,
             6,
@@ -4758,15 +5837,15 @@
             17,
             5,
             20 ],
-          "2017":[ 5,
+          2017:[ 5,
             22,
             5,
             26 ],
-          "2018":[ 5,
+          2018:[ 5,
             7,
             5,
             11 ],
-          "2019":[ 5,
+          2019:[ 5,
             13,
             5,
             17,
@@ -4774,101 +5853,121 @@
             31,
             5,
             31 ],
-          "2020":[ 5,
+          2020:[ 5,
             4,
             5,
             8 ],
-          "2021":[ 5,
+          2021:[ 5,
             10,
             5,
             14 ],
-          "2022":[ 5,
+          2022:[ 5,
             23,
             5,
             27 ],
-          "2023":[ 5,
+          2023:[ 5,
             15,
             5,
             19 ],
-          "2024":[ 5,
+          2024:[ 5,
             21,
             5,
             24 ],
+          2025:[ 5,
+            2,
+            5,
+            2,
+            5,
+            26,
+            5,
+            30 ],
+          2026:[ 5,
+            11,
+            5,
+            15 ],
           name:"Pfingstferien" },
-        { "2012":[ 6,
+        { 2012:[ 6,
             21,
             8,
             1 ],
-          "2013":[ 6,
+          2013:[ 6,
             20,
             7,
             31 ],
-          "2014":[ 7,
+          2014:[ 7,
             10,
             8,
             20 ],
-          "2015":[ 7,
+          2015:[ 7,
             16,
             8,
             26 ],
-          "2016":[ 7,
+          2016:[ 7,
             21,
             8,
             31 ],
-          "2017":[ 7,
+          2017:[ 7,
             20,
             8,
             30 ],
-          "2018":[ 7,
+          2018:[ 7,
             5,
             8,
             15 ],
-          "2019":[ 6,
+          2019:[ 6,
             27,
             8,
             7 ],
-          "2020":[ 6,
+          2020:[ 6,
             25,
             8,
             5 ],
-          "2021":[ 6,
+          2021:[ 6,
             24,
             8,
             4 ],
-          "2022":[ 7,
+          2022:[ 7,
             7,
             8,
             17 ],
-          "2023":[ 7,
+          2023:[ 7,
             13,
             8,
             23 ],
-          "2024":[ 7,
+          2024:[ 7,
             18,
             8,
             28 ],
+          2025:[ 7,
+            24,
+            9,
+            3 ],
+          2026:[ 7,
+            9,
+            8,
+            19 ],
           name:"Sommerferien" },
-        { "2012":[ 10,
+        { 2012:[ 10,
             1,
             10,
             12 ],
-          "2013":[ 9,
+          2013:[ 9,
             30,
             10,
             11 ],
-          "2014":[ 10,
+          2014:[ 10,
             13,
             10,
             24 ],
-          "2015":[ 10,
+          2015:[ 10,
             19,
             10,
             30 ],
-          "2016":[ 10,
+          2016:[ 10,
             17,
             10,
             28 ],
-          "2017":[ 10,
+          2017:[ 10,
             2,
             10,
             2,
@@ -4876,27 +5975,27 @@
             16,
             10,
             27 ],
-          "2018":[ 10,
+          2018:[ 10,
             1,
             10,
             12 ],
-          "2019":[ 10,
+          2019:[ 10,
             4,
             10,
             18 ],
-          "2020":[ 10,
+          2020:[ 10,
             5,
             10,
             16 ],
-          "2021":[ 10,
+          2021:[ 10,
             4,
             10,
             15 ],
-          "2022":[ 10,
+          2022:[ 10,
             10,
             10,
             21 ],
-          "2023":[ 10,
+          2023:[ 10,
             2,
             10,
             2,
@@ -4904,401 +6003,483 @@
             16,
             10,
             27 ],
+          2024:[ 10,
+            4,
+            10,
+            4,
+            10,
+            21,
+            11,
+            1 ],
+          2025:[ 10,
+            20,
+            10,
+            31 ],
+          2026:[ 10,
+            19,
+            10,
+            30 ],
           name:"Herbstferien" },
-        { "2011":[ 12,
+        { 2011:[ 12,
             27,
             1,
             6 ],
-          "2012":[ 12,
+          2012:[ 12,
             21,
             1,
             4 ],
-          "2013":[ 12,
+          2013:[ 12,
             19,
             1,
             3 ],
-          "2014":[ 12,
+          2014:[ 12,
             22,
             1,
             6 ],
-          "2015":[ 12,
+          2015:[ 12,
             21,
             1,
             1 ],
-          "2016":[ 12,
+          2016:[ 12,
             27,
             1,
             6 ],
-          "2017":[ 12,
+          2017:[ 12,
             22,
             1,
             5 ],
-          "2018":[ 12,
+          2018:[ 12,
             20,
             1,
             4 ],
-          "2019":[ 12,
+          2019:[ 12,
             23,
             1,
             3 ],
-          "2020":[ 12,
+          2020:[ 12,
             21,
             1,
             4 ],
-          "2021":[ 12,
+          2021:[ 12,
             23,
             1,
             4 ],
-          "2022":[ 12,
+          2022:[ 12,
             23,
             1,
             6 ],
-          "2023":[ 12,
+          2023:[ 12,
             22,
             1,
             5 ],
+          2024:[ 12,
+            20,
+            1,
+            3 ],
+          2025:[ 12,
+            17,
+            1,
+            2 ],
+          2026:[ 12,
+            21,
+            1,
+            1 ],
           name:"Weihnachtsferien" } ] },
     Hessen:{ _state_code:"he",
-      SH:[ { "2012":[ 4,
+      SH:[ { 2012:[ 4,
             2,
             4,
             14 ],
-          "2013":[ 3,
+          2013:[ 3,
             25,
             4,
             6 ],
-          "2014":[ 4,
+          2014:[ 4,
             14,
             4,
             26 ],
-          "2015":[ 3,
+          2015:[ 3,
             30,
             4,
             11 ],
-          "2016":[ 3,
+          2016:[ 3,
             29,
             4,
             9 ],
-          "2017":[ 4,
+          2017:[ 4,
             3,
             4,
             15 ],
-          "2018":[ 3,
+          2018:[ 3,
             26,
             4,
             7 ],
-          "2019":[ 4,
+          2019:[ 4,
             14,
             4,
             27 ],
-          "2020":[ 4,
+          2020:[ 4,
             6,
             4,
             18 ],
-          "2021":[ 4,
+          2021:[ 4,
             6,
             4,
             16 ],
-          "2022":[ 4,
+          2022:[ 4,
             11,
             4,
             23 ],
-          "2023":[ 4,
+          2023:[ 4,
             3,
             4,
             22 ],
-          "2024":[ 3,
+          2024:[ 3,
             25,
             4,
             13 ],
+          2025:[ 4,
+            7,
+            4,
+            21 ],
+          2026:[ 3,
+            30,
+            4,
+            10 ],
           name:"Osterferien" },
-        { "2012":[ 7,
+        { 2012:[ 7,
             2,
             8,
             10 ],
-          "2013":[ 7,
+          2013:[ 7,
             8,
             8,
             16 ],
-          "2014":[ 7,
+          2014:[ 7,
             28,
             9,
             5 ],
-          "2015":[ 7,
+          2015:[ 7,
             27,
             9,
             4 ],
-          "2016":[ 7,
+          2016:[ 7,
             18,
             8,
             26 ],
-          "2017":[ 7,
+          2017:[ 7,
             3,
             8,
             11 ],
-          "2018":[ 6,
+          2018:[ 6,
             25,
             8,
             3 ],
-          "2019":[ 7,
+          2019:[ 7,
             1,
             8,
             9 ],
-          "2020":[ 7,
+          2020:[ 7,
             6,
             8,
             14 ],
-          "2021":[ 7,
+          2021:[ 7,
             19,
             8,
             27 ],
-          "2022":[ 7,
+          2022:[ 7,
             25,
             9,
             2 ],
-          "2023":[ 7,
+          2023:[ 7,
             24,
             9,
             1 ],
-          "2024":[ 7,
+          2024:[ 7,
             15,
             8,
             23 ],
+          2025:[ 7,
+            7,
+            8,
+            15 ],
+          2026:[ 6,
+            29,
+            8,
+            7 ],
           name:"Sommerferien" },
-        { "2012":[ 10,
+        { 2012:[ 10,
             15,
             10,
             27 ],
-          "2013":[ 10,
+          2013:[ 10,
             14,
             10,
             26 ],
-          "2014":[ 10,
+          2014:[ 10,
             20,
             11,
             1 ],
-          "2015":[ 10,
+          2015:[ 10,
             19,
             10,
             31 ],
-          "2016":[ 10,
+          2016:[ 10,
             17,
             10,
             29 ],
-          "2017":[ 10,
+          2017:[ 10,
             9,
             10,
             21 ],
-          "2018":[ 10,
+          2018:[ 10,
             1,
             10,
             13 ],
-          "2019":[ 9,
+          2019:[ 9,
             30,
             10,
             12 ],
-          "2020":[ 10,
+          2020:[ 10,
             5,
             10,
             17 ],
-          "2021":[ 10,
+          2021:[ 10,
             11,
             10,
             23 ],
-          "2022":[ 10,
+          2022:[ 10,
             24,
             10,
             29 ],
-          "2023":[ 10,
+          2023:[ 10,
             23,
             10,
             28 ],
+          2024:[  ],
+          2025:[ 10,
+            6,
+            10,
+            18 ],
+          2026:[ 10,
+            5,
+            10,
+            17 ],
           name:"Herbstferien" },
-        { "2011":[ 12,
+        { 2011:[ 12,
             21,
             1,
             6 ],
-          "2012":[ 12,
+          2012:[ 12,
             24,
             1,
             12 ],
-          "2013":[ 12,
+          2013:[ 12,
             23,
             1,
             11 ],
-          "2014":[ 12,
+          2014:[ 12,
             22,
             1,
             10 ],
-          "2015":[ 12,
+          2015:[ 12,
             23,
             1,
             9 ],
-          "2016":[ 12,
+          2016:[ 12,
             22,
             1,
             7 ],
-          "2017":[ 12,
+          2017:[ 12,
             24,
             1,
             13 ],
-          "2018":[ 12,
+          2018:[ 12,
             24,
             1,
             12 ],
-          "2019":[ 12,
+          2019:[ 12,
             23,
             1,
             11 ],
-          "2020":[ 12,
+          2020:[ 12,
             21,
             1,
             9 ],
-          "2021":[ 12,
+          2021:[ 12,
             23,
             1,
             8 ],
-          "2022":[ 12,
+          2022:[ 12,
             22,
             1,
             7 ],
-          "2023":[ 12,
+          2023:[ 12,
             27,
             1,
             13 ],
+          2024:[  ],
+          2025:[ 12,
+            22,
+            1,
+            10 ],
+          2026:[ 12,
+            23,
+            1,
+            12 ],
           name:"Weihnachtsferien" } ] },
     "Mecklenburg-Vorpommern":{ _state_code:"mv",
-      SH:[ { "2012":[ 2,
+      SH:[ { 2012:[ 2,
             6,
             2,
             17 ],
-          "2013":[ 2,
+          2013:[ 2,
             4,
             2,
             15 ],
-          "2014":[ 2,
+          2014:[ 2,
             3,
             2,
             15 ],
-          "2015":[ 2,
+          2015:[ 2,
             2,
             2,
             14 ],
-          "2016":[ 2,
+          2016:[ 2,
             1,
             2,
             13 ],
-          "2017":[ 2,
+          2017:[ 2,
             6,
             2,
             18 ],
-          "2018":[ 2,
+          2018:[ 2,
             5,
             2,
             16 ],
-          "2019":[ 2,
+          2019:[ 2,
             4,
             2,
             15 ],
-          "2020":[ 2,
+          2020:[ 2,
             10,
             2,
             21 ],
-          "2021":[ 2,
+          2021:[ 2,
             6,
             2,
             19 ],
-          "2022":[ 2,
+          2022:[ 2,
             5,
             2,
             17 ],
-          "2023":[ 2,
+          2023:[ 2,
             6,
             2,
             18 ],
-          "2024":[ 2,
+          2024:[ 2,
             5,
             2,
             16 ],
+          2025:[ 2,
+            3,
+            2,
+            14 ],
+          2026:[ 2,
+            9,
+            2,
+            20 ],
           name:"Winterferien" },
-        { "2012":[ 4,
+        { 2012:[ 4,
             2,
             4,
             11 ],
-          "2013":[ 3,
+          2013:[ 3,
             25,
             4,
             3 ],
-          "2014":[ 4,
+          2014:[ 4,
             14,
             4,
             23 ],
-          "2015":[ 3,
+          2015:[ 3,
             30,
             4,
             8 ],
-          "2016":[ 3,
+          2016:[ 3,
             21,
             3,
             30 ],
-          "2017":[ 4,
+          2017:[ 4,
             10,
             4,
             19 ],
-          "2018":[ 3,
+          2018:[ 3,
             26,
             4,
             4 ],
-          "2019":[ 4,
+          2019:[ 4,
             15,
             4,
             24 ],
-          "2020":[ 4,
+          2020:[ 4,
             6,
             4,
             15 ],
-          "2021":[ 3,
+          2021:[ 3,
             29,
             4,
             7 ],
-          "2022":[ 4,
+          2022:[ 4,
             11,
             4,
             20 ],
-          "2023":[ 4,
+          2023:[ 4,
             3,
             4,
             12 ],
-          "2024":[ 3,
+          2024:[ 3,
             25,
             4,
             3 ],
+          2025:[ 4,
+            14,
+            4,
+            23,
+            5,
+            30,
+            5,
+            30 ],
+          2026:[ 3,
+            30,
+            4,
+            8 ],
           name:"Osterferien" },
-        { "2012":[ 5,
+        { 2012:[ 5,
             25,
             5,
             29 ],
-          "2013":[ 5,
+          2013:[ 5,
             17,
             5,
             21 ],
-          "2014":[ 6,
+          2014:[ 6,
             6,
             6,
             10 ],
-          "2015":[ 5,
+          2015:[ 5,
             22,
             5,
             26 ],
-          "2016":[ 5,
+          2016:[ 5,
             14,
             5,
             17 ],
-          "2017":[ 6,
+          2017:[ 6,
             2,
             6,
             6 ],
-          "2018":[ 5,
+          2018:[ 5,
             11,
             5,
             11,
@@ -5306,7 +6487,7 @@
             18,
             5,
             22 ],
-          "2019":[ 5,
+          2019:[ 5,
             22,
             5,
             22,
@@ -5314,7 +6495,7 @@
             7,
             6,
             11 ],
-          "2020":[ 5,
+          2020:[ 5,
             22,
             5,
             22,
@@ -5322,7 +6503,7 @@
             29,
             6,
             2 ],
-          "2021":[ 5,
+          2021:[ 5,
             14,
             5,
             14,
@@ -5330,7 +6511,7 @@
             21,
             5,
             25 ],
-          "2022":[ 5,
+          2022:[ 5,
             27,
             5,
             27,
@@ -5338,7 +6519,7 @@
             3,
             6,
             7 ],
-          "2023":[ 5,
+          2023:[ 5,
             19,
             5,
             19,
@@ -5346,7 +6527,7 @@
             26,
             5,
             30 ],
-          "2024":[ 5,
+          2024:[ 5,
             10,
             5,
             10,
@@ -5354,81 +6535,101 @@
             17,
             5,
             21 ],
+          2025:[ 6,
+            6,
+            6,
+            10 ],
+          2026:[ 5,
+            15,
+            5,
+            15,
+            5,
+            22,
+            5,
+            26 ],
           name:"Pfingstferien" },
-        { "2012":[ 6,
+        { 2012:[ 6,
             23,
             8,
             4 ],
-          "2013":[ 6,
+          2013:[ 6,
             22,
             8,
             3 ],
-          "2014":[ 7,
+          2014:[ 7,
             14,
             8,
             23 ],
-          "2015":[ 7,
+          2015:[ 7,
             20,
             8,
             29 ],
-          "2016":[ 7,
+          2016:[ 7,
             25,
             9,
             3 ],
-          "2017":[ 7,
+          2017:[ 7,
             24,
             9,
             2 ],
-          "2018":[ 7,
+          2018:[ 7,
             9,
             8,
             18 ],
-          "2019":[ 7,
+          2019:[ 7,
             1,
             8,
             10 ],
-          "2020":[ 6,
+          2020:[ 6,
             22,
             8,
             1 ],
-          "2021":[ 6,
+          2021:[ 6,
             21,
             7,
             31 ],
-          "2022":[ 7,
+          2022:[ 7,
             4,
             8,
             13 ],
-          "2023":[ 7,
+          2023:[ 7,
             17,
             8,
             26 ],
-          "2024":[ 7,
+          2024:[ 7,
             22,
             8,
             31 ],
+          2025:[ 7,
+            28,
+            9,
+            6 ],
+          2026:[ 7,
+            13,
+            8,
+            22 ],
           name:"Sommerferien" },
-        { "2012":[ 10,
+        { 2012:[ 10,
             1,
             10,
             5 ],
-          "2013":[ 10,
+          2013:[ 10,
             14,
             10,
             19 ],
-          "2014":[ 10,
+          2014:[ 10,
             20,
             10,
             25 ],
-          "2015":[ 10,
+          2015:[ 10,
             24,
             10,
             30 ],
-          "2016":[ 10,
+          2016:[ 10,
             24,
             10,
             28 ],
-          "2017":[ 10,
+          2017:[ 10,
             2,
             10,
             2,
@@ -5436,7 +6637,7 @@
             23,
             10,
             30 ],
-          "2018":[ 10,
+          2018:[ 10,
             8,
             10,
             13,
@@ -5444,7 +6645,7 @@
             1,
             11,
             2 ],
-          "2019":[ 10,
+          2019:[ 10,
             4,
             10,
             4,
@@ -5456,7 +6657,7 @@
             1,
             11,
             1 ],
-          "2020":[ 10,
+          2020:[ 10,
             5,
             10,
             10,
@@ -5464,7 +6665,7 @@
             2,
             11,
             3 ],
-          "2021":[ 10,
+          2021:[ 10,
             2,
             10,
             9,
@@ -5472,7 +6673,7 @@
             1,
             11,
             2 ],
-          "2022":[ 10,
+          2022:[ 10,
             10,
             10,
             14,
@@ -5480,7 +6681,7 @@
             1,
             11,
             2 ],
-          "2023":[ 10,
+          2023:[ 10,
             9,
             10,
             14,
@@ -5492,115 +6693,167 @@
             1,
             11,
             1 ],
+          2024:[ 10,
+            4,
+            10,
+            4,
+            10,
+            21,
+            10,
+            26,
+            11,
+            1,
+            11,
+            1 ],
+          2025:[ 10,
+            2,
+            10,
+            2,
+            10,
+            20,
+            10,
+            25,
+            11,
+            3,
+            11,
+            3 ],
+          2026:[ 10,
+            19,
+            10,
+            24,
+            11,
+            26,
+            11,
+            27 ],
           name:"Herbstferien" },
-        { "2011":[ 12,
+        { 2011:[ 12,
             23,
             1,
             3 ],
-          "2012":[ 12,
+          2012:[ 12,
             21,
             1,
             4 ],
-          "2013":[ 12,
+          2013:[ 12,
             23,
             1,
             3 ],
-          "2014":[ 12,
+          2014:[ 12,
             22,
             1,
             2 ],
-          "2015":[ 12,
+          2015:[ 12,
             21,
             1,
             2 ],
-          "2016":[ 12,
+          2016:[ 12,
             22,
             1,
             2 ],
-          "2017":[ 12,
+          2017:[ 12,
             21,
             1,
             3 ],
-          "2018":[ 12,
+          2018:[ 12,
             24,
             1,
             5 ],
-          "2019":[ 12,
+          2019:[ 12,
             23,
             1,
             4 ],
-          "2020":[ 12,
+          2020:[ 12,
             21,
             1,
             2 ],
-          "2021":[ 12,
+          2021:[ 12,
             22,
             12,
             31 ],
-          "2022":[ 12,
+          2022:[ 12,
             22,
             1,
             2 ],
-          "2023":[ 12,
+          2023:[ 12,
             21,
             1,
             3 ],
+          2024:[ 12,
+            23,
+            1,
+            6 ],
+          2025:[ 12,
+            22,
+            1,
+            5 ],
+          2026:[ 12,
+            19,
+            1,
+            2 ],
           name:"Weihnachtsferien" } ] },
     Niedersachsen:{ _state_code:"ni",
-      SH:[ { "2012":[ 1,
+      SH:[ { 2012:[ 1,
             30,
             1,
             31 ],
-          "2013":[ 1,
+          2013:[ 1,
             31,
             2,
             1 ],
-          "2014":[ 1,
+          2014:[ 1,
             30,
             1,
             31 ],
-          "2015":[ 2,
+          2015:[ 2,
             2,
             2,
             3 ],
-          "2016":[ 1,
+          2016:[ 1,
             28,
             1,
             29 ],
-          "2017":[ 1,
+          2017:[ 1,
             30,
             1,
             31 ],
-          "2018":[ 2,
+          2018:[ 2,
             1,
             2,
             2 ],
-          "2019":[ 1,
+          2019:[ 1,
             31,
             2,
             1 ],
-          "2020":[ 2,
+          2020:[ 2,
             3,
             2,
             4 ],
-          "2021":[ 2,
+          2021:[ 2,
             1,
             2,
             2 ],
-          "2022":[ 1,
+          2022:[ 1,
             31,
             2,
             1 ],
-          "2023":[ 1,
+          2023:[ 1,
             30,
             1,
             31 ],
-          "2024":[ 2,
+          2024:[ 2,
             1,
             2,
             2 ],
+          2025:[ 2,
+            3,
+            2,
+            4 ],
+          2026:[ 2,
+            2,
+            2,
+            3 ],
           name:"Winterferien" },
-        { "2012":[ 3,
+        { 2012:[ 3,
             26,
             4,
             11,
@@ -5608,11 +6861,11 @@
             30,
             4,
             30 ],
-          "2013":[ 3,
+          2013:[ 3,
             16,
             4,
             2 ],
-          "2014":[ 4,
+          2014:[ 4,
             3,
             4,
             22,
@@ -5620,48 +6873,60 @@
             2,
             5,
             2 ],
-          "2015":[ 3,
+          2015:[ 3,
             25,
             4,
             10 ],
-          "2016":[ 3,
+          2016:[ 3,
             18,
             4,
             2 ],
-          "2017":[ 4,
+          2017:[ 4,
             10,
             4,
             22 ],
-          "2018":[ 3,
+          2018:[ 3,
             19,
             4,
             3 ],
-          "2019":[ 4,
+          2019:[ 4,
             8,
             4,
             23 ],
-          "2020":[ 3,
+          2020:[ 3,
             30,
             4,
             14 ],
-          "2021":[ 3,
+          2021:[ 3,
             29,
             4,
             9 ],
-          "2022":[ 4,
+          2022:[ 4,
             4,
             4,
             19 ],
-          "2023":[ 3,
+          2023:[ 3,
             27,
             4,
             11 ],
-          "2024":[ 3,
+          2024:[ 3,
             18,
             4,
             2 ],
+          2025:[ 4,
+            7,
+            4,
+            19,
+            4,
+            30,
+            4,
+            30 ],
+          2026:[ 3,
+            23,
+            4,
+            7 ],
           name:"Osterferien" },
-        { "2012":[ 5,
+        { 2012:[ 5,
             18,
             5,
             18,
@@ -5669,7 +6934,7 @@
             29,
             5,
             29 ],
-          "2013":[ 5,
+          2013:[ 5,
             10,
             5,
             10,
@@ -5677,7 +6942,7 @@
             21,
             5,
             21 ],
-          "2014":[ 5,
+          2014:[ 5,
             30,
             5,
             30,
@@ -5685,7 +6950,7 @@
             10,
             6,
             10 ],
-          "2015":[ 5,
+          2015:[ 5,
             15,
             5,
             15,
@@ -5693,7 +6958,7 @@
             26,
             5,
             26 ],
-          "2016":[ 5,
+          2016:[ 5,
             6,
             5,
             6,
@@ -5701,7 +6966,7 @@
             17,
             5,
             17 ],
-          "2017":[ 5,
+          2017:[ 5,
             26,
             5,
             26,
@@ -5709,7 +6974,7 @@
             6,
             6,
             6 ],
-          "2018":[ 4,
+          2018:[ 4,
             30,
             4,
             30,
@@ -5721,7 +6986,7 @@
             22,
             5,
             22 ],
-          "2019":[ 5,
+          2019:[ 5,
             31,
             5,
             31,
@@ -5729,7 +6994,7 @@
             11,
             6,
             11 ],
-          "2020":[ 5,
+          2020:[ 5,
             22,
             5,
             22,
@@ -5737,7 +7002,7 @@
             2,
             6,
             2 ],
-          "2021":[ 5,
+          2021:[ 5,
             14,
             5,
             14,
@@ -5745,7 +7010,7 @@
             25,
             5,
             25 ],
-          "2022":[ 5,
+          2022:[ 5,
             27,
             5,
             27,
@@ -5753,7 +7018,7 @@
             7,
             6,
             7 ],
-          "2023":[ 5,
+          2023:[ 5,
             19,
             5,
             19,
@@ -5761,7 +7026,7 @@
             30,
             5,
             30 ],
-          "2024":[ 5,
+          2024:[ 5,
             10,
             5,
             10,
@@ -5769,81 +7034,109 @@
             21,
             5,
             21 ],
+          2025:[ 5,
+            2,
+            5,
+            2,
+            5,
+            30,
+            5,
+            30,
+            6,
+            10,
+            6,
+            10 ],
+          2026:[ 5,
+            15,
+            5,
+            15,
+            5,
+            26,
+            5,
+            26 ],
           name:"Pfingstferien" },
-        { "2012":[ 7,
+        { 2012:[ 7,
             23,
             8,
             31 ],
-          "2013":[ 6,
+          2013:[ 6,
             27,
             8,
             7 ],
-          "2014":[ 7,
+          2014:[ 7,
             31,
             9,
             10 ],
-          "2015":[ 7,
+          2015:[ 7,
             23,
             9,
             2 ],
-          "2016":[ 6,
+          2016:[ 6,
             23,
             8,
             3 ],
-          "2017":[ 6,
+          2017:[ 6,
             22,
             8,
             2 ],
-          "2018":[ 6,
+          2018:[ 6,
             28,
             8,
             8 ],
-          "2019":[ 7,
+          2019:[ 7,
             4,
             8,
             14 ],
-          "2020":[ 7,
+          2020:[ 7,
             16,
             8,
             26 ],
-          "2021":[ 7,
+          2021:[ 7,
             22,
             9,
             1 ],
-          "2022":[ 7,
+          2022:[ 7,
             14,
             8,
             24 ],
-          "2023":[ 7,
+          2023:[ 7,
             6,
             8,
             16 ],
-          "2024":[ 6,
+          2024:[ 6,
             24,
             8,
             2 ],
+          2025:[ 7,
+            3,
+            8,
+            13 ],
+          2026:[ 7,
+            2,
+            8,
+            12 ],
           name:"Sommerferien" },
-        { "2012":[ 10,
+        { 2012:[ 10,
             22,
             11,
             3 ],
-          "2013":[ 10,
+          2013:[ 10,
             4,
             10,
             18 ],
-          "2014":[ 10,
+          2014:[ 10,
             27,
             11,
             8 ],
-          "2015":[ 10,
+          2015:[ 10,
             19,
             10,
             31 ],
-          "2016":[ 10,
+          2016:[ 10,
             4,
             10,
             15 ],
-          "2017":[ 10,
+          2017:[ 10,
             2,
             10,
             13,
@@ -5851,27 +7144,27 @@
             30,
             10,
             30 ],
-          "2018":[ 10,
+          2018:[ 10,
             1,
             10,
             12 ],
-          "2019":[ 10,
+          2019:[ 10,
             4,
             10,
             18 ],
-          "2020":[ 10,
+          2020:[ 10,
             12,
             10,
             23 ],
-          "2021":[ 10,
+          2021:[ 10,
             18,
             10,
             29 ],
-          "2022":[ 10,
+          2022:[ 10,
             17,
             10,
             28 ],
-          "2023":[ 10,
+          2023:[ 10,
             2,
             10,
             2,
@@ -5879,944 +7172,1142 @@
             16,
             10,
             27 ],
+          2024:[ 10,
+            4,
+            10,
+            19,
+            11,
+            1,
+            11,
+            1 ],
+          2025:[ 10,
+            13,
+            10,
+            25 ],
+          2026:[ 10,
+            12,
+            10,
+            24 ],
           name:"Herbstferien" },
-        { "2011":[ 12,
+        { 2011:[ 12,
             23,
             1,
             4 ],
-          "2012":[ 12,
+          2012:[ 12,
             24,
             1,
             5 ],
-          "2013":[ 12,
+          2013:[ 12,
             23,
             1,
             3 ],
-          "2014":[ 12,
+          2014:[ 12,
             22,
             1,
             5 ],
-          "2015":[ 12,
+          2015:[ 12,
             23,
             1,
             6 ],
-          "2016":[ 12,
+          2016:[ 12,
             21,
             1,
             6 ],
-          "2017":[ 12,
+          2017:[ 12,
             22,
             1,
             5 ],
-          "2018":[ 12,
+          2018:[ 12,
             24,
             1,
             4 ],
-          "2019":[ 12,
+          2019:[ 12,
             23,
             1,
             6 ],
-          "2020":[ 12,
+          2020:[ 12,
             23,
             1,
             8 ],
-          "2021":[ 12,
+          2021:[ 12,
             23,
             1,
             7 ],
-          "2022":[ 12,
+          2022:[ 12,
             23,
             1,
             6 ],
-          "2023":[ 12,
+          2023:[ 12,
             27,
             1,
             5 ],
+          2024:[ 12,
+            23,
+            1,
+            4 ],
+          2025:[ 12,
+            22,
+            1,
+            5 ],
+          2026:[ 12,
+            23,
+            1,
+            9 ],
           name:"Weihnachtsferien" } ] },
     "Nordrhein-Westfalen":{ _state_code:"nw",
-      SH:[ { "2012":[ 4,
+      SH:[ { 2012:[ 4,
             2,
             4,
             14 ],
-          "2013":[ 3,
+          2013:[ 3,
             25,
             4,
             6 ],
-          "2014":[ 4,
+          2014:[ 4,
             14,
             4,
             26 ],
-          "2015":[ 3,
+          2015:[ 3,
             30,
             4,
             11 ],
-          "2016":[ 3,
+          2016:[ 3,
             21,
             4,
             2 ],
-          "2017":[ 4,
+          2017:[ 4,
             10,
             4,
             22 ],
-          "2018":[ 3,
+          2018:[ 3,
             26,
             4,
             7 ],
-          "2019":[ 4,
+          2019:[ 4,
             15,
             4,
             27 ],
-          "2020":[ 4,
+          2020:[ 4,
             6,
             4,
             18 ],
-          "2021":[ 3,
+          2021:[ 3,
             29,
             4,
             10 ],
-          "2022":[ 4,
+          2022:[ 4,
             11,
             4,
             23 ],
-          "2023":[ 4,
+          2023:[ 4,
             3,
             4,
             15 ],
-          "2024":[ 3,
+          2024:[ 3,
             25,
             4,
             6 ],
+          2025:[ 4,
+            14,
+            4,
+            26 ],
+          2026:[ 3,
+            30,
+            4,
+            11 ],
           name:"Osterferien" },
-        { "2012":[ 5,
+        { 2012:[ 5,
             29,
             5,
             29 ],
-          "2013":[ 5,
+          2013:[ 5,
             21,
             5,
             21 ],
-          "2014":[ 6,
+          2014:[ 6,
             10,
             6,
             10 ],
-          "2015":[ 5,
+          2015:[ 5,
             26,
             5,
             26 ],
-          "2016":[ 5,
+          2016:[ 5,
             17,
             5,
             17 ],
-          "2017":[ 6,
+          2017:[ 6,
             6,
             6,
             6 ],
-          "2018":[ 5,
+          2018:[ 5,
             22,
             5,
             25 ],
-          "2019":[ 6,
+          2019:[ 6,
             11,
             6,
             11 ],
-          "2020":[ 6,
+          2020:[ 6,
             2,
             6,
             2 ],
-          "2021":[ 5,
+          2021:[ 5,
             25,
             5,
             25 ],
-          "2023":[ 5,
+          2022:[  ],
+          2023:[ 5,
             30,
             5,
             30 ],
-          "2024":[ 5,
+          2024:[ 5,
             21,
             5,
             21 ],
+          2025:[ 6,
+            10,
+            6,
+            10 ],
+          2026:[ 5,
+            26,
+            5,
+            26 ],
           name:"Pfingstferien" },
-        { "2012":[ 7,
+        { 2012:[ 7,
             9,
             8,
             21 ],
-          "2013":[ 7,
+          2013:[ 7,
             22,
             9,
             3 ],
-          "2014":[ 7,
+          2014:[ 7,
             7,
             8,
             19 ],
-          "2015":[ 6,
+          2015:[ 6,
             29,
             8,
             11 ],
-          "2016":[ 7,
+          2016:[ 7,
             11,
             8,
             23 ],
-          "2017":[ 7,
+          2017:[ 7,
             17,
             8,
             29 ],
-          "2018":[ 7,
+          2018:[ 7,
             16,
             8,
             28 ],
-          "2019":[ 7,
+          2019:[ 7,
             15,
             8,
             27 ],
-          "2020":[ 6,
+          2020:[ 6,
             29,
             8,
             11 ],
-          "2021":[ 7,
+          2021:[ 7,
             5,
             8,
             17 ],
-          "2022":[ 6,
+          2022:[ 6,
             27,
             8,
             9 ],
-          "2023":[ 6,
+          2023:[ 6,
             22,
             8,
             4 ],
-          "2024":[ 7,
+          2024:[ 7,
             8,
             8,
             20 ],
+          2025:[ 7,
+            14,
+            8,
+            26 ],
+          2026:[ 7,
+            20,
+            9,
+            1 ],
           name:"Sommerferien" },
-        { "2012":[ 10,
+        { 2012:[ 10,
             8,
             10,
             20 ],
-          "2013":[ 10,
+          2013:[ 10,
             21,
             11,
             2 ],
-          "2014":[ 10,
+          2014:[ 10,
             6,
             10,
             18 ],
-          "2015":[ 10,
+          2015:[ 10,
             5,
             10,
             17 ],
-          "2016":[ 10,
+          2016:[ 10,
             10,
             10,
             21 ],
-          "2017":[ 10,
+          2017:[ 10,
             23,
             11,
             4 ],
-          "2018":[ 10,
+          2018:[ 10,
             15,
             10,
             27 ],
-          "2019":[ 10,
+          2019:[ 10,
             14,
             10,
             26 ],
-          "2020":[ 10,
+          2020:[ 10,
             12,
             10,
             24 ],
-          "2021":[ 10,
+          2021:[ 10,
             11,
             10,
             23 ],
-          "2022":[ 10,
+          2022:[ 10,
             4,
             10,
             15 ],
-          "2023":[ 10,
+          2023:[ 10,
             2,
             10,
             14 ],
+          2024:[ 10,
+            14,
+            10,
+            26 ],
+          2025:[ 10,
+            13,
+            10,
+            25 ],
+          2026:[ 10,
+            17,
+            10,
+            31 ],
           name:"Herbstferien" },
-        { "2011":[ 12,
+        { 2011:[ 12,
             23,
             1,
             6 ],
-          "2012":[ 12,
+          2012:[ 12,
             21,
             1,
             4 ],
-          "2013":[ 12,
+          2013:[ 12,
             23,
             1,
             7 ],
-          "2014":[ 12,
+          2014:[ 12,
             22,
             1,
             6 ],
-          "2015":[ 12,
+          2015:[ 12,
             23,
             1,
             6 ],
-          "2016":[ 12,
+          2016:[ 12,
             23,
             1,
             6 ],
-          "2017":[ 12,
+          2017:[ 12,
             27,
             1,
             6 ],
-          "2018":[ 12,
+          2018:[ 12,
             21,
             1,
             4 ],
-          "2019":[ 12,
+          2019:[ 12,
             23,
             1,
             6 ],
-          "2020":[ 12,
+          2020:[ 12,
             23,
             1,
             6 ],
-          "2021":[ 12,
+          2021:[ 12,
             24,
             1,
             8 ],
-          "2022":[ 12,
+          2022:[ 12,
             23,
             1,
             6 ],
-          "2023":[ 12,
+          2023:[ 12,
             21,
             1,
             5 ],
+          2024:[ 12,
+            23,
+            1,
+            6 ],
+          2025:[ 12,
+            22,
+            1,
+            6 ],
+          2026:[ 12,
+            23,
+            1,
+            6 ],
           name:"Weihnachtsferien" } ] },
     "Rheinland-Pfalz":{ _state_code:"rp",
-      SH:[ { "2019":[ 2,
+      SH:[ { 2019:[ 2,
             25,
             3,
             1 ],
-          "2020":[ 2,
+          2020:[ 2,
             17,
             2,
             21 ],
-          "2022":[ 2,
+          2022:[ 2,
             21,
             2,
             25 ],
+          2023:[  ],
+          2024:[  ],
+          2025:[  ],
+          2026:[  ],
           name:"Winterferien" },
-        { "2012":[ 3,
+        { 2012:[ 3,
             29,
             4,
             13 ],
-          "2013":[ 3,
+          2013:[ 3,
             20,
             4,
             5 ],
-          "2014":[ 4,
+          2014:[ 4,
             11,
             4,
             25 ],
-          "2015":[ 3,
+          2015:[ 3,
             26,
             4,
             10 ],
-          "2016":[ 3,
+          2016:[ 3,
             18,
             4,
             1 ],
-          "2017":[ 4,
+          2017:[ 4,
             10,
             4,
             21 ],
-          "2018":[ 3,
+          2018:[ 3,
             26,
             4,
             6 ],
-          "2019":[ 4,
+          2019:[ 4,
             23,
             4,
             30 ],
-          "2020":[ 4,
+          2020:[ 4,
             9,
             4,
             17 ],
-          "2021":[ 3,
+          2021:[ 3,
             29,
             4,
             6 ],
-          "2022":[ 4,
+          2022:[ 4,
             13,
             4,
             22 ],
-          "2023":[ 4,
+          2023:[ 4,
             3,
             4,
             6 ],
-          "2024":[ 3,
+          2024:[ 3,
             25,
             4,
             2 ],
+          2025:[ 4,
+            14,
+            4,
+            25 ],
+          2026:[ 3,
+            30,
+            4,
+            10 ],
           name:"Osterferien" },
-        { "2021":[ 5,
+        { 2021:[ 5,
             25,
             6,
             2 ],
-          "2023":[ 5,
+          2022:[  ],
+          2023:[ 5,
             30,
             6,
             7 ],
-          "2024":[ 5,
+          2024:[ 5,
             21,
             5,
             29 ],
+          2025:[  ],
+          2026:[  ],
           name:"Pfingstferien" },
-        { "2012":[ 7,
+        { 2012:[ 7,
             2,
             8,
             10 ],
-          "2013":[ 7,
+          2013:[ 7,
             8,
             8,
             16 ],
-          "2014":[ 7,
+          2014:[ 7,
             28,
             9,
             5 ],
-          "2015":[ 7,
+          2015:[ 7,
             27,
             9,
             4 ],
-          "2016":[ 7,
+          2016:[ 7,
             18,
             8,
             26 ],
-          "2017":[ 7,
+          2017:[ 7,
             3,
             8,
             11 ],
-          "2018":[ 6,
+          2018:[ 6,
             25,
             8,
             3 ],
-          "2019":[ 7,
+          2019:[ 7,
             1,
             8,
             9 ],
-          "2020":[ 7,
+          2020:[ 7,
             6,
             8,
             14 ],
-          "2021":[ 7,
+          2021:[ 7,
             19,
             8,
             27 ],
-          "2022":[ 7,
+          2022:[ 7,
             25,
             9,
             2 ],
-          "2023":[ 7,
+          2023:[ 7,
             24,
             9,
             1 ],
-          "2024":[ 7,
+          2024:[ 7,
             15,
             8,
             23 ],
+          2025:[ 7,
+            7,
+            8,
+            15 ],
+          2026:[ 6,
+            29,
+            8,
+            7 ],
           name:"Sommerferien" },
-        { "2012":[ 10,
+        { 2012:[ 10,
             1,
             10,
             12 ],
-          "2013":[ 10,
+          2013:[ 10,
             4,
             10,
             18 ],
-          "2014":[ 10,
+          2014:[ 10,
             20,
             10,
             31 ],
-          "2015":[ 10,
+          2015:[ 10,
             19,
             10,
             30 ],
-          "2016":[ 10,
+          2016:[ 10,
             10,
             10,
             21 ],
-          "2017":[ 10,
+          2017:[ 10,
             2,
             10,
             13 ],
-          "2018":[ 10,
+          2018:[ 10,
             1,
             10,
             12 ],
-          "2019":[ 9,
+          2019:[ 9,
             30,
             10,
             11 ],
-          "2020":[ 10,
+          2020:[ 10,
             12,
             10,
             23 ],
-          "2021":[ 10,
+          2021:[ 10,
             11,
             10,
             22 ],
-          "2022":[ 10,
+          2022:[ 10,
             17,
             10,
             31 ],
-          "2023":[ 10,
+          2023:[ 10,
             16,
             10,
             27 ],
+          2024:[ 10,
+            14,
+            10,
+            25 ],
+          2025:[ 10,
+            13,
+            10,
+            24 ],
+          2026:[ 10,
+            5,
+            10,
+            16 ],
           name:"Herbstferien" },
-        { "2011":[ 12,
+        { 2011:[ 12,
             22,
             1,
             6 ],
-          "2012":[ 12,
+          2012:[ 12,
             20,
             1,
             4 ],
-          "2013":[ 12,
+          2013:[ 12,
             23,
             1,
             7 ],
-          "2014":[ 12,
+          2014:[ 12,
             22,
             1,
             7 ],
-          "2015":[ 12,
+          2015:[ 12,
             23,
             1,
             8 ],
-          "2016":[ 12,
+          2016:[ 12,
             22,
             1,
             6 ],
-          "2017":[ 12,
+          2017:[ 12,
             22,
             1,
             9 ],
-          "2018":[ 12,
+          2018:[ 12,
             20,
             1,
             4 ],
-          "2019":[ 12,
+          2019:[ 12,
             23,
             1,
             6 ],
-          "2020":[ 12,
+          2020:[ 12,
             21,
             12,
             31 ],
-          "2021":[ 12,
+          2021:[ 12,
             23,
             12,
             31 ],
-          "2022":[ 12,
+          2022:[ 12,
             23,
             1,
             2 ],
-          "2023":[ 12,
+          2023:[ 12,
             27,
             1,
             5 ],
+          2024:[ 12,
+            23,
+            1,
+            8 ],
+          2025:[ 12,
+            22,
+            1,
+            7 ],
+          2026:[ 12,
+            23,
+            1,
+            8 ],
           name:"Weihnachtsferien" } ] },
     Saarland:{ _state_code:"sl",
-      SH:[ { "2012":[ 2,
+      SH:[ { 2012:[ 2,
             20,
             2,
             25 ],
-          "2013":[ 2,
+          2013:[ 2,
             11,
             2,
             16 ],
-          "2014":[ 3,
+          2014:[ 3,
             3,
             3,
             8 ],
-          "2015":[ 2,
+          2015:[ 2,
             16,
             2,
             21 ],
-          "2016":[ 2,
+          2016:[ 2,
             8,
             2,
             13 ],
-          "2017":[ 2,
+          2017:[ 2,
             27,
             3,
             4 ],
-          "2018":[ 2,
+          2018:[ 2,
             12,
             2,
             17 ],
-          "2019":[ 2,
+          2019:[ 2,
             25,
             3,
             5 ],
-          "2020":[ 2,
+          2020:[ 2,
             17,
             2,
             25 ],
-          "2021":[ 2,
+          2021:[ 2,
             15,
             2,
             19 ],
-          "2022":[ 2,
+          2022:[ 2,
             21,
             3,
             1 ],
-          "2023":[ 2,
+          2023:[ 2,
             20,
             2,
             24 ],
-          "2024":[ 2,
+          2024:[ 2,
             12,
             2,
             16 ],
+          2025:[ 2,
+            24,
+            3,
+            4 ],
+          2026:[ 2,
+            16,
+            2,
+            20 ],
           name:"Winterferien" },
-        { "2012":[ 4,
+        { 2012:[ 4,
             2,
             4,
             14 ],
-          "2013":[ 3,
+          2013:[ 3,
             25,
             4,
             6 ],
-          "2014":[ 4,
+          2014:[ 4,
             14,
             4,
             26 ],
-          "2015":[ 3,
+          2015:[ 3,
             30,
             4,
             11 ],
-          "2016":[ 3,
+          2016:[ 3,
             29,
             4,
             9 ],
-          "2017":[ 4,
+          2017:[ 4,
             10,
             4,
             22 ],
-          "2018":[ 3,
+          2018:[ 3,
             26,
             4,
             6 ],
-          "2019":[ 4,
+          2019:[ 4,
             17,
             4,
             26 ],
-          "2020":[ 4,
+          2020:[ 4,
             14,
             4,
             24 ],
-          "2021":[ 3,
+          2021:[ 3,
             29,
             4,
             7 ],
-          "2022":[ 4,
+          2022:[ 4,
             14,
             4,
             22 ],
-          "2023":[ 4,
+          2023:[ 4,
             3,
             4,
             12 ],
-          "2024":[ 2,
+          2024:[ 3,
             25,
             4,
             5 ],
+          2025:[ 4,
+            14,
+            4,
+            25 ],
+          2026:[ 4,
+            7,
+            4,
+            17 ],
           name:"Osterferien" },
-        { "2021":[ 5,
+        { 2021:[ 5,
             25,
             5,
             28 ],
-          "2022":[ 6,
+          2022:[ 6,
             7,
             6,
             10 ],
-          "2023":[ 5,
+          2023:[ 5,
             30,
             6,
             2 ],
-          "2024":[ 5,
+          2024:[ 5,
             21,
             5,
             24 ],
+          2025:[  ],
+          2026:[  ],
           name:"Pfingstferien" },
-        { "2012":[ 7,
+        { 2012:[ 7,
             2,
             8,
             14 ],
-          "2013":[ 7,
+          2013:[ 7,
             8,
             8,
             17 ],
-          "2014":[ 7,
+          2014:[ 7,
             28,
             9,
             6 ],
-          "2015":[ 7,
+          2015:[ 7,
             27,
             9,
             5 ],
-          "2016":[ 7,
+          2016:[ 7,
             18,
             8,
             27 ],
-          "2017":[ 7,
+          2017:[ 7,
             3,
             8,
             14 ],
-          "2018":[ 6,
+          2018:[ 6,
             25,
             8,
             3 ],
-          "2019":[ 7,
+          2019:[ 7,
             1,
             8,
             9 ],
-          "2020":[ 7,
+          2020:[ 7,
             6,
             8,
             14 ],
-          "2021":[ 7,
+          2021:[ 7,
             19,
             8,
             27 ],
-          "2022":[ 7,
+          2022:[ 7,
             25,
             9,
             2 ],
-          "2023":[ 7,
+          2023:[ 7,
             24,
             9,
             1 ],
-          "2024":[ 7,
+          2024:[ 7,
             15,
             8,
             23 ],
+          2025:[ 7,
+            7,
+            8,
+            14 ],
+          2026:[ 6,
+            29,
+            8,
+            7 ],
           name:"Sommerferien" },
-        { "2012":[ 10,
+        { 2012:[ 10,
             22,
             11,
             3 ],
-          "2013":[ 10,
+          2013:[ 10,
             21,
             11,
             2 ],
-          "2014":[ 10,
+          2014:[ 10,
             20,
             10,
             31 ],
-          "2015":[ 10,
+          2015:[ 10,
             19,
             10,
             31 ],
-          "2016":[ 10,
+          2016:[ 10,
             10,
             10,
             22 ],
-          "2017":[ 10,
+          2017:[ 10,
             2,
             10,
             14 ],
-          "2018":[ 10,
+          2018:[ 10,
             1,
             10,
             12 ],
-          "2019":[ 10,
+          2019:[ 10,
             7,
             10,
             18 ],
-          "2020":[ 10,
+          2020:[ 10,
             12,
             10,
             23 ],
-          "2021":[ 10,
+          2021:[ 10,
             18,
             10,
             29 ],
-          "2022":[ 10,
+          2022:[ 10,
             24,
             11,
             4 ],
-          "2023":[ 10,
+          2023:[ 10,
             23,
             11,
             3 ],
+          2024:[ 10,
+            14,
+            10,
+            25 ],
+          2025:[ 10,
+            13,
+            10,
+            24 ],
+          2026:[ 10,
+            5,
+            10,
+            16 ],
           name:"Herbstferien" },
-        { "2011":[ 12,
+        { 2011:[ 12,
             23,
             1,
             4 ],
-          "2012":[ 12,
+          2012:[ 12,
             24,
             1,
             5 ],
-          "2013":[ 12,
+          2013:[ 12,
             20,
             1,
             4 ],
-          "2014":[ 12,
+          2014:[ 12,
             22,
             1,
             7 ],
-          "2015":[ 12,
+          2015:[ 12,
             21,
             1,
             2 ],
-          "2016":[ 12,
+          2016:[ 12,
             19,
             12,
             31 ],
-          "2017":[ 12,
+          2017:[ 12,
             21,
             1,
             5 ],
-          "2018":[ 12,
+          2018:[ 12,
             20,
             1,
             4 ],
-          "2019":[ 12,
+          2019:[ 12,
             23,
             1,
             3 ],
-          "2020":[ 12,
+          2020:[ 12,
             21,
             12,
             31 ],
-          "2021":[ 12,
+          2021:[ 12,
             23,
             1,
             3 ],
-          "2022":[ 12,
+          2022:[ 12,
             22,
             1,
             4 ],
-          "2023":[ 12,
+          2023:[ 12,
             21,
             1,
             2 ],
+          2024:[ 12,
+            23,
+            1,
+            3 ],
+          2025:[ 12,
+            22,
+            1,
+            2 ],
+          2026:[ 12,
+            21,
+            12,
+            31 ],
           name:"Weihnachtsferien" } ] },
     Sachsen:{ _state_code:"sn",
-      SH:[ { "2012":[ 2,
+      SH:[ { 2012:[ 2,
             13,
             2,
             25 ],
-          "2013":[ 2,
+          2013:[ 2,
             4,
             2,
             15 ],
-          "2014":[ 2,
+          2014:[ 2,
             17,
             3,
             1 ],
-          "2015":[ 2,
+          2015:[ 2,
             9,
             2,
             21 ],
-          "2016":[ 2,
+          2016:[ 2,
             8,
             2,
             20 ],
-          "2017":[ 2,
+          2017:[ 2,
             13,
             2,
             24 ],
-          "2018":[ 2,
+          2018:[ 2,
             12,
             2,
             23 ],
-          "2019":[ 2,
+          2019:[ 2,
             18,
             3,
             2 ],
-          "2020":[ 2,
+          2020:[ 2,
             10,
             2,
             22 ],
-          "2021":[ 2,
+          2021:[ 2,
             8,
             2,
             20 ],
-          "2022":[ 2,
+          2022:[ 2,
             12,
             2,
             26 ],
-          "2023":[ 2,
+          2023:[ 2,
             13,
             2,
             24 ],
-          "2024":[ 2,
+          2024:[ 2,
             12,
             2,
             23 ],
+          2025:[ 2,
+            17,
+            3,
+            1 ],
+          2026:[ 2,
+            9,
+            2,
+            21 ],
           name:"Winterferien" },
-        { "2012":[ 4,
+        { 2012:[ 4,
             6,
             4,
             14 ],
-          "2013":[ 3,
+          2013:[ 3,
             29,
             4,
             6 ],
-          "2014":[ 4,
+          2014:[ 4,
             18,
             4,
             26 ],
-          "2015":[ 4,
+          2015:[ 4,
             2,
             4,
             11 ],
-          "2016":[ 3,
+          2016:[ 3,
             25,
             4,
             2 ],
-          "2017":[ 4,
+          2017:[ 4,
             13,
             4,
             22 ],
-          "2018":[ 3,
+          2018:[ 3,
             29,
             4,
             6 ],
-          "2019":[ 4,
+          2019:[ 4,
             19,
             4,
             26 ],
-          "2020":[ 4,
+          2020:[ 4,
             10,
             4,
             18 ],
-          "2021":[ 4,
+          2021:[ 4,
             2,
             4,
             10 ],
-          "2022":[ 4,
+          2022:[ 4,
             15,
             4,
             23 ],
-          "2023":[ 4,
+          2023:[ 4,
             7,
             4,
             15 ],
-          "2024":[ 3,
+          2024:[ 3,
             28,
             4,
             5 ],
+          2025:[ 4,
+            18,
+            4,
+            25,
+            5,
+            30,
+            5,
+            30 ],
+          2026:[ 4,
+            3,
+            4,
+            10,
+            5,
+            15,
+            5,
+            15 ],
           name:"Osterferien" },
-        { "2012":[ 5,
+        { 2012:[ 5,
             18,
             5,
             18 ],
-          "2013":[ 5,
+          2013:[ 5,
             10,
             5,
             10,
@@ -6824,23 +8315,23 @@
             18,
             5,
             22 ],
-          "2014":[ 5,
+          2014:[ 5,
             30,
             5,
             30 ],
-          "2015":[ 5,
+          2015:[ 5,
             15,
             5,
             15 ],
-          "2016":[ 5,
+          2016:[ 5,
             6,
             5,
             6 ],
-          "2017":[ 5,
+          2017:[ 5,
             26,
             5,
             26 ],
-          "2018":[ 5,
+          2018:[ 5,
             11,
             5,
             11,
@@ -6848,27 +8339,27 @@
             19,
             5,
             22 ],
-          "2019":[ 5,
+          2019:[ 5,
             31,
             5,
             31 ],
-          "2020":[ 5,
+          2020:[ 5,
             22,
             5,
             22 ],
-          "2021":[ 5,
+          2021:[ 5,
             14,
             5,
             14 ],
-          "2022":[ 5,
+          2022:[ 5,
             27,
             5,
             27 ],
-          "2023":[ 5,
+          2023:[ 5,
             19,
             5,
             19 ],
-          "2024":[ 5,
+          2024:[ 5,
             10,
             5,
             10,
@@ -6876,81 +8367,91 @@
             18,
             5,
             21 ],
+          2025:[  ],
+          2026:[  ],
           name:"Pfingstferien" },
-        { "2012":[ 7,
+        { 2012:[ 7,
             23,
             8,
             31 ],
-          "2013":[ 7,
+          2013:[ 7,
             15,
             8,
             23 ],
-          "2014":[ 7,
+          2014:[ 7,
             21,
             8,
             29 ],
-          "2015":[ 7,
+          2015:[ 7,
             13,
             8,
             21 ],
-          "2016":[ 6,
+          2016:[ 6,
             27,
             8,
             5 ],
-          "2017":[ 6,
+          2017:[ 6,
             26,
             8,
             4 ],
-          "2018":[ 7,
+          2018:[ 7,
             2,
             8,
             10 ],
-          "2019":[ 7,
+          2019:[ 7,
             8,
             8,
             16 ],
-          "2020":[ 7,
+          2020:[ 7,
             20,
             8,
             28 ],
-          "2021":[ 7,
+          2021:[ 7,
             26,
             9,
             3 ],
-          "2022":[ 7,
+          2022:[ 7,
             18,
             8,
             26 ],
-          "2023":[ 7,
+          2023:[ 7,
             10,
             8,
             18 ],
-          "2024":[ 6,
+          2024:[ 6,
             20,
             7,
             31 ],
+          2025:[ 6,
+            28,
+            8,
+            8 ],
+          2026:[ 7,
+            4,
+            8,
+            14 ],
           name:"Sommerferien" },
-        { "2012":[ 10,
+        { 2012:[ 10,
             22,
             11,
             2 ],
-          "2013":[ 10,
+          2013:[ 10,
             21,
             11,
             1 ],
-          "2014":[ 10,
+          2014:[ 10,
             20,
             10,
             31 ],
-          "2015":[ 10,
+          2015:[ 10,
             12,
             10,
             24 ],
-          "2016":[ 10,
+          2016:[ 10,
             3,
             10,
             15 ],
-          "2017":[ 10,
+          2017:[ 10,
             2,
             10,
             14,
@@ -6958,27 +8459,27 @@
             30,
             10,
             30 ],
-          "2018":[ 10,
+          2018:[ 10,
             8,
             10,
             20 ],
-          "2019":[ 10,
+          2019:[ 10,
             14,
             10,
             25 ],
-          "2020":[ 10,
+          2020:[ 10,
             19,
             10,
             31 ],
-          "2021":[ 10,
+          2021:[ 10,
             18,
             10,
             30 ],
-          "2022":[ 10,
+          2022:[ 10,
             17,
             10,
             29 ],
-          "2023":[ 10,
+          2023:[ 10,
             2,
             10,
             14,
@@ -6986,139 +8487,171 @@
             30,
             10,
             30 ],
+          2024:[ 10,
+            7,
+            10,
+            19 ],
+          2025:[ 10,
+            6,
+            10,
+            18 ],
+          2026:[ 10,
+            12,
+            10,
+            24 ],
           name:"Herbstferien" },
-        { "2011":[ 12,
+        { 2011:[ 12,
             23,
             1,
             2 ],
-          "2012":[ 12,
+          2012:[ 12,
             22,
             1,
             2 ],
-          "2013":[ 12,
+          2013:[ 12,
             21,
             1,
             3 ],
-          "2014":[ 12,
+          2014:[ 12,
             22,
             1,
             3 ],
-          "2015":[ 12,
+          2015:[ 12,
             21,
             1,
             2 ],
-          "2016":[ 12,
+          2016:[ 12,
             23,
             1,
             2 ],
-          "2017":[ 12,
+          2017:[ 12,
             23,
             1,
             2 ],
-          "2018":[ 12,
+          2018:[ 12,
             22,
             1,
             4 ],
-          "2019":[ 12,
+          2019:[ 12,
             21,
             1,
             3 ],
-          "2020":[ 12,
+          2020:[ 12,
             23,
             1,
             2 ],
-          "2021":[ 12,
+          2021:[ 12,
             23,
             1,
             1 ],
-          "2022":[ 12,
+          2022:[ 12,
             22,
             1,
             2 ],
-          "2023":[ 12,
+          2023:[ 12,
+            23,
+            1,
+            2 ],
+          2024:[ 12,
+            23,
+            1,
+            3 ],
+          2025:[ 12,
+            22,
+            1,
+            2 ],
+          2026:[ 12,
             23,
             1,
             2 ],
           name:"Weihnachtsferien" } ] },
     "Sachsen-Anhalt":{ _state_code:"st",
-      SH:[ { "2012":[ 2,
+      SH:[ { 2012:[ 2,
             4,
             2,
             11 ],
-          "2013":[ 2,
+          2013:[ 2,
             1,
             2,
             8 ],
-          "2014":[ 2,
+          2014:[ 2,
             1,
             2,
             12 ],
-          "2015":[ 2,
+          2015:[ 2,
             2,
             2,
             14 ],
-          "2016":[ 2,
+          2016:[ 2,
             1,
             2,
             10 ],
-          "2017":[ 2,
+          2017:[ 2,
             4,
             2,
             11 ],
-          "2018":[ 2,
+          2018:[ 2,
             5,
             2,
             9 ],
-          "2019":[ 2,
+          2019:[ 2,
             11,
             2,
             15 ],
-          "2020":[ 2,
+          2020:[ 2,
             10,
             2,
             14 ],
-          "2021":[ 2,
+          2021:[ 2,
             8,
             2,
             13 ],
-          "2022":[ 2,
+          2022:[ 2,
             12,
             2,
             19 ],
-          "2023":[ 2,
+          2023:[ 2,
             6,
             2,
             11 ],
-          "2024":[ 2,
+          2024:[ 2,
             5,
             2,
             10 ],
+          2025:[ 1,
+            27,
+            1,
+            31 ],
+          2026:[ 1,
+            31,
+            2,
+            6 ],
           name:"Winterferien" },
-        { "2012":[ 4,
+        { 2012:[ 4,
             2,
             4,
             7 ],
-          "2013":[ 3,
+          2013:[ 3,
             25,
             3,
             30 ],
-          "2014":[ 4,
+          2014:[ 4,
             14,
             4,
             17 ],
-          "2015":[ 4,
+          2015:[ 4,
             2,
             4,
             2 ],
-          "2016":[ 3,
+          2016:[ 3,
             24,
             3,
             24 ],
-          "2017":[ 4,
+          2017:[ 4,
             10,
             4,
             13 ],
-          "2018":[ 3,
+          2018:[ 3,
             26,
             3,
             31,
@@ -7126,158 +8659,182 @@
             30,
             4,
             30 ],
-          "2019":[ 4,
+          2019:[ 4,
             18,
             4,
             30 ],
-          "2020":[ 4,
+          2020:[ 4,
             6,
             4,
             11 ],
-          "2021":[ 3,
+          2021:[ 3,
             29,
             4,
             3 ],
-          "2022":[ 4,
+          2022:[ 4,
             11,
             4,
             16 ],
-          "2023":[ 4,
+          2023:[ 4,
             3,
             4,
             8 ],
-          "2024":[ 3,
+          2024:[ 3,
             25,
             3,
             30 ],
+          2025:[ 4,
+            7,
+            4,
+            19 ],
+          2026:[ 3,
+            30,
+            4,
+            4 ],
           name:"Osterferien" },
-        { "2012":[ 5,
+        { 2012:[ 5,
             18,
             5,
             25 ],
-          "2013":[ 5,
+          2013:[ 5,
             10,
             5,
             18 ],
-          "2014":[ 5,
+          2014:[ 5,
             30,
             6,
             7 ],
-          "2015":[ 5,
+          2015:[ 5,
             15,
             5,
             23 ],
-          "2016":[ 5,
+          2016:[ 5,
             6,
             5,
             14 ],
-          "2017":[ 5,
+          2017:[ 5,
             26,
             5,
             26 ],
-          "2018":[ 5,
+          2018:[ 5,
             11,
             5,
             19 ],
-          "2019":[ 5,
+          2019:[ 5,
             31,
             6,
             1 ],
-          "2020":[ 5,
+          2020:[ 5,
             18,
             5,
             30 ],
-          "2021":[ 5,
+          2021:[ 5,
             10,
             5,
             22 ],
-          "2022":[ 5,
+          2022:[ 5,
             23,
             5,
             28 ],
-          "2023":[ 5,
+          2023:[ 5,
             15,
             5,
             19 ],
-          "2024":[ 5,
+          2024:[ 5,
             21,
             5,
             24 ],
+          2025:[ 5,
+            30,
+            5,
+            30 ],
+          2026:[ 5,
+            26,
+            5,
+            29 ],
           name:"Pfingstferien" },
-        { "2012":[ 7,
+        { 2012:[ 7,
             23,
             9,
             5 ],
-          "2013":[ 7,
+          2013:[ 7,
             15,
             8,
             28 ],
-          "2014":[ 7,
+          2014:[ 7,
             21,
             9,
             3 ],
-          "2015":[ 7,
+          2015:[ 7,
             13,
             8,
             26 ],
-          "2016":[ 6,
+          2016:[ 6,
             27,
             8,
             10 ],
-          "2017":[ 6,
+          2017:[ 6,
             26,
             8,
             9 ],
-          "2018":[ 6,
+          2018:[ 6,
             28,
             8,
             8 ],
-          "2019":[ 7,
+          2019:[ 7,
             4,
             8,
             14 ],
-          "2020":[ 7,
+          2020:[ 7,
             16,
             8,
             26 ],
-          "2021":[ 7,
+          2021:[ 7,
             22,
             9,
             1 ],
-          "2022":[ 7,
+          2022:[ 7,
             14,
             8,
             24 ],
-          "2023":[ 7,
+          2023:[ 7,
             6,
             8,
             16 ],
-          "2024":[ 6,
+          2024:[ 6,
             24,
             8,
             3 ],
+          2025:[ 6,
+            28,
+            8,
+            8 ],
+          2026:[ 7,
+            4,
+            8,
+            14 ],
           name:"Sommerferien" },
-        { "2012":[ 10,
+        { 2012:[ 10,
             29,
             11,
             2 ],
-          "2013":[ 10,
+          2013:[ 10,
             21,
             10,
             25 ],
-          "2014":[ 10,
+          2014:[ 10,
             27,
             10,
             30 ],
-          "2015":[ 10,
+          2015:[ 10,
             17,
             10,
             24 ],
-          "2016":[ 10,
+          2016:[ 10,
             4,
             10,
             15 ],
-          "2017":[ 10,
+          2017:[ 10,
             2,
             10,
             13,
@@ -7285,11 +8842,11 @@
             30,
             10,
             30 ],
-          "2018":[ 10,
+          2018:[ 10,
             1,
             10,
             12 ],
-          "2019":[ 10,
+          2019:[ 10,
             4,
             10,
             11,
@@ -7297,19 +8854,19 @@
             1,
             11,
             1 ],
-          "2020":[ 10,
+          2020:[ 10,
             19,
             10,
             24 ],
-          "2021":[ 10,
+          2021:[ 10,
             25,
             10,
             30 ],
-          "2022":[ 10,
+          2022:[ 10,
             24,
             11,
             4 ],
-          "2023":[ 10,
+          2023:[ 10,
             2,
             10,
             2,
@@ -7317,639 +8874,805 @@
             16,
             10,
             30 ],
-          name:"Herbstferien" },
-        { "2011":[ 12,
-            22,
-            1,
-            7 ],
-          "2012":[ 12,
-            19,
-            1,
-            4 ],
-          "2013":[ 12,
-            21,
-            1,
-            3 ],
-          "2014":[ 12,
-            22,
-            1,
-            5 ],
-          "2015":[ 12,
-            21,
-            1,
-            5 ],
-          "2016":[ 12,
-            19,
-            1,
-            2 ],
-          "2017":[ 12,
-            21,
-            1,
-            3 ],
-          "2018":[ 12,
-            19,
-            1,
-            4 ],
-          "2019":[ 12,
-            23,
-            1,
-            4 ],
-          "2020":[ 12,
-            19,
-            1,
-            5 ],
-          "2021":[ 12,
-            22,
-            1,
-            8 ],
-          "2022":[ 12,
-            21,
-            1,
-            5 ],
-          "2023":[ 12,
-            21,
-            1,
-            3 ],
-          name:"Weihnachtsferien" } ] },
-    "Schleswig-Holstein":{ _state_code:"sh",
-      SH:[ { "2012":[ 3,
+          2024:[ 9,
             30,
-            4,
-            13 ],
-          "2013":[ 3,
-            25,
-            4,
-            9 ],
-          "2014":[ 4,
-            16,
-            5,
-            2 ],
-          "2015":[ 4,
-            1,
-            4,
-            17 ],
-          "2016":[ 3,
-            24,
-            4,
-            9 ],
-          "2017":[ 4,
-            7,
-            4,
-            21 ],
-          "2018":[ 3,
-            29,
-            4,
-            13 ],
-          "2019":[ 4,
-            4,
-            4,
-            18 ],
-          "2020":[ 3,
-            30,
-            4,
-            17 ],
-          "2021":[ 4,
-            1,
-            4,
-            16 ],
-          "2022":[ 4,
-            4,
-            4,
-            16 ],
-          "2023":[ 4,
-            6,
-            4,
-            22 ],
-          "2024":[ 4,
-            2,
-            4,
-            19 ],
-          name:"Osterferien" },
-        { "2012":[ 5,
-            18,
-            5,
-            18 ],
-          "2013":[ 5,
             10,
-            5,
-            10 ],
-          "2014":[ 5,
-            30,
-            5,
-            30 ],
-          "2015":[ 5,
-            15,
-            5,
-            15 ],
-          "2016":[ 5,
-            6,
-            5,
-            6 ],
-          "2017":[ 5,
-            26,
-            5,
-            26 ],
-          "2018":[ 5,
+            12,
             11,
-            5,
-            11 ],
-          "2019":[ 5,
-            31,
-            5,
-            31 ],
-          "2020":[ 5,
-            22,
-            5,
-            22 ],
-          "2021":[ 5,
-            14,
-            5,
-            14 ],
-          "2022":[ 5,
-            27,
-            5,
-            27 ],
-          "2023":[ 5,
-            19,
-            5,
-            20 ],
-          "2024":[ 5,
-            10,
-            5,
-            11 ],
-          name:"Pfingstferien" },
-        { "2012":[ 6,
-            25,
-            8,
-            4 ],
-          "2013":[ 6,
-            24,
-            8,
-            3 ],
-          "2014":[ 7,
-            14,
-            8,
-            23 ],
-          "2015":[ 7,
-            20,
-            8,
-            29 ],
-          "2016":[ 7,
-            25,
-            9,
-            3 ],
-          "2017":[ 7,
-            24,
-            9,
-            2 ],
-          "2018":[ 7,
-            9,
-            8,
-            18 ],
-          "2019":[ 7,
             1,
-            8,
-            10 ],
-          "2020":[ 6,
-            29,
-            8,
-            8 ],
-          "2021":[ 6,
-            21,
-            7,
-            31 ],
-          "2022":[ 7,
-            4,
-            8,
-            13 ],
-          "2023":[ 7,
-            17,
-            8,
-            26 ],
-          "2024":[ 7,
-            22,
-            8,
-            31 ],
-          name:"Sommerferien" },
-        { "2012":[ 10,
-            4,
-            10,
-            19 ],
-          "2013":[ 10,
-            4,
-            10,
-            18 ],
-          "2014":[ 10,
+            11,
+            1 ],
+          2025:[ 10,
             13,
             10,
             25 ],
-          "2015":[ 10,
+          2026:[ 10,
             19,
             10,
-            31 ],
-          "2016":[ 10,
-            17,
-            10,
-            29 ],
-          "2017":[ 10,
-            16,
-            10,
-            27 ],
-          "2018":[ 10,
-            1,
-            10,
-            19 ],
-          "2019":[ 10,
-            4,
-            10,
-            18 ],
-          "2020":[ 10,
-            5,
-            10,
-            17 ],
-          "2021":[ 10,
-            4,
-            10,
-            16 ],
-          "2022":[ 10,
-            10,
-            10,
-            21 ],
-          "2023":[ 10,
-            16,
-            10,
-            27 ],
+            30 ],
           name:"Herbstferien" },
-        { "2011":[ 12,
-            23,
-            1,
-            6 ],
-          "2012":[ 12,
-            24,
-            1,
-            5 ],
-          "2013":[ 12,
-            23,
-            1,
-            6 ],
-          "2014":[ 12,
+        { 2011:[ 12,
             22,
             1,
-            6 ],
-          "2015":[ 12,
-            21,
-            1,
-            6 ],
-          "2016":[ 12,
-            23,
-            1,
-            6 ],
-          "2017":[ 12,
-            21,
-            1,
-            6 ],
-          "2018":[ 12,
-            21,
+            7 ],
+          2012:[ 12,
+            19,
             1,
             4 ],
-          "2019":[ 12,
-            23,
-            1,
-            6 ],
-          "2020":[ 12,
+          2013:[ 12,
             21,
             1,
-            6 ],
-          "2021":[ 12,
+            3 ],
+          2014:[ 12,
+            22,
+            1,
+            5 ],
+          2015:[ 12,
+            21,
+            1,
+            5 ],
+          2016:[ 12,
+            19,
+            1,
+            2 ],
+          2017:[ 12,
+            21,
+            1,
+            3 ],
+          2018:[ 12,
+            19,
+            1,
+            4 ],
+          2019:[ 12,
             23,
+            1,
+            4 ],
+          2020:[ 12,
+            19,
+            1,
+            5 ],
+          2021:[ 12,
+            22,
             1,
             8 ],
-          "2022":[ 12,
+          2022:[ 12,
+            21,
+            1,
+            5 ],
+          2023:[ 12,
+            21,
+            1,
+            3 ],
+          2024:[ 12,
             23,
             1,
-            7 ],
-          "2023":[ 12,
-            27,
+            4 ],
+          2025:[ 12,
+            22,
             1,
-            6 ],
-          name:"Weihnachtsferien" } ] },
-    "Thüringen":{ _state_code:"th",
-      SH:[ { "2012":[ 2,
-            6,
-            2,
-            11 ],
-          "2013":[ 2,
-            18,
-            2,
-            23 ],
-          "2014":[ 2,
-            17,
-            2,
-            22 ],
-          "2015":[ 2,
-            2,
-            2,
-            7 ],
-          "2016":[ 2,
+            5 ],
+          2026:[ 12,
+            21,
             1,
-            2,
-            6 ],
-          "2017":[ 2,
-            6,
-            2,
-            11 ],
-          "2018":[ 2,
-            5,
-            2,
-            9 ],
-          "2019":[ 2,
-            11,
-            2,
-            15 ],
-          "2020":[ 2,
-            10,
-            2,
-            14 ],
-          "2021":[ 2,
-            8,
-            2,
-            13 ],
-          "2022":[ 2,
-            12,
-            2,
-            19 ],
-          "2023":[ 2,
-            13,
-            2,
-            17 ],
-          "2024":[ 2,
-            12,
-            2,
-            16 ],
-          name:"Winterferien" },
-        { "2012":[ 4,
-            2,
-            4,
-            13 ],
-          "2013":[ 3,
-            25,
-            4,
-            6 ],
-          "2014":[ 4,
-            19,
-            5,
             2 ],
-          "2015":[ 3,
+          name:"Weihnachtsferien" } ] },
+    "Schleswig-Holstein":{ _state_code:"sh",
+      SH:[ { 2012:[ 3,
             30,
             4,
-            11 ],
-          "2016":[ 3,
+            13 ],
+          2013:[ 3,
+            25,
+            4,
+            9 ],
+          2014:[ 4,
+            16,
+            5,
+            2 ],
+          2015:[ 4,
+            1,
+            4,
+            17 ],
+          2016:[ 3,
             24,
             4,
-            2 ],
-          "2017":[ 4,
-            10,
+            9 ],
+          2017:[ 4,
+            7,
             4,
             21 ],
-          "2018":[ 3,
-            26,
-            4,
-            7 ],
-          "2019":[ 4,
-            15,
-            4,
-            27 ],
-          "2020":[ 4,
-            6,
-            4,
-            18 ],
-          "2021":[ 3,
+          2018:[ 3,
             29,
             4,
-            10 ],
-          "2022":[ 4,
+            13 ],
+          2019:[ 4,
+            4,
+            4,
+            18 ],
+          2020:[ 3,
+            30,
+            4,
+            17 ],
+          2021:[ 4,
+            1,
+            4,
+            16 ],
+          2022:[ 4,
+            4,
+            4,
+            16 ],
+          2023:[ 4,
+            6,
+            4,
+            22 ],
+          2024:[ 4,
+            2,
+            4,
+            19 ],
+          2025:[ 4,
             11,
             4,
-            23 ],
-          "2023":[ 4,
-            3,
-            4,
-            15 ],
-          "2024":[ 3,
-            25,
-            4,
-            6 ],
-          name:"Osterferien" },
-        { "2012":[ 5,
             25,
             5,
-            29 ],
-          "2013":[ 5,
+            2,
+            5,
+            2 ],
+          2026:[ 3,
+            26,
+            4,
+            10 ],
+          name:"Osterferien" },
+        { 2012:[ 5,
+            18,
+            5,
+            18 ],
+          2013:[ 5,
             10,
             5,
             10 ],
-          "2014":[ 5,
+          2014:[ 5,
             30,
             5,
             30 ],
-          "2015":[ 5,
+          2015:[ 5,
             15,
             5,
             15 ],
-          "2016":[ 5,
+          2016:[ 5,
             6,
             5,
             6 ],
-          "2017":[ 5,
+          2017:[ 5,
             26,
             5,
             26 ],
-          "2018":[ 5,
+          2018:[ 5,
             11,
             5,
             11 ],
-          "2019":[ 5,
+          2019:[ 5,
             31,
             5,
             31 ],
-          "2020":[ 5,
+          2020:[ 5,
             22,
             5,
             22 ],
-          "2021":[ 5,
+          2021:[ 5,
             14,
             5,
             14 ],
-          "2022":[ 5,
+          2022:[ 5,
             27,
             5,
             27 ],
-          "2023":[ 5,
+          2023:[ 5,
             19,
             5,
-            19 ],
-          "2024":[ 5,
+            20 ],
+          2024:[ 5,
             10,
             5,
-            10 ],
-          name:"Pfingstferien" },
-        { "2012":[ 7,
-            23,
-            8,
-            31 ],
-          "2013":[ 7,
+            11 ],
+          2025:[ 5,
+            30,
+            5,
+            30 ],
+          2026:[ 5,
             15,
+            5,
+            15 ],
+          name:"Pfingstferien" },
+        { 2012:[ 6,
+            25,
+            8,
+            4 ],
+          2013:[ 6,
+            24,
+            8,
+            3 ],
+          2014:[ 7,
+            14,
             8,
             23 ],
-          "2014":[ 7,
-            21,
+          2015:[ 7,
+            20,
             8,
             29 ],
-          "2015":[ 7,
-            13,
+          2016:[ 7,
+            25,
+            9,
+            3 ],
+          2017:[ 7,
+            24,
+            9,
+            2 ],
+          2018:[ 7,
+            9,
             8,
-            21 ],
-          "2016":[ 6,
-            27,
+            18 ],
+          2019:[ 7,
+            1,
             8,
             10 ],
-          "2017":[ 6,
-            26,
+          2020:[ 6,
+            29,
             8,
-            9 ],
-          "2018":[ 7,
-            2,
-            8,
-            11 ],
-          "2019":[ 7,
-            8,
-            8,
-            17 ],
-          "2020":[ 7,
-            20,
-            8,
-            29 ],
-          "2021":[ 7,
-            26,
-            9,
-            4 ],
-          "2022":[ 7,
-            18,
-            8,
-            27 ],
-          "2023":[ 7,
-            10,
-            8,
-            19 ],
-          "2024":[ 6,
-            20,
+            8 ],
+          2021:[ 6,
+            21,
             7,
             31 ],
-          name:"Sommerferien" },
-        { "2012":[ 10,
+          2022:[ 7,
+            4,
+            8,
+            13 ],
+          2023:[ 7,
+            17,
+            8,
+            26 ],
+          2024:[ 7,
             22,
-            11,
-            3 ],
-          "2013":[ 10,
-            21,
-            11,
-            2 ],
-          "2014":[ 10,
-            6,
+            8,
+            31 ],
+          2025:[ 7,
+            28,
+            9,
+            6 ],
+          2026:[ 7,
+            4,
+            8,
+            15 ],
+          name:"Sommerferien" },
+        { 2012:[ 10,
+            4,
+            10,
+            19 ],
+          2013:[ 10,
+            4,
             10,
             18 ],
-          "2015":[ 10,
+          2014:[ 10,
+            13,
+            10,
+            25 ],
+          2015:[ 10,
+            19,
+            10,
+            31 ],
+          2016:[ 10,
+            17,
+            10,
+            29 ],
+          2017:[ 10,
+            16,
+            10,
+            27 ],
+          2018:[ 10,
+            1,
+            10,
+            19 ],
+          2019:[ 10,
+            4,
+            10,
+            18 ],
+          2020:[ 10,
             5,
             10,
             17 ],
-          "2016":[ 10,
+          2021:[ 10,
+            4,
+            10,
+            16 ],
+          2022:[ 10,
             10,
             10,
-            22 ],
-          "2017":[ 10,
-            2,
+            21 ],
+          2023:[ 10,
+            16,
             10,
-            14 ],
-          "2018":[ 10,
-            1,
+            27 ],
+          2024:[ 10,
+            4,
             10,
-            13 ],
-          "2019":[ 10,
-            7,
+            4,
             10,
-            19 ],
-          "2020":[ 10,
-            17,
-            10,
-            30 ],
-          "2021":[ 10,
-            25,
+            21,
             11,
-            6 ],
-          "2022":[ 10,
-            17,
+            1 ],
+          2025:[ 10,
+            20,
             10,
-            29 ],
-          "2023":[ 10,
-            2,
+            30,
+            11,
+            28,
+            11,
+            28 ],
+          2026:[ 10,
+            12,
             10,
-            14 ],
+            24 ],
           name:"Herbstferien" },
-        { "2011":[ 12,
+        { 2011:[ 12,
             23,
             1,
-            1 ],
-          "2012":[ 12,
+            6 ],
+          2012:[ 12,
             24,
             1,
             5 ],
-          "2013":[ 12,
+          2013:[ 12,
             23,
             1,
-            4 ],
-          "2014":[ 12,
+            6 ],
+          2014:[ 12,
             22,
             1,
-            3 ],
-          "2015":[ 12,
+            6 ],
+          2015:[ 12,
+            21,
+            1,
+            6 ],
+          2016:[ 12,
             23,
             1,
-            2 ],
-          "2016":[ 12,
-            23,
-            12,
-            31 ],
-          "2017":[ 12,
-            22,
+            6 ],
+          2017:[ 12,
+            21,
             1,
-            5 ],
-          "2018":[ 12,
+            6 ],
+          2018:[ 12,
             21,
             1,
             4 ],
-          "2019":[ 12,
+          2019:[ 12,
+            23,
+            1,
+            6 ],
+          2020:[ 12,
             21,
             1,
+            6 ],
+          2021:[ 12,
+            23,
+            1,
+            8 ],
+          2022:[ 12,
+            23,
+            1,
+            7 ],
+          2023:[ 12,
+            27,
+            1,
+            6 ],
+          2024:[ 12,
+            19,
+            1,
+            7 ],
+          2025:[ 12,
+            19,
+            1,
+            6 ],
+          2026:[ 12,
+            21,
+            1,
+            6 ],
+          name:"Weihnachtsferien" },
+        { 2022:[  ],
+          2023:[  ],
+          2024:[  ],
+          2025:[ 2,
+            3,
+            2,
             3 ],
-          "2020":[ 12,
+          2026:[ 2,
+            2,
+            2,
+            3 ],
+          name:"Winterferien" } ] },
+    "Thüringen":{ _state_code:"th",
+      SH:[ { 2012:[ 2,
+            6,
+            2,
+            11 ],
+          2013:[ 2,
+            18,
+            2,
+            23 ],
+          2014:[ 2,
+            17,
+            2,
+            22 ],
+          2015:[ 2,
+            2,
+            2,
+            7 ],
+          2016:[ 2,
+            1,
+            2,
+            6 ],
+          2017:[ 2,
+            6,
+            2,
+            11 ],
+          2018:[ 2,
+            5,
+            2,
+            9 ],
+          2019:[ 2,
+            11,
+            2,
+            15 ],
+          2020:[ 2,
+            10,
+            2,
+            14 ],
+          2021:[ 2,
+            8,
+            2,
+            13 ],
+          2022:[ 2,
+            12,
+            2,
+            19 ],
+          2023:[ 2,
+            13,
+            2,
+            17 ],
+          2024:[ 2,
+            12,
+            2,
+            16 ],
+          2025:[ 2,
+            3,
+            2,
+            8 ],
+          2026:[ 2,
+            16,
+            2,
+            21 ],
+          name:"Winterferien" },
+        { 2012:[ 4,
+            2,
+            4,
+            13 ],
+          2013:[ 3,
+            25,
+            4,
+            6 ],
+          2014:[ 4,
+            19,
+            5,
+            2 ],
+          2015:[ 3,
+            30,
+            4,
+            11 ],
+          2016:[ 3,
+            24,
+            4,
+            2 ],
+          2017:[ 4,
+            10,
+            4,
+            21 ],
+          2018:[ 3,
+            26,
+            4,
+            7 ],
+          2019:[ 4,
+            15,
+            4,
+            27 ],
+          2020:[ 4,
+            6,
+            4,
+            18 ],
+          2021:[ 3,
+            29,
+            4,
+            10 ],
+          2022:[ 4,
+            11,
+            4,
+            23 ],
+          2023:[ 4,
+            3,
+            4,
+            15 ],
+          2024:[ 3,
+            25,
+            4,
+            6 ],
+          2025:[ 4,
+            7,
+            4,
+            19 ],
+          2026:[ 4,
+            7,
+            4,
+            17 ],
+          name:"Osterferien" },
+        { 2012:[ 5,
+            25,
+            5,
+            29 ],
+          2013:[ 5,
+            10,
+            5,
+            10 ],
+          2014:[ 5,
+            30,
+            5,
+            30 ],
+          2015:[ 5,
+            15,
+            5,
+            15 ],
+          2016:[ 5,
+            6,
+            5,
+            6 ],
+          2017:[ 5,
+            26,
+            5,
+            26 ],
+          2018:[ 5,
+            11,
+            5,
+            11 ],
+          2019:[ 5,
+            31,
+            5,
+            31 ],
+          2020:[ 5,
+            22,
+            5,
+            22 ],
+          2021:[ 5,
+            14,
+            5,
+            14 ],
+          2022:[ 5,
+            27,
+            5,
+            27 ],
+          2023:[ 5,
+            19,
+            5,
+            19 ],
+          2024:[ 5,
+            10,
+            5,
+            10 ],
+          2025:[ 5,
+            30,
+            5,
+            30 ],
+          2026:[ 5,
+            15,
+            5,
+            15 ],
+          name:"Pfingstferien" },
+        { 2012:[ 7,
+            23,
+            8,
+            31 ],
+          2013:[ 7,
+            15,
+            8,
+            23 ],
+          2014:[ 7,
+            21,
+            8,
+            29 ],
+          2015:[ 7,
+            13,
+            8,
+            21 ],
+          2016:[ 6,
+            27,
+            8,
+            10 ],
+          2017:[ 6,
+            26,
+            8,
+            9 ],
+          2018:[ 7,
+            2,
+            8,
+            11 ],
+          2019:[ 7,
+            8,
+            8,
+            17 ],
+          2020:[ 7,
+            20,
+            8,
+            29 ],
+          2021:[ 7,
+            26,
+            9,
+            4 ],
+          2022:[ 7,
+            18,
+            8,
+            27 ],
+          2023:[ 7,
+            10,
+            8,
+            19 ],
+          2024:[ 6,
+            20,
+            7,
+            31 ],
+          2025:[ 6,
+            28,
+            8,
+            8 ],
+          2026:[ 7,
+            4,
+            8,
+            14 ],
+          name:"Sommerferien" },
+        { 2012:[ 10,
+            22,
+            11,
+            3 ],
+          2013:[ 10,
+            21,
+            11,
+            2 ],
+          2014:[ 10,
+            6,
+            10,
+            18 ],
+          2015:[ 10,
+            5,
+            10,
+            17 ],
+          2016:[ 10,
+            10,
+            10,
+            22 ],
+          2017:[ 10,
+            2,
+            10,
+            14 ],
+          2018:[ 10,
+            1,
+            10,
+            13 ],
+          2019:[ 10,
+            7,
+            10,
+            19 ],
+          2020:[ 10,
+            17,
+            10,
+            30 ],
+          2021:[ 10,
+            25,
+            11,
+            6 ],
+          2022:[ 10,
+            17,
+            10,
+            29 ],
+          2023:[ 10,
+            2,
+            10,
+            14 ],
+          2024:[ 9,
+            30,
+            10,
+            12 ],
+          2025:[ 10,
+            6,
+            10,
+            18 ],
+          2026:[ 10,
+            12,
+            10,
+            24 ],
+          name:"Herbstferien" },
+        { 2011:[ 12,
+            23,
+            1,
+            1 ],
+          2012:[ 12,
+            24,
+            1,
+            5 ],
+          2013:[ 12,
+            23,
+            1,
+            4 ],
+          2014:[ 12,
+            22,
+            1,
+            3 ],
+          2015:[ 12,
             23,
             1,
             2 ],
-          "2021":[ 12,
+          2016:[ 12,
             23,
             12,
             31 ],
-          "2022":[ 12,
-            22,
-            1,
-            3 ],
-          "2023":[ 12,
+          2017:[ 12,
             22,
             1,
             5 ],
+          2018:[ 12,
+            21,
+            1,
+            4 ],
+          2019:[ 12,
+            21,
+            1,
+            3 ],
+          2020:[ 12,
+            23,
+            1,
+            2 ],
+          2021:[ 12,
+            23,
+            12,
+            31 ],
+          2022:[ 12,
+            22,
+            1,
+            3 ],
+          2023:[ 12,
+            22,
+            1,
+            5 ],
+          2024:[ 12,
+            23,
+            1,
+            3 ],
+          2025:[ 12,
+            22,
+            1,
+            3 ],
+          2026:[ 12,
+            23,
+            1,
+            2 ],
           name:"Weihnachtsferien" } ] } };
+  data$t.PH;
+  data$t.Bayern;
+  data$t.Berlin;
+  data$t.Brandenburg;
+  data$t.Bremen;
+  data$t.Hamburg;
+  data$t.Hessen;
+  data$t.Niedersachsen;
+  data$t.Saarland;
+  data$t.Sachsen;
 
-  var data$9 = { PH:[ { name:"Nytårsdag",
+  var data$s = { PH:[ { name:"Nytårsdag",
         fixed_date:[ 1,
           1 ] },
       { name:"Skærtorsdag",
@@ -7987,8 +9710,9 @@
       { name:"2. Juledag",
         fixed_date:[ 12,
           26 ] } ] };
+  data$s.PH;
 
-  var data$a = { PH:[ { name:"Cap d'Any",
+  var data$r = { PH:[ { name:"Cap d'Any",
         fixed_date:[ 1,
           1 ],
         only_states:[ "Cataluña" ] },
@@ -8218,8 +9942,17 @@
     "Comunidad Valenciana":{ _state_code:"vc" },
     Ceuta:{ _state_code:"ce" },
     Melilla:{ _state_code:"ml" } };
+  data$r.PH;
+  data$r.Canarias;
+  data$r.Extremadura;
+  data$r.Galicia;
+  data$r.Navarra;
+  data$r.Asturias;
+  data$r.Cantabria;
+  data$r.Ceuta;
+  data$r.Melilla;
 
-  var data$b = { PH:[ { name:"uudenvuodenpäivä - nyårsdagen",
+  var data$q = { PH:[ { name:"uudenvuodenpäivä - nyårsdagen",
         fixed_date:[ 1,
           1 ] },
       { name:"loppiainen - trettondedagen",
@@ -8236,10 +9969,13 @@
       { name:"vappu - första maj",
         fixed_date:[ 5,
           1 ] },
+      { name:"helatorstai - Kristi himmelsfärdsdag",
+        variable_date:"easter",
+        offset:39 },
       { name:"helluntai - pingst",
         variable_date:"easter",
         offset:49 },
-      { name:"juhannuspäivä - midsommarafton",
+      { name:"juhannuspäivä - midsommardagen",
         variable_date:"nextSaturday20Jun" },
       { name:"pyhäinpäivä - alla helgons dag",
         variable_date:"nextSaturday31Oct" },
@@ -8252,8 +9988,9 @@
       { name:"toinen joulupäivä - annandag jul",
         fixed_date:[ 12,
           26 ] } ] };
+  data$q.PH;
 
-  var data$c = { PH:[ { name:"Jour de l'an",
+  var data$p = { PH:[ { name:"Jour de l'an",
         fixed_date:[ 1,
           1 ] },
       { name:"Vendredi saint",
@@ -8351,2293 +10088,4915 @@
           "Bas-Rhin",
           "Haut-Rhin" ] } ],
     "Auvergne-Rhône-Alpes":{ _state_code:"ara",
-      SH:[ { "2018":[ 2,
+      SH:[ { 2018:[ 2,
             11,
             2,
             25 ],
-          "2019":[ 2,
+          2019:[ 2,
             17,
             3,
             3 ],
-          "2020":[ 2,
+          2020:[ 2,
             23,
             3,
             8 ],
-          "2021":[ 2,
+          2021:[ 2,
             7,
             2,
             21 ],
+          2022:[ 2,
+            12,
+            2,
+            27 ],
+          2023:[ 2,
+            4,
+            2,
+            19 ],
+          2024:[ 2,
+            17,
+            3,
+            3 ],
+          2025:[ 2,
+            22,
+            3,
+            9 ],
+          2026:[ 2,
+            7,
+            2,
+            22 ],
           name:"Vacances d'Hiver" },
-        { "2018":[ 4,
+        { 2018:[ 4,
             8,
             4,
             22 ],
-          "2019":[ 4,
+          2019:[ 4,
             14,
             4,
             28 ],
-          "2020":[ 4,
+          2020:[ 4,
             19,
             5,
             3 ],
-          "2021":[ 4,
+          2021:[ 4,
             11,
             4,
             25 ],
+          2022:[ 4,
+            16,
+            5,
+            1 ],
+          2023:[ 4,
+            8,
+            4,
+            23 ],
+          2024:[ 4,
+            13,
+            4,
+            28 ],
+          2025:[ 4,
+            19,
+            5,
+            4 ],
+          2026:[ 4,
+            4,
+            4,
+            19 ],
           name:"Vacances de Printemps" },
-        { "2018":[ 5,
+        { 2018:[ 5,
             10,
             5,
             10 ],
-          "2019":[ 5,
+          2019:[ 5,
             30,
             6,
             2 ],
-          "2020":[ 5,
+          2020:[ 5,
             21,
             5,
             24 ],
-          "2021":[ 5,
+          2021:[ 5,
             14,
             5,
             16 ],
+          2022:[ 5,
+            26,
+            5,
+            27 ],
+          2023:[ 5,
+            17,
+            5,
+            21 ],
+          2024:[ 5,
+            8,
+            5,
+            12 ],
+          2025:[ 5,
+            29,
+            6,
+            1 ],
+          2026:[ 5,
+            14,
+            5,
+            17 ],
           name:"Pont de l'Ascension" },
-        { "2018":[ 7,
+        { 2018:[ 7,
             8,
             9,
             2 ],
-          "2019":[ 7,
+          2019:[ 7,
             7,
             9,
             1 ],
-          "2020":[ 7,
+          2020:[ 7,
             5,
             8,
             31 ],
-          "2021":[ 7,
-            6,
+          2021:[ 7,
+            5,
+            9,
+            1 ],
+          2022:[ 7,
+            7,
             8,
-            30 ],
+            31 ],
+          2023:[ 7,
+            8,
+            9,
+            3 ],
+          2024:[ 7,
+            6,
+            9,
+            1 ],
+          2025:[ 7,
+            5,
+            8,
+            31 ],
+          2026:[  ],
           name:"Vacances d'Été" },
-        { "2018":[ 10,
+        { 2018:[ 10,
             21,
             11,
             4 ],
-          "2019":[ 10,
+          2019:[ 10,
             20,
             11,
             3 ],
-          "2020":[ 10,
+          2020:[ 10,
             18,
             11,
             1 ],
+          2021:[ 10,
+            24,
+            11,
+            7 ],
+          2022:[ 10,
+            22,
+            11,
+            6 ],
+          2023:[ 10,
+            21,
+            11,
+            5 ],
+          2024:[ 10,
+            19,
+            11,
+            3 ],
+          2025:[ 10,
+            18,
+            11,
+            2 ],
+          2026:[  ],
           name:"Vacances de la Toussaint" },
-        { "2018":[ 12,
+        { 2018:[ 12,
             23,
             1,
             6 ],
-          "2019":[ 12,
+          2019:[ 12,
             22,
             1,
             5 ],
-          "2020":[ 12,
+          2020:[ 12,
             20,
             1,
             3 ],
+          2021:[ 12,
+            19,
+            1,
+            2 ],
+          2022:[ 12,
+            17,
+            1,
+            2 ],
+          2023:[ 12,
+            23,
+            1,
+            7 ],
+          2024:[ 12,
+            21,
+            1,
+            5 ],
+          2025:[ 12,
+            20,
+            1,
+            4 ],
+          2026:[  ],
           name:"Vacances de Noël" } ] },
     "Bourgogne-Franche-Comté":{ _state_code:"bfc",
-      SH:[ { "2018":[ 2,
+      SH:[ { 2018:[ 2,
             11,
             2,
             25 ],
-          "2019":[ 2,
+          2019:[ 2,
             17,
             3,
             3 ],
-          "2020":[ 2,
+          2020:[ 2,
             23,
             3,
             8 ],
-          "2021":[ 2,
+          2021:[ 2,
             7,
             2,
             21 ],
+          2022:[ 2,
+            12,
+            2,
+            27 ],
+          2023:[ 2,
+            4,
+            2,
+            19 ],
+          2024:[ 2,
+            17,
+            3,
+            3 ],
+          2025:[ 2,
+            22,
+            3,
+            9 ],
+          2026:[ 2,
+            7,
+            2,
+            22 ],
           name:"Vacances d'Hiver" },
-        { "2018":[ 4,
+        { 2018:[ 4,
             8,
             4,
             22 ],
-          "2019":[ 4,
+          2019:[ 4,
             14,
             4,
             28 ],
-          "2020":[ 4,
+          2020:[ 4,
             19,
             5,
             3 ],
-          "2021":[ 4,
+          2021:[ 4,
             11,
             4,
             25 ],
+          2022:[ 4,
+            16,
+            5,
+            1 ],
+          2023:[ 4,
+            8,
+            4,
+            23 ],
+          2024:[ 4,
+            13,
+            4,
+            28 ],
+          2025:[ 4,
+            19,
+            5,
+            4 ],
+          2026:[ 4,
+            4,
+            4,
+            19 ],
           name:"Vacances de Printemps" },
-        { "2018":[ 5,
+        { 2018:[ 5,
             10,
             5,
             10 ],
-          "2019":[ 5,
+          2019:[ 5,
             30,
             6,
             2 ],
-          "2020":[ 5,
+          2020:[ 5,
             21,
             5,
             24 ],
-          "2021":[ 5,
+          2021:[ 5,
             14,
             5,
             16 ],
+          2022:[ 5,
+            26,
+            5,
+            27 ],
+          2023:[ 5,
+            17,
+            5,
+            21 ],
+          2024:[ 5,
+            8,
+            5,
+            12 ],
+          2025:[ 5,
+            29,
+            6,
+            1 ],
+          2026:[ 5,
+            14,
+            5,
+            17 ],
           name:"Pont de l'Ascension" },
-        { "2018":[ 7,
+        { 2018:[ 7,
             8,
             9,
             2 ],
-          "2019":[ 7,
+          2019:[ 7,
             7,
             9,
             1 ],
-          "2020":[ 7,
+          2020:[ 7,
             5,
             8,
             31 ],
-          "2021":[ 7,
-            6,
+          2021:[ 7,
+            5,
+            9,
+            1 ],
+          2022:[ 7,
+            7,
             8,
-            30 ],
+            31 ],
+          2023:[ 7,
+            8,
+            9,
+            3 ],
+          2024:[ 7,
+            6,
+            9,
+            1 ],
+          2025:[ 7,
+            5,
+            8,
+            31 ],
+          2026:[  ],
           name:"Vacances d'Été" },
-        { "2018":[ 10,
+        { 2018:[ 10,
             21,
             11,
             4 ],
-          "2019":[ 10,
+          2019:[ 10,
             20,
             11,
             3 ],
-          "2020":[ 10,
+          2020:[ 10,
             18,
             11,
             1 ],
+          2021:[ 10,
+            24,
+            11,
+            7 ],
+          2022:[ 10,
+            22,
+            11,
+            6 ],
+          2023:[ 10,
+            21,
+            11,
+            5 ],
+          2024:[ 10,
+            19,
+            11,
+            3 ],
+          2025:[ 10,
+            18,
+            11,
+            2 ],
+          2026:[  ],
           name:"Vacances de la Toussaint" },
-        { "2018":[ 12,
+        { 2018:[ 12,
             23,
             1,
             6 ],
-          "2019":[ 12,
+          2019:[ 12,
             22,
             1,
             5 ],
-          "2020":[ 12,
+          2020:[ 12,
             20,
             1,
             3 ],
+          2021:[ 12,
+            19,
+            1,
+            2 ],
+          2022:[ 12,
+            17,
+            1,
+            2 ],
+          2023:[ 12,
+            23,
+            1,
+            7 ],
+          2024:[ 12,
+            21,
+            1,
+            5 ],
+          2025:[ 12,
+            20,
+            1,
+            4 ],
+          2026:[  ],
           name:"Vacances de Noël" } ] },
     "Nouvelle-Aquitaine":{ _state_code:"naq",
-      SH:[ { "2018":[ 2,
+      SH:[ { 2018:[ 2,
             11,
             2,
             25 ],
-          "2019":[ 2,
+          2019:[ 2,
             17,
             3,
             3 ],
-          "2020":[ 2,
+          2020:[ 2,
             23,
             3,
             8 ],
-          "2021":[ 2,
+          2021:[ 2,
             7,
             2,
             21 ],
+          2022:[ 2,
+            12,
+            2,
+            27 ],
+          2023:[ 2,
+            4,
+            2,
+            19 ],
+          2024:[ 2,
+            17,
+            3,
+            3 ],
+          2025:[ 2,
+            22,
+            3,
+            9 ],
+          2026:[ 2,
+            7,
+            2,
+            22 ],
           name:"Vacances d'Hiver" },
-        { "2018":[ 4,
+        { 2018:[ 4,
             8,
             4,
             22 ],
-          "2019":[ 4,
+          2019:[ 4,
             14,
             4,
             28 ],
-          "2020":[ 4,
+          2020:[ 4,
             19,
             5,
             3 ],
-          "2021":[ 4,
+          2021:[ 4,
             11,
             4,
             25 ],
+          2022:[ 4,
+            16,
+            5,
+            1 ],
+          2023:[ 4,
+            8,
+            4,
+            23 ],
+          2024:[ 4,
+            13,
+            4,
+            28 ],
+          2025:[ 4,
+            19,
+            5,
+            4 ],
+          2026:[ 4,
+            4,
+            4,
+            19 ],
           name:"Vacances de Printemps" },
-        { "2018":[ 5,
+        { 2018:[ 5,
             10,
             5,
             10 ],
-          "2019":[ 5,
+          2019:[ 5,
             30,
             6,
             2 ],
-          "2020":[ 5,
+          2020:[ 5,
             21,
             5,
             24 ],
-          "2021":[ 5,
+          2021:[ 5,
             14,
             5,
             16 ],
+          2022:[ 5,
+            26,
+            5,
+            27 ],
+          2023:[ 5,
+            17,
+            5,
+            21 ],
+          2024:[ 5,
+            8,
+            5,
+            12 ],
+          2025:[ 5,
+            29,
+            6,
+            1 ],
+          2026:[ 5,
+            14,
+            5,
+            17 ],
           name:"Pont de l'Ascension" },
-        { "2018":[ 7,
+        { 2018:[ 7,
             8,
             9,
             2 ],
-          "2019":[ 7,
+          2019:[ 7,
             7,
             9,
             1 ],
-          "2020":[ 7,
+          2020:[ 7,
             5,
             8,
             31 ],
-          "2021":[ 7,
-            6,
+          2021:[ 7,
+            5,
+            9,
+            1 ],
+          2022:[ 7,
+            7,
             8,
-            30 ],
+            31 ],
+          2023:[ 7,
+            8,
+            9,
+            3 ],
+          2024:[ 7,
+            6,
+            9,
+            1 ],
+          2025:[ 7,
+            5,
+            8,
+            31 ],
+          2026:[  ],
           name:"Vacances d'Été" },
-        { "2018":[ 10,
+        { 2018:[ 10,
             21,
             11,
             4 ],
-          "2019":[ 10,
+          2019:[ 10,
             20,
             11,
             3 ],
-          "2020":[ 10,
+          2020:[ 10,
             18,
             11,
             1 ],
+          2021:[ 10,
+            24,
+            11,
+            7 ],
+          2022:[ 10,
+            22,
+            11,
+            6 ],
+          2023:[ 10,
+            21,
+            11,
+            5 ],
+          2024:[ 10,
+            19,
+            11,
+            3 ],
+          2025:[ 10,
+            18,
+            11,
+            2 ],
+          2026:[  ],
           name:"Vacances de la Toussaint" },
-        { "2018":[ 12,
+        { 2018:[ 12,
             23,
             1,
             6 ],
-          "2019":[ 12,
+          2019:[ 12,
             22,
             1,
             5 ],
-          "2020":[ 12,
+          2020:[ 12,
             20,
             1,
             3 ],
+          2021:[ 12,
+            19,
+            1,
+            2 ],
+          2022:[ 12,
+            17,
+            1,
+            2 ],
+          2023:[ 12,
+            23,
+            1,
+            7 ],
+          2024:[ 12,
+            21,
+            1,
+            5 ],
+          2025:[ 12,
+            20,
+            1,
+            4 ],
+          2026:[  ],
           name:"Vacances de Noël" } ] },
     Bretagne:{ _state_code:"bre",
-      SH:[ { "2018":[ 2,
+      SH:[ { 2018:[ 2,
             25,
             3,
             11 ],
-          "2019":[ 2,
+          2019:[ 2,
             10,
             2,
             24 ],
-          "2020":[ 2,
+          2020:[ 2,
             16,
             3,
             1 ],
-          "2021":[ 2,
+          2021:[ 2,
             21,
             3,
             7 ],
+          2022:[ 2,
+            5,
+            2,
+            20 ],
+          2023:[ 2,
+            11,
+            2,
+            26 ],
+          2024:[ 2,
+            24,
+            3,
+            10 ],
+          2025:[ 2,
+            8,
+            2,
+            23 ],
+          2026:[ 2,
+            14,
+            3,
+            1 ],
           name:"Vacances d'Hiver" },
-        { "2018":[ 4,
+        { 2018:[ 4,
             22,
             5,
             6 ],
-          "2019":[ 4,
+          2019:[ 4,
             7,
             4,
             22 ],
-          "2020":[ 4,
+          2020:[ 4,
             12,
             4,
             26 ],
-          "2021":[ 4,
-            25,
+          2021:[ 4,
+            11,
+            4,
+            25 ],
+          2022:[ 4,
+            9,
+            4,
+            24 ],
+          2023:[ 4,
+            15,
             5,
-            9 ],
+            1 ],
+          2024:[ 4,
+            20,
+            5,
+            5 ],
+          2025:[ 4,
+            5,
+            4,
+            21 ],
+          2026:[ 4,
+            11,
+            4,
+            26 ],
           name:"Vacances de Printemps" },
-        { "2018":[ 5,
+        { 2018:[ 5,
             10,
             5,
             10 ],
-          "2019":[ 5,
+          2019:[ 5,
             30,
             6,
             2 ],
-          "2020":[ 5,
+          2020:[ 5,
             21,
             5,
             24 ],
-          "2021":[ 5,
+          2021:[ 5,
             14,
             5,
             16 ],
+          2022:[ 5,
+            26,
+            5,
+            27 ],
+          2023:[ 5,
+            17,
+            5,
+            21 ],
+          2024:[ 5,
+            8,
+            5,
+            12 ],
+          2025:[ 5,
+            29,
+            6,
+            1 ],
+          2026:[ 5,
+            14,
+            5,
+            17 ],
           name:"Pont de l'Ascension" },
-        { "2018":[ 7,
+        { 2018:[ 7,
             8,
             9,
             2 ],
-          "2019":[ 7,
+          2019:[ 7,
             7,
             9,
             1 ],
-          "2020":[ 7,
+          2020:[ 7,
             5,
             8,
             31 ],
-          "2021":[ 7,
-            6,
+          2021:[ 7,
+            5,
+            9,
+            1 ],
+          2022:[ 7,
+            7,
             8,
-            30 ],
+            31 ],
+          2023:[ 7,
+            8,
+            9,
+            3 ],
+          2024:[ 7,
+            6,
+            9,
+            1 ],
+          2025:[ 7,
+            5,
+            8,
+            31 ],
+          2026:[  ],
           name:"Vacances d'Été" },
-        { "2018":[ 10,
+        { 2018:[ 10,
             21,
             11,
             4 ],
-          "2019":[ 10,
+          2019:[ 10,
             20,
             11,
             3 ],
-          "2020":[ 10,
+          2020:[ 10,
             18,
             11,
             1 ],
+          2021:[ 10,
+            24,
+            11,
+            7 ],
+          2022:[ 10,
+            22,
+            11,
+            6 ],
+          2023:[ 10,
+            21,
+            11,
+            5 ],
+          2024:[ 10,
+            19,
+            11,
+            3 ],
+          2025:[ 10,
+            18,
+            11,
+            2 ],
+          2026:[  ],
           name:"Vacances de la Toussaint" },
-        { "2018":[ 12,
+        { 2018:[ 12,
             23,
             1,
             6 ],
-          "2019":[ 12,
+          2019:[ 12,
             22,
             1,
             5 ],
-          "2020":[ 12,
+          2020:[ 12,
             20,
             1,
             3 ],
+          2021:[ 12,
+            19,
+            1,
+            2 ],
+          2022:[ 12,
+            17,
+            1,
+            2 ],
+          2023:[ 12,
+            23,
+            1,
+            7 ],
+          2024:[ 12,
+            21,
+            1,
+            5 ],
+          2025:[ 12,
+            20,
+            1,
+            4 ],
+          2026:[  ],
           name:"Vacances de Noël" } ] },
     "Centre-Val de Loire":{ _state_code:"cvl",
-      SH:[ { "2018":[ 2,
+      SH:[ { 2018:[ 2,
             25,
             3,
             11 ],
-          "2019":[ 2,
+          2019:[ 2,
             10,
             2,
             24 ],
-          "2020":[ 2,
+          2020:[ 2,
             16,
             3,
             1 ],
-          "2021":[ 2,
+          2021:[ 2,
             21,
             3,
             7 ],
+          2022:[ 2,
+            5,
+            2,
+            20 ],
+          2023:[ 2,
+            11,
+            2,
+            26 ],
+          2024:[ 2,
+            24,
+            3,
+            10 ],
+          2025:[ 2,
+            8,
+            2,
+            23 ],
+          2026:[ 2,
+            14,
+            3,
+            1 ],
           name:"Vacances d'Hiver" },
-        { "2018":[ 4,
+        { 2018:[ 4,
             22,
             5,
             6 ],
-          "2019":[ 4,
+          2019:[ 4,
             7,
             4,
             22 ],
-          "2020":[ 4,
+          2020:[ 4,
             12,
             4,
             26 ],
-          "2021":[ 4,
-            25,
+          2021:[ 4,
+            11,
+            4,
+            25 ],
+          2022:[ 4,
+            9,
+            4,
+            24 ],
+          2023:[ 4,
+            15,
             5,
-            9 ],
+            1 ],
+          2024:[ 4,
+            20,
+            5,
+            5 ],
+          2025:[ 4,
+            5,
+            4,
+            21 ],
+          2026:[ 4,
+            11,
+            4,
+            26 ],
           name:"Vacances de Printemps" },
-        { "2018":[ 5,
+        { 2018:[ 5,
             10,
             5,
             10 ],
-          "2019":[ 5,
+          2019:[ 5,
             30,
             6,
             2 ],
-          "2020":[ 5,
+          2020:[ 5,
             21,
             5,
             24 ],
-          "2021":[ 5,
+          2021:[ 5,
             14,
             5,
             16 ],
+          2022:[ 5,
+            26,
+            5,
+            27 ],
+          2023:[ 5,
+            17,
+            5,
+            21 ],
+          2024:[ 5,
+            8,
+            5,
+            12 ],
+          2025:[ 5,
+            29,
+            6,
+            1 ],
+          2026:[ 5,
+            14,
+            5,
+            17 ],
           name:"Pont de l'Ascension" },
-        { "2018":[ 7,
+        { 2018:[ 7,
             8,
             9,
             2 ],
-          "2019":[ 7,
+          2019:[ 7,
             7,
             9,
             1 ],
-          "2020":[ 7,
+          2020:[ 7,
             5,
             8,
             31 ],
-          "2021":[ 7,
-            6,
+          2021:[ 7,
+            5,
+            9,
+            1 ],
+          2022:[ 7,
+            7,
             8,
-            30 ],
+            31 ],
+          2023:[ 7,
+            8,
+            9,
+            3 ],
+          2024:[ 7,
+            6,
+            9,
+            1 ],
+          2025:[ 7,
+            5,
+            8,
+            31 ],
+          2026:[  ],
           name:"Vacances d'Été" },
-        { "2018":[ 10,
+        { 2018:[ 10,
             21,
             11,
             4 ],
-          "2019":[ 10,
+          2019:[ 10,
             20,
             11,
             3 ],
-          "2020":[ 10,
+          2020:[ 10,
             18,
             11,
             1 ],
+          2021:[ 10,
+            24,
+            11,
+            7 ],
+          2022:[ 10,
+            22,
+            11,
+            6 ],
+          2023:[ 10,
+            21,
+            11,
+            5 ],
+          2024:[ 10,
+            19,
+            11,
+            3 ],
+          2025:[ 10,
+            18,
+            11,
+            2 ],
+          2026:[  ],
           name:"Vacances de la Toussaint" },
-        { "2018":[ 12,
+        { 2018:[ 12,
             23,
             1,
             6 ],
-          "2019":[ 12,
+          2019:[ 12,
             22,
             1,
             5 ],
-          "2020":[ 12,
+          2020:[ 12,
             20,
             1,
             3 ],
+          2021:[ 12,
+            19,
+            1,
+            2 ],
+          2022:[ 12,
+            17,
+            1,
+            2 ],
+          2023:[ 12,
+            23,
+            1,
+            7 ],
+          2024:[ 12,
+            21,
+            1,
+            5 ],
+          2025:[ 12,
+            20,
+            1,
+            4 ],
+          2026:[  ],
           name:"Vacances de Noël" } ] },
     "Grand Est":{ _state_code:"ges",
-      SH:[ { "2018":[ 2,
+      SH:[ { 2018:[ 2,
             25,
             3,
             11 ],
-          "2019":[ 2,
+          2019:[ 2,
             10,
             2,
             24 ],
-          "2020":[ 2,
+          2020:[ 2,
             16,
             3,
             1 ],
-          "2021":[ 2,
+          2021:[ 2,
             21,
             3,
             7 ],
+          2022:[ 2,
+            5,
+            2,
+            20 ],
+          2023:[ 2,
+            11,
+            2,
+            26 ],
+          2024:[ 2,
+            24,
+            3,
+            10 ],
+          2025:[ 2,
+            8,
+            2,
+            23 ],
+          2026:[ 2,
+            14,
+            3,
+            1 ],
           name:"Vacances d'Hiver" },
-        { "2018":[ 4,
+        { 2018:[ 4,
             22,
             5,
             6 ],
-          "2019":[ 4,
+          2019:[ 4,
             7,
             4,
             22 ],
-          "2020":[ 4,
+          2020:[ 4,
             12,
             4,
             26 ],
-          "2021":[ 4,
-            25,
+          2021:[ 4,
+            11,
+            4,
+            25 ],
+          2022:[ 4,
+            9,
+            4,
+            24 ],
+          2023:[ 4,
+            15,
             5,
-            9 ],
+            1 ],
+          2024:[ 4,
+            20,
+            5,
+            5 ],
+          2025:[ 4,
+            5,
+            4,
+            21 ],
+          2026:[ 4,
+            11,
+            4,
+            26 ],
           name:"Vacances de Printemps" },
-        { "2018":[ 5,
+        { 2018:[ 5,
             10,
             5,
             10 ],
-          "2019":[ 5,
+          2019:[ 5,
             30,
             6,
             2 ],
-          "2020":[ 5,
+          2020:[ 5,
             21,
             5,
             24 ],
-          "2021":[ 5,
+          2021:[ 5,
             14,
             5,
             16 ],
+          2022:[ 5,
+            26,
+            5,
+            27 ],
+          2023:[ 5,
+            17,
+            5,
+            21 ],
+          2024:[ 5,
+            8,
+            5,
+            12 ],
+          2025:[ 5,
+            29,
+            6,
+            1 ],
+          2026:[ 5,
+            14,
+            5,
+            17 ],
           name:"Pont de l'Ascension" },
-        { "2018":[ 7,
+        { 2018:[ 7,
             8,
             9,
             2 ],
-          "2019":[ 7,
+          2019:[ 7,
             7,
             9,
             1 ],
-          "2020":[ 7,
+          2020:[ 7,
             5,
             8,
             31 ],
-          "2021":[ 7,
-            6,
+          2021:[ 7,
+            5,
+            9,
+            1 ],
+          2022:[ 7,
+            7,
             8,
-            30 ],
+            31 ],
+          2023:[ 7,
+            8,
+            9,
+            3 ],
+          2024:[ 7,
+            6,
+            9,
+            1 ],
+          2025:[ 7,
+            5,
+            8,
+            31 ],
+          2026:[  ],
           name:"Vacances d'Été" },
-        { "2018":[ 10,
+        { 2018:[ 10,
             21,
             11,
             4 ],
-          "2019":[ 10,
+          2019:[ 10,
             20,
             11,
             3 ],
-          "2020":[ 10,
+          2020:[ 10,
             18,
             11,
             1 ],
+          2021:[ 10,
+            24,
+            11,
+            7 ],
+          2022:[ 10,
+            22,
+            11,
+            6 ],
+          2023:[ 10,
+            21,
+            11,
+            5 ],
+          2024:[ 10,
+            19,
+            11,
+            3 ],
+          2025:[ 10,
+            18,
+            11,
+            2 ],
+          2026:[  ],
           name:"Vacances de la Toussaint" },
-        { "2018":[ 12,
+        { 2018:[ 12,
             23,
             1,
             6 ],
-          "2019":[ 12,
+          2019:[ 12,
             22,
             1,
             5 ],
-          "2020":[ 12,
+          2020:[ 12,
             20,
             1,
             3 ],
+          2021:[ 12,
+            19,
+            1,
+            2 ],
+          2022:[ 12,
+            17,
+            1,
+            2 ],
+          2023:[ 12,
+            23,
+            1,
+            7 ],
+          2024:[ 12,
+            21,
+            1,
+            5 ],
+          2025:[ 12,
+            20,
+            1,
+            4 ],
+          2026:[  ],
           name:"Vacances de Noël" } ] },
     "Hauts-de-France":{ _state_code:"hdf",
-      SH:[ { "2018":[ 2,
+      SH:[ { 2018:[ 2,
             25,
             3,
             11 ],
-          "2019":[ 2,
+          2019:[ 2,
             10,
             2,
             24 ],
-          "2020":[ 2,
+          2020:[ 2,
             16,
             3,
             1 ],
-          "2021":[ 2,
+          2021:[ 2,
             21,
             3,
             7 ],
+          2022:[ 2,
+            5,
+            2,
+            20 ],
+          2023:[ 2,
+            11,
+            2,
+            26 ],
+          2024:[ 2,
+            24,
+            3,
+            10 ],
+          2025:[ 2,
+            8,
+            2,
+            23 ],
+          2026:[ 2,
+            14,
+            3,
+            1 ],
           name:"Vacances d'Hiver" },
-        { "2018":[ 4,
+        { 2018:[ 4,
             22,
             5,
             6 ],
-          "2019":[ 4,
+          2019:[ 4,
             7,
             4,
             22 ],
-          "2020":[ 4,
+          2020:[ 4,
             12,
             4,
             26 ],
-          "2021":[ 4,
-            25,
+          2021:[ 4,
+            11,
+            4,
+            25 ],
+          2022:[ 4,
+            9,
+            4,
+            24 ],
+          2023:[ 4,
+            15,
             5,
-            9 ],
+            1 ],
+          2024:[ 4,
+            20,
+            5,
+            5 ],
+          2025:[ 4,
+            5,
+            4,
+            21 ],
+          2026:[ 4,
+            11,
+            4,
+            26 ],
           name:"Vacances de Printemps" },
-        { "2018":[ 5,
+        { 2018:[ 5,
             10,
             5,
             10 ],
-          "2019":[ 5,
+          2019:[ 5,
             30,
             6,
             2 ],
-          "2020":[ 5,
+          2020:[ 5,
             21,
             5,
             24 ],
-          "2021":[ 5,
+          2021:[ 5,
             14,
             5,
             16 ],
+          2022:[ 5,
+            26,
+            5,
+            27 ],
+          2023:[ 5,
+            17,
+            5,
+            21 ],
+          2024:[ 5,
+            8,
+            5,
+            12 ],
+          2025:[ 5,
+            29,
+            6,
+            1 ],
+          2026:[ 5,
+            14,
+            5,
+            17 ],
           name:"Pont de l'Ascension" },
-        { "2018":[ 7,
+        { 2018:[ 7,
             8,
             9,
             2 ],
-          "2019":[ 7,
+          2019:[ 7,
             7,
             9,
             1 ],
-          "2020":[ 7,
+          2020:[ 7,
             5,
             8,
             31 ],
-          "2021":[ 7,
-            6,
+          2021:[ 7,
+            5,
+            9,
+            1 ],
+          2022:[ 7,
+            7,
             8,
-            30 ],
+            31 ],
+          2023:[ 7,
+            8,
+            9,
+            3 ],
+          2024:[ 7,
+            6,
+            9,
+            1 ],
+          2025:[ 7,
+            5,
+            8,
+            31 ],
+          2026:[  ],
           name:"Vacances d'Été" },
-        { "2018":[ 10,
+        { 2018:[ 10,
             21,
             11,
             4 ],
-          "2019":[ 10,
+          2019:[ 10,
             20,
             11,
             3 ],
-          "2020":[ 10,
+          2020:[ 10,
             18,
             11,
             1 ],
+          2021:[ 10,
+            24,
+            11,
+            7 ],
+          2022:[ 10,
+            22,
+            11,
+            6 ],
+          2023:[ 10,
+            21,
+            11,
+            5 ],
+          2024:[ 10,
+            19,
+            11,
+            3 ],
+          2025:[ 10,
+            18,
+            11,
+            2 ],
+          2026:[  ],
           name:"Vacances de la Toussaint" },
-        { "2018":[ 12,
+        { 2018:[ 12,
             23,
             1,
             6 ],
-          "2019":[ 12,
+          2019:[ 12,
             22,
             1,
             5 ],
-          "2020":[ 12,
+          2020:[ 12,
             20,
             1,
             3 ],
+          2021:[ 12,
+            19,
+            1,
+            2 ],
+          2022:[ 12,
+            17,
+            1,
+            2 ],
+          2023:[ 12,
+            23,
+            1,
+            7 ],
+          2024:[ 12,
+            21,
+            1,
+            5 ],
+          2025:[ 12,
+            20,
+            1,
+            4 ],
+          2026:[  ],
           name:"Vacances de Noël" } ] },
     Normandie:{ _state_code:"nor",
-      SH:[ { "2018":[ 2,
+      SH:[ { 2018:[ 2,
             25,
             3,
             11 ],
-          "2019":[ 2,
+          2019:[ 2,
             10,
             2,
             24 ],
-          "2020":[ 2,
+          2020:[ 2,
             16,
             3,
             1 ],
-          "2021":[ 2,
+          2021:[ 2,
             21,
             3,
             7 ],
+          2022:[ 2,
+            5,
+            2,
+            20 ],
+          2023:[ 2,
+            11,
+            2,
+            26 ],
+          2024:[ 2,
+            24,
+            3,
+            10 ],
+          2025:[ 2,
+            8,
+            2,
+            23 ],
+          2026:[ 2,
+            14,
+            3,
+            1 ],
           name:"Vacances d'Hiver" },
-        { "2018":[ 4,
+        { 2018:[ 4,
             22,
             5,
             6 ],
-          "2019":[ 4,
+          2019:[ 4,
             7,
             4,
             22 ],
-          "2020":[ 4,
+          2020:[ 4,
             12,
             4,
             26 ],
-          "2021":[ 4,
-            25,
+          2021:[ 4,
+            11,
+            4,
+            25 ],
+          2022:[ 4,
+            9,
+            4,
+            24 ],
+          2023:[ 4,
+            15,
             5,
-            9 ],
+            1 ],
+          2024:[ 4,
+            20,
+            5,
+            5 ],
+          2025:[ 4,
+            5,
+            4,
+            21 ],
+          2026:[ 4,
+            11,
+            4,
+            26 ],
           name:"Vacances de Printemps" },
-        { "2018":[ 5,
+        { 2018:[ 5,
             10,
             5,
             10 ],
-          "2019":[ 5,
+          2019:[ 5,
             30,
             6,
             2 ],
-          "2020":[ 5,
+          2020:[ 5,
             21,
             5,
             24 ],
-          "2021":[ 5,
+          2021:[ 5,
             14,
             5,
             16 ],
+          2022:[ 5,
+            26,
+            5,
+            27 ],
+          2023:[ 5,
+            17,
+            5,
+            21 ],
+          2024:[ 5,
+            8,
+            5,
+            12 ],
+          2025:[ 5,
+            29,
+            6,
+            1 ],
+          2026:[ 5,
+            14,
+            5,
+            17 ],
           name:"Pont de l'Ascension" },
-        { "2018":[ 7,
+        { 2018:[ 7,
             8,
             9,
             2 ],
-          "2019":[ 7,
+          2019:[ 7,
             7,
             9,
             1 ],
-          "2020":[ 7,
+          2020:[ 7,
             5,
             8,
             31 ],
-          "2021":[ 7,
-            6,
+          2021:[ 7,
+            5,
+            9,
+            1 ],
+          2022:[ 7,
+            7,
             8,
-            30 ],
+            31 ],
+          2023:[ 7,
+            8,
+            9,
+            3 ],
+          2024:[ 7,
+            6,
+            9,
+            1 ],
+          2025:[ 7,
+            5,
+            8,
+            31 ],
+          2026:[  ],
           name:"Vacances d'Été" },
-        { "2018":[ 10,
+        { 2018:[ 10,
             21,
             11,
             4 ],
-          "2019":[ 10,
+          2019:[ 10,
             20,
             11,
             3 ],
-          "2020":[ 10,
+          2020:[ 10,
             18,
             11,
             1 ],
+          2021:[ 10,
+            24,
+            11,
+            7 ],
+          2022:[ 10,
+            22,
+            11,
+            6 ],
+          2023:[ 10,
+            21,
+            11,
+            5 ],
+          2024:[ 10,
+            19,
+            11,
+            3 ],
+          2025:[ 10,
+            18,
+            11,
+            2 ],
+          2026:[  ],
           name:"Vacances de la Toussaint" },
-        { "2018":[ 12,
+        { 2018:[ 12,
             23,
             1,
             6 ],
-          "2019":[ 12,
+          2019:[ 12,
             22,
             1,
             5 ],
-          "2020":[ 12,
+          2020:[ 12,
             20,
             1,
             3 ],
+          2021:[ 12,
+            19,
+            1,
+            2 ],
+          2022:[ 12,
+            17,
+            1,
+            2 ],
+          2023:[ 12,
+            23,
+            1,
+            7 ],
+          2024:[ 12,
+            21,
+            1,
+            5 ],
+          2025:[ 12,
+            20,
+            1,
+            4 ],
+          2026:[  ],
           name:"Vacances de Noël" } ] },
     "Pays de la Loire":{ _state_code:"pdl",
-      SH:[ { "2018":[ 2,
+      SH:[ { 2018:[ 2,
             25,
             3,
             11 ],
-          "2019":[ 2,
+          2019:[ 2,
             10,
             2,
             24 ],
-          "2020":[ 2,
+          2020:[ 2,
             16,
             3,
             1 ],
-          "2021":[ 2,
+          2021:[ 2,
             21,
             3,
             7 ],
+          2022:[ 2,
+            5,
+            2,
+            20 ],
+          2023:[ 2,
+            11,
+            2,
+            26 ],
+          2024:[ 2,
+            24,
+            3,
+            10 ],
+          2025:[ 2,
+            8,
+            2,
+            23 ],
+          2026:[ 2,
+            14,
+            3,
+            1 ],
           name:"Vacances d'Hiver" },
-        { "2018":[ 4,
+        { 2018:[ 4,
             22,
             5,
             6 ],
-          "2019":[ 4,
+          2019:[ 4,
             7,
             4,
             22 ],
-          "2020":[ 4,
+          2020:[ 4,
             12,
             4,
             26 ],
-          "2021":[ 4,
-            25,
+          2021:[ 4,
+            11,
+            4,
+            25 ],
+          2022:[ 4,
+            9,
+            4,
+            24 ],
+          2023:[ 4,
+            15,
             5,
-            9 ],
+            1 ],
+          2024:[ 4,
+            20,
+            5,
+            5 ],
+          2025:[ 4,
+            5,
+            4,
+            21 ],
+          2026:[ 4,
+            11,
+            4,
+            26 ],
           name:"Vacances de Printemps" },
-        { "2018":[ 5,
+        { 2018:[ 5,
             10,
             5,
             10 ],
-          "2019":[ 5,
+          2019:[ 5,
             30,
             6,
             2 ],
-          "2020":[ 5,
+          2020:[ 5,
             21,
             5,
             24 ],
-          "2021":[ 5,
+          2021:[ 5,
             14,
             5,
             16 ],
+          2022:[ 5,
+            26,
+            5,
+            27 ],
+          2023:[ 5,
+            17,
+            5,
+            21 ],
+          2024:[ 5,
+            8,
+            5,
+            12 ],
+          2025:[ 5,
+            29,
+            6,
+            1 ],
+          2026:[ 5,
+            14,
+            5,
+            17 ],
           name:"Pont de l'Ascension" },
-        { "2018":[ 7,
+        { 2018:[ 7,
             8,
             9,
             2 ],
-          "2019":[ 7,
+          2019:[ 7,
             7,
             9,
             1 ],
-          "2020":[ 7,
+          2020:[ 7,
             5,
             8,
             31 ],
-          "2021":[ 7,
-            6,
+          2021:[ 7,
+            5,
+            9,
+            1 ],
+          2022:[ 7,
+            7,
             8,
-            30 ],
+            31 ],
+          2023:[ 7,
+            8,
+            9,
+            3 ],
+          2024:[ 7,
+            6,
+            9,
+            1 ],
+          2025:[ 7,
+            5,
+            8,
+            31 ],
+          2026:[  ],
           name:"Vacances d'Été" },
-        { "2018":[ 10,
+        { 2018:[ 10,
             21,
             11,
             4 ],
-          "2019":[ 10,
+          2019:[ 10,
             20,
             11,
             3 ],
-          "2020":[ 10,
+          2020:[ 10,
             18,
             11,
             1 ],
+          2021:[ 10,
+            24,
+            11,
+            7 ],
+          2022:[ 10,
+            22,
+            11,
+            6 ],
+          2023:[ 10,
+            21,
+            11,
+            5 ],
+          2024:[ 10,
+            19,
+            11,
+            3 ],
+          2025:[ 10,
+            18,
+            11,
+            2 ],
+          2026:[  ],
           name:"Vacances de la Toussaint" },
-        { "2018":[ 12,
+        { 2018:[ 12,
             23,
             1,
             6 ],
-          "2019":[ 12,
+          2019:[ 12,
             22,
             1,
             5 ],
-          "2020":[ 12,
+          2020:[ 12,
             20,
             1,
             3 ],
+          2021:[ 12,
+            19,
+            1,
+            2 ],
+          2022:[ 12,
+            17,
+            1,
+            2 ],
+          2023:[ 12,
+            23,
+            1,
+            7 ],
+          2024:[ 12,
+            21,
+            1,
+            5 ],
+          2025:[ 12,
+            20,
+            1,
+            4 ],
+          2026:[  ],
           name:"Vacances de Noël" } ] },
     "Provence-Alpes-Côte d'Azur":{ _state_code:"pac",
-      SH:[ { "2018":[ 2,
+      SH:[ { 2018:[ 2,
             25,
             3,
             11 ],
-          "2019":[ 2,
+          2019:[ 2,
             10,
             2,
             24 ],
-          "2020":[ 2,
+          2020:[ 2,
             16,
             3,
             1 ],
-          "2021":[ 2,
+          2021:[ 2,
             21,
             3,
             7 ],
+          2022:[ 2,
+            5,
+            2,
+            20 ],
+          2023:[ 2,
+            11,
+            2,
+            26 ],
+          2024:[ 2,
+            24,
+            3,
+            10 ],
+          2025:[ 2,
+            8,
+            2,
+            23 ],
+          2026:[ 2,
+            14,
+            3,
+            1 ],
           name:"Vacances d'Hiver" },
-        { "2018":[ 4,
+        { 2018:[ 4,
             22,
             5,
             6 ],
-          "2019":[ 4,
+          2019:[ 4,
             7,
             4,
             22 ],
-          "2020":[ 4,
+          2020:[ 4,
             12,
             4,
             26 ],
-          "2021":[ 4,
-            25,
+          2021:[ 4,
+            11,
+            4,
+            25 ],
+          2022:[ 4,
+            9,
+            4,
+            24 ],
+          2023:[ 4,
+            15,
             5,
-            9 ],
+            1 ],
+          2024:[ 4,
+            20,
+            5,
+            5 ],
+          2025:[ 4,
+            5,
+            4,
+            21 ],
+          2026:[ 4,
+            11,
+            4,
+            26 ],
           name:"Vacances de Printemps" },
-        { "2018":[ 5,
+        { 2018:[ 5,
             10,
             5,
             10 ],
-          "2019":[ 5,
+          2019:[ 5,
             30,
             6,
             2 ],
-          "2020":[ 5,
+          2020:[ 5,
             21,
             5,
             24 ],
-          "2021":[ 5,
+          2021:[ 5,
             14,
             5,
             16 ],
+          2022:[ 5,
+            26,
+            5,
+            27 ],
+          2023:[ 5,
+            17,
+            5,
+            21 ],
+          2024:[ 5,
+            8,
+            5,
+            12 ],
+          2025:[ 5,
+            29,
+            6,
+            1 ],
+          2026:[ 5,
+            14,
+            5,
+            17 ],
           name:"Pont de l'Ascension" },
-        { "2018":[ 7,
+        { 2018:[ 7,
             8,
             9,
             2 ],
-          "2019":[ 7,
+          2019:[ 7,
             7,
             9,
             1 ],
-          "2020":[ 7,
+          2020:[ 7,
             5,
             8,
             31 ],
-          "2021":[ 7,
-            6,
+          2021:[ 7,
+            5,
+            9,
+            1 ],
+          2022:[ 7,
+            7,
             8,
-            30 ],
+            31 ],
+          2023:[ 7,
+            8,
+            9,
+            3 ],
+          2024:[ 7,
+            6,
+            9,
+            1 ],
+          2025:[ 7,
+            5,
+            8,
+            31 ],
+          2026:[  ],
           name:"Vacances d'Été" },
-        { "2018":[ 10,
+        { 2018:[ 10,
             21,
             11,
             4 ],
-          "2019":[ 10,
+          2019:[ 10,
             20,
             11,
             3 ],
-          "2020":[ 10,
+          2020:[ 10,
             18,
             11,
             1 ],
+          2021:[ 10,
+            24,
+            11,
+            7 ],
+          2022:[ 10,
+            22,
+            11,
+            6 ],
+          2023:[ 10,
+            21,
+            11,
+            5 ],
+          2024:[ 10,
+            19,
+            11,
+            3 ],
+          2025:[ 10,
+            18,
+            11,
+            2 ],
+          2026:[  ],
           name:"Vacances de la Toussaint" },
-        { "2018":[ 12,
+        { 2018:[ 12,
             23,
             1,
             6 ],
-          "2019":[ 12,
+          2019:[ 12,
             22,
             1,
             5 ],
-          "2020":[ 12,
+          2020:[ 12,
             20,
             1,
             3 ],
+          2021:[ 12,
+            19,
+            1,
+            2 ],
+          2022:[ 12,
+            17,
+            1,
+            2 ],
+          2023:[ 12,
+            23,
+            1,
+            7 ],
+          2024:[ 12,
+            21,
+            1,
+            5 ],
+          2025:[ 12,
+            20,
+            1,
+            4 ],
+          2026:[  ],
           name:"Vacances de Noël" } ] },
     "Île-de-France":{ _state_code:"idf",
-      SH:[ { "2018":[ 2,
+      SH:[ { 2018:[ 2,
             18,
             3,
             4 ],
-          "2019":[ 2,
+          2019:[ 2,
             24,
             3,
             10 ],
-          "2020":[ 2,
+          2020:[ 2,
             9,
             2,
             23 ],
-          "2021":[ 2,
+          2021:[ 2,
             14,
             2,
             28 ],
+          2022:[ 2,
+            19,
+            3,
+            6 ],
+          2023:[ 2,
+            18,
+            3,
+            5 ],
+          2024:[ 2,
+            10,
+            2,
+            25 ],
+          2025:[ 2,
+            15,
+            3,
+            2 ],
+          2026:[ 2,
+            21,
+            3,
+            8 ],
           name:"Vacances d'Hiver" },
-        { "2018":[ 4,
+        { 2018:[ 4,
             15,
             4,
             29 ],
-          "2019":[ 4,
+          2019:[ 4,
             21,
             5,
             5 ],
-          "2020":[ 4,
+          2020:[ 4,
             5,
             4,
             19 ],
-          "2021":[ 4,
+          2021:[ 4,
+            11,
+            4,
+            25 ],
+          2022:[ 4,
+            23,
+            5,
+            8 ],
+          2023:[ 4,
+            22,
+            5,
+            8 ],
+          2024:[ 4,
+            6,
+            4,
+            21 ],
+          2025:[ 4,
+            12,
+            4,
+            27 ],
+          2026:[ 4,
             18,
             5,
-            2 ],
+            3 ],
           name:"Vacances de Printemps" },
-        { "2018":[ 5,
+        { 2018:[ 5,
             10,
             5,
             10 ],
-          "2019":[ 5,
+          2019:[ 5,
             30,
             6,
             2 ],
-          "2020":[ 5,
+          2020:[ 5,
             21,
             5,
             24 ],
-          "2021":[ 5,
+          2021:[ 5,
             14,
             5,
             16 ],
+          2022:[ 5,
+            26,
+            5,
+            27 ],
+          2023:[ 5,
+            17,
+            5,
+            21 ],
+          2024:[ 5,
+            8,
+            5,
+            12 ],
+          2025:[ 5,
+            29,
+            6,
+            1 ],
+          2026:[ 5,
+            14,
+            5,
+            17 ],
           name:"Pont de l'Ascension" },
-        { "2018":[ 7,
+        { 2018:[ 7,
             8,
             9,
             2 ],
-          "2019":[ 7,
+          2019:[ 7,
             7,
             9,
             1 ],
-          "2020":[ 7,
+          2020:[ 7,
             5,
             8,
             31 ],
-          "2021":[ 7,
-            6,
+          2021:[ 7,
+            5,
+            9,
+            1 ],
+          2022:[ 7,
+            7,
             8,
-            30 ],
+            31 ],
+          2023:[ 7,
+            8,
+            9,
+            3 ],
+          2024:[ 7,
+            6,
+            9,
+            1 ],
+          2025:[ 7,
+            5,
+            8,
+            31 ],
+          2026:[  ],
           name:"Vacances d'Été" },
-        { "2018":[ 10,
+        { 2018:[ 10,
             21,
             11,
             4 ],
-          "2019":[ 10,
+          2019:[ 10,
             20,
             11,
             3 ],
-          "2020":[ 10,
+          2020:[ 10,
             18,
             11,
             1 ],
+          2021:[ 10,
+            24,
+            11,
+            7 ],
+          2022:[ 10,
+            22,
+            11,
+            6 ],
+          2023:[ 10,
+            21,
+            11,
+            5 ],
+          2024:[ 10,
+            19,
+            11,
+            3 ],
+          2025:[ 10,
+            18,
+            11,
+            2 ],
+          2026:[  ],
           name:"Vacances de la Toussaint" },
-        { "2018":[ 12,
+        { 2018:[ 12,
             23,
             1,
             6 ],
-          "2019":[ 12,
+          2019:[ 12,
             22,
             1,
             5 ],
-          "2020":[ 12,
+          2020:[ 12,
             20,
             1,
             3 ],
+          2021:[ 12,
+            19,
+            1,
+            2 ],
+          2022:[ 12,
+            17,
+            1,
+            2 ],
+          2023:[ 12,
+            23,
+            1,
+            7 ],
+          2024:[ 12,
+            21,
+            1,
+            5 ],
+          2025:[ 12,
+            20,
+            1,
+            4 ],
+          2026:[  ],
           name:"Vacances de Noël" } ] },
     Occitanie:{ _state_code:"occ",
-      SH:[ { "2018":[ 2,
+      SH:[ { 2018:[ 2,
             18,
             3,
             4 ],
-          "2019":[ 2,
+          2019:[ 2,
             24,
             3,
             10 ],
-          "2020":[ 2,
+          2020:[ 2,
             9,
             2,
             23 ],
-          "2021":[ 2,
+          2021:[ 2,
             14,
             2,
             28 ],
+          2022:[ 2,
+            19,
+            3,
+            6 ],
+          2023:[ 2,
+            18,
+            3,
+            5 ],
+          2024:[ 2,
+            10,
+            2,
+            25 ],
+          2025:[ 2,
+            15,
+            3,
+            2 ],
+          2026:[ 2,
+            21,
+            3,
+            8 ],
           name:"Vacances d'Hiver" },
-        { "2018":[ 4,
+        { 2018:[ 4,
             15,
             4,
             29 ],
-          "2019":[ 4,
+          2019:[ 4,
             21,
             5,
             5 ],
-          "2020":[ 4,
+          2020:[ 4,
             5,
             4,
             19 ],
-          "2021":[ 4,
+          2021:[ 4,
+            11,
+            4,
+            25 ],
+          2022:[ 4,
+            23,
+            5,
+            8 ],
+          2023:[ 4,
+            22,
+            5,
+            8 ],
+          2024:[ 4,
+            6,
+            4,
+            21 ],
+          2025:[ 4,
+            12,
+            4,
+            27 ],
+          2026:[ 4,
             18,
             5,
-            2 ],
+            3 ],
           name:"Vacances de Printemps" },
-        { "2018":[ 5,
+        { 2018:[ 5,
             10,
             5,
             10 ],
-          "2019":[ 5,
+          2019:[ 5,
             30,
             6,
             2 ],
-          "2020":[ 5,
+          2020:[ 5,
             21,
             5,
             24 ],
-          "2021":[ 5,
+          2021:[ 5,
             14,
             5,
             16 ],
+          2022:[ 5,
+            26,
+            5,
+            27 ],
+          2023:[ 5,
+            17,
+            5,
+            21 ],
+          2024:[ 5,
+            8,
+            5,
+            12 ],
+          2025:[ 5,
+            29,
+            6,
+            1 ],
+          2026:[ 5,
+            14,
+            5,
+            17 ],
           name:"Pont de l'Ascension" },
-        { "2018":[ 7,
+        { 2018:[ 7,
             8,
             9,
             2 ],
-          "2019":[ 7,
+          2019:[ 7,
             7,
             9,
             1 ],
-          "2020":[ 7,
+          2020:[ 7,
             5,
             8,
             31 ],
-          "2021":[ 7,
-            6,
+          2021:[ 7,
+            5,
+            9,
+            1 ],
+          2022:[ 7,
+            7,
             8,
-            30 ],
+            31 ],
+          2023:[ 7,
+            8,
+            9,
+            3 ],
+          2024:[ 7,
+            6,
+            9,
+            1 ],
+          2025:[ 7,
+            5,
+            8,
+            31 ],
+          2026:[  ],
           name:"Vacances d'Été" },
-        { "2018":[ 10,
+        { 2018:[ 10,
             21,
             11,
             4 ],
-          "2019":[ 10,
+          2019:[ 10,
             20,
             11,
             3 ],
-          "2020":[ 10,
+          2020:[ 10,
             18,
             11,
             1 ],
+          2021:[ 10,
+            24,
+            11,
+            7 ],
+          2022:[ 10,
+            22,
+            11,
+            6 ],
+          2023:[ 10,
+            21,
+            11,
+            5 ],
+          2024:[ 10,
+            19,
+            11,
+            3 ],
+          2025:[ 10,
+            18,
+            11,
+            2 ],
+          2026:[  ],
           name:"Vacances de la Toussaint" },
-        { "2018":[ 12,
+        { 2018:[ 12,
             23,
             1,
             6 ],
-          "2019":[ 12,
+          2019:[ 12,
             22,
             1,
             5 ],
-          "2020":[ 12,
+          2020:[ 12,
             20,
             1,
             3 ],
+          2021:[ 12,
+            19,
+            1,
+            2 ],
+          2022:[ 12,
+            17,
+            1,
+            2 ],
+          2023:[ 12,
+            23,
+            1,
+            7 ],
+          2024:[ 12,
+            21,
+            1,
+            5 ],
+          2025:[ 12,
+            20,
+            1,
+            4 ],
+          2026:[  ],
           name:"Vacances de Noël" } ] },
     Corse:{ _state_code:"cor",
-      SH:[ { "2018":[ 2,
+      SH:[ { 2018:[ 2,
             27,
             3,
             11 ],
-          "2019":[ 2,
+          2019:[ 2,
             24,
             3,
             10 ],
-          "2020":[ 2,
+          2020:[ 2,
             16,
             3,
             1 ],
-          "2021":[ 2,
+          2021:[ 2,
             14,
             2,
             28 ],
+          2022:[ 2,
+            19,
+            3,
+            6 ],
+          2023:[ 2,
+            18,
+            3,
+            5 ],
+          2024:[ 2,
+            26,
+            3,
+            10 ],
+          2025:[ 2,
+            15,
+            3,
+            2 ],
+          2026:[  ],
           name:"Vacances d'Hiver" },
-        { "2018":[ 4,
+        { 2018:[ 4,
             24,
             5,
             6 ],
-          "2019":[ 4,
+          2019:[ 4,
             21,
             5,
             5 ],
-          "2020":[ 4,
+          2020:[ 4,
             19,
             5,
             3 ],
-          "2021":[ 4,
-            18,
+          2021:[ 4,
+            11,
+            4,
+            25 ],
+          2022:[ 4,
+            23,
             5,
-            2 ],
+            8 ],
+          2023:[ 4,
+            15,
+            5,
+            1 ],
+          2024:[ 4,
+            29,
+            5,
+            12 ],
+          2025:[ 4,
+            12,
+            4,
+            27 ],
+          2026:[  ],
           name:"Vacances de Printemps" },
-        { "2018":[ 5,
+        { 2018:[ 5,
             10,
             5,
             10 ],
-          "2019":[ 5,
+          2019:[ 5,
             30,
             6,
             2 ],
-          "2020":[ 5,
+          2020:[ 5,
             21,
             5,
             24 ],
-          "2021":[ 5,
+          2021:[ 5,
             14,
             5,
             16 ],
-          name:"Pont de l'Ascension" },
-        { "2018":[ 7,
-            11,
-            9,
-            4 ],
-          "2019":[ 7,
-            7,
-            9,
-            2 ],
-          "2020":[ 7,
-            5,
-            8,
-            31 ],
-          "2021":[ 7,
-            8,
-            8,
-            30 ],
-          name:"Vacances d'Été" },
-        { "2018":[ 10,
-            24,
-            11,
-            4 ],
-          "2019":[ 10,
-            20,
-            11,
-            3 ],
-          "2020":[ 10,
-            18,
-            11,
-            1 ],
-          name:"Vacances de la Toussaint" },
-        { "2018":[ 12,
-            23,
-            1,
-            6 ],
-          "2019":[ 12,
-            22,
-            1,
-            5 ],
-          "2020":[ 12,
-            20,
-            1,
-            3 ],
-          name:"Vacances de Noël" } ] },
-    Guadeloupe:{ _state_code:"gua",
-      SH:[ { "2018":[ 2,
-            9,
-            2,
-            21 ],
-          "2019":[ 2,
-            24,
-            3,
-            10 ],
-          "2020":[ 2,
-            16,
-            3,
-            1 ],
-          "2021":[ 2,
-            10,
-            2,
-            21 ],
-          name:"Vacances de Carnaval" },
-        { "2018":[ 3,
-            25,
-            4,
-            8 ],
-          "2019":[ 4,
-            19,
-            5,
-            1 ],
-          "2020":[ 4,
-            9,
-            4,
-            22 ],
-          "2021":[ 3,
-            28,
-            4,
-            11 ],
-          name:"Vacances de Pâques" },
-        { "2019":[ 5,
-            30,
-            6,
-            2 ],
-          "2020":[ 5,
-            21,
-            5,
-            24 ],
-          "2021":[ 5,
-            28,
-            5,
-            29 ],
-          name:"Pont de l'Ascension" },
-        { "2018":[ 7,
-            7,
-            9,
-            3 ],
-          "2019":[ 7,
-            7,
-            9,
-            1 ],
-          "2020":[ 7,
-            5,
-            8,
-            31 ],
-          "2021":[ 7,
-            6,
-            8,
-            30 ],
-          name:"Grandes Vacances" },
-        { "2018":[ 10,
-            21,
-            11,
-            4 ],
-          "2019":[ 10,
-            20,
-            11,
-            3 ],
-          "2020":[ 10,
-            18,
-            11,
-            2 ],
-          name:"Vacances de la Toussaint" },
-        { "2018":[ 12,
-            23,
-            1,
-            6 ],
-          "2019":[ 12,
-            22,
-            1,
-            5 ],
-          "2020":[ 12,
-            20,
-            1,
-            3 ],
-          name:"Vacances de Noël" } ] },
-    "Saint-Martin (France)":{ _state_code:"mf",
-      SH:[ { "2018":[ 2,
-            9,
-            2,
-            21 ],
-          "2019":[ 2,
-            24,
-            3,
-            10 ],
-          "2020":[ 2,
-            16,
-            3,
-            1 ],
-          "2021":[ 2,
-            10,
-            2,
-            21 ],
-          name:"Vacances de Carnaval" },
-        { "2018":[ 3,
-            25,
-            4,
-            8 ],
-          "2019":[ 4,
-            19,
-            5,
-            1 ],
-          "2020":[ 4,
-            9,
-            4,
-            22 ],
-          "2021":[ 3,
-            28,
-            4,
-            11 ],
-          name:"Vacances de Pâques" },
-        { "2019":[ 5,
-            30,
-            6,
-            2 ],
-          "2020":[ 5,
-            21,
-            5,
-            24 ],
-          "2021":[ 5,
-            25,
+          2022:[ 5,
+            26,
             5,
             27 ],
-          name:"Pont de l'Ascension" },
-        { "2018":[ 7,
-            7,
-            9,
-            3 ],
-          "2019":[ 7,
-            7,
-            9,
+          2023:[ 5,
+            17,
+            5,
+            21 ],
+          2024:[ 5,
+            8,
+            5,
+            12 ],
+          2025:[ 5,
+            29,
+            6,
             1 ],
-          "2020":[ 7,
+          2026:[ 5,
+            14,
+            5,
+            17 ],
+          name:"Pont de l'Ascension" },
+        { 2018:[ 7,
+            11,
+            9,
+            4 ],
+          2019:[ 7,
+            7,
+            9,
+            2 ],
+          2020:[ 7,
             5,
             8,
             31 ],
-          "2021":[ 7,
-            6,
+          2021:[ 7,
+            8,
             8,
             30 ],
-          name:"Grandes Vacances" },
-        { "2018":[ 10,
+          2022:[ 7,
+            8,
+            8,
+            31 ],
+          2023:[ 7,
+            8,
+            9,
+            3 ],
+          2024:[ 7,
+            6,
+            9,
+            3 ],
+          2025:[ 7,
+            5,
+            8,
+            31 ],
+          2026:[  ],
+          name:"Vacances d'Été" },
+        { 2018:[ 10,
             21,
             11,
             4 ],
-          "2019":[ 10,
+          2019:[ 10,
             20,
             11,
             3 ],
-          "2020":[ 10,
+          2020:[ 10,
+            18,
+            11,
+            1 ],
+          2021:[ 10,
+            24,
+            11,
+            7 ],
+          2022:[ 10,
+            22,
+            11,
+            6 ],
+          2023:[ 10,
+            21,
+            11,
+            5 ],
+          2024:[ 10,
+            19,
+            11,
+            3 ],
+          2025:[ 10,
             18,
             11,
             2 ],
+          2026:[  ],
           name:"Vacances de la Toussaint" },
-        { "2018":[ 12,
+        { 2018:[ 12,
             23,
             1,
             6 ],
-          "2019":[ 12,
+          2019:[ 12,
             22,
             1,
             5 ],
-          "2020":[ 12,
+          2020:[ 12,
             20,
             1,
             3 ],
+          2021:[ 12,
+            19,
+            1,
+            2 ],
+          2022:[ 12,
+            17,
+            1,
+            2 ],
+          2023:[ 12,
+            23,
+            1,
+            7 ],
+          2024:[ 12,
+            21,
+            1,
+            5 ],
+          2025:[ 12,
+            20,
+            1,
+            4 ],
+          2026:[  ],
           name:"Vacances de Noël" } ] },
-    "Saint-Barthélemy":{ _state_code:"bl",
-      SH:[ { "2018":[ 2,
+    Guadeloupe:{ _state_code:"gua",
+      SH:[ { 2018:[ 2,
             9,
             2,
             21 ],
-          "2019":[ 2,
+          2019:[ 2,
             24,
             3,
             10 ],
-          "2020":[ 2,
+          2020:[ 2,
             16,
             3,
             1 ],
-          "2021":[ 2,
+          2021:[ 2,
             10,
             2,
             21 ],
+          2022:[ 2,
+            19,
+            3,
+            6 ],
+          2023:[ 2,
+            11,
+            2,
+            26 ],
+          2024:[ 2,
+            10,
+            2,
+            26 ],
+          2025:[ 2,
+            22,
+            3,
+            10 ],
+          2026:[ 2,
+            7,
+            2,
+            22 ],
           name:"Vacances de Carnaval" },
-        { "2018":[ 3,
+        { 2018:[ 3,
             25,
             4,
             8 ],
-          "2019":[ 4,
+          2019:[ 4,
             19,
             5,
             1 ],
-          "2020":[ 4,
+          2020:[ 4,
             9,
             4,
             22 ],
-          "2021":[ 3,
+          2021:[ 3,
             28,
             4,
             11 ],
+          2022:[ 4,
+            13,
+            4,
+            24 ],
+          2023:[ 4,
+            1,
+            4,
+            16 ],
+          2024:[ 3,
+            28,
+            4,
+            15 ],
+          2025:[ 4,
+            17,
+            5,
+            5 ],
+          2026:[ 4,
+            2,
+            4,
+            19 ],
           name:"Vacances de Pâques" },
-        { "2019":[ 5,
+        { 2018:[ 5,
+            10,
+            5,
+            10 ],
+          2019:[ 5,
             30,
             6,
             2 ],
-          "2020":[ 5,
+          2020:[ 5,
             21,
             5,
             24 ],
+          2021:[  ],
+          2022:[  ],
+          2023:[  ],
+          2024:[  ],
+          2025:[  ],
+          2026:[  ],
           name:"Pont de l'Ascension" },
-        { "2018":[ 7,
+        { 2018:[ 7,
             7,
             9,
             3 ],
-          "2019":[ 7,
+          2019:[ 7,
             7,
             9,
             1 ],
-          "2020":[ 7,
+          2020:[ 7,
             5,
             8,
             31 ],
-          "2021":[ 7,
+          2021:[ 7,
             6,
             8,
             30 ],
+          2022:[ 7,
+            7,
+            8,
+            31 ],
+          2023:[ 7,
+            8,
+            9,
+            3 ],
+          2025:[ 7,
+            5,
+            8,
+            31 ],
+          2026:[  ],
           name:"Grandes Vacances" },
-        { "2018":[ 10,
+        { 2018:[ 10,
             21,
             11,
             4 ],
-          "2019":[ 10,
+          2019:[ 10,
             20,
             11,
             3 ],
-          "2020":[ 10,
+          2020:[ 10,
+            18,
+            11,
+            1 ],
+          2021:[ 10,
+            24,
+            11,
+            7 ],
+          2022:[ 10,
+            22,
+            11,
+            6 ],
+          2023:[ 10,
+            21,
+            11,
+            5 ],
+          2024:[ 10,
+            22,
+            11,
+            3 ],
+          2025:[ 10,
             18,
             11,
             2 ],
+          2026:[  ],
           name:"Vacances de la Toussaint" },
-        { "2018":[ 12,
+        { 2018:[ 12,
             23,
             1,
             6 ],
-          "2019":[ 12,
+          2019:[ 12,
             22,
             1,
             5 ],
-          "2020":[ 12,
+          2020:[ 12,
             20,
             1,
             3 ],
+          2021:[ 12,
+            19,
+            1,
+            2 ],
+          2022:[ 12,
+            17,
+            1,
+            2 ],
+          2023:[ 12,
+            23,
+            1,
+            7 ],
+          2024:[ 12,
+            21,
+            1,
+            5 ],
+          2025:[ 12,
+            20,
+            1,
+            4 ],
+          2026:[  ],
+          name:"Vacances de Noël" } ] },
+    "Saint-Martin (France)":{ _state_code:"mf",
+      SH:[ { 2018:[ 2,
+            9,
+            2,
+            21 ],
+          2019:[ 2,
+            24,
+            3,
+            10 ],
+          2020:[ 2,
+            16,
+            3,
+            1 ],
+          2021:[ 2,
+            10,
+            2,
+            21 ],
+          2022:[ 2,
+            19,
+            3,
+            6 ],
+          2023:[ 2,
+            11,
+            2,
+            26 ],
+          2024:[ 2,
+            10,
+            2,
+            26 ],
+          2025:[ 2,
+            22,
+            3,
+            10 ],
+          2026:[ 2,
+            7,
+            2,
+            22 ],
+          name:"Vacances de Carnaval" },
+        { 2018:[ 3,
+            25,
+            4,
+            8 ],
+          2019:[ 4,
+            19,
+            5,
+            1 ],
+          2020:[ 4,
+            9,
+            4,
+            22 ],
+          2021:[ 3,
+            28,
+            4,
+            11 ],
+          2022:[ 4,
+            13,
+            4,
+            24 ],
+          2023:[ 4,
+            1,
+            4,
+            16 ],
+          2024:[ 3,
+            28,
+            4,
+            15 ],
+          2025:[ 4,
+            17,
+            5,
+            5 ],
+          2026:[ 4,
+            2,
+            4,
+            19 ],
+          name:"Vacances de Pâques" },
+        { 2018:[ 5,
+            10,
+            5,
+            10 ],
+          2019:[ 5,
+            30,
+            6,
+            2 ],
+          2020:[ 5,
+            21,
+            5,
+            24 ],
+          2021:[ 5,
+            14,
+            5,
+            16 ],
+          2022:[ 5,
+            26,
+            5,
+            27 ],
+          2023:[ 5,
+            17,
+            5,
+            21 ],
+          2024:[ 5,
+            8,
+            5,
+            12 ],
+          2025:[ 5,
+            29,
+            6,
+            1 ],
+          2026:[ 5,
+            13,
+            5,
+            17 ],
+          name:"Pont de l'Ascension" },
+        { 2018:[ 7,
+            7,
+            9,
+            3 ],
+          2019:[ 7,
+            7,
+            9,
+            1 ],
+          2020:[ 7,
+            5,
+            8,
+            31 ],
+          2021:[ 7,
+            6,
+            8,
+            30 ],
+          2022:[ 7,
+            7,
+            8,
+            31 ],
+          2023:[ 7,
+            8,
+            9,
+            3 ],
+          2025:[ 7,
+            5,
+            8,
+            31 ],
+          2026:[  ],
+          name:"Grandes Vacances" },
+        { 2018:[ 10,
+            21,
+            11,
+            4 ],
+          2019:[ 10,
+            20,
+            11,
+            3 ],
+          2020:[ 10,
+            18,
+            11,
+            1 ],
+          2021:[ 10,
+            24,
+            11,
+            7 ],
+          2022:[ 10,
+            22,
+            11,
+            6 ],
+          2023:[ 10,
+            21,
+            11,
+            5 ],
+          2024:[ 10,
+            22,
+            11,
+            3 ],
+          2025:[ 10,
+            18,
+            11,
+            2 ],
+          2026:[  ],
+          name:"Vacances de la Toussaint" },
+        { 2018:[ 12,
+            23,
+            1,
+            6 ],
+          2019:[ 12,
+            22,
+            1,
+            5 ],
+          2020:[ 12,
+            20,
+            1,
+            3 ],
+          2021:[ 12,
+            19,
+            1,
+            2 ],
+          2022:[ 12,
+            17,
+            1,
+            2 ],
+          2023:[ 12,
+            23,
+            1,
+            7 ],
+          2024:[ 12,
+            21,
+            1,
+            5 ],
+          2025:[ 12,
+            20,
+            1,
+            4 ],
+          2026:[  ],
+          name:"Vacances de Noël" } ] },
+    "Saint-Barthélemy":{ _state_code:"bl",
+      SH:[ { 2018:[ 2,
+            9,
+            2,
+            21 ],
+          2019:[ 2,
+            24,
+            3,
+            10 ],
+          2020:[ 2,
+            16,
+            3,
+            1 ],
+          2021:[ 2,
+            10,
+            2,
+            21 ],
+          2022:[ 2,
+            19,
+            3,
+            6 ],
+          2023:[ 2,
+            11,
+            2,
+            26 ],
+          2024:[ 2,
+            10,
+            2,
+            26 ],
+          2025:[ 2,
+            22,
+            3,
+            10 ],
+          2026:[ 2,
+            7,
+            2,
+            22 ],
+          name:"Vacances de Carnaval" },
+        { 2018:[ 3,
+            25,
+            4,
+            8 ],
+          2019:[ 4,
+            19,
+            5,
+            1 ],
+          2020:[ 4,
+            9,
+            4,
+            22 ],
+          2021:[ 3,
+            28,
+            4,
+            11 ],
+          2022:[ 4,
+            13,
+            4,
+            24 ],
+          2023:[ 4,
+            1,
+            4,
+            16 ],
+          2024:[ 3,
+            28,
+            4,
+            15 ],
+          2025:[ 4,
+            17,
+            5,
+            5 ],
+          2026:[ 4,
+            2,
+            4,
+            19 ],
+          name:"Vacances de Pâques" },
+        { 2018:[ 5,
+            10,
+            5,
+            10 ],
+          2019:[ 5,
+            30,
+            6,
+            2 ],
+          2020:[ 5,
+            21,
+            5,
+            24 ],
+          2021:[ 5,
+            14,
+            5,
+            16 ],
+          2022:[ 5,
+            26,
+            5,
+            27 ],
+          2023:[ 5,
+            17,
+            5,
+            21 ],
+          2024:[ 5,
+            8,
+            5,
+            12 ],
+          2025:[ 5,
+            29,
+            6,
+            1 ],
+          2026:[ 5,
+            13,
+            5,
+            17 ],
+          name:"Pont de l'Ascension" },
+        { 2018:[ 7,
+            7,
+            9,
+            3 ],
+          2019:[ 7,
+            7,
+            9,
+            1 ],
+          2020:[ 7,
+            5,
+            8,
+            31 ],
+          2021:[ 7,
+            6,
+            8,
+            30 ],
+          2022:[ 7,
+            7,
+            8,
+            31 ],
+          2023:[ 7,
+            8,
+            9,
+            3 ],
+          2025:[ 7,
+            5,
+            8,
+            31 ],
+          2026:[  ],
+          name:"Grandes Vacances" },
+        { 2018:[ 10,
+            21,
+            11,
+            4 ],
+          2019:[ 10,
+            20,
+            11,
+            3 ],
+          2020:[ 10,
+            18,
+            11,
+            1 ],
+          2021:[ 10,
+            24,
+            11,
+            7 ],
+          2022:[ 10,
+            22,
+            11,
+            6 ],
+          2023:[ 10,
+            21,
+            11,
+            5 ],
+          2024:[ 10,
+            22,
+            11,
+            3 ],
+          2025:[ 10,
+            18,
+            11,
+            2 ],
+          2026:[  ],
+          name:"Vacances de la Toussaint" },
+        { 2018:[ 12,
+            23,
+            1,
+            6 ],
+          2019:[ 12,
+            22,
+            1,
+            5 ],
+          2020:[ 12,
+            20,
+            1,
+            3 ],
+          2021:[ 12,
+            19,
+            1,
+            2 ],
+          2022:[ 12,
+            17,
+            1,
+            2 ],
+          2023:[ 12,
+            23,
+            1,
+            7 ],
+          2024:[ 12,
+            21,
+            1,
+            5 ],
+          2025:[ 12,
+            20,
+            1,
+            4 ],
+          2026:[  ],
           name:"Vacances de Noël" } ] },
     Guyane:{ _state_code:"guf",
-      SH:[ { "2018":[ 2,
+      SH:[ { 2018:[ 2,
             11,
             2,
             25 ],
-          "2019":[ 2,
+          2019:[ 2,
             24,
             3,
             10 ],
-          "2020":[ 2,
+          2020:[ 2,
             16,
             3,
             1 ],
-          "2021":[ 2,
+          2021:[ 2,
             14,
             2,
             28 ],
+          2022:[ 2,
+            19,
+            3,
+            6 ],
+          2023:[ 2,
+            18,
+            3,
+            5 ],
+          2024:[  ],
+          2025:[ 2,
+            22,
+            3,
+            9 ],
+          2026:[ 2,
+            7,
+            2,
+            22 ],
           name:"Vacances de Carnaval" },
-        { "2018":[ 3,
+        { 2018:[ 3,
             30,
             4,
             15 ],
-          "2019":[ 4,
+          2019:[ 4,
             19,
             5,
             1 ],
-          "2020":[ 4,
+          2020:[ 4,
             10,
             4,
             26 ],
-          "2021":[ 4,
+          2021:[ 4,
             2,
             4,
             18 ],
+          2022:[ 4,
+            14,
+            5,
+            1 ],
+          2023:[ 4,
+            5,
+            4,
+            19 ],
+          2024:[  ],
+          2025:[ 4,
+            17,
+            5,
+            4 ],
+          2026:[ 4,
+            1,
+            4,
+            15 ],
           name:"Vacances de Pâques" },
-        { "2019":[ 5,
+        { 2018:[ 5,
+            10,
+            5,
+            10 ],
+          2019:[ 5,
             30,
             6,
             2 ],
-          "2020":[ 5,
+          2020:[ 5,
             21,
             5,
             24 ],
-          "2021":[ 5,
-            13,
+          2021:[ 5,
+            14,
             5,
             16 ],
+          2022:[ 5,
+            26,
+            5,
+            27 ],
+          2023:[ 5,
+            17,
+            5,
+            21 ],
+          2024:[  ],
+          2025:[ 5,
+            28,
+            6,
+            1 ],
+          2026:[ 5,
+            13,
+            5,
+            17 ],
           name:"Pont de l'Ascension" },
-        { "2018":[ 7,
+        { 2018:[ 7,
             8,
             9,
             2 ],
-          "2019":[ 7,
+          2019:[ 7,
             9,
             9,
             1 ],
-          "2020":[ 7,
+          2020:[ 7,
             5,
             8,
             31 ],
-          "2021":[ 7,
+          2021:[ 7,
             4,
             8,
             31 ],
+          2022:[ 7,
+            9,
+            8,
+            31 ],
+          2023:[ 7,
+            8,
+            9,
+            3 ],
+          2024:[ 9,
+            1 ],
+          2025:[ 7,
+            5,
+            8,
+            31 ],
+          2026:[ 7,
+            4 ],
           name:"Grandes Vacances" },
-        { "2018":[ 10,
+        { 2018:[ 10,
             21,
             11,
             4 ],
-          "2019":[ 10,
+          2019:[ 10,
             20,
             11,
             3 ],
-          "2020":[ 10,
-            25,
+          2020:[ 10,
+            18,
             11,
-            8 ],
+            1 ],
+          2021:[ 10,
+            24,
+            11,
+            7 ],
+          2022:[ 10,
+            22,
+            11,
+            6 ],
+          2023:[ 10,
+            21,
+            11,
+            5 ],
+          2024:[ 10,
+            19,
+            11,
+            3 ],
+          2025:[ 10,
+            18,
+            11,
+            2 ],
+          2026:[ 10,
+            17,
+            11,
+            1 ],
           name:"Vacances de la Toussaint" },
-        { "2018":[ 12,
+        { 2018:[ 12,
             23,
             1,
-            5 ],
-          "2019":[ 12,
+            6 ],
+          2019:[ 12,
             22,
             1,
             5 ],
-          "2020":[ 12,
+          2020:[ 12,
             20,
+            1,
+            3 ],
+          2021:[ 12,
+            19,
+            1,
+            2 ],
+          2022:[ 12,
+            17,
+            1,
+            2 ],
+          2023:[ 12,
+            23,
+            1,
+            7 ],
+          2024:[ 12,
+            21,
+            1,
+            5 ],
+          2025:[ 12,
+            20,
+            1,
+            4 ],
+          2026:[ 12,
+            19,
             1,
             3 ],
           name:"Vacances de Noël" } ] },
     Martinique:{ _state_code:"mtq",
-      SH:[ { "2018":[ 2,
+      SH:[ { 2018:[ 2,
             8,
             2,
             18 ],
-          "2019":[ 2,
+          2019:[ 2,
             24,
             3,
             10 ],
-          "2020":[ 2,
+          2020:[ 2,
             23,
             3,
             8 ],
-          "2021":[ 2,
+          2021:[ 2,
             7,
             2,
             21 ],
+          2022:[ 2,
+            19,
+            3,
+            6 ],
+          2023:[ 2,
+            11,
+            2,
+            26 ],
+          2024:[  ],
+          2025:[ 2,
+            22,
+            3,
+            9 ],
+          2026:[ 2,
+            7,
+            2,
+            22 ],
           name:"Vacances de Carnaval" },
-        { "2018":[ 3,
+        { 2018:[ 3,
             25,
             4,
             8 ],
-          "2019":[ 4,
+          2019:[ 4,
             14,
             4,
             28 ],
-          "2020":[ 4,
+          2020:[ 4,
             5,
             4,
             19 ],
-          "2021":[ 3,
+          2021:[ 3,
             28,
             4,
             11 ],
+          2022:[ 4,
+            9,
+            4,
+            24 ],
+          2023:[ 4,
+            1,
+            4,
+            16 ],
+          2024:[  ],
+          2025:[ 4,
+            12,
+            4,
+            27 ],
+          2026:[ 3,
+            28,
+            4,
+            12 ],
           name:"Vacances de Pâques" },
-        { "2018":[ 5,
-            8,
+        { 2018:[ 5,
+            10,
             5,
-            13 ],
-          "2019":[ 5,
+            10 ],
+          2019:[ 5,
             30,
             6,
             2 ],
-          "2020":[ 5,
+          2020:[ 5,
+            21,
+            5,
+            24 ],
+          2021:[ 5,
             14,
             5,
-            15 ],
+            16 ],
+          2022:[ 5,
+            26,
+            5,
+            27 ],
+          2023:[ 5,
+            17,
+            5,
+            21 ],
+          2024:[ 5,
+            8,
+            5,
+            12 ],
+          2025:[ 5,
+            28,
+            6,
+            1 ],
+          2026:[ 5,
+            13,
+            5,
+            17 ],
           name:"Pont de l'Ascension" },
-        { "2018":[ 7,
+        { 2018:[ 7,
             7,
             9,
             3 ],
-          "2019":[ 7,
+          2019:[ 7,
             7,
             9,
             1 ],
-          "2020":[ 7,
+          2020:[ 7,
             5,
             8,
             31 ],
-          "2021":[ 7,
+          2021:[ 7,
             7,
             8,
             30 ],
+          2022:[ 7,
+            7,
+            8,
+            31 ],
+          2023:[ 7,
+            8,
+            9,
+            3 ],
+          2024:[ 9,
+            1 ],
+          2025:[ 7,
+            5,
+            8,
+            31 ],
+          2026:[ 7,
+            4 ],
           name:"Grandes Vacances" },
-        { "2018":[ 10,
+        { 2018:[ 10,
             21,
             11,
             4 ],
-          "2019":[ 10,
+          2019:[ 10,
             20,
             11,
             3 ],
-          "2020":[ 10,
-            25,
+          2020:[ 10,
+            18,
             11,
-            8 ],
+            1 ],
+          2021:[ 10,
+            24,
+            11,
+            7 ],
+          2022:[ 10,
+            22,
+            11,
+            6 ],
+          2023:[ 10,
+            21,
+            11,
+            5 ],
+          2024:[ 10,
+            19,
+            11,
+            3 ],
+          2025:[ 10,
+            18,
+            11,
+            2 ],
+          2026:[  ],
           name:"Vacances de la Toussaint" },
-        { "2018":[ 12,
+        { 2018:[ 12,
             23,
             1,
-            5 ],
-          "2019":[ 12,
+            6 ],
+          2019:[ 12,
             22,
             1,
             5 ],
-          "2020":[ 12,
+          2020:[ 12,
             20,
             1,
             3 ],
+          2021:[ 12,
+            19,
+            1,
+            2 ],
+          2022:[ 12,
+            17,
+            1,
+            2 ],
+          2023:[ 12,
+            23,
+            1,
+            7 ],
+          2024:[ 12,
+            21,
+            1,
+            5 ],
+          2025:[ 12,
+            20,
+            1,
+            4 ],
+          2026:[  ],
           name:"Vacances de Noël" } ] },
     Mayotte:{ _state_code:"may",
-      SH:[ { "2018":[ 2,
+      SH:[ { 2018:[ 2,
             25,
             3,
             11 ],
-          "2019":[ 2,
+          2019:[ 2,
             24,
             3,
             10 ],
-          "2020":[ 3,
+          2020:[ 3,
             1,
             3,
             15 ],
-          "2021":[ 2,
+          2021:[ 2,
             28,
             3,
             14 ],
+          2022:[ 2,
+            26,
+            3,
+            13 ],
+          2023:[ 2,
+            18,
+            3,
+            5 ],
+          2024:[  ],
+          2025:[ 3,
+            1,
+            3,
+            9 ],
+          2026:[ 2,
+            28,
+            3,
+            8 ],
           name:"Vacances de Carnaval" },
-        { "2018":[ 5,
+        { 2018:[ 5,
             6,
             5,
             13 ],
-          "2019":[ 4,
+          2019:[ 4,
             27,
             5,
             5 ],
-          "2020":[ 5,
+          2020:[ 5,
             3,
             5,
             10 ],
-          "2021":[ 5,
+          2021:[ 5,
             1,
             5,
             16 ],
+          2022:[ 4,
+            30,
+            5,
+            15 ],
+          2023:[ 4,
+            22,
+            5,
+            8 ],
+          2024:[  ],
+          2025:[ 4,
+            26,
+            5,
+            11 ],
+          2026:[ 4,
+            30,
+            5,
+            17 ],
           name:"Vacances de Pâques" },
-        { "2020":[ 5,
+        { 2018:[ 5,
+            10,
+            5,
+            10 ],
+          2019:[ 5,
+            30,
+            6,
+            2 ],
+          2020:[ 5,
             21,
             5,
             24 ],
+          2021:[  ],
+          2022:[  ],
+          2023:[  ],
+          2024:[  ],
+          2025:[  ],
+          2026:[  ],
           name:"Pont de l'Ascension" },
-        { "2018":[ 7,
+        { 2018:[ 7,
             8,
             8,
             22 ],
-          "2019":[ 7,
+          2019:[ 7,
             7,
             8,
             22 ],
-          "2020":[ 7,
+          2020:[ 7,
             5,
             8,
             23 ],
-          "2021":[ 7,
+          2021:[ 7,
             7,
             8,
             22 ],
+          2022:[ 7,
+            6,
+            8,
+            23 ],
+          2023:[ 7,
+            8,
+            8,
+            22 ],
+          2024:[ 8,
+            25 ],
+          2025:[ 7,
+            5,
+            8,
+            24 ],
+          2026:[ 7,
+            4 ],
           name:"Grandes Vacances" },
-        { "2018":[ 10,
-            7,
-            10,
-            21 ],
-          "2019":[ 10,
-            13,
-            10,
-            27 ],
-          "2020":[ 10,
+        { 2018:[ 10,
+            21,
             11,
-            10,
-            25 ],
-          name:"Vacances de la Toussaint" },
-        { "2018":[ 12,
-            9,
-            1,
+            4 ],
+          2019:[ 10,
+            20,
+            11,
+            3 ],
+          2020:[ 10,
+            18,
+            11,
+            1 ],
+          2021:[ 10,
+            24,
+            11,
+            7 ],
+          2022:[ 10,
+            22,
+            11,
             6 ],
-          "2019":[ 12,
-            15,
-            1,
-            12 ],
-          "2020":[ 12,
-            13,
-            1,
-            10 ],
-          name:"Vacances de Noël" } ] },
-    "La Réunion":{ _state_code:"lre",
-      SH:[ { "2018":[ 3,
+          2023:[ 10,
+            21,
             11,
-            3,
-            25 ],
-          "2019":[ 3,
-            10,
-            3,
-            24 ],
-          "2020":[ 3,
-            8,
-            3,
-            22 ],
-          "2021":[ 3,
-            7,
-            3,
-            21 ],
-          name:"Vacances après 3ème période" },
-        { "2018":[ 5,
-            6,
-            5,
-            16 ],
-          "2019":[ 5,
-            8,
-            5,
-            19 ],
-          "2020":[ 5,
-            1,
-            5,
-            13 ],
-          "2021":[ 5,
-            5,
-            5,
-            16 ],
-          name:"Vacances après 4ème période" },
-        { "2018":[ 7,
-            8,
-            8,
-            16 ],
-          "2019":[ 7,
-            7,
-            8,
-            15 ],
-          "2020":[ 7,
-            8,
-            8,
-            15 ],
-          name:"Vacances hiver austral" },
-        { "2018":[ 10,
-            14,
-            10,
-            28 ],
-          "2019":[ 10,
-            13,
-            10,
-            27 ],
-          "2020":[ 10,
-            11,
-            11,
-            25 ],
-          name:"Vacances après 1ère période" },
-        { "2018":[ 12,
-            23,
-            1,
-            27 ],
-          "2019":[ 12,
-            20,
-            1,
-            26 ],
-          "2020":[ 12,
-            20,
-            1,
-            24 ],
-          name:"Vacances été austral" } ] },
-    "Nouvelle-Calédonie":{ _state_code:"nc",
-      SH:[ { "2018":[ 4,
-            7,
-            4,
-            15 ],
-          "2019":[ 4,
-            6,
-            4,
-            14 ],
-          "2020":[ 4,
-            4,
-            4,
-            13 ],
-          "2021":[ 4,
-            3,
-            4,
-            18 ],
-          "2022":[ 4,
-            2,
-            4,
-            17 ],
-          name:"Vacances 1ère période" },
-        { "2018":[ 6,
-            9,
-            6,
-            24 ],
-          "2019":[ 6,
-            8,
-            6,
-            23 ],
-          "2020":[ 6,
-            6,
-            6,
-            21 ],
-          "2021":[ 6,
-            5,
-            6,
-            20 ],
-          "2022":[ 6,
-            4,
-            6,
-            19 ],
-          name:"Vacances 2ème période" },
-        { "2018":[ 8,
-            11,
-            8,
-            26 ],
-          "2019":[ 8,
-            10,
-            8,
-            25 ],
-          "2020":[ 8,
-            8,
-            8,
-            23 ],
-          "2021":[ 8,
-            7,
-            8,
-            22 ],
-          "2022":[ 8,
-            6,
-            8,
-            21 ],
-          name:"Vacances 3ème période" },
-        { "2018":[ 10,
-            13,
-            10,
-            18 ],
-          "2019":[ 10,
+            5 ],
+          2024:[ 10,
             12,
             10,
             27 ],
-          "2020":[ 10,
+          2025:[ 10,
+            11,
+            10,
+            26 ],
+          2026:[  ],
+          name:"Vacances de la Toussaint" },
+        { 2018:[ 12,
+            23,
+            1,
+            6 ],
+          2019:[ 12,
+            22,
+            1,
+            5 ],
+          2020:[ 12,
+            20,
+            1,
+            3 ],
+          2021:[ 12,
+            19,
+            1,
+            2 ],
+          2022:[ 12,
+            17,
+            1,
+            2 ],
+          2023:[ 12,
+            23,
+            1,
+            7 ],
+          2024:[ 12,
+            14,
+            1,
+            12 ],
+          2025:[ 12,
+            13,
+            1,
+            11 ],
+          2026:[  ],
+          name:"Vacances de Noël" } ] },
+    "La Réunion":{ _state_code:"lre",
+      SH:[ { 2018:[ 3,
+            11,
+            3,
+            25 ],
+          2019:[ 3,
+            10,
+            3,
+            24 ],
+          2020:[ 3,
+            8,
+            3,
+            22 ],
+          2021:[ 3,
+            7,
+            3,
+            21 ],
+          2022:[ 3,
+            12,
+            3,
+            27 ],
+          2023:[ 3,
+            11,
+            3,
+            26 ],
+          2024:[  ],
+          2025:[ 3,
+            1,
+            3,
+            16 ],
+          2026:[ 2,
+            28,
+            3,
+            15 ],
+          name:"Vacances après 3ème période" },
+        { 2018:[ 5,
+            6,
+            5,
+            16 ],
+          2019:[ 5,
+            8,
+            5,
+            19 ],
+          2020:[ 5,
+            1,
+            5,
+            13 ],
+          2021:[ 5,
+            5,
+            5,
+            16 ],
+          2022:[ 5,
+            14,
+            5,
+            29 ],
+          2023:[ 5,
+            13,
+            5,
+            29 ],
+          2024:[  ],
+          2025:[ 5,
+            3,
+            5,
+            18 ],
+          2026:[ 5,
+            2,
+            5,
+            17 ],
+          name:"Vacances après 4ème période" },
+        { 2018:[ 7,
+            8,
+            8,
+            16 ],
+          2019:[ 7,
+            7,
+            8,
+            15 ],
+          2020:[ 7,
+            8,
+            8,
+            15 ],
+          2021:[ 12,
+            20,
+            1,
+            26 ],
+          2022:[ 7,
+            9,
+            8,
+            15 ],
+          2023:[ 7,
+            8,
+            9,
+            16 ],
+          2024:[ 8,
+            19 ],
+          2025:[ 7,
+            5,
+            8,
+            18 ],
+          2026:[ 7,
+            4 ],
+          name:"Vacances hiver austral" },
+        { 2018:[ 10,
+            14,
+            10,
+            28 ],
+          2019:[ 10,
+            13,
+            10,
+            27 ],
+          2020:[ 10,
+            11,
+            11,
+            25 ],
+          2021:[  ],
+          2022:[  ],
+          2023:[  ],
+          2024:[ 10,
+            12,
+            10,
+            27 ],
+          2025:[ 10,
+            11,
+            10,
+            26 ],
+          2026:[  ],
+          name:"Vacances après 1ère période" },
+        { 2018:[ 12,
+            23,
+            1,
+            27 ],
+          2019:[ 12,
+            20,
+            1,
+            26 ],
+          2020:[ 12,
+            20,
+            1,
+            24 ],
+          2021:[  ],
+          2022:[  ],
+          2023:[  ],
+          2024:[ 12,
+            19,
+            1,
+            20 ],
+          2025:[ 12,
+            19,
+            1,
+            20 ],
+          2026:[  ],
+          name:"Vacances été austral" } ] },
+    "Nouvelle-Calédonie":{ _state_code:"nc",
+      SH:[ { 2018:[ 4,
+            7,
+            4,
+            15 ],
+          2019:[ 4,
+            6,
+            4,
+            14 ],
+          2020:[ 4,
+            4,
+            4,
+            13 ],
+          2021:[ 4,
+            3,
+            4,
+            18 ],
+          2022:[ 4,
+            2,
+            4,
+            16 ],
+          2023:[ 4,
+            2,
+            4,
+            16 ],
+          2024:[ 3,
+            30,
+            4,
+            13 ],
+          2025:[ 4,
+            5,
+            4,
+            19 ],
+          2026:[  ],
+          name:"Vacances 1ère période" },
+        { 2018:[ 6,
+            9,
+            6,
+            24 ],
+          2019:[ 6,
+            8,
+            6,
+            23 ],
+          2020:[ 6,
+            6,
+            6,
+            21 ],
+          2021:[ 6,
+            5,
+            6,
+            20 ],
+          2022:[ 6,
+            4,
+            6,
+            18 ],
+          2023:[ 4,
+            2,
+            4,
+            16 ],
+          2024:[ 6,
+            1,
+            6,
+            15 ],
+          2025:[ 6,
+            7,
+            6,
+            21 ],
+          2026:[  ],
+          name:"Vacances 2ème période" },
+        { 2018:[ 8,
+            11,
+            8,
+            26 ],
+          2019:[ 8,
+            10,
+            8,
+            25 ],
+          2020:[ 8,
+            8,
+            8,
+            23 ],
+          2021:[ 8,
+            7,
+            8,
+            22 ],
+          2022:[ 8,
+            6,
+            8,
+            20 ],
+          2023:[ 8,
+            5,
+            8,
+            20 ],
+          2024:[ 8,
+            3,
+            8,
+            17 ],
+          2025:[ 8,
+            9,
+            9,
+            23 ],
+          2026:[  ],
+          name:"Vacances 3ème période" },
+        { 2018:[ 10,
+            13,
+            10,
+            18 ],
+          2019:[ 10,
+            12,
+            10,
+            27 ],
+          2020:[ 10,
             10,
             10,
             25 ],
-          "2021":[ 10,
+          2021:[ 10,
             9,
             10,
             24 ],
-          "2022":[ 10,
+          2022:[ 10,
             8,
             10,
-            23 ],
+            22 ],
+          2023:[ 10,
+            7,
+            10,
+            22 ],
+          2024:[ 10,
+            5,
+            10,
+            19 ],
+          2025:[ 10,
+            11,
+            10,
+            25 ],
+          2026:[  ],
           name:"Vacances 4ème période" },
-        { "2018":[ 12,
+        { 2018:[ 12,
             15,
             2,
             17 ],
-          "2019":[ 12,
+          2019:[ 12,
             14,
             2,
             16 ],
-          "2020":[ 12,
+          2020:[ 12,
             18,
             2,
             14 ],
-          "2021":[ 12,
+          2021:[ 12,
             18,
             2,
             13 ],
-          "2022":[ 12,
+          2022:[ 12,
             17,
             2,
             12 ],
+          2023:[ 12,
+            16,
+            2,
+            11 ],
+          2024:[ 12,
+            14,
+            2,
+            17 ],
+          2025:[ 12,
+            20 ],
+          2026:[  ],
           name:"Vacances d'Été" } ] },
     "Polynésie française":{ _state_code:"pf",
-      SH:[ { "2018":[ 2,
+      SH:[ { 2018:[ 2,
             18,
             2,
             25 ],
-          "2019":[ 2,
+          2019:[ 2,
             17,
             2,
             24 ],
-          "2020":[ 2,
+          2020:[ 2,
             16,
             2,
             23 ],
-          "2021":[ 2,
+          2021:[ 2,
             21,
             2,
             28 ],
-          "2022":[ 2,
-            20,
-            2,
-            27 ],
-          "2023":[ 2,
+          2022:[ 2,
             19,
             2,
+            27 ],
+          2023:[ 2,
+            18,
+            2,
             26 ],
+          2024:[ 2,
+            17,
+            2,
+            25 ],
+          2025:[ 2,
+            15,
+            2,
+            23 ],
+          2026:[ 2,
+            14,
+            2,
+            22 ],
           name:"Vacances de février" },
-        { "2018":[ 3,
+        { 2018:[ 3,
             30,
             4,
             15 ],
-          "2019":[ 4,
+          2019:[ 4,
             7,
             4,
             22 ],
-          "2020":[ 3,
+          2020:[ 3,
             29,
             4,
             13 ],
-          "2021":[ 4,
+          2021:[ 4,
             6,
             4,
             18 ],
-          "2022":[ 4,
-            3,
-            4,
-            16 ],
-          "2023":[ 4,
+          2022:[ 4,
             2,
             4,
+            18 ],
+          2023:[ 4,
+            1,
+            4,
             16 ],
+          2024:[ 3,
+            30,
+            4,
+            14 ],
+          2025:[ 3,
+            29,
+            4,
+            13 ],
+          2026:[ 3,
+            28,
+            4,
+            12 ],
           name:"Vacances d'avril" },
-        { "2018":[ 5,
+        { 2018:[ 5,
             20,
             5,
             27 ],
-          "2019":[ 5,
+          2019:[ 5,
             26,
             6,
             2 ],
-          "2020":[ 5,
+          2020:[ 5,
             17,
             5,
             24 ],
-          "2021":[ 5,
+          2021:[ 5,
             25,
             5,
             30 ],
-          "2022":[ 5,
-            22,
-            5,
-            29 ],
-          "2023":[ 5,
+          2022:[ 5,
             21,
             5,
-            27 ],
+            29 ],
+          2023:[ 5,
+            20,
+            5,
+            28 ],
+          2024:[ 5,
+            18,
+            5,
+            26 ],
+          2025:[ 5,
+            24,
+            6,
+            1 ],
+          2026:[ 5,
+            23,
+            5,
+            31 ],
           name:"Vacances de mai" },
-        { "2018":[ 7,
+        { 2018:[ 7,
             7,
             8,
             15 ],
-          "2019":[ 7,
+          2019:[ 7,
             7,
             8,
             13 ],
-          "2020":[ 7,
+          2020:[ 7,
             5,
             8,
             9 ],
-          "2021":[ 7,
+          2021:[ 7,
             3,
             8,
             8 ],
-          "2022":[ 7,
+          2022:[ 7,
             2,
             8,
             7 ],
-          "2023":[ 7,
-            2,
+          2023:[ 7,
+            1,
             8,
-            7 ],
+            13 ],
+          2024:[ 7,
+            6,
+            8,
+            12 ],
+          2025:[ 7,
+            5,
+            8,
+            12 ],
+          2026:[ 8,
+            4 ],
           name:"Grandes Vacances" },
-        { "2018":[ 9,
+        { 2018:[ 9,
             16,
             9,
             23 ],
-          "2019":[ 9,
+          2019:[ 9,
             15,
             9,
             22 ],
-          "2020":[ 9,
+          2020:[ 9,
             13,
             9,
             20 ],
-          "2021":[ 9,
+          2021:[ 9,
             12,
             9,
             19 ],
-          "2022":[ 9,
-            11,
+          2022:[ 9,
+            10,
             9,
             18 ],
+          2023:[ 9,
+            16,
+            9,
+            24 ],
+          2024:[ 9,
+            14,
+            9,
+            22 ],
+          2025:[ 9,
+            13,
+            9,
+            21 ],
+          2026:[  ],
           name:"Vacances de septembre" },
-        { "2018":[ 10,
+        { 2018:[ 10,
             28,
             11,
             11 ],
-          "2019":[ 10,
+          2019:[ 10,
             27,
             11,
             11 ],
-          "2020":[ 10,
+          2020:[ 10,
             25,
             11,
             8 ],
-          "2021":[ 10,
+          2021:[ 10,
             24,
             11,
             7 ],
-          "2022":[ 10,
-            23,
+          2022:[ 10,
+            22,
             11,
             6 ],
-          name:"Vacances d'octobre-novembre" },
-        { "2018":[ 12,
-            16,
-            1,
-            13 ],
-          "2019":[ 12,
-            15,
-            1,
-            12 ],
-          "2020":[ 12,
-            13,
-            1,
-            10 ],
-          "2021":[ 12,
-            12,
-            1,
-            9 ],
-          "2022":[ 12,
+          2023:[ 10,
+            28,
             11,
+            12 ],
+          2024:[ 10,
+            26,
+            11,
+            11 ],
+          2025:[ 10,
+            25,
+            11,
+            9 ],
+          2026:[  ],
+          name:"Vacances d'octobre-novembre" },
+        { 2018:[ 12,
+            23,
+            1,
+            6 ],
+          2019:[ 12,
+            22,
+            1,
+            5 ],
+          2020:[ 12,
+            20,
+            1,
+            3 ],
+          2021:[ 12,
+            19,
+            1,
+            2 ],
+          2022:[ 12,
+            10,
             1,
             8 ],
+          2023:[ 12,
+            16,
+            1,
+            14 ],
+          2024:[ 12,
+            14,
+            1,
+            12 ],
+          2025:[ 12,
+            13,
+            1,
+            11 ],
+          2026:[  ],
           name:"Vacances de Noël" } ] },
     "Saint-Pierre-et-Miquelon":{ _state_code:"pm",
-      SH:[ { "2018":[ 2,
+      SH:[ { 2018:[ 2,
             24,
             3,
             11 ],
-          "2019":[ 2,
+          2019:[ 2,
             16,
             3,
             3 ],
-          "2020":[ 2,
+          2020:[ 2,
             22,
             3,
             8 ],
-          "2021":[ 2,
+          2021:[ 2,
             19,
             3,
             7 ],
+          2022:[  ],
+          2023:[  ],
+          2024:[  ],
+          2025:[ 2,
+            22,
+            3,
+            9 ],
+          2026:[ 2,
+            14,
+            3,
+            1 ],
           name:"Vacances d'Hiver" },
-        { "2018":[ 4,
+        { 2018:[ 4,
             28,
             5,
             13 ],
-          "2019":[ 4,
+          2019:[ 4,
             20,
             5,
             5 ],
-          "2020":[ 4,
+          2020:[ 4,
             18,
             5,
             3 ],
-          "2021":[ 4,
+          2021:[ 4,
             24,
             5,
             9 ],
+          2022:[ 4,
+            15,
+            5,
+            1 ],
+          2023:[  ],
+          2024:[  ],
+          2025:[ 4,
+            19,
+            5,
+            4 ],
+          2026:[ 4,
+            11,
+            4,
+            26 ],
           name:"Vacances de Printemps" },
-        { "2020":[ 5,
+        { 2018:[ 5,
+            10,
+            5,
+            10 ],
+          2019:[ 5,
+            30,
+            6,
+            2 ],
+          2020:[ 5,
             21,
             5,
             24 ],
-          "2021":[ 5,
-            13,
+          2021:[ 5,
+            14,
             5,
             16 ],
+          2022:[ 5,
+            26,
+            5,
+            27 ],
+          2023:[ 5,
+            17,
+            5,
+            21 ],
+          2024:[ 5,
+            8,
+            5,
+            12 ],
+          2025:[ 5,
+            29,
+            6,
+            1 ],
+          2026:[ 5,
+            14,
+            5,
+            17 ],
           name:"Pont de l'Ascension" },
-        { "2018":[ 6,
+        { 2018:[ 6,
             30,
             9,
             6 ],
-          "2019":[ 7,
+          2019:[ 7,
             4,
             9,
             4 ],
-          "2020":[ 7,
+          2020:[ 7,
             4,
             9,
             2 ],
-          "2021":[ 7,
+          2021:[ 7,
             3,
             9,
             1 ],
+          2022:[ 7,
+            1,
+            8,
+            31 ],
+          2023:[  ],
+          2024:[ 9,
+            3 ],
+          2025:[ 7,
+            4,
+            9,
+            2 ],
+          2026:[ 7,
+            3 ],
           name:"Vacances d'Été" },
-        { "2018":[ 10,
-            27,
+        { 2018:[ 10,
+            21,
             11,
             4 ],
-          "2019":[ 10,
-            26,
+          2019:[ 10,
+            20,
             11,
-            5 ],
-          "2020":[ 10,
-            22,
+            3 ],
+          2020:[ 10,
+            18,
             11,
             1 ],
-          name:"Vacances de la Toussaint" },
-        { "2018":[ 12,
+          2021:[ 10,
+            24,
+            11,
+            7 ],
+          2022:[ 10,
             22,
+            11,
+            6 ],
+          2023:[ 10,
+            21,
+            11,
+            5 ],
+          2024:[ 10,
+            23,
+            11,
+            3 ],
+          2025:[ 10,
+            22,
+            11,
+            2 ],
+          2026:[  ],
+          name:"Vacances de la Toussaint" },
+        { 2018:[ 12,
+            23,
             1,
             6 ],
-          "2019":[ 12,
+          2019:[ 12,
+            22,
+            1,
+            5 ],
+          2020:[ 12,
+            20,
+            1,
+            3 ],
+          2021:[ 12,
+            19,
+            1,
+            2 ],
+          2022:[ 12,
+            17,
+            1,
+            2 ],
+          2023:[ 12,
+            23,
+            1,
+            7 ],
+          2024:[ 12,
             21,
             1,
             5 ],
-          "2020":[ 12,
-            19,
+          2025:[ 12,
+            20,
             1,
-            3 ],
+            4 ],
+          2026:[  ],
           name:"Vacances de Noël" } ] },
     "Wallis-et-Futuna":{ _state_code:"wf",
-      SH:[ { "2018":[ 4,
+      SH:[ { 2018:[ 4,
             1,
             4,
             15 ],
-          "2019":[ 3,
+          2019:[ 3,
             31,
             4,
             14 ],
-          "2020":[ 3,
+          2020:[ 3,
             29,
             4,
             13 ],
-          "2021":[ 4,
+          2021:[ 4,
             3,
             4,
             18 ],
+          2022:[  ],
+          2023:[  ],
+          2024:[ 3,
+            30,
+            4,
+            14 ],
+          2025:[ 4,
+            5,
+            4,
+            20 ],
+          2026:[  ],
           name:"Vacances 1ère période" },
-        { "2018":[ 6,
+        { 2018:[ 6,
             8,
             6,
             24 ],
-          "2019":[ 6,
+          2019:[ 6,
             9,
             6,
             23 ],
-          "2020":[ 6,
+          2020:[ 6,
             5,
             6,
             21 ],
-          "2021":[ 6,
+          2021:[ 6,
             5,
             6,
             20 ],
+          2022:[  ],
+          2023:[  ],
+          2024:[ 6,
+            1,
+            6,
+            16 ],
+          2025:[ 6,
+            7,
+            6,
+            22 ],
+          2026:[  ],
           name:"Vacances 2ème période" },
-        { "2018":[ 8,
+        { 2018:[ 8,
             10,
             8,
             26 ],
-          "2019":[ 8,
+          2019:[ 8,
             11,
             8,
             25 ],
-          "2020":[ 8,
+          2020:[ 8,
             9,
             8,
             23 ],
-          "2021":[ 8,
+          2021:[ 8,
             7,
             8,
             22 ],
+          2022:[  ],
+          2023:[  ],
+          2024:[ 8,
+            3,
+            8,
+            18 ],
+          2025:[ 8,
+            9,
+            8,
+            24 ],
+          2026:[  ],
           name:"Vacances 3ème période" },
-        { "2018":[ 10,
+        { 2018:[ 10,
             14,
             10,
             28 ],
-          "2019":[ 10,
+          2019:[ 10,
             13,
             10,
             27 ],
-          "2020":[ 10,
+          2020:[ 10,
             11,
             10,
             25 ],
-          "2021":[ 10,
+          2021:[ 10,
             9,
             10,
             24 ],
+          2022:[  ],
+          2023:[  ],
+          2024:[ 10,
+            5,
+            10,
+            20 ],
+          2025:[ 10,
+            11,
+            10,
+            26 ],
+          2026:[  ],
           name:"Vacances 4ème période" },
-        { "2018":[ 12,
+        { 2018:[ 12,
             16,
             2,
             10 ],
-          "2019":[ 12,
+          2019:[ 12,
             15,
             2,
             9 ],
-          "2020":[ 12,
+          2020:[ 12,
             13,
             2,
             14 ],
-          "2021":[ 12,
+          2021:[ 12,
             18,
             2,
             19 ],
+          2022:[  ],
+          2023:[ 2,
+            12 ],
+          2024:[ 12,
+            14,
+            2,
+            16 ],
+          2025:[ 12,
+            20 ],
+          2026:[  ],
           name:"Vacances d'Été" } ] } };
+  data$p.PH;
+  data$p.Bretagne;
+  data$p.Normandie;
+  data$p.Occitanie;
+  data$p.Corse;
+  data$p.Guadeloupe;
+  data$p.Guyane;
+  data$p.Martinique;
+  data$p.Mayotte;
 
-  var data$d = { England:{ PH:[ { name:"New Year’s Day",
+  var data$o = { England:{ PH:[ { name:"New Year’s Day",
           fixed_date:[ 1,
             1 ] },
         { name:"Good Friday",
@@ -10678,9 +15037,60 @@
             25 ] },
         { name:"Boxing Day",
           fixed_date:[ 12,
+            26 ] } ] },
+    "Northern Ireland":{ PH:[ { name:"New Year’s Day",
+          fixed_date:[ 1,
+            1 ] },
+        { name:"St Patrick’s Day",
+          variable_date:"nextMo-Fr17March" },
+        { name:"Good Friday",
+          variable_date:"easter",
+          offset:-2 },
+        { name:"Easter Monday",
+          variable_date:"easter",
+          offset:1 },
+        { name:"Early May bank holiday",
+          variable_date:"firstMayMonday" },
+        { name:"Spring bank holiday",
+          variable_date:"lastMayMonday" },
+        { name:"Battle of the Boyne",
+          variable_date:"nextMo-Fr12July" },
+        { name:"Summer bank holiday",
+          variable_date:"lastAugustMonday" },
+        { name:"Christmas",
+          fixed_date:[ 12,
+            25 ] },
+        { name:"Boxing Day",
+          fixed_date:[ 12,
+            26 ] } ] },
+    Scotland:{ PH:[ { name:"New Year’s Day",
+          fixed_date:[ 1,
+            1 ] },
+        { name:"2nd January",
+          fixed_date:[ 1,
+            2 ] },
+        { name:"Good Friday",
+          variable_date:"easter",
+          offset:-2 },
+        { name:"Early May bank holiday",
+          variable_date:"firstMayMonday" },
+        { name:"Spring bank holiday",
+          variable_date:"lastMayMonday" },
+        { name:"Summer bank holiday",
+          variable_date:"lastAugustMonday" },
+        { name:"St. Andrew’s Day",
+          variable_date:"nextMo-Fr30November" },
+        { name:"Christmas",
+          fixed_date:[ 12,
+            25 ] },
+        { name:"Boxing Day",
+          fixed_date:[ 12,
             26 ] } ] } };
+  data$o.England;
+  data$o.Wales;
+  data$o.Scotland;
 
-  var data$e = { PH:[ { name:"Πρωτοχρονιά",
+  var data$n = { PH:[ { name:"Πρωτοχρονιά",
         fixed_date:[ 1,
           1 ] },
       { name:"Θεοφάνια",
@@ -10716,62 +15126,148 @@
       { name:"2η μέρα Χριστουγέννων",
         fixed_date:[ 12,
           26 ] } ],
-    SH:[ { "2019":[ 1,
+    SH:[ { 2019:[ 1,
           30,
           1,
           30 ],
-        "2020":[ 1,
+        2020:[ 1,
           30,
           1,
           30 ],
         name:"Τριών Ιεραρχών" },
-      { "2019":[ 4,
+      { 2019:[ 4,
           22,
           5,
           6 ],
-        "2020":[ 4,
+        2020:[ 4,
           13,
           4,
           26 ],
         name:"Πάσχα" },
-      { "2019":[ 6,
+      { 2019:[ 6,
           17,
           6,
           17 ],
-        "2020":[ 6,
+        2020:[ 6,
           8,
           6,
           8 ],
         name:"Αγίου Πνεύματος" },
-      { "2019":[ 7,
+      { 2019:[ 7,
           1,
           8,
           31 ],
-        "2020":[ 7,
+        2020:[ 7,
           1,
           8,
           31 ],
         name:"Καλοκαίρι" },
-      { "2019":[ 11,
+      { 2019:[ 11,
           17,
           11,
           17 ],
         name:"Πολυτεχνείο" },
-      { "2018":[ 12,
+      { 2018:[ 12,
           24,
           1,
           7 ],
-        "2019":[ 12,
+        2019:[ 12,
           24,
           1,
           7 ],
-        "2020":[ 12,
+        2020:[ 12,
           24,
           1,
           7 ],
         name:"Χριστούγεννα" } ] };
+  data$n.PH;
+  data$n.SH;
 
-  var data$f = { PH:[ { name:"újév",
+  var data$m = { PH:[ { name:"Nova godina",
+        fixed_date:[ 1,
+          1 ] },
+      { name:"Sveta tri kralja",
+        fixed_date:[ 1,
+          6 ] },
+      { name:"Uskršnji ponedjeljak",
+        variable_date:"easter",
+        offset:1 },
+      { name:"Praznik rada",
+        fixed_date:[ 5,
+          1 ] },
+      { name:"Tijelovo",
+        variable_date:"easter",
+        offset:60 },
+      { name:"Dan antifašističke borbe",
+        fixed_date:[ 6,
+          22 ] },
+      { name:"Dan pobjede i domovinske zahvalnosti",
+        fixed_date:[ 8,
+          5 ] },
+      { name:"Velika Gospa",
+        fixed_date:[ 8,
+          15 ] },
+      { name:"Svi sveti",
+        fixed_date:[ 11,
+          1 ] },
+      { name:"Dan sjećanja na žrtve Domovinskog rata",
+        fixed_date:[ 11,
+          18 ] },
+      { name:"Božić",
+        fixed_date:[ 12,
+          25 ] },
+      { name:"Sveti Stjepan",
+        fixed_date:[ 12,
+          26 ] } ],
+    SH:[ { 2022:[ 2,
+          21,
+          2,
+          27 ],
+        2023:[ 2,
+          20,
+          2,
+          26 ],
+        name:"Drugi dio zimskog odmora" },
+      { 2022:[ 4,
+          14,
+          4,
+          24 ],
+        2023:[ 4,
+          6,
+          4,
+          16 ],
+        name:"Proljetni odmor" },
+      { 2022:[ 6,
+          23,
+          9,
+          3 ],
+        2023:[ 6,
+          23,
+          9,
+          4 ],
+        name:"Ljetni praznici" },
+      { 2021:[ 11,
+          2,
+          11,
+          3 ],
+        2022:[ 10,
+          31,
+          11,
+          1 ],
+        name:"Jesenski odmor" },
+      { 2021:[ 12,
+          24,
+          1,
+          9 ],
+        2022:[ 12,
+          27,
+          1,
+          8 ],
+        name:"Prvi dio zimskog odmora" } ] };
+  data$m.PH;
+  data$m.SH;
+
+  var data$l = { PH:[ { name:"újév",
         fixed_date:[ 1,
           1 ] },
       { name:"az 1848-as forradalom ünnepe",
@@ -10809,60 +15305,202 @@
       { name:"karácsony másnap",
         fixed_date:[ 12,
           26 ] } ],
-    SH:[ { "2015":[ 4,
+    SH:[ { 2014:[ 10,
+          23,
+          11,
+          2 ],
+        2015:[ 10,
+          23,
+          11,
+          1 ],
+        2016:[ 10,
+          29,
+          11,
+          6 ],
+        2017:[ 10,
+          28,
+          11,
+          5 ],
+        2018:[ 10,
+          27,
+          11,
+          4 ],
+        2019:[ 10,
+          26,
+          11,
+          3 ],
+        2020:[ 10,
+          23,
+          11,
+          1 ],
+        2021:[ 10,
+          23,
+          11,
+          1 ],
+        2023:[ 10,
+          28,
+          11,
+          5 ],
+        2024:[ 10,
+          26,
+          11,
+          3 ],
+        2025:[ 10,
+          23,
+          11,
+          2 ],
+        name:"őszi szünet" },
+      { 2014:[ 12,
+          20,
+          1,
+          4 ],
+        2015:[ 12,
+          19,
+          1,
+          3 ],
+        2016:[ 12,
+          22,
+          1,
+          2 ],
+        2017:[ 12,
+          23,
+          1,
+          2 ],
+        2018:[ 12,
+          22,
+          1,
+          2 ],
+        2019:[ 12,
+          21,
+          1,
+          5 ],
+        2020:[ 12,
+          19,
+          1,
+          3 ],
+        2021:[ 12,
+          22,
+          1,
+          2 ],
+        2022:[ 12,
+          22,
+          1,
+          8 ],
+        2023:[ 12,
+          22,
+          1,
+          7 ],
+        2024:[ 12,
+          21,
+          1,
+          5 ],
+        2025:[ 12,
+          20,
+          1,
+          4 ],
+        name:"téli szünet" },
+      { 2015:[ 4,
           2,
           4,
           7 ],
-        "2016":[ 3,
+        2016:[ 3,
           24,
           3,
           29 ],
-        "2017":[ 4,
+        2017:[ 4,
           13,
           4,
           18 ],
-        name:"tavaszi szünet" },
-      { "2015":[ 6,
-          16,
-          8,
-          31 ],
-        "2016":[ 6,
-          16,
-          8,
-          31 ],
-        "2017":[ 6,
-          16,
-          8,
-          31 ],
-        name:"nyári szünet" },
-      { "2014":[ 10,
-          27,
-          10,
-          31 ],
-        "2015":[ 10,
-          26,
-          10,
-          30 ],
-        "2016":[ 11,
+        2018:[ 3,
+          29,
+          4,
+          3 ],
+        2019:[ 4,
+          18,
+          4,
+          23 ],
+        2020:[ 4,
+          7,
+          4,
+          14 ],
+        2021:[ 4,
+          1,
+          4,
+          6 ],
+        2022:[ 4,
+          14,
+          4,
+          19 ],
+        2023:[ 4,
+          6,
+          4,
+          11 ],
+        2024:[ 3,
+          28,
+          4,
+          7 ],
+        2025:[ 4,
+          17,
+          4,
+          27 ],
+        2026:[ 4,
           2,
-          11,
-          4 ],
-        name:"őszi szünet" },
-      { "2014":[ 12,
-          22,
-          1,
-          2 ],
-        "2015":[ 12,
-          21,
-          12,
+          4,
+          12 ],
+        name:"tavaszi szünet" },
+      { 2015:[ 6,
+          16,
+          8,
           31 ],
-        "2016":[ 12,
-          22,
-          1,
+        2016:[ 6,
+          16,
+          8,
+          31 ],
+        2017:[ 6,
+          16,
+          8,
+          31 ],
+        2018:[ 6,
+          16,
+          9,
           2 ],
-        name:"téli szünet" } ] };
+        2019:[ 6,
+          15,
+          9,
+          1 ],
+        2020:[ 6,
+          16,
+          8,
+          31 ],
+        2021:[ 6,
+          16,
+          8,
+          31 ],
+        2022:[ 6,
+          16,
+          8,
+          31 ],
+        2023:[ 6,
+          17,
+          8,
+          31 ],
+        2024:[ 6,
+          22,
+          9,
+          1 ],
+        2025:[ 6,
+          21,
+          8,
+          31 ],
+        2026:[ 6,
+          20,
+          8,
+          31 ],
+        name:"nyári szünet" } ] };
+  data$l.PH;
+  data$l.SH;
 
-  var data$g = { PH:[ { name:"New Year’s Day",
+  var data$k = { PH:[ { name:"New Year’s Day",
         fixed_date:[ 1,
           1 ] },
       { name:"St Patrick’s Day",
@@ -10893,8 +15531,9 @@
       { name:"Bank Holiday",
         fixed_date:[ 12,
           27 ] } ] };
+  data$k.PH;
 
-  var data$h = { PH:[ { name:"Capodanno",
+  var data$j = { PH:[ { name:"Capodanno",
         fixed_date:[ 1,
           1 ] },
       { name:"Epifania",
@@ -10929,8 +15568,221 @@
       { name:"Santo Stefano",
         fixed_date:[ 12,
           26 ] } ] };
+  data$j.PH;
 
-  var data$i = { PH:[ { name:"Nieuwjaarsdag",
+  var data$i = { PH:[ { name:"元日",
+        fixed_date:[ 1,
+          1 ] },
+      { name:"成人の日",
+        variable_date:"firstJanuaryMonday",
+        offset:7 },
+      { name:"建国記念の日",
+        fixed_date:[ 2,
+          11 ] },
+      { name:"天皇誕生日",
+        fixed_date:[ 2,
+          23 ] },
+      { name:"昭和の日",
+        fixed_date:[ 4,
+          29 ] },
+      { name:"憲法記念日",
+        fixed_date:[ 5,
+          3 ] },
+      { name:"みどりの日",
+        fixed_date:[ 5,
+          4 ] },
+      { name:"こどもの日",
+        fixed_date:[ 5,
+          5 ] },
+      { name:"海の日",
+        variable_date:"firstJulyMonday",
+        offset:14 },
+      { name:"山の日",
+        fixed_date:[ 8,
+          11 ] },
+      { name:"敬老の日",
+        variable_date:"firstSeptemberMonday",
+        offset:14 },
+      { name:"スポーツの日",
+        variable_date:"firstNovemberMonday",
+        offset:7 },
+      { name:"文化の日",
+        fixed_date:[ 11,
+          3 ] },
+      { name:"勤労感謝の日",
+        fixed_date:[ 11,
+          23 ] },
+      { name:"春分の日",
+        variable_date:"springEquinox" },
+      { name:"秋分の日",
+        variable_date:"autumnalEquinox" } ] };
+  data$i.PH;
+
+  var data$h = { PH:[ { name:"Neijoerschdag - Neujahr - Nouvel An",
+        fixed_date:[ 1,
+          1 ] },
+      { name:"Ouschterméindeg - Ostermontag - Lundi de Pâques",
+        variable_date:"easter",
+        offset:1 },
+      { name:"Dag vun der Aarbecht - Tag der Arbeit - Premier Mai",
+        fixed_date:[ 5,
+          1 ] },
+      { name:"Europadag - Europatag - Journée de l'Europe",
+        fixed_date:[ 5,
+          1 ] },
+      { name:"Christi Himmelfaart - Christi Himmelfahrt - Ascension",
+        variable_date:"easter",
+        offset:39 },
+      { name:"Péngschtméindeg - Pfingstmontag - Lundi de Pentecôte",
+        variable_date:"easter",
+        offset:50 },
+      { name:"Nationalfeierdag - Nationalfeiertag - Fête nationale",
+        fixed_date:[ 6,
+          23 ] },
+      { name:"Mariä Himmelfaart - Maria Himmelfahrt - Assomption",
+        fixed_date:[ 8,
+          15 ] },
+      { name:"Allerhellgen - Weihnachten - Allerheiligen - Toussaint",
+        fixed_date:[ 11,
+          1 ] },
+      { name:"Chrëschtdag - Noël",
+        fixed_date:[ 12,
+          25 ] },
+      { name:"Stiefesdag - Zweiter Weihnachtsfeiertag - St. Etienne",
+        fixed_date:[ 12,
+          26 ] } ],
+    SH:[ { 2023:[ 10,
+          28,
+          11,
+          5 ],
+        2024:[ 10,
+          26,
+          11,
+          3 ],
+        2025:[ 11,
+          1,
+          11,
+          9 ],
+        name:"Allerhellegen - Allerheiligenurlaub - Congé de la Toussaint" },
+      { 2023:[ 12,
+          6 ],
+        2024:[ 12,
+          6 ],
+        2025:[ 12,
+          6 ],
+        name:"Fest vum Hellege Nikolaus (nëmme fir Grondausbildung) - Nikolausfest (nur für die Grundschule) - Fête de Saint Nicolas (uniquement pour l'enseignement fondamental)" },
+      { 2023:[ 12,
+          23,
+          1,
+          7 ],
+        2024:[ 12,
+          21,
+          1,
+          5 ],
+        2025:[ 12,
+          20,
+          1,
+          4 ],
+        name:"Chrëschtdag Vakanz - Weihnachtsferien - Vacances de Noël" },
+      { 2024:[ 2,
+          10,
+          2,
+          18 ],
+        2025:[ 2,
+          15,
+          2,
+          23 ],
+        2026:[ 2,
+          14,
+          2,
+          22 ],
+        name:"Karneval Vakanz - Karnevalsferien - Congé de Carnaval" },
+      { 2024:[ 3,
+          30,
+          4,
+          14 ],
+        2025:[ 4,
+          5,
+          4,
+          20 ],
+        2026:[ 3,
+          28,
+          4,
+          12 ],
+        name:"Ouschtervakanz - Osterferien - Vacances de Pâques" },
+      { 2024:[ 5,
+          25,
+          6,
+          2 ],
+        2025:[ 5,
+          24,
+          6,
+          1 ],
+        2026:[ 5,
+          23,
+          5,
+          31 ],
+        name:"Päischtvakanz - Pfingstferien - Congé de la Pentecôte" },
+      { 2025:[ 6,
+          23 ],
+        2026:[ 6,
+          23 ],
+        name:"Gebuertsdag vum Grand-Duc - Geburtstag des Großherzogs - l'anniversaire du Grand-Duc" },
+      { 2024:[ 7,
+          16,
+          9,
+          15 ],
+        2025:[ 7,
+          16,
+          9,
+          14 ],
+        2026:[ 7,
+          16,
+          9,
+          14 ],
+        name:"Summervakanz - Sommerferien - Vacances d’été" } ] };
+  data$h.PH;
+  data$h.SH;
+
+  var data$g = { PH:[ { name:"New Year’s Day",
+        fixed_date:[ 1,
+          1 ] },
+      { name:"Independence Day",
+        fixed_date:[ 3,
+          21 ] },
+      { name:"Good Friday",
+        variable_date:"easter",
+        offset:-2 },
+      { name:"Easter Monday",
+        variable_date:"easter",
+        offset:1 },
+      { name:"Worker’s Day",
+        fixed_date:[ 5,
+          1 ] },
+      { name:"Cassinga Day",
+        fixed_date:[ 5,
+          4 ] },
+      { name:"Ascension Day",
+        variable_date:"easter",
+        offset:39 },
+      { name:"Africa Day",
+        fixed_date:[ 5,
+          25 ] },
+      { name:"Heroes’ Day",
+        fixed_date:[ 8,
+          26 ] },
+      { name:"Human Rights Day",
+        fixed_date:[ 12,
+          10 ] },
+      { name:"Christmas Day",
+        fixed_date:[ 12,
+          25 ] },
+      { name:"Family Day",
+        fixed_date:[ 12,
+          26 ] } ] };
+  data$g.PH;
+
+  var data$f = { PH:[ { name:"Nieuwjaarsdag",
         fixed_date:[ 1,
           1 ] },
       { name:"Goede vrijdag",
@@ -10957,8 +15809,9 @@
       { name:"Tweede Kerstdag",
         fixed_date:[ 12,
           26 ] } ] };
+  data$f.PH;
 
-  var data$j = { PH:[ { name:"Nyttårsdag",
+  var data$e = { PH:[ { name:"Nyttårsdag",
         fixed_date:[ 1,
           1 ] },
       { name:"Skjærtorsdag",
@@ -10993,8 +15846,9 @@
       { name:"2. Juledag",
         fixed_date:[ 12,
           26 ] } ] };
+  data$e.PH;
 
-  var data$k = { PH:[ { name:"New Year's Day",
+  var data$d = { PH:[ { name:"New Year's Day",
         fixed_date:[ 1,
           1 ] },
       { name:"Day after New Year's Day",
@@ -11023,8 +15877,9 @@
       { name:"Boxing Day",
         fixed_date:[ 12,
           26 ] } ] };
+  data$d.PH;
 
-  var data$l = { PH:[ { name:"Nowy Rok",
+  var data$c = { PH:[ { name:"Nowy Rok",
         fixed_date:[ 1,
           1 ] },
       { name:"Święto Trzech Króli",
@@ -11062,8 +15917,9 @@
       { name:"drugi dzień Bożego Narodzenia",
         fixed_date:[ 12,
           26 ] } ] };
+  data$c.PH;
 
-  var data$m = { PH:[ { name:"Anul Nou",
+  var data$b = { PH:[ { name:"Anul Nou",
         fixed_date:[ 1,
           1 ] },
       { name:"A doua zi de Anul Nou",
@@ -11101,56 +15957,66 @@
       { name:"A doua zi de Crăciun",
         fixed_date:[ 12,
           26 ] } ],
-    SH:[ { "2015":[ 1,
+    SH:[ { 2015:[ 1,
           31,
           2,
           8 ],
-        "2016":[ 1,
+        2016:[ 1,
           30,
           2,
           7 ],
-        "2021":[ 1,
+        2021:[ 1,
           30,
           2,
           7 ],
         name:"Vacanţa intersemestrială" },
-      { "2015":[ 4,
+      { 2015:[ 4,
           11,
           4,
           19 ],
-        "2016":[ 4,
+        2016:[ 4,
           23,
           5,
           3 ],
-        "2021":[ 4,
+        2021:[ 4,
           30,
           5,
           9 ],
         name:"Vacanța de primăvară" },
-      { "2015":[ 6,
+      { 2015:[ 6,
           20,
           9,
           13 ],
-        "2016":[ 6,
+        2016:[ 6,
           18,
           9,
           4 ],
+        2021:[ 6,
+          26,
+          9,
+          13 ],
         name:"Vacanța de vară" },
-      { "2014":[ 12,
+      { 2014:[ 12,
           20,
           1,
           4 ],
-        "2015":[ 12,
+        2015:[ 12,
           19,
           1,
           3 ],
-        "2020":[ 12,
+        2020:[ 12,
           23,
           1,
           10 ],
+        2021:[ 12,
+          23,
+          1,
+          9 ],
         name:"Vacanța de iarnă" } ] };
+  data$b.PH;
+  data$b.SH;
 
-  var data$n = { PH:[ { name:"1. Новогодние каникулы",
+  var data$a = { PH:[ { name:"1. Новогодние каникулы",
         fixed_date:[ 1,
           1 ] },
       { name:"2. Новогодние каникулы",
@@ -12156,8 +17022,9 @@
         { name:"День Республики Коми",
           fixed_date:[ 8,
             22 ] } ] } };
+  data$a.PH;
 
-  var data$o = { PH:[ { name:"nyårsdagen",
+  var data$9 = { PH:[ { name:"nyårsdagen",
         fixed_date:[ 1,
           1 ] },
       { name:"trettondedag jul",
@@ -12174,6 +17041,9 @@
       { name:"första maj",
         fixed_date:[ 5,
           1 ] },
+      { name:"Kristi himmelsfärdsdag",
+        variable_date:"easter",
+        offset:39 },
       { name:"pingstdagen",
         variable_date:"easter",
         offset:49 },
@@ -12190,8 +17060,9 @@
       { name:"annandag jul",
         fixed_date:[ 12,
           26 ] } ] };
+  data$9.PH;
 
-  var data$p = { PH:[ { name:"novo leto",
+  var data$8 = { PH:[ { name:"novo leto",
         fixed_date:[ 1,
           1 ] },
       { name:"Prešernov dan, slovenski kulturni praznik",
@@ -12232,8 +17103,9 @@
       { name:"dan samostojnosti in enotnosti",
         fixed_date:[ 12,
           26 ] } ] };
+  data$8.PH;
 
-  var data$q = { PH:[ { name:"Deň vzniku Slovenskej republiky",
+  var data$7 = { PH:[ { name:"Deň vzniku Slovenskej republiky",
         fixed_date:[ 1,
           1 ] },
       { name:"Zjavenie Pána",
@@ -12280,8 +17152,9 @@
       { name:"Druhý sviatok vianočný",
         fixed_date:[ 12,
           26 ] } ] };
+  data$7.PH;
 
-  var data$r = { PH:[ { name:"Новий рік",
+  var data$6 = { PH:[ { name:"Новий рік",
         fixed_date:[ 1,
           1 ] },
       { name:"Різдво",
@@ -12308,8 +17181,9 @@
       { name:"День Незалежності України",
         fixed_date:[ 8,
           24 ] } ] };
+  data$6.PH;
 
-  var data$s = { PH:[ { name:"New Year's Day",
+  var data$5 = { PH:[ { name:"New Year's Day",
         fixed_date:[ 1,
           1 ] },
       { name:"Memorial Day",
@@ -14165,101 +19039,179 @@
         { name:"Christmas Day",
           fixed_date:[ 12,
             25 ] } ] } };
+  data$5.PH;
+  data$5.Alabama;
+  data$5.Alaska;
+  data$5.Arizona;
+  data$5.Arkansas;
+  data$5.California;
+  data$5.Colorado;
+  data$5.Connecticut;
+  data$5.Delaware;
+  data$5.Florida;
+  data$5.Georgia;
+  data$5.Guam;
+  data$5.Hawaii;
+  data$5.Idaho;
+  data$5.Illinois;
+  data$5.Indiana;
+  data$5.Iowa;
+  data$5.Kansas;
+  data$5.Kentucky;
+  data$5.Louisiana;
+  data$5.Maine;
+  data$5.Maryland;
+  data$5.Massachusetts;
+  data$5.Michigan;
+  data$5.Minnesota;
+  data$5.Mississippi;
+  data$5.Missouri;
+  data$5.Montana;
+  data$5.Nebraska;
+  data$5.Nevada;
+  data$5.Ohio;
+  data$5.Oklahoma;
+  data$5.Oregon;
+  data$5.Pennsylvania;
+  data$5.Tennessee;
+  data$5.Texas;
+  data$5.Utah;
+  data$5.Vermont;
+  data$5.Virginia;
+  data$5.Washington;
+  data$5.Wisconsin;
+  data$5.Wyoming;
 
-  var data$t = { PH:[ { name:"New Year",
+  var data$4 = { PH:[ { name:"Tết Dương Lịch",
+        fixed_date:[ 1,
+          1 ] },
+      { name:"Ngày Quốc tế Phụ nữ",
+        fixed_date:[ 3,
+          8 ] },
+      { name:"Ngày thành lập Đoàn Thanh niên Cộng sản Hồ Chí Minh",
+        fixed_date:[ 3,
+          26 ] },
+      { name:"Ngày Quốc tế Thiếu nhi",
+        fixed_date:[ 6,
+          1 ] },
+      { name:"Ngày Nhà giáo Việt Nam",
+        fixed_date:[ 11,
+          20 ] },
+      { name:"Ngày Giải phóng miền Nam, Thống nhất Đất nước",
+        fixed_date:[ 4,
+          30 ] },
+      { name:"Ngày Quốc tế lao động",
+        fixed_date:[ 5,
+          1 ] },
+      { name:"Quốc Khánh",
+        fixed_date:[ 9,
+          2 ] },
+      { name:"Lễ Giáng Sinh",
+        fixed_date:[ 12,
+          25 ] } ] };
+  data$4.PH;
+
+  var data$3 = { PH:[ { name:"New Year",
         fixed_date:[ 1,
           1 ] } ],
-    SH:[ { "2020":[ 6,
+    SH:[ { 2020:[ 6,
           21,
           9,
           23 ],
-        "2021":[ 6,
+        2021:[ 6,
           21,
           9,
           23 ],
-        "2022":[ 6,
+        2022:[ 6,
           21,
           9,
           23 ],
-        "2023":[ 6,
+        2023:[ 6,
           21,
           9,
           23 ],
-        "2024":[ 6,
+        2024:[ 6,
           21,
           9,
           23 ],
-        "2025":[ 6,
+        2025:[ 6,
           21,
           9,
           23 ],
-        "2026":[ 6,
+        2026:[ 6,
           21,
           9,
           23 ],
-        "2027":[ 6,
+        2027:[ 6,
           21,
           9,
           23 ],
-        "2028":[ 6,
+        2028:[ 6,
           21,
           9,
           23 ],
-        "2029":[ 6,
+        2029:[ 6,
           21,
           9,
           23 ],
-        "2030":[ 6,
+        2030:[ 6,
           21,
           9,
           23 ],
-        "2031":[ 6,
+        2031:[ 6,
           21,
           9,
           23 ],
-        "2032":[ 6,
+        2032:[ 6,
           21,
           9,
           23 ],
         name:"Summer" } ] };
-
-
+  data$3.PH;
+  data$3.SH;
 
   var holiday_definitions = /*#__PURE__*/Object.freeze({
     __proto__: null,
-    at: data,
-    au: data$1,
-    be: data$2,
-    br: data$3,
-    ca: data$4,
-    ch: data$5,
-    ci: data$6,
-    cz: data$7,
-    de: data$8,
-    dk: data$9,
-    es: data$a,
-    fi: data$b,
-    fr: data$c,
-    gb: data$d,
-    gr: data$e,
-    hu: data$f,
-    ie: data$g,
-    it: data$h,
-    nl: data$i,
-    no: data$j,
-    nz: data$k,
-    pl: data$l,
-    ro: data$m,
-    ru: data$n,
-    se: data$o,
-    si: data$p,
-    sk: data$q,
-    ua: data$r,
-    us: data$s,
-    xa: data$t
+    ar: data$D,
+    at: data$C,
+    au: data$B,
+    be: data$A,
+    br: data$z,
+    ca: data$y,
+    ch: data$x,
+    ci: data$w,
+    cn: data$v,
+    cz: data$u,
+    de: data$t,
+    dk: data$s,
+    es: data$r,
+    fi: data$q,
+    fr: data$p,
+    gb: data$o,
+    gr: data$n,
+    hr: data$m,
+    hu: data$l,
+    ie: data$k,
+    it: data$j,
+    jp: data$i,
+    lu: data$h,
+    na: data$g,
+    nl: data$f,
+    no: data$e,
+    nz: data$d,
+    pl: data$c,
+    ro: data$b,
+    ru: data$a,
+    se: data$9,
+    si: data$8,
+    sk: data$7,
+    ua: data$6,
+    us: data$5,
+    vn: data$4,
+    xa: data$3
   });
 
-  var data$u = { "assuming ok for ko":{ daytime:"sunrise-sunset",
+  var data$2 = { "assuming ok for ko":{ daytime:"sunrise-sunset",
       spring:"Mar-May",
       summer:"Jun-Aug",
       autumn:"Sep-Nov",
@@ -14410,50 +19362,22 @@
       sam:"Sa",
       "samstags?":"Sa",
       dim:"Su",
-      dimanche:"Su",
       "lun?":"Mo",
-      lundi:"Mo",
-      mardi:"Tu",
       mer:"We",
-      mercredi:"We",
       "jeu?":"Th",
-      jeudi:"Th",
       "ven?":"Fr",
-      vendredi:"Fr",
-      samedi:"Sa",
       "zon?":"Su",
       zontag:"Su",
-      zondag:"Su",
-      maandag:"Mo",
       din:"Tu",
-      dinsdag:"Tu",
       "woe?":"We",
-      woensdag:"We",
-      donderdag:"Th",
       "vri?":"Fr",
-      vrijdag:"Fr",
       "zat?":"Sa",
-      zaterdag:"Sa",
-      "neděle":"Su",
       ne:"Su",
-      "pondělí":"Mo",
       po:"Mo",
-      "úterý":"Tu",
       "út":"Tu",
-      "středa":"We",
       st:"We",
-      "čtvrtek":"Th",
       "čt":"Th",
-      "pátek":"Fr",
       "pá":"Fr",
-      sobota:"Sa",
-      martes:"Tu",
-      "miércoles":"We",
-      jueves:"Th",
-      viernes:"Fr",
-      "sábado":"Sa",
-      domingo:"Su",
-      lunes:"Mo",
       selasa:"Su",
       rabu:"Mo",
       kami:"Tu",
@@ -14461,61 +19385,35 @@
       sabtu:"Th",
       minggu:"Fr",
       senin:"Sa",
-      "söndag":"Su",
       "söndagar":"Su",
-      "måndag":"Mo",
       ma:"Mo",
-      tisdag:"Tu",
-      onsdag:"We",
-      torsdag:"Th",
-      fredag:"Fr",
-      "lördag":"Sa",
       "lördagar":"Sa",
-      niedziela:"Su",
       niedz:"Su",
       n:"Su",
       ndz:"Su",
-      "poniedziałek":"Mo",
       poniedzialek:"Mo",
       pon:"Mo",
       pn:"Mo",
-      wtorek:"Tu",
       wt:"Tu",
-      "środa":"We",
       sroda:"We",
       "śr":"We",
       sr:"We",
-      czwartek:"Th",
       czw:"Th",
       cz:"Th",
-      "piątek":"Fr",
       piatek:"Fr",
       pt:"Fr",
       sob:"Sa",
-      "воскресенье":"Su",
       "Вс":"Su",
       "voskresen'ye":"Su",
-      "понедельник":"Mo",
       "Пн":"Mo",
       "ponedel'nik":"Mo",
-      "вторник":"Tu",
       vtornik:"Tu",
-      "среда":"We",
-      sreda:"We",
-      "четверг":"Th",
       chetverk:"Th",
-      "пятница":"Fr",
       pyatnitsa:"Fr",
-      "суббота":"Sa",
       subbota:"Sa",
-      "søndag":"Su",
-      mandag:"Mo",
-      tirsdag:"Tu",
-      "lørdag":"Sa",
       dom:"Su",
       "domenica?":"Su",
       "domeniche?":"Su",
-      lun:"Mo",
       "lunedì?":"Mo",
       "mar?":"Tu",
       "martedì?":"Tu",
@@ -14528,58 +19426,5551 @@
       sab:"Sa",
       "sabato?":"Sa",
       "jänner":"Jan",
+      "june?":"Jun",
+      "july?":"Jul",
+      sept:"Sep",
+      "märz?":"Mar",
+      maerz:"Mar",
+      okt:"Oct",
+      dez:"Dec",
+      "fév":"Feb",
+      avr:"Apr",
+      "aoû":"Aug",
+      "giugno?":"Jun",
+      "luglio?":"Jul",
+      saterdag:"Sa",
+      sondag:"Su",
+      maandag:"Mo",
+      dinsdag:"Tu",
+      woensdag:"We",
+      donderdag:"Th",
+      vrydag:"Fr",
+      "sa\\.":"Sa",
+      "so\\.":"Su",
+      "ma\\.":"Mo",
+      "di\\.":"Tu",
+      "wo\\.":"We",
+      "do\\.":"Th",
+      "vr\\.":"Fr",
+      januarie:"Jan",
+      februarie:"Feb",
+      maart:"Mar",
+      april:"Apr",
+      mei:"May",
+      junie:"Jun",
+      julie:"Jul",
+      augustus:"Aug",
+      september:"Sep",
+      oktober:"Oct",
+      november:"Nov",
+      desember:"Dec",
+      "jan\\.":"Jan",
+      "feb\\.":"Feb",
+      "mrt\\.":"Mar",
+      "apr\\.":"Apr",
+      "jun\\.":"Jun",
+      "jul\\.":"Jul",
+      "aug\\.":"Aug",
+      "sep\\.":"Sep",
+      "okt\\.":"Oct",
+      "nov\\.":"Nov",
+      "des\\.":"Dec",
+      memeneda:"Sa",
+      kwasiada:"Su",
+      dwoada:"Mo",
+      benada:"Tu",
+      wukuada:"We",
+      yawoada:"Th",
+      fiada:"Fr",
+      mem:"Sa",
+      dwo:"Mo",
+      ben:"Tu",
+      wuk:"We",
+      yaw:"Th",
+      fia:"Fr",
+      "ɔpɛpɔn":"Jan",
+      "ɔgyefoɔ":"Feb",
+      "ɔbɛnem":"Mar",
+      oforisuo:"Apr",
+      "kɔtɔnimma":"May",
+      "ayɛwohomumu":"Jun",
+      kutawonsa:"Jul",
+      "ɔsanaa":"Aug",
+      "ɛbɔ":"Sep",
+      ahinime:"Oct",
+      obubuo:"Nov",
+      "ɔpɛnimma":"Dec",
+      "ቅዳሜ":"Sa",
+      "እሑድ":"Su",
+      "ሰኞ":"Mo",
+      "ማክሰኞ":"Tu",
+      "ረቡዕ":"We",
+      "ሐሙስ":"Th",
+      "ዓርብ":"Fr",
+      "ማክሰ":"Tu",
+      "ጃንዋሪ":"Jan",
+      "ፌብሩዋሪ":"Feb",
+      "ማርች":"Mar",
+      "ኤፕሪል":"Apr",
+      "ሜይ":"May",
+      "ጁን":"Jun",
+      "ጁላይ":"Jul",
+      "ኦገስት":"Aug",
+      "ሴፕቴምበር":"Sep",
+      "ኦክቶበር":"Oct",
+      "ኖቬምበር":"Nov",
+      "ዲሴምበር":"Dec",
+      "ጃን":"Jan",
+      "ፌብ":"Feb",
+      "ኤፕሪ":"Apr",
+      "ኦገስ":"Aug",
+      "ሴፕቴ":"Sep",
+      "ኦክቶ":"Oct",
+      "ኖቬም":"Nov",
+      "ዲሴም":"Dec",
+      "السبت":"Sa",
+      "الأحد":"Su",
+      "الاثنين":"Mo",
+      "الثلاثاء":"Tu",
+      "الأربعاء":"We",
+      "الخميس":"Th",
+      "الجمعة":"Fr",
+      "يناير":"Jan",
+      "فبراير":"Feb",
+      "مارس":"Mar",
+      "أبريل":"Apr",
+      "مايو":"May",
+      "يونيو":"Jun",
+      "يوليو":"Jul",
+      "أغسطس":"Aug",
+      "سبتمبر":"Sep",
+      "أكتوبر":"Oct",
+      "نوفمبر":"Nov",
+      "ديسمبر":"Dec",
+      "শনিবাৰ":"Sa",
+      "দেওবাৰ":"Su",
+      "সোমবাৰ":"Mo",
+      "মঙ্গলবাৰ":"Tu",
+      "বুধবাৰ":"We",
+      "বৃহস্পতিবাৰ":"Th",
+      "শুক্ৰবাৰ":"Fr",
+      "শনি":"Sa",
+      "দেও":"Su",
+      "সোম":"Mo",
+      "মঙ্গল":"Tu",
+      "বুধ":"We",
+      "বৃহ":"Th",
+      "শুক্ৰ":"Fr",
+      "জানুৱাৰী":"Jan",
+      "ফেব্ৰুৱাৰী":"Feb",
+      "মাৰ্চ":"Mar",
+      "এপ্ৰিল":"Apr",
+      "মে’":"May",
+      "জুন":"Jun",
+      "জুলাই":"Jul",
+      "আগষ্ট":"Aug",
+      "ছেপ্তেম্বৰ":"Sep",
+      "অক্টোবৰ":"Oct",
+      "নৱেম্বৰ":"Nov",
+      "ডিচেম্বৰ":"Dec",
+      "জানু":"Jan",
+      "ফেব্ৰু":"Feb",
+      "আগ":"Aug",
+      "ছেপ্তে":"Sep",
+      "অক্টো":"Oct",
+      "নৱে":"Nov",
+      "ডিচে":"Dec",
+      "şənbə":"Sa",
+      bazar:"Su",
+      "bazar ertəsi":"Mo",
+      "çərşənbə axşamı":"Tu",
+      "çərşənbə":"We",
+      "cümə axşamı":"Th",
+      "cümə":"Fr",
+      "ş\\.":"Sa",
+      "b\\.":"Su",
+      "b\\.e\\.":"Mo",
+      "ç\\.a\\.":"Tu",
+      "ç\\.":"We",
+      "c\\.a\\.":"Th",
+      "c\\.":"Fr",
+      yanvar:"Jan",
+      fevral:"Feb",
+      mart:"Mar",
+      aprel:"Apr",
+      iyun:"Jun",
+      iyul:"Jul",
+      avqust:"Aug",
+      sentyabr:"Sep",
+      oktyabr:"Oct",
+      noyabr:"Nov",
+      dekabr:"Dec",
+      fev:"Feb",
+      iyn:"Jun",
+      iyl:"Jul",
+      avq:"Aug",
+      noy:"Nov",
+      dek:"Dec",
+      "субота":"Sa",
+      "нядзеля":"Su",
+      "панядзелак":"Mo",
+      "аўторак":"Tu",
+      "серада":"We",
+      "чацвер":"Th",
+      "пятніца":"Fr",
+      "сб":"Sa",
+      "нд":"Su",
+      "аў":"Tu",
+      "ср":"We",
+      "чц":"Th",
+      "пт":"Fr",
+      "студзень":"Jan",
+      "люты":"Feb",
+      "сакавік":"Mar",
+      "красавік":"Apr",
+      "май":"May",
+      "чэрвень":"Jun",
+      "ліпень":"Jul",
+      "жнівень":"Aug",
+      "верасень":"Sep",
+      "кастрычнік":"Oct",
+      "лістапад":"Nov",
+      "снежань":"Dec",
+      "сту":"Jan",
+      "лют":"Feb",
+      "сак":"Mar",
+      "кра":"Apr",
+      "чэр":"Jun",
+      "ліп":"Jul",
+      "жні":"Aug",
+      "вер":"Sep",
+      "кас":"Oct",
+      "ліс":"Nov",
+      "сне":"Dec",
+      "събота":"Sa",
+      "неделя":"Su",
+      "понеделник":"Mo",
+      "вторник":"Tu",
+      "сряда":"We",
+      "четвъртък":"Th",
+      "петък":"Fr",
+      "вт":"Tu",
+      "чт":"Th",
+      "януари":"Jan",
+      "февруари":"Feb",
+      "март":"Mar",
+      "април":"Apr",
+      "юни":"Jun",
+      "юли":"Jul",
+      "август":"Aug",
+      "септември":"Sep",
+      "октомври":"Oct",
+      "ноември":"Nov",
+      "декември":"Dec",
+      sibiri:"Sa",
+      kari:"Su",
+      "ntɛnɛ":"Mo",
+      tarata:"Tu",
+      araba:"We",
+      alamisa:"Th",
+      juma:"Fr",
+      "ntɛ":"Mo",
+      tar:"Tu",
+      zanwuye:"Jan",
+      feburuye:"Feb",
+      marisi:"Mar",
+      awirili:"Apr",
+      "mɛ":"May",
+      "zuwɛn":"Jun",
+      zuluye:"Jul",
+      uti:"Aug",
+      "sɛtanburu":"Sep",
+      "ɔkutɔburu":"Oct",
+      nowanburu:"Nov",
+      desanburu:"Dec",
+      zan:"Jan",
+      awi:"Apr",
+      zuw:"Jun",
+      zul:"Jul",
+      "sɛt":"Sep",
+      "ɔku":"Oct",
+      now:"Nov",
+      des:"Dec",
+      "শনিবার":"Sa",
+      "রবিবার":"Su",
+      "সোমবার":"Mo",
+      "মঙ্গলবার":"Tu",
+      "বুধবার":"We",
+      "বৃহস্পতিবার":"Th",
+      "শুক্রবার":"Fr",
+      "রবি":"Su",
+      "বৃহস্পতি":"Th",
+      "শুক্র":"Fr",
+      "জানুয়ারী":"Jan",
+      "ফেব্রুয়ারী":"Feb",
+      "মার্চ":"Mar",
+      "এপ্রিল":"Apr",
+      "মে":"May",
+      "আগস্ট":"Aug",
+      "সেপ্টেম্বর":"Sep",
+      "অক্টোবর":"Oct",
+      "নভেম্বর":"Nov",
+      "ডিসেম্বর":"Dec",
+      "ফেব":"Feb",
+      "སྤེན་པ་":"Sa",
+      "ཉི་མ་":"Su",
+      "ཟླ་བ་":"Mo",
+      "མིག་དམར་":"Tu",
+      "ལྷག་པ་":"We",
+      "ཕུར་བུ་":"Th",
+      "པ་སངས་":"Fr",
+      "ཟླ་བ་དང་པོ་":"Jan",
+      "ཟླ་བ་གཉིས་པ་":"Feb",
+      "ཟླ་བ་གསུམ་པ་":"Mar",
+      "ཟླ་བ་བཞི་པ་":"Apr",
+      "ཟླ་བ་ལྔ་པ་":"May",
+      "ཟླ་བ་དྲུག་པ་":"Jun",
+      "ཟླ་བ་བདུན་པ་":"Jul",
+      "ཟླ་བ་བརྒྱད་པ་":"Aug",
+      "ཟླ་བ་དགུ་པ་":"Sep",
+      "ཟླ་བ་བཅུ་པ་":"Oct",
+      "ཟླ་བ་བཅུ་གཅིག་པ་":"Nov",
+      "ཟླ་བ་བཅུ་གཉིས་པ་":"Dec",
+      "ཟླ་༡":"Jan",
+      "ཟླ་༢":"Feb",
+      "ཟླ་༣":"Mar",
+      "ཟླ་༤":"Apr",
+      "ཟླ་༥":"May",
+      "ཟླ་༦":"Jun",
+      "ཟླ་༧":"Jul",
+      "ཟླ་༨":"Aug",
+      "ཟླ་༩":"Sep",
+      "ཟླ་༡༠":"Oct",
+      "ཟླ་༡༡":"Nov",
+      "ཟླ་༡༢":"Dec",
+      sadorn:"Sa",
+      "mercʼher":"We",
+      yaou:"Th",
+      gwener:"Fr",
+      "sad\\.":"Sa",
+      "meu\\.":"Tu",
+      "mer\\.":"We",
+      "gwe\\.":"Fr",
+      genver:"Jan",
+      "cʼhwevrer":"Feb",
+      ebrel:"Apr",
+      mae:"May",
+      mezheven:"Jun",
+      gouere:"Jul",
+      eost:"Aug",
+      gwengolo:"Sep",
+      here:"Oct",
+      kerzu:"Dec",
+      "gen\\.":"Jan",
+      "cʼhwe\\.":"Feb",
+      "meur\\.":"Mar",
+      "ebr\\.":"Apr",
+      "mezh\\.":"Jun",
+      "goue\\.":"Jul",
+      "gwen\\.":"Sep",
+      "kzu\\.":"Dec",
+      subota:"Sa",
+      nedjelja:"Su",
+      ponedjeljak:"Mo",
+      utorak:"Tu",
+      srijeda:"We",
+      "četvrtak":"Th",
+      petak:"Fr",
+      sub:"Sa",
+      ned:"Su",
+      uto:"Tu",
+      sri:"We",
+      "čet":"Th",
+      pet:"Fr",
+      januar:"Jan",
+      februar:"Feb",
+      juni:"Jun",
+      juli:"Jul",
+      august:"Aug",
+      septembar:"Sep",
+      oktobar:"Oct",
+      novembar:"Nov",
+      decembar:"Dec",
+      dissabte:"Sa",
+      diumenge:"Su",
+      dilluns:"Mo",
+      dimarts:"Tu",
+      dimecres:"We",
+      dijous:"Th",
+      divendres:"Fr",
+      "ds\\.":"Sa",
+      "dg\\.":"Su",
+      "dl\\.":"Mo",
+      "dt\\.":"Tu",
+      "dc\\.":"We",
+      "dj\\.":"Th",
+      "dv\\.":"Fr",
+      gener:"Jan",
+      febrer:"Feb",
+      "març":"Mar",
+      abril:"Apr",
+      maig:"May",
+      juny:"Jun",
+      juliol:"Jul",
+      agost:"Aug",
+      setembre:"Sep",
+      octubre:"Oct",
+      novembre:"Nov",
+      desembre:"Dec",
+      "febr\\.":"Feb",
+      "abr\\.":"Apr",
+      "ag\\.":"Aug",
+      "set\\.":"Sep",
+      "oct\\.":"Oct",
+      "шуот":"Sa",
+      "кӏира":"Su",
+      "оршот":"Mo",
+      "шинара":"Tu",
+      "кхаара":"We",
+      "еара":"Th",
+      "пӏераска":"Fr",
+      "шуо":"Sa",
+      "кӏи":"Su",
+      "ор":"Mo",
+      "ши":"Tu",
+      "кха":"We",
+      "еа":"Th",
+      "пӏе":"Fr",
+      "январь":"Jan",
+      "февраль":"Feb",
+      "апрель":"Apr",
+      "июнь":"Jun",
+      "июль":"Jul",
+      "сентябрь":"Sep",
+      "октябрь":"Oct",
+      "ноябрь":"Nov",
+      "декабрь":"Dec",
+      "янв":"Jan",
+      "фев":"Feb",
+      "мар":"Mar",
+      "апр":"Apr",
+      "июн":"Jun",
+      "июл":"Jul",
+      "авг":"Aug",
+      "сен":"Sep",
+      "окт":"Oct",
+      "ноя":"Nov",
+      "дек":"Dec",
+      sobota:"Sa",
+      "neděle":"Su",
+      "pondělí":"Mo",
+      "úterý":"Tu",
+      "středa":"We",
+      "čtvrtek":"Th",
+      "pátek":"Fr",
+      leden:"Jan",
+      "únor":"Feb",
+      "březen":"Mar",
+      duben:"Apr",
+      "květen":"May",
+      "červen":"Jun",
+      "červenec":"Jul",
+      srpen:"Aug",
+      "září":"Sep",
+      "říjen":"Oct",
+      prosinec:"Dec",
+      led:"Jan",
+      "úno":"Feb",
+      "bře":"Mar",
+      dub:"Apr",
+      "kvě":"May",
+      "čvn":"Jun",
+      "čvc":"Jul",
+      "zář":"Sep",
+      "říj":"Oct",
+      pro:"Dec",
+      "шӑматкун":"Sa",
+      "вырсарникун":"Su",
+      "тунтикун":"Mo",
+      "ытларикун":"Tu",
+      "юнкун":"We",
+      "кӗҫнерникун":"Th",
+      "эрнекун":"Fr",
+      "шӑм\\.":"Sa",
+      "выр\\.":"Su",
+      "тун\\.":"Mo",
+      "ытл\\.":"Tu",
+      "юн\\.":"We",
+      "кӗҫ\\.":"Th",
+      "эр\\.":"Fr",
+      "кӑрлач":"Jan",
+      "нарӑс":"Feb",
+      "пуш":"Mar",
+      "ака":"Apr",
+      "ҫу":"May",
+      "ҫӗртме":"Jun",
+      "утӑ":"Jul",
+      "ҫурла":"Aug",
+      "авӑн":"Sep",
+      "юпа":"Oct",
+      "чӳк":"Nov",
+      "раштав":"Dec",
+      "кӑр\\.":"Jan",
+      "нар\\.":"Feb",
+      "ҫӗр\\.":"Jun",
+      "ҫур\\.":"Aug",
+      "раш\\.":"Dec",
+      "dydd sadwrn":"Sa",
+      "dydd sul":"Su",
+      "dydd llun":"Mo",
+      "dydd mawrth":"Tu",
+      "dydd mercher":"We",
+      "dydd iau":"Th",
+      "dydd gwener":"Fr",
+      sad:"Sa",
+      llun:"Mo",
+      iau:"Th",
+      gwe:"Fr",
+      ionawr:"Jan",
+      chwefror:"Feb",
+      mawrth:"Mar",
+      ebrill:"Apr",
+      mai:"May",
+      mehefin:"Jun",
+      gorffennaf:"Jul",
+      awst:"Aug",
+      medi:"Sep",
+      hydref:"Oct",
+      tachwedd:"Nov",
+      rhagfyr:"Dec",
+      ion:"Jan",
+      chw:"Feb",
+      ebr:"Apr",
+      meh:"Jun",
+      gor:"Jul",
+      hyd:"Oct",
+      tach:"Nov",
+      rhag:"Dec",
+      "lørdag":"Sa",
+      "søndag":"Su",
+      mandag:"Mo",
+      tirsdag:"Tu",
+      onsdag:"We",
+      torsdag:"Th",
+      fredag:"Fr",
+      "lør\\.":"Sa",
+      "søn\\.":"Su",
+      "man\\.":"Mo",
+      "tirs\\.":"Tu",
+      "ons\\.":"We",
+      "tors\\.":"Th",
+      "fre\\.":"Fr",
+      marts:"Mar",
+      december:"Dec",
+      "dec\\.":"Dec",
+      samstag:"Sa",
+      sonntag:"Su",
+      montag:"Mo",
+      dienstag:"Tu",
+      mittwoch:"We",
+      donnerstag:"Th",
+      freitag:"Fr",
+      "do":"Th",
+      "märz":"Mar",
+      dezember:"Dec",
+      "mär":"Mar",
+      "ཉི་":"Sa",
+      "ཟླ་":"Su",
+      "མིར་":"Mo",
+      "ལྷག་":"Tu",
+      "ཕུར་":"We",
+      "སངས་":"Th",
+      "སྤེན་":"Fr",
+      "སྤྱི་སྤྱི་ཟླ་དངཔ་":"Jan",
+      "སྤྱི་སྤྱི་ཟླ་གཉིས་པ་":"Feb",
+      "སྤྱི་སྤྱི་ཟླ་གསུམ་པ་":"Mar",
+      "སྤྱི་སྤྱི་ཟླ་བཞི་པ":"Apr",
+      "སྤྱི་སྤྱི་ཟླ་ལྔ་པ་":"May",
+      "སྤྱི་སྤྱི་ཟླ་དྲུག་པ":"Jun",
+      "སྤྱི་སྤྱི་ཟླ་བདུན་པ་":"Jul",
+      "སྤྱི་སྤྱི་ཟླ་བརྒྱད་པ་":"Aug",
+      "སྤྱི་སྤྱི་ཟླ་དགུ་པ་":"Sep",
+      "སྤྱི་སྤྱི་ཟླ་བཅུ་པ་":"Oct",
+      "སྤྱི་སྤྱི་ཟླ་བཅུ་གཅིག་པ་":"Nov",
+      "སྤྱི་སྤྱི་ཟླ་བཅུ་གཉིས་པ་":"Dec",
+      "སྤྱི་ཟླ་༡":"Jan",
+      "སྤྱི་ཟླ་༢":"Feb",
+      "སྤྱི་ཟླ་༣":"Mar",
+      "སྤྱི་ཟླ་༤":"Apr",
+      "སྤྱི་ཟླ་༥":"May",
+      "སྤྱི་ཟླ་༦":"Jun",
+      "སྤྱི་ཟླ་༧":"Jul",
+      "སྤྱི་ཟླ་༨":"Aug",
+      "སྤྱི་ཟླ་༩":"Sep",
+      "སྤྱི་ཟླ་༡༠":"Oct",
+      "སྤྱི་ཟླ་༡༡":"Nov",
+      "སྤྱི་ཟླ་༡༢":"Dec",
+      "memleɖa":"Sa",
+      "kɔsiɖa":"Su",
+      "dzoɖa":"Mo",
+      "blaɖa":"Tu",
+      "kuɖa":"We",
+      "yawoɖa":"Th",
+      "fiɖa":"Fr",
+      "kɔs":"Su",
+      dzo:"Mo",
+      bla:"Tu",
+      "kuɖ":"We",
+      "fiɖ":"Fr",
+      dzove:"Jan",
+      dzodze:"Feb",
+      tedoxe:"Mar",
+      "afɔfĩe":"Apr",
+      dame:"May",
+      masa:"Jun",
+      "siamlɔm":"Jul",
+      deasiamime:"Aug",
+      "anyɔnyɔ":"Sep",
+      kele:"Oct",
+      "adeɛmekpɔxe":"Nov",
+      dzome:"Dec",
+      dzv:"Jan",
+      dzd:"Feb",
+      ted:"Mar",
+      "afɔ":"Apr",
+      dam:"May",
+      sia:"Jul",
+      dea:"Aug",
+      any:"Sep",
+      ade:"Nov",
+      dzm:"Dec",
+      "σάββατο":"Sa",
+      "κυριακή":"Su",
+      "δευτέρα":"Mo",
+      "τρίτη":"Tu",
+      "τετάρτη":"We",
+      "πέμπτη":"Th",
+      "παρασκευή":"Fr",
+      "σάβ":"Sa",
+      "κυρ":"Su",
+      "δευ":"Mo",
+      "τρί":"Tu",
+      "τετ":"We",
+      "πέμ":"Th",
+      "παρ":"Fr",
+      "ιανουαρίου":"Jan",
+      "φεβρουαρίου":"Feb",
+      "μαρτίου":"Mar",
+      "απριλίου":"Apr",
+      "μαΐου":"May",
+      "ιουνίου":"Jun",
+      "ιουλίου":"Jul",
+      "αυγούστου":"Aug",
+      "σεπτεμβρίου":"Sep",
+      "οκτωβρίου":"Oct",
+      "νοεμβρίου":"Nov",
+      "δεκεμβρίου":"Dec",
+      "ιαν":"Jan",
+      "φεβ":"Feb",
+      "μαρ":"Mar",
+      "απρ":"Apr",
+      "μαΐ":"May",
+      "ιουν":"Jun",
+      "ιουλ":"Jul",
+      "αυγ":"Aug",
+      "σεπ":"Sep",
+      "οκτ":"Oct",
+      "νοε":"Nov",
+      "δεκ":"Dec",
+      saturday:"Sa",
+      sunday:"Su",
+      monday:"Mo",
+      tuesday:"Tu",
+      wednesday:"We",
+      thursday:"Th",
+      friday:"Fr",
+      tue:"Tu",
+      wed:"We",
       january:"Jan",
       february:"Feb",
       march:"Mar",
-      april:"Apr",
-      "june?":"Jun",
-      "july?":"Jul",
-      august:"Aug",
-      september:"Sep",
-      sept:"Sep",
+      june:"Jun",
+      july:"Jul",
       october:"Oct",
-      november:"Nov",
-      december:"Dec",
-      januar:"Jan",
-      februar:"Feb",
-      "märz?":"Mar",
-      maerz:"Mar",
-      mai:"May",
-      juni:"Jun",
-      juli:"Jul",
-      okt:"Oct",
-      oktober:"Oct",
-      dez:"Dec",
-      dezember:"Dec",
+      "dimanĉo":"Su",
+      lundo:"Mo",
+      mardo:"Tu",
+      merkredo:"We",
+      "ĵaŭdo":"Th",
+      vendredo:"Fr",
+      lu:"Mo",
+      "ĵa":"Th",
+      ve:"Fr",
+      januaro:"Jan",
+      februaro:"Feb",
+      marto:"Mar",
+      aprilo:"Apr",
+      majo:"May",
+      junio:"Jun",
+      julio:"Jul",
+      "aŭgusto":"Aug",
+      septembro:"Sep",
+      oktobro:"Oct",
+      novembro:"Nov",
+      decembro:"Dec",
+      "aŭg":"Aug",
+      "sábado":"Sa",
+      domingo:"Su",
+      lunes:"Mo",
+      martes:"Tu",
+      "miércoles":"We",
+      jueves:"Th",
+      viernes:"Fr",
+      "sáb":"Sa",
+      "mié":"We",
+      jue:"Th",
+      vie:"Fr",
+      enero:"Jan",
+      febrero:"Feb",
+      marzo:"Mar",
+      mayo:"May",
+      agosto:"Aug",
+      septiembre:"Sep",
+      noviembre:"Nov",
+      diciembre:"Dec",
+      ene:"Jan",
+      abr:"Apr",
+      ago:"Aug",
+      "laupäev":"Sa",
+      "pühapäev":"Su",
+      "esmaspäev":"Mo",
+      "teisipäev":"Tu",
+      "kolmapäev":"We",
+      "neljapäev":"Th",
+      reede:"Fr",
+      l:"Sa",
+      e:"Mo",
+      t:"Tu",
+      r:"Fr",
+      jaanuar:"Jan",
+      veebruar:"Feb",
+      "märts":"Mar",
+      aprill:"Apr",
+      juuni:"Jun",
+      juuli:"Jul",
+      oktoober:"Oct",
+      detsember:"Dec",
+      larunbata:"Sa",
+      igandea:"Su",
+      astelehena:"Mo",
+      asteartea:"Tu",
+      asteazkena:"We",
+      osteguna:"Th",
+      ostirala:"Fr",
+      "lr\\.":"Sa",
+      "ig\\.":"Su",
+      "al\\.":"Mo",
+      "ar\\.":"Tu",
+      "az\\.":"We",
+      "og\\.":"Th",
+      "or\\.":"Fr",
+      urtarrila:"Jan",
+      otsaila:"Feb",
+      martxoa:"Mar",
+      apirila:"Apr",
+      maiatza:"May",
+      ekaina:"Jun",
+      uztaila:"Jul",
+      abuztua:"Aug",
+      iraila:"Sep",
+      urria:"Oct",
+      azaroa:"Nov",
+      abendua:"Dec",
+      "urt\\.":"Jan",
+      "ots\\.":"Feb",
+      "api\\.":"Apr",
+      "mai\\.":"May",
+      "eka\\.":"Jun",
+      "uzt\\.":"Jul",
+      "abu\\.":"Aug",
+      "ira\\.":"Sep",
+      "urr\\.":"Oct",
+      "aza\\.":"Nov",
+      "abe\\.":"Dec",
+      "شنبه":"Sa",
+      "یکشنبه":"Su",
+      "دوشنبه":"Mo",
+      "سه‌شنبه":"Tu",
+      "چهارشنبه":"We",
+      "پنجشنبه":"Th",
+      "جمعه":"Fr",
+      "دی":"Jan",
+      "بهمن":"Feb",
+      "اسفند":"Mar",
+      "فروردین":"Apr",
+      "اردیبهشت":"May",
+      "خرداد":"Jun",
+      "تیر":"Jul",
+      "مرداد":"Aug",
+      "شهریور":"Sep",
+      "مهر":"Oct",
+      "آبان":"Nov",
+      "آذر":"Dec",
+      "hoore-biir":"Sa",
+      dewo:"Su",
+      "aaɓnde":"Mo",
+      mawbaare:"Tu",
+      njeslaare:"We",
+      naasaande:"Th",
+      mawnde:"Fr",
+      hbi:"Sa",
+      dew:"Su",
+      "aaɓ":"Mo",
+      naa:"Th",
+      mwd:"Fr",
+      siilo:"Jan",
+      colte:"Feb",
+      mbooy:"Mar",
+      "seeɗto":"Apr",
+      duujal:"May",
+      korse:"Jun",
+      morso:"Jul",
+      juko:"Aug",
+      siilto:"Sep",
+      yarkomaa:"Oct",
+      jolal:"Nov",
+      bowte:"Dec",
+      sii:"Jan",
+      col:"Feb",
+      mbo:"Mar",
+      duu:"May",
+      kor:"Jun",
+      juk:"Aug",
+      slt:"Sep",
+      yar:"Oct",
+      bow:"Dec",
+      lauantai:"Sa",
+      sunnuntai:"Su",
+      maanantai:"Mo",
+      tiistai:"Tu",
+      keskiviikko:"We",
+      torstai:"Th",
+      perjantai:"Fr",
+      ti:"Tu",
+      ke:"We",
+      pe:"Fr",
+      tammikuu:"Jan",
+      helmikuu:"Feb",
+      maaliskuu:"Mar",
+      huhtikuu:"Apr",
+      toukokuu:"May",
+      "kesäkuu":"Jun",
+      "heinäkuu":"Jul",
+      elokuu:"Aug",
+      syyskuu:"Sep",
+      lokakuu:"Oct",
+      marraskuu:"Nov",
+      joulukuu:"Dec",
+      tammi:"Jan",
+      helmi:"Feb",
+      maalis:"Mar",
+      huhti:"Apr",
+      touko:"May",
+      "kesä":"Jun",
+      "heinä":"Jul",
+      elo:"Aug",
+      syys:"Sep",
+      loka:"Oct",
+      marras:"Nov",
+      joulu:"Dec",
+      leygardagur:"Sa",
+      sunnudagur:"Su",
+      "mánadagur":"Mo",
+      "týsdagur":"Tu",
+      mikudagur:"We",
+      "hósdagur":"Th",
+      "fríggjadagur":"Fr",
+      ley:"Sa",
+      "mán":"Mo",
+      "týs":"Tu",
+      mik:"We",
+      "hós":"Th",
+      "frí":"Fr",
+      mars:"Mar",
+      "apríl":"Apr",
+      samedi:"Sa",
+      dimanche:"Su",
+      lundi:"Mo",
+      mardi:"Tu",
+      mercredi:"We",
+      jeudi:"Th",
+      vendredi:"Fr",
+      "sam\\.":"Sa",
+      "dim\\.":"Su",
+      "lun\\.":"Mo",
+      "jeu\\.":"Th",
+      "ven\\.":"Fr",
       janvier:"Jan",
       "février":"Feb",
-      "fév":"Feb",
-      mars:"Mar",
       avril:"Apr",
-      avr:"Apr",
       juin:"Jun",
       juillet:"Jul",
       "août":"Aug",
-      "aoû":"Aug",
       septembre:"Sep",
       octobre:"Oct",
-      novembre:"Nov",
       "décembre":"Dec",
+      "janv\\.":"Jan",
+      "févr\\.":"Feb",
+      "avr\\.":"Apr",
+      "juil\\.":"Jul",
+      "sept\\.":"Sep",
+      "déc\\.":"Dec",
+      sneon:"Sa",
+      snein:"Su",
+      moandei:"Mo",
+      tiisdei:"Tu",
+      woansdei:"We",
+      tongersdei:"Th",
+      freed:"Fr",
+      si:"Su",
+      wo:"We",
+      jannewaris:"Jan",
+      febrewaris:"Feb",
+      maaie:"May",
+      septimber:"Sep",
+      novimber:"Nov",
+      desimber:"Dec",
+      mrt:"Mar",
+      "dé sathairn":"Sa",
+      "dé domhnaigh":"Su",
+      "dé luain":"Mo",
+      "dé máirt":"Tu",
+      "dé céadaoin":"We",
+      "déardaoin":"Th",
+      "dé haoine":"Fr",
+      sath:"Sa",
+      domh:"Su",
+      luan:"Mo",
+      "máirt":"Tu",
+      "céad":"We",
+      "déar":"Th",
+      aoine:"Fr",
+      "eanáir":"Jan",
+      feabhra:"Feb",
+      "márta":"Mar",
+      "aibreán":"Apr",
+      bealtaine:"May",
+      meitheamh:"Jun",
+      "iúil":"Jul",
+      "lúnasa":"Aug",
+      "meán fómhair":"Sep",
+      "deireadh fómhair":"Oct",
+      samhain:"Nov",
+      nollaig:"Dec",
+      ean:"Jan",
+      feabh:"Feb",
+      aib:"Apr",
+      beal:"May",
+      meith:"Jun",
+      "lún":"Aug",
+      "mfómh":"Sep",
+      "dfómh":"Oct",
+      samh:"Nov",
+      noll:"Dec",
+      disathairne:"Sa",
+      "didòmhnaich":"Su",
+      diluain:"Mo",
+      "dimàirt":"Tu",
+      diciadain:"We",
+      diardaoin:"Th",
+      dihaoine:"Fr",
+      did:"Su",
+      dia:"Th",
+      dih:"Fr",
+      "am faoilleach":"Jan",
+      "an gearran":"Feb",
+      "am màrt":"Mar",
+      "an giblean":"Apr",
+      "an cèitean":"May",
+      "an t-ògmhios":"Jun",
+      "an t-iuchar":"Jul",
+      "an lùnastal":"Aug",
+      "an t-sultain":"Sep",
+      "an dàmhair":"Oct",
+      "an t-samhain":"Nov",
+      "an dùbhlachd":"Dec",
+      faoi:"Jan",
+      gearr:"Feb",
+      "màrt":"Mar",
+      gibl:"Apr",
+      "cèit":"May",
+      "ògmh":"Jun",
+      iuch:"Jul",
+      "lùna":"Aug",
+      sult:"Sep",
+      "dàmh":"Oct",
+      "dùbh":"Dec",
+      luns:"Mo",
+      "mércores":"We",
+      xoves:"Th",
+      venres:"Fr",
+      "sáb\\.":"Sa",
+      "dom\\.":"Su",
+      "mér\\.":"We",
+      "xov\\.":"Th",
+      xaneiro:"Jan",
+      febreiro:"Feb",
+      maio:"May",
+      "xuño":"Jun",
+      xullo:"Jul",
+      setembro:"Sep",
+      outubro:"Oct",
+      "xan\\.":"Jan",
+      "xul\\.":"Jul",
+      "ago\\.":"Aug",
+      "out\\.":"Oct",
+      "શનિવાર":"Sa",
+      "રવિવાર":"Su",
+      "સોમવાર":"Mo",
+      "મંગળવાર":"Tu",
+      "બુધવાર":"We",
+      "ગુરુવાર":"Th",
+      "શુક્રવાર":"Fr",
+      "શનિ":"Sa",
+      "રવિ":"Su",
+      "સોમ":"Mo",
+      "મંગળ":"Tu",
+      "બુધ":"We",
+      "ગુરુ":"Th",
+      "શુક્ર":"Fr",
+      "જાન્યુઆરી":"Jan",
+      "ફેબ્રુઆરી":"Feb",
+      "માર્ચ":"Mar",
+      "એપ્રિલ":"Apr",
+      "મે":"May",
+      "જૂન":"Jun",
+      "જુલાઈ":"Jul",
+      "ઑગસ્ટ":"Aug",
+      "સપ્ટેમ્બર":"Sep",
+      "ઑક્ટોબર":"Oct",
+      "નવેમ્બર":"Nov",
+      "ડિસેમ્બર":"Dec",
+      "જાન્યુ":"Jan",
+      "ફેબ્રુ":"Feb",
+      "સપ્ટે":"Sep",
+      "ઑક્ટો":"Oct",
+      "નવે":"Nov",
+      "ડિસે":"Dec",
+      jesarn:"Sa",
+      jedoonee:"Su",
+      jelhein:"Mo",
+      jemayrt:"Tu",
+      jercean:"We",
+      jerdein:"Th",
+      jeheiney:"Fr",
+      jes:"Sa",
+      jed:"Su",
+      jel:"Mo",
+      jem:"Tu",
+      jerc:"We",
+      jerd:"Th",
+      jeh:"Fr",
+      "jerrey-geuree":"Jan",
+      "toshiaght-arree":"Feb",
+      mayrnt:"Mar",
+      averil:"Apr",
+      boaldyn:"May",
+      "mean-souree":"Jun",
+      "jerrey-souree":"Jul",
+      luanistyn:"Aug",
+      "mean-fouyir":"Sep",
+      "jerrey-fouyir":"Oct",
+      "mee houney":"Nov",
+      "mee ny nollick":"Dec",
+      "j-guer":"Jan",
+      "t-arree":"Feb",
+      avrril:"Apr",
+      "m-souree":"Jun",
+      "j-souree":"Jul",
+      "m-fouyir":"Sep",
+      "j-fouyir":"Oct",
+      "m-houney":"Nov",
+      "m-nollick":"Dec",
+      asabar:"Sa",
+      lahadi:"Su",
+      litinin:"Mo",
+      talata:"Tu",
+      laraba:"We",
+      alhamis:"Th",
+      "jummaʼa":"Fr",
+      lah:"Su",
+      lit:"Mo",
+      lar:"We",
+      janairu:"Jan",
+      faburairu:"Feb",
+      maris:"Mar",
+      afirilu:"Apr",
+      mayu:"May",
+      yuni:"Jun",
+      yuli:"Jul",
+      agusta:"Aug",
+      satumba:"Sep",
+      oktoba:"Oct",
+      nuwamba:"Nov",
+      disamba:"Dec",
+      fab:"Feb",
+      afi:"Apr",
+      yun:"Jun",
+      yul:"Jul",
+      agu:"Aug",
+      nuw:"Nov",
+      "יום שבת":"Sa",
+      "יום ראשון":"Su",
+      "יום שני":"Mo",
+      "יום שלישי":"Tu",
+      "יום רביעי":"We",
+      "יום חמישי":"Th",
+      "יום שישי":"Fr",
+      "שבת":"Sa",
+      "יום א׳":"Su",
+      "יום ב׳":"Mo",
+      "יום ג׳":"Tu",
+      "יום ד׳":"We",
+      "יום ה׳":"Th",
+      "יום ו׳":"Fr",
+      "ינואר":"Jan",
+      "פברואר":"Feb",
+      "מרץ":"Mar",
+      "אפריל":"Apr",
+      "מאי":"May",
+      "יוני":"Jun",
+      "יולי":"Jul",
+      "אוגוסט":"Aug",
+      "ספטמבר":"Sep",
+      "אוקטובר":"Oct",
+      "נובמבר":"Nov",
+      "דצמבר":"Dec",
+      "ינו׳":"Jan",
+      "פבר׳":"Feb",
+      "אפר׳":"Apr",
+      "אוג׳":"Aug",
+      "ספט׳":"Sep",
+      "אוק׳":"Oct",
+      "נוב׳":"Nov",
+      "דצמ׳":"Dec",
+      "शनिवार":"Sa",
+      "रविवार":"Su",
+      "सोमवार":"Mo",
+      "मंगलवार":"Tu",
+      "बुधवार":"We",
+      "गुरुवार":"Th",
+      "शुक्रवार":"Fr",
+      "शनि":"Sa",
+      "रवि":"Su",
+      "सोम":"Mo",
+      "मंगल":"Tu",
+      "बुध":"We",
+      "गुरु":"Th",
+      "शुक्र":"Fr",
+      "जनवरी":"Jan",
+      "फ़रवरी":"Feb",
+      "मार्च":"Mar",
+      "अप्रैल":"Apr",
+      "मई":"May",
+      "जून":"Jun",
+      "जुलाई":"Jul",
+      "अगस्त":"Aug",
+      "सितंबर":"Sep",
+      "अक्टूबर":"Oct",
+      "नवंबर":"Nov",
+      "दिसंबर":"Dec",
+      "जन॰":"Jan",
+      "फ़र॰":"Feb",
+      "जुल॰":"Jul",
+      "अग॰":"Aug",
+      "सित॰":"Sep",
+      "अक्टू॰":"Oct",
+      "नव॰":"Nov",
+      "दिस॰":"Dec",
+      "siječanj":"Jan",
+      "veljača":"Feb",
+      "ožujak":"Mar",
+      travanj:"Apr",
+      svibanj:"May",
+      lipanj:"Jun",
+      srpanj:"Jul",
+      kolovoz:"Aug",
+      rujan:"Sep",
+      studeni:"Nov",
+      prosinac:"Dec",
+      sij:"Jan",
+      velj:"Feb",
+      "ožu":"Mar",
+      tra:"Apr",
+      svi:"May",
+      ruj:"Sep",
+      stu:"Nov",
+      szombat:"Sa",
+      "vasárnap":"Su",
+      "hétfő":"Mo",
+      kedd:"Tu",
+      szerda:"We",
+      "csütörtök":"Th",
+      "péntek":"Fr",
+      szo:"Sa",
+      v:"Su",
+      sze:"We",
+      cs:"Th",
+      "január":"Jan",
+      "február":"Feb",
+      "március":"Mar",
+      "április":"Apr",
+      "május":"May",
+      "június":"Jun",
+      "július":"Jul",
+      augusztus:"Aug",
+      szeptember:"Sep",
+      "október":"Oct",
+      "márc\\.":"Mar",
+      "ápr\\.":"Apr",
+      "máj\\.":"May",
+      "jún\\.":"Jun",
+      "júl\\.":"Jul",
+      "szept\\.":"Sep",
+      "շաբաթ":"Sa",
+      "կիրակի":"Su",
+      "երկուշաբթի":"Mo",
+      "երեքշաբթի":"Tu",
+      "չորեքշաբթի":"We",
+      "հինգշաբթի":"Th",
+      "ուրբաթ":"Fr",
+      "շբթ":"Sa",
+      "կիր":"Su",
+      "երկ":"Mo",
+      "երք":"Tu",
+      "չրք":"We",
+      "հնգ":"Th",
+      "ուր":"Fr",
+      "հունվար":"Jan",
+      "փետրվար":"Feb",
+      "մարտ":"Mar",
+      "ապրիլ":"Apr",
+      "մայիս":"May",
+      "հունիս":"Jun",
+      "հուլիս":"Jul",
+      "օգոստոս":"Aug",
+      "սեպտեմբեր":"Sep",
+      "հոկտեմբեր":"Oct",
+      "նոյեմբեր":"Nov",
+      "դեկտեմբեր":"Dec",
+      "հնվ":"Jan",
+      "փտվ":"Feb",
+      "մրտ":"Mar",
+      "ապր":"Apr",
+      "մյս":"May",
+      "հնս":"Jun",
+      "հլս":"Jul",
+      "օգս":"Aug",
+      "սեպ":"Sep",
+      "հոկ":"Oct",
+      "նոյ":"Nov",
+      "դեկ":"Dec",
+      sabbato:"Sa",
+      dominica:"Su",
+      lunedi:"Mo",
+      martedi:"Tu",
+      mercuridi:"We",
+      jovedi:"Th",
+      venerdi:"Fr",
+      jov:"Th",
+      januario:"Jan",
+      februario:"Feb",
+      martio:"Mar",
+      augusto:"Aug",
+      decembre:"Dec",
+      kamis:"Th",
+      sel:"Tu",
+      rab:"We",
+      kam:"Th",
       januari:"Jan",
       februari:"Feb",
-      maart:"Mar",
-      mei:"May",
-      augustus:"Aug",
+      maret:"Mar",
+      agustus:"Aug",
+      "saturdí":"Sa",
+      "soledí":"Su",
+      "lunedí":"Mo",
+      "mardí":"Tu",
+      "mercurdí":"We",
+      "jovedí":"Th",
+      "venerdí":"Fr",
+      "sat\\.":"Sa",
+      "sol\\.":"Su",
+      "jov\\.":"Th",
+      marte:"Mar",
+      "julí":"Jul",
+      "satọdee":"Sa",
+      "sọndee":"Su",
+      "mọnde":"Mo",
+      tiuzdee:"Tu",
+      wenezdee:"We",
+      "tọọzdee":"Th",
+      "fraịdee":"Fr",
+      "sọn":"Su",
+      "mọn":"Mo",
+      tiu:"Tu",
+      "tọọ":"Th",
+      "fraị":"Fr",
+      "jenụwarị":"Jan",
+      "febrụwarị":"Feb",
+      "maachị":"Mar",
+      epreel:"Apr",
+      mee:"May",
+      "julaị":"Jul",
+      "ọgọọst":"Aug",
+      septemba:"Sep",
+      "ọktoba":"Oct",
+      novemba:"Nov",
+      disemba:"Dec",
+      jen:"Jan",
+      epr:"Apr",
+      juu:"Jun",
+      "ọgọ":"Aug",
+      "ọkt":"Oct",
+      "ꆏꊂꃘ":"Sa",
+      "ꑬꆏꑍ":"Su",
+      "ꆏꊂꋍ":"Mo",
+      "ꆏꊂꑍ":"Tu",
+      "ꆏꊂꌕ":"We",
+      "ꆏꊂꇖ":"Th",
+      "ꆏꊂꉬ":"Fr",
+      "ꆏꃘ":"Sa",
+      "ꑬꆏ":"Su",
+      "ꆏꋍ":"Mo",
+      "ꆏꑍ":"Tu",
+      "ꆏꌕ":"We",
+      "ꆏꇖ":"Th",
+      "ꆏꉬ":"Fr",
+      "ꋍꆪ":"Jan",
+      "ꑍꆪ":"Feb",
+      "ꌕꆪ":"Mar",
+      "ꇖꆪ":"Apr",
+      "ꉬꆪ":"May",
+      "ꃘꆪ":"Jun",
+      "ꏃꆪ":"Jul",
+      "ꉆꆪ":"Aug",
+      "ꈬꆪ":"Sep",
+      "ꊰꆪ":"Oct",
+      "ꊯꊪꆪ":"Nov",
+      "ꊰꑋꆪ":"Dec",
+      laugardagur:"Sa",
+      "mánudagur":"Mo",
+      "þriðjudagur":"Tu",
+      "miðvikudagur":"We",
+      fimmtudagur:"Th",
+      "föstudagur":"Fr",
+      "lau\\.":"Sa",
+      "sun\\.":"Su",
+      "mán\\.":"Mo",
+      "þri\\.":"Tu",
+      "mið\\.":"We",
+      "fim\\.":"Th",
+      "fös\\.":"Fr",
+      "janúar":"Jan",
+      "febrúar":"Feb",
+      "maí":"May",
+      "júní":"Jun",
+      "júlí":"Jul",
+      "ágúst":"Aug",
+      "nóvember":"Nov",
+      "ágú\\.":"Aug",
+      "nóv\\.":"Nov",
+      domenica:"Su",
+      "lunedì":"Mo",
+      "martedì":"Tu",
+      "mercoledì":"We",
+      "giovedì":"Th",
+      "venerdì":"Fr",
       gennaio:"Jan",
       febbraio:"Feb",
-      marzo:"Mar",
       aprile:"Apr",
-      "giugno?":"Jun",
-      "luglio?":"Jul",
-      agosto:"Aug",
+      maggio:"May",
+      giugno:"Jun",
+      luglio:"Jul",
       settembre:"Sep",
       ottobre:"Oct",
-      dicembre:"Dec" },
+      dicembre:"Dec",
+      gen:"Jan",
+      mag:"May",
+      giu:"Jun",
+      lug:"Jul",
+      set:"Sep",
+      ott:"Oct",
+      "土曜日":"Sa",
+      "日曜日":"Su",
+      "月曜日":"Mo",
+      "火曜日":"Tu",
+      "水曜日":"We",
+      "木曜日":"Th",
+      "金曜日":"Fr",
+      "土":"Sa",
+      "日":"Su",
+      "月":"Mo",
+      "火":"Tu",
+      "水":"We",
+      "木":"Th",
+      "金":"Fr",
+      "1月":"Jan",
+      "2月":"Feb",
+      "3月":"Mar",
+      "4月":"Apr",
+      "5月":"May",
+      "6月":"Jun",
+      "7月":"Jul",
+      "8月":"Aug",
+      "9月":"Sep",
+      "10月":"Oct",
+      "11月":"Nov",
+      "12月":"Dec",
+      "זונטיק":"Su",
+      "מאָנטיק":"Mo",
+      "דינסטיק":"Tu",
+      "מיטוואך":"We",
+      "דאנערשטיק":"Th",
+      "פֿרײַטיק":"Fr",
+      "יאַנואַר":"Jan",
+      "פֿעברואַר":"Feb",
+      "מערץ":"Mar",
+      "אַפּריל":"Apr",
+      "מיי":"May",
+      "אויגוסט":"Aug",
+      "סעפּטעמבער":"Sep",
+      "אקטאבער":"Oct",
+      "נאוועמבער":"Nov",
+      "דעצעמבער":"Dec",
+      "יאַנ":"Jan",
+      "פֿעב":"Feb",
+      "אַפּר":"Apr",
+      "אויג":"Aug",
+      "סעפּ":"Sep",
+      "אקט":"Oct",
+      "נאוו":"Nov",
+      "דעצ":"Dec",
+      ahad:"Su",
+      agt:"Aug",
+      "შაბათი":"Sa",
+      "კვირა":"Su",
+      "ორშაბათი":"Mo",
+      "სამშაბათი":"Tu",
+      "ოთხშაბათი":"We",
+      "ხუთშაბათი":"Th",
+      "პარასკევი":"Fr",
+      "შაბ":"Sa",
+      "კვი":"Su",
+      "ორშ":"Mo",
+      "სამ":"Tu",
+      "ოთხ":"We",
+      "ხუთ":"Th",
+      "პარ":"Fr",
+      "იანვარი":"Jan",
+      "თებერვალი":"Feb",
+      "მარტი":"Mar",
+      "აპრილი":"Apr",
+      "მაისი":"May",
+      "ივნისი":"Jun",
+      "ივლისი":"Jul",
+      "აგვისტო":"Aug",
+      "სექტემბერი":"Sep",
+      "ოქტომბერი":"Oct",
+      "ნოემბერი":"Nov",
+      "დეკემბერი":"Dec",
+      "იან":"Jan",
+      "თებ":"Feb",
+      "მარ":"Mar",
+      "აპრ":"Apr",
+      "მაი":"May",
+      "ივნ":"Jun",
+      "ივლ":"Jul",
+      "აგვ":"Aug",
+      "სექ":"Sep",
+      "ოქტ":"Oct",
+      "ნოე":"Nov",
+      "დეკ":"Dec",
+      njumamothi:"Sa",
+      kiumia:"Su",
+      "njumatatũ":"Mo",
+      njumaine:"Tu",
+      njumatana:"We",
+      aramithi:"Th",
+      njumaa:"Fr",
+      nmm:"Sa",
+      kma:"Su",
+      ntt:"Mo",
+      nmn:"Tu",
+      nmt:"We",
+      art:"Th",
+      nma:"Fr",
+      "njenuarĩ":"Jan",
+      "mwere wa kerĩ":"Feb",
+      "mwere wa gatatũ":"Mar",
+      "mwere wa kana":"Apr",
+      "mwere wa gatano":"May",
+      "mwere wa gatandatũ":"Jun",
+      "mwere wa mũgwanja":"Jul",
+      "mwere wa kanana":"Aug",
+      "mwere wa kenda":"Sep",
+      "mwere wa ikũmi":"Oct",
+      "mwere wa ikũmi na ũmwe":"Nov",
+      ndithemba:"Dec",
+      wkr:"Feb",
+      wgt:"Mar",
+      wtd:"Jun",
+      wmj:"Jul",
+      wnn:"Aug",
+      wkd:"Sep",
+      wik:"Oct",
+      wmw:"Nov",
+      dit:"Dec",
+      "сенбі":"Sa",
+      "жексенбі":"Su",
+      "дүйсенбі":"Mo",
+      "сейсенбі":"Tu",
+      "сәрсенбі":"We",
+      "бейсенбі":"Th",
+      "жұма":"Fr",
+      "жс":"Su",
+      "дс":"Mo",
+      "сс":"Tu",
+      "жм":"Fr",
+      "қаңтар":"Jan",
+      "ақпан":"Feb",
+      "наурыз":"Mar",
+      "сәуір":"Apr",
+      "мамыр":"May",
+      "маусым":"Jun",
+      "шілде":"Jul",
+      "тамыз":"Aug",
+      "қыркүйек":"Sep",
+      "қазан":"Oct",
+      "қараша":"Nov",
+      "желтоқсан":"Dec",
+      "қаң\\.":"Jan",
+      "ақп\\.":"Feb",
+      "нау\\.":"Mar",
+      "сәу\\.":"Apr",
+      "мам\\.":"May",
+      "мау\\.":"Jun",
+      "шіл\\.":"Jul",
+      "там\\.":"Aug",
+      "қыр\\.":"Sep",
+      "қаз\\.":"Oct",
+      "қар\\.":"Nov",
+      "жел\\.":"Dec",
+      arfininngorneq:"Sa",
+      sapaat:"Su",
+      ataasinngorneq:"Mo",
+      marlunngorneq:"Tu",
+      pingasunngorneq:"We",
+      sisamanngorneq:"Th",
+      tallimanngorneq:"Fr",
+      arf:"Sa",
+      pin:"We",
+      sis:"Th",
+      januaari:"Jan",
+      februaari:"Feb",
+      marsi:"Mar",
+      apriili:"Apr",
+      maaji:"May",
+      aggusti:"Aug",
+      septembari:"Sep",
+      oktobari:"Oct",
+      novembari:"Nov",
+      decembari:"Dec",
+      febr:"Feb",
+      "សៅរ៍":"Sa",
+      "អាទិត្យ":"Su",
+      "ចន្ទ":"Mo",
+      "អង្គារ":"Tu",
+      "ពុធ":"We",
+      "ព្រហស្បតិ៍":"Th",
+      "សុក្រ":"Fr",
+      "ព្រហ":"Th",
+      "មករា":"Jan",
+      "កុម្ភៈ":"Feb",
+      "មីនា":"Mar",
+      "មេសា":"Apr",
+      "ឧសភា":"May",
+      "មិថុនា":"Jun",
+      "កក្កដា":"Jul",
+      "សីហា":"Aug",
+      "កញ្ញា":"Sep",
+      "តុលា":"Oct",
+      "វិច្ឆិកា":"Nov",
+      "ធ្នូ":"Dec",
+      "ಶನಿವಾರ":"Sa",
+      "ಭಾನುವಾರ":"Su",
+      "ಸೋಮವಾರ":"Mo",
+      "ಮಂಗಳವಾರ":"Tu",
+      "ಬುಧವಾರ":"We",
+      "ಗುರುವಾರ":"Th",
+      "ಶುಕ್ರವಾರ":"Fr",
+      "ಶನಿ":"Sa",
+      "ಭಾನು":"Su",
+      "ಸೋಮ":"Mo",
+      "ಮಂಗಳ":"Tu",
+      "ಬುಧ":"We",
+      "ಗುರು":"Th",
+      "ಶುಕ್ರ":"Fr",
+      "ಜನವರಿ":"Jan",
+      "ಫೆಬ್ರವರಿ":"Feb",
+      "ಮಾರ್ಚ್":"Mar",
+      "ಏಪ್ರಿಲ್":"Apr",
+      "ಮೇ":"May",
+      "ಜೂನ್":"Jun",
+      "ಜುಲೈ":"Jul",
+      "ಆಗಸ್ಟ್":"Aug",
+      "ಸೆಪ್ಟೆಂಬರ್":"Sep",
+      "ಅಕ್ಟೋಬರ್":"Oct",
+      "ನವೆಂಬರ್":"Nov",
+      "ಡಿಸೆಂಬರ್":"Dec",
+      "ಜನ":"Jan",
+      "ಫೆಬ್ರ":"Feb",
+      "ಏಪ್ರಿ":"Apr",
+      "ಆಗ":"Aug",
+      "ಸೆಪ್ಟೆಂ":"Sep",
+      "ಅಕ್ಟೋ":"Oct",
+      "ನವೆಂ":"Nov",
+      "ಡಿಸೆಂ":"Dec",
+      "토요일":"Sa",
+      "일요일":"Su",
+      "월요일":"Mo",
+      "화요일":"Tu",
+      "수요일":"We",
+      "목요일":"Th",
+      "금요일":"Fr",
+      "토":"Sa",
+      "일":"Su",
+      "월":"Mo",
+      "화":"Tu",
+      "수":"We",
+      "목":"Th",
+      "금":"Fr",
+      "1월":"Jan",
+      "2월":"Feb",
+      "3월":"Mar",
+      "4월":"Apr",
+      "5월":"May",
+      "6월":"Jun",
+      "7월":"Jul",
+      "8월":"Aug",
+      "9월":"Sep",
+      "10월":"Oct",
+      "11월":"Nov",
+      "12월":"Dec",
+      "بٹوار":"Sa",
+      "اَتھوار":"Su",
+      "ژٔندرٕروار":"Mo",
+      "بۆموار":"Tu",
+      "بودوار":"We",
+      "برؠسوار":"Th",
+      "جُمہ":"Fr",
+      "آتھوار":"Su",
+      "ژٔندٕروار":"Mo",
+      "جنؤری":"Jan",
+      "فرؤری":"Feb",
+      "مارٕچ":"Mar",
+      "اپریل":"Apr",
+      "مئی":"May",
+      "جوٗن":"Jun",
+      "جوٗلایی":"Jul",
+      "اگست":"Aug",
+      "ستمبر":"Sep",
+      "اکتوٗبر":"Oct",
+      "نومبر":"Nov",
+      "دسمبر":"Dec",
+      "şemî":"Sa",
+      "yekşem":"Su",
+      "duşem":"Mo",
+      "sêşem":"Tu",
+      "çarşem":"We",
+      "pêncşem":"Th",
+      "înî":"Fr",
+      "şem":"Sa",
+      "yşm":"Su",
+      "dşm":"Mo",
+      "sşm":"Tu",
+      "çşm":"We",
+      "pşm":"Th",
+      "rêbendan":"Jan",
+      sibat:"Feb",
+      adar:"Mar",
+      "nîsan":"Apr",
+      gulan:"May",
+      "hezîran":"Jun",
+      "tîrmeh":"Jul",
+      tebax:"Aug",
+      "îlon":"Sep",
+      cotmeh:"Oct",
+      mijdar:"Nov",
+      berfanbar:"Dec",
+      rbn:"Jan",
+      sbt:"Feb",
+      adr:"Mar",
+      nsn:"Apr",
+      gln:"May",
+      hzr:"Jun",
+      trm:"Jul",
+      tbx:"Aug",
+      "îln":"Sep",
+      cot:"Oct",
+      mjd:"Nov",
+      brf:"Dec",
+      "dy sadorn":"Sa",
+      "dy sul":"Su",
+      "dy lun":"Mo",
+      "dy meurth":"Tu",
+      "dy merher":"We",
+      "dy yow":"Th",
+      "dy gwener":"Fr",
+      mth:"Tu",
+      mhr:"We",
+      yow:"Th",
+      "mis genver":"Jan",
+      "mis hwevrer":"Feb",
+      "mis meurth":"Mar",
+      "mis ebrel":"Apr",
+      "mis me":"May",
+      "mis metheven":"Jun",
+      "mis gortheren":"Jul",
+      "mis est":"Aug",
+      "mis gwynngala":"Sep",
+      "mis hedra":"Oct",
+      "mis du":"Nov",
+      "mis kevardhu":"Dec",
+      hwe:"Feb",
+      meu:"Mar",
+      met:"Jun",
+      gwn:"Sep",
+      hed:"Oct",
+      kev:"Dec",
+      "ишемби":"Sa",
+      "жекшемби":"Su",
+      "дүйшөмбү":"Mo",
+      "шейшемби":"Tu",
+      "шаршемби":"We",
+      "бейшемби":"Th",
+      "жума":"Fr",
+      "ишм\\.":"Sa",
+      "жек\\.":"Su",
+      "дүй\\.":"Mo",
+      "шейш\\.":"Tu",
+      "шарш\\.":"We",
+      "бейш\\.":"Th",
+      samschdeg:"Sa",
+      sonndeg:"Su",
+      "méindeg":"Mo",
+      "dënschdeg":"Tu",
+      "mëttwoch":"We",
+      donneschdeg:"Th",
+      freideg:"Fr",
+      "dën":"Tu",
+      "mët":"We",
+      don:"Th",
+      "mäerz":"Mar",
+      "abrëll":"Apr",
+      "mäe":"Mar",
+      lwamukaaga:"Sa",
+      sabbiiti:"Su",
+      balaza:"Mo",
+      lwakubiri:"Tu",
+      lwakusatu:"We",
+      lwakuna:"Th",
+      lwakutaano:"Fr",
+      lw6:"Sa",
+      bal:"Mo",
+      lw2:"Tu",
+      lw3:"We",
+      lw4:"Th",
+      lw5:"Fr",
+      janwaliyo:"Jan",
+      febwaliyo:"Feb",
+      apuli:"Apr",
+      maayi:"May",
+      julaayi:"Jul",
+      agusito:"Aug",
+      sebuttemba:"Sep",
+      okitobba:"Oct",
+      desemba:"Dec",
+      apu:"Apr",
+      seb:"Sep",
+      oki:"Oct",
+      "mpɔ́sɔ":"Sa",
+      eyenga:"Su",
+      "mokɔlɔ mwa yambo":"Mo",
+      "mokɔlɔ mwa míbalé":"Tu",
+      "mokɔlɔ mwa mísáto":"We",
+      "mokɔlɔ ya mínéi":"Th",
+      "mokɔlɔ ya mítáno":"Fr",
+      mps:"Sa",
+      eye:"Su",
+      ybo:"Mo",
+      mbl:"Tu",
+      mst:"We",
+      mtn:"Fr",
+      "sánzá ya yambo":"Jan",
+      "sánzá ya míbalé":"Feb",
+      "sánzá ya mísáto":"Mar",
+      "sánzá ya mínei":"Apr",
+      "sánzá ya mítáno":"May",
+      "sánzá ya motóbá":"Jun",
+      "sánzá ya nsambo":"Jul",
+      "sánzá ya mwambe":"Aug",
+      "sánzá ya libwa":"Sep",
+      "sánzá ya zómi":"Oct",
+      "sánzá ya zómi na mɔ̌kɔ́":"Nov",
+      "sánzá ya zómi na míbalé":"Dec",
+      fbl:"Feb",
+      msi:"Mar",
+      apl:"Apr",
+      stb:"Sep",
+      "ɔtb":"Oct",
+      nvb:"Nov",
+      dsb:"Dec",
+      "ວັນເສົາ":"Sa",
+      "ວັນອາທິດ":"Su",
+      "ວັນຈັນ":"Mo",
+      "ວັນອັງຄານ":"Tu",
+      "ວັນພຸດ":"We",
+      "ວັນພະຫັດ":"Th",
+      "ວັນສຸກ":"Fr",
+      "ເສົາ":"Sa",
+      "ອາທິດ":"Su",
+      "ຈັນ":"Mo",
+      "ອັງຄານ":"Tu",
+      "ພຸດ":"We",
+      "ພະຫັດ":"Th",
+      "ສຸກ":"Fr",
+      "ມັງກອນ":"Jan",
+      "ກຸມພາ":"Feb",
+      "ມີນາ":"Mar",
+      "ເມສາ":"Apr",
+      "ພຶດສະພາ":"May",
+      "ມິຖຸນາ":"Jun",
+      "ກໍລະກົດ":"Jul",
+      "ສິງຫາ":"Aug",
+      "ກັນຍາ":"Sep",
+      "ຕຸລາ":"Oct",
+      "ພະຈິກ":"Nov",
+      "ທັນວາ":"Dec",
+      "ມ\\.ກ\\.":"Jan",
+      "ກ\\.ພ\\.":"Feb",
+      "ມ\\.ນ\\.":"Mar",
+      "ມ\\.ສ\\.":"Apr",
+      "ພ\\.ພ\\.":"May",
+      "ມິ\\.ຖ\\.":"Jun",
+      "ກ\\.ລ\\.":"Jul",
+      "ສ\\.ຫ\\.":"Aug",
+      "ກ\\.ຍ\\.":"Sep",
+      "ຕ\\.ລ\\.":"Oct",
+      "ພ\\.ຈ\\.":"Nov",
+      "ທ\\.ວ\\.":"Dec",
+      "šeštadienis":"Sa",
+      sekmadienis:"Su",
+      pirmadienis:"Mo",
+      antradienis:"Tu",
+      "trečiadienis":"We",
+      ketvirtadienis:"Th",
+      penktadienis:"Fr",
+      sk:"Su",
+      pr:"Mo",
+      an:"Tu",
+      tr:"We",
+      kt:"Th",
+      sausis:"Jan",
+      vasaris:"Feb",
+      kovas:"Mar",
+      balandis:"Apr",
+      "gegužė":"May",
+      "birželis":"Jun",
+      liepa:"Jul",
+      "rugpjūtis":"Aug",
+      "rugsėjis":"Sep",
+      spalis:"Oct",
+      lapkritis:"Nov",
+      gruodis:"Dec",
+      lubingu:"Sa",
+      lumingu:"Su",
+      nkodya:"Mo",
+      "ndàayà":"Tu",
+      "ndangù":"We",
+      "njòwa":"Th",
+      "ngòvya":"Fr",
+      lub:"Sa",
+      nko:"Mo",
+      ndy:"Tu",
+      ndg:"We",
+      njw:"Th",
+      ngv:"Fr",
+      ciongo:"Jan",
+      "lùishi":"Feb",
+      "lusòlo":"Mar",
+      "mùuyà":"Apr",
+      "lumùngùlù":"May",
+      lufuimi:"Jun",
+      "kabàlàshìpù":"Jul",
+      "lùshìkà":"Aug",
+      lutongolo:"Sep",
+      "lungùdi":"Oct",
+      "kaswèkèsè":"Nov",
+      "ciswà":"Dec",
+      cio:"Jan",
+      lus:"Mar",
+      muu:"Apr",
+      luf:"Jun",
+      kab:"Jul",
+      lush:"Aug",
+      cis:"Dec",
+      sestdiena:"Sa",
+      "svētdiena":"Su",
+      pirmdiena:"Mo",
+      otrdiena:"Tu",
+      "trešdiena":"We",
+      ceturtdiena:"Th",
+      piektdiena:"Fr",
+      "sestd\\.":"Sa",
+      "svētd\\.":"Su",
+      "pirmd\\.":"Mo",
+      "otrd\\.":"Tu",
+      "trešd\\.":"We",
+      "ceturtd\\.":"Th",
+      "piektd\\.":"Fr",
+      "janvāris":"Jan",
+      "februāris":"Feb",
+      "aprīlis":"Apr",
+      maijs:"May",
+      "jūnijs":"Jun",
+      "jūlijs":"Jul",
+      augusts:"Aug",
+      septembris:"Sep",
+      oktobris:"Oct",
+      novembris:"Nov",
+      decembris:"Dec",
+      "jūn\\.":"Jun",
+      "jūl\\.":"Jul",
+      asabotsy:"Sa",
+      alahady:"Su",
+      alatsinainy:"Mo",
+      alarobia:"We",
+      alakamisy:"Th",
+      zoma:"Fr",
+      asab:"Sa",
+      alah:"Su",
+      alats:"Mo",
+      alar:"We",
+      alak:"Th",
+      zom:"Fr",
+      janoary:"Jan",
+      febroary:"Feb",
+      martsa:"Mar",
+      aprily:"Apr",
+      mey:"May",
+      jona:"Jun",
+      jolay:"Jul",
+      aogositra:"Aug",
+      septambra:"Sep",
+      oktobra:"Oct",
+      novambra:"Nov",
+      desambra:"Dec",
+      aog:"Aug",
+      "rāhoroi":"Sa",
+      "rātapu":"Su",
+      mane:"Mo",
+      "tūrei":"Tu",
+      wenerei:"We",
+      "tāite":"Th",
+      paraire:"Fr",
+      "rāh":"Sa",
+      "rāt":"Su",
+      man:"Mo",
+      "tūr":"Tu",
+      "tāi":"Th",
+      par:"Fr",
+      "hānuere":"Jan",
+      "pēpuere":"Feb",
+      "māehe":"Mar",
+      "āperira":"Apr",
+      hune:"Jun",
+      "hūrae":"Jul",
+      "ākuhata":"Aug",
+      hepetema:"Sep",
+      oketopa:"Oct",
+      noema:"Nov",
+      "tīhema":"Dec",
+      "hān":"Jan",
+      "pēp":"Feb",
+      "māe":"Mar",
+      "āpe":"Apr",
+      hun:"Jun",
+      "hūr":"Jul",
+      "āku":"Aug",
+      hep:"Sep",
+      oke:"Oct",
+      noe:"Nov",
+      "tīh":"Dec",
+      "сабота":"Sa",
+      "недела":"Su",
+      "среда":"We",
+      "четврток":"Th",
+      "петок":"Fr",
+      "саб\\.":"Sa",
+      "нед\\.":"Su",
+      "пон\\.":"Mo",
+      "вто\\.":"Tu",
+      "сре\\.":"We",
+      "чет\\.":"Th",
+      "пет\\.":"Fr",
+      "јануари":"Jan",
+      "мај":"May",
+      "јуни":"Jun",
+      "јули":"Jul",
+      "јан\\.":"Jan",
+      "фев\\.":"Feb",
+      "мар\\.":"Mar",
+      "апр\\.":"Apr",
+      "јун\\.":"Jun",
+      "јул\\.":"Jul",
+      "авг\\.":"Aug",
+      "сеп\\.":"Sep",
+      "окт\\.":"Oct",
+      "ное\\.":"Nov",
+      "дек\\.":"Dec",
+      "ശനിയാഴ്‌ച":"Sa",
+      "ഞായറാഴ്‌ച":"Su",
+      "തിങ്കളാഴ്‌ച":"Mo",
+      "ചൊവ്വാഴ്‌ച":"Tu",
+      "ബുധനാഴ്‌ച":"We",
+      "വ്യാഴാഴ്‌ച":"Th",
+      "വെള്ളിയാഴ്‌ച":"Fr",
+      "ശനി":"Sa",
+      "ഞായർ":"Su",
+      "തിങ്കൾ":"Mo",
+      "ചൊവ്വ":"Tu",
+      "ബുധൻ":"We",
+      "വ്യാഴം":"Th",
+      "വെള്ളി":"Fr",
+      "ജനുവരി":"Jan",
+      "ഫെബ്രുവരി":"Feb",
+      "മാർച്ച്":"Mar",
+      "ഏപ്രിൽ":"Apr",
+      "മേയ്":"May",
+      "ജൂൺ":"Jun",
+      "ജൂലൈ":"Jul",
+      "ഓഗസ്റ്റ്":"Aug",
+      "സെപ്റ്റംബർ":"Sep",
+      "ഒക്‌ടോബർ":"Oct",
+      "നവംബർ":"Nov",
+      "ഡിസംബർ":"Dec",
+      "ജനു":"Jan",
+      "ഫെബ്രു":"Feb",
+      "മാർ":"Mar",
+      "ഏപ്രി":"Apr",
+      "ഓഗ":"Aug",
+      "സെപ്റ്റം":"Sep",
+      "ഒക്ടോ":"Oct",
+      "നവം":"Nov",
+      "ഡിസം":"Dec",
+      "бямба":"Sa",
+      "ням":"Su",
+      "даваа":"Mo",
+      "мягмар":"Tu",
+      "лхагва":"We",
+      "пүрэв":"Th",
+      "баасан":"Fr",
+      "бя":"Sa",
+      "ня":"Su",
+      "да":"Mo",
+      "мя":"Tu",
+      "лх":"We",
+      "пү":"Th",
+      "ба":"Fr",
+      "нэгдүгээр сар":"Jan",
+      "хоёрдугаар сар":"Feb",
+      "гуравдугаар сар":"Mar",
+      "дөрөвдүгээр сар":"Apr",
+      "тавдугаар сар":"May",
+      "зургаадугаар сар":"Jun",
+      "долоодугаар сар":"Jul",
+      "наймдугаар сар":"Aug",
+      "есдүгээр сар":"Sep",
+      "аравдугаар сар":"Oct",
+      "арван нэгдүгээр сар":"Nov",
+      "арван хоёрдугаар сар":"Dec",
+      "1-р сар":"Jan",
+      "2-р сар":"Feb",
+      "3-р сар":"Mar",
+      "4-р сар":"Apr",
+      "5-р сар":"May",
+      "6-р сар":"Jun",
+      "7-р сар":"Jul",
+      "8-р сар":"Aug",
+      "9-р сар":"Sep",
+      "10-р сар":"Oct",
+      "11-р сар":"Nov",
+      "12-р сар":"Dec",
+      "sâmbătă":"Sa",
+      "duminică":"Su",
+      luni:"Mo",
+      "marți":"Tu",
+      miercuri:"We",
+      joi:"Th",
+      vineri:"Fr",
+      "sâm\\.":"Sa",
+      "dum\\.":"Su",
+      "mie\\.":"We",
+      "vin\\.":"Fr",
+      ianuarie:"Jan",
+      martie:"Mar",
+      aprilie:"Apr",
+      iunie:"Jun",
+      iulie:"Jul",
+      septembrie:"Sep",
+      octombrie:"Oct",
+      noiembrie:"Nov",
+      decembrie:"Dec",
+      "ian\\.":"Jan",
+      "iun\\.":"Jun",
+      "iul\\.":"Jul",
+      "मंगळवार":"Tu",
+      "मंगळ":"Tu",
+      "जानेवारी":"Jan",
+      "फेब्रुवारी":"Feb",
+      "एप्रिल":"Apr",
+      "मे":"May",
+      "जुलै":"Jul",
+      "ऑगस्ट":"Aug",
+      "सप्टेंबर":"Sep",
+      "ऑक्टोबर":"Oct",
+      "नोव्हेंबर":"Nov",
+      "डिसेंबर":"Dec",
+      "जाने":"Jan",
+      "फेब्रु":"Feb",
+      "एप्रि":"Apr",
+      "ऑग":"Aug",
+      "सप्टें":"Sep",
+      "ऑक्टो":"Oct",
+      "नोव्हें":"Nov",
+      "डिसें":"Dec",
+      isnin:"Mo",
+      khamis:"Th",
+      jumaat:"Fr",
+      ahd:"Su",
+      isn:"Mo",
+      kha:"Th",
+      julai:"Jul",
+      ogos:"Aug",
+      disember:"Dec",
+      ogo:"Aug",
+      "is-sibt":"Sa",
+      "il-ħadd":"Su",
+      "it-tnejn":"Mo",
+      "it-tlieta":"Tu",
+      "l-erbgħa":"We",
+      "il-ħamis":"Th",
+      "il-ġimgħa":"Fr",
+      "ħad":"Su",
+      tne:"Mo",
+      tli:"Tu",
+      erb:"We",
+      "ħam":"Th",
+      "ġim":"Fr",
+      jannar:"Jan",
+      frar:"Feb",
+      marzu:"Mar",
+      mejju:"May",
+      "ġunju":"Jun",
+      lulju:"Jul",
+      awwissu:"Aug",
+      settembru:"Sep",
+      ottubru:"Oct",
+      novembru:"Nov",
+      "diċembru":"Dec",
+      fra:"Feb",
+      mej:"May",
+      "ġun":"Jun",
+      lul:"Jul",
+      aww:"Aug",
+      "diċ":"Dec",
+      "စနေ":"Sa",
+      "တနင်္ဂနွေ":"Su",
+      "တနင်္လာ":"Mo",
+      "အင်္ဂါ":"Tu",
+      "ဗုဒ္ဓဟူး":"We",
+      "ကြာသပတေး":"Th",
+      "သောကြာ":"Fr",
+      "ဇန်နဝါရီ":"Jan",
+      "ဖေဖော်ဝါရီ":"Feb",
+      "မတ်":"Mar",
+      "ဧပြီ":"Apr",
+      "မေ":"May",
+      "ဇွန်":"Jun",
+      "ဇူလိုင်":"Jul",
+      "ဩဂုတ်":"Aug",
+      "စက်တင်ဘာ":"Sep",
+      "အောက်တိုဘာ":"Oct",
+      "နိုဝင်ဘာ":"Nov",
+      "ဒီဇင်ဘာ":"Dec",
+      "ဇန်":"Jan",
+      "ဖေ":"Feb",
+      "ဧ":"Apr",
+      "ဇူ":"Jul",
+      "ဩ":"Aug",
+      "စက်":"Sep",
+      "အောက်":"Oct",
+      "နို":"Nov",
+      "ဒီ":"Dec",
+      "tir\\.":"Tu",
+      mgqibelo:"Sa",
+      sonto:"Su",
+      mvulo:"Mo",
+      sibili:"Tu",
+      sithathu:"We",
+      sine:"Th",
+      sihlanu:"Fr",
+      mgq:"Sa",
+      sin:"Th",
+      sih:"Fr",
+      zibandlela:"Jan",
+      nhlolanja:"Feb",
+      mbimbitho:"Mar",
+      mabasa:"Apr",
+      nkwenkwezi:"May",
+      nhlangula:"Jun",
+      ntulikazi:"Jul",
+      ncwabakazi:"Aug",
+      mpandula:"Sep",
+      mfumfu:"Oct",
+      lwezi:"Nov",
+      mpalakazi:"Dec",
+      zib:"Jan",
+      nhlo:"Feb",
+      mab:"Apr",
+      nkw:"May",
+      nhla:"Jun",
+      ntu:"Jul",
+      ncw:"Aug",
+      mpan:"Sep",
+      mpal:"Dec",
+      "शनिबार":"Sa",
+      "आइतबार":"Su",
+      "सोमबार":"Mo",
+      "मङ्गलबार":"Tu",
+      "बुधबार":"We",
+      "बिहिबार":"Th",
+      "शुक्रबार":"Fr",
+      "आइत":"Su",
+      "मङ्गल":"Tu",
+      "बिहि":"Th",
+      "फेब्रुअरी":"Feb",
+      "अप्रिल":"Apr",
+      "जुन":"Jun",
+      "अगस्ट":"Aug",
+      "सेप्टेम्बर":"Sep",
+      "अक्टोबर":"Oct",
+      "नोभेम्बर":"Nov",
+      "डिसेम्बर":"Dec",
+      zaterdag:"Sa",
+      zondag:"Su",
+      vrijdag:"Fr",
+      za:"Sa",
+      zo:"Su",
+      vr:"Fr",
+      laurdag:"Sa",
+      "måndag":"Mo",
+      tysdag:"Tu",
+      lau:"Sa",
+      "søn":"Su",
+      "mån":"Mo",
+      tys:"Tu",
+      ons:"We",
+      tor:"Th",
+      dimenge:"Su",
+      diluns:"Mo",
+      dimars:"Tu",
+      "dimècres":"We",
+      "dijòus":"Th",
+      "de genièr":"Jan",
+      "de febrièr":"Feb",
+      "de març":"Mar",
+      "d’abril":"Apr",
+      "de mai":"May",
+      "de junh":"Jun",
+      "de julhet":"Jul",
+      "d’agost":"Aug",
+      "de setembre":"Sep",
+      "d’octòbre":"Oct",
+      "de novembre":"Nov",
+      "de decembre":"Dec",
+      sanbata:"Sa",
+      dilbata:"Su",
+      wiixata:"Mo",
+      kibxata:"Tu",
+      roobii:"We",
+      kamisa:"Th",
+      jimaata:"Fr",
+      wix:"Mo",
+      kib:"Tu",
+      rob:"We",
+      amajjii:"Jan",
+      guraandhala:"Feb",
+      bitootessa:"Mar",
+      eebila:"Apr",
+      caamsaa:"May",
+      waxabajjii:"Jun",
+      adoolessa:"Jul",
+      hagayya:"Aug",
+      fulbaana:"Sep",
+      onkoloolessa:"Oct",
+      sadaasa:"Nov",
+      mudde:"Dec",
+      ama:"Jan",
+      gur:"Feb",
+      elb:"Apr",
+      cam:"May",
+      wax:"Jun",
+      ado:"Jul",
+      hag:"Aug",
+      onk:"Oct",
+      mud:"Dec",
+      "ଶନିବାର":"Sa",
+      "ରବିବାର":"Su",
+      "ସୋମବାର":"Mo",
+      "ମଙ୍ଗଳବାର":"Tu",
+      "ବୁଧବାର":"We",
+      "ଗୁରୁବାର":"Th",
+      "ଶୁକ୍ରବାର":"Fr",
+      "ଶନି":"Sa",
+      "ରବି":"Su",
+      "ସୋମ":"Mo",
+      "ମଙ୍ଗଳ":"Tu",
+      "ବୁଧ":"We",
+      "ଗୁରୁ":"Th",
+      "ଶୁକ୍ର":"Fr",
+      "ଜାନୁଆରୀ":"Jan",
+      "ଫେବୃଆରୀ":"Feb",
+      "ମାର୍ଚ୍ଚ":"Mar",
+      "ଅପ୍ରେଲ":"Apr",
+      "ମଇ":"May",
+      "ଜୁନ":"Jun",
+      "ଜୁଲାଇ":"Jul",
+      "ଅଗଷ୍ଟ":"Aug",
+      "ସେପ୍ଟେମ୍ବର":"Sep",
+      "ଅକ୍ଟୋବର":"Oct",
+      "ନଭେମ୍ବର":"Nov",
+      "ଡିସେମ୍ବର":"Dec",
+      "сабат":"Sa",
+      "хуыцаубон":"Su",
+      "къуырисӕр":"Mo",
+      "дыццӕг":"Tu",
+      "ӕртыццӕг":"We",
+      "цыппӕрӕм":"Th",
+      "майрӕмбон":"Fr",
+      "сбт":"Sa",
+      "хцб":"Su",
+      "крс":"Mo",
+      "дцг":"Tu",
+      "ӕрт":"We",
+      "цпр":"Th",
+      "мрб":"Fr",
+      "мартъи":"Mar",
+      "янв\\.":"Jan",
+      "февр\\.":"Feb",
+      "март\\.":"Mar",
+      "сент\\.":"Sep",
+      "нояб\\.":"Nov",
+      "ਸ਼ਨਿੱਚਰਵਾਰ":"Sa",
+      "ਐਤਵਾਰ":"Su",
+      "ਸੋਮਵਾਰ":"Mo",
+      "ਮੰਗਲਵਾਰ":"Tu",
+      "ਬੁੱਧਵਾਰ":"We",
+      "ਵੀਰਵਾਰ":"Th",
+      "ਸ਼ੁੱਕਰਵਾਰ":"Fr",
+      "ਸ਼ਨਿੱਚਰ":"Sa",
+      "ਐਤ":"Su",
+      "ਸੋਮ":"Mo",
+      "ਮੰਗਲ":"Tu",
+      "ਬੁੱਧ":"We",
+      "ਵੀਰ":"Th",
+      "ਸ਼ੁੱਕਰ":"Fr",
+      "ਜਨਵਰੀ":"Jan",
+      "ਫ਼ਰਵਰੀ":"Feb",
+      "ਮਾਰਚ":"Mar",
+      "ਅਪ੍ਰੈਲ":"Apr",
+      "ਮਈ":"May",
+      "ਜੂਨ":"Jun",
+      "ਜੁਲਾਈ":"Jul",
+      "ਅਗਸਤ":"Aug",
+      "ਸਤੰਬਰ":"Sep",
+      "ਅਕਤੂਬਰ":"Oct",
+      "ਨਵੰਬਰ":"Nov",
+      "ਦਸੰਬਰ":"Dec",
+      "ਜਨ":"Jan",
+      "ਫ਼ਰ":"Feb",
+      "ਅਪ੍ਰੈ":"Apr",
+      "ਜੁਲਾ":"Jul",
+      "ਅਗ":"Aug",
+      "ਸਤੰ":"Sep",
+      "ਅਕਤੂ":"Oct",
+      "ਨਵੰ":"Nov",
+      "ਦਸੰ":"Dec",
+      niedziela:"Su",
+      "poniedziałek":"Mo",
+      wtorek:"Tu",
+      "środa":"We",
+      czwartek:"Th",
+      "piątek":"Fr",
+      "sob\\.":"Sa",
+      "niedz\\.":"Su",
+      "pon\\.":"Mo",
+      "wt\\.":"Tu",
+      "śr\\.":"We",
+      "czw\\.":"Th",
+      "pt\\.":"Fr",
+      "styczeń":"Jan",
+      luty:"Feb",
+      marzec:"Mar",
+      "kwiecień":"Apr",
+      czerwiec:"Jun",
+      lipiec:"Jul",
+      "sierpień":"Aug",
+      "wrzesień":"Sep",
+      "październik":"Oct",
+      "grudzień":"Dec",
+      sty:"Jan",
+      kwi:"Apr",
+      sie:"Aug",
+      wrz:"Sep",
+      "paź":"Oct",
+      gru:"Dec",
+      "اونۍ":"Sa",
+      "يونۍ":"Su",
+      "دونۍ":"Mo",
+      "درېنۍ":"Tu",
+      "څلرنۍ":"We",
+      "پينځنۍ":"Th",
+      "مرغومی":"Jan",
+      "سلواغه":"Feb",
+      "کب":"Mar",
+      "وری":"Apr",
+      "غویی":"May",
+      "غبرگولی":"Jun",
+      "چنگاښ":"Jul",
+      "زمری":"Aug",
+      "وږی":"Sep",
+      "تله":"Oct",
+      "لړم":"Nov",
+      "لیندۍ":"Dec",
+      "segunda-feira":"Mo",
+      "terça-feira":"Tu",
+      "quarta-feira":"We",
+      "quinta-feira":"Th",
+      "sexta-feira":"Fr",
+      "seg\\.":"Mo",
+      "ter\\.":"Tu",
+      "qua\\.":"We",
+      "qui\\.":"Th",
+      "sex\\.":"Fr",
+      janeiro:"Jan",
+      fevereiro:"Feb",
+      "março":"Mar",
+      junho:"Jun",
+      julho:"Jul",
+      dezembro:"Dec",
+      "fev\\.":"Feb",
+      "dez\\.":"Dec",
+      setiembre:"Sep",
+      sonda:"Sa",
+      dumengia:"Su",
+      glindesdi:"Mo",
+      mesemna:"We",
+      gievgia:"Th",
+      venderdi:"Fr",
+      gli:"Mo",
+      gie:"Th",
+      schaner:"Jan",
+      favrer:"Feb",
+      avrigl:"Apr",
+      matg:"May",
+      zercladur:"Jun",
+      fanadur:"Jul",
+      avust:"Aug",
+      settember:"Sep",
+      "schan\\.":"Jan",
+      "favr\\.":"Feb",
+      "zercl\\.":"Jun",
+      "fan\\.":"Jul",
+      "sett\\.":"Sep",
+      "ku wa gatandatu":"Sa",
+      "ku w’indwi":"Su",
+      "ku wa mbere":"Mo",
+      "ku wa kabiri":"Tu",
+      "ku wa gatatu":"We",
+      "ku wa kane":"Th",
+      "ku wa gatanu":"Fr",
+      "gnd\\.":"Sa",
+      "cu\\.":"Su",
+      "mbe\\.":"Mo",
+      "kab\\.":"Tu",
+      "gtu\\.":"We",
+      "gnu\\.":"Fr",
+      nzero:"Jan",
+      ruhuhuma:"Feb",
+      ntwarante:"Mar",
+      ndamukiza:"Apr",
+      rusama:"May",
+      ruheshi:"Jun",
+      mukakaro:"Jul",
+      nyandagaro:"Aug",
+      gitugutu:"Oct",
+      munyonyo:"Nov",
+      kigarama:"Dec",
+      "mut\\.":"Jan",
+      "gas\\.":"Feb",
+      "wer\\.":"Mar",
+      "mat\\.":"Apr",
+      "gic\\.":"May",
+      "kam\\.":"Jun",
+      "nya\\.":"Jul",
+      "nze\\.":"Sep",
+      "ukw\\.":"Oct",
+      "ugu\\.":"Nov",
+      "uku\\.":"Dec",
+      "суббота":"Sa",
+      "воскресенье":"Su",
+      "понедельник":"Mo",
+      "четверг":"Th",
+      "пятница":"Fr",
+      "kuwa gatandatu":"Sa",
+      "ku cyumweru":"Su",
+      "kuwa mbere":"Mo",
+      "kuwa kabiri":"Tu",
+      "kuwa gatatu":"We",
+      "kuwa kane":"Th",
+      "kuwa gatanu":"Fr",
+      "cyu\\.":"Su",
+      mutarama:"Jan",
+      gashyantare:"Feb",
+      werurwe:"Mar",
+      mata:"Apr",
+      gicurasi:"May",
+      kamena:"Jun",
+      kanama:"Aug",
+      nzeri:"Sep",
+      ukwakira:"Oct",
+      ugushyingo:"Nov",
+      ukuboza:"Dec",
+      "शनिवासरः":"Sa",
+      "रविवासरः":"Su",
+      "सोमवासरः":"Mo",
+      "मंगलवासरः":"Tu",
+      "बुधवासरः":"We",
+      "गुरुवासर:":"Th",
+      "शुक्रवासरः":"Fr",
+      "जनवरीमासः":"Jan",
+      "फरवरीमासः":"Feb",
+      "मार्चमासः":"Mar",
+      "अप्रैलमासः":"Apr",
+      "मईमासः":"May",
+      "जूनमासः":"Jun",
+      "जुलाईमासः":"Jul",
+      "अगस्तमासः":"Aug",
+      "सितंबरमासः":"Sep",
+      "अक्तूबरमासः":"Oct",
+      "नवंबरमासः":"Nov",
+      "दिसंबरमासः":"Dec",
+      "जनवरी:":"Jan",
+      "फरवरी:":"Feb",
+      "मार्च:":"Mar",
+      "अप्रैल:":"Apr",
+      "जून:":"Jun",
+      "जुलाई:":"Jul",
+      "अगस्त:":"Aug",
+      "सितंबर:":"Sep",
+      "अक्तूबर:":"Oct",
+      "नवंबर:":"Nov",
+      "दिसंबर:":"Dec",
+      "sàbadu":"Sa",
+      "domìniga":"Su",
+      lunis:"Mo",
+      martis:"Tu",
+      "mèrcuris":"We",
+      "giòbia":"Th",
+      "chenàbura":"Fr",
+      "sàb":"Sa",
+      "mèr":"We",
+      "giò":"Th",
+      "ghennàrgiu":"Jan",
+      "freàrgiu":"Feb",
+      martzu:"Mar",
+      abrile:"Apr",
+      maju:"May",
+      "làmpadas":"Jun",
+      "trìulas":"Jul",
+      austu:"Aug",
+      cabudanni:"Sep",
+      santugaine:"Oct",
+      santandria:"Nov",
+      nadale:"Dec",
+      ghe:"Jan",
+      "làm":"Jun",
+      "trì":"Jul",
+      aus:"Aug",
+      cab:"Sep",
+      stg:"Oct",
+      sta:"Nov",
+      nad:"Dec",
+      "ڇنڇر":"Sa",
+      "آچر":"Su",
+      "سومر":"Mo",
+      "اڱارو":"Tu",
+      "اربع":"We",
+      "خميس":"Th",
+      "جمعو":"Fr",
+      "جنوري":"Jan",
+      "فيبروري":"Feb",
+      "مارچ":"Mar",
+      "اپريل":"Apr",
+      "مئي":"May",
+      "جون":"Jun",
+      "جولاءِ":"Jul",
+      "آگسٽ":"Aug",
+      "سيپٽمبر":"Sep",
+      "آڪٽوبر":"Oct",
+      "ڊسمبر":"Dec",
+      "lávvardat":"Sa",
+      sotnabeaivi:"Su",
+      "vuossárga":"Mo",
+      "maŋŋebárga":"Tu",
+      gaskavahkku:"We",
+      duorasdat:"Th",
+      bearjadat:"Fr",
+      "láv":"Sa",
+      sotn:"Su",
+      vuos:"Mo",
+      "maŋ":"Tu",
+      gask:"We",
+      duor:"Th",
+      bear:"Fr",
+      "ođđajagemánnu":"Jan",
+      "guovvamánnu":"Feb",
+      "njukčamánnu":"Mar",
+      "cuoŋománnu":"Apr",
+      "miessemánnu":"May",
+      "geassemánnu":"Jun",
+      "suoidnemánnu":"Jul",
+      "borgemánnu":"Aug",
+      "čakčamánnu":"Sep",
+      "golggotmánnu":"Oct",
+      "skábmamánnu":"Nov",
+      "juovlamánnu":"Dec",
+      "ođđj":"Jan",
+      guov:"Feb",
+      njuk:"Mar",
+      cuo:"Apr",
+      mies:"May",
+      geas:"Jun",
+      suoi:"Jul",
+      borg:"Aug",
+      "čakč":"Sep",
+      golg:"Oct",
+      "skáb":"Nov",
+      juov:"Dec",
+      "lâyenga":"Sa",
+      "bikua-ôko":"Su",
+      "bïkua-ûse":"Mo",
+      "bïkua-ptâ":"Tu",
+      "bïkua-usïö":"We",
+      "bïkua-okü":"Th",
+      "lâpôsö":"Fr",
+      "lây":"Sa",
+      bk1:"Su",
+      bk2:"Mo",
+      bk3:"Tu",
+      bk4:"We",
+      bk5:"Th",
+      "lâp":"Fr",
+      nyenye:"Jan",
+      "fulundïgi":"Feb",
+      "mbängü":"Mar",
+      "ngubùe":"Apr",
+      "bêläwü":"May",
+      "föndo":"Jun",
+      lengua:"Jul",
+      "kükürü":"Aug",
+      mvuka:"Sep",
+      ngberere:"Oct",
+      "nabändüru":"Nov",
+      kakauka:"Dec",
+      nye:"Jan",
+      "mbä":"Mar",
+      "bêl":"May",
+      "fön":"Jun",
+      len:"Jul",
+      "kük":"Aug",
+      nab:"Nov",
+      kak:"Dec",
+      nedelja:"Su",
+      ponedeljak:"Mo",
+      sreda:"We",
+      sre:"We",
+      avgust:"Aug",
+      avg:"Aug",
+      "සෙනසුරාදා":"Sa",
+      "ඉරිදා":"Su",
+      "සඳුදා":"Mo",
+      "අඟහරුවාදා":"Tu",
+      "බදාදා":"We",
+      "බ්‍රහස්පතින්දා":"Th",
+      "සිකුරාදා":"Fr",
+      "සෙන":"Sa",
+      "අඟහ":"Tu",
+      "බ්‍රහස්":"Th",
+      "සිකු":"Fr",
+      "ජනවාරි":"Jan",
+      "පෙබරවාරි":"Feb",
+      "මාර්තු":"Mar",
+      "අප්‍රේල්":"Apr",
+      "මැයි":"May",
+      "ජූනි":"Jun",
+      "ජූලි":"Jul",
+      "අගෝස්තු":"Aug",
+      "සැප්තැම්බර්":"Sep",
+      "ඔක්තෝබර්":"Oct",
+      "නොවැම්බර්":"Nov",
+      "දෙසැම්බර්":"Dec",
+      "ජන":"Jan",
+      "පෙබ":"Feb",
+      "මාර්":"Mar",
+      "අගෝ":"Aug",
+      "සැප්":"Sep",
+      "ඔක්":"Oct",
+      "නොවැ":"Nov",
+      "දෙසැ":"Dec",
+      "nedeľa":"Su",
+      pondelok:"Mo",
+      utorok:"Tu",
+      streda:"We",
+      "štvrtok":"Th",
+      piatok:"Fr",
+      marec:"Mar",
+      "máj":"May",
+      "jún":"Jun",
+      "júl":"Jul",
+      ponedeljek:"Mo",
+      torek:"Tu",
+      "četrtek":"Th",
+      petek:"Fr",
+      "ned\\.":"Su",
+      "sre\\.":"We",
+      "čet\\.":"Th",
+      "pet\\.":"Fr",
+      junij:"Jun",
+      julij:"Jul",
+      "avg\\.":"Aug",
+      mugovera:"Sa",
+      svondo:"Su",
+      muvhuro:"Mo",
+      chipiri:"Tu",
+      chitatu:"We",
+      china:"Th",
+      chishanu:"Fr",
+      svo:"Su",
+      muv:"Mo",
+      chp:"Tu",
+      cht:"We",
+      chn:"Th",
+      chs:"Fr",
+      ndira:"Jan",
+      kukadzi:"Feb",
+      kurume:"Mar",
+      kubvumbi:"Apr",
+      chivabvu:"May",
+      chikumi:"Jun",
+      chikunguru:"Jul",
+      nyamavhuvhu:"Aug",
+      gunyana:"Sep",
+      gumiguru:"Oct",
+      mbudzi:"Nov",
+      zvita:"Dec",
+      ndi:"Jan",
+      kuk:"Feb",
+      kub:"Apr",
+      chv:"May",
+      chk:"Jun",
+      chg:"Jul",
+      nya:"Aug",
+      gun:"Sep",
+      gum:"Oct",
+      mbu:"Nov",
+      zvi:"Dec",
+      sabti:"Sa",
+      axad:"Su",
+      isniin:"Mo",
+      talaado:"Tu",
+      arbaco:"We",
+      khamiis:"Th",
+      jimco:"Fr",
+      sbti:"Sa",
+      axd:"Su",
+      tldo:"Tu",
+      arbc:"We",
+      khms:"Th",
+      jmc:"Fr",
+      jannaayo:"Jan",
+      febraayo:"Feb",
+      maarso:"Mar",
+      abriil:"Apr",
+      maayo:"May",
+      juun:"Jun",
+      luulyo:"Jul",
+      ogosto:"Aug",
+      sebteembar:"Sep",
+      oktoobar:"Oct",
+      noofeembar:"Nov",
+      diseembar:"Dec",
+      ogs:"Aug",
+      nof:"Nov",
+      "e shtunë":"Sa",
+      "e diel":"Su",
+      "e hënë":"Mo",
+      "e martë":"Tu",
+      "e mërkurë":"We",
+      "e enjte":"Th",
+      "e premte":"Fr",
+      die:"Su",
+      "hën":"Mo",
+      "mër":"We",
+      enj:"Th",
+      pre:"Fr",
+      janar:"Jan",
+      shkurt:"Feb",
+      prill:"Apr",
+      qershor:"Jun",
+      korrik:"Jul",
+      gusht:"Aug",
+      shtator:"Sep",
+      tetor:"Oct",
+      "nëntor":"Nov",
+      dhjetor:"Dec",
+      shk:"Feb",
+      pri:"Apr",
+      qer:"Jun",
+      korr:"Jul",
+      gush:"Aug",
+      tet:"Oct",
+      "nën":"Nov",
+      dhj:"Dec",
+      "недеља":"Su",
+      "понедељак":"Mo",
+      "уторак":"Tu",
+      "четвртак":"Th",
+      "петак":"Fr",
+      "суб":"Sa",
+      "нед":"Su",
+      "пон":"Mo",
+      "уто":"Tu",
+      "сре":"We",
+      "чет":"Th",
+      "пет":"Fr",
+      "јануар":"Jan",
+      "фебруар":"Feb",
+      "јун":"Jun",
+      "јул":"Jul",
+      "септембар":"Sep",
+      "октобар":"Oct",
+      "новембар":"Nov",
+      "децембар":"Dec",
+      "јан":"Jan",
+      "феб":"Feb",
+      "сеп":"Sep",
+      "нов":"Nov",
+      "дец":"Dec",
+      moqebelo:"Sa",
+      sontaha:"Su",
+      mantaha:"Mo",
+      labobedi:"Tu",
+      laboraro:"We",
+      labone:"Th",
+      labohlano:"Fr",
+      moq:"Sa",
+      mma:"Mo",
+      bed:"Tu",
+      hla:"Fr",
+      pherekgong:"Jan",
+      hlakola:"Feb",
+      hlakubele:"Mar",
+      mmesa:"Apr",
+      motsheanong:"May",
+      phupjane:"Jun",
+      phupu:"Jul",
+      phato:"Aug",
+      lwetse:"Sep",
+      mphalane:"Oct",
+      pudungwana:"Nov",
+      tshitwe:"Dec",
+      phe:"Jan",
+      ube:"Mar",
+      mme:"Apr",
+      mot:"May",
+      jan:"Jun",
+      upu:"Jul",
+      pha:"Aug",
+      leo:"Sep",
+      mph:"Oct",
+      pun:"Nov",
+      saptu:"Sa",
+      "senén":"Mo",
+      salasa:"Tu",
+      rebo:"We",
+      kemis:"Th",
+      jumaah:"Fr",
+      mng:"Su",
+      sal:"Tu",
+      reb:"We",
+      kem:"Th",
+      "pébruari":"Feb",
+      "séptémber":"Sep",
+      "nopémber":"Nov",
+      "désémber":"Dec",
+      "péb":"Feb",
+      ags:"Aug",
+      "sép":"Sep",
+      nop:"Nov",
+      "dés":"Dec",
+      "lördag":"Sa",
+      "söndag":"Su",
+      tisdag:"Tu",
+      "lör":"Sa",
+      "sön":"Su",
+      tors:"Th",
+      augusti:"Aug",
+      jumamosi:"Sa",
+      jumapili:"Su",
+      jumatatu:"Mo",
+      jumanne:"Tu",
+      jumatano:"We",
+      alhamisi:"Th",
+      ijumaa:"Fr",
+      machi:"Mar",
+      aprili:"Apr",
+      agosti:"Aug",
+      "சனி":"Sa",
+      "ஞாயிறு":"Su",
+      "திங்கள்":"Mo",
+      "செவ்வாய்":"Tu",
+      "புதன்":"We",
+      "வியாழன்":"Th",
+      "வெள்ளி":"Fr",
+      "ஞாயி\\.":"Su",
+      "திங்\\.":"Mo",
+      "செவ்\\.":"Tu",
+      "புத\\.":"We",
+      "வியா\\.":"Th",
+      "வெள்\\.":"Fr",
+      "ஜனவரி":"Jan",
+      "பிப்ரவரி":"Feb",
+      "மார்ச்":"Mar",
+      "ஏப்ரல்":"Apr",
+      "மே":"May",
+      "ஜூன்":"Jun",
+      "ஜூலை":"Jul",
+      "ஆகஸ்ட்":"Aug",
+      "செப்டம்பர்":"Sep",
+      "அக்டோபர்":"Oct",
+      "நவம்பர்":"Nov",
+      "டிசம்பர்":"Dec",
+      "ஜன\\.":"Jan",
+      "பிப்\\.":"Feb",
+      "மார்\\.":"Mar",
+      "ஏப்\\.":"Apr",
+      "ஆக\\.":"Aug",
+      "செப்\\.":"Sep",
+      "அக்\\.":"Oct",
+      "நவ\\.":"Nov",
+      "டிச\\.":"Dec",
+      "శనివారం":"Sa",
+      "ఆదివారం":"Su",
+      "సోమవారం":"Mo",
+      "మంగళవారం":"Tu",
+      "బుధవారం":"We",
+      "గురువారం":"Th",
+      "శుక్రవారం":"Fr",
+      "శని":"Sa",
+      "ఆది":"Su",
+      "సోమ":"Mo",
+      "మంగళ":"Tu",
+      "బుధ":"We",
+      "గురు":"Th",
+      "శుక్ర":"Fr",
+      "జనవరి":"Jan",
+      "ఫిబ్రవరి":"Feb",
+      "మార్చి":"Mar",
+      "ఏప్రిల్":"Apr",
+      "మే":"May",
+      "జూన్":"Jun",
+      "జులై":"Jul",
+      "ఆగస్టు":"Aug",
+      "సెప్టెంబర్":"Sep",
+      "అక్టోబర్":"Oct",
+      "నవంబర్":"Nov",
+      "డిసెంబర్":"Dec",
+      "జన":"Jan",
+      "ఫిబ్ర":"Feb",
+      "ఏప్రి":"Apr",
+      "ఆగ":"Aug",
+      "సెప్టెం":"Sep",
+      "అక్టో":"Oct",
+      "నవం":"Nov",
+      "డిసెం":"Dec",
+      "шанбе":"Sa",
+      "якшанбе":"Su",
+      "душанбе":"Mo",
+      "сешанбе":"Tu",
+      "чоршанбе":"We",
+      "панҷшанбе":"Th",
+      "ҷумъа":"Fr",
+      "шнб":"Sa",
+      "яшб":"Su",
+      "дшб":"Mo",
+      "сшб":"Tu",
+      "чшб":"We",
+      "пшб":"Th",
+      "ҷмъ":"Fr",
+      "январ":"Jan",
+      "феврал":"Feb",
+      "апрел":"Apr",
+      "сентябр":"Sep",
+      "октябр":"Oct",
+      "ноябр":"Nov",
+      "декабр":"Dec",
+      "วันเสาร์":"Sa",
+      "วันอาทิตย์":"Su",
+      "วันจันทร์":"Mo",
+      "วันอังคาร":"Tu",
+      "วันพุธ":"We",
+      "วันพฤหัสบดี":"Th",
+      "วันศุกร์":"Fr",
+      "ส\\.":"Sa",
+      "อา\\.":"Su",
+      "จ\\.":"Mo",
+      "อ\\.":"Tu",
+      "พ\\.":"We",
+      "พฤ\\.":"Th",
+      "ศ\\.":"Fr",
+      "มกราคม":"Jan",
+      "กุมภาพันธ์":"Feb",
+      "มีนาคม":"Mar",
+      "เมษายน":"Apr",
+      "พฤษภาคม":"May",
+      "มิถุนายน":"Jun",
+      "กรกฎาคม":"Jul",
+      "สิงหาคม":"Aug",
+      "กันยายน":"Sep",
+      "ตุลาคม":"Oct",
+      "พฤศจิกายน":"Nov",
+      "ธันวาคม":"Dec",
+      "ม\\.ค\\.":"Jan",
+      "ก\\.พ\\.":"Feb",
+      "มี\\.ค\\.":"Mar",
+      "เม\\.ย\\.":"Apr",
+      "พ\\.ค\\.":"May",
+      "มิ\\.ย\\.":"Jun",
+      "ก\\.ค\\.":"Jul",
+      "ส\\.ค\\.":"Aug",
+      "ก\\.ย\\.":"Sep",
+      "ต\\.ค\\.":"Oct",
+      "พ\\.ย\\.":"Nov",
+      "ธ\\.ค\\.":"Dec",
+      "ቀዳም":"Sa",
+      "ሰንበት":"Su",
+      "ሰኑይ":"Mo",
+      "ሰሉስ":"Tu",
+      "ሓሙስ":"Th",
+      "ዓርቢ":"Fr",
+      "ቀዳ":"Sa",
+      "ሰን":"Su",
+      "ሰኑ":"Mo",
+      "ሰሉ":"Tu",
+      "ረቡ":"We",
+      "ሓሙ":"Th",
+      "ዓር":"Fr",
+      "ጥሪ":"Jan",
+      "ለካቲት":"Feb",
+      "መጋቢት":"Mar",
+      "ሚያዝያ":"Apr",
+      "ጉንበት":"May",
+      "ሰነ":"Jun",
+      "ሓምለ":"Jul",
+      "ነሓሰ":"Aug",
+      "መስከረም":"Sep",
+      "ጥቅምቲ":"Oct",
+      "ሕዳር":"Nov",
+      "ታሕሳስ":"Dec",
+      "ለካ":"Feb",
+      "መጋ":"Mar",
+      "ሚያ":"Apr",
+      "ግን":"May",
+      "ሓም":"Jul",
+      "ነሓ":"Aug",
+      "መስ":"Sep",
+      "ጥቅ":"Oct",
+      "ሕዳ":"Nov",
+      "ታሕ":"Dec",
+      "şenbe":"Sa",
+      "ýekşenbe":"Su",
+      "duşenbe":"Mo",
+      "sişenbe":"Tu",
+      "çarşenbe":"We",
+      "penşenbe":"Th",
+      anna:"Fr",
+      "şen":"Sa",
+      "ýek":"Su",
+      "duş":"Mo",
+      "siş":"Tu",
+      "çar":"We",
+      pen:"Th",
+      ann:"Fr",
+      "ýanwar":"Jan",
+      fewral:"Feb",
+      "maý":"May",
+      "iýun":"Jun",
+      "iýul":"Jul",
+      awgust:"Aug",
+      "sentýabr":"Sep",
+      "oktýabr":"Oct",
+      "noýabr":"Nov",
+      "ýan":"Jan",
+      few:"Feb",
+      awg:"Aug",
+      "noý":"Nov",
+      sabado:"Sa",
+      linggo:"Su",
+      miyerkules:"We",
+      huwebes:"Th",
+      biyernes:"Fr",
+      miy:"We",
+      huw:"Th",
+      biy:"Fr",
+      pebrero:"Feb",
+      marso:"Mar",
+      hunyo:"Jun",
+      hulyo:"Jul",
+      setyembre:"Sep",
+      oktubre:"Oct",
+      nobyembre:"Nov",
+      disyembre:"Dec",
+      peb:"Feb",
+      hul:"Jul",
+      nob:"Nov",
+      matlhatso:"Sa",
+      tshipi:"Su",
+      mosupologo:"Mo",
+      labotlhano:"Fr",
+      mos:"Mo",
+      labb:"Tu",
+      labr:"We",
+      labn:"Th",
+      labt:"Fr",
+      ferikgong:"Jan",
+      tlhakole:"Feb",
+      mopitlo:"Mar",
+      moranang:"Apr",
+      motsheganang:"May",
+      seetebosigo:"Jun",
+      phukwi:"Jul",
+      phatwe:"Aug",
+      diphalane:"Oct",
+      ngwanatsele:"Nov",
+      sedimonthole:"Dec",
+      fer:"Jan",
+      tlh:"Feb",
+      mop:"Mar",
+      phu:"Jul",
+      ngw:"Nov",
+      sed:"Dec",
+      tokonaki:"Sa",
+      "sāpate":"Su",
+      "mōnite":"Mo",
+      "tūsite":"Tu",
+      pulelulu:"We",
+      "tuʻapulelulu":"Th",
+      falaite:"Fr",
+      tok:"Sa",
+      "sāp":"Su",
+      "mōn":"Mo",
+      "tūs":"Tu",
+      pul:"We",
+      "tuʻa":"Th",
+      fal:"Fr",
+      "sānuali":"Jan",
+      "fēpueli":"Feb",
+      "maʻasi":"Mar",
+      "ʻepeleli":"Apr",
+      "mē":"May",
+      sune:"Jun",
+      siulai:"Jul",
+      "ʻaokosi":"Aug",
+      sepitema:"Sep",
+      "ʻokatopa":"Oct",
+      "nōvema":"Nov",
+      "tīsema":"Dec",
+      "sān":"Jan",
+      "fēp":"Feb",
+      "maʻa":"Mar",
+      "ʻepe":"Apr",
+      siu:"Jul",
+      "ʻaok":"Aug",
+      "sēp":"Sep",
+      "ʻoka":"Oct",
+      "nōv":"Nov",
+      "tīs":"Dec",
+      cumartesi:"Sa",
+      pazar:"Su",
+      pazartesi:"Mo",
+      "salı":"Tu",
+      "çarşamba":"We",
+      "perşembe":"Th",
+      cuma:"Fr",
+      paz:"Su",
+      pzt:"Mo",
+      per:"Th",
+      cum:"Fr",
+      ocak:"Jan",
+      "şubat":"Feb",
+      nisan:"Apr",
+      "mayıs":"May",
+      haziran:"Jun",
+      temmuz:"Jul",
+      "ağustos":"Aug",
+      "eylül":"Sep",
+      ekim:"Oct",
+      "kasım":"Nov",
+      "aralık":"Dec",
+      oca:"Jan",
+      "şub":"Feb",
+      nis:"Apr",
+      haz:"Jun",
+      tem:"Jul",
+      "ağu":"Aug",
+      eyl:"Sep",
+      eki:"Oct",
+      "шимбә":"Sa",
+      "якшәмбе":"Su",
+      "дүшәмбе":"Mo",
+      "сишәмбе":"Tu",
+      "чәршәмбе":"We",
+      "пәнҗешәмбе":"Th",
+      "җомга":"Fr",
+      "шим\\.":"Sa",
+      "якш\\.":"Su",
+      "дүш\\.":"Mo",
+      "сиш\\.":"Tu",
+      "чәр\\.":"We",
+      "пәнҗ\\.":"Th",
+      "җом\\.":"Fr",
+      "гыйнвар":"Jan",
+      "гыйн\\.":"Jan",
+      "شەنبە":"Sa",
+      "يەكشەنبە":"Su",
+      "دۈشەنبە":"Mo",
+      "سەيشەنبە":"Tu",
+      "چارشەنبە":"We",
+      "پەيشەنبە":"Th",
+      "جۈمە":"Fr",
+      "شە":"Sa",
+      "يە":"Su",
+      "دۈ":"Mo",
+      "سە":"Tu",
+      "چا":"We",
+      "پە":"Th",
+      "جۈ":"Fr",
+      "يانۋار":"Jan",
+      "فېۋرال":"Feb",
+      "مارت":"Mar",
+      "ئاپرېل":"Apr",
+      "ماي":"May",
+      "ئىيۇن":"Jun",
+      "ئىيۇل":"Jul",
+      "ئاۋغۇست":"Aug",
+      "سېنتەبىر":"Sep",
+      "ئۆكتەبىر":"Oct",
+      "نويابىر":"Nov",
+      "دېكابىر":"Dec",
+      "неділя":"Su",
+      "понеділок":"Mo",
+      "вівторок":"Tu",
+      "середа":"We",
+      "четвер":"Th",
+      "пʼятниця":"Fr",
+      "січень":"Jan",
+      "лютий":"Feb",
+      "березень":"Mar",
+      "квітень":"Apr",
+      "травень":"May",
+      "червень":"Jun",
+      "липень":"Jul",
+      "серпень":"Aug",
+      "вересень":"Sep",
+      "жовтень":"Oct",
+      "листопад":"Nov",
+      "грудень":"Dec",
+      "січ\\.":"Jan",
+      "лют\\.":"Feb",
+      "бер\\.":"Mar",
+      "квіт\\.":"Apr",
+      "трав\\.":"May",
+      "черв\\.":"Jun",
+      "лип\\.":"Jul",
+      "серп\\.":"Aug",
+      "вер\\.":"Sep",
+      "жовт\\.":"Oct",
+      "лист\\.":"Nov",
+      "груд\\.":"Dec",
+      "ہفتہ":"Sa",
+      "اتوار":"Su",
+      "پیر":"Mo",
+      "منگل":"Tu",
+      "بدھ":"We",
+      "جمعرات":"Th",
+      "جمعہ":"Fr",
+      "جنوری":"Jan",
+      "فروری":"Feb",
+      "جولائی":"Jul",
+      "اکتوبر":"Oct",
+      shanba:"Sa",
+      yakshanba:"Su",
+      dushanba:"Mo",
+      seshanba:"Tu",
+      chorshanba:"We",
+      payshanba:"Th",
+      shan:"Sa",
+      yak:"Su",
+      dush:"Mo",
+      sesh:"Tu",
+      chor:"We",
+      sentabr:"Sep",
+      oktabr:"Oct",
+      "thứ bảy":"Sa",
+      "chủ nhật":"Su",
+      "thứ hai":"Mo",
+      "thứ ba":"Tu",
+      "thứ tư":"We",
+      "thứ năm":"Th",
+      "thứ sáu":"Fr",
+      "th 7":"Sa",
+      cn:"Su",
+      "th 2":"Mo",
+      "th 3":"Tu",
+      "th 4":"We",
+      "th 5":"Th",
+      "th 6":"Fr",
+      "tháng 1":"Jan",
+      "tháng 2":"Feb",
+      "tháng 3":"Mar",
+      "tháng 4":"Apr",
+      "tháng 5":"May",
+      "tháng 6":"Jun",
+      "tháng 7":"Jul",
+      "tháng 8":"Aug",
+      "tháng 9":"Sep",
+      "tháng 10":"Oct",
+      "tháng 11":"Nov",
+      "tháng 12":"Dec",
+      aseer:"Sa",
+      "dibéer":"Su",
+      altine:"Mo",
+      talaata:"Tu",
+      "àlarba":"We",
+      alxamis:"Th",
+      "àjjuma":"Fr",
+      ase:"Sa",
+      dib:"Su",
+      alt:"Mo",
+      "àla":"We",
+      alx:"Th",
+      "àjj":"Fr",
+      samwiyee:"Jan",
+      fewriyee:"Feb",
+      awril:"Apr",
+      suwe:"Jun",
+      sulet:"Jul",
+      "sàttumbar":"Sep",
+      "nowàmbar":"Nov",
+      "desàmbar":"Dec",
+      awr:"Apr",
+      suw:"Jun",
+      "sàt":"Sep",
+      cawe:"Su",
+      lwesibini:"Tu",
+      lwesithathu:"We",
+      lwesine:"Th",
+      lwesihlanu:"Fr",
+      caw:"Su",
+      bin:"Tu",
+      janyuwari:"Jan",
+      februwari:"Feb",
+      matshi:"Mar",
+      epreli:"Apr",
+      meyi:"May",
+      julayi:"Jul",
+      agasti:"Aug",
+      okthoba:"Oct",
+      aga:"Aug",
+      "àbámẹ́ta":"Sa",
+      "àìkú":"Su",
+      "ajé":"Mo",
+      "ìsẹ́gun":"Tu",
+      "ọjọ́rú":"We",
+      "ọjọ́bọ":"Th",
+      "ẹtì":"Fr",
+      "oṣù ṣẹ́rẹ́":"Jan",
+      "oṣù èrèlè":"Feb",
+      "oṣù ẹrẹ̀nà":"Mar",
+      "oṣù ìgbé":"Apr",
+      "oṣù ẹ̀bibi":"May",
+      "oṣù òkúdu":"Jun",
+      "oṣù agẹmọ":"Jul",
+      "oṣù ògún":"Aug",
+      "oṣù owewe":"Sep",
+      "oṣù ọ̀wàrà":"Oct",
+      "oṣù bélú":"Nov",
+      "oṣù ọ̀pẹ̀":"Dec",
+      singhgizroek:"Sa",
+      ngoenzsinghgiz:"Su",
+      singhgizit:"Mo",
+      singhgizngeih:"Tu",
+      singhgizsam:"We",
+      singhgizseiq:"Th",
+      singhgizhaj:"Fr",
+      ndwenit:"Jan",
+      ndwenngeih:"Feb",
+      ndwensam:"Mar",
+      ndwenseiq:"Apr",
+      ndwenngux:"May",
+      ndwenloeg:"Jun",
+      ndwencaet:"Jul",
+      ndwenbet:"Aug",
+      ndwengouj:"Sep",
+      ndwencib:"Oct",
+      "ndwencib’it":"Nov",
+      ndwencibngeih:"Dec",
+      "星期六":"Sa",
+      "星期日":"Su",
+      "星期一":"Mo",
+      "星期二":"Tu",
+      "星期三":"We",
+      "星期四":"Th",
+      "星期五":"Fr",
+      "周六":"Sa",
+      "周日":"Su",
+      "周一":"Mo",
+      "周二":"Tu",
+      "周三":"We",
+      "周四":"Th",
+      "周五":"Fr",
+      "一月":"Jan",
+      "二月":"Feb",
+      "三月":"Mar",
+      "四月":"Apr",
+      "五月":"May",
+      "六月":"Jun",
+      "七月":"Jul",
+      "八月":"Aug",
+      "九月":"Sep",
+      "十月":"Oct",
+      "十一月":"Nov",
+      "十二月":"Dec",
+      umgqibelo:"Sa",
+      isonto:"Su",
+      umsombuluko:"Mo",
+      ulwesibili:"Tu",
+      ulwesithathu:"We",
+      ulwesine:"Th",
+      ulwesihlanu:"Fr",
+      mso:"Mo",
+      bil:"Tu",
+      januwari:"Jan",
+      mashi:"Mar",
+      ephreli:"Apr",
+      septhemba:"Sep",
+      eph:"Apr",
+      "tsuʔndzɨkɔʔɔ":"Sa",
+      "tsuʔntsɨ":"Su",
+      "tsuʔukpà":"Mo",
+      "tsuʔughɔe":"Tu",
+      "tsuʔutɔ̀mlò":"We",
+      "tsuʔumè":"Th",
+      "tsuʔughɨ̂m":"Fr",
+      dzk:"Sa",
+      nts:"Su",
+      "ghɔ":"Tu",
+      "tɔm":"We",
+      ume:"Th",
+      "ghɨ":"Fr",
+      "ndzɔ̀ŋɔ̀nùm":"Jan",
+      "ndzɔ̀ŋɔ̀kɨ̀zùʔ":"Feb",
+      "ndzɔ̀ŋɔ̀tɨ̀dʉ̀ghà":"Mar",
+      "ndzɔ̀ŋɔ̀tǎafʉ̄ghā":"Apr",
+      "ndzɔ̀ŋèsèe":"May",
+      "ndzɔ̀ŋɔ̀nzùghò":"Jun",
+      "ndzɔ̀ŋɔ̀dùmlo":"Jul",
+      "ndzɔ̀ŋɔ̀kwîfɔ̀e":"Aug",
+      "ndzɔ̀ŋɔ̀tɨ̀fʉ̀ghàdzughù":"Sep",
+      "ndzɔ̀ŋɔ̀ghǔuwelɔ̀m":"Oct",
+      "ndzɔ̀ŋɔ̀chwaʔàkaa wo":"Nov",
+      "ndzɔ̀ŋèfwòo":"Dec",
+      "nùm":"Jan",
+      "kɨz":"Feb",
+      "tɨd":"Mar",
+      nzu:"Jun",
+      "fɔe":"Aug",
+      dzu:"Sep",
+      "lɔm":"Oct",
+      kaa:"Nov",
+      fwo:"Dec",
+      jmo:"Sa",
+      jpi:"Su",
+      jtt:"Mo",
+      jnn:"Tu",
+      jtn:"We",
+      "sábadu":"Sa",
+      domingu:"Su",
+      llunes:"Mo",
+      xueves:"Th",
+      vienres:"Fr",
+      llu:"Mo",
+      xue:"Th",
+      xineru:"Jan",
+      febreru:"Feb",
+      xunu:"Jun",
+      xunetu:"Jul",
+      agostu:"Aug",
+      ochobre:"Oct",
+      payares:"Nov",
+      avientu:"Dec",
+      xin:"Jan",
+      xun:"Jun",
+      xnt:"Jul",
+      och:"Oct",
+      avi:"Dec",
+      "ŋgwà jôn":"Sa",
+      "ŋgwà nɔ̂y":"Su",
+      "ŋgwà njaŋgumba":"Mo",
+      "ŋgwà ûm":"Tu",
+      "ŋgwà ŋgê":"We",
+      "ŋgwà mbɔk":"Th",
+      "ŋgwà kɔɔ":"Fr",
+      "nɔy":"Su",
+      nja:"Mo",
+      uum:"Tu",
+      "ŋge":"We",
+      "mbɔ":"Th",
+      "kɔɔ":"Fr",
+      "kɔndɔŋ":"Jan",
+      "màcɛ̂l":"Feb",
+      "màtùmb":"Mar",
+      "màtop":"Apr",
+      "m̀puyɛ":"May",
+      "hìlòndɛ̀":"Jun",
+      "njèbà":"Jul",
+      "hìkaŋ":"Aug",
+      "dìpɔ̀s":"Sep",
+      "bìòôm":"Oct",
+      "màyɛsèp":"Nov",
+      "lìbuy li ńyèe":"Dec",
+      "kɔn":"Jan",
+      mto:"Apr",
+      mpu:"May",
+      hil:"Jun",
+      hik:"Aug",
+      bio:"Oct",
+      "liɓ":"Dec",
+      pachibelushi:"Sa",
+      "pa mulungu":"Su",
+      palichimo:"Mo",
+      palichibuli:"Tu",
+      palichitatu:"We",
+      palichine:"Th",
+      palichisano:"Fr",
+      epreo:"Apr",
+      ogasti:"Aug",
+      oga:"Aug",
+      "pa shahulembela":"Sa",
+      "pa shahuviluha":"Mo",
+      "pa hivili":"Tu",
+      "pa hidatu":"We",
+      "pa hitayi":"Th",
+      "pa hihanu":"Fr",
+      lem:"Sa",
+      hiv:"Tu",
+      hid:"We",
+      hit:"Th",
+      hih:"Fr",
+      "pa mwedzi gwa hutala":"Jan",
+      "pa mwedzi gwa wuvili":"Feb",
+      "pa mwedzi gwa wudatu":"Mar",
+      "pa mwedzi gwa wutai":"Apr",
+      "pa mwedzi gwa wuhanu":"May",
+      "pa mwedzi gwa sita":"Jun",
+      "pa mwedzi gwa saba":"Jul",
+      "pa mwedzi gwa nane":"Aug",
+      "pa mwedzi gwa tisa":"Sep",
+      "pa mwedzi gwa kumi":"Oct",
+      "pa mwedzi gwa kumi na moja":"Nov",
+      "pa mwedzi gwa kumi na mbili":"Dec",
+      hut:"Jan",
+      dat:"Mar",
+      tai:"Apr",
+      han:"May",
+      nan:"Aug",
+      kum:"Oct",
+      kmj:"Nov",
+      kmb:"Dec",
+      "ऐतवार":"Su",
+      "बृहस्पतवार":"Th",
+      "फरवरी":"Feb",
+      "सितम्बर":"Sep",
+      "नवम्बर":"Nov",
+      "सनीचर":"Sa",
+      "रबीबार":"Su",
+      "मंगलबार":"Tu",
+      "बृहस्पतिबार":"Th",
+      asiibi:"Sa",
+      "alahaɖɩ":"Su",
+      "aɖɩtɛnɛɛ":"Mo",
+      atalaata:"Tu",
+      alaarba:"We",
+      "alaamɩshɩ":"Th",
+      "arɩsǝma":"Fr",
+      asib:"Sa",
+      "aɖɩt":"Mo",
+      atal:"Tu",
+      alam:"Th",
+      "arɩs":"Fr",
+      "ɩjikawǝrka kaŋɔrɔ":"Jan",
+      "ɩjikpaka kaŋɔrɔ":"Feb",
+      "arɛ́cika kaŋɔrɔ":"Mar",
+      "njɩbɔ nɖʊka kaŋɔrɔ":"Apr",
+      "acafʊnɖuka kaŋɔrɔ":"May",
+      "anɔɔɖuka kaŋɔrɔ":"Jun",
+      "alàlaka kaŋɔrɔ":"Jul",
+      "ɩjikǝuka kaŋɔrɔ":"Aug",
+      "abofʊmka kaŋɔrɔ":"Sep",
+      "ɩjicimka kaŋɔrɔ":"Oct",
+      "acapomka kaŋɔrɔ":"Nov",
+      "anɔɔbʊnka kaŋɔrɔ":"Dec",
+      ci:"Mar",
+      "ɖʊ":"Apr",
+      "ɖu5":"May",
+      "ɖu6":"Jun",
+      "kǝu":"Aug",
+      "fʊm":"Sep",
+      cim:"Oct",
+      pom:"Nov",
+      "bʊn":"Dec",
+      "सनिबार":"Sa",
+      "रबिबार":"Su",
+      "समबार":"Mo",
+      "बिस्थिबार":"Th",
+      "सुुखुरबार":"Fr",
+      "सनि":"Sa",
+      "रबि":"Su",
+      "सम":"Mo",
+      "बिस्थि":"Th",
+      "सुखुर":"Fr",
+      "जानुवारी":"Jan",
+      "फेब्रूवारी":"Feb",
+      "आगष्ट":"Aug",
+      "सेप्थेम्बर":"Sep",
+      "अक्ट’बर":"Oct",
+      "नवेम्बर":"Nov",
+      "जान":"Jan",
+      "फेब":"Feb",
+      "जुल":"Jul",
+      "आग":"Aug",
+      "सेप":"Sep",
+      "अक्ट’":"Oct",
+      "नवे":"Nov",
+      "डिसे":"Dec",
+      jumapiri:"Su",
+      "murwa wa kanne":"Th",
+      "murwa wa katano":"Fr",
+      j1:"Sa",
+      j2:"Su",
+      j3:"Mo",
+      j4:"Tu",
+      j5:"We",
+      al:"Th",
+      ij:"Fr",
+      "𑄥𑄧𑄚𑄨𑄝𑄢𑄴":"Sa",
+      "𑄢𑄧𑄝𑄨𑄝𑄢𑄴":"Su",
+      "𑄥𑄧𑄟𑄴𑄝𑄢𑄴":"Mo",
+      "𑄟𑄧𑄁𑄉𑄧𑄣𑄴𑄝𑄢𑄴":"Tu",
+      "𑄝𑄪𑄖𑄴𑄝𑄢𑄴":"We",
+      "𑄝𑄳𑄢𑄨𑄥𑄪𑄛𑄴𑄝𑄢𑄴":"Th",
+      "𑄥𑄪𑄇𑄴𑄇𑄮𑄢𑄴𑄝𑄢𑄴":"Fr",
+      "𑄥𑄧𑄚𑄨":"Sa",
+      "𑄢𑄧𑄝𑄨":"Su",
+      "𑄥𑄧𑄟𑄴":"Mo",
+      "𑄟𑄧𑄁𑄉𑄧𑄣𑄴":"Tu",
+      "𑄝𑄪𑄖𑄴":"We",
+      "𑄝𑄳𑄢𑄨𑄥𑄪𑄛𑄴":"Th",
+      "𑄥𑄪𑄇𑄴𑄇𑄮𑄢𑄴":"Fr",
+      "𑄎𑄚𑄪𑄠𑄢𑄨":"Jan",
+      "𑄜𑄬𑄛𑄴𑄝𑄳𑄢𑄪𑄠𑄢𑄨":"Feb",
+      "𑄟𑄢𑄴𑄌𑄧":"Mar",
+      "𑄃𑄬𑄛𑄳𑄢𑄨𑄣𑄴":"Apr",
+      "𑄟𑄬":"May",
+      "𑄎𑄪𑄚𑄴":"Jun",
+      "𑄎𑄪𑄣𑄭":"Jul",
+      "𑄃𑄉𑄧𑄌𑄴𑄑𑄴":"Aug",
+      "𑄥𑄬𑄛𑄴𑄑𑄬𑄟𑄴𑄝𑄧𑄢𑄴":"Sep",
+      "𑄃𑄧𑄇𑄴𑄑𑄮𑄝𑄧𑄢𑄴":"Oct",
+      "𑄚𑄧𑄞𑄬𑄟𑄴𑄝𑄧𑄢𑄴":"Nov",
+      "𑄓𑄨𑄥𑄬𑄟𑄴𑄝𑄧𑄢𑄴":"Dec",
+      septyembre:"Sep",
+      orwamukaaga:"Sa",
+      sande:"Su",
+      orwokubanza:"Mo",
+      orwakabiri:"Tu",
+      orwakashatu:"We",
+      orwakana:"Th",
+      orwakataano:"Fr",
+      omk:"Sa",
+      ork:"Mo",
+      okb:"Tu",
+      oks:"We",
+      okn:"Th",
+      okwokubanza:"Jan",
+      okwakabiri:"Feb",
+      okwakashatu:"Mar",
+      okwakana:"Apr",
+      okwakataana:"May",
+      okwamukaaga:"Jun",
+      okwamushanju:"Jul",
+      okwamunaana:"Aug",
+      okwamwenda:"Sep",
+      okwaikumi:"Oct",
+      "okwaikumi na kumwe":"Nov",
+      "okwaikumi na ibiri":"Dec",
+      kbz:"Jan",
+      kbr:"Feb",
+      kst:"Mar",
+      kkn:"Apr",
+      ktn:"May",
+      kmk:"Jun",
+      kms:"Jul",
+      kmn:"Aug",
+      kmw:"Sep",
+      kkm:"Oct",
+      knk:"Nov",
+      knb:"Dec",
+      "ꭴꮎꮩꮣꮘꮥꮎ":"Sa",
+      "ꭴꮎꮩꮣꮖꮝꭼ":"Su",
+      "ꭴꮎꮩꮣꮙꮕꭿ":"Mo",
+      "ꮤꮅꮑꭲꭶ":"Tu",
+      "ꮶꭲꮑꭲꭶ":"We",
+      "ꮕꭹꮑꭲꭶ":"Th",
+      "ꮷꮎꭹꮆꮝꮧ":"Fr",
+      "ꮘꮥꮎ":"Sa",
+      "ꮖꮝꭼ":"Su",
+      "ꮙꮕꭿ":"Mo",
+      "ꮤꮅꮑ":"Tu",
+      "ꮶꭲꮑ":"We",
+      "ꮕꭹꮑ":"Th",
+      "ꮷꮎꭹ":"Fr",
+      "ꭴꮓꮈꮤꮕ":"Jan",
+      "ꭷꭶꮅ":"Feb",
+      "ꭰꮕᏹ":"Mar",
+      "ꭷꮼꮒ":"Apr",
+      "ꭰꮒꮝꭼꮨ":"May",
+      "ꮥꭽꮇᏹ":"Jun",
+      "ꭻᏸꮙꮒ":"Jul",
+      "ꭶꮆꮒ":"Aug",
+      "ꮪꮅꮝꮧ":"Sep",
+      "ꮪꮒꮕꮧ":"Oct",
+      "ꮕꮣꮥꮖ":"Nov",
+      "ꭵꮝꭹᏹ":"Dec",
+      "ꭴꮓ":"Jan",
+      "ꭷꭶ":"Feb",
+      "ꭰꮕ":"Mar",
+      "ꭷꮼ":"Apr",
+      "ꭰꮒ":"May",
+      "ꮥꭽ":"Jun",
+      "ꭻᏸ":"Jul",
+      "ꭶꮆ":"Aug",
+      "ꮪꮅ":"Sep",
+      "ꮪꮒ":"Oct",
+      "ꮕꮣ":"Nov",
+      "ꭵꮝ":"Dec",
+      "شەممە":"Sa",
+      "یەکشەممە":"Su",
+      "دووشەممە":"Mo",
+      "سێشەممە":"Tu",
+      "چوارشەممە":"We",
+      "پێنجشەممە":"Th",
+      "ھەینی":"Fr",
+      "کانوونی دووەم":"Jan",
+      "شوبات":"Feb",
+      "ئازار":"Mar",
+      "نیسان":"Apr",
+      "ئایار":"May",
+      "حوزەیران":"Jun",
+      "تەمووز":"Jul",
+      "ئاب":"Aug",
+      "ئەیلوول":"Sep",
+      "تشرینی یەکەم":"Oct",
+      "تشرینی دووەم":"Nov",
+      "کانونی یەکەم":"Dec",
+      "ܫܒܬܐ":"Sa",
+      "ܚܕܒܫܒܐ":"Su",
+      "ܬܪܝܢܒܫܒܐ":"Mo",
+      "ܬܠܬܒܫܒܐ":"Tu",
+      "ܐܪܒܥܒܫܒܐ":"We",
+      "ܚܡܫܒܫܒܐ":"Th",
+      "ܥܪܘܒܬܐ":"Fr",
+      "ܚܕ":"Su",
+      "ܬܪܝܢ":"Mo",
+      "ܬܠܬ":"Tu",
+      "ܐܪܒܥ":"We",
+      "ܚܡܫ":"Th",
+      "ܥܪܘ":"Fr",
+      "ܟܢܘܢ ܐܚܪܝܐ":"Jan",
+      "ܫܒܛ":"Feb",
+      "ܐܕܪ":"Mar",
+      "ܢܝܣܢ":"Apr",
+      "ܐܝܪ":"May",
+      "ܚܙܝܪܢ":"Jun",
+      "ܬܡܘܙ":"Jul",
+      "ܐܒ":"Aug",
+      "ܐܝܠܘܠ":"Sep",
+      "ܬܫܪܝܢ ܩܕܡܝܐ":"Oct",
+      "ܬܫܪܝܢ ܐܚܪܝܐ":"Nov",
+      "ܟܢܘܢ ܩܕܡܝܐ":"Dec",
+      "ܟܢܘܢ ܒ":"Jan",
+      "ܬܫܪܝܢ ܐ":"Oct",
+      "ܬܫܪܝܢ ܒ":"Nov",
+      "ܟܢܘܢ ܐ":"Dec",
+      "ᒫᑎᓇᐍᑮᓯᑳᐤ":"Sa",
+      "ᐊᔭᒥᐦᐁᑮᓯᑳᐤ":"Su",
+      "ᐴᓂ ᐊᔭᒥᐦᐁᑮᓯᑳᐤ":"Mo",
+      "ᓃᓱᑮᓯᑳᐤ":"Tu",
+      "ᐋᐱᐦᑕᐘᐣ":"We",
+      "ᐴᓂᐋᐱᐦᑕᐘᐣ":"Th",
+      "ᑫᑳᐨ ᒫᑎᓇᐍᑮᓯᑳᐤ":"Fr",
+      "ᐅᒉᒥᑮᓯᑳᐏᐲᓯᒼ":"Jan",
+      "ᐸᐚᐦᒐᑭᓇᓰᐢ":"Feb",
+      "ᒥᑭᓯᐏᐲᓯᒼ":"Mar",
+      "ᓂᐢᑭᐲᓯᒼ":"Apr",
+      "ᐊᓃᑭᐲᓯᒼ":"May",
+      "ᐚᐏᐲᓯᒼ":"Jun",
+      "ᐹᐢᑲᐦᐋᐏᐲᓯᒼ":"Jul",
+      "ᐅᐸᐦᐅᐏᐲᓯᒼ":"Aug",
+      "ᓄᒌᑐᐏᐲᓯᒼ":"Sep",
+      "ᐱᓈᐢᑯᐏᐲᓯᒼ":"Oct",
+      "ᐋᕽᐘᑎᓄᐏᐲᓯᒼ":"Nov",
+      "ᒪᑯᓭᑮᓭᑳᐏᐲᓯᒼ":"Dec",
+      "kifula nguwo":"Sa",
+      "ituku ja jumwa":"Su",
+      "kuramuka jimweri":"Mo",
+      "kuramuka kawi":"Tu",
+      "kuramuka kadadu":"We",
+      "kuramuka kana":"Th",
+      "kuramuka kasanu":"Fr",
+      "mori ghwa imbiri":"Jan",
+      "mori ghwa kawi":"Feb",
+      "mori ghwa kadadu":"Mar",
+      "mori ghwa kana":"Apr",
+      "mori ghwa kasanu":"May",
+      "mori ghwa karandadu":"Jun",
+      "mori ghwa mfungade":"Jul",
+      "mori ghwa wunyanya":"Aug",
+      "mori ghwa ikenda":"Sep",
+      "mori ghwa ikumi":"Oct",
+      "mori ghwa ikumi na imweri":"Nov",
+      "mori ghwa ikumi na iwi":"Dec",
+      imb:"Jan",
+      wun:"Aug",
+      ike:"Sep",
+      iku:"Oct",
+      imw:"Nov",
+      iwi:"Dec",
+      "ऐतबार":"Su",
+      "बीरबार":"Th",
+      "ऐत":"Su",
+      "बीर":"Th",
+      "मेई":"May",
+      "अक्तूबर":"Oct",
+      "जन\\.":"Jan",
+      "फर\\.":"Feb",
+      "अग\\.":"Aug",
+      "सित\\.":"Sep",
+      "अक्तू\\.":"Oct",
+      "नव\\.":"Nov",
+      "दिस\\.":"Dec",
+      asibti:"Sa",
+      alhadi:"Su",
+      atinni:"Mo",
+      alarba:"We",
+      alzuma:"Fr",
+      asi:"Sa",
+      ati:"Mo",
+      alm:"Th",
+      alz:"Fr",
+      "žanwiye":"Jan",
+      feewiriye:"Feb",
+      awiril:"Apr",
+      "žuweŋ":"Jun",
+      "žuyye":"Jul",
+      sektanbur:"Sep",
+      oktoobur:"Oct",
+      noowanbur:"Nov",
+      deesanbur:"Dec",
+      "žan":"Jan",
+      fee:"Feb",
+      "žuw":"Jun",
+      "žuy":"Jul",
+      sek:"Sep",
+      noo:"Nov",
+      dee:"Dec",
+      "جدی":"Jan",
+      "دلو":"Feb",
+      "حوت":"Mar",
+      "حمل":"Apr",
+      "ثور":"May",
+      "جوزا":"Jun",
+      "سرطان":"Jul",
+      "اسد":"Aug",
+      "سنبلهٔ":"Sep",
+      "میزان":"Oct",
+      "عقرب":"Nov",
+      "قوس":"Dec",
+      "njeźela":"Su",
+      "pónjeźele":"Mo",
+      "wałtora":"Tu",
+      srjoda:"We",
+      "stwórtk":"Th",
+      "pětk":"Fr",
+      "pón":"Mo",
+      "wał":"Tu",
+      srj:"We",
+      stw:"Th",
+      "pět":"Fr",
+      "měrc":"Mar",
+      apryl:"Apr",
+      nowember:"Nov",
+      "měr":"Mar",
+      "esaɓasú":"Sa",
+      "éti":"Su",
+      "mɔ́sú":"Mo",
+      "kwasú":"Tu",
+      "mukɔ́sú":"We",
+      "ŋgisú":"Th",
+      "ɗónɛsú":"Fr",
+      esa:"Sa",
+      "ét":"Su",
+      "mɔ́s":"Mo",
+      "ŋgi":"Th",
+      "ɗón":"Fr",
+      "dimɔ́di":"Jan",
+      "ŋgɔndɛ":"Feb",
+      "sɔŋɛ":"Mar",
+      "diɓáɓá":"Apr",
+      emiasele:"May",
+      "esɔpɛsɔpɛ":"Jun",
+      "madiɓɛ́díɓɛ́":"Jul",
+      "diŋgindi":"Aug",
+      "nyɛtɛki":"Sep",
+      "mayésɛ́":"Oct",
+      "tiníní":"Nov",
+      "eláŋgɛ́":"Dec",
+      "ŋgɔn":"Feb",
+      "sɔŋ":"Mar",
+      "diɓ":"Apr",
+      emi:"May",
+      "esɔ":"Jun",
+      "diŋ":"Aug",
+      "nyɛt":"Sep",
+      tin:"Nov",
+      "elá":"Dec",
+      sibiti:"Sa",
+      dimas:"Su",
+      "teneŋ":"Mo",
+      alarbay:"We",
+      aramisay:"Th",
+      arjuma:"Fr",
+      ten:"Mo",
+      arj:"Fr",
+      sanvie:"Jan",
+      "fébirie":"Feb",
+      aburil:"Apr",
+      "sueŋ":"Jun",
+      "súuyee":"Jul",
+      settembar:"Sep",
+      disambar:"Dec",
+      sa:"Jan",
+      fe:"Feb",
+      su:"Jun",
+      "sú":"Jul",
+      se:"Sep",
+      ok:"Oct",
+      no:"Nov",
+      njumamothii:"Sa",
+      njumatatu:"Mo",
+      njumatano:"We",
+      arm:"Th",
+      "mweri wa mbere":"Jan",
+      "mweri wa kaĩri":"Feb",
+      "mweri wa kathatũ":"Mar",
+      "mweri wa kana":"Apr",
+      "mweri wa gatano":"May",
+      "mweri wa gatantatũ":"Jun",
+      "mweri wa mũgwanja":"Jul",
+      "mweri wa kanana":"Aug",
+      "mweri wa kenda":"Sep",
+      "mweri wa ikũmi":"Oct",
+      "mweri wa ikũmi na ũmwe":"Nov",
+      "mweri wa ikũmi na kaĩrĩ":"Dec",
+      mbe:"Jan",
+      kai:"Feb",
+      kat:"Mar",
+      gat:"May",
+      gan:"Jun",
+      knn:"Aug",
+      ken:"Sep",
+      igi:"Dec",
+      "séradé":"Sa",
+      "sɔ́ndɔ":"Su",
+      "mɔ́ndi":"Mo",
+      "sɔ́ndɔ məlú mə́bɛ̌":"Tu",
+      "sɔ́ndɔ məlú mə́lɛ́":"We",
+      "sɔ́ndɔ məlú mə́nyi":"Th",
+      "fúladé":"Fr",
+      "sér":"Sa",
+      "sɔ́n":"Su",
+      "mɔ́n":"Mo",
+      smb:"Tu",
+      sml:"We",
+      smn:"Th",
+      "fúl":"Fr",
+      "ngɔn osú":"Jan",
+      "ngɔn bɛ̌":"Feb",
+      "ngɔn lála":"Mar",
+      "ngɔn nyina":"Apr",
+      "ngɔn tána":"May",
+      "ngɔn saməna":"Jun",
+      "ngɔn zamgbála":"Jul",
+      "ngɔn mwom":"Aug",
+      "ngɔn ebulú":"Sep",
+      "ngɔn awóm":"Oct",
+      "ngɔn awóm ai dziá":"Nov",
+      "ngɔn awóm ai bɛ̌":"Dec",
+      ngo:"Jan",
+      ngl:"Mar",
+      ngn:"Apr",
+      ngt:"May",
+      ngz:"Jul",
+      ngm:"Aug",
+      nga:"Oct",
+      ngad:"Nov",
+      ngab:"Dec",
+      sabide:"Sa",
+      domenie:"Su",
+      martars:"Tu",
+      miercus:"We",
+      joibe:"Th",
+      vinars:"Fr",
+      mie:"We",
+      vin:"Fr",
+      "zenâr":"Jan",
+      "fevrâr":"Feb",
+      "avrîl":"Apr",
+      jugn:"Jun",
+      avost:"Aug",
+      setembar:"Sep",
+      otubar:"Oct",
+      dicembar:"Dec",
+      zen:"Jan",
+      jug:"Jun",
+      avo:"Aug",
+      otu:"Oct",
+      "hɔɔ":"Sa",
+      "hɔgbaa":"Su",
+      ju:"Mo",
+      "jufɔ":"Tu",
+      "shɔ":"We",
+      soo:"Th",
+      sohaa:"Fr",
+      aharabata:"Jan",
+      "oflɔ":"Feb",
+      otsokrikri:"Mar",
+      "abɛibe":"Apr",
+      "agbiɛnaa":"May",
+      "otukwajaŋ":"Jun",
+      "maawɛ":"Jul",
+      manyawale:"Aug",
+      gbo:"Sep",
+      "antɔŋ":"Oct",
+      alemle:"Nov",
+      afuabe:"Dec",
+      "शेनवार":"Sa",
+      "आयतार":"Su",
+      "सोमार":"Mo",
+      "मंगळार":"Tu",
+      "बिरेस्तार":"Th",
+      "शुक्रार":"Fr",
+      "एप्रील":"Apr",
+      "जुलय":"Jul",
+      "एप्री":"Apr",
+      "नो":"Nov",
+      samschtig:"Sa",
+      sunntig:"Su",
+      "määntig":"Mo",
+      ziischtig:"Tu",
+      mittwuch:"We",
+      dunschtig:"Th",
+      friitig:"Fr",
+      "su\\.":"Su",
+      "mä\\.":"Mo",
+      "zi\\.":"Tu",
+      "mi\\.":"We",
+      "du\\.":"Th",
+      "fr\\.":"Fr",
+      auguscht:"Aug",
+      "septämber":"Sep",
+      "novämber":"Nov",
+      "dezämber":"Dec",
+      esabato:"Sa",
+      chumapiri:"Su",
+      chumatato:"Mo",
+      chumaine:"Tu",
+      chumatano:"We",
+      aramisi:"Th",
+      ichuma:"Fr",
+      cpr:"Su",
+      ctt:"Mo",
+      cmn:"Tu",
+      ars:"Th",
+      icm:"Fr",
+      chanuari:"Jan",
+      feburari:"Feb",
+      apiriri:"Apr",
+      chulai:"Jul",
+      okitoba:"Oct",
+      nobemba:"Nov",
+      can:"Jan",
+      cul:"Jul",
+      "poʻaono":"Sa",
+      "lāpule":"Su",
+      "poʻakahi":"Mo",
+      "poʻalua":"Tu",
+      "poʻakolu":"We",
+      "poʻahā":"Th",
+      "poʻalima":"Fr",
+      p6:"Sa",
+      lp:"Su",
+      p1:"Mo",
+      p2:"Tu",
+      p3:"We",
+      p4:"Th",
+      p5:"Fr",
+      ianuali:"Jan",
+      pepeluali:"Feb",
+      malaki:"Mar",
+      "ʻapelila":"Apr",
+      iune:"Jun",
+      iulai:"Jul",
+      "ʻaukake":"Aug",
+      kepakemapa:"Sep",
+      "ʻokakopa":"Oct",
+      nowemapa:"Nov",
+      kekemapa:"Dec",
+      "pep\\.":"Feb",
+      "mal\\.":"Mar",
+      "ʻap\\.":"Apr",
+      "ʻau\\.":"Aug",
+      "kep\\.":"Sep",
+      "ʻok\\.":"Oct",
+      "now\\.":"Nov",
+      "kek\\.":"Dec",
+      "njedźela":"Su",
+      "póndźela":"Mo",
+      wutora:"Tu",
+      srjeda:"We",
+      "štwórtk":"Th",
+      pjatk:"Fr",
+      "štw":"Th",
+      pja:"Fr",
+      meja:"May",
+      "sásidɛ":"Sa",
+      "sɔ́ndi":"Su",
+      "ápta mɔ́ndi":"Tu",
+      "wɛ́nɛsɛdɛ":"We",
+      "tɔ́sɛdɛ":"Th",
+      "fɛlâyɛdɛ":"Fr",
+      "nduŋmbi saŋ":"Jan",
+      "pɛsaŋ pɛ́pá":"Feb",
+      "pɛsaŋ pɛ́tát":"Mar",
+      "pɛsaŋ pɛ́nɛ́kwa":"Apr",
+      "pɛsaŋ pataa":"May",
+      "pɛsaŋ pɛ́nɛ́ntúkú":"Jun",
+      "pɛsaŋ saambá":"Jul",
+      "pɛsaŋ pɛ́nɛ́fɔm":"Aug",
+      "pɛsaŋ pɛ́nɛ́pfúꞌú":"Sep",
+      "pɛsaŋ nɛgɛ́m":"Oct",
+      "pɛsaŋ ntsɔ̌pmɔ́":"Nov",
+      "pɛsaŋ ntsɔ̌ppá":"Dec",
+      jumapilyi:"Su",
+      jumatatuu:"Mo",
+      jumatanu:"We",
+      iju:"Fr",
+      aprilyi:"Apr",
+      junyi:"Jun",
+      julyai:"Jul",
+      agusti:"Aug",
+      sayass:"Sa",
+      yanass:"Su",
+      sanass:"Mo",
+      "kraḍass":"Tu",
+      "kuẓass":"We",
+      samass:"Th",
+      "sḍisass":"Fr",
+      say:"Sa",
+      "kraḍ":"Tu",
+      "kuẓ":"We",
+      "sḍis":"Fr",
+      yennayer:"Jan",
+      "fuṛar":"Feb",
+      "meɣres":"Mar",
+      yebrir:"Apr",
+      mayyu:"May",
+      yunyu:"Jun",
+      yulyu:"Jul",
+      "ɣuct":"Aug",
+      "ctembeṛ":"Sep",
+      "tubeṛ":"Oct",
+      "nunembeṛ":"Nov",
+      "duǧembeṛ":"Dec",
+      yen:"Jan",
+      fur:"Feb",
+      "meɣ":"Mar",
+      "ɣuc":"Aug",
+      cte:"Sep",
+      tub:"Oct",
+      nun:"Nov",
+      "duǧ":"Dec",
+      "wa thanthatũ":"Sa",
+      "wa kyumwa":"Su",
+      "wa kwambĩlĩlya":"Mo",
+      "wa kelĩ":"Tu",
+      "wa katatũ":"We",
+      "wa kana":"Th",
+      "wa katano":"Fr",
+      wth:"Sa",
+      wky:"Su",
+      wkw:"Mo",
+      wkl:"Tu",
+      "wtũ":"We",
+      "mwai wa mbee":"Jan",
+      "mwai wa kelĩ":"Feb",
+      "mwai wa katatũ":"Mar",
+      "mwai wa kana":"Apr",
+      "mwai wa katano":"May",
+      "mwai wa thanthatũ":"Jun",
+      "mwai wa muonza":"Jul",
+      "mwai wa nyaanya":"Aug",
+      "mwai wa kenda":"Sep",
+      "mwai wa ĩkumi":"Oct",
+      "mwai wa ĩkumi na ĩmwe":"Nov",
+      "mwai wa ĩkumi na ilĩ":"Dec",
+      "ktũ":"Mar",
+      moo:"Jul",
+      knd:"Sep",
+      "ĩku":"Oct",
+      "ĩkm":"Nov",
+      "ĩkl":"Dec",
+      "liduva litandi":"Sa",
+      "liduva lyapili":"Su",
+      "liduva lyatatu":"Mo",
+      "liduva lyanchechi":"Tu",
+      "liduva lyannyano":"We",
+      "liduva lyannyano na linji":"Th",
+      "liduva lyannyano na mavili":"Fr",
+      ll1:"Sa",
+      ll2:"Su",
+      ll3:"Mo",
+      ll4:"Tu",
+      ll5:"We",
+      ll6:"Th",
+      ll7:"Fr",
+      "mwedi ntandi":"Jan",
+      "mwedi wa pili":"Feb",
+      "mwedi wa tatu":"Mar",
+      "mwedi wa nchechi":"Apr",
+      "mwedi wa nnyano":"May",
+      "mwedi wa nnyano na umo":"Jun",
+      "mwedi wa nnyano na mivili":"Jul",
+      "mwedi wa nnyano na mitatu":"Aug",
+      "mwedi wa nnyano na nchechi":"Sep",
+      "mwedi wa nnyano na nnyano":"Oct",
+      "mwedi wa nnyano na nnyano na u":"Nov",
+      "mwedi wa nnyano na nnyano na m":"Dec",
+      dumingu:"Su",
+      "sigunda-fera":"Mo",
+      "tersa-fera":"Tu",
+      "kuarta-fera":"We",
+      "kinta-fera":"Th",
+      "sesta-fera":"Fr",
+      sig:"Mo",
+      ter:"Tu",
+      kua:"We",
+      kin:"Th",
+      ses:"Fr",
+      janeru:"Jan",
+      marsu:"Mar",
+      maiu:"May",
+      junhu:"Jun",
+      julhu:"Jul",
+      setenbru:"Sep",
+      otubru:"Oct",
+      nuvenbru:"Nov",
+      dizenbru:"Dec",
+      nuv:"Nov",
+      diz:"Dec",
+      savnu:"Sa",
+      "numĩggu":"Su",
+      "pir-kurã-há":"Mo",
+      "régre-kurã-há":"Tu",
+      "tẽgtũ-kurã-há":"We",
+      "vẽnhkãgra-kurã-há":"Th",
+      "pénkar-kurã-há":"Fr",
+      "sav\\.":"Sa",
+      "num\\.":"Su",
+      "pir\\.":"Mo",
+      "rég\\.":"Tu",
+      "tẽg\\.":"We",
+      "vẽn\\.":"Th",
+      "pén\\.":"Fr",
+      "1-kysã":"Jan",
+      "2-kysã":"Feb",
+      "3-kysã":"Mar",
+      "4-kysã":"Apr",
+      "5-kysã":"May",
+      "6-kysã":"Jun",
+      "7-kysã":"Jul",
+      "8-kysã":"Aug",
+      "9-kysã":"Sep",
+      "10-kysã":"Oct",
+      "11-kysã":"Nov",
+      "12-kysã":"Dec",
+      "1ky\\.":"Jan",
+      "2ky\\.":"Feb",
+      "3ky\\.":"Mar",
+      "4ky\\.":"Apr",
+      "5ky\\.":"May",
+      "6ky\\.":"Jun",
+      "7ky\\.":"Jul",
+      "8ky\\.":"Aug",
+      "9ky\\.":"Sep",
+      "10ky\\.":"Oct",
+      "11ky\\.":"Nov",
+      "12ky\\.":"Dec",
+      assabdu:"Sa",
+      atini:"Mo",
+      atalata:"Tu",
+      alhamiisa:"Th",
+      aljuma:"Fr",
+      ass:"Sa",
+      alj:"Fr",
+      "mɔnɔ sɔndi":"Sa",
+      "sɔndi":"Su",
+      "mɛrkɛrɛdi":"We",
+      yedi:"Th",
+      "vaŋdɛrɛdi":"Fr",
+      pamba:"Jan",
+      wanja:"Feb",
+      "mbiyɔ mɛndoŋgɔ":"Mar",
+      "nyɔlɔmbɔŋgɔ":"Apr",
+      "mɔnɔ ŋgbanja":"May",
+      "nyaŋgwɛ ŋgbanja":"Jun",
+      "kuŋgwɛ":"Jul",
+      "fɛ":"Aug",
+      njapi:"Sep",
+      nyukul:"Oct",
+      m11:"Nov",
+      "ɓulɓusɛ":"Dec",
+      kolo:"Sa",
+      kotisap:"Su",
+      kotaai:"Mo",
+      "koaeng’":"Tu",
+      kosomok:"We",
+      "koang’wan":"Th",
+      komuut:"Fr",
+      kts:"Su",
+      kot:"Mo",
+      koo:"Tu",
+      kos:"We",
+      koa:"Th",
+      kom:"Fr",
+      mulgul:"Jan",
+      "ng’atyaato":"Feb",
+      kiptaamo:"Mar",
+      iwootkuut:"Apr",
+      mamuut:"May",
+      paagi:"Jun",
+      "ng’eiyeet":"Jul",
+      rooptui:"Aug",
+      bureet:"Sep",
+      epeeso:"Oct",
+      "kipsuunde ne taai":"Nov",
+      "kipsuunde nebo aeng’":"Dec",
+      ngat:"Feb",
+      iwo:"Apr",
+      paa:"Jun",
+      roo:"Aug",
+      bur:"Sep",
+      epe:"Oct",
+      kpt:"Nov",
+      jumaamosi:"Sa",
+      jumaapii:"Su",
+      jumaatatu:"Mo",
+      jumaane:"Tu",
+      jumaatano:"We",
+      jmn:"Tu",
+      januali:"Jan",
+      febluali:"Feb",
+      aplili:"Apr",
+      "samdí":"Sa",
+      "sɔ́ndǝ":"Su",
+      "lǝndí":"Mo",
+      "maadí":"Tu",
+      "mɛkrɛdí":"We",
+      "jǝǝdí":"Th",
+      "júmbá":"Fr",
+      "lǝn":"Mo",
+      "mɛk":"We",
+      "jǝǝ":"Th",
+      "júm":"Fr",
+      "ŋwíí a ntɔ́ntɔ":"Jan",
+      "ŋwíí akǝ bɛ́ɛ":"Feb",
+      "ŋwíí akǝ ráá":"Mar",
+      "ŋwíí akǝ nin":"Apr",
+      "ŋwíí akǝ táan":"May",
+      "ŋwíí akǝ táafɔk":"Jun",
+      "ŋwíí akǝ táabɛɛ":"Jul",
+      "ŋwíí akǝ táaraa":"Aug",
+      "ŋwíí akǝ táanin":"Sep",
+      "ŋwíí akǝ ntɛk":"Oct",
+      "ŋwíí akǝ ntɛk di bɔ́k":"Nov",
+      "ŋwíí akǝ ntɛk di bɛ́ɛ":"Dec",
+      "ŋ1":"Jan",
+      "ŋ2":"Feb",
+      "ŋ3":"Mar",
+      "ŋ4":"Apr",
+      "ŋ5":"May",
+      "ŋ6":"Jun",
+      "ŋ7":"Jul",
+      "ŋ8":"Aug",
+      "ŋ9":"Sep",
+      "ŋ10":"Oct",
+      "ŋ11":"Nov",
+      "ŋ12":"Dec",
+      samsdaach:"Sa",
+      sunndaach:"Su",
+      mohndaach:"Mo",
+      dinnsdaach:"Tu",
+      metwoch:"We",
+      dunnersdaach:"Th",
+      friidaach:"Fr",
+      "mo\\.":"Mo",
+      "me\\.":"We",
+      jannewa:"Jan",
+      "fäbrowa":"Feb",
+      "määz":"Mar",
+      aprell:"Apr",
+      "oujoß":"Aug",
+      oktohber:"Oct",
+      "fäb\\.":"Feb",
+      "mäz\\.":"Mar",
+      "ouj\\.":"Aug",
+      "säp\\.":"Sep",
+      "sani vara":"Sa",
+      "aadi vara":"Su",
+      smbara:"Mo",
+      "mangaḍa":"Tu",
+      pudara:"We",
+      "laki vara":"Th",
+      "sukru vara":"Fr",
+      sani:"Sa",
+      aadi:"Su",
+      smba:"Mo",
+      manga:"Tu",
+      puda:"We",
+      laki:"Th",
+      sukru:"Fr",
+      "pusu lenju":"Jan",
+      "maha lenju":"Feb",
+      "pagu lenju":"Mar",
+      "hire lenju":"Apr",
+      "bese lenju":"May",
+      "jaṭṭa lenju":"Jun",
+      "aasaḍi lenju":"Jul",
+      "srabĩ lenju":"Aug",
+      "bado lenju":"Sep",
+      "dasara lenju":"Oct",
+      "divi lenju":"Nov",
+      "pande lenju":"Dec",
+      pusu:"Jan",
+      maha:"Feb",
+      pagu:"Mar",
+      hire:"Apr",
+      bese:"May",
+      "jaṭṭa":"Jun",
+      "aasaḍi":"Jul",
+      "srabĩ":"Aug",
+      bado:"Sep",
+      dasara:"Oct",
+      divi:"Nov",
+      pande:"Dec",
+      "jumamóosi":"Sa",
+      "jumapíiri":"Su",
+      "jumatátu":"Mo",
+      "jumaíne":"Tu",
+      "jumatáano":"We",
+      "alamíisi":"Th",
+      "ijumáa":"Fr",
+      "móosi":"Sa",
+      "píili":"Su",
+      "táatu":"Mo",
+      "íne":"Tu",
+      "táano":"We",
+      "kʉfúngatɨ":"Jan",
+      "kʉnaanɨ":"Feb",
+      "kʉkeenda":"Mar",
+      kwiikumi:"Apr",
+      "kwiinyambála":"May",
+      kwiidwaata:"Jun",
+      "kʉmʉʉnchɨ":"Jul",
+      "kʉvɨɨrɨ":"Aug",
+      "kʉsaatʉ":"Sep",
+      kwiinyi:"Oct",
+      "kʉsaano":"Nov",
+      "kʉsasatʉ":"Dec",
+      "fúngatɨ":"Jan",
+      "naanɨ":"Feb",
+      keenda:"Mar",
+      "ikúmi":"Apr",
+      inyambala:"May",
+      idwaata:"Jun",
+      "mʉʉnchɨ":"Jul",
+      "vɨɨrɨ":"Aug",
+      "saatʉ":"Sep",
+      inyi:"Oct",
+      saano:"Nov",
+      "sasatʉ":"Dec",
+      sabbo:"Sa",
+      domenega:"Su",
+      "lunesdì":"Mo",
+      "mätesdì":"Tu",
+      "mäcordì":"We",
+      zeuggia:"Th",
+      "venardì":"Fr",
+      "de zenâ":"Jan",
+      "de frevâ":"Feb",
+      "de marso":"Mar",
+      "d’arvî":"Apr",
+      "de mazzo":"May",
+      "de zugno":"Jun",
+      "de luggio":"Jul",
+      "d’agosto":"Aug",
+      "de settembre":"Sep",
+      "d’ottobre":"Oct",
+      "de dexembre":"Dec",
+      "owáŋgyužažapi":"Sa",
+      "aŋpétuwakȟaŋ":"Su",
+      "aŋpétuwaŋži":"Mo",
+      "aŋpétunuŋpa":"Tu",
+      "aŋpétuyamni":"We",
+      "aŋpétutopa":"Th",
+      "aŋpétuzaptaŋ":"Fr",
+      "wiótheȟika wí":"Jan",
+      "thiyóȟeyuŋka wí":"Feb",
+      "ištáwičhayazaŋ wí":"Mar",
+      "pȟežítȟo wí":"Apr",
+      "čhaŋwápetȟo wí":"May",
+      "wípazukȟa-wašté wí":"Jun",
+      "čhaŋpȟásapa wí":"Jul",
+      "wasútȟuŋ wí":"Aug",
+      "čhaŋwápeǧi wí":"Sep",
+      "čhaŋwápe-kasná wí":"Oct",
+      "waníyetu wí":"Nov",
+      "tȟahékapšuŋ wí":"Dec",
+      sabet:"Sa",
+      "lundì":"Mo",
+      "mardì":"Tu",
+      "mercoldì":"We",
+      "sgiovedì":"Th",
+      sginer:"Jan",
+      fevrer:"Feb",
+      marz:"Mar",
+      masg:"May",
+      sgiugn:"Jun",
+      luj:"Jul",
+      setember:"Sep",
+      otover:"Oct",
+      dicember:"Dec",
+      dey:"Jan",
+      bahman:"Feb",
+      esfand:"Mar",
+      farvardin:"Apr",
+      ordibehesht:"May",
+      khordad:"Jun",
+      tir:"Jul",
+      mordad:"Aug",
+      shahrivar:"Sep",
+      mehr:"Oct",
+      aban:"Nov",
+      azar:"Dec",
+      ngeso:"Sa",
+      jumapil:"Su",
+      "wuok tich":"Mo",
+      "tich ariyo":"Tu",
+      "tich adek":"We",
+      "tich ang’wen":"Th",
+      "tich abich":"Fr",
+      jmp:"Su",
+      tad:"We",
+      tab:"Fr",
+      "dwe mar achiel":"Jan",
+      "dwe mar ariyo":"Feb",
+      "dwe mar adek":"Mar",
+      "dwe mar ang’wen":"Apr",
+      "dwe mar abich":"May",
+      "dwe mar auchiel":"Jun",
+      "dwe mar abiriyo":"Jul",
+      "dwe mar aboro":"Aug",
+      "dwe mar ochiko":"Sep",
+      "dwe mar apar":"Oct",
+      "dwe mar gi achiel":"Nov",
+      "dwe mar apar gi ariyo":"Dec",
+      dac:"Jan",
+      dar:"Feb",
+      dad:"Mar",
+      dan:"Apr",
+      dah:"May",
+      dau:"Jun",
+      dao:"Jul",
+      dab:"Aug",
+      doc:"Sep",
+      dap:"Oct",
+      dgi:"Nov",
+      dag:"Dec",
+      "शनि दिन":"Sa",
+      "रवि दिन":"Su",
+      "सोम दिन":"Mo",
+      "मंगल दिन":"Tu",
+      "बुध दिन":"We",
+      "बृहस्पति दिन":"Th",
+      "शुक्र दिन":"Fr",
+      "फर॰":"Feb",
+      "अक्तू॰":"Oct",
+      "jumamósi":"Sa",
+      "jumapílí":"Su",
+      jumane:"Tu",
+      "jumatánɔ":"We",
+      "alaámisi":"Th",
+      "jumáa":"Fr",
+      "oladalʉ́":"Jan",
+      "arát":"Feb",
+      "ɔɛnɨ́ɔɨŋɔk":"Mar",
+      "olodoyíóríê inkókúâ":"Apr",
+      "oloilépūnyīē inkókúâ":"May",
+      "kújúɔrɔk":"Jun",
+      "mórusásin":"Jul",
+      "ɔlɔ́ɨ́bɔ́rárɛ":"Aug",
+      "kúshîn":"Sep",
+      "olgísan":"Oct",
+      "pʉshʉ́ka":"Nov",
+      "ntʉ́ŋʉ́s":"Dec",
+      dal:"Jan",
+      "ará":"Feb",
+      "ɔɛn":"Mar",
+      doy:"Apr",
+      "lép":"May",
+      rok:"Jun",
+      "sás":"Jul",
+      "bɔ́r":"Aug",
+      "kús":"Sep",
+      "gís":"Oct",
+      "shʉ́":"Nov",
+      "ntʉ́":"Dec",
+      muramuko:"Mo",
+      wairi:"Tu",
+      wethatu:"We",
+      wena:"Th",
+      wetano:"Fr",
+      kiu:"Su",
+      mra:"Mo",
+      wai:"Tu",
+      wet:"We",
+      "januarĩ":"Jan",
+      "feburuarĩ":"Feb",
+      "ĩpurũ":"Apr",
+      "mĩĩ":"May",
+      njuni:"Jun",
+      "njuraĩ":"Jul",
+      "oktũba":"Oct",
+      dicemba:"Dec",
+      "ĩpu":"Apr",
+      nju:"Jun",
+      njr:"Jul",
+      spt:"Sep",
+      samdi:"Sa",
+      dimans:"Su",
+      lindi:"Mo",
+      merkredi:"We",
+      zedi:"Th",
+      vandredi:"Fr",
+      ze:"Th",
+      van:"Fr",
+      zanvie:"Jan",
+      fevriye:"Feb",
+      zin:"Jun",
+      zilye:"Jul",
+      out:"Aug",
+      septam:"Sep",
+      oktob:"Oct",
+      novam:"Nov",
+      desam:"Dec",
+      zil:"Jul",
+      arahamisi:"Th",
+      "mweri wo kwanza":"Jan",
+      "mweri wo unayeli":"Feb",
+      "mweri wo uneraru":"Mar",
+      "mweri wo unecheshe":"Apr",
+      "mweri wo unethanu":"May",
+      "mweri wo thanu na mocha":"Jun",
+      "mweri wo saba":"Jul",
+      "mweri wo nane":"Aug",
+      "mweri wo tisa":"Sep",
+      "mweri wo kumi":"Oct",
+      "mweri wo kumi na moja":"Nov",
+      "mweri wo kumi na yel’li":"Dec",
+      una:"Feb",
+      moc:"Jun",
+      moj:"Nov",
+      yel:"Dec",
+      "aneg 7":"Sa",
+      "aneg 1":"Su",
+      "aneg 2":"Mo",
+      "aneg 3":"Tu",
+      "aneg 4":"We",
+      "aneg 5":"Th",
+      "aneg 6":"Fr",
+      "iməg mbegtug":"Jan",
+      "imeg àbùbì":"Feb",
+      "imeg mbəŋchubi":"Mar",
+      "iməg ngwə̀t":"Apr",
+      "iməg fog":"May",
+      "iməg ichiibɔd":"Jun",
+      "iməg àdùmbə̀ŋ":"Jul",
+      "iməg ichika":"Aug",
+      "iməg kud":"Sep",
+      "iməg tèsiʼe":"Oct",
+      "iməg zò":"Nov",
+      "iməg krizmed":"Dec",
+      mbegtug:"Jan",
+      "থাংজ":"Sa",
+      "নোংমাইজিং":"Su",
+      "নিংথৌকাবা":"Mo",
+      "লৈবাকপোকপা":"Tu",
+      "য়ুমশকৈশা":"We",
+      "শগোলশেন":"Th",
+      "ইরাই":"Fr",
+      "জানুৱারি":"Jan",
+      "ফেব্রুৱারি":"Feb",
+      "ওগষ্ট":"Aug",
+      "ওক্টোবর":"Oct",
+      "নবেম্বর":"Nov",
+      "ফেব্রু":"Feb",
+      "মার":"Mar",
+      "এপ্রি":"Apr",
+      "জুলা":"Jul",
+      "সেপ্ট":"Sep",
+      "ওক্টো":"Oct",
+      "নভে":"Nov",
+      "ডিসে":"Dec",
+      "comzyeɓsuu":"Sa",
+      "com’yakke":"Su",
+      "comlaaɗii":"Mo",
+      "comzyiiɗii":"Tu",
+      comkolle:"We",
+      "comkaldǝɓlii":"Th",
+      comgaisuu:"Fr",
+      cya:"Su",
+      czi:"Tu",
+      cko:"We",
+      cka:"Th",
+      cga:"Fr",
+      "fĩi loo":"Jan",
+      "cokcwaklaŋne":"Feb",
+      cokcwaklii:"Mar",
+      "fĩi marfoo":"Apr",
+      "madǝǝuutǝbijaŋ":"May",
+      "mamǝŋgwãafahbii":"Jun",
+      "mamǝŋgwãalii":"Jul",
+      "madǝmbii":"Aug",
+      "fĩi dǝɓlii":"Sep",
+      "fĩi mundaŋ":"Oct",
+      "fĩi gwahlle":"Nov",
+      "fĩi yuru":"Dec",
+      flo:"Jan",
+      cki:"Mar",
+      fmf:"Apr",
+      mli:"Jul",
+      fde:"Sep",
+      fmu:"Oct",
+      fgw:"Nov",
+      fyu:"Dec",
+      satertaxtsees:"Sa",
+      sontaxtsees:"Su",
+      mantaxtsees:"Mo",
+      denstaxtsees:"Tu",
+      wunstaxtsees:"We",
+      dondertaxtsees:"Th",
+      fraitaxtsees:"Fr",
+      wu:"We",
+      "ǃkhanni":"Jan",
+      "ǃkhanǀgôab":"Feb",
+      "ǀkhuuǁkhâb":"Mar",
+      "ǃhôaǂkhaib":"Apr",
+      "ǃkhaitsâb":"May",
+      "gamaǀaeb":"Jun",
+      "ǂkhoesaob":"Jul",
+      "aoǁkhuumûǁkhâb":"Aug",
+      "taraǀkhuumûǁkhâb":"Sep",
+      "ǂnûǁnâiseb":"Oct",
+      "ǀhooǂgaeb":"Nov",
+      "hôasoreǁkhâb":"Dec",
+      "sünnavend":"Sa",
+      "sünndag":"Su",
+      dingsdag:"Tu",
+      middeweken:"We",
+      dunnersdag:"Th",
+      freedag:"Fr",
+      januaar:"Jan",
+      februaar:"Feb",
+      oktover:"Oct",
+      "sásadi":"Sa",
+      "mɔ́ndɔ":"Mo",
+      "sɔ́ndɔ mafú mába":"Tu",
+      "sɔ́ndɔ mafú málal":"We",
+      "sɔ́ndɔ mafú mána":"Th",
+      "mabágá má sukul":"Fr",
+      sas:"Sa",
+      mbs:"Fr",
+      "ngwɛn matáhra":"Jan",
+      "ngwɛn ńmba":"Feb",
+      "ngwɛn ńlal":"Mar",
+      "ngwɛn ńna":"Apr",
+      "ngwɛn ńtan":"May",
+      "ngwɛn ńtuó":"Jun",
+      "ngwɛn hɛmbuɛrí":"Jul",
+      "ngwɛn lɔmbi":"Aug",
+      "ngwɛn rɛbvuâ":"Sep",
+      "ngwɛn wum":"Oct",
+      "ngwɛn wum navǔr":"Nov",
+      "krísimin":"Dec",
+      ng1:"Jan",
+      ng2:"Feb",
+      ng3:"Mar",
+      ng4:"Apr",
+      ng5:"May",
+      ng6:"Jun",
+      ng7:"Jul",
+      ng8:"Aug",
+      ng9:"Sep",
+      ng10:"Oct",
+      ng11:"Nov",
+      kris:"Dec",
+      "màga lyɛ̌ʼ":"Sa",
+      "lyɛʼɛ́ sẅíŋtè":"Su",
+      "mvfò lyɛ̌ʼ":"Mo",
+      "mbɔ́ɔntè mvfò lyɛ̌ʼ":"Tu",
+      "tsètsɛ̀ɛ lyɛ̌ʼ":"We",
+      "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ":"Th",
+      "mvfò màga lyɛ̌ʼ":"Fr",
+      "saŋ tsetsɛ̀ɛ lùm":"Jan",
+      "saŋ kàg ngwóŋ":"Feb",
+      "saŋ lepyè shúm":"Mar",
+      "saŋ cÿó":"Apr",
+      "saŋ tsɛ̀ɛ cÿó":"May",
+      "saŋ njÿoláʼ":"Jun",
+      "saŋ tyɛ̀b tyɛ̀b mbʉ̀ŋ":"Jul",
+      "saŋ mbʉ̀ŋ":"Aug",
+      "saŋ ngwɔ̀ʼ mbÿɛ":"Sep",
+      "saŋ tàŋa tsetsáʼ":"Oct",
+      "saŋ mejwoŋó":"Nov",
+      "saŋ lùm":"Dec",
+      "ߞߍ߲ߘߍߟߏ߲":"Sa",
+      "ߞߊ߯ߙߌߟߏ߲":"Su",
+      "ߞߐ߬ߓߊ߬ߟߏ߲":"Mo",
+      "ߞߐ߬ߟߏ߲":"Tu",
+      "ߞߎߣߎ߲ߟߏ߲":"We",
+      "ߓߌߟߏ߲":"Th",
+      "ߛߌ߬ߣߌ߲߬ߟߏ߲":"Fr",
+      "ߞߍ߲ߘ":"Sa",
+      "ߞߊ߯ߙ":"Su",
+      "ߞߐ߬ߓ":"Mo",
+      "ߞߐ߬ߟ":"Tu",
+      "ߞߎߣ":"We",
+      "ߓߌߟ":"Th",
+      "ߛߌ߬ߣ":"Fr",
+      "ߓߌ߲ߠߊߥߎߟߋ߲":"Jan",
+      "ߞߏ߲ߞߏߜߍ":"Feb",
+      "ߕߙߊߓߊ":"Mar",
+      "ߞߏ߲ߞߏߘߌ߬ߓߌ":"Apr",
+      "ߘߓߊ߬ߕߊ":"May",
+      "ߥߊ߬ߛߌ߬ߥߙߊ":"Jun",
+      "ߞߊ߬ߙߌߝߐ߭":"Jul",
+      "ߘߓߊ߬ߓߌߟߊ":"Aug",
+      "ߕߎߟߊߝߌ߲":"Sep",
+      "ߞߏ߲ߓߌߕߌ߮":"Oct",
+      "ߣߍߣߍߓߊ":"Nov",
+      "ߞߏߟߌ߲ߞߏߟߌ߲":"Dec",
+      "ߓߌ߲ߠ":"Jan",
+      "ߞߏ߲ߞ":"Feb",
+      "ߕߙߊ":"Mar",
+      "ߞߏ߲ߘ":"Apr",
+      "ߘߓߊ߬ߕ":"May",
+      "ߥߊ߬ߛ":"Jun",
+      "ߞߊ߬ߙ":"Jul",
+      "ߘߓߊ߬ߓ":"Aug",
+      "ߞߏ߲ߓ":"Oct",
+      "ߣߍߣ":"Nov",
+      "ߞߏߟ":"Dec",
+      mokibelo:"Sa",
+      lamorena:"Su",
+      "mošupologo":"Mo",
+      lam:"Su",
+      janeware:"Jan",
+      febereware:"Feb",
+      "matšhe":"Mar",
+      aporele:"Apr",
+      julae:"Jul",
+      agosetose:"Aug",
+      setemere:"Sep",
+      oktobore:"Oct",
+      nofemere:"Nov",
+      disemere:"Dec",
+      phere:"Jan",
+      dibo:"Feb",
+      hlak:"Mar",
+      mora:"Apr",
+      mose:"Jul",
+      lewe:"Sep",
+      dipha:"Oct",
+      diba:"Nov",
+      manth:"Dec",
+      "bäkɛl lätni":"Sa",
+      "cäŋ kuɔth":"Su",
+      "jiec la̱t":"Mo",
+      "rɛw lätni":"Tu",
+      "diɔ̱k lätni":"We",
+      "ŋuaan lätni":"Th",
+      "dhieec lätni":"Fr",
+      "bäkɛl":"Sa",
+      "cäŋ":"Su",
+      jiec:"Mo",
+      "rɛw":"Tu",
+      "diɔ̱k":"We",
+      "ŋuaan":"Th",
+      dhieec:"Fr",
+      "tiop thar pɛt":"Jan",
+      "pɛt":"Feb",
+      "duɔ̱ɔ̱ŋ":"Mar",
+      guak:"Apr",
+      "duät":"May",
+      kornyoot:"Jun",
+      "pay yie̱tni":"Jul",
+      "tho̱o̱r":"Aug",
+      "tɛɛr":"Sep",
+      laath:"Oct",
+      "tio̱p in di̱i̱t":"Dec",
+      tiop:"Jan",
+      "duɔ̱ɔ̱":"Mar",
+      "duä":"May",
+      thoo:"Aug",
+      "tɛɛ":"Sep",
+      laa:"Oct",
+      tid:"Dec",
+      "sátọdè":"Sa",
+      "sọ́ndè":"Su",
+      "mọ́ndè":"Mo",
+      "tiúzdè":"Tu",
+      "wẹ́nẹ́zdè":"We",
+      "tọ́zdè":"Th",
+      "fraídè":"Fr",
+      "sát":"Sa",
+      "sọ́n":"Su",
+      "mọ́n":"Mo",
+      "tiú":"Tu",
+      "wẹ́n":"We",
+      "tọ́z":"Th",
+      "fraí":"Fr",
+      "jénúári":"Jan",
+      "fẹ́búári":"Feb",
+      mach:"Mar",
+      "éprel":"Apr",
+      "ọgọst":"Aug",
+      "sẹptẹ́mba":"Sep",
+      "ọktóba":"Oct",
+      "nọvẹ́mba":"Nov",
+      "disẹ́mba":"Dec",
+      "jén":"Jan",
+      "fẹ́b":"Feb",
+      "épr":"Apr",
+      "ọ́gọ":"Aug",
+      "sẹp":"Sep",
+      "nọv":"Nov",
+      sabattika:"Sa",
+      "nadīli":"Su",
+      "panadīli":"Mo",
+      "wisasīdis":"Tu",
+      pussisawaiti:"We",
+      ketwirtiks:"Th",
+      "pēntniks":"Fr",
+      rags:"Jan",
+      wassarins:"Feb",
+      "pūlis":"Mar",
+      sakkis:"Apr",
+      zallaws:"May",
+      "sīmenis":"Jun",
+      "līpa":"Jul",
+      daggis:"Aug",
+      sillins:"Sep",
+      spallins:"Oct",
+      "lapkrūtis":"Nov",
+      sallaws:"Dec",
+      ijumamosi:"Sa",
+      ijumapili:"Su",
+      ijumatatu:"Mo",
+      ijumanne:"Tu",
+      ijumatano:"We",
+      ijp:"Su",
+      ijt:"Mo",
+      ijn:"Tu",
+      ijtn:"We",
+      "mweri wa kwanza":"Jan",
+      "mweri wa kaili":"Feb",
+      "mweri wa katatu":"Mar",
+      "mweri wa kaana":"Apr",
+      "mweri wa tanu":"May",
+      "mweri wa sita":"Jun",
+      "mweri wa saba":"Jul",
+      "mweri wa nane":"Aug",
+      "mweri wa tisa":"Sep",
+      "mweri wa ikumi":"Oct",
+      "mweri wa ikumi na moja":"Nov",
+      "mweri wa ikumi na mbili":"Dec",
+      m1:"Jan",
+      m2:"Feb",
+      m3:"Mar",
+      m4:"Apr",
+      m5:"May",
+      m6:"Jun",
+      m7:"Jul",
+      m8:"Aug",
+      m9:"Sep",
+      m10:"Oct",
+      m12:"Dec",
+      "субуота":"Sa",
+      "баскыһыанньа":"Su",
+      "бэнидиэнньик":"Mo",
+      "оптуорунньук":"Tu",
+      "сэрэдэ":"We",
+      "чэппиэр":"Th",
+      "бээтиҥсэ":"Fr",
+      "бн":"Mo",
+      "оп":"Tu",
+      "сэ":"We",
+      "чп":"Th",
+      "бэ":"Fr",
+      "тохсунньу":"Jan",
+      "олунньу":"Feb",
+      "кулун тутар":"Mar",
+      "муус устар":"Apr",
+      "ыам ыйа":"May",
+      "бэс ыйа":"Jun",
+      "от ыйа":"Jul",
+      "атырдьых ыйа":"Aug",
+      "балаҕан ыйа":"Sep",
+      "алтынньы":"Oct",
+      "сэтинньи":"Nov",
+      "ахсынньы":"Dec",
+      "тохс":"Jan",
+      "олун":"Feb",
+      "клн":"Mar",
+      "мсу":"Apr",
+      "ыам":"May",
+      "бэс":"Jun",
+      "отй":"Jul",
+      "атр":"Aug",
+      "блҕ":"Sep",
+      "алт":"Oct",
+      "сэт":"Nov",
+      "ахс":"Dec",
+      "mderot ee kwe":"Sa",
+      "mderot ee are":"Su",
+      "mderot ee kuni":"Mo",
+      "mderot ee ong’wan":"Tu",
+      "mderot ee inet":"We",
+      "mderot ee ile":"Th",
+      "mderot ee sapa":"Fr",
+      are:"Su",
+      kun:"Mo",
+      "lapa le obo":"Jan",
+      "lapa le waare":"Feb",
+      "lapa le okuni":"Mar",
+      "lapa le ong’wan":"Apr",
+      "lapa le imet":"May",
+      "lapa le ile":"Jun",
+      "lapa le sapa":"Jul",
+      "lapa le isiet":"Aug",
+      "lapa le saal":"Sep",
+      "lapa le tomon":"Oct",
+      "lapa le tomon obo":"Nov",
+      "lapa le tomon waare":"Dec",
+      obo:"Jan",
+      waa:"Feb",
+      oku:"Mar",
+      ime:"May",
+      isi:"Aug",
+      saa:"Sep",
+      tom:"Oct",
+      tob:"Nov",
+      tow:"Dec",
+      "ᱧᱩᱦᱩᱢ":"Sa",
+      "ᱥᱤᱸᱜᱮ":"Su",
+      "ᱚᱛᱮ":"Mo",
+      "ᱵᱟᱞᱮ":"Tu",
+      "ᱥᱟᱹᱜᱩᱱ":"We",
+      "ᱥᱟᱹᱨᱫᱤ":"Th",
+      "ᱡᱟᱹᱨᱩᱢ":"Fr",
+      "ᱧᱩ":"Sa",
+      "ᱥᱤᱸ":"Su",
+      "ᱚᱛ":"Mo",
+      "ᱵᱟ":"Tu",
+      "ᱥᱟᱹ":"We",
+      "ᱥᱟᱹᱨ":"Th",
+      "ᱡᱟᱹ":"Fr",
+      "ᱡᱟᱱᱣᱟᱨᱤ":"Jan",
+      "ᱯᱷᱟᱨᱣᱟᱨᱤ":"Feb",
+      "ᱢᱟᱨᱪ":"Mar",
+      "ᱟᱯᱨᱮᱞ":"Apr",
+      "ᱢᱮ":"May",
+      "ᱡᱩᱱ":"Jun",
+      "ᱡᱩᱞᱟᱭ":"Jul",
+      "ᱟᱜᱟᱥᱛ":"Aug",
+      "ᱥᱮᱯᱴᱮᱢᱵᱟᱨ":"Sep",
+      "ᱚᱠᱴᱚᱵᱟᱨ":"Oct",
+      "ᱱᱟᱣᱟᱢᱵᱟᱨ":"Nov",
+      "ᱫᱤᱥᱟᱢᱵᱟᱨ":"Dec",
+      "ᱡᱟᱱ":"Jan",
+      "ᱯᱷᱟ":"Feb",
+      "ᱢᱟᱨ":"Mar",
+      "ᱟᱯᱨ":"Apr",
+      "ᱡᱩᱞ":"Jul",
+      "ᱟᱜᱟ":"Aug",
+      "ᱥᱮᱯ":"Sep",
+      "ᱚᱠᱴ":"Oct",
+      "ᱱᱟᱣ":"Nov",
+      "ᱫᱤᱥ":"Dec",
+      mulungu:"Su",
+      alahamisi:"Th",
+      mupalangulwa:"Jan",
+      mwitope:"Feb",
+      mushende:"Mar",
+      munyi:"Apr",
+      "mushende magali":"May",
+      mujimbi:"Jun",
+      mushipepo:"Jul",
+      mupuguto:"Aug",
+      munyense:"Sep",
+      mokhu:"Oct",
+      musongandembwe:"Nov",
+      muhaano:"Dec",
+      mup:"Jan",
+      mwi:"Feb",
+      msh:"Mar",
+      mun:"Apr",
+      muj:"Jun",
+      msp:"Jul",
+      mpg:"Aug",
+      mye:"Sep",
+      mus:"Nov",
+      muh:"Dec",
+      sabudu:"Sa",
+      dimingu:"Su",
+      chiposi:"Mo",
+      chinai:"Th",
+      pos:"Mo",
+      pir:"Tu",
+      nai:"Th",
+      sha:"Fr",
+      fevreiro:"Feb",
+      marco:"Mar",
+      otubro:"Oct",
+      "ⴰⵙⵉⴹⵢⴰⵙ":"Sa",
+      "ⴰⵙⴰⵎⴰⵙ":"Su",
+      "ⴰⵢⵏⴰⵙ":"Mo",
+      "ⴰⵙⵉⵏⴰⵙ":"Tu",
+      "ⴰⴽⵕⴰⵙ":"We",
+      "ⴰⴽⵡⴰⵙ":"Th",
+      "ⵙⵉⵎⵡⴰⵙ":"Fr",
+      "ⴰⵙⵉⴹ":"Sa",
+      "ⴰⵙⴰ":"Su",
+      "ⴰⵢⵏ":"Mo",
+      "ⴰⵙⵉ":"Tu",
+      "ⴰⴽⵕ":"We",
+      "ⴰⴽⵡ":"Th",
+      "ⴰⵙⵉⵎ":"Fr",
+      "ⵉⵏⵏⴰⵢⵔ":"Jan",
+      "ⴱⵕⴰⵢⵕ":"Feb",
+      "ⵎⴰⵕⵚ":"Mar",
+      "ⵉⴱⵔⵉⵔ":"Apr",
+      "ⵎⴰⵢⵢⵓ":"May",
+      "ⵢⵓⵏⵢⵓ":"Jun",
+      "ⵢⵓⵍⵢⵓⵣ":"Jul",
+      "ⵖⵓⵛⵜ":"Aug",
+      "ⵛⵓⵜⴰⵏⴱⵉⵔ":"Sep",
+      "ⴽⵜⵓⴱⵔ":"Oct",
+      "ⵏⵓⵡⴰⵏⴱⵉⵔ":"Nov",
+      "ⴷⵓⵊⴰⵏⴱⵉⵔ":"Dec",
+      "ⵉⵏⵏ":"Jan",
+      "ⴱⵕⴰ":"Feb",
+      "ⵎⴰⵕ":"Mar",
+      "ⵉⴱⵔ":"Apr",
+      "ⵎⴰⵢ":"May",
+      "ⵢⵓⵏ":"Jun",
+      "ⵢⵓⵍ":"Jul",
+      "ⵖⵓⵛ":"Aug",
+      "ⵛⵓⵜ":"Sep",
+      "ⴽⵜⵓ":"Oct",
+      "ⵏⵓⵡ":"Nov",
+      "ⴷⵓⵊ":"Dec",
+      "lávurdâh":"Sa",
+      pasepeivi:"Su",
+      "vuossargâ":"Mo",
+      "majebargâ":"Tu",
+      koskokko:"We",
+      "tuorâstâh":"Th",
+      "vástuppeivi":"Fr",
+      pas:"Su",
+      vuo:"Mo",
+      tuo:"Th",
+      "vás":"Fr",
+      "uđđâivemáánu":"Jan",
+      "kuovâmáánu":"Feb",
+      "njuhčâmáánu":"Mar",
+      "cuáŋuimáánu":"Apr",
+      "vyesimáánu":"May",
+      "kesimáánu":"Jun",
+      "syeinimáánu":"Jul",
+      "porgemáánu":"Aug",
+      "čohčâmáánu":"Sep",
+      "roovvâdmáánu":"Oct",
+      "skammâmáánu":"Nov",
+      "juovlâmáánu":"Dec",
+      "uđiv":"Jan",
+      "kuovâ":"Feb",
+      "njuhčâ":"Mar",
+      "cuáŋui":"Apr",
+      vyesi:"May",
+      kesi:"Jun",
+      syeini:"Jul",
+      porge:"Aug",
+      "čohčâ":"Sep",
+      "roovvâd":"Oct",
+      "skammâ":"Nov",
+      "juovlâ":"Dec",
+      niydziela:"Su",
+      "pyńdziałek":"Mo",
+      strzoda:"We",
+      sztwortek:"Th",
+      "piōntek":"Fr",
+      stycznia:"Jan",
+      lutego:"Feb",
+      marca:"Mar",
+      kwietnia:"Apr",
+      moja:"May",
+      czyrwca:"Jun",
+      lipca:"Jul",
+      siyrpnia:"Aug",
+      "września":"Sep",
+      "października":"Oct",
+      listopada:"Nov",
+      grudnia:"Dec",
+      nakasabiti:"Sa",
+      nakaejuma:"Su",
+      nakaebarasa:"Mo",
+      nakaare:"Tu",
+      nakauni:"We",
+      "nakaung’on":"Th",
+      nakakany:"Fr",
+      bar:"Mo",
+      aar:"Tu",
+      uni:"We",
+      ung:"Th",
+      orara:"Jan",
+      omuk:"Feb",
+      "okwamg’":"Mar",
+      "odung’el":"Apr",
+      omaruk:"May",
+      "omodok’king’ol":"Jun",
+      ojola:"Jul",
+      opedel:"Aug",
+      osokosokoma:"Sep",
+      otibar:"Oct",
+      olabor:"Nov",
+      opoo:"Dec",
+      dun:"Apr",
+      mod:"Jun",
+      ped:"Aug",
+      sok:"Sep",
+      tib:"Oct",
+      lab:"Nov",
+      poo:"Dec",
+      "suno esun #6":"Sa",
+      "suno esun #7":"Su",
+      "suno esun #1":"Mo",
+      "suno esun #2":"Tu",
+      "suno esun #3":"We",
+      "suno esun #4":"Th",
+      "suno esun #5":"Fr",
+      "mun #1":"Jan",
+      "mun #2":"Feb",
+      "mun #3":"Mar",
+      "mun #4":"Apr",
+      "mun #5":"May",
+      "mun #6":"Jun",
+      "mun #7":"Jul",
+      "mun #8":"Aug",
+      "mun #9":"Sep",
+      "mun #10":"Oct",
+      "mun #11":"Nov",
+      "mun #12":"Dec",
+      "asiḍyas":"Sa",
+      asamas:"Su",
+      aynas:"Mo",
+      asinas:"Tu",
+      akras:"We",
+      akwas:"Th",
+      asimwas:"Fr",
+      "asḍ":"Sa",
+      ayn:"Mo",
+      asn:"Tu",
+      akr:"We",
+      akw:"Th",
+      asm:"Fr",
+      yebrayer:"Feb",
+      ibrir:"Apr",
+      yulyuz:"Jul",
+      cutanbir:"Sep",
+      "kṭuber":"Oct",
+      nwanbir:"Nov",
+      dujanbir:"Dec",
+      ibr:"Apr",
+      cut:"Sep",
+      "kṭu":"Oct",
+      nwa:"Nov",
+      duj:"Dec",
+      "ꔻꔬꔳ":"Sa",
+      "ꕞꕌꔵ":"Su",
+      "ꗳꗡꘉ":"Mo",
+      "ꕚꕞꕚ":"Tu",
+      "ꕉꕞꕒ":"We",
+      "ꕉꔤꕆꕢ":"Th",
+      "ꕉꔤꕀꕮ":"Fr",
+      "ꖨꖕ ꕪꕴ ꔞꔀꕮꕊ":"Jan",
+      "ꕒꕡꖝꖕ":"Feb",
+      "ꕾꖺ":"Mar",
+      "ꖢꖕ":"Apr",
+      "ꖑꕱ":"May",
+      "ꖱꘋ":"Jun",
+      "ꖱꕞꔤ":"Jul",
+      "ꗛꔕ":"Aug",
+      "ꕢꕌ":"Sep",
+      "ꕭꖃ":"Oct",
+      "ꔞꘋꕔꕿ ꕸꖃꗏ":"Nov",
+      "ꖨꖕ ꕪꕴ ꗏꖺꕮꕊ":"Dec",
+      "ꖨꖕꔞ":"Jan",
+      "ꕒꕡ":"Feb",
+      "ꖱꕞ":"Jul",
+      "ꔞꘋ":"Nov",
+      "ꖨꖕꗏ":"Dec",
+      sabo:"Sa",
+      "doménega":"Su",
+      marti:"Tu",
+      "mèrcore":"We",
+      zoba:"Th",
+      "vènare":"Fr",
+      zob:"Th",
+      "vèn":"Fr",
+      jenaro:"Jan",
+      febraro:"Feb",
+      jugno:"Jun",
+      lujo:"Jul",
+      setenbre:"Sep",
+      otobre:"Oct",
+      novenbre:"Nov",
+      dezenbre:"Dec",
+      oto:"Oct",
+      esaabadu:"Sa",
+      ettiminku:"Su",
+      "nihiku noolempwa":"Mo",
+      namaanli:"Tu",
+      namararu:"We",
+      namaxexe:"Th",
+      namathanu:"Fr",
+      janeiru:"Jan",
+      fevereiru:"Feb",
+      junyu:"Jun",
+      julyu:"Jul",
+      setembru:"Sep",
+      outubru:"Oct",
+      dezembru:"Dec",
+      "samštag":"Sa",
+      sunntag:"Su",
+      "mäntag":"Mo",
+      "zištag":"Tu",
+      "mittwuč":"We",
+      "fróntag":"Th",
+      fritag:"Fr",
+      "män":"Mo",
+      "ziš":"Tu",
+      "fró":"Th",
+      jenner:"Jan",
+      hornig:"Feb",
+      "märze":"Mar",
+      abrille:"Apr",
+      meije:"May",
+      "bráčet":"Jun",
+      heiwet:"Jul",
+      "öigšte":"Aug",
+      "herbštmánet":"Sep",
+      "wímánet":"Oct",
+      "wintermánet":"Nov",
+      "chrištmánet":"Dec",
+      hor:"Feb",
+      "brá":"Jun",
+      hei:"Jul",
+      "öig":"Aug",
+      her:"Sep",
+      "wím":"Oct",
+      win:"Nov",
+      chr:"Dec",
+      "शनिच्चरवार":"Sa",
+      "तोआर":"Su",
+      "सोआर":"Mo",
+      "वीरवार":"Th",
+      "शुक्करवार":"Fr",
+      "वीर":"Th",
+      "शुक्कर":"Fr",
+      olomukaaga:"Sa",
+      sabiiti:"Su",
+      owokubili:"Tu",
+      owokusatu:"We",
+      olokuna:"Th",
+      olokutaanu:"Fr",
+      muka:"Sa",
+      sabi:"Su",
+      bala:"Mo",
+      kubi:"Tu",
+      kusa:"We",
+      kuna:"Th",
+      kuta:"Fr",
+      "séselé":"Sa",
+      "sɔ́ndiɛ":"Su",
+      "móndie":"Mo",
+      "muányáŋmóndie":"Tu",
+      "metúkpíápɛ":"We",
+      "kúpélimetúkpiapɛ":"Th",
+      "feléte":"Fr",
+      ss:"Sa",
+      sd:"Su",
+      md:"Mo",
+      mw:"Tu",
+      kl:"Th",
+      fl:"Fr",
+      "pikítíkítie, oólí ú kutúan":"Jan",
+      "siɛyɛ́, oóli ú kándíɛ":"Feb",
+      "ɔnsúmbɔl, oóli ú kátátúɛ":"Mar",
+      "mesiŋ, oóli ú kénie":"Apr",
+      "ensil, oóli ú kátánuɛ":"May",
+      "ɔsɔn":"Jun",
+      efute:"Jul",
+      "pisuyú":"Aug",
+      "imɛŋ i puɔs":"Sep",
+      "imɛŋ i putúk,oóli ú kátíɛ":"Oct",
+      "makandikɛ":"Nov",
+      "pilɔndɔ́":"Dec",
+      "o\\.1":"Jan",
+      "o\\.2":"Feb",
+      "o\\.3":"Mar",
+      "o\\.4":"Apr",
+      "o\\.5":"May",
+      "o\\.6":"Jun",
+      "o\\.7":"Jul",
+      "o\\.8":"Aug",
+      "o\\.9":"Sep",
+      "o\\.10":"Oct",
+      "o\\.11":"Nov",
+      "o\\.12":"Dec",
+      "saurú":"Sa",
+      "mituú":"Su",
+      "murakipí":"Mo",
+      "murakí-mukũi":"Tu",
+      "murakí-musapíri":"We",
+      "supapá":"Th",
+      "yukuakú":"Fr",
+      sau:"Sa",
+      mur:"Mo",
+      mmk:"Tu",
+      mms:"We",
+      sup:"Th",
+      yuk:"Fr",
+      "yepé":"Jan",
+      "mukũi":"Feb",
+      "musapíri":"Mar",
+      "irũdí":"Apr",
+      "pú":"May",
+      "pú-yepé":"Jun",
+      "pú-mukũi":"Jul",
+      "pú-musapíri":"Aug",
+      "pú-irũdí":"Sep",
+      "yepé-putimaã":"Oct",
+      "yepé-yepé":"Nov",
+      "yepé-mukũi":"Dec",
+      ye:"Jan",
+      mk:"Feb",
+      ms:"Mar",
+      id:"Apr",
+      pu:"May",
+      py:"Jun",
+      ps:"Aug",
+      yp:"Oct",
+      yy:"Nov",
+      ym:"Dec",
+      "ⴰⵙⵉⵎⵡⴰⵙ":"Fr" },
     "please use ok for similar looking ko":{ "оff":"off" },
     "please use 24 hours time for ko":{ pm:"pm",
       "p.m.":"pm",
@@ -14601,28 +24992,39 @@
       "「":"\"",
       "」":"\"",
       "『":"\"",
-      "』":"\"" } };
+      "』":"\"" },
+    "Ambiguous words":{ "གཟའ་སྤེན་པ་":"Word \"གཟའ་སྤེན་པ་\" is ambiguous: Sa (Tibetan) or Fr (Dzongkha). Please specify language context or use English weekday name.",
+      "གཟའ་ཉི་མ་":"Word \"གཟའ་ཉི་མ་\" is ambiguous: Su (Tibetan) or Sa (Dzongkha). Please specify language context or use English weekday name.",
+      "གཟའ་ཟླ་བ་":"Word \"གཟའ་ཟླ་བ་\" is ambiguous: Mo (Tibetan) or Su (Dzongkha). Please specify language context or use English weekday name.",
+      "གཟའ་མིག་དམར་":"Word \"གཟའ་མིག་དམར་\" is ambiguous: Tu (Tibetan) or Mo (Dzongkha). Please specify language context or use English weekday name.",
+      "གཟའ་ལྷག་པ་":"Word \"གཟའ་ལྷག་པ་\" is ambiguous: We (Tibetan) or Tu (Dzongkha). Please specify language context or use English weekday name.",
+      "གཟའ་ཕུར་བུ་":"Word \"གཟའ་ཕུར་བུ་\" is ambiguous: Th (Tibetan) or We (Dzongkha). Please specify language context or use English weekday name.",
+      "གཟའ་པ་སངས་":"Word \"གཟའ་པ་སངས་\" is ambiguous: Fr (Tibetan) or Th (Dzongkha). Please specify language context or use English weekday name.",
+      meurzh:"Word \"meurzh\" is ambiguous: Mar (Breton) or Tu (Breton). Please specify language context or use English month name.",
+      listopad:"Word \"listopad\" is ambiguous: Nov (Czech) or Oct (Croatian) or Nov (Polish). Please specify language context or use English month name.",
+      sabato:"Word \"sabato\" is ambiguous: Sa (Esperanto) or Sa (Italian) or Su (Makhuwa-Meetto). Please specify language context or use English weekday name.",
+      nyakanga:"Word \"nyakanga\" is ambiguous: Sep (Rundi) or Jul (Kinyarwanda). Please specify language context or use English month name." } };
 
-  var data$v = { "unexpected token":"Unexpected token: \"__token__\" This means that the syntax is not valid at that point or it is currently not supported.",
+  var data$1 = { "unexpected token":"Unexpected token: \"{{token}}\" This means that the syntax is not valid at that point or it is currently not supported.",
     "no string":"The value (first parameter) is not a string.",
     nothing:"The value contains nothing meaningful which can be parsed.",
     "nothing useful":"This rule does not contain anything useful. Please remove this empty rule.",
-    "combine rules":"Separate rules detected each of which only consists of a time selector. These rules should be written as one rule by combining them using \"__ok__\".",
-    "value ends with token":"The value ends with \"__token__\". Please either continue after \"__token__\" or remove \"__token__\".",
+    "combine rules":"Separate rules detected each of which only consists of a time selector. These rules should be written as one rule by combining them using \"{{ok}}\".",
+    "value ends with token":"The value ends with \"{{token}}\". Please either continue after \"{{token}}\" or remove \"{{token}}\".",
     "programmers joke":"Might it be possible that you are a programmer and adding a semicolon after each statement is hardwired in your muscle memory ;) ? The thing is that the semicolon in the opening_hours syntax is defined as rule separator. So for compatibility reasons you should omit this last semicolon.",
-    "interpreted as year":"The number __number__ will be interpreted as year. This is probably not intended. Times can be specified as \"12:00\".",
+    "interpreted as year":"The number {{number}} will be interpreted as year. This is probably not intended. Times can be specified as \"12:00\".",
     "rule before fallback empty":"Rule before fallback rule does not contain anything useful",
     "hour min separator":"Please use \":\" as hour/minute-separator",
-    "warnings severity":"The parameter optional_conf_parm[\"warnings_severity\"] must be an integer number between 0 and 7 (inclusive). Given __severity__, expected one of the following numbers: __allowed__.",
-    "optional conf parm type":"The optional_conf_parm parameter is of unknown type. Given __given__",
+    "warnings severity":"The parameter optional_conf_parm[\"warnings_severity\"] must be an integer number between 0 and 7 (inclusive). Given {{severity}}, expected one of the following numbers: {{allowed}}.",
+    "optional conf parm type":"The optional_conf_parm parameter is of unknown type. Given {{given}}",
     "conf param tag key missing":"The optional_conf_parm[\"tag_key\"] is missing, required by optional_conf_parm[\"map_value\"].",
-    "conf param mode invalid":"The optional_conf_parm[\"mode\"] parameter is a invalid number. Gave __given__, expected one of the following numbers: __allowed__.",
-    "conf param unknown type":"The optional_conf_parm[\"__key__\"] parameter is of unknown type. Given __given__, expected __expected__.",
-    "library bug":"An error occurred during evaluation of the value \"__value__\". Please file a bug report or pull request: __url__.__message__",
-    "library bug PR only":"An error occurred during evaluation of the value \"__value__\". Please submit a pull request: __url__.__message__",
-    "use multi":"You have used __count__ __part2__ Rules can be separated by \";\".",
-    "selector multi 2a":"__what__ in one rule. You may only use one in one rule.",
-    "selector multi 2b":"not connected __what__ in one rule. This is probably an error. Equal selector types can (and should) always be written in conjunction separated by comma. Example for time ranges \"12:00-13:00,15:00-18:00\". Example for weekdays \"Mo-We,Fr\".",
+    "conf param mode invalid":"The optional_conf_parm[\"mode\"] parameter is a invalid number. Gave {{given}}, expected one of the following numbers: {{allowed}}.",
+    "conf param unknown type":"The optional_conf_parm[\"{{key}}\"] parameter is of unknown type. Given {{given}}, expected {{expected}}.",
+    "library bug":"An error occurred during evaluation of the value \"{{value}}\". Please file a bug report or pull request: {{url}}.{{message}}",
+    "library bug PR only":"An error occurred during evaluation of the value \"{{value}}\". Please submit a pull request: {{url}}.{{message}}",
+    "use multi":"You have used {{count}} {{part2}} Rules can be separated by \";\".",
+    "selector multi 2a":"{{what}} in one rule. You may only use one in one rule.",
+    "selector multi 2b":"not connected {{what}} in one rule. This is probably an error. Equal selector types can (and should) always be written in conjunction separated by comma. Example for time ranges \"12:00-13:00,15:00-18:00\". Example for weekdays \"Mo-We,Fr\".",
     "selector state":"state keywords",
     comments:"comments",
     "holiday ranges":"holiday ranges",
@@ -14634,2749 +25036,2603 @@
     "empty comment":"You have used an empty comment. Please either write something in the comment or use the keyword unknown instead.",
     separator_for_readability:"You have used the optional symbol <separator_for_readability> in the wrong place. Please check the syntax specification to see where it could be used or remove it.",
     "strange 24/7":"You used 24/7 in a way that is probably not interpreted as \"24 hours 7 days a week\". For correctness you might want to use \"open\" or \"closed\" for this rule and then write your exceptions which should achieve the same goal and is more clear e.g. \"open; Mo 12:00-14:00 off\".",
-    "public holiday":"There was no PH (public holiday) specified. This is not very explicit.__part2__ Please either append a \"PH off\" rule if the amenity is closed on all public holidays or use something like \"Sa,Su,PH 12:00-16:00\" to say that on Saturdays, Sundays and on public holidays the amenity is open 12:00-16:00. If the amenity is open everyday including public holidays then you can make this explicit by writing \"Mo-Su,PH\". If you are not certain try to find it out. If you can’t then do not add PH to the value and ignore this warning.",
-    "public holiday part2":" Unfortunately the tag key (e.g. \"opening_hours\", or \"lit\") is unknown to opening_hours.js. This warning only applies to the key __keys__. If your value is for that key than read on. If not you can ignore the following.",
+    "public holiday":"There was no PH (public holiday) specified. This is not very explicit.{{part2}} Please either append a \"PH off\" rule if the amenity is closed on all public holidays or use something like \"Sa,Su,PH 12:00-16:00\" to say that on Saturdays, Sundays and on public holidays the amenity is open 12:00-16:00. Be careful with opening hours like \"Fr-Sa 18:00-06:00\" because \"PH off\" applies to 00:00-24:00. So \"Fr-Sa 18:00-06:00; PH 18:00-06:00 off\" is probably what you want. If the amenity is open everyday including public holidays then you can make this explicit by writing \"Mo-Su,PH\". If you are not certain try to find it out. If you can’t then do not add PH to the value and ignore this warning.",
+    "public holiday part2":" Unfortunately the tag key (e.g. \"opening_hours\", or \"lit\") is unknown to opening_hours.js. This warning only applies to the key {{keys}}. If your value is for that key than read on. If not you can ignore the following.",
     "additional_rule_separator not used after time wrapping midnight":"This rule overwrites parts of the previous rule. This happens because normal rules apply to the whole day and overwrite any definition made by previous rules. You can make this rule an additional rule by using a \",\" instead of the normal \";\" to separate the rules. Note that the overwriting can also be desirable in which case you can ignore this warning.",
     "additional rule which evaluates to closed":"This rule will be evaluated as closed but it was specified as additional rule. It should be specified as normal rule using \";\" as rule separator. See https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification#explain:rule_modifier:closed.",
-    switched:"The selector \"__first__\" was switched with the selector \"__second__\" for readability and compatibility reasons.",
-    "no colon after":"Please don’t use \":\" after __token__.",
+    switched:"The selector \"{{first}}\" was switched with the selector \"{{second}}\" for readability and compatibility reasons.",
+    "no colon after":"Please don’t use \":\" after {{token}}.",
     "number -5 to 5":"Number between -5 and 5 (except 0) expected.",
     "one weekday constraint":"You can not use more than one constrained weekday in a month range",
     "range constrained weekdays":"You can not use a range of constrained weekdays in a month range",
-    expected:"\"__symbol__\" expected.",
-    "range zero":"You can not use __type__ ranges with period equals zero.",
-    "period one year+":"Please don’t use __type__ ranges with period equals one. If you want to express that a facility is open starting from a year without limit use \"<year>+\".",
-    "period one":"Please don’t use __type__ ranges with period equals one.",
-    "month 31":"The day for __month__ must be between 1 and 31.",
-    "month 30":"Month __month__ doesn't have 31 days. The last day of __month__ is day 30.",
-    "month feb":"Month __month__ either has 28 or 29 days (leap years).",
-    "point in time":"hyphen (-) or open end (+) in time range __calc__expected. For working with points in time, the mode for __libraryname__ has to be altered. Maybe wrong tag?",
+    expected:"\"{{symbol}}\" expected.",
+    "range zero":"You can not use {{type}} ranges with period equals zero.",
+    "period one year+":"Please don’t use {{type}} ranges with period equals one. If you want to express that a facility is open starting from a year without limit use \"<year>+\".",
+    "period one":"Please don’t use {{type}} ranges with period equals one.",
+    "month 31":"The day for {{month}} must be between 1 and 31.",
+    "month 30":"Month {{month}} doesn't have 31 days. The last day of {{month}} is day 30.",
+    "month feb":"Month {{month}} either has 28 or 29 days (leap years).",
+    "point in time":"hyphen (-) or open end (+) in time range {{calc}}expected. For working with points in time, the mode for {{libraryname}} has to be altered. Maybe wrong tag?",
     calculation:"calculation",
     "time range continue":"Time range does not continue as expected",
     "period continue":"Time period does not continue as expected. Example \"/01:30\".",
-    "time range mode":"__libraryname__ is running in \"time range mode\". Found point in time.",
-    "point in time mode":"__libraryname__ is running in \"points in time mode\". Found time range.",
+    "time range mode":"{{libraryname}} is running in \"time range mode\". Found point in time.",
+    "point in time mode":"{{libraryname}} is running in \"points in time mode\". Found time range.",
     "outside current day":"Time range starts outside of the current day",
     "two midnights":"Time spanning more than two midnights not supported",
-    "without minutes":"Time range without minutes specified. Not very explicit! Please use this syntax instead \"__syntax__\".",
+    "without minutes":"Time range without minutes specified. Not very explicit! Please use this syntax instead \"{{syntax}}\".",
     "outside day":"Time range starts outside of the current day",
     "zero calculation":"Adding zero in a variable time calculation does not change the variable time. Please omit the calculation (example: \"sunrise-(sunset-00:00)\").",
     "calculation syntax":"Calculation with variable time is not in the right syntax",
-    missing:"Missing \"__symbol__\"",
+    missing:"Missing \"{{symbol}}\"",
     "(time)":"(time)",
-    "bad range":"Bad range: __from__-__to__",
+    "bad range":"Bad range: {{from}}-{{to}}",
     "] or more numbers":"\"]\" or more numbers expected.",
     "additional rule no sense":"An additional rule does not make sense here. Just use a \";\" as rule separator. See https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification#explain:additional_rule_separator",
-    "unexpected token weekday range":"Unexpected token in weekday range: __token__",
-    "max differ":"There should be no reason to differ more than __maxdiffer__ days from a __name__. If so tell us …",
+    "unexpected token weekday range":"Unexpected token in weekday range: {{token}}",
+    "max differ":"There should be no reason to differ more than {{maxdiffer}} days from a {{name}}. If so tell us …",
     "adding 0":"Adding 0 does not change the date. Please omit this.",
-    "unexpected token holiday":"Unexpected token (holiday parser): __token__",
-    "no holiday definition":"There are no holidays (__name__) defined for country __cc__.",
-    "no holiday definition state":"There are no holidays (__name__) defined for country __cc__ and state __state__.",
+    "unexpected token holiday":"Unexpected token (holiday parser): {{token}}",
+    "no holiday definition":"There are no holidays ({{name}}) defined for country {{cc}}.",
+    "no holiday definition state":"There are no holidays ({{name}}) defined for country {{cc}} and state {{state}}.",
     "no country code":"Country code missing which is needed to select the correct holidays (see README how to provide it)",
-    "no SH definition":"School holiday __name__not defined for the year __year__.",
-    "movable no formula":"Movable day __name__ can not not be calculated. Please add the formula how to calculate it.",
-    "movable not in year":"The movable day __name__ plus __days__ days is not in the year of the movable day anymore. Currently not supported.",
-    "year range one year":"A year range in which the start year is equal to the end year does not make sense. Please remove the end year. E.g. \"__year__ May 23\"",
+    "no SH definition":"School holiday {{name}}not defined for the year {{year}}.",
+    "movable no formula":"Movable day {{name}} can not not be calculated. Please add the formula how to calculate it.",
+    "movable not in year":"The movable day {{name}} plus {{days}} days is not in the year of the movable day anymore. Currently not supported.",
+    "year range one year":"A year range in which the start year is equal to the end year does not make sense. Please remove the end year. E.g. \"{{year}} May 23\"",
     "year range reverse":"A year range in which the start year is greater than the end year does not make sense. Please turn it over.",
     "year past":"The year is in the past.",
-    "unexpected token year range":"Unexpected token in year range: __token__",
+    "unexpected token year range":"Unexpected token in year range: {{token}}",
     "week range reverse":"You have specified a week range in reverse order or leaping over a year. This is (currently) not supported.",
     "week negative":"You have specified a week date less then one. A valid week date range is 1-53.",
     "week exceed":"You have specified a week date greater then 53. A valid week date range is 1-53.",
-    "week period less than 2":"You have specified a week period which is less than two. If you want to select the whole range from week __weekfrom__ to week __weekto__ then just omit the \"/__period__\".",
-    "week period greater than 26":"You have specified a week period which is greater than 26. 26.5 is the half of the maximum 53 week dates per year so a week date period greater than 26 would only apply once per year. Please specify the week selector as \"week __weekfrom__\" if that is what you want to express.",
-    "unexpected token week range":"Unexpected token in week range: __token__",
-    "unexpected token month range":"Unexpected token in month range: __token__",
+    "week period less than 2":"You have specified a week period which is less than two. If you want to select the whole range from week {{weekfrom}} to week {{weekto}} then just omit the \"/{{period}}\".",
+    "week period greater than 26":"You have specified a week period which is greater than 26. 26.5 is the half of the maximum 53 week dates per year so a week date period greater than 26 would only apply once per year. Please specify the week selector as \"week {{weekfrom}}\" if that is what you want to express.",
+    "unexpected token week range":"Unexpected token in week range: {{token}}",
+    "unexpected token month range":"Unexpected token in month range: {{token}}",
     "day range reverse":"Range in wrong order. From day is greater than to day.",
     "open end":"Specified as open end. Closing time was guessed.",
     "date parameter needed":"Date parameter needed.",
-    "assuming ok for ko":"Assuming \"__ok__\" for \"__ko__\".",
-    "please use ok for ko":"Please use notation \"__ok__\" for \"__ko__\".",
-    "please use ok for similar looking ko":"Please use notation \"__ok__\" for \"__ko__\". Those characters look very similar but are not the same!",
+    "assuming ok for ko":"Assuming \"{{ok}}\" for \"{{ko}}\".",
+    "please use ok for ko":"Please use notation \"{{ok}}\" for \"{{ko}}\".",
+    "please use ok for similar looking ko":"Please use notation \"{{ok}}\" for \"{{ko}}\". Those characters look very similar but are not the same!",
     "rant degree sign used for zero":"Note that this is not a (superscript) zero but a degree sign which is misused as zero. A superscript zero is defined in Unicode (°) and would have been more appropriate/uniform here. But note that the use of none-ASCII digits is not allowed.",
-    "please use English written ok for ko":"Please use the English written \"__ok__\" for \"__ko__\".",
-    "please use English abbreviation ok for ko":"Please use the English abbreviation \"__ok__\" for \"__ko__\".",
-    "please use English abbreviation ok for so":"Please use the English abbreviation \"__ok__\" for \"__ko__\". Note that it might also mean Saturday in Polish.",
-    "please use off for ko":"Please use \"__ok__\" for \"__ko__\". Example: \"Mo-Fr 08:00-12:00; Tu off\".",
-    "please use ok for workday":"Assuming \"__ok__\" for \"__ko__\". Please avoid using \"workday\": https://wiki.openstreetmap.org/wiki/Talk:Key:opening_hours#need_syntax_for_holidays_and_workingdays",
-    "omit hour keyword":"Please omit \"__ko__\" or use a colon instead. Example: \"12:00-14:00\".",
-    "omit ko":"Please omit \"__ko__\".",
-    "omit tag key":"Please omit \"__ko__\". The tag key must not be in the tag value.",
-    "omit wrong keyword open end":"Please omit \"__ko__\". The tag key must not be in the tag value.",
-    "assuming open end for ko":"Assuming \"__ok__\" (open end time) for \"__ko__\". Example: \"12:00+\".",
-    "please use ok for uncertainty":"Please use notation \"__ok__\" for \"__ko__\". If there is reason to suspect uncertainty consider adding a comment. Example: 12:00-14:00 \"only on sunshine\".",
-    "please use fallback rule":"Please use notation \"__ok__\" (Fallback rule) for \"__ko__\". Example: Mo-Fr 12:00-14:00; PH off || \"by appointment\"",
+    "please use English written ok for ko":"Please use the English written \"{{ok}}\" for \"{{ko}}\".",
+    "please use English abbreviation ok for ko":"Please use the English abbreviation \"{{ok}}\" for \"{{ko}}\".",
+    "please use English abbreviation ok for so":"Please use the English abbreviation \"{{ok}}\" for \"{{ko}}\". Note that it might also mean Saturday in Polish.",
+    "please use off for ko":"Please use \"{{ok}}\" for \"{{ko}}\". Example: \"Mo-Fr 08:00-12:00; Tu off\".",
+    "please use ok for workday":"Assuming \"{{ok}}\" for \"{{ko}}\". Please avoid using \"workday\": https://wiki.openstreetmap.org/wiki/Talk:Key:opening_hours#need_syntax_for_holidays_and_workingdays",
+    "omit hour keyword":"Please omit \"{{ko}}\" or use a colon instead. Example: \"12:00-14:00\".",
+    "omit ko":"Please omit \"{{ko}}\".",
+    "omit tag key":"Please omit \"{{ko}}\". The tag key must not be in the tag value.",
+    "omit wrong keyword open end":"Please omit \"{{ko}}\". The tag key must not be in the tag value.",
+    "assuming open end for ko":"Assuming \"{{ok}}\" (open end time) for \"{{ko}}\". Example: \"12:00+\".",
+    "please use ok for uncertainty":"Please use notation \"{{ok}}\" for \"{{ko}}\". If there is reason to suspect uncertainty consider adding a comment. Example: 12:00-14:00 \"only on sunshine\".",
+    "please use fallback rule":"Please use notation \"{{ok}}\" (Fallback rule) for \"{{ko}}\". Example: Mo-Fr 12:00-14:00; PH off || \"by appointment\"",
     "please use ok for missing data":"Please consider adding a FIXME tag instead.",
     "please use 24 hours time for ko":"Please use time format in 24 hours notation instead of the legacy 12 hours variant. If the 12 hours variant is used you might have to convert the hours to the 24 hours notation.",
     "please use restriction comment time for ko":"It looks like you might want to define additional restrictions. If that is the case and they can not be expressed by other syntax elements then you could use a comment together with the `open` keyword. Example: open \"female only\"",
-    "please use ok for typographically correct":"Please use notation \"__ok__\" for \"__ko__\". Although using \"__ko__\" is typographical correct, it is not defined in the opening_hours syntax. Correct typography should be done on application level …" };
+    "please use ok for typographically correct":"Please use notation \"{{ok}}\" for \"{{ko}}\". Although using \"{{ko}}\" is typographical correct, it is not defined in the opening_hours syntax. Correct typography should be done on application level …" };
 
-  function createCommonjsModule(fn, module) {
-  	return module = { exports: {} }, fn(module, module.exports), module.exports;
+  function getDefaultExportFromCjs (x) {
+  	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
   }
 
-  var suncalc = createCommonjsModule(function (module, exports) {
+  var suncalc = {exports: {}};
+
   /*
    (c) 2011-2015, Vladimir Agafonkin
    SunCalc is a JavaScript library for calculating sun/moon position and light phases.
    https://github.com/mourner/suncalc
   */
 
-  (function () {
-  // shortcuts for easier to read formulas
+  var hasRequiredSuncalc;
 
-  var PI   = Math.PI,
-      sin  = Math.sin,
-      cos  = Math.cos,
-      tan  = Math.tan,
-      asin = Math.asin,
-      atan = Math.atan2,
-      acos = Math.acos,
-      rad  = PI / 180;
+  function requireSuncalc () {
+  	if (hasRequiredSuncalc) return suncalc.exports;
+  	hasRequiredSuncalc = 1;
+  	(function (module, exports) {
+  		(function () {
+  		// shortcuts for easier to read formulas
 
-  // sun calculations are based on http://aa.quae.nl/en/reken/zonpositie.html formulas
+  		var PI   = Math.PI,
+  		    sin  = Math.sin,
+  		    cos  = Math.cos,
+  		    tan  = Math.tan,
+  		    asin = Math.asin,
+  		    atan = Math.atan2,
+  		    acos = Math.acos,
+  		    rad  = PI / 180;
 
-
-  // date/time constants and conversions
-
-  var dayMs = 1000 * 60 * 60 * 24,
-      J1970 = 2440588,
-      J2000 = 2451545;
-
-  function toJulian(date) { return date.valueOf() / dayMs - 0.5 + J1970; }
-  function fromJulian(j)  { return new Date((j + 0.5 - J1970) * dayMs); }
-  function toDays(date)   { return toJulian(date) - J2000; }
+  		// sun calculations are based on http://aa.quae.nl/en/reken/zonpositie.html formulas
 
 
-  // general calculations for position
+  		// date/time constants and conversions
 
-  var e = rad * 23.4397; // obliquity of the Earth
+  		var dayMs = 1000 * 60 * 60 * 24,
+  		    J1970 = 2440588,
+  		    J2000 = 2451545;
 
-  function rightAscension(l, b) { return atan(sin(l) * cos(e) - tan(b) * sin(e), cos(l)); }
-  function declination(l, b)    { return asin(sin(b) * cos(e) + cos(b) * sin(e) * sin(l)); }
+  		function toJulian(date) { return date.valueOf() / dayMs - 0.5 + J1970; }
+  		function fromJulian(j)  { return new Date((j + 0.5 - J1970) * dayMs); }
+  		function toDays(date)   { return toJulian(date) - J2000; }
 
-  function azimuth(H, phi, dec)  { return atan(sin(H), cos(H) * sin(phi) - tan(dec) * cos(phi)); }
-  function altitude(H, phi, dec) { return asin(sin(phi) * sin(dec) + cos(phi) * cos(dec) * cos(H)); }
 
-  function siderealTime(d, lw) { return rad * (280.16 + 360.9856235 * d) - lw; }
+  		// general calculations for position
 
-  function astroRefraction(h) {
-      if (h < 0) // the following formula works for positive altitudes only.
-          h = 0; // if h = -0.08901179 a div/0 would occur.
+  		var e = rad * 23.4397; // obliquity of the Earth
 
-      // formula 16.4 of "Astronomical Algorithms" 2nd edition by Jean Meeus (Willmann-Bell, Richmond) 1998.
-      // 1.02 / tan(h + 10.26 / (h + 5.10)) h in degrees, result in arc minutes -> converted to rad:
-      return 0.0002967 / Math.tan(h + 0.00312536 / (h + 0.08901179));
+  		function rightAscension(l, b) { return atan(sin(l) * cos(e) - tan(b) * sin(e), cos(l)); }
+  		function declination(l, b)    { return asin(sin(b) * cos(e) + cos(b) * sin(e) * sin(l)); }
+
+  		function azimuth(H, phi, dec)  { return atan(sin(H), cos(H) * sin(phi) - tan(dec) * cos(phi)); }
+  		function altitude(H, phi, dec) { return asin(sin(phi) * sin(dec) + cos(phi) * cos(dec) * cos(H)); }
+
+  		function siderealTime(d, lw) { return rad * (280.16 + 360.9856235 * d) - lw; }
+
+  		function astroRefraction(h) {
+  		    if (h < 0) // the following formula works for positive altitudes only.
+  		        h = 0; // if h = -0.08901179 a div/0 would occur.
+
+  		    // formula 16.4 of "Astronomical Algorithms" 2nd edition by Jean Meeus (Willmann-Bell, Richmond) 1998.
+  		    // 1.02 / tan(h + 10.26 / (h + 5.10)) h in degrees, result in arc minutes -> converted to rad:
+  		    return 0.0002967 / Math.tan(h + 0.00312536 / (h + 0.08901179));
+  		}
+
+  		// general sun calculations
+
+  		function solarMeanAnomaly(d) { return rad * (357.5291 + 0.98560028 * d); }
+
+  		function eclipticLongitude(M) {
+
+  		    var C = rad * (1.9148 * sin(M) + 0.02 * sin(2 * M) + 0.0003 * sin(3 * M)), // equation of center
+  		        P = rad * 102.9372; // perihelion of the Earth
+
+  		    return M + C + P + PI;
+  		}
+
+  		function sunCoords(d) {
+
+  		    var M = solarMeanAnomaly(d),
+  		        L = eclipticLongitude(M);
+
+  		    return {
+  		        dec: declination(L, 0),
+  		        ra: rightAscension(L, 0)
+  		    };
+  		}
+
+
+  		var SunCalc = {};
+
+
+  		// calculates sun position for a given date and latitude/longitude
+
+  		SunCalc.getPosition = function (date, lat, lng) {
+
+  		    var lw  = rad * -lng,
+  		        phi = rad * lat,
+  		        d   = toDays(date),
+
+  		        c  = sunCoords(d),
+  		        H  = siderealTime(d, lw) - c.ra;
+
+  		    return {
+  		        azimuth: azimuth(H, phi, c.dec),
+  		        altitude: altitude(H, phi, c.dec)
+  		    };
+  		};
+
+
+  		// sun times configuration (angle, morning name, evening name)
+
+  		var times = SunCalc.times = [
+  		    [-0.833, 'sunrise',       'sunset'      ],
+  		    [  -0.3, 'sunriseEnd',    'sunsetStart' ],
+  		    [    -6, 'dawn',          'dusk'        ],
+  		    [   -12, 'nauticalDawn',  'nauticalDusk'],
+  		    [   -18, 'nightEnd',      'night'       ],
+  		    [     6, 'goldenHourEnd', 'goldenHour'  ]
+  		];
+
+  		// adds a custom time to the times config
+
+  		SunCalc.addTime = function (angle, riseName, setName) {
+  		    times.push([angle, riseName, setName]);
+  		};
+
+
+  		// calculations for sun times
+
+  		var J0 = 0.0009;
+
+  		function julianCycle(d, lw) { return Math.round(d - J0 - lw / (2 * PI)); }
+
+  		function approxTransit(Ht, lw, n) { return J0 + (Ht + lw) / (2 * PI) + n; }
+  		function solarTransitJ(ds, M, L)  { return J2000 + ds + 0.0053 * sin(M) - 0.0069 * sin(2 * L); }
+
+  		function hourAngle(h, phi, d) { return acos((sin(h) - sin(phi) * sin(d)) / (cos(phi) * cos(d))); }
+  		function observerAngle(height) { return -2.076 * Math.sqrt(height) / 60; }
+
+  		// returns set time for the given sun altitude
+  		function getSetJ(h, lw, phi, dec, n, M, L) {
+
+  		    var w = hourAngle(h, phi, dec),
+  		        a = approxTransit(w, lw, n);
+  		    return solarTransitJ(a, M, L);
+  		}
+
+
+  		// calculates sun times for a given date, latitude/longitude, and, optionally,
+  		// the observer height (in meters) relative to the horizon
+
+  		SunCalc.getTimes = function (date, lat, lng, height) {
+
+  		    height = height || 0;
+
+  		    var lw = rad * -lng,
+  		        phi = rad * lat,
+
+  		        dh = observerAngle(height),
+
+  		        d = toDays(date),
+  		        n = julianCycle(d, lw),
+  		        ds = approxTransit(0, lw, n),
+
+  		        M = solarMeanAnomaly(ds),
+  		        L = eclipticLongitude(M),
+  		        dec = declination(L, 0),
+
+  		        Jnoon = solarTransitJ(ds, M, L),
+
+  		        i, len, time, h0, Jset, Jrise;
+
+
+  		    var result = {
+  		        solarNoon: fromJulian(Jnoon),
+  		        nadir: fromJulian(Jnoon - 0.5)
+  		    };
+
+  		    for (i = 0, len = times.length; i < len; i += 1) {
+  		        time = times[i];
+  		        h0 = (time[0] + dh) * rad;
+
+  		        Jset = getSetJ(h0, lw, phi, dec, n, M, L);
+  		        Jrise = Jnoon - (Jset - Jnoon);
+
+  		        result[time[1]] = fromJulian(Jrise);
+  		        result[time[2]] = fromJulian(Jset);
+  		    }
+
+  		    return result;
+  		};
+
+
+  		// moon calculations, based on http://aa.quae.nl/en/reken/hemelpositie.html formulas
+
+  		function moonCoords(d) { // geocentric ecliptic coordinates of the moon
+
+  		    var L = rad * (218.316 + 13.176396 * d), // ecliptic longitude
+  		        M = rad * (134.963 + 13.064993 * d), // mean anomaly
+  		        F = rad * (93.272 + 13.229350 * d),  // mean distance
+
+  		        l  = L + rad * 6.289 * sin(M), // longitude
+  		        b  = rad * 5.128 * sin(F),     // latitude
+  		        dt = 385001 - 20905 * cos(M);  // distance to the moon in km
+
+  		    return {
+  		        ra: rightAscension(l, b),
+  		        dec: declination(l, b),
+  		        dist: dt
+  		    };
+  		}
+
+  		SunCalc.getMoonPosition = function (date, lat, lng) {
+
+  		    var lw  = rad * -lng,
+  		        phi = rad * lat,
+  		        d   = toDays(date),
+
+  		        c = moonCoords(d),
+  		        H = siderealTime(d, lw) - c.ra,
+  		        h = altitude(H, phi, c.dec),
+  		        // formula 14.1 of "Astronomical Algorithms" 2nd edition by Jean Meeus (Willmann-Bell, Richmond) 1998.
+  		        pa = atan(sin(H), tan(phi) * cos(c.dec) - sin(c.dec) * cos(H));
+
+  		    h = h + astroRefraction(h); // altitude correction for refraction
+
+  		    return {
+  		        azimuth: azimuth(H, phi, c.dec),
+  		        altitude: h,
+  		        distance: c.dist,
+  		        parallacticAngle: pa
+  		    };
+  		};
+
+
+  		// calculations for illumination parameters of the moon,
+  		// based on http://idlastro.gsfc.nasa.gov/ftp/pro/astro/mphase.pro formulas and
+  		// Chapter 48 of "Astronomical Algorithms" 2nd edition by Jean Meeus (Willmann-Bell, Richmond) 1998.
+
+  		SunCalc.getMoonIllumination = function (date) {
+
+  		    var d = toDays(date || new Date()),
+  		        s = sunCoords(d),
+  		        m = moonCoords(d),
+
+  		        sdist = 149598000, // distance from Earth to Sun in km
+
+  		        phi = acos(sin(s.dec) * sin(m.dec) + cos(s.dec) * cos(m.dec) * cos(s.ra - m.ra)),
+  		        inc = atan(sdist * sin(phi), m.dist - sdist * cos(phi)),
+  		        angle = atan(cos(s.dec) * sin(s.ra - m.ra), sin(s.dec) * cos(m.dec) -
+  		                cos(s.dec) * sin(m.dec) * cos(s.ra - m.ra));
+
+  		    return {
+  		        fraction: (1 + cos(inc)) / 2,
+  		        phase: 0.5 + 0.5 * inc * (angle < 0 ? -1 : 1) / Math.PI,
+  		        angle: angle
+  		    };
+  		};
+
+
+  		function hoursLater(date, h) {
+  		    return new Date(date.valueOf() + h * dayMs / 24);
+  		}
+
+  		// calculations for moon rise/set times are based on http://www.stargazing.net/kepler/moonrise.html article
+
+  		SunCalc.getMoonTimes = function (date, lat, lng, inUTC) {
+  		    var t = new Date(date);
+  		    if (inUTC) t.setUTCHours(0, 0, 0, 0);
+  		    else t.setHours(0, 0, 0, 0);
+
+  		    var hc = 0.133 * rad,
+  		        h0 = SunCalc.getMoonPosition(t, lat, lng).altitude - hc,
+  		        h1, h2, rise, set, a, b, xe, ye, d, roots, x1, x2, dx;
+
+  		    // go in 2-hour chunks, each time seeing if a 3-point quadratic curve crosses zero (which means rise or set)
+  		    for (var i = 1; i <= 24; i += 2) {
+  		        h1 = SunCalc.getMoonPosition(hoursLater(t, i), lat, lng).altitude - hc;
+  		        h2 = SunCalc.getMoonPosition(hoursLater(t, i + 1), lat, lng).altitude - hc;
+
+  		        a = (h0 + h2) / 2 - h1;
+  		        b = (h2 - h0) / 2;
+  		        xe = -b / (2 * a);
+  		        ye = (a * xe + b) * xe + h1;
+  		        d = b * b - 4 * a * h1;
+  		        roots = 0;
+
+  		        if (d >= 0) {
+  		            dx = Math.sqrt(d) / (Math.abs(a) * 2);
+  		            x1 = xe - dx;
+  		            x2 = xe + dx;
+  		            if (Math.abs(x1) <= 1) roots++;
+  		            if (Math.abs(x2) <= 1) roots++;
+  		            if (x1 < -1) x1 = x2;
+  		        }
+
+  		        if (roots === 1) {
+  		            if (h0 < 0) rise = i + x1;
+  		            else set = i + x1;
+
+  		        } else if (roots === 2) {
+  		            rise = i + (ye < 0 ? x2 : x1);
+  		            set = i + (ye < 0 ? x1 : x2);
+  		        }
+
+  		        if (rise && set) break;
+
+  		        h0 = h2;
+  		    }
+
+  		    var result = {};
+
+  		    if (rise) result.rise = hoursLater(t, rise);
+  		    if (set) result.set = hoursLater(t, set);
+
+  		    if (!rise && !set) result[ye > 0 ? 'alwaysUp' : 'alwaysDown'] = true;
+
+  		    return result;
+  		};
+
+
+  		// export as Node module / AMD module / browser variable
+  		module.exports = SunCalc;
+
+  		}()); 
+  	} (suncalc));
+  	return suncalc.exports;
   }
 
-  // general sun calculations
+  var suncalcExports = requireSuncalc();
+  var SunCalc = /*@__PURE__*/getDefaultExportFromCjs(suncalcExports);
 
-  function solarMeanAnomaly(d) { return rad * (357.5291 + 0.98560028 * d); }
-
-  function eclipticLongitude(M) {
-
-      var C = rad * (1.9148 * sin(M) + 0.02 * sin(2 * M) + 0.0003 * sin(3 * M)), // equation of center
-          P = rad * 102.9372; // perihelion of the Earth
-
-      return M + C + P + PI;
-  }
-
-  function sunCoords(d) {
-
-      var M = solarMeanAnomaly(d),
-          L = eclipticLongitude(M);
-
-      return {
-          dec: declination(L, 0),
-          ra: rightAscension(L, 0)
-      };
-  }
-
-
-  var SunCalc = {};
-
-
-  // calculates sun position for a given date and latitude/longitude
-
-  SunCalc.getPosition = function (date, lat, lng) {
-
-      var lw  = rad * -lng,
-          phi = rad * lat,
-          d   = toDays(date),
-
-          c  = sunCoords(d),
-          H  = siderealTime(d, lw) - c.ra;
-
-      return {
-          azimuth: azimuth(H, phi, c.dec),
-          altitude: altitude(H, phi, c.dec)
-      };
+  const isString = obj => typeof obj === 'string';
+  const defer = () => {
+    let res;
+    let rej;
+    const promise = new Promise((resolve, reject) => {
+      res = resolve;
+      rej = reject;
+    });
+    promise.resolve = res;
+    promise.reject = rej;
+    return promise;
   };
-
-
-  // sun times configuration (angle, morning name, evening name)
-
-  var times = SunCalc.times = [
-      [-0.833, 'sunrise',       'sunset'      ],
-      [  -0.3, 'sunriseEnd',    'sunsetStart' ],
-      [    -6, 'dawn',          'dusk'        ],
-      [   -12, 'nauticalDawn',  'nauticalDusk'],
-      [   -18, 'nightEnd',      'night'       ],
-      [     6, 'goldenHourEnd', 'goldenHour'  ]
-  ];
-
-  // adds a custom time to the times config
-
-  SunCalc.addTime = function (angle, riseName, setName) {
-      times.push([angle, riseName, setName]);
+  const makeString = object => {
+    if (object == null) return '';
+    return '' + object;
   };
-
-
-  // calculations for sun times
-
-  var J0 = 0.0009;
-
-  function julianCycle(d, lw) { return Math.round(d - J0 - lw / (2 * PI)); }
-
-  function approxTransit(Ht, lw, n) { return J0 + (Ht + lw) / (2 * PI) + n; }
-  function solarTransitJ(ds, M, L)  { return J2000 + ds + 0.0053 * sin(M) - 0.0069 * sin(2 * L); }
-
-  function hourAngle(h, phi, d) { return acos((sin(h) - sin(phi) * sin(d)) / (cos(phi) * cos(d))); }
-
-  // returns set time for the given sun altitude
-  function getSetJ(h, lw, phi, dec, n, M, L) {
-
-      var w = hourAngle(h, phi, dec),
-          a = approxTransit(w, lw, n);
-      return solarTransitJ(a, M, L);
-  }
-
-
-  // calculates sun times for a given date and latitude/longitude
-
-  SunCalc.getTimes = function (date, lat, lng) {
-
-      var lw = rad * -lng,
-          phi = rad * lat,
-
-          d = toDays(date),
-          n = julianCycle(d, lw),
-          ds = approxTransit(0, lw, n),
-
-          M = solarMeanAnomaly(ds),
-          L = eclipticLongitude(M),
-          dec = declination(L, 0),
-
-          Jnoon = solarTransitJ(ds, M, L),
-
-          i, len, time, Jset, Jrise;
-
-
-      var result = {
-          solarNoon: fromJulian(Jnoon),
-          nadir: fromJulian(Jnoon - 0.5)
-      };
-
-      for (i = 0, len = times.length; i < len; i += 1) {
-          time = times[i];
-
-          Jset = getSetJ(time[0] * rad, lw, phi, dec, n, M, L);
-          Jrise = Jnoon - (Jset - Jnoon);
-
-          result[time[1]] = fromJulian(Jrise);
-          result[time[2]] = fromJulian(Jset);
-      }
-
-      return result;
+  const copy = (a, s, t) => {
+    a.forEach(m => {
+      if (s[m]) t[m] = s[m];
+    });
   };
-
-
-  // moon calculations, based on http://aa.quae.nl/en/reken/hemelpositie.html formulas
-
-  function moonCoords(d) { // geocentric ecliptic coordinates of the moon
-
-      var L = rad * (218.316 + 13.176396 * d), // ecliptic longitude
-          M = rad * (134.963 + 13.064993 * d), // mean anomaly
-          F = rad * (93.272 + 13.229350 * d),  // mean distance
-
-          l  = L + rad * 6.289 * sin(M), // longitude
-          b  = rad * 5.128 * sin(F),     // latitude
-          dt = 385001 - 20905 * cos(M);  // distance to the moon in km
-
-      return {
-          ra: rightAscension(l, b),
-          dec: declination(l, b),
-          dist: dt
-      };
-  }
-
-  SunCalc.getMoonPosition = function (date, lat, lng) {
-
-      var lw  = rad * -lng,
-          phi = rad * lat,
-          d   = toDays(date),
-
-          c = moonCoords(d),
-          H = siderealTime(d, lw) - c.ra,
-          h = altitude(H, phi, c.dec),
-          // formula 14.1 of "Astronomical Algorithms" 2nd edition by Jean Meeus (Willmann-Bell, Richmond) 1998.
-          pa = atan(sin(H), tan(phi) * cos(c.dec) - sin(c.dec) * cos(H));
-
-      h = h + astroRefraction(h); // altitude correction for refraction
-
-      return {
-          azimuth: azimuth(H, phi, c.dec),
-          altitude: h,
-          distance: c.dist,
-          parallacticAngle: pa
-      };
-  };
-
-
-  // calculations for illumination parameters of the moon,
-  // based on http://idlastro.gsfc.nasa.gov/ftp/pro/astro/mphase.pro formulas and
-  // Chapter 48 of "Astronomical Algorithms" 2nd edition by Jean Meeus (Willmann-Bell, Richmond) 1998.
-
-  SunCalc.getMoonIllumination = function (date) {
-
-      var d = toDays(date || new Date()),
-          s = sunCoords(d),
-          m = moonCoords(d),
-
-          sdist = 149598000, // distance from Earth to Sun in km
-
-          phi = acos(sin(s.dec) * sin(m.dec) + cos(s.dec) * cos(m.dec) * cos(s.ra - m.ra)),
-          inc = atan(sdist * sin(phi), m.dist - sdist * cos(phi)),
-          angle = atan(cos(s.dec) * sin(s.ra - m.ra), sin(s.dec) * cos(m.dec) -
-                  cos(s.dec) * sin(m.dec) * cos(s.ra - m.ra));
-
-      return {
-          fraction: (1 + cos(inc)) / 2,
-          phase: 0.5 + 0.5 * inc * (angle < 0 ? -1 : 1) / Math.PI,
-          angle: angle
-      };
-  };
-
-
-  function hoursLater(date, h) {
-      return new Date(date.valueOf() + h * dayMs / 24);
-  }
-
-  // calculations for moon rise/set times are based on http://www.stargazing.net/kepler/moonrise.html article
-
-  SunCalc.getMoonTimes = function (date, lat, lng, inUTC) {
-      var t = new Date(date);
-      if (inUTC) t.setUTCHours(0, 0, 0, 0);
-      else t.setHours(0, 0, 0, 0);
-
-      var hc = 0.133 * rad,
-          h0 = SunCalc.getMoonPosition(t, lat, lng).altitude - hc,
-          h1, h2, rise, set, a, b, xe, ye, d, roots, x1, x2, dx;
-
-      // go in 2-hour chunks, each time seeing if a 3-point quadratic curve crosses zero (which means rise or set)
-      for (var i = 1; i <= 24; i += 2) {
-          h1 = SunCalc.getMoonPosition(hoursLater(t, i), lat, lng).altitude - hc;
-          h2 = SunCalc.getMoonPosition(hoursLater(t, i + 1), lat, lng).altitude - hc;
-
-          a = (h0 + h2) / 2 - h1;
-          b = (h2 - h0) / 2;
-          xe = -b / (2 * a);
-          ye = (a * xe + b) * xe + h1;
-          d = b * b - 4 * a * h1;
-          roots = 0;
-
-          if (d >= 0) {
-              dx = Math.sqrt(d) / (Math.abs(a) * 2);
-              x1 = xe - dx;
-              x2 = xe + dx;
-              if (Math.abs(x1) <= 1) roots++;
-              if (Math.abs(x2) <= 1) roots++;
-              if (x1 < -1) x1 = x2;
-          }
-
-          if (roots === 1) {
-              if (h0 < 0) rise = i + x1;
-              else set = i + x1;
-
-          } else if (roots === 2) {
-              rise = i + (ye < 0 ? x2 : x1);
-              set = i + (ye < 0 ? x1 : x2);
-          }
-
-          if (rise && set) break;
-
-          h0 = h2;
-      }
-
-      var result = {};
-
-      if (rise) result.rise = hoursLater(t, rise);
-      if (set) result.set = hoursLater(t, set);
-
-      if (!rise && !set) result[ye > 0 ? 'alwaysUp' : 'alwaysDown'] = true;
-
-      return result;
-  };
-
-
-  // export as Node module / AMD module / browser variable
-  module.exports = SunCalc;
-
-  }());
-  });
-
-  var i18next = createCommonjsModule(function (module, exports) {
-  // i18next, v1.11.2
-  // Copyright (c)2015 Jan Mühlemann (jamuhl).
-  // Distributed under MIT license
-  // http://i18next.com
-  (function(root) {
-
-      // add indexOf to non ECMA-262 standard compliant browsers
-      if (!Array.prototype.indexOf) {
-          Array.prototype.indexOf = function (searchElement /*, fromIndex */ ) {
-              if (this == null) {
-                  throw new TypeError();
-              }
-              var t = Object(this);
-              var len = t.length >>> 0;
-              if (len === 0) {
-                  return -1;
-              }
-              var n = 0;
-              if (arguments.length > 0) {
-                  n = Number(arguments[1]);
-                  if (n != n) { // shortcut for verifying if it's NaN
-                      n = 0;
-                  } else if (n != 0 && n != Infinity && n != -Infinity) {
-                      n = (n > 0 || -1) * Math.floor(Math.abs(n));
-                  }
-              }
-              if (n >= len) {
-                  return -1;
-              }
-              var k = n >= 0 ? n : Math.max(len - Math.abs(n), 0);
-              for (; k < len; k++) {
-                  if (k in t && t[k] === searchElement) {
-                      return k;
-                  }
-              }
-              return -1;
-          };
-      }
-      
-      // add lastIndexOf to non ECMA-262 standard compliant browsers
-      if (!Array.prototype.lastIndexOf) {
-          Array.prototype.lastIndexOf = function(searchElement /*, fromIndex*/) {
-              if (this == null) {
-                  throw new TypeError();
-              }
-              var t = Object(this);
-              var len = t.length >>> 0;
-              if (len === 0) {
-                  return -1;
-              }
-              var n = len;
-              if (arguments.length > 1) {
-                  n = Number(arguments[1]);
-                  if (n != n) {
-                      n = 0;
-                  } else if (n != 0 && n != (1 / 0) && n != -(1 / 0)) {
-                      n = (n > 0 || -1) * Math.floor(Math.abs(n));
-                  }
-              }
-              var k = n >= 0 ? Math.min(n, len - 1) : len - Math.abs(n);
-              for (; k >= 0; k--) {
-                  if (k in t && t[k] === searchElement) {
-                      return k;
-                  }
-              }
-              return -1;
-          };
-      }
-      
-      // Add string trim for IE8.
-      if (typeof String.prototype.trim !== 'function') {
-          String.prototype.trim = function() {
-              return this.replace(/^\s+|\s+$/g, ''); 
-          };
-      }
-
-      var $ = root.jQuery || root.Zepto
-        , i18n = {}
-        , resStore = {}
-        , currentLng
-        , replacementCounter = 0
-        , languages = []
-        , initialized = false
-        , sync = {}
-        , conflictReference = null;
-
-
-
-      // Export the i18next object for **CommonJS**. 
-      // If we're not in CommonJS, add `i18n` to the
-      // global object or to jquery.
-      if ( module.exports) {
-          module.exports = i18n;
+  const lastOfPathSeparatorRegExp = /###/g;
+  const cleanKey = key => key && key.indexOf('###') > -1 ? key.replace(lastOfPathSeparatorRegExp, '.') : key;
+  const canNotTraverseDeeper = object => !object || isString(object);
+  const getLastOfPath = (object, path, Empty) => {
+    const stack = !isString(path) ? path : path.split('.');
+    let stackIndex = 0;
+    while (stackIndex < stack.length - 1) {
+      if (canNotTraverseDeeper(object)) return {};
+      const key = cleanKey(stack[stackIndex]);
+      if (!object[key] && Empty) object[key] = new Empty();
+      if (Object.prototype.hasOwnProperty.call(object, key)) {
+        object = object[key];
       } else {
-          if ($) {
-              $.i18n = $.i18n || i18n;
-          }
-          
-          if (root.i18n) {
-          	conflictReference = root.i18n;
-          }
-          root.i18n = i18n;
+        object = {};
       }
-      sync = {
-      
-          load: function(lngs, options, cb) {
-              if (options.useLocalStorage) {
-                  sync._loadLocal(lngs, options, function(err, store) {
-                      var missingLngs = [];
-                      for (var i = 0, len = lngs.length; i < len; i++) {
-                          if (!store[lngs[i]]) missingLngs.push(lngs[i]);
-                      }
-      
-                      if (missingLngs.length > 0) {
-                          sync._fetch(missingLngs, options, function(err, fetched) {
-                              f.extend(store, fetched);
-                              sync._storeLocal(fetched);
-      
-                              cb(err, store);
-                          });
-                      } else {
-                          cb(err, store);
-                      }
-                  });
-              } else {
-                  sync._fetch(lngs, options, function(err, store){
-                      cb(err, store);
-                  });
-              }
-          },
-      
-          _loadLocal: function(lngs, options, cb) {
-              var store = {}
-                , nowMS = new Date().getTime();
-      
-              if(window.localStorage) {
-      
-                  var todo = lngs.length;
-      
-                  f.each(lngs, function(key, lng) {
-                      var local = f.localStorage.getItem('res_' + lng);
-      
-                      if (local) {
-                          local = JSON.parse(local);
-      
-                          if (local.i18nStamp && local.i18nStamp + options.localStorageExpirationTime > nowMS) {
-                              store[lng] = local;
-                          }
-                      }
-      
-                      todo--; // wait for all done befor callback
-                      if (todo === 0) cb(null, store);
-                  });
-              }
-          },
-      
-          _storeLocal: function(store) {
-              if(window.localStorage) {
-                  for (var m in store) {
-                      store[m].i18nStamp = new Date().getTime();
-                      f.localStorage.setItem('res_' + m, JSON.stringify(store[m]));
-                  }
-              }
-              return;
-          },
-      
-          _fetch: function(lngs, options, cb) {
-              var ns = options.ns
-                , store = {};
-              
-              if (!options.dynamicLoad) {
-                  var todo = ns.namespaces.length * lngs.length
-                    , errors;
-      
-                  // load each file individual
-                  f.each(ns.namespaces, function(nsIndex, nsValue) {
-                      f.each(lngs, function(lngIndex, lngValue) {
-                          
-                          // Call this once our translation has returned.
-                          var loadComplete = function(err, data) {
-                              if (err) {
-                                  errors = errors || [];
-                                  errors.push(err);
-                              }
-                              store[lngValue] = store[lngValue] || {};
-                              store[lngValue][nsValue] = data;
-      
-                              todo--; // wait for all done befor callback
-                              if (todo === 0) cb(errors, store);
-                          };
-                          
-                          if(typeof options.customLoad == 'function'){
-                              // Use the specified custom callback.
-                              options.customLoad(lngValue, nsValue, options, loadComplete);
-                          } else {
-                              //~ // Use our inbuilt sync.
-                              sync._fetchOne(lngValue, nsValue, options, loadComplete);
-                          }
-                      });
-                  });
-              } else {
-                  // Call this once our translation has returned.
-                  var loadComplete = function(err, data) {
-                      cb(err, data);
-                  };
-      
-                  if(typeof options.customLoad == 'function'){
-                      // Use the specified custom callback.
-                      options.customLoad(lngs, ns.namespaces, options, loadComplete);
-                  } else {
-                      var url = applyReplacement(options.resGetPath, { lng: lngs.join('+'), ns: ns.namespaces.join('+') });
-                      // load all needed stuff once
-                      f.ajax({
-                          url: url,
-                          cache: options.cache,
-                          success: function(data, status, xhr) {
-                              f.log('loaded: ' + url);
-                              loadComplete(null, data);
-                          },
-                          error : function(xhr, status, error) {
-                              f.log('failed loading: ' + url);
-                              loadComplete('failed loading resource.json error: ' + error);
-                          },
-                          dataType: "json",
-                          async : options.getAsync,
-                          timeout: options.ajaxTimeout
-                      });
-                  }    
-              }
-          },
-      
-          _fetchOne: function(lng, ns, options, done) {
-              var url = applyReplacement(options.resGetPath, { lng: lng, ns: ns });
-              f.ajax({
-                  url: url,
-                  cache: options.cache,
-                  success: function(data, status, xhr) {
-                      f.log('loaded: ' + url);
-                      done(null, data);
-                  },
-                  error : function(xhr, status, error) {
-                      if ((status && status == 200) || (xhr && xhr.status && xhr.status == 200)) {
-                          // file loaded but invalid json, stop waste time !
-                          f.error('There is a typo in: ' + url);
-                      } else if ((status && status == 404) || (xhr && xhr.status && xhr.status == 404)) {
-                          f.log('Does not exist: ' + url);
-                      } else {
-                          var theStatus = status ? status : ((xhr && xhr.status) ? xhr.status : null);
-                          f.log(theStatus + ' when loading ' + url);
-                      }
-                      
-                      done(error, {});
-                  },
-                  dataType: "json",
-                  async : options.getAsync,
-                  timeout: options.ajaxTimeout,
-                  headers: options.headers
-              });
-          },
-      
-          postMissing: function(lng, ns, key, defaultValue, lngs) {
-              var payload = {};
-              payload[key] = defaultValue;
-      
-              var urls = [];
-      
-              if (o.sendMissingTo === 'fallback' && o.fallbackLng[0] !== false) {
-                  for (var i = 0; i < o.fallbackLng.length; i++) {
-                      urls.push({lng: o.fallbackLng[i], url: applyReplacement(o.resPostPath, { lng: o.fallbackLng[i], ns: ns })});
-                  }
-              } else if (o.sendMissingTo === 'current' || (o.sendMissingTo === 'fallback' && o.fallbackLng[0] === false) ) {
-                  urls.push({lng: lng, url: applyReplacement(o.resPostPath, { lng: lng, ns: ns })});
-              } else if (o.sendMissingTo === 'all') {
-                  for (var i = 0, l = lngs.length; i < l; i++) {
-                      urls.push({lng: lngs[i], url: applyReplacement(o.resPostPath, { lng: lngs[i], ns: ns })});
-                  }
-              }
-      
-              for (var y = 0, len = urls.length; y < len; y++) {
-                  var item = urls[y];
-                  f.ajax({
-                      url: item.url,
-                      type: o.sendType,
-                      data: payload,
-                      success: function(data, status, xhr) {
-                          f.log('posted missing key \'' + key + '\' to: ' + item.url);
-      
-                          // add key to resStore
-                          var keys = key.split('.');
-                          var x = 0;
-                          var value = resStore[item.lng][ns];
-                          while (keys[x]) {
-                              if (x === keys.length - 1) {
-                                  value = value[keys[x]] = defaultValue;
-                              } else {
-                                  value = value[keys[x]] = value[keys[x]] || {};
-                              }
-                              x++;
-                          }
-                      },
-                      error : function(xhr, status, error) {
-                          f.log('failed posting missing key \'' + key + '\' to: ' + item.url);
-                      },
-                      dataType: "json",
-                      async : o.postAsync,
-                      timeout: o.ajaxTimeout
-                  });
-              }
-          },
-      
-          reload: reload
-      };
-      // defaults
-      var o = {
-          lng: undefined,
-          load: 'all',
-          preload: [],
-          lowerCaseLng: false,
-          returnObjectTrees: false,
-          fallbackLng: ['dev'],
-          fallbackNS: [],
-          detectLngQS: 'setLng',
-          detectLngFromLocalStorage: false,
-          ns: {
-              namespaces: ['translation'],
-              defaultNs: 'translation'
-          },
-          fallbackOnNull: true,
-          fallbackOnEmpty: false,
-          fallbackToDefaultNS: false,
-          showKeyIfEmpty: false,
-          nsseparator: ':',
-          keyseparator: '.',
-          selectorAttr: 'data-i18n',
-          debug: false,
-      
-          resGetPath: 'locales/__lng__/__ns__.json',
-          resPostPath: 'locales/add/__lng__/__ns__',
-      
-          getAsync: true,
-          postAsync: true,
-      
-          resStore: undefined,
-          useLocalStorage: false,
-          localStorageExpirationTime: 7*24*60*60*1000,
-      
-          dynamicLoad: false,
-          sendMissing: false,
-          sendMissingTo: 'fallback', // current | all
-          sendType: 'POST',
-      
-          interpolationPrefix: '__',
-          interpolationSuffix: '__',
-          defaultVariables: false,
-          reusePrefix: '$t(',
-          reuseSuffix: ')',
-          pluralSuffix: '_plural',
-          pluralNotFound: ['plural_not_found', Math.random()].join(''),
-          contextNotFound: ['context_not_found', Math.random()].join(''),
-          escapeInterpolation: false,
-          indefiniteSuffix: '_indefinite',
-          indefiniteNotFound: ['indefinite_not_found', Math.random()].join(''),
-      
-          setJqueryExt: true,
-          defaultValueFromContent: true,
-          useDataAttrOptions: false,
-          cookieExpirationTime: undefined,
-          useCookie: true,
-          cookieName: 'i18next',
-          cookieDomain: undefined,
-      
-          objectTreeKeyHandler: undefined,
-          postProcess: undefined,
-          parseMissingKey: undefined,
-          missingKeyHandler: sync.postMissing,
-          ajaxTimeout: 0,
-      
-          shortcutFunction: 'sprintf' // or: defaultValue
-      };
-      function _extend(target, source) {
-          if (!source || typeof source === 'function') {
-              return target;
-          }
-      
-          for (var attr in source) { target[attr] = source[attr]; }
-          return target;
+      ++stackIndex;
+    }
+    if (canNotTraverseDeeper(object)) return {};
+    return {
+      obj: object,
+      k: cleanKey(stack[stackIndex])
+    };
+  };
+  const setPath = (object, path, newValue) => {
+    const {
+      obj,
+      k
+    } = getLastOfPath(object, path, Object);
+    if (obj !== undefined || path.length === 1) {
+      obj[k] = newValue;
+      return;
+    }
+    let e = path[path.length - 1];
+    let p = path.slice(0, path.length - 1);
+    let last = getLastOfPath(object, p, Object);
+    while (last.obj === undefined && p.length) {
+      e = `${p[p.length - 1]}.${e}`;
+      p = p.slice(0, p.length - 1);
+      last = getLastOfPath(object, p, Object);
+      if (last?.obj && typeof last.obj[`${last.k}.${e}`] !== 'undefined') {
+        last.obj = undefined;
       }
-      
-      function _deepExtend(target, source, overwrite) {
-          for (var prop in source)
-              if (prop in target) {
-                  // If we reached a leaf string in target or source then replace with source or skip depending on the 'overwrite' switch
-                  if (typeof target[prop] === 'string' || target[prop] instanceof String || typeof source[prop] === 'string' || source[prop] instanceof String) {
-                      if (overwrite) {
-                          target[prop] = source[prop];
-                      }
-                  } else {
-                      _deepExtend(target[prop], source[prop], overwrite);
-                  }
-              } else {
-                  target[prop] = source[prop];
-              }
-          return target;
-      }
-      
-      function _each(object, callback, args) {
-          var name, i = 0,
-              length = object.length,
-              isObj = length === undefined || Object.prototype.toString.apply(object) !== '[object Array]' || typeof object === "function";
-      
-          if (args) {
-              if (isObj) {
-                  for (name in object) {
-                      if (callback.apply(object[name], args) === false) {
-                          break;
-                      }
-                  }
-              } else {
-                  for ( ; i < length; ) {
-                      if (callback.apply(object[i++], args) === false) {
-                          break;
-                      }
-                  }
-              }
-      
-          // A special, fast, case for the most common use of each
+    }
+    last.obj[`${last.k}.${e}`] = newValue;
+  };
+  const pushPath = (object, path, newValue, concat) => {
+    const {
+      obj,
+      k
+    } = getLastOfPath(object, path, Object);
+    obj[k] = obj[k] || [];
+    obj[k].push(newValue);
+  };
+  const getPath = (object, path) => {
+    const {
+      obj,
+      k
+    } = getLastOfPath(object, path);
+    if (!obj) return undefined;
+    if (!Object.prototype.hasOwnProperty.call(obj, k)) return undefined;
+    return obj[k];
+  };
+  const getPathWithDefaults = (data, defaultData, key) => {
+    const value = getPath(data, key);
+    if (value !== undefined) {
+      return value;
+    }
+    return getPath(defaultData, key);
+  };
+  const deepExtend = (target, source, overwrite) => {
+    for (const prop in source) {
+      if (prop !== '__proto__' && prop !== 'constructor') {
+        if (prop in target) {
+          if (isString(target[prop]) || target[prop] instanceof String || isString(source[prop]) || source[prop] instanceof String) {
+            if (overwrite) target[prop] = source[prop];
           } else {
-              if (isObj) {
-                  for (name in object) {
-                      if (callback.call(object[name], name, object[name]) === false) {
-                          break;
-                      }
-                  }
-              } else {
-                  for ( ; i < length; ) {
-                      if (callback.call(object[i], i, object[i++]) === false) {
-                          break;
-                      }
-                  }
-              }
+            deepExtend(target[prop], source[prop], overwrite);
           }
-      
-          return object;
+        } else {
+          target[prop] = source[prop];
+        }
       }
-      
-      var _entityMap = {
-          "&": "&amp;",
-          "<": "&lt;",
-          ">": "&gt;",
-          '"': '&quot;',
-          "'": '&#39;',
-          "/": '&#x2F;'
-      };
-      
-      function _escape(data) {
-          if (typeof data === 'string') {
-              return data.replace(/[&<>"'\/]/g, function (s) {
-                  return _entityMap[s];
-              });
-          }else {
-              return data;
-          }
+    }
+    return target;
+  };
+  const regexEscape = str => str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&');
+  var _entityMap = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;',
+    '/': '&#x2F;'
+  };
+  const escape = data => {
+    if (isString(data)) {
+      return data.replace(/[&<>"'\/]/g, s => _entityMap[s]);
+    }
+    return data;
+  };
+  class RegExpCache {
+    constructor(capacity) {
+      this.capacity = capacity;
+      this.regExpMap = new Map();
+      this.regExpQueue = [];
+    }
+    getRegExp(pattern) {
+      const regExpFromCache = this.regExpMap.get(pattern);
+      if (regExpFromCache !== undefined) {
+        return regExpFromCache;
       }
-      
-      function _ajax(options) {
-      
-          // v0.5.0 of https://github.com/goloroden/http.js
-          var getXhr = function (callback) {
-              // Use the native XHR object if the browser supports it.
-              if (window.XMLHttpRequest) {
-                  return callback(null, new XMLHttpRequest());
-              } else if (window.ActiveXObject) {
-                  // In Internet Explorer check for ActiveX versions of the XHR object.
-                  try {
-                      return callback(null, new ActiveXObject("Msxml2.XMLHTTP"));
-                  } catch (e) {
-                      return callback(null, new ActiveXObject("Microsoft.XMLHTTP"));
-                  }
-              }
-      
-              // If no XHR support was found, throw an error.
-              return callback(new Error());
-          };
-      
-          var encodeUsingUrlEncoding = function (data) {
-              if(typeof data === 'string') {
-                  return data;
-              }
-      
-              var result = [];
-              for(var dataItem in data) {
-                  if(data.hasOwnProperty(dataItem)) {
-                      result.push(encodeURIComponent(dataItem) + '=' + encodeURIComponent(data[dataItem]));
-                  }
-              }
-      
-              return result.join('&');
-          };
-      
-          var utf8 = function (text) {
-              text = text.replace(/\r\n/g, '\n');
-              var result = '';
-      
-              for(var i = 0; i < text.length; i++) {
-                  var c = text.charCodeAt(i);
-      
-                  if(c < 128) {
-                          result += String.fromCharCode(c);
-                  } else if((c > 127) && (c < 2048)) {
-                          result += String.fromCharCode((c >> 6) | 192);
-                          result += String.fromCharCode((c & 63) | 128);
-                  } else {
-                          result += String.fromCharCode((c >> 12) | 224);
-                          result += String.fromCharCode(((c >> 6) & 63) | 128);
-                          result += String.fromCharCode((c & 63) | 128);
-                  }
-              }
-      
-              return result;
-          };
-      
-          var base64 = function (text) {
-              var keyStr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
-      
-              text = utf8(text);
-              var result = '',
-                      chr1, chr2, chr3,
-                      enc1, enc2, enc3, enc4,
-                      i = 0;
-      
-              do {
-                  chr1 = text.charCodeAt(i++);
-                  chr2 = text.charCodeAt(i++);
-                  chr3 = text.charCodeAt(i++);
-      
-                  enc1 = chr1 >> 2;
-                  enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
-                  enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
-                  enc4 = chr3 & 63;
-      
-                  if(isNaN(chr2)) {
-                      enc3 = enc4 = 64;
-                  } else if(isNaN(chr3)) {
-                      enc4 = 64;
-                  }
-      
-                  result +=
-                      keyStr.charAt(enc1) +
-                      keyStr.charAt(enc2) +
-                      keyStr.charAt(enc3) +
-                      keyStr.charAt(enc4);
-                  chr1 = chr2 = chr3 = '';
-                  enc1 = enc2 = enc3 = enc4 = '';
-              } while(i < text.length);
-      
-              return result;
-          };
-      
-          var mergeHeaders = function () {
-              // Use the first header object as base.
-              var result = arguments[0];
-      
-              // Iterate through the remaining header objects and add them.
-              for(var i = 1; i < arguments.length; i++) {
-                  var currentHeaders = arguments[i];
-                  for(var header in currentHeaders) {
-                      if(currentHeaders.hasOwnProperty(header)) {
-                          result[header] = currentHeaders[header];
-                      }
-                  }
-              }
-      
-              // Return the merged headers.
-              return result;
-          };
-      
-          var ajax = function (method, url, options, callback) {
-              // Adjust parameters.
-              if(typeof options === 'function') {
-                  callback = options;
-                  options = {};
-              }
-      
-              // Set default parameter values.
-              options.cache = options.cache || false;
-              options.data = options.data || {};
-              options.headers = options.headers || {};
-              options.jsonp = options.jsonp || false;
-              options.async = options.async === undefined ? true : options.async;
-      
-              // Merge the various header objects.
-              var headers = mergeHeaders({
-                  'accept': '*/*',
-                  'content-type': 'application/x-www-form-urlencoded;charset=UTF-8'
-              }, ajax.headers, options.headers);
-      
-              // Encode the data according to the content-type.
-              var payload;
-              if (headers['content-type'] === 'application/json') {
-                  payload = JSON.stringify(options.data);
-              } else {
-                  payload = encodeUsingUrlEncoding(options.data);
-              }
-      
-              // Specially prepare GET requests: Setup the query string, handle caching and make a JSONP call
-              // if neccessary.
-              if(method === 'GET') {
-                  // Setup the query string.
-                  var queryString = [];
-                  if(payload) {
-                      queryString.push(payload);
-                      payload = null;
-                  }
-      
-                  // Handle caching.
-                  if(!options.cache) {
-                      queryString.push('_=' + (new Date()).getTime());
-                  }
-      
-                  // If neccessary prepare the query string for a JSONP call.
-                  if(options.jsonp) {
-                      queryString.push('callback=' + options.jsonp);
-                      queryString.push('jsonp=' + options.jsonp);
-                  }
-      
-                  // Merge the query string and attach it to the url.
-                  queryString = queryString.join('&');
-                  if (queryString.length > 1) {
-                      if (url.indexOf('?') > -1) {
-                          url += '&' + queryString;
-                      } else {
-                          url += '?' + queryString;
-                      }
-                  }
-      
-                  // Make a JSONP call if neccessary.
-                  if(options.jsonp) {
-                      var head = document.getElementsByTagName('head')[0];
-                      var script = document.createElement('script');
-                      script.type = 'text/javascript';
-                      script.src = url;
-                      head.appendChild(script);
-                      return;
-                  }
-              }
-      
-              // Since we got here, it is no JSONP request, so make a normal XHR request.
-              getXhr(function (err, xhr) {
-                  if(err) return callback(err);
-      
-                  // Open the request.
-                  xhr.open(method, url, options.async);
-      
-                  // Set the request headers.
-                  for(var header in headers) {
-                      if(headers.hasOwnProperty(header)) {
-                          xhr.setRequestHeader(header, headers[header]);
-                      }
-                  }
-      
-                  // Handle the request events.
-                  xhr.onreadystatechange = function () {
-                      if(xhr.readyState === 4) {
-                          var data = xhr.responseText || '';
-      
-                          // If no callback is given, return.
-                          if(!callback) {
-                              return;
-                          }
-      
-                          // Return an object that provides access to the data as text and JSON.
-                          callback(xhr.status, {
-                              text: function () {
-                                  return data;
-                              },
-      
-                              json: function () {
-                                  try {
-                                      return JSON.parse(data)
-                                  } catch (e) {
-                                      f.error('Can not parse JSON. URL: ' + url);
-                                      return {};
-                                  }
-                              }
-                          });
-                      }
-                  };
-      
-                  // Actually send the XHR request.
-                  xhr.send(payload);
-              });
-          };
-      
-          // Define the external interface.
-          var http = {
-              authBasic: function (username, password) {
-                  ajax.headers['Authorization'] = 'Basic ' + base64(username + ':' + password);
-              },
-      
-              connect: function (url, options, callback) {
-                  return ajax('CONNECT', url, options, callback);
-              },
-      
-              del: function (url, options, callback) {
-                  return ajax('DELETE', url, options, callback);
-              },
-      
-              get: function (url, options, callback) {
-                  return ajax('GET', url, options, callback);
-              },
-      
-              head: function (url, options, callback) {
-                  return ajax('HEAD', url, options, callback);
-              },
-      
-              headers: function (headers) {
-                  ajax.headers = headers || {};
-              },
-      
-              isAllowed: function (url, verb, callback) {
-                  this.options(url, function (status, data) {
-                      callback(data.text().indexOf(verb) !== -1);
-                  });
-              },
-      
-              options: function (url, options, callback) {
-                  return ajax('OPTIONS', url, options, callback);
-              },
-      
-              patch: function (url, options, callback) {
-                  return ajax('PATCH', url, options, callback);
-              },
-      
-              post: function (url, options, callback) {
-                  return ajax('POST', url, options, callback);
-              },
-      
-              put: function (url, options, callback) {
-                  return ajax('PUT', url, options, callback);
-              },
-      
-              trace: function (url, options, callback) {
-                  return ajax('TRACE', url, options, callback);
-              }
-          };
-      
-      
-          var methode = options.type ? options.type.toLowerCase() : 'get';
-      
-          http[methode](options.url, options, function (status, data) {
-              // file: protocol always gives status code 0, so check for data
-              if (status === 200 || (status === 0 && data.text())) {
-                  options.success(data.json(), status, null);
-              } else {
-                  options.error(data.text(), status, null);
-              }
-          });
+      const regExpNew = new RegExp(pattern);
+      if (this.regExpQueue.length === this.capacity) {
+        this.regExpMap.delete(this.regExpQueue.shift());
       }
-      
-      var _cookie = {
-          create: function(name,value,minutes,domain) {
-              var expires;
-              if (minutes) {
-                  var date = new Date();
-                  date.setTime(date.getTime()+(minutes*60*1000));
-                  expires = "; expires="+date.toGMTString();
-              }
-              else expires = "";
-              domain = (domain)? "domain="+domain+";" : "";
-              document.cookie = name+"="+value+expires+";"+domain+"path=/";
-          },
-      
-          read: function(name) {
-              var nameEQ = name + "=";
-              var ca = document.cookie.split(';');
-              for(var i=0;i < ca.length;i++) {
-                  var c = ca[i];
-                  while (c.charAt(0)==' ') c = c.substring(1,c.length);
-                  if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length,c.length);
-              }
-              return null;
-          },
-      
-          remove: function(name) {
-              this.create(name,"",-1);
-          }
-      };
-      
-      var cookie_noop = {
-          create: function(name,value,minutes,domain) {},
-          read: function(name) { return null; },
-          remove: function(name) {}
-      };
-      
-      
-      
-      // move dependent functions to a container so that
-      // they can be overriden easier in no jquery environment (node.js)
-      var f = {
-          extend: $ ? $.extend : _extend,
-          deepExtend: _deepExtend,
-          each: $ ? $.each : _each,
-          ajax: $ ? $.ajax : (typeof document !== 'undefined' ? _ajax : function() {}),
-          cookie: typeof document !== 'undefined' ? _cookie : cookie_noop,
-          detectLanguage: detectLanguage,
-          escape: _escape,
-          log: function(str) {
-              if (o.debug && typeof console !== "undefined") console.log(str);
-          },
-          error: function(str) {
-              if (typeof console !== "undefined") console.error(str);
-          },
-          getCountyIndexOfLng: function(lng) {
-              var lng_index = 0;
-              if (lng === 'nb-NO' || lng === 'nn-NO' || lng === 'nb-no' || lng === 'nn-no') lng_index = 1;
-              return lng_index;
-          },
-          toLanguages: function(lng, fallbackLng) {
-              var log = this.log;
-      
-              fallbackLng = fallbackLng || o.fallbackLng;
-              if (typeof fallbackLng === 'string')
-                  fallbackLng = [fallbackLng];
-      
-              function applyCase(l) {
-                  var ret = l;
-      
-                  if (typeof l === 'string' && l.indexOf('-') > -1) {
-                      var parts = l.split('-');
-      
-                      ret = o.lowerCaseLng ?
-                          parts[0].toLowerCase() +  '-' + parts[1].toLowerCase() :
-                          parts[0].toLowerCase() +  '-' + parts[1].toUpperCase();
-                  } else {
-                      ret = o.lowerCaseLng ? l.toLowerCase() : l;
-                  }
-      
-                  return ret;
-              }
-      
-              var languages = [];
-              var whitelist = o.lngWhitelist || false;
-              var addLanguage = function(language){
-                //reject langs not whitelisted
-                if(!whitelist || whitelist.indexOf(language) > -1){
-                  languages.push(language);
-                }else {
-                  log('rejecting non-whitelisted language: ' + language);
-                }
-              };
-              if (typeof lng === 'string' && lng.indexOf('-') > -1) {
-                  var parts = lng.split('-');
-      
-                  if (o.load !== 'unspecific') addLanguage(applyCase(lng));
-                  if (o.load !== 'current') addLanguage(applyCase(parts[this.getCountyIndexOfLng(lng)]));
-              } else {
-                  addLanguage(applyCase(lng));
-              }
-      
-              for (var i = 0; i < fallbackLng.length; i++) {
-                  if (languages.indexOf(fallbackLng[i]) === -1 && fallbackLng[i]) languages.push(applyCase(fallbackLng[i]));
-              }
-              return languages;
-          },
-          regexEscape: function(str) {
-              return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
-          },
-          regexReplacementEscape: function(strOrFn) {
-              if (typeof strOrFn === 'string') {
-                  return strOrFn.replace(/\$/g, "$$$$");
-              } else {
-                  return strOrFn;
-              }
-          },
-          localStorage: {
-              setItem: function(key, value) {
-                  if (window.localStorage) {
-                      try {
-                          window.localStorage.setItem(key, value);
-                      } catch (e) {
-                          f.log('failed to set value for key "' + key + '" to localStorage.');
-                      }
-                  }
-              },
-              getItem: function(key, value) {
-                  if (window.localStorage) {
-                      try {
-                          return window.localStorage.getItem(key, value);
-                      } catch (e) {
-                          f.log('failed to get value for key "' + key + '" from localStorage.');
-                          return undefined;
-                      }
-                  }
-              }
-          }
-      };
-      function init(options, cb) {
-      
-          if (typeof options === 'function') {
-              cb = options;
-              options = {};
-          }
-          options = options || {};
-      
-          // override defaults with passed in options
-          f.extend(o, options);
-          delete o.fixLng; /* passed in each time */
-      
-          // override functions: .log(), .detectLanguage(), etc
-          if (o.functions) {
-              delete o.functions;
-              f.extend(f, options.functions);
-          }
-      
-          // create namespace object if namespace is passed in as string
-          if (typeof o.ns == 'string') {
-              o.ns = { namespaces: [o.ns], defaultNs: o.ns};
-          }
-      
-          // fallback namespaces
-          if (typeof o.fallbackNS == 'string') {
-              o.fallbackNS = [o.fallbackNS];
-          }
-      
-          // fallback languages
-          if (typeof o.fallbackLng == 'string' || typeof o.fallbackLng == 'boolean') {
-              o.fallbackLng = [o.fallbackLng];
-          }
-      
-          // escape prefix/suffix
-          o.interpolationPrefixEscaped = f.regexEscape(o.interpolationPrefix);
-          o.interpolationSuffixEscaped = f.regexEscape(o.interpolationSuffix);
-      
-          if (!o.lng) o.lng = f.detectLanguage();
-      
-          languages = f.toLanguages(o.lng);
-          currentLng = languages[0];
-          f.log('currentLng set to: ' + currentLng);
-      
-          if (o.useCookie && f.cookie.read(o.cookieName) !== currentLng){ //cookie is unset or invalid
-              f.cookie.create(o.cookieName, currentLng, o.cookieExpirationTime, o.cookieDomain);
-          }
-          if (o.detectLngFromLocalStorage && typeof document !== 'undefined' && window.localStorage) {
-              f.localStorage.setItem('i18next_lng', currentLng);
-          }
-      
-          var lngTranslate = translate;
-          if (options.fixLng) {
-              lngTranslate = function(key, options) {
-                  options = options || {};
-                  options.lng = options.lng || lngTranslate.lng;
-                  return translate(key, options);
-              };
-              lngTranslate.lng = currentLng;
-          }
-      
-          pluralExtensions.setCurrentLng(currentLng);
-      
-          // add JQuery extensions
-          if ($ && o.setJqueryExt) {
-              addJqueryFunct && addJqueryFunct();
-          } else {
-             addJqueryLikeFunctionality && addJqueryLikeFunctionality();
-          }
-      
-          // jQuery deferred
-          var deferred;
-          if ($ && $.Deferred) {
-              deferred = $.Deferred();
-          }
-      
-          // return immidiatly if res are passed in
-          if (o.resStore) {
-              resStore = o.resStore;
-              initialized = true;
-              if (cb) cb(null, lngTranslate);
-              if (deferred) deferred.resolve(lngTranslate);
-              if (deferred) return deferred.promise();
-              return;
-          }
-      
-          // languages to load
-          var lngsToLoad = f.toLanguages(o.lng);
-          if (typeof o.preload === 'string') o.preload = [o.preload];
-          for (var i = 0, l = o.preload.length; i < l; i++) {
-              var pres = f.toLanguages(o.preload[i]);
-              for (var y = 0, len = pres.length; y < len; y++) {
-                  if (lngsToLoad.indexOf(pres[y]) < 0) {
-                      lngsToLoad.push(pres[y]);
-                  }
-              }
-          }
-      
-          // else load them
-          i18n.sync.load(lngsToLoad, o, function(err, store) {
-              resStore = store;
-              initialized = true;
-      
-              if (cb) cb(err, lngTranslate);
-              if (deferred) (!err ? deferred.resolve : deferred.reject)(err || lngTranslate);
-          });
-      
-          if (deferred) return deferred.promise();
+      this.regExpMap.set(pattern, regExpNew);
+      this.regExpQueue.push(pattern);
+      return regExpNew;
+    }
+  }
+  const chars = [' ', ',', '?', '!', ';'];
+  const looksLikeObjectPathRegExpCache = new RegExpCache(20);
+  const looksLikeObjectPath = (key, nsSeparator, keySeparator) => {
+    nsSeparator = nsSeparator || '';
+    keySeparator = keySeparator || '';
+    const possibleChars = chars.filter(c => nsSeparator.indexOf(c) < 0 && keySeparator.indexOf(c) < 0);
+    if (possibleChars.length === 0) return true;
+    const r = looksLikeObjectPathRegExpCache.getRegExp(`(${possibleChars.map(c => c === '?' ? '\\?' : c).join('|')})`);
+    let matched = !r.test(key);
+    if (!matched) {
+      const ki = key.indexOf(keySeparator);
+      if (ki > 0 && !r.test(key.substring(0, ki))) {
+        matched = true;
       }
-      
-      function isInitialized() {
-          return initialized;
+    }
+    return matched;
+  };
+  const deepFind = (obj, path, keySeparator = '.') => {
+    if (!obj) return undefined;
+    if (obj[path]) {
+      if (!Object.prototype.hasOwnProperty.call(obj, path)) return undefined;
+      return obj[path];
+    }
+    const tokens = path.split(keySeparator);
+    let current = obj;
+    for (let i = 0; i < tokens.length;) {
+      if (!current || typeof current !== 'object') {
+        return undefined;
       }
-      function preload(lngs, cb) {
-          if (typeof lngs === 'string') lngs = [lngs];
-          for (var i = 0, l = lngs.length; i < l; i++) {
-              if (o.preload.indexOf(lngs[i]) < 0) {
-                  o.preload.push(lngs[i]);
-              }
+      let next;
+      let nextPath = '';
+      for (let j = i; j < tokens.length; ++j) {
+        if (j !== i) {
+          nextPath += keySeparator;
+        }
+        nextPath += tokens[j];
+        next = current[nextPath];
+        if (next !== undefined) {
+          if (['string', 'number', 'boolean'].indexOf(typeof next) > -1 && j < tokens.length - 1) {
+            continue;
           }
-          return init(cb);
+          i += j - i + 1;
+          break;
+        }
       }
-      
-      function addResourceBundle(lng, ns, resources, deep, overwrite) {
-          if (typeof ns !== 'string') {
-              resources = ns;
-              ns = o.ns.defaultNs;
-          } else if (o.ns.namespaces.indexOf(ns) < 0) {
-              o.ns.namespaces.push(ns);
-          }
-      
-          resStore[lng] = resStore[lng] || {};
-          resStore[lng][ns] = resStore[lng][ns] || {};
-      
-          if (deep) {
-              f.deepExtend(resStore[lng][ns], resources, overwrite);
-          } else {
-              f.extend(resStore[lng][ns], resources);
-          }
-          if (o.useLocalStorage) {
-              sync._storeLocal(resStore);
-          }
-      }
-      
-      function hasResourceBundle(lng, ns) {
-          if (typeof ns !== 'string') {
-              ns = o.ns.defaultNs;
-          }
-      
-          resStore[lng] = resStore[lng] || {};
-          var res = resStore[lng][ns] || {};
-      
-          var hasValues = false;
-          for(var prop in res) {
-              if (res.hasOwnProperty(prop)) {
-                  hasValues = true;
-              }
-          }
-      
-          return hasValues;
-      }
-      
-      function getResourceBundle(lng, ns) {
-          if (typeof ns !== 'string') {
-              ns = o.ns.defaultNs;
-          }
-      
-          resStore[lng] = resStore[lng] || {};
-          return f.extend({}, resStore[lng][ns]);
-      }
-      
-      function removeResourceBundle(lng, ns) {
-          if (typeof ns !== 'string') {
-              ns = o.ns.defaultNs;
-          }
-      
-          resStore[lng] = resStore[lng] || {};
-          resStore[lng][ns] = {};
-          if (o.useLocalStorage) {
-              sync._storeLocal(resStore);
-          }
-      }
-      
-      function addResource(lng, ns, key, value) {
-          if (typeof ns !== 'string') {
-              resource = ns;
-              ns = o.ns.defaultNs;
-          } else if (o.ns.namespaces.indexOf(ns) < 0) {
-              o.ns.namespaces.push(ns);
-          }
-      
-          resStore[lng] = resStore[lng] || {};
-          resStore[lng][ns] = resStore[lng][ns] || {};
-      
-          var keys = key.split(o.keyseparator);
-          var x = 0;
-          var node = resStore[lng][ns];
-      
-          while (keys[x]) {
-              if (x == keys.length - 1)
-                  node[keys[x]] = value;
-              else {
-                  if (node[keys[x]] == null)
-                      node[keys[x]] = {};
-      
-                  node = node[keys[x]];
-              }
-              x++;
-          }
-          if (o.useLocalStorage) {
-              sync._storeLocal(resStore);
-          }
-      }
-      
-      function addResources(lng, ns, resources) {
-          if (typeof ns !== 'string') {
-              resources = ns;
-              ns = o.ns.defaultNs;
-          } else if (o.ns.namespaces.indexOf(ns) < 0) {
-              o.ns.namespaces.push(ns);
-          }
-      
-          for (var m in resources) {
-              if (typeof resources[m] === 'string') addResource(lng, ns, m, resources[m]);
-          }
-      }
-      
-      function setDefaultNamespace(ns) {
-          o.ns.defaultNs = ns;
-      }
-      
-      function loadNamespace(namespace, cb) {
-          loadNamespaces([namespace], cb);
-      }
-      
-      function loadNamespaces(namespaces, cb) {
-          var opts = {
-              dynamicLoad: o.dynamicLoad,
-              resGetPath: o.resGetPath,
-              getAsync: o.getAsync,
-              customLoad: o.customLoad,
-              ns: { namespaces: namespaces, defaultNs: ''} /* new namespaces to load */
-          };
-      
-          // languages to load
-          var lngsToLoad = f.toLanguages(o.lng);
-          if (typeof o.preload === 'string') o.preload = [o.preload];
-          for (var i = 0, l = o.preload.length; i < l; i++) {
-              var pres = f.toLanguages(o.preload[i]);
-              for (var y = 0, len = pres.length; y < len; y++) {
-                  if (lngsToLoad.indexOf(pres[y]) < 0) {
-                      lngsToLoad.push(pres[y]);
-                  }
-              }
-          }
-      
-          // check if we have to load
-          var lngNeedLoad = [];
-          for (var a = 0, lenA = lngsToLoad.length; a < lenA; a++) {
-              var needLoad = false;
-              var resSet = resStore[lngsToLoad[a]];
-              if (resSet) {
-                  for (var b = 0, lenB = namespaces.length; b < lenB; b++) {
-                      if (!resSet[namespaces[b]]) needLoad = true;
-                  }
-              } else {
-                  needLoad = true;
-              }
-      
-              if (needLoad) lngNeedLoad.push(lngsToLoad[a]);
-          }
-      
-          if (lngNeedLoad.length) {
-              i18n.sync._fetch(lngNeedLoad, opts, function(err, store) {
-                  var todo = namespaces.length * lngNeedLoad.length;
-      
-                  // load each file individual
-                  f.each(namespaces, function(nsIndex, nsValue) {
-      
-                      // append namespace to namespace array
-                      if (o.ns.namespaces.indexOf(nsValue) < 0) {
-                          o.ns.namespaces.push(nsValue);
-                      }
-      
-                      f.each(lngNeedLoad, function(lngIndex, lngValue) {
-                          resStore[lngValue] = resStore[lngValue] || {};
-                          resStore[lngValue][nsValue] = store[lngValue][nsValue];
-      
-                          todo--; // wait for all done befor callback
-                          if (todo === 0 && cb) {
-                              if (o.useLocalStorage) i18n.sync._storeLocal(resStore);
-                              cb();
-                          }
-                      });
-                  });
-              });
-          } else {
-              if (cb) cb();
-          }
-      }
-      
-      function setLng(lng, options, cb) {
-          if (typeof options === 'function') {
-              cb = options;
-              options = {};
-          } else if (!options) {
-              options = {};
-          }
-      
-          options.lng = lng;
-          return init(options, cb);
-      }
-      
-      function lng() {
-          return currentLng;
-      }
-      
-      function dir() {   
-          var rtlLangs = [ "ar", "shu", "sqr", "ssh", "xaa", "yhd", "yud", "aao", "abh", "abv", "acm",
-              "acq", "acw", "acx", "acy", "adf", "ads", "aeb", "aec", "afb", "ajp", "apc", "apd", "arb",
-              "arq", "ars", "ary", "arz", "auz", "avl", "ayh", "ayl", "ayn", "ayp", "bbz", "pga", "he",
-              "iw", "ps", "pbt", "pbu", "pst", "prp", "prd", "ur", "ydd", "yds", "yih", "ji", "yi", "hbo",
-              "men", "xmn", "fa", "jpr", "peo", "pes", "prs", "dv", "sam"
-          ];
-      
-          if ( rtlLangs.some( function( lang ) {
-                  return new RegExp( '^' + lang ).test( currentLng );
-              } ) ) {
-              return 'rtl';
-          }
-          return 'ltr';
-      }
-      
-      function reload(cb) {
-          resStore = {};
-          setLng(currentLng, cb);
-      }
-      
-      function noConflict() {
-          
-          window.i18next = window.i18n;
-      
-          if (conflictReference) {
-              window.i18n = conflictReference;
-          } else {
-              delete window.i18n;
-          }
-      }
-      function addJqueryFunct() {
-          // $.t shortcut
-          $.t = $.t || translate;
-      
-          function parse(ele, key, options) {
-              if (key.length === 0) return;
-      
-              var attr = 'text';
-      
-              if (key.indexOf('[') === 0) {
-                  var parts = key.split(']');
-                  key = parts[1];
-                  attr = parts[0].substr(1, parts[0].length-1);
-              }
-      
-              if (key.indexOf(';') === key.length-1) {
-                  key = key.substr(0, key.length-2);
-              }
-      
-              var optionsToUse;
-              if (attr === 'html') {
-                  optionsToUse = o.defaultValueFromContent ? $.extend({ defaultValue: ele.html() }, options) : options;
-                  ele.html($.t(key, optionsToUse));
-              } else if (attr === 'text') {
-                  optionsToUse = o.defaultValueFromContent ? $.extend({ defaultValue: ele.text() }, options) : options;
-                  ele.text($.t(key, optionsToUse));
-              } else if (attr === 'prepend') {
-                  optionsToUse = o.defaultValueFromContent ? $.extend({ defaultValue: ele.html() }, options) : options;
-                  ele.prepend($.t(key, optionsToUse));
-              } else if (attr === 'append') {
-                  optionsToUse = o.defaultValueFromContent ? $.extend({ defaultValue: ele.html() }, options) : options;
-                  ele.append($.t(key, optionsToUse));
-              } else if (attr.indexOf("data-") === 0) {
-                  var dataAttr = attr.substr(("data-").length);
-                  optionsToUse = o.defaultValueFromContent ? $.extend({ defaultValue: ele.data(dataAttr) }, options) : options;
-                  var translated = $.t(key, optionsToUse);
-                  //we change into the data cache
-                  ele.data(dataAttr, translated);
-                  //we change into the dom
-                  ele.attr(attr, translated);
-              } else {
-                  optionsToUse = o.defaultValueFromContent ? $.extend({ defaultValue: ele.attr(attr) }, options) : options;
-                  ele.attr(attr, $.t(key, optionsToUse));
-              }
-          }
-      
-          function localize(ele, options) {
-              var key = ele.attr(o.selectorAttr);
-              if (!key && typeof key !== 'undefined' && key !== false) key = ele.text() || ele.val();
-              if (!key) return;
-      
-              var target = ele
-                , targetSelector = ele.data("i18n-target");
-              if (targetSelector) {
-                  target = ele.find(targetSelector) || ele;
-              }
-      
-              if (!options && o.useDataAttrOptions === true) {
-                  options = ele.data("i18n-options");
-              }
-              options = options || {};
-      
-              if (key.indexOf(';') >= 0) {
-                  var keys = key.split(';');
-      
-                  $.each(keys, function(m, k) {
-                      if (k !== '') parse(target, k, options);
-                  });
-      
-              } else {
-                  parse(target, key, options);
-              }
-      
-              if (o.useDataAttrOptions === true) {
-                var clone = $.extend({lng: 'non', lngs: [], _origLng: 'non'}, options);
-                delete clone.lng;
-                delete clone.lngs;
-                delete clone._origLng;
-                ele.data("i18n-options", clone);
-              }
-          }
-      
-          // fn
-          $.fn.i18n = function (options) {
-              return this.each(function() {
-                  // localize element itself
-                  localize($(this), options);
-      
-                  // localize childs
-                  var elements =  $(this).find('[' + o.selectorAttr + ']');
-                  elements.each(function() {
-                      localize($(this), options);
-                  });
-              });
-          };
-      }
-      function addJqueryLikeFunctionality() {
-      
-          function parse(ele, key, options) {
-              if (key.length === 0) return;
-      
-              var attr = 'text';
-      
-              if (key.indexOf('[') === 0) {
-                  var parts = key.split(']');
-                  key = parts[1];
-                  attr = parts[0].substr(1, parts[0].length-1);
-              }
-      
-              if (key.indexOf(';') === key.length-1) {
-                  key = key.substr(0, key.length-2);
-              }
-      
-              if (attr === 'html') {
-                  ele.innerHTML = translate(key, options);
-              } else if (attr === 'text') {
-                  ele.textContent = translate(key, options);
-              } else if (attr === 'prepend') {
-                  ele.insertAdjacentHTML(translate(key, options), 'afterbegin');
-              } else if (attr === 'append') {
-                  ele.insertAdjacentHTML(translate(key, options), 'beforeend');
-              } else {
-                  ele.setAttribute(attr, translate(key, options));
-              }
-          }
-      
-          function localize(ele, options) {
-              var key = ele.getAttribute(o.selectorAttr);
-              if (!key && typeof key !== 'undefined' && key !== false) key = ele.textContent || ele.value;
-              if (!key) return;
-      
-              var target = ele
-                , targetSelector = ele.getAttribute("i18n-target");
-              if (targetSelector) {
-                  target = ele.querySelector(targetSelector) || ele;
-              }
-              
-              if (key.indexOf(';') >= 0) {
-                  var keys = key.split(';'), index = 0, length = keys.length;
-                  
-                  for ( ; index < length; index++) {
-                      if (keys[index] !== '') parse(target, keys[index], options);
-                  }
-      
-              } else {
-                  parse(target, key, options);
-              }
-          }
-      
-          // fn
-          i18n.translateObject = function (object, options) {
-              // localize childs
-              var elements =  object.querySelectorAll('[' + o.selectorAttr + ']');
-              var index = 0, length = elements.length;
-              for ( ; index < length; index++) {
-                  localize(elements[index], options);
-              }
-          };
-      }
-      function applyReplacement(str, replacementHash, nestedKey, options) {
-          if (!str) return str;
-      
-          options = options || replacementHash; // first call uses replacement hash combined with options
-          if (str.indexOf(options.interpolationPrefix || o.interpolationPrefix) < 0) return str;
-      
-          var prefix = options.interpolationPrefix ? f.regexEscape(options.interpolationPrefix) : o.interpolationPrefixEscaped
-            , suffix = options.interpolationSuffix ? f.regexEscape(options.interpolationSuffix) : o.interpolationSuffixEscaped
-            , keyseparator = options.keyseparator || o.keyseparator
-            ;
-      
-          var hash = replacementHash.replace && typeof replacementHash.replace === 'object' ? replacementHash.replace : replacementHash;
-          var replacementRegex = new RegExp([prefix, '(.+?)', '(HTML)?', suffix].join(''), 'g');
-          var escapeInterpolation = options.escapeInterpolation || o.escapeInterpolation;
-          return str.replace(replacementRegex, function (wholeMatch, keyMatch, htmlMatched) {
-              // Check for recursive matches of object
-              var objectMatching = hash;
-              var keyLeaf = keyMatch;
-              while (keyLeaf.indexOf(keyseparator) >= 0 && typeof objectMatching === 'object' && objectMatching) {
-                  var propName = keyLeaf.slice(0, keyLeaf.indexOf(keyseparator));
-                  keyLeaf = keyLeaf.slice(keyLeaf.indexOf(keyseparator) + 1);
-                  objectMatching = objectMatching[propName];
-              }
-              if (objectMatching && typeof objectMatching === 'object' && objectMatching.hasOwnProperty(keyLeaf)) {
-                      var value = objectMatching[keyLeaf];
-                  if (escapeInterpolation && !htmlMatched) {
-                      return f.escape(objectMatching[keyLeaf]);
-                  } else {
-                      return objectMatching[keyLeaf];
-                  }
-              } else {
-                  return wholeMatch;
-              }
-          });
-      }
-      
-      // append it to functions
-      f.applyReplacement = applyReplacement;
-      
-      function applyReuse(translated, options) {
-          var comma = ',';
-          var options_open = '{';
-          var options_close = '}';
-      
-          var opts = f.extend({}, options);
-          delete opts.postProcess;
-          delete opts.isFallbackLookup;
-      
-          while (translated.indexOf(o.reusePrefix) != -1) {
-              replacementCounter++;
-              if (replacementCounter > o.maxRecursion) { break; } // safety net for too much recursion
-              var index_of_opening = translated.lastIndexOf(o.reusePrefix);
-              var index_of_end_of_closing = translated.indexOf(o.reuseSuffix, index_of_opening) + o.reuseSuffix.length;
-              var token = translated.substring(index_of_opening, index_of_end_of_closing);
-              var token_without_symbols = token.replace(o.reusePrefix, '').replace(o.reuseSuffix, '');
-      
-              if (index_of_end_of_closing <= index_of_opening) {
-                  f.error('there is an missing closing in following translation value', translated);
-                  return '';
-              }
-      
-              if (token_without_symbols.indexOf(comma) != -1) {
-                  var index_of_token_end_of_closing = token_without_symbols.indexOf(comma);
-                  if (token_without_symbols.indexOf(options_open, index_of_token_end_of_closing) != -1 && token_without_symbols.indexOf(options_close, index_of_token_end_of_closing) != -1) {
-                      var index_of_opts_opening = token_without_symbols.indexOf(options_open, index_of_token_end_of_closing);
-                      var index_of_opts_end_of_closing = token_without_symbols.indexOf(options_close, index_of_opts_opening) + options_close.length;
-                      try {
-                          opts = f.extend(opts, JSON.parse(token_without_symbols.substring(index_of_opts_opening, index_of_opts_end_of_closing)));
-                          token_without_symbols = token_without_symbols.substring(0, index_of_token_end_of_closing);
-                      } catch (e) {
-                      }
-                  }
-              }
-      
-              var translated_token = _translate(token_without_symbols, opts);
-              translated = translated.replace(token, f.regexReplacementEscape(translated_token));
-          }
-          return translated;
-      }
-      
-      function hasContext(options) {
-          return (options.context && (typeof options.context == 'string' || typeof options.context == 'number'));
-      }
-      
-      function needsPlural(options, lng) {
-          return (options.count !== undefined && typeof options.count != 'string'/* && pluralExtensions.needsPlural(lng, options.count)*/);
-      }
-      
-      function needsIndefiniteArticle(options) {
-          return (options.indefinite_article !== undefined && typeof options.indefinite_article != 'string' && options.indefinite_article);
-      }
-      
-      function exists(key, options) {
-          options = options || {};
-      
-          var notFound = _getDefaultValue(key, options)
-              , found = _find(key, options);
-      
-          return found !== undefined || found === notFound;
-      }
-      
-      function translate(key, options) {
-          if (!initialized) {
-              f.log('i18next not finished initialization. you might have called t function before loading resources finished.');
-      
-              if (options && options.defaultValue) {
-                  return options.detaultValue;
-              } else {
-                  return '';
-              }
-          }        replacementCounter = 0;
-          return _translate.apply(null, arguments);
-      }
-      
-      function _getDefaultValue(key, options) {
-          return (options.defaultValue !== undefined) ? options.defaultValue : key;
-      }
-      
-      function _injectSprintfProcessor() {
-      
-          var values = [];
-      
-          // mh: build array from second argument onwards
-          for (var i = 1; i < arguments.length; i++) {
-              values.push(arguments[i]);
-          }
-      
-          return {
-              postProcess: 'sprintf',
-              sprintf:     values
-          };
-      }
-      
-      function _translate(potentialKeys, options) {
-          if (typeof options !== 'undefined' && typeof options !== 'object') {
-              if (o.shortcutFunction === 'sprintf') {
-                  // mh: gettext like sprintf syntax found, automatically create sprintf processor
-                  options = _injectSprintfProcessor.apply(null, arguments);
-              } else if (o.shortcutFunction === 'defaultValue') {
-                  options = {
-                      defaultValue: options
-                  };
-              }
-          } else {
-              options = options || {};
-          }
-      
-          if (typeof o.defaultVariables === 'object') {
-              options = f.extend({}, o.defaultVariables, options);
-          }
-      
-          if (potentialKeys === undefined || potentialKeys === null || potentialKeys === '') return '';
-      
-          if (typeof potentialKeys === 'number') {
-              potentialKeys = String(potentialKeys);
-          }
-      
-          if (typeof potentialKeys === 'string') {
-              potentialKeys = [potentialKeys];
-          }
-      
-          var key = potentialKeys[0];
-      
-          if (potentialKeys.length > 1) {
-              for (var i = 0; i < potentialKeys.length; i++) {
-                  key = potentialKeys[i];
-                  if (exists(key, options)) {
-                      break;
-                  }
-              }
-          }
-      
-          var notFound = _getDefaultValue(key, options)
-              , found = _find(key, options)
-              , nsseparator = options.nsseparator || o.nsseparator
-              , lngs = options.lng ? f.toLanguages(options.lng, options.fallbackLng) : languages
-              , ns = options.ns || o.ns.defaultNs
-              , parts;
-      
-          // split ns and key
-          if (key.indexOf(nsseparator) > -1) {
-              parts = key.split(nsseparator);
-              ns = parts[0];
-              key = parts[1];
-          }
-      
-          if (found === undefined && o.sendMissing && typeof o.missingKeyHandler === 'function') {
-              if (options.lng) {
-                  o.missingKeyHandler(lngs[0], ns, key, notFound, lngs);
-              } else {
-                  o.missingKeyHandler(o.lng, ns, key, notFound, lngs);
-              }
-          }
-      
-          var postProcessorsToApply,
-              postProcessor,
-              j;
-          if (typeof o.postProcess === 'string' && o.postProcess !== '') {
-              postProcessorsToApply = [o.postProcess];
-          } else if (typeof o.postProcess === 'array' || typeof o.postProcess === 'object') {
-              postProcessorsToApply = o.postProcess;
-          } else {
-              postProcessorsToApply = [];
-          }
-      
-          if (typeof options.postProcess === 'string' && options.postProcess !== '') {
-              postProcessorsToApply = postProcessorsToApply.concat([options.postProcess]);
-          } else if (typeof options.postProcess === 'array' || typeof options.postProcess === 'object') {
-              postProcessorsToApply = postProcessorsToApply.concat(options.postProcess);
-          }
-      
-          if (found !== undefined && postProcessorsToApply.length) {
-              for (j = 0; j < postProcessorsToApply.length; j += 1) {
-                  postProcessor = postProcessorsToApply[j];
-                  if (postProcessors[postProcessor]) {
-                      found = postProcessors[postProcessor](found, key, options);
-                  }
-              }
-          }
-      
-          // process notFound if function exists
-          var splitNotFound = notFound;
-          if (notFound.indexOf(nsseparator) > -1) {
-              parts = notFound.split(nsseparator);
-              splitNotFound = parts[1];
-          }
-          if (splitNotFound === key && o.parseMissingKey) {
-              notFound = o.parseMissingKey(notFound);
-          }
-      
-          if (found === undefined) {
-              notFound = applyReplacement(notFound, options);
-              notFound = applyReuse(notFound, options);
-      
-              if (postProcessorsToApply.length) {
-                  found = _getDefaultValue(key, options);
-                  for (j = 0; j < postProcessorsToApply.length; j += 1) {
-                      postProcessor = postProcessorsToApply[j];
-                      if (postProcessors[postProcessor]) {
-                          found = postProcessors[postProcessor](found, key, options);
-                      }
-                  }
-              }
-          }
-      
-          return (found !== undefined) ? found : notFound;
-      }
-      
-      function _find(key, options) {
-          options = options || {};
-      
-          var optionWithoutCount, translated
-              , notFound = _getDefaultValue(key, options)
-              , lngs = languages;
-      
-          if (!resStore) { return notFound; } // no resStore to translate from
-      
-          // CI mode
-          if (lngs[0].toLowerCase() === 'cimode') return notFound;
-      
-          // passed in lng
-          if (options.lngs) lngs = options.lngs;
-          if (options.lng) {
-              lngs = f.toLanguages(options.lng, options.fallbackLng);
-      
-              if (!resStore[lngs[0]]) {
-                  var oldAsync = o.getAsync;
-                  o.getAsync = false;
-      
-                  i18n.sync.load(lngs, o, function(err, store) {
-                      f.extend(resStore, store);
-                      o.getAsync = oldAsync;
-                  });
-              }
-          }
-      
-          var ns = options.ns || o.ns.defaultNs;
-          var nsseparator = options.nsseparator || o.nsseparator;
-          if (key.indexOf(nsseparator) > -1) {
-              var parts = key.split(nsseparator);
-              ns = parts[0];
-              key = parts[1];
-          }
-      
-          if (hasContext(options)) {
-              optionWithoutCount = f.extend({}, options);
-              delete optionWithoutCount.context;
-              optionWithoutCount.defaultValue = o.contextNotFound;
-      
-              var contextKey = ns + nsseparator + key + '_' + options.context;
-      
-              translated = translate(contextKey, optionWithoutCount);
-              if (translated != o.contextNotFound) {
-                  return applyReplacement(translated, { context: options.context }); // apply replacement for context only
-              } // else continue translation with original/nonContext key
-          }
-      
-          if (needsPlural(options, lngs[0])) {
-              optionWithoutCount = f.extend({ lngs: [lngs[0]]}, options);
-              delete optionWithoutCount.count;
-              optionWithoutCount._origLng = optionWithoutCount._origLng || optionWithoutCount.lng || lngs[0];
-              delete optionWithoutCount.lng;
-              optionWithoutCount.defaultValue = o.pluralNotFound;
-      
-              var pluralKey;
-              if (!pluralExtensions.needsPlural(lngs[0], options.count)) {
-                  pluralKey = ns + nsseparator + key;
-              } else {
-                  pluralKey = ns + nsseparator + key + o.pluralSuffix;
-                  var pluralExtension = pluralExtensions.get(lngs[0], options.count);
-                  if (pluralExtension >= 0) {
-                      pluralKey = pluralKey + '_' + pluralExtension;
-                  } else if (pluralExtension === 1) {
-                      pluralKey = ns + nsseparator + key; // singular
-                  }
-              }
-      
-              translated = translate(pluralKey, optionWithoutCount);
-      
-              if (translated != o.pluralNotFound) {
-                  return applyReplacement(translated, {
-                      count: options.count,
-                      interpolationPrefix: options.interpolationPrefix,
-                      interpolationSuffix: options.interpolationSuffix
-                  }); // apply replacement for count only
-              } else if (lngs.length > 1) {
-                  // remove failed lng
-                  var clone = lngs.slice();
-                  clone.shift();
-                  options = f.extend(options, { lngs: clone });
-                  options._origLng = optionWithoutCount._origLng;
-                  delete options.lng;
-                  // retry with fallbacks
-                  translated = translate(ns + nsseparator + key, options);
-                  if (translated != o.pluralNotFound) return translated;
-              } else {
-                  optionWithoutCount.lng = optionWithoutCount._origLng;
-                  delete optionWithoutCount._origLng;
-                  translated = translate(ns + nsseparator + key, optionWithoutCount);
-      
-                  return applyReplacement(translated, {
-                      count: options.count,
-                      interpolationPrefix: options.interpolationPrefix,
-                      interpolationSuffix: options.interpolationSuffix
-                  });
-              }
-          }
-      
-          if (needsIndefiniteArticle(options)) {
-              var optionsWithoutIndef = f.extend({}, options);
-              delete optionsWithoutIndef.indefinite_article;
-              optionsWithoutIndef.defaultValue = o.indefiniteNotFound;
-              // If we don't have a count, we want the indefinite, if we do have a count, and needsPlural is false
-              var indefiniteKey = ns + nsseparator + key + (((options.count && !needsPlural(options, lngs[0])) || !options.count) ? o.indefiniteSuffix : "");
-              translated = translate(indefiniteKey, optionsWithoutIndef);
-              if (translated != o.indefiniteNotFound) {
-                  return translated;
-              }
-          }
-      
-          var found;
-          var keyseparator = options.keyseparator || o.keyseparator;
-          var keys = key.split(keyseparator);
-          for (var i = 0, len = lngs.length; i < len; i++ ) {
-              if (found !== undefined) break;
-      
-              var l = lngs[i];
-      
-              var x = 0;
-              var value = resStore[l] && resStore[l][ns];
-              while (keys[x]) {
-                  value = value && value[keys[x]];
-                  x++;
-              }
-              if (value !== undefined && (!o.showKeyIfEmpty || value !== '')) {
-                  var valueType = Object.prototype.toString.apply(value);
-                  if (typeof value === 'string') {
-                      value = applyReplacement(value, options);
-                      value = applyReuse(value, options);
-                  } else if (valueType === '[object Array]' && !o.returnObjectTrees && !options.returnObjectTrees) {
-                      value = value.join('\n');
-                      value = applyReplacement(value, options);
-                      value = applyReuse(value, options);
-                  } else if (value === null && o.fallbackOnNull === true) {
-                      value = undefined;
-                  } else if (value !== null) {
-                      if (!o.returnObjectTrees && !options.returnObjectTrees) {
-                          if (o.objectTreeKeyHandler && typeof o.objectTreeKeyHandler == 'function') {
-                              value = o.objectTreeKeyHandler(key, value, l, ns, options);
-                          } else {
-                              value = 'key \'' + ns + ':' + key + ' (' + l + ')\' ' +
-                                  'returned an object instead of string.';
-                              f.log(value);
-                          }
-                      } else if (valueType !== '[object Number]' && valueType !== '[object Function]' && valueType !== '[object RegExp]') {
-                          var copy = (valueType === '[object Array]') ? [] : {}; // apply child translation on a copy
-                          f.each(value, function(m) {
-                              copy[m] = _translate(ns + nsseparator + key + keyseparator + m, options);
-                          });
-                          value = copy;
-                      }
-                  }
-      
-                  if (typeof value === 'string' && value.trim() === '' && o.fallbackOnEmpty === true)
-                      value = undefined;
-      
-                  found = value;
-              }
-          }
-      
-          if (found === undefined && !options.isFallbackLookup && (o.fallbackToDefaultNS === true || (o.fallbackNS && o.fallbackNS.length > 0))) {
-              // set flag for fallback lookup - avoid recursion
-              options.isFallbackLookup = true;
-      
-              if (o.fallbackNS.length) {
-      
-                  for (var y = 0, lenY = o.fallbackNS.length; y < lenY; y++) {
-                      found = _find(o.fallbackNS[y] + nsseparator + key, options);
-      
-                      if (found || (found==="" && o.fallbackOnEmpty === false)) {
-                          /* compare value without namespace */
-                          var foundValue = found.indexOf(nsseparator) > -1 ? found.split(nsseparator)[1] : found
-                            , notFoundValue = notFound.indexOf(nsseparator) > -1 ? notFound.split(nsseparator)[1] : notFound;
-      
-                          if (foundValue !== notFoundValue) break;
-                      }
-                  }
-              } else {
-                  options.ns = o.ns.defaultNs;
-                  found = _find(key, options); // fallback to default NS
-              }
-              options.isFallbackLookup = false;
-          }
-      
-          return found;
-      }
-      function detectLanguage() {
-          var detectedLng;
-          var whitelist = o.lngWhitelist || [];
-          var userLngChoices = [];
-          if (typeof window !== 'undefined') {
-              (function() {
-                  var query = window.location.search.substring(1);
-                  var params = query.split('&');
-                  for (var i=0; i<params.length; i++) {
-                      var pos = params[i].indexOf('=');
-                      if (pos > 0) {
-                          var key = params[i].substring(0,pos);
-                          if (key == o.detectLngQS) {
-                              userLngChoices.push(params[i].substring(pos+1));
-                          }
-                      }
-                  }
-              })();
-          }
-      
-          // get from cookie
-          if (o.useCookie && typeof document !== 'undefined') {
-              var c = f.cookie.read(o.cookieName);
-              if (c) userLngChoices.push(c);
-          }
-      
-          // get from localStorage
-          if (o.detectLngFromLocalStorage && typeof window !== 'undefined' && window.localStorage) {
-              var lang = f.localStorage.getItem('i18next_lng');
-              if (lang) {
-                  userLngChoices.push(lang);
-              }
-          }
-      
-          // get from navigator
-          if (typeof navigator !== 'undefined') {
-              if (navigator.languages) { // chrome only; not an array, so can't use .push.apply instead of iterating
-                  for (var i=0;i<navigator.languages.length;i++) {
-                      userLngChoices.push(navigator.languages[i]);
-                  }
-              }
-              if (navigator.userLanguage) {
-                  userLngChoices.push(navigator.userLanguage);
-              }
-              if (navigator.language) {
-                  userLngChoices.push(navigator.language);
-              }
-          }
-      
-          (function() {
-              for (var i=0;i<userLngChoices.length;i++) {
-                  var lng = userLngChoices[i];
-      
-                  if (lng.indexOf('-') > -1) {
-                      var parts = lng.split('-');
-                      lng = o.lowerCaseLng ?
-                          parts[0].toLowerCase() +  '-' + parts[1].toLowerCase() :
-                          parts[0].toLowerCase() +  '-' + parts[1].toUpperCase();
-                  }
-      
-                  if (whitelist.length === 0 || whitelist.indexOf(lng) > -1) {
-                      detectedLng = lng;
-                      break;
-                  }
-              }
-          })();
-      
-          //fallback
-          if (!detectedLng){
-            detectedLng = o.fallbackLng[0];
-          }
-          
-          return detectedLng;
-      }
-      // definition http://translate.sourceforge.net/wiki/l10n/pluralforms
-      
-      /* [code, name, numbers, pluralsType] */
-      var _rules = [
-          ["ach", "Acholi", [1,2], 1],
-          ["af", "Afrikaans",[1,2], 2],
-          ["ak", "Akan", [1,2], 1],
-          ["am", "Amharic", [1,2], 1],
-          ["an", "Aragonese",[1,2], 2],
-          ["ar", "Arabic", [0,1,2,3,11,100],5],
-          ["arn", "Mapudungun",[1,2], 1],
-          ["ast", "Asturian", [1,2], 2],
-          ["ay", "Aymará", [1], 3],
-          ["az", "Azerbaijani",[1,2],2],
-          ["be", "Belarusian",[1,2,5],4],
-          ["bg", "Bulgarian",[1,2], 2],
-          ["bn", "Bengali", [1,2], 2],
-          ["bo", "Tibetan", [1], 3],
-          ["br", "Breton", [1,2], 1],
-          ["bs", "Bosnian", [1,2,5],4],
-          ["ca", "Catalan", [1,2], 2],
-          ["cgg", "Chiga", [1], 3],
-          ["cs", "Czech", [1,2,5],6],
-          ["csb", "Kashubian",[1,2,5],7],
-          ["cy", "Welsh", [1,2,3,8],8],
-          ["da", "Danish", [1,2], 2],
-          ["de", "German", [1,2], 2],
-          ["dev", "Development Fallback", [1,2], 2],
-          ["dz", "Dzongkha", [1], 3],
-          ["el", "Greek", [1,2], 2],
-          ["en", "English", [1,2], 2],
-          ["eo", "Esperanto",[1,2], 2],
-          ["es", "Spanish", [1,2], 2],
-          ["es_ar","Argentinean Spanish", [1,2], 2],
-          ["et", "Estonian", [1,2], 2],
-          ["eu", "Basque", [1,2], 2],
-          ["fa", "Persian", [1], 3],
-          ["fi", "Finnish", [1,2], 2],
-          ["fil", "Filipino", [1,2], 1],
-          ["fo", "Faroese", [1,2], 2],
-          ["fr", "French", [1,2], 9],
-          ["fur", "Friulian", [1,2], 2],
-          ["fy", "Frisian", [1,2], 2],
-          ["ga", "Irish", [1,2,3,7,11],10],
-          ["gd", "Scottish Gaelic",[1,2,3,20],11],
-          ["gl", "Galician", [1,2], 2],
-          ["gu", "Gujarati", [1,2], 2],
-          ["gun", "Gun", [1,2], 1],
-          ["ha", "Hausa", [1,2], 2],
-          ["he", "Hebrew", [1,2], 2],
-          ["hi", "Hindi", [1,2], 2],
-          ["hr", "Croatian", [1,2,5],4],
-          ["hu", "Hungarian",[1,2], 2],
-          ["hy", "Armenian", [1,2], 2],
-          ["ia", "Interlingua",[1,2],2],
-          ["id", "Indonesian",[1], 3],
-          ["is", "Icelandic",[1,2], 12],
-          ["it", "Italian", [1,2], 2],
-          ["ja", "Japanese", [1], 3],
-          ["jbo", "Lojban", [1], 3],
-          ["jv", "Javanese", [0,1], 13],
-          ["ka", "Georgian", [1], 3],
-          ["kk", "Kazakh", [1], 3],
-          ["km", "Khmer", [1], 3],
-          ["kn", "Kannada", [1,2], 2],
-          ["ko", "Korean", [1], 3],
-          ["ku", "Kurdish", [1,2], 2],
-          ["kw", "Cornish", [1,2,3,4],14],
-          ["ky", "Kyrgyz", [1], 3],
-          ["lb", "Letzeburgesch",[1,2],2],
-          ["ln", "Lingala", [1,2], 1],
-          ["lo", "Lao", [1], 3],
-          ["lt", "Lithuanian",[1,2,10],15],
-          ["lv", "Latvian", [1,2,0],16],
-          ["mai", "Maithili", [1,2], 2],
-          ["mfe", "Mauritian Creole",[1,2],1],
-          ["mg", "Malagasy", [1,2], 1],
-          ["mi", "Maori", [1,2], 1],
-          ["mk", "Macedonian",[1,2],17],
-          ["ml", "Malayalam",[1,2], 2],
-          ["mn", "Mongolian",[1,2], 2],
-          ["mnk", "Mandinka", [0,1,2],18],
-          ["mr", "Marathi", [1,2], 2],
-          ["ms", "Malay", [1], 3],
-          ["mt", "Maltese", [1,2,11,20],19],
-          ["nah", "Nahuatl", [1,2], 2],
-          ["nap", "Neapolitan",[1,2], 2],
-          ["nb", "Norwegian Bokmal",[1,2],2],
-          ["ne", "Nepali", [1,2], 2],
-          ["nl", "Dutch", [1,2], 2],
-          ["nn", "Norwegian Nynorsk",[1,2],2],
-          ["no", "Norwegian",[1,2], 2],
-          ["nso", "Northern Sotho",[1,2],2],
-          ["oc", "Occitan", [1,2], 1],
-          ["or", "Oriya", [2,1], 2],
-          ["pa", "Punjabi", [1,2], 2],
-          ["pap", "Papiamento",[1,2], 2],
-          ["pl", "Polish", [1,2,5],7],
-          ["pms", "Piemontese",[1,2], 2],
-          ["ps", "Pashto", [1,2], 2],
-          ["pt", "Portuguese",[1,2], 2],
-          ["pt_br","Brazilian Portuguese",[1,2], 2],
-          ["rm", "Romansh", [1,2], 2],
-          ["ro", "Romanian", [1,2,20],20],
-          ["ru", "Russian", [1,2,5],4],
-          ["sah", "Yakut", [1], 3],
-          ["sco", "Scots", [1,2], 2],
-          ["se", "Northern Sami",[1,2], 2],
-          ["si", "Sinhala", [1,2], 2],
-          ["sk", "Slovak", [1,2,5],6],
-          ["sl", "Slovenian",[5,1,2,3],21],
-          ["so", "Somali", [1,2], 2],
-          ["son", "Songhay", [1,2], 2],
-          ["sq", "Albanian", [1,2], 2],
-          ["sr", "Serbian", [1,2,5],4],
-          ["su", "Sundanese",[1], 3],
-          ["sv", "Swedish", [1,2], 2],
-          ["sw", "Swahili", [1,2], 2],
-          ["ta", "Tamil", [1,2], 2],
-          ["te", "Telugu", [1,2], 2],
-          ["tg", "Tajik", [1,2], 1],
-          ["th", "Thai", [1], 3],
-          ["ti", "Tigrinya", [1,2], 1],
-          ["tk", "Turkmen", [1,2], 2],
-          ["tr", "Turkish", [1,2], 1],
-          ["tt", "Tatar", [1], 3],
-          ["ug", "Uyghur", [1], 3],
-          ["uk", "Ukrainian",[1,2,5],4],
-          ["ur", "Urdu", [1,2], 2],
-          ["uz", "Uzbek", [1,2], 1],
-          ["vi", "Vietnamese",[1], 3],
-          ["wa", "Walloon", [1,2], 1],
-          ["wo", "Wolof", [1], 3],
-          ["yo", "Yoruba", [1,2], 2],
-          ["zh", "Chinese", [1], 3]
-      ];
-      
-      var _rulesPluralsTypes = {
-          1: function(n) {return Number(n > 1);},
-          2: function(n) {return Number(n != 1);},
-          3: function(n) {return 0;},
-          4: function(n) {return Number(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);},
-          5: function(n) {return Number(n===0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5);},
-          6: function(n) {return Number((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);},
-          7: function(n) {return Number(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);},
-          8: function(n) {return Number((n==1) ? 0 : (n==2) ? 1 : (n != 8 && n != 11) ? 2 : 3);},
-          9: function(n) {return Number(n >= 2);},
-          10: function(n) {return Number(n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n<11 ? 3 : 4) ;},
-          11: function(n) {return Number((n==1 || n==11) ? 0 : (n==2 || n==12) ? 1 : (n > 2 && n < 20) ? 2 : 3);},
-          12: function(n) {return Number(n%10!=1 || n%100==11);},
-          13: function(n) {return Number(n !== 0);},
-          14: function(n) {return Number((n==1) ? 0 : (n==2) ? 1 : (n == 3) ? 2 : 3);},
-          15: function(n) {return Number(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);},
-          16: function(n) {return Number(n%10==1 && n%100!=11 ? 0 : n !== 0 ? 1 : 2);},
-          17: function(n) {return Number(n==1 || n%10==1 ? 0 : 1);},
-          18: function(n) {return Number(n==0 ? 0 : n==1 ? 1 : 2);},
-          19: function(n) {return Number(n==1 ? 0 : n===0 || ( n%100>1 && n%100<11) ? 1 : (n%100>10 && n%100<20 ) ? 2 : 3);},
-          20: function(n) {return Number(n==1 ? 0 : (n===0 || (n%100 > 0 && n%100 < 20)) ? 1 : 2);},
-          21: function(n) {return Number(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n%100==4 ? 3 : 0); }
-      };
-      
-      var pluralExtensions = {
-      
-          rules: (function () {
-              var l, rules = {};
-              for (l=_rules.length; l-- ;) {
-                  rules[_rules[l][0]] = {
-                      name: _rules[l][1],
-                      numbers: _rules[l][2],
-                      plurals: _rulesPluralsTypes[_rules[l][3]]
-                  };
-              }
-              return rules;
-          }()),
-      
-          // you can add your own pluralExtensions
-          addRule: function(lng, obj) {
-              pluralExtensions.rules[lng] = obj;
-          },
-      
-          setCurrentLng: function(lng) {
-              if (!pluralExtensions.currentRule || pluralExtensions.currentRule.lng !== lng) {
-                  var parts = lng.split('-');
-      
-                  pluralExtensions.currentRule = {
-                      lng: lng,
-                      rule: pluralExtensions.rules[parts[0]]
-                  };
-              }
-          },
-      
-          needsPlural: function(lng, count) {
-              var parts = lng.split('-');
-      
-              var ext;
-              if (pluralExtensions.currentRule && pluralExtensions.currentRule.lng === lng) {
-                  ext = pluralExtensions.currentRule.rule; 
-              } else {
-                  ext = pluralExtensions.rules[parts[f.getCountyIndexOfLng(lng)]];
-              }
-      
-              if (ext && ext.numbers.length <= 1) {
-                  return false;
-              } else {
-                  return this.get(lng, count) !== 1;
-              }
-          },
-      
-          get: function(lng, count) {
-              var parts = lng.split('-');
-      
-              function getResult(l, c) {
-                  var ext;
-                  if (pluralExtensions.currentRule && pluralExtensions.currentRule.lng === lng) {
-                      ext = pluralExtensions.currentRule.rule; 
-                  } else {
-                      ext = pluralExtensions.rules[l];
-                  }
-                  if (ext) {
-                      var i;
-                      if (ext.noAbs) {
-                          i = ext.plurals(c);
-                      } else {
-                          i = ext.plurals(Math.abs(c));
-                      }
-                      
-                      var number = ext.numbers[i];
-                      if (ext.numbers.length === 2 && ext.numbers[0] === 1) {
-                          if (number === 2) { 
-                              number = -1; // regular plural
-                          } else if (number === 1) {
-                              number = 1; // singular
-                          }
-                      }//console.log(count + '-' + number);
-                      return number;
-                  } else {
-                      return c === 1 ? '1' : '-1';
-                  }
-              }
-                          
-              return getResult(parts[f.getCountyIndexOfLng(lng)], count);
-          }
-      
-      };
-      var postProcessors = {};
-      var addPostProcessor = function(name, fc) {
-          postProcessors[name] = fc;
-      };
-      // sprintf support
-      var sprintf = (function() {
-          function get_type(variable) {
-              return Object.prototype.toString.call(variable).slice(8, -1).toLowerCase();
-          }
-          function str_repeat(input, multiplier) {
-              for (var output = []; multiplier > 0; output[--multiplier] = input) {/* do nothing */}
-              return output.join('');
-          }
-      
-          var str_format = function() {
-              if (!str_format.cache.hasOwnProperty(arguments[0])) {
-                  str_format.cache[arguments[0]] = str_format.parse(arguments[0]);
-              }
-              return str_format.format.call(null, str_format.cache[arguments[0]], arguments);
-          };
-      
-          str_format.format = function(parse_tree, argv) {
-              var cursor = 1, tree_length = parse_tree.length, node_type = '', arg, output = [], i, k, match, pad, pad_character, pad_length;
-              for (i = 0; i < tree_length; i++) {
-                  node_type = get_type(parse_tree[i]);
-                  if (node_type === 'string') {
-                      output.push(parse_tree[i]);
-                  }
-                  else if (node_type === 'array') {
-                      match = parse_tree[i]; // convenience purposes only
-                      if (match[2]) { // keyword argument
-                          arg = argv[cursor];
-                          for (k = 0; k < match[2].length; k++) {
-                              if (!arg.hasOwnProperty(match[2][k])) {
-                                  throw(sprintf('[sprintf] property "%s" does not exist', match[2][k]));
-                              }
-                              arg = arg[match[2][k]];
-                          }
-                      }
-                      else if (match[1]) { // positional argument (explicit)
-                          arg = argv[match[1]];
-                      }
-                      else { // positional argument (implicit)
-                          arg = argv[cursor++];
-                      }
-      
-                      if (/[^s]/.test(match[8]) && (get_type(arg) != 'number')) {
-                          throw(sprintf('[sprintf] expecting number but found %s', get_type(arg)));
-                      }
-                      switch (match[8]) {
-                          case 'b': arg = arg.toString(2); break;
-                          case 'c': arg = String.fromCharCode(arg); break;
-                          case 'd': arg = parseInt(arg, 10); break;
-                          case 'e': arg = match[7] ? arg.toExponential(match[7]) : arg.toExponential(); break;
-                          case 'f': arg = match[7] ? parseFloat(arg).toFixed(match[7]) : parseFloat(arg); break;
-                          case 'o': arg = arg.toString(8); break;
-                          case 's': arg = ((arg = String(arg)) && match[7] ? arg.substring(0, match[7]) : arg); break;
-                          case 'u': arg = Math.abs(arg); break;
-                          case 'x': arg = arg.toString(16); break;
-                          case 'X': arg = arg.toString(16).toUpperCase(); break;
-                      }
-                      arg = (/[def]/.test(match[8]) && match[3] && arg >= 0 ? '+'+ arg : arg);
-                      pad_character = match[4] ? match[4] == '0' ? '0' : match[4].charAt(1) : ' ';
-                      pad_length = match[6] - String(arg).length;
-                      pad = match[6] ? str_repeat(pad_character, pad_length) : '';
-                      output.push(match[5] ? arg + pad : pad + arg);
-                  }
-              }
-              return output.join('');
-          };
-      
-          str_format.cache = {};
-      
-          str_format.parse = function(fmt) {
-              var _fmt = fmt, match = [], parse_tree = [], arg_names = 0;
-              while (_fmt) {
-                  if ((match = /^[^\x25]+/.exec(_fmt)) !== null) {
-                      parse_tree.push(match[0]);
-                  }
-                  else if ((match = /^\x25{2}/.exec(_fmt)) !== null) {
-                      parse_tree.push('%');
-                  }
-                  else if ((match = /^\x25(?:([1-9]\d*)\$|\(([^\)]+)\))?(\+)?(0|'[^$])?(-)?(\d+)?(?:\.(\d+))?([b-fosuxX])/.exec(_fmt)) !== null) {
-                      if (match[2]) {
-                          arg_names |= 1;
-                          var field_list = [], replacement_field = match[2], field_match = [];
-                          if ((field_match = /^([a-z_][a-z_\d]*)/i.exec(replacement_field)) !== null) {
-                              field_list.push(field_match[1]);
-                              while ((replacement_field = replacement_field.substring(field_match[0].length)) !== '') {
-                                  if ((field_match = /^\.([a-z_][a-z_\d]*)/i.exec(replacement_field)) !== null) {
-                                      field_list.push(field_match[1]);
-                                  }
-                                  else if ((field_match = /^\[(\d+)\]/.exec(replacement_field)) !== null) {
-                                      field_list.push(field_match[1]);
-                                  }
-                                  else {
-                                      throw('[sprintf] huh?');
-                                  }
-                              }
-                          }
-                          else {
-                              throw('[sprintf] huh?');
-                          }
-                          match[2] = field_list;
-                      }
-                      else {
-                          arg_names |= 2;
-                      }
-                      if (arg_names === 3) {
-                          throw('[sprintf] mixing positional and named placeholders is not (yet) supported');
-                      }
-                      parse_tree.push(match);
-                  }
-                  else {
-                      throw('[sprintf] huh?');
-                  }
-                  _fmt = _fmt.substring(match[0].length);
-              }
-              return parse_tree;
-          };
-      
-          return str_format;
-      })();
-      
-      var vsprintf = function(fmt, argv) {
-          argv.unshift(fmt);
-          return sprintf.apply(null, argv);
-      };
-      
-      addPostProcessor("sprintf", function(val, key, opts) {
-          if (!opts.sprintf) return val;
-      
-          if (Object.prototype.toString.apply(opts.sprintf) === '[object Array]') {
-              return vsprintf(val, opts.sprintf);
-          } else if (typeof opts.sprintf === 'object') {
-              return sprintf(val, opts.sprintf);
-          }
-      
-          return val;
+      current = next;
+    }
+    return current;
+  };
+  const getCleanedCode = code => code?.replace('_', '-');
+
+  const consoleLogger = {
+    type: 'logger',
+    log(args) {
+      this.output('log', args);
+    },
+    warn(args) {
+      this.output('warn', args);
+    },
+    error(args) {
+      this.output('error', args);
+    },
+    output(type, args) {
+      console?.[type]?.apply?.(console, args);
+    }
+  };
+  class Logger {
+    constructor(concreteLogger, options = {}) {
+      this.init(concreteLogger, options);
+    }
+    init(concreteLogger, options = {}) {
+      this.prefix = options.prefix || 'i18next:';
+      this.logger = concreteLogger || consoleLogger;
+      this.options = options;
+      this.debug = options.debug;
+    }
+    log(...args) {
+      return this.forward(args, 'log', '', true);
+    }
+    warn(...args) {
+      return this.forward(args, 'warn', '', true);
+    }
+    error(...args) {
+      return this.forward(args, 'error', '');
+    }
+    deprecate(...args) {
+      return this.forward(args, 'warn', 'WARNING DEPRECATED: ', true);
+    }
+    forward(args, lvl, prefix, debugOnly) {
+      if (debugOnly && !this.debug) return null;
+      if (isString(args[0])) args[0] = `${prefix}${this.prefix} ${args[0]}`;
+      return this.logger[lvl](args);
+    }
+    create(moduleName) {
+      return new Logger(this.logger, {
+        ...{
+          prefix: `${this.prefix}:${moduleName}:`
+        },
+        ...this.options
       });
-      // public api interface
-      i18n.init = init;
-      i18n.isInitialized = isInitialized;
-      i18n.setLng = setLng;
-      i18n.preload = preload;
-      i18n.addResourceBundle = addResourceBundle;
-      i18n.hasResourceBundle = hasResourceBundle;
-      i18n.getResourceBundle = getResourceBundle;
-      i18n.addResource = addResource;
-      i18n.addResources = addResources;
-      i18n.removeResourceBundle = removeResourceBundle;
-      i18n.loadNamespace = loadNamespace;
-      i18n.loadNamespaces = loadNamespaces;
-      i18n.setDefaultNamespace = setDefaultNamespace;
-      i18n.t = translate;
-      i18n.translate = translate;
-      i18n.exists = exists;
-      i18n.detectLanguage = f.detectLanguage;
-      i18n.pluralExtensions = pluralExtensions;
-      i18n.sync = sync;
-      i18n.functions = f;
-      i18n.lng = lng;
-      i18n.dir = dir;
-      i18n.addPostProcessor = addPostProcessor;
-      i18n.applyReplacement = f.applyReplacement;
-      i18n.options = o;
-      i18n.noConflict = noConflict;
+    }
+    clone(options) {
+      options = options || this.options;
+      options.prefix = options.prefix || this.prefix;
+      return new Logger(this.logger, options);
+    }
+  }
+  var baseLogger = new Logger();
 
-  })( exports);
+  class EventEmitter {
+    constructor() {
+      this.observers = {};
+    }
+    on(events, listener) {
+      events.split(' ').forEach(event => {
+        if (!this.observers[event]) this.observers[event] = new Map();
+        const numListeners = this.observers[event].get(listener) || 0;
+        this.observers[event].set(listener, numListeners + 1);
+      });
+      return this;
+    }
+    off(event, listener) {
+      if (!this.observers[event]) return;
+      if (!listener) {
+        delete this.observers[event];
+        return;
+      }
+      this.observers[event].delete(listener);
+    }
+    emit(event, ...args) {
+      if (this.observers[event]) {
+        const cloned = Array.from(this.observers[event].entries());
+        cloned.forEach(([observer, numTimesAdded]) => {
+          for (let i = 0; i < numTimesAdded; i++) {
+            observer(...args);
+          }
+        });
+      }
+      if (this.observers['*']) {
+        const cloned = Array.from(this.observers['*'].entries());
+        cloned.forEach(([observer, numTimesAdded]) => {
+          for (let i = 0; i < numTimesAdded; i++) {
+            observer.apply(observer, [event, ...args]);
+          }
+        });
+      }
+    }
+  }
+
+  class ResourceStore extends EventEmitter {
+    constructor(data, options = {
+      ns: ['translation'],
+      defaultNS: 'translation'
+    }) {
+      super();
+      this.data = data || {};
+      this.options = options;
+      if (this.options.keySeparator === undefined) {
+        this.options.keySeparator = '.';
+      }
+      if (this.options.ignoreJSONStructure === undefined) {
+        this.options.ignoreJSONStructure = true;
+      }
+    }
+    addNamespaces(ns) {
+      if (this.options.ns.indexOf(ns) < 0) {
+        this.options.ns.push(ns);
+      }
+    }
+    removeNamespaces(ns) {
+      const index = this.options.ns.indexOf(ns);
+      if (index > -1) {
+        this.options.ns.splice(index, 1);
+      }
+    }
+    getResource(lng, ns, key, options = {}) {
+      const keySeparator = options.keySeparator !== undefined ? options.keySeparator : this.options.keySeparator;
+      const ignoreJSONStructure = options.ignoreJSONStructure !== undefined ? options.ignoreJSONStructure : this.options.ignoreJSONStructure;
+      let path;
+      if (lng.indexOf('.') > -1) {
+        path = lng.split('.');
+      } else {
+        path = [lng, ns];
+        if (key) {
+          if (Array.isArray(key)) {
+            path.push(...key);
+          } else if (isString(key) && keySeparator) {
+            path.push(...key.split(keySeparator));
+          } else {
+            path.push(key);
+          }
+        }
+      }
+      const result = getPath(this.data, path);
+      if (!result && !ns && !key && lng.indexOf('.') > -1) {
+        lng = path[0];
+        ns = path[1];
+        key = path.slice(2).join('.');
+      }
+      if (result || !ignoreJSONStructure || !isString(key)) return result;
+      return deepFind(this.data?.[lng]?.[ns], key, keySeparator);
+    }
+    addResource(lng, ns, key, value, options = {
+      silent: false
+    }) {
+      const keySeparator = options.keySeparator !== undefined ? options.keySeparator : this.options.keySeparator;
+      let path = [lng, ns];
+      if (key) path = path.concat(keySeparator ? key.split(keySeparator) : key);
+      if (lng.indexOf('.') > -1) {
+        path = lng.split('.');
+        value = ns;
+        ns = path[1];
+      }
+      this.addNamespaces(ns);
+      setPath(this.data, path, value);
+      if (!options.silent) this.emit('added', lng, ns, key, value);
+    }
+    addResources(lng, ns, resources, options = {
+      silent: false
+    }) {
+      for (const m in resources) {
+        if (isString(resources[m]) || Array.isArray(resources[m])) this.addResource(lng, ns, m, resources[m], {
+          silent: true
+        });
+      }
+      if (!options.silent) this.emit('added', lng, ns, resources);
+    }
+    addResourceBundle(lng, ns, resources, deep, overwrite, options = {
+      silent: false,
+      skipCopy: false
+    }) {
+      let path = [lng, ns];
+      if (lng.indexOf('.') > -1) {
+        path = lng.split('.');
+        deep = resources;
+        resources = ns;
+        ns = path[1];
+      }
+      this.addNamespaces(ns);
+      let pack = getPath(this.data, path) || {};
+      if (!options.skipCopy) resources = JSON.parse(JSON.stringify(resources));
+      if (deep) {
+        deepExtend(pack, resources, overwrite);
+      } else {
+        pack = {
+          ...pack,
+          ...resources
+        };
+      }
+      setPath(this.data, path, pack);
+      if (!options.silent) this.emit('added', lng, ns, resources);
+    }
+    removeResourceBundle(lng, ns) {
+      if (this.hasResourceBundle(lng, ns)) {
+        delete this.data[lng][ns];
+      }
+      this.removeNamespaces(ns);
+      this.emit('removed', lng, ns);
+    }
+    hasResourceBundle(lng, ns) {
+      return this.getResource(lng, ns) !== undefined;
+    }
+    getResourceBundle(lng, ns) {
+      if (!ns) ns = this.options.defaultNS;
+      return this.getResource(lng, ns);
+    }
+    getDataByLanguage(lng) {
+      return this.data[lng];
+    }
+    hasLanguageSomeTranslations(lng) {
+      const data = this.getDataByLanguage(lng);
+      const n = data && Object.keys(data) || [];
+      return !!n.find(v => data[v] && Object.keys(data[v]).length > 0);
+    }
+    toJSON() {
+      return this.data;
+    }
+  }
+
+  var postProcessor = {
+    processors: {},
+    addPostProcessor(module) {
+      this.processors[module.name] = module;
+    },
+    handle(processors, value, key, options, translator) {
+      processors.forEach(processor => {
+        value = this.processors[processor]?.process(value, key, options, translator) ?? value;
+      });
+      return value;
+    }
+  };
+
+  const checkedLoadedFor = {};
+  const shouldHandleAsObject = res => !isString(res) && typeof res !== 'boolean' && typeof res !== 'number';
+  class Translator extends EventEmitter {
+    constructor(services, options = {}) {
+      super();
+      copy(['resourceStore', 'languageUtils', 'pluralResolver', 'interpolator', 'backendConnector', 'i18nFormat', 'utils'], services, this);
+      this.options = options;
+      if (this.options.keySeparator === undefined) {
+        this.options.keySeparator = '.';
+      }
+      this.logger = baseLogger.create('translator');
+    }
+    changeLanguage(lng) {
+      if (lng) this.language = lng;
+    }
+    exists(key, o = {
+      interpolation: {}
+    }) {
+      const opt = {
+        ...o
+      };
+      if (key == null) return false;
+      const resolved = this.resolve(key, opt);
+      return resolved?.res !== undefined;
+    }
+    extractFromKey(key, opt) {
+      let nsSeparator = opt.nsSeparator !== undefined ? opt.nsSeparator : this.options.nsSeparator;
+      if (nsSeparator === undefined) nsSeparator = ':';
+      const keySeparator = opt.keySeparator !== undefined ? opt.keySeparator : this.options.keySeparator;
+      let namespaces = opt.ns || this.options.defaultNS || [];
+      const wouldCheckForNsInKey = nsSeparator && key.indexOf(nsSeparator) > -1;
+      const seemsNaturalLanguage = !this.options.userDefinedKeySeparator && !opt.keySeparator && !this.options.userDefinedNsSeparator && !opt.nsSeparator && !looksLikeObjectPath(key, nsSeparator, keySeparator);
+      if (wouldCheckForNsInKey && !seemsNaturalLanguage) {
+        const m = key.match(this.interpolator.nestingRegexp);
+        if (m && m.length > 0) {
+          return {
+            key,
+            namespaces: isString(namespaces) ? [namespaces] : namespaces
+          };
+        }
+        const parts = key.split(nsSeparator);
+        if (nsSeparator !== keySeparator || nsSeparator === keySeparator && this.options.ns.indexOf(parts[0]) > -1) namespaces = parts.shift();
+        key = parts.join(keySeparator);
+      }
+      return {
+        key,
+        namespaces: isString(namespaces) ? [namespaces] : namespaces
+      };
+    }
+    translate(keys, o, lastKey) {
+      let opt = typeof o === 'object' ? {
+        ...o
+      } : o;
+      if (typeof opt !== 'object' && this.options.overloadTranslationOptionHandler) {
+        opt = this.options.overloadTranslationOptionHandler(arguments);
+      }
+      if (typeof options === 'object') opt = {
+        ...opt
+      };
+      if (!opt) opt = {};
+      if (keys == null) return '';
+      if (!Array.isArray(keys)) keys = [String(keys)];
+      const returnDetails = opt.returnDetails !== undefined ? opt.returnDetails : this.options.returnDetails;
+      const keySeparator = opt.keySeparator !== undefined ? opt.keySeparator : this.options.keySeparator;
+      const {
+        key,
+        namespaces
+      } = this.extractFromKey(keys[keys.length - 1], opt);
+      const namespace = namespaces[namespaces.length - 1];
+      let nsSeparator = opt.nsSeparator !== undefined ? opt.nsSeparator : this.options.nsSeparator;
+      if (nsSeparator === undefined) nsSeparator = ':';
+      const lng = opt.lng || this.language;
+      const appendNamespaceToCIMode = opt.appendNamespaceToCIMode || this.options.appendNamespaceToCIMode;
+      if (lng?.toLowerCase() === 'cimode') {
+        if (appendNamespaceToCIMode) {
+          if (returnDetails) {
+            return {
+              res: `${namespace}${nsSeparator}${key}`,
+              usedKey: key,
+              exactUsedKey: key,
+              usedLng: lng,
+              usedNS: namespace,
+              usedParams: this.getUsedParamsDetails(opt)
+            };
+          }
+          return `${namespace}${nsSeparator}${key}`;
+        }
+        if (returnDetails) {
+          return {
+            res: key,
+            usedKey: key,
+            exactUsedKey: key,
+            usedLng: lng,
+            usedNS: namespace,
+            usedParams: this.getUsedParamsDetails(opt)
+          };
+        }
+        return key;
+      }
+      const resolved = this.resolve(keys, opt);
+      let res = resolved?.res;
+      const resUsedKey = resolved?.usedKey || key;
+      const resExactUsedKey = resolved?.exactUsedKey || key;
+      const noObject = ['[object Number]', '[object Function]', '[object RegExp]'];
+      const joinArrays = opt.joinArrays !== undefined ? opt.joinArrays : this.options.joinArrays;
+      const handleAsObjectInI18nFormat = !this.i18nFormat || this.i18nFormat.handleAsObject;
+      const needsPluralHandling = opt.count !== undefined && !isString(opt.count);
+      const hasDefaultValue = Translator.hasDefaultValue(opt);
+      const defaultValueSuffix = needsPluralHandling ? this.pluralResolver.getSuffix(lng, opt.count, opt) : '';
+      const defaultValueSuffixOrdinalFallback = opt.ordinal && needsPluralHandling ? this.pluralResolver.getSuffix(lng, opt.count, {
+        ordinal: false
+      }) : '';
+      const needsZeroSuffixLookup = needsPluralHandling && !opt.ordinal && opt.count === 0;
+      const defaultValue = needsZeroSuffixLookup && opt[`defaultValue${this.options.pluralSeparator}zero`] || opt[`defaultValue${defaultValueSuffix}`] || opt[`defaultValue${defaultValueSuffixOrdinalFallback}`] || opt.defaultValue;
+      let resForObjHndl = res;
+      if (handleAsObjectInI18nFormat && !res && hasDefaultValue) {
+        resForObjHndl = defaultValue;
+      }
+      const handleAsObject = shouldHandleAsObject(resForObjHndl);
+      const resType = Object.prototype.toString.apply(resForObjHndl);
+      if (handleAsObjectInI18nFormat && resForObjHndl && handleAsObject && noObject.indexOf(resType) < 0 && !(isString(joinArrays) && Array.isArray(resForObjHndl))) {
+        if (!opt.returnObjects && !this.options.returnObjects) {
+          if (!this.options.returnedObjectHandler) {
+            this.logger.warn('accessing an object - but returnObjects options is not enabled!');
+          }
+          const r = this.options.returnedObjectHandler ? this.options.returnedObjectHandler(resUsedKey, resForObjHndl, {
+            ...opt,
+            ns: namespaces
+          }) : `key '${key} (${this.language})' returned an object instead of string.`;
+          if (returnDetails) {
+            resolved.res = r;
+            resolved.usedParams = this.getUsedParamsDetails(opt);
+            return resolved;
+          }
+          return r;
+        }
+        if (keySeparator) {
+          const resTypeIsArray = Array.isArray(resForObjHndl);
+          const copy = resTypeIsArray ? [] : {};
+          const newKeyToUse = resTypeIsArray ? resExactUsedKey : resUsedKey;
+          for (const m in resForObjHndl) {
+            if (Object.prototype.hasOwnProperty.call(resForObjHndl, m)) {
+              const deepKey = `${newKeyToUse}${keySeparator}${m}`;
+              if (hasDefaultValue && !res) {
+                copy[m] = this.translate(deepKey, {
+                  ...opt,
+                  defaultValue: shouldHandleAsObject(defaultValue) ? defaultValue[m] : undefined,
+                  ...{
+                    joinArrays: false,
+                    ns: namespaces
+                  }
+                });
+              } else {
+                copy[m] = this.translate(deepKey, {
+                  ...opt,
+                  ...{
+                    joinArrays: false,
+                    ns: namespaces
+                  }
+                });
+              }
+              if (copy[m] === deepKey) copy[m] = resForObjHndl[m];
+            }
+          }
+          res = copy;
+        }
+      } else if (handleAsObjectInI18nFormat && isString(joinArrays) && Array.isArray(res)) {
+        res = res.join(joinArrays);
+        if (res) res = this.extendTranslation(res, keys, opt, lastKey);
+      } else {
+        let usedDefault = false;
+        let usedKey = false;
+        if (!this.isValidLookup(res) && hasDefaultValue) {
+          usedDefault = true;
+          res = defaultValue;
+        }
+        if (!this.isValidLookup(res)) {
+          usedKey = true;
+          res = key;
+        }
+        const missingKeyNoValueFallbackToKey = opt.missingKeyNoValueFallbackToKey || this.options.missingKeyNoValueFallbackToKey;
+        const resForMissing = missingKeyNoValueFallbackToKey && usedKey ? undefined : res;
+        const updateMissing = hasDefaultValue && defaultValue !== res && this.options.updateMissing;
+        if (usedKey || usedDefault || updateMissing) {
+          this.logger.log(updateMissing ? 'updateKey' : 'missingKey', lng, namespace, key, updateMissing ? defaultValue : res);
+          if (keySeparator) {
+            const fk = this.resolve(key, {
+              ...opt,
+              keySeparator: false
+            });
+            if (fk && fk.res) this.logger.warn('Seems the loaded translations were in flat JSON format instead of nested. Either set keySeparator: false on init or make sure your translations are published in nested format.');
+          }
+          let lngs = [];
+          const fallbackLngs = this.languageUtils.getFallbackCodes(this.options.fallbackLng, opt.lng || this.language);
+          if (this.options.saveMissingTo === 'fallback' && fallbackLngs && fallbackLngs[0]) {
+            for (let i = 0; i < fallbackLngs.length; i++) {
+              lngs.push(fallbackLngs[i]);
+            }
+          } else if (this.options.saveMissingTo === 'all') {
+            lngs = this.languageUtils.toResolveHierarchy(opt.lng || this.language);
+          } else {
+            lngs.push(opt.lng || this.language);
+          }
+          const send = (l, k, specificDefaultValue) => {
+            const defaultForMissing = hasDefaultValue && specificDefaultValue !== res ? specificDefaultValue : resForMissing;
+            if (this.options.missingKeyHandler) {
+              this.options.missingKeyHandler(l, namespace, k, defaultForMissing, updateMissing, opt);
+            } else if (this.backendConnector?.saveMissing) {
+              this.backendConnector.saveMissing(l, namespace, k, defaultForMissing, updateMissing, opt);
+            }
+            this.emit('missingKey', l, namespace, k, res);
+          };
+          if (this.options.saveMissing) {
+            if (this.options.saveMissingPlurals && needsPluralHandling) {
+              lngs.forEach(language => {
+                const suffixes = this.pluralResolver.getSuffixes(language, opt);
+                if (needsZeroSuffixLookup && opt[`defaultValue${this.options.pluralSeparator}zero`] && suffixes.indexOf(`${this.options.pluralSeparator}zero`) < 0) {
+                  suffixes.push(`${this.options.pluralSeparator}zero`);
+                }
+                suffixes.forEach(suffix => {
+                  send([language], key + suffix, opt[`defaultValue${suffix}`] || defaultValue);
+                });
+              });
+            } else {
+              send(lngs, key, defaultValue);
+            }
+          }
+        }
+        res = this.extendTranslation(res, keys, opt, resolved, lastKey);
+        if (usedKey && res === key && this.options.appendNamespaceToMissingKey) {
+          res = `${namespace}${nsSeparator}${key}`;
+        }
+        if ((usedKey || usedDefault) && this.options.parseMissingKeyHandler) {
+          res = this.options.parseMissingKeyHandler(this.options.appendNamespaceToMissingKey ? `${namespace}${nsSeparator}${key}` : key, usedDefault ? res : undefined, opt);
+        }
+      }
+      if (returnDetails) {
+        resolved.res = res;
+        resolved.usedParams = this.getUsedParamsDetails(opt);
+        return resolved;
+      }
+      return res;
+    }
+    extendTranslation(res, key, opt, resolved, lastKey) {
+      if (this.i18nFormat?.parse) {
+        res = this.i18nFormat.parse(res, {
+          ...this.options.interpolation.defaultVariables,
+          ...opt
+        }, opt.lng || this.language || resolved.usedLng, resolved.usedNS, resolved.usedKey, {
+          resolved
+        });
+      } else if (!opt.skipInterpolation) {
+        if (opt.interpolation) this.interpolator.init({
+          ...opt,
+          ...{
+            interpolation: {
+              ...this.options.interpolation,
+              ...opt.interpolation
+            }
+          }
+        });
+        const skipOnVariables = isString(res) && (opt?.interpolation?.skipOnVariables !== undefined ? opt.interpolation.skipOnVariables : this.options.interpolation.skipOnVariables);
+        let nestBef;
+        if (skipOnVariables) {
+          const nb = res.match(this.interpolator.nestingRegexp);
+          nestBef = nb && nb.length;
+        }
+        let data = opt.replace && !isString(opt.replace) ? opt.replace : opt;
+        if (this.options.interpolation.defaultVariables) data = {
+          ...this.options.interpolation.defaultVariables,
+          ...data
+        };
+        res = this.interpolator.interpolate(res, data, opt.lng || this.language || resolved.usedLng, opt);
+        if (skipOnVariables) {
+          const na = res.match(this.interpolator.nestingRegexp);
+          const nestAft = na && na.length;
+          if (nestBef < nestAft) opt.nest = false;
+        }
+        if (!opt.lng && resolved && resolved.res) opt.lng = this.language || resolved.usedLng;
+        if (opt.nest !== false) res = this.interpolator.nest(res, (...args) => {
+          if (lastKey?.[0] === args[0] && !opt.context) {
+            this.logger.warn(`It seems you are nesting recursively key: ${args[0]} in key: ${key[0]}`);
+            return null;
+          }
+          return this.translate(...args, key);
+        }, opt);
+        if (opt.interpolation) this.interpolator.reset();
+      }
+      const postProcess = opt.postProcess || this.options.postProcess;
+      const postProcessorNames = isString(postProcess) ? [postProcess] : postProcess;
+      if (res != null && postProcessorNames?.length && opt.applyPostProcessor !== false) {
+        res = postProcessor.handle(postProcessorNames, res, key, this.options && this.options.postProcessPassResolved ? {
+          i18nResolved: {
+            ...resolved,
+            usedParams: this.getUsedParamsDetails(opt)
+          },
+          ...opt
+        } : opt, this);
+      }
+      return res;
+    }
+    resolve(keys, opt = {}) {
+      let found;
+      let usedKey;
+      let exactUsedKey;
+      let usedLng;
+      let usedNS;
+      if (isString(keys)) keys = [keys];
+      keys.forEach(k => {
+        if (this.isValidLookup(found)) return;
+        const extracted = this.extractFromKey(k, opt);
+        const key = extracted.key;
+        usedKey = key;
+        let namespaces = extracted.namespaces;
+        if (this.options.fallbackNS) namespaces = namespaces.concat(this.options.fallbackNS);
+        const needsPluralHandling = opt.count !== undefined && !isString(opt.count);
+        const needsZeroSuffixLookup = needsPluralHandling && !opt.ordinal && opt.count === 0;
+        const needsContextHandling = opt.context !== undefined && (isString(opt.context) || typeof opt.context === 'number') && opt.context !== '';
+        const codes = opt.lngs ? opt.lngs : this.languageUtils.toResolveHierarchy(opt.lng || this.language, opt.fallbackLng);
+        namespaces.forEach(ns => {
+          if (this.isValidLookup(found)) return;
+          usedNS = ns;
+          if (!checkedLoadedFor[`${codes[0]}-${ns}`] && this.utils?.hasLoadedNamespace && !this.utils?.hasLoadedNamespace(usedNS)) {
+            checkedLoadedFor[`${codes[0]}-${ns}`] = true;
+            this.logger.warn(`key "${usedKey}" for languages "${codes.join(', ')}" won't get resolved as namespace "${usedNS}" was not yet loaded`, 'This means something IS WRONG in your setup. You access the t function before i18next.init / i18next.loadNamespace / i18next.changeLanguage was done. Wait for the callback or Promise to resolve before accessing it!!!');
+          }
+          codes.forEach(code => {
+            if (this.isValidLookup(found)) return;
+            usedLng = code;
+            const finalKeys = [key];
+            if (this.i18nFormat?.addLookupKeys) {
+              this.i18nFormat.addLookupKeys(finalKeys, key, code, ns, opt);
+            } else {
+              let pluralSuffix;
+              if (needsPluralHandling) pluralSuffix = this.pluralResolver.getSuffix(code, opt.count, opt);
+              const zeroSuffix = `${this.options.pluralSeparator}zero`;
+              const ordinalPrefix = `${this.options.pluralSeparator}ordinal${this.options.pluralSeparator}`;
+              if (needsPluralHandling) {
+                finalKeys.push(key + pluralSuffix);
+                if (opt.ordinal && pluralSuffix.indexOf(ordinalPrefix) === 0) {
+                  finalKeys.push(key + pluralSuffix.replace(ordinalPrefix, this.options.pluralSeparator));
+                }
+                if (needsZeroSuffixLookup) {
+                  finalKeys.push(key + zeroSuffix);
+                }
+              }
+              if (needsContextHandling) {
+                const contextKey = `${key}${this.options.contextSeparator}${opt.context}`;
+                finalKeys.push(contextKey);
+                if (needsPluralHandling) {
+                  finalKeys.push(contextKey + pluralSuffix);
+                  if (opt.ordinal && pluralSuffix.indexOf(ordinalPrefix) === 0) {
+                    finalKeys.push(contextKey + pluralSuffix.replace(ordinalPrefix, this.options.pluralSeparator));
+                  }
+                  if (needsZeroSuffixLookup) {
+                    finalKeys.push(contextKey + zeroSuffix);
+                  }
+                }
+              }
+            }
+            let possibleKey;
+            while (possibleKey = finalKeys.pop()) {
+              if (!this.isValidLookup(found)) {
+                exactUsedKey = possibleKey;
+                found = this.getResource(code, ns, possibleKey, opt);
+              }
+            }
+          });
+        });
+      });
+      return {
+        res: found,
+        usedKey,
+        exactUsedKey,
+        usedLng,
+        usedNS
+      };
+    }
+    isValidLookup(res) {
+      return res !== undefined && !(!this.options.returnNull && res === null) && !(!this.options.returnEmptyString && res === '');
+    }
+    getResource(code, ns, key, options = {}) {
+      if (this.i18nFormat?.getResource) return this.i18nFormat.getResource(code, ns, key, options);
+      return this.resourceStore.getResource(code, ns, key, options);
+    }
+    getUsedParamsDetails(options = {}) {
+      const optionsKeys = ['defaultValue', 'ordinal', 'context', 'replace', 'lng', 'lngs', 'fallbackLng', 'ns', 'keySeparator', 'nsSeparator', 'returnObjects', 'returnDetails', 'joinArrays', 'postProcess', 'interpolation'];
+      const useOptionsReplaceForData = options.replace && !isString(options.replace);
+      let data = useOptionsReplaceForData ? options.replace : options;
+      if (useOptionsReplaceForData && typeof options.count !== 'undefined') {
+        data.count = options.count;
+      }
+      if (this.options.interpolation.defaultVariables) {
+        data = {
+          ...this.options.interpolation.defaultVariables,
+          ...data
+        };
+      }
+      if (!useOptionsReplaceForData) {
+        data = {
+          ...data
+        };
+        for (const key of optionsKeys) {
+          delete data[key];
+        }
+      }
+      return data;
+    }
+    static hasDefaultValue(options) {
+      const prefix = 'defaultValue';
+      for (const option in options) {
+        if (Object.prototype.hasOwnProperty.call(options, option) && prefix === option.substring(0, prefix.length) && undefined !== options[option]) {
+          return true;
+        }
+      }
+      return false;
+    }
+  }
+
+  class LanguageUtil {
+    constructor(options) {
+      this.options = options;
+      this.supportedLngs = this.options.supportedLngs || false;
+      this.logger = baseLogger.create('languageUtils');
+    }
+    getScriptPartFromCode(code) {
+      code = getCleanedCode(code);
+      if (!code || code.indexOf('-') < 0) return null;
+      const p = code.split('-');
+      if (p.length === 2) return null;
+      p.pop();
+      if (p[p.length - 1].toLowerCase() === 'x') return null;
+      return this.formatLanguageCode(p.join('-'));
+    }
+    getLanguagePartFromCode(code) {
+      code = getCleanedCode(code);
+      if (!code || code.indexOf('-') < 0) return code;
+      const p = code.split('-');
+      return this.formatLanguageCode(p[0]);
+    }
+    formatLanguageCode(code) {
+      if (isString(code) && code.indexOf('-') > -1) {
+        let formattedCode;
+        try {
+          formattedCode = Intl.getCanonicalLocales(code)[0];
+        } catch (e) {}
+        if (formattedCode && this.options.lowerCaseLng) {
+          formattedCode = formattedCode.toLowerCase();
+        }
+        if (formattedCode) return formattedCode;
+        if (this.options.lowerCaseLng) {
+          return code.toLowerCase();
+        }
+        return code;
+      }
+      return this.options.cleanCode || this.options.lowerCaseLng ? code.toLowerCase() : code;
+    }
+    isSupportedCode(code) {
+      if (this.options.load === 'languageOnly' || this.options.nonExplicitSupportedLngs) {
+        code = this.getLanguagePartFromCode(code);
+      }
+      return !this.supportedLngs || !this.supportedLngs.length || this.supportedLngs.indexOf(code) > -1;
+    }
+    getBestMatchFromCodes(codes) {
+      if (!codes) return null;
+      let found;
+      codes.forEach(code => {
+        if (found) return;
+        const cleanedLng = this.formatLanguageCode(code);
+        if (!this.options.supportedLngs || this.isSupportedCode(cleanedLng)) found = cleanedLng;
+      });
+      if (!found && this.options.supportedLngs) {
+        codes.forEach(code => {
+          if (found) return;
+          const lngScOnly = this.getScriptPartFromCode(code);
+          if (this.isSupportedCode(lngScOnly)) return found = lngScOnly;
+          const lngOnly = this.getLanguagePartFromCode(code);
+          if (this.isSupportedCode(lngOnly)) return found = lngOnly;
+          found = this.options.supportedLngs.find(supportedLng => {
+            if (supportedLng === lngOnly) return supportedLng;
+            if (supportedLng.indexOf('-') < 0 && lngOnly.indexOf('-') < 0) return;
+            if (supportedLng.indexOf('-') > 0 && lngOnly.indexOf('-') < 0 && supportedLng.substring(0, supportedLng.indexOf('-')) === lngOnly) return supportedLng;
+            if (supportedLng.indexOf(lngOnly) === 0 && lngOnly.length > 1) return supportedLng;
+          });
+        });
+      }
+      if (!found) found = this.getFallbackCodes(this.options.fallbackLng)[0];
+      return found;
+    }
+    getFallbackCodes(fallbacks, code) {
+      if (!fallbacks) return [];
+      if (typeof fallbacks === 'function') fallbacks = fallbacks(code);
+      if (isString(fallbacks)) fallbacks = [fallbacks];
+      if (Array.isArray(fallbacks)) return fallbacks;
+      if (!code) return fallbacks.default || [];
+      let found = fallbacks[code];
+      if (!found) found = fallbacks[this.getScriptPartFromCode(code)];
+      if (!found) found = fallbacks[this.formatLanguageCode(code)];
+      if (!found) found = fallbacks[this.getLanguagePartFromCode(code)];
+      if (!found) found = fallbacks.default;
+      return found || [];
+    }
+    toResolveHierarchy(code, fallbackCode) {
+      const fallbackCodes = this.getFallbackCodes((fallbackCode === false ? [] : fallbackCode) || this.options.fallbackLng || [], code);
+      const codes = [];
+      const addCode = c => {
+        if (!c) return;
+        if (this.isSupportedCode(c)) {
+          codes.push(c);
+        } else {
+          this.logger.warn(`rejecting language code not found in supportedLngs: ${c}`);
+        }
+      };
+      if (isString(code) && (code.indexOf('-') > -1 || code.indexOf('_') > -1)) {
+        if (this.options.load !== 'languageOnly') addCode(this.formatLanguageCode(code));
+        if (this.options.load !== 'languageOnly' && this.options.load !== 'currentOnly') addCode(this.getScriptPartFromCode(code));
+        if (this.options.load !== 'currentOnly') addCode(this.getLanguagePartFromCode(code));
+      } else if (isString(code)) {
+        addCode(this.formatLanguageCode(code));
+      }
+      fallbackCodes.forEach(fc => {
+        if (codes.indexOf(fc) < 0) addCode(this.formatLanguageCode(fc));
+      });
+      return codes;
+    }
+  }
+
+  const suffixesOrder = {
+    zero: 0,
+    one: 1,
+    two: 2,
+    few: 3,
+    many: 4,
+    other: 5
+  };
+  const dummyRule = {
+    select: count => count === 1 ? 'one' : 'other',
+    resolvedOptions: () => ({
+      pluralCategories: ['one', 'other']
+    })
+  };
+  class PluralResolver {
+    constructor(languageUtils, options = {}) {
+      this.languageUtils = languageUtils;
+      this.options = options;
+      this.logger = baseLogger.create('pluralResolver');
+      this.pluralRulesCache = {};
+    }
+    addRule(lng, obj) {
+      this.rules[lng] = obj;
+    }
+    clearCache() {
+      this.pluralRulesCache = {};
+    }
+    getRule(code, options = {}) {
+      const cleanedCode = getCleanedCode(code === 'dev' ? 'en' : code);
+      const type = options.ordinal ? 'ordinal' : 'cardinal';
+      const cacheKey = JSON.stringify({
+        cleanedCode,
+        type
+      });
+      if (cacheKey in this.pluralRulesCache) {
+        return this.pluralRulesCache[cacheKey];
+      }
+      let rule;
+      try {
+        rule = new Intl.PluralRules(cleanedCode, {
+          type
+        });
+      } catch (err) {
+        if (!Intl) {
+          this.logger.error('No Intl support, please use an Intl polyfill!');
+          return dummyRule;
+        }
+        if (!code.match(/-|_/)) return dummyRule;
+        const lngPart = this.languageUtils.getLanguagePartFromCode(code);
+        rule = this.getRule(lngPart, options);
+      }
+      this.pluralRulesCache[cacheKey] = rule;
+      return rule;
+    }
+    needsPlural(code, options = {}) {
+      let rule = this.getRule(code, options);
+      if (!rule) rule = this.getRule('dev', options);
+      return rule?.resolvedOptions().pluralCategories.length > 1;
+    }
+    getPluralFormsOfKey(code, key, options = {}) {
+      return this.getSuffixes(code, options).map(suffix => `${key}${suffix}`);
+    }
+    getSuffixes(code, options = {}) {
+      let rule = this.getRule(code, options);
+      if (!rule) rule = this.getRule('dev', options);
+      if (!rule) return [];
+      return rule.resolvedOptions().pluralCategories.sort((pluralCategory1, pluralCategory2) => suffixesOrder[pluralCategory1] - suffixesOrder[pluralCategory2]).map(pluralCategory => `${this.options.prepend}${options.ordinal ? `ordinal${this.options.prepend}` : ''}${pluralCategory}`);
+    }
+    getSuffix(code, count, options = {}) {
+      const rule = this.getRule(code, options);
+      if (rule) {
+        return `${this.options.prepend}${options.ordinal ? `ordinal${this.options.prepend}` : ''}${rule.select(count)}`;
+      }
+      this.logger.warn(`no plural rule found for: ${code}`);
+      return this.getSuffix('dev', count, options);
+    }
+  }
+
+  const deepFindWithDefaults = (data, defaultData, key, keySeparator = '.', ignoreJSONStructure = true) => {
+    let path = getPathWithDefaults(data, defaultData, key);
+    if (!path && ignoreJSONStructure && isString(key)) {
+      path = deepFind(data, key, keySeparator);
+      if (path === undefined) path = deepFind(defaultData, key, keySeparator);
+    }
+    return path;
+  };
+  const regexSafe = val => val.replace(/\$/g, '$$$$');
+  class Interpolator {
+    constructor(options = {}) {
+      this.logger = baseLogger.create('interpolator');
+      this.options = options;
+      this.format = options?.interpolation?.format || (value => value);
+      this.init(options);
+    }
+    init(options = {}) {
+      if (!options.interpolation) options.interpolation = {
+        escapeValue: true
+      };
+      const {
+        escape: escape$1,
+        escapeValue,
+        useRawValueToEscape,
+        prefix,
+        prefixEscaped,
+        suffix,
+        suffixEscaped,
+        formatSeparator,
+        unescapeSuffix,
+        unescapePrefix,
+        nestingPrefix,
+        nestingPrefixEscaped,
+        nestingSuffix,
+        nestingSuffixEscaped,
+        nestingOptionsSeparator,
+        maxReplaces,
+        alwaysFormat
+      } = options.interpolation;
+      this.escape = escape$1 !== undefined ? escape$1 : escape;
+      this.escapeValue = escapeValue !== undefined ? escapeValue : true;
+      this.useRawValueToEscape = useRawValueToEscape !== undefined ? useRawValueToEscape : false;
+      this.prefix = prefix ? regexEscape(prefix) : prefixEscaped || '{{';
+      this.suffix = suffix ? regexEscape(suffix) : suffixEscaped || '}}';
+      this.formatSeparator = formatSeparator || ',';
+      this.unescapePrefix = unescapeSuffix ? '' : unescapePrefix || '-';
+      this.unescapeSuffix = this.unescapePrefix ? '' : unescapeSuffix || '';
+      this.nestingPrefix = nestingPrefix ? regexEscape(nestingPrefix) : nestingPrefixEscaped || regexEscape('$t(');
+      this.nestingSuffix = nestingSuffix ? regexEscape(nestingSuffix) : nestingSuffixEscaped || regexEscape(')');
+      this.nestingOptionsSeparator = nestingOptionsSeparator || ',';
+      this.maxReplaces = maxReplaces || 1000;
+      this.alwaysFormat = alwaysFormat !== undefined ? alwaysFormat : false;
+      this.resetRegExp();
+    }
+    reset() {
+      if (this.options) this.init(this.options);
+    }
+    resetRegExp() {
+      const getOrResetRegExp = (existingRegExp, pattern) => {
+        if (existingRegExp?.source === pattern) {
+          existingRegExp.lastIndex = 0;
+          return existingRegExp;
+        }
+        return new RegExp(pattern, 'g');
+      };
+      this.regexp = getOrResetRegExp(this.regexp, `${this.prefix}(.+?)${this.suffix}`);
+      this.regexpUnescape = getOrResetRegExp(this.regexpUnescape, `${this.prefix}${this.unescapePrefix}(.+?)${this.unescapeSuffix}${this.suffix}`);
+      this.nestingRegexp = getOrResetRegExp(this.nestingRegexp, `${this.nestingPrefix}(.+?)${this.nestingSuffix}`);
+    }
+    interpolate(str, data, lng, options) {
+      let match;
+      let value;
+      let replaces;
+      const defaultData = this.options && this.options.interpolation && this.options.interpolation.defaultVariables || {};
+      const handleFormat = key => {
+        if (key.indexOf(this.formatSeparator) < 0) {
+          const path = deepFindWithDefaults(data, defaultData, key, this.options.keySeparator, this.options.ignoreJSONStructure);
+          return this.alwaysFormat ? this.format(path, undefined, lng, {
+            ...options,
+            ...data,
+            interpolationkey: key
+          }) : path;
+        }
+        const p = key.split(this.formatSeparator);
+        const k = p.shift().trim();
+        const f = p.join(this.formatSeparator).trim();
+        return this.format(deepFindWithDefaults(data, defaultData, k, this.options.keySeparator, this.options.ignoreJSONStructure), f, lng, {
+          ...options,
+          ...data,
+          interpolationkey: k
+        });
+      };
+      this.resetRegExp();
+      const missingInterpolationHandler = options?.missingInterpolationHandler || this.options.missingInterpolationHandler;
+      const skipOnVariables = options?.interpolation?.skipOnVariables !== undefined ? options.interpolation.skipOnVariables : this.options.interpolation.skipOnVariables;
+      const todos = [{
+        regex: this.regexpUnescape,
+        safeValue: val => regexSafe(val)
+      }, {
+        regex: this.regexp,
+        safeValue: val => this.escapeValue ? regexSafe(this.escape(val)) : regexSafe(val)
+      }];
+      todos.forEach(todo => {
+        replaces = 0;
+        while (match = todo.regex.exec(str)) {
+          const matchedVar = match[1].trim();
+          value = handleFormat(matchedVar);
+          if (value === undefined) {
+            if (typeof missingInterpolationHandler === 'function') {
+              const temp = missingInterpolationHandler(str, match, options);
+              value = isString(temp) ? temp : '';
+            } else if (options && Object.prototype.hasOwnProperty.call(options, matchedVar)) {
+              value = '';
+            } else if (skipOnVariables) {
+              value = match[0];
+              continue;
+            } else {
+              this.logger.warn(`missed to pass in variable ${matchedVar} for interpolating ${str}`);
+              value = '';
+            }
+          } else if (!isString(value) && !this.useRawValueToEscape) {
+            value = makeString(value);
+          }
+          const safeValue = todo.safeValue(value);
+          str = str.replace(match[0], safeValue);
+          if (skipOnVariables) {
+            todo.regex.lastIndex += value.length;
+            todo.regex.lastIndex -= match[0].length;
+          } else {
+            todo.regex.lastIndex = 0;
+          }
+          replaces++;
+          if (replaces >= this.maxReplaces) {
+            break;
+          }
+        }
+      });
+      return str;
+    }
+    nest(str, fc, options = {}) {
+      let match;
+      let value;
+      let clonedOptions;
+      const handleHasOptions = (key, inheritedOptions) => {
+        const sep = this.nestingOptionsSeparator;
+        if (key.indexOf(sep) < 0) return key;
+        const c = key.split(new RegExp(`${sep}[ ]*{`));
+        let optionsString = `{${c[1]}`;
+        key = c[0];
+        optionsString = this.interpolate(optionsString, clonedOptions);
+        const matchedSingleQuotes = optionsString.match(/'/g);
+        const matchedDoubleQuotes = optionsString.match(/"/g);
+        if ((matchedSingleQuotes?.length ?? 0) % 2 === 0 && !matchedDoubleQuotes || matchedDoubleQuotes.length % 2 !== 0) {
+          optionsString = optionsString.replace(/'/g, '"');
+        }
+        try {
+          clonedOptions = JSON.parse(optionsString);
+          if (inheritedOptions) clonedOptions = {
+            ...inheritedOptions,
+            ...clonedOptions
+          };
+        } catch (e) {
+          this.logger.warn(`failed parsing options string in nesting for key ${key}`, e);
+          return `${key}${sep}${optionsString}`;
+        }
+        if (clonedOptions.defaultValue && clonedOptions.defaultValue.indexOf(this.prefix) > -1) delete clonedOptions.defaultValue;
+        return key;
+      };
+      while (match = this.nestingRegexp.exec(str)) {
+        let formatters = [];
+        clonedOptions = {
+          ...options
+        };
+        clonedOptions = clonedOptions.replace && !isString(clonedOptions.replace) ? clonedOptions.replace : clonedOptions;
+        clonedOptions.applyPostProcessor = false;
+        delete clonedOptions.defaultValue;
+        const keyEndIndex = /{.*}/.test(match[1]) ? match[1].lastIndexOf('}') + 1 : match[1].indexOf(this.formatSeparator);
+        if (keyEndIndex !== -1) {
+          formatters = match[1].slice(keyEndIndex).split(this.formatSeparator).map(elem => elem.trim()).filter(Boolean);
+          match[1] = match[1].slice(0, keyEndIndex);
+        }
+        value = fc(handleHasOptions.call(this, match[1].trim(), clonedOptions), clonedOptions);
+        if (value && match[0] === str && !isString(value)) return value;
+        if (!isString(value)) value = makeString(value);
+        if (!value) {
+          this.logger.warn(`missed to resolve ${match[1]} for nesting ${str}`);
+          value = '';
+        }
+        if (formatters.length) {
+          value = formatters.reduce((v, f) => this.format(v, f, options.lng, {
+            ...options,
+            interpolationkey: match[1].trim()
+          }), value.trim());
+        }
+        str = str.replace(match[0], value);
+        this.regexp.lastIndex = 0;
+      }
+      return str;
+    }
+  }
+
+  const parseFormatStr = formatStr => {
+    let formatName = formatStr.toLowerCase().trim();
+    const formatOptions = {};
+    if (formatStr.indexOf('(') > -1) {
+      const p = formatStr.split('(');
+      formatName = p[0].toLowerCase().trim();
+      const optStr = p[1].substring(0, p[1].length - 1);
+      if (formatName === 'currency' && optStr.indexOf(':') < 0) {
+        if (!formatOptions.currency) formatOptions.currency = optStr.trim();
+      } else if (formatName === 'relativetime' && optStr.indexOf(':') < 0) {
+        if (!formatOptions.range) formatOptions.range = optStr.trim();
+      } else {
+        const opts = optStr.split(';');
+        opts.forEach(opt => {
+          if (opt) {
+            const [key, ...rest] = opt.split(':');
+            const val = rest.join(':').trim().replace(/^'+|'+$/g, '');
+            const trimmedKey = key.trim();
+            if (!formatOptions[trimmedKey]) formatOptions[trimmedKey] = val;
+            if (val === 'false') formatOptions[trimmedKey] = false;
+            if (val === 'true') formatOptions[trimmedKey] = true;
+            if (!isNaN(val)) formatOptions[trimmedKey] = parseInt(val, 10);
+          }
+        });
+      }
+    }
+    return {
+      formatName,
+      formatOptions
+    };
+  };
+  const createCachedFormatter = fn => {
+    const cache = {};
+    return (v, l, o) => {
+      let optForCache = o;
+      if (o && o.interpolationkey && o.formatParams && o.formatParams[o.interpolationkey] && o[o.interpolationkey]) {
+        optForCache = {
+          ...optForCache,
+          [o.interpolationkey]: undefined
+        };
+      }
+      const key = l + JSON.stringify(optForCache);
+      let frm = cache[key];
+      if (!frm) {
+        frm = fn(getCleanedCode(l), o);
+        cache[key] = frm;
+      }
+      return frm(v);
+    };
+  };
+  const createNonCachedFormatter = fn => (v, l, o) => fn(getCleanedCode(l), o)(v);
+  class Formatter {
+    constructor(options = {}) {
+      this.logger = baseLogger.create('formatter');
+      this.options = options;
+      this.init(options);
+    }
+    init(services, options = {
+      interpolation: {}
+    }) {
+      this.formatSeparator = options.interpolation.formatSeparator || ',';
+      const cf = options.cacheInBuiltFormats ? createCachedFormatter : createNonCachedFormatter;
+      this.formats = {
+        number: cf((lng, opt) => {
+          const formatter = new Intl.NumberFormat(lng, {
+            ...opt
+          });
+          return val => formatter.format(val);
+        }),
+        currency: cf((lng, opt) => {
+          const formatter = new Intl.NumberFormat(lng, {
+            ...opt,
+            style: 'currency'
+          });
+          return val => formatter.format(val);
+        }),
+        datetime: cf((lng, opt) => {
+          const formatter = new Intl.DateTimeFormat(lng, {
+            ...opt
+          });
+          return val => formatter.format(val);
+        }),
+        relativetime: cf((lng, opt) => {
+          const formatter = new Intl.RelativeTimeFormat(lng, {
+            ...opt
+          });
+          return val => formatter.format(val, opt.range || 'day');
+        }),
+        list: cf((lng, opt) => {
+          const formatter = new Intl.ListFormat(lng, {
+            ...opt
+          });
+          return val => formatter.format(val);
+        })
+      };
+    }
+    add(name, fc) {
+      this.formats[name.toLowerCase().trim()] = fc;
+    }
+    addCached(name, fc) {
+      this.formats[name.toLowerCase().trim()] = createCachedFormatter(fc);
+    }
+    format(value, format, lng, options = {}) {
+      const formats = format.split(this.formatSeparator);
+      if (formats.length > 1 && formats[0].indexOf('(') > 1 && formats[0].indexOf(')') < 0 && formats.find(f => f.indexOf(')') > -1)) {
+        const lastIndex = formats.findIndex(f => f.indexOf(')') > -1);
+        formats[0] = [formats[0], ...formats.splice(1, lastIndex)].join(this.formatSeparator);
+      }
+      const result = formats.reduce((mem, f) => {
+        const {
+          formatName,
+          formatOptions
+        } = parseFormatStr(f);
+        if (this.formats[formatName]) {
+          let formatted = mem;
+          try {
+            const valOptions = options?.formatParams?.[options.interpolationkey] || {};
+            const l = valOptions.locale || valOptions.lng || options.locale || options.lng || lng;
+            formatted = this.formats[formatName](mem, l, {
+              ...formatOptions,
+              ...options,
+              ...valOptions
+            });
+          } catch (error) {
+            this.logger.warn(error);
+          }
+          return formatted;
+        } else {
+          this.logger.warn(`there was no format function for ${formatName}`);
+        }
+        return mem;
+      }, value);
+      return result;
+    }
+  }
+
+  const removePending = (q, name) => {
+    if (q.pending[name] !== undefined) {
+      delete q.pending[name];
+      q.pendingCount--;
+    }
+  };
+  class Connector extends EventEmitter {
+    constructor(backend, store, services, options = {}) {
+      super();
+      this.backend = backend;
+      this.store = store;
+      this.services = services;
+      this.languageUtils = services.languageUtils;
+      this.options = options;
+      this.logger = baseLogger.create('backendConnector');
+      this.waitingReads = [];
+      this.maxParallelReads = options.maxParallelReads || 10;
+      this.readingCalls = 0;
+      this.maxRetries = options.maxRetries >= 0 ? options.maxRetries : 5;
+      this.retryTimeout = options.retryTimeout >= 1 ? options.retryTimeout : 350;
+      this.state = {};
+      this.queue = [];
+      this.backend?.init?.(services, options.backend, options);
+    }
+    queueLoad(languages, namespaces, options, callback) {
+      const toLoad = {};
+      const pending = {};
+      const toLoadLanguages = {};
+      const toLoadNamespaces = {};
+      languages.forEach(lng => {
+        let hasAllNamespaces = true;
+        namespaces.forEach(ns => {
+          const name = `${lng}|${ns}`;
+          if (!options.reload && this.store.hasResourceBundle(lng, ns)) {
+            this.state[name] = 2;
+          } else if (this.state[name] < 0) ; else if (this.state[name] === 1) {
+            if (pending[name] === undefined) pending[name] = true;
+          } else {
+            this.state[name] = 1;
+            hasAllNamespaces = false;
+            if (pending[name] === undefined) pending[name] = true;
+            if (toLoad[name] === undefined) toLoad[name] = true;
+            if (toLoadNamespaces[ns] === undefined) toLoadNamespaces[ns] = true;
+          }
+        });
+        if (!hasAllNamespaces) toLoadLanguages[lng] = true;
+      });
+      if (Object.keys(toLoad).length || Object.keys(pending).length) {
+        this.queue.push({
+          pending,
+          pendingCount: Object.keys(pending).length,
+          loaded: {},
+          errors: [],
+          callback
+        });
+      }
+      return {
+        toLoad: Object.keys(toLoad),
+        pending: Object.keys(pending),
+        toLoadLanguages: Object.keys(toLoadLanguages),
+        toLoadNamespaces: Object.keys(toLoadNamespaces)
+      };
+    }
+    loaded(name, err, data) {
+      const s = name.split('|');
+      const lng = s[0];
+      const ns = s[1];
+      if (err) this.emit('failedLoading', lng, ns, err);
+      if (!err && data) {
+        this.store.addResourceBundle(lng, ns, data, undefined, undefined, {
+          skipCopy: true
+        });
+      }
+      this.state[name] = err ? -1 : 2;
+      if (err && data) this.state[name] = 0;
+      const loaded = {};
+      this.queue.forEach(q => {
+        pushPath(q.loaded, [lng], ns);
+        removePending(q, name);
+        if (err) q.errors.push(err);
+        if (q.pendingCount === 0 && !q.done) {
+          Object.keys(q.loaded).forEach(l => {
+            if (!loaded[l]) loaded[l] = {};
+            const loadedKeys = q.loaded[l];
+            if (loadedKeys.length) {
+              loadedKeys.forEach(n => {
+                if (loaded[l][n] === undefined) loaded[l][n] = true;
+              });
+            }
+          });
+          q.done = true;
+          if (q.errors.length) {
+            q.callback(q.errors);
+          } else {
+            q.callback();
+          }
+        }
+      });
+      this.emit('loaded', loaded);
+      this.queue = this.queue.filter(q => !q.done);
+    }
+    read(lng, ns, fcName, tried = 0, wait = this.retryTimeout, callback) {
+      if (!lng.length) return callback(null, {});
+      if (this.readingCalls >= this.maxParallelReads) {
+        this.waitingReads.push({
+          lng,
+          ns,
+          fcName,
+          tried,
+          wait,
+          callback
+        });
+        return;
+      }
+      this.readingCalls++;
+      const resolver = (err, data) => {
+        this.readingCalls--;
+        if (this.waitingReads.length > 0) {
+          const next = this.waitingReads.shift();
+          this.read(next.lng, next.ns, next.fcName, next.tried, next.wait, next.callback);
+        }
+        if (err && data && tried < this.maxRetries) {
+          setTimeout(() => {
+            this.read.call(this, lng, ns, fcName, tried + 1, wait * 2, callback);
+          }, wait);
+          return;
+        }
+        callback(err, data);
+      };
+      const fc = this.backend[fcName].bind(this.backend);
+      if (fc.length === 2) {
+        try {
+          const r = fc(lng, ns);
+          if (r && typeof r.then === 'function') {
+            r.then(data => resolver(null, data)).catch(resolver);
+          } else {
+            resolver(null, r);
+          }
+        } catch (err) {
+          resolver(err);
+        }
+        return;
+      }
+      return fc(lng, ns, resolver);
+    }
+    prepareLoading(languages, namespaces, options = {}, callback) {
+      if (!this.backend) {
+        this.logger.warn('No backend was added via i18next.use. Will not load resources.');
+        return callback && callback();
+      }
+      if (isString(languages)) languages = this.languageUtils.toResolveHierarchy(languages);
+      if (isString(namespaces)) namespaces = [namespaces];
+      const toLoad = this.queueLoad(languages, namespaces, options, callback);
+      if (!toLoad.toLoad.length) {
+        if (!toLoad.pending.length) callback();
+        return null;
+      }
+      toLoad.toLoad.forEach(name => {
+        this.loadOne(name);
+      });
+    }
+    load(languages, namespaces, callback) {
+      this.prepareLoading(languages, namespaces, {}, callback);
+    }
+    reload(languages, namespaces, callback) {
+      this.prepareLoading(languages, namespaces, {
+        reload: true
+      }, callback);
+    }
+    loadOne(name, prefix = '') {
+      const s = name.split('|');
+      const lng = s[0];
+      const ns = s[1];
+      this.read(lng, ns, 'read', undefined, undefined, (err, data) => {
+        if (err) this.logger.warn(`${prefix}loading namespace ${ns} for language ${lng} failed`, err);
+        if (!err && data) this.logger.log(`${prefix}loaded namespace ${ns} for language ${lng}`, data);
+        this.loaded(name, err, data);
+      });
+    }
+    saveMissing(languages, namespace, key, fallbackValue, isUpdate, options = {}, clb = () => {}) {
+      if (this.services?.utils?.hasLoadedNamespace && !this.services?.utils?.hasLoadedNamespace(namespace)) {
+        this.logger.warn(`did not save key "${key}" as the namespace "${namespace}" was not yet loaded`, 'This means something IS WRONG in your setup. You access the t function before i18next.init / i18next.loadNamespace / i18next.changeLanguage was done. Wait for the callback or Promise to resolve before accessing it!!!');
+        return;
+      }
+      if (key === undefined || key === null || key === '') return;
+      if (this.backend?.create) {
+        const opts = {
+          ...options,
+          isUpdate
+        };
+        const fc = this.backend.create.bind(this.backend);
+        if (fc.length < 6) {
+          try {
+            let r;
+            if (fc.length === 5) {
+              r = fc(languages, namespace, key, fallbackValue, opts);
+            } else {
+              r = fc(languages, namespace, key, fallbackValue);
+            }
+            if (r && typeof r.then === 'function') {
+              r.then(data => clb(null, data)).catch(clb);
+            } else {
+              clb(null, r);
+            }
+          } catch (err) {
+            clb(err);
+          }
+        } else {
+          fc(languages, namespace, key, fallbackValue, clb, opts);
+        }
+      }
+      if (!languages || !languages[0]) return;
+      this.store.addResource(languages[0], namespace, key, fallbackValue);
+    }
+  }
+
+  const get = () => ({
+    debug: false,
+    initAsync: true,
+    ns: ['translation'],
+    defaultNS: ['translation'],
+    fallbackLng: ['dev'],
+    fallbackNS: false,
+    supportedLngs: false,
+    nonExplicitSupportedLngs: false,
+    load: 'all',
+    preload: false,
+    simplifyPluralSuffix: true,
+    keySeparator: '.',
+    nsSeparator: ':',
+    pluralSeparator: '_',
+    contextSeparator: '_',
+    partialBundledLanguages: false,
+    saveMissing: false,
+    updateMissing: false,
+    saveMissingTo: 'fallback',
+    saveMissingPlurals: true,
+    missingKeyHandler: false,
+    missingInterpolationHandler: false,
+    postProcess: false,
+    postProcessPassResolved: false,
+    returnNull: false,
+    returnEmptyString: true,
+    returnObjects: false,
+    joinArrays: false,
+    returnedObjectHandler: false,
+    parseMissingKeyHandler: false,
+    appendNamespaceToMissingKey: false,
+    appendNamespaceToCIMode: false,
+    overloadTranslationOptionHandler: args => {
+      let ret = {};
+      if (typeof args[1] === 'object') ret = args[1];
+      if (isString(args[1])) ret.defaultValue = args[1];
+      if (isString(args[2])) ret.tDescription = args[2];
+      if (typeof args[2] === 'object' || typeof args[3] === 'object') {
+        const options = args[3] || args[2];
+        Object.keys(options).forEach(key => {
+          ret[key] = options[key];
+        });
+      }
+      return ret;
+    },
+    interpolation: {
+      escapeValue: true,
+      format: value => value,
+      prefix: '{{',
+      suffix: '}}',
+      formatSeparator: ',',
+      unescapePrefix: '-',
+      nestingPrefix: '$t(',
+      nestingSuffix: ')',
+      nestingOptionsSeparator: ',',
+      maxReplaces: 1000,
+      skipOnVariables: true
+    },
+    cacheInBuiltFormats: true
   });
+  const transformOptions = options => {
+    if (isString(options.ns)) options.ns = [options.ns];
+    if (isString(options.fallbackLng)) options.fallbackLng = [options.fallbackLng];
+    if (isString(options.fallbackNS)) options.fallbackNS = [options.fallbackNS];
+    if (options.supportedLngs?.indexOf?.('cimode') < 0) {
+      options.supportedLngs = options.supportedLngs.concat(['cimode']);
+    }
+    if (typeof options.initImmediate === 'boolean') options.initAsync = options.initImmediate;
+    return options;
+  };
 
-  var data$w = { en:{ opening_hours:{ pretty:{ off:"closed",
+  const noop = () => {};
+  const bindMemberFunctions = inst => {
+    const mems = Object.getOwnPropertyNames(Object.getPrototypeOf(inst));
+    mems.forEach(mem => {
+      if (typeof inst[mem] === 'function') {
+        inst[mem] = inst[mem].bind(inst);
+      }
+    });
+  };
+  class I18n extends EventEmitter {
+    constructor(options = {}, callback) {
+      super();
+      this.options = transformOptions(options);
+      this.services = {};
+      this.logger = baseLogger;
+      this.modules = {
+        external: []
+      };
+      bindMemberFunctions(this);
+      if (callback && !this.isInitialized && !options.isClone) {
+        if (!this.options.initAsync) {
+          this.init(options, callback);
+          return this;
+        }
+        setTimeout(() => {
+          this.init(options, callback);
+        }, 0);
+      }
+    }
+    init(options = {}, callback) {
+      this.isInitializing = true;
+      if (typeof options === 'function') {
+        callback = options;
+        options = {};
+      }
+      if (options.defaultNS == null && options.ns) {
+        if (isString(options.ns)) {
+          options.defaultNS = options.ns;
+        } else if (options.ns.indexOf('translation') < 0) {
+          options.defaultNS = options.ns[0];
+        }
+      }
+      const defOpts = get();
+      this.options = {
+        ...defOpts,
+        ...this.options,
+        ...transformOptions(options)
+      };
+      this.options.interpolation = {
+        ...defOpts.interpolation,
+        ...this.options.interpolation
+      };
+      if (options.keySeparator !== undefined) {
+        this.options.userDefinedKeySeparator = options.keySeparator;
+      }
+      if (options.nsSeparator !== undefined) {
+        this.options.userDefinedNsSeparator = options.nsSeparator;
+      }
+      const createClassOnDemand = ClassOrObject => {
+        if (!ClassOrObject) return null;
+        if (typeof ClassOrObject === 'function') return new ClassOrObject();
+        return ClassOrObject;
+      };
+      if (!this.options.isClone) {
+        if (this.modules.logger) {
+          baseLogger.init(createClassOnDemand(this.modules.logger), this.options);
+        } else {
+          baseLogger.init(null, this.options);
+        }
+        let formatter;
+        if (this.modules.formatter) {
+          formatter = this.modules.formatter;
+        } else {
+          formatter = Formatter;
+        }
+        const lu = new LanguageUtil(this.options);
+        this.store = new ResourceStore(this.options.resources, this.options);
+        const s = this.services;
+        s.logger = baseLogger;
+        s.resourceStore = this.store;
+        s.languageUtils = lu;
+        s.pluralResolver = new PluralResolver(lu, {
+          prepend: this.options.pluralSeparator,
+          simplifyPluralSuffix: this.options.simplifyPluralSuffix
+        });
+        const usingLegacyFormatFunction = this.options.interpolation.format && this.options.interpolation.format !== defOpts.interpolation.format;
+        if (usingLegacyFormatFunction) {
+          this.logger.warn(`init: you are still using the legacy format function, please use the new approach: https://www.i18next.com/translation-function/formatting`);
+        }
+        if (formatter && (!this.options.interpolation.format || this.options.interpolation.format === defOpts.interpolation.format)) {
+          s.formatter = createClassOnDemand(formatter);
+          if (s.formatter.init) s.formatter.init(s, this.options);
+          this.options.interpolation.format = s.formatter.format.bind(s.formatter);
+        }
+        s.interpolator = new Interpolator(this.options);
+        s.utils = {
+          hasLoadedNamespace: this.hasLoadedNamespace.bind(this)
+        };
+        s.backendConnector = new Connector(createClassOnDemand(this.modules.backend), s.resourceStore, s, this.options);
+        s.backendConnector.on('*', (event, ...args) => {
+          this.emit(event, ...args);
+        });
+        if (this.modules.languageDetector) {
+          s.languageDetector = createClassOnDemand(this.modules.languageDetector);
+          if (s.languageDetector.init) s.languageDetector.init(s, this.options.detection, this.options);
+        }
+        if (this.modules.i18nFormat) {
+          s.i18nFormat = createClassOnDemand(this.modules.i18nFormat);
+          if (s.i18nFormat.init) s.i18nFormat.init(this);
+        }
+        this.translator = new Translator(this.services, this.options);
+        this.translator.on('*', (event, ...args) => {
+          this.emit(event, ...args);
+        });
+        this.modules.external.forEach(m => {
+          if (m.init) m.init(this);
+        });
+      }
+      this.format = this.options.interpolation.format;
+      if (!callback) callback = noop;
+      if (this.options.fallbackLng && !this.services.languageDetector && !this.options.lng) {
+        const codes = this.services.languageUtils.getFallbackCodes(this.options.fallbackLng);
+        if (codes.length > 0 && codes[0] !== 'dev') this.options.lng = codes[0];
+      }
+      if (!this.services.languageDetector && !this.options.lng) {
+        this.logger.warn('init: no languageDetector is used and no lng is defined');
+      }
+      const storeApi = ['getResource', 'hasResourceBundle', 'getResourceBundle', 'getDataByLanguage'];
+      storeApi.forEach(fcName => {
+        this[fcName] = (...args) => this.store[fcName](...args);
+      });
+      const storeApiChained = ['addResource', 'addResources', 'addResourceBundle', 'removeResourceBundle'];
+      storeApiChained.forEach(fcName => {
+        this[fcName] = (...args) => {
+          this.store[fcName](...args);
+          return this;
+        };
+      });
+      const deferred = defer();
+      const load = () => {
+        const finish = (err, t) => {
+          this.isInitializing = false;
+          if (this.isInitialized && !this.initializedStoreOnce) this.logger.warn('init: i18next is already initialized. You should call init just once!');
+          this.isInitialized = true;
+          if (!this.options.isClone) this.logger.log('initialized', this.options);
+          this.emit('initialized', this.options);
+          deferred.resolve(t);
+          callback(err, t);
+        };
+        if (this.languages && !this.isInitialized) return finish(null, this.t.bind(this));
+        this.changeLanguage(this.options.lng, finish);
+      };
+      if (this.options.resources || !this.options.initAsync) {
+        load();
+      } else {
+        setTimeout(load, 0);
+      }
+      return deferred;
+    }
+    loadResources(language, callback = noop) {
+      let usedCallback = callback;
+      const usedLng = isString(language) ? language : this.language;
+      if (typeof language === 'function') usedCallback = language;
+      if (!this.options.resources || this.options.partialBundledLanguages) {
+        if (usedLng?.toLowerCase() === 'cimode' && (!this.options.preload || this.options.preload.length === 0)) return usedCallback();
+        const toLoad = [];
+        const append = lng => {
+          if (!lng) return;
+          if (lng === 'cimode') return;
+          const lngs = this.services.languageUtils.toResolveHierarchy(lng);
+          lngs.forEach(l => {
+            if (l === 'cimode') return;
+            if (toLoad.indexOf(l) < 0) toLoad.push(l);
+          });
+        };
+        if (!usedLng) {
+          const fallbacks = this.services.languageUtils.getFallbackCodes(this.options.fallbackLng);
+          fallbacks.forEach(l => append(l));
+        } else {
+          append(usedLng);
+        }
+        this.options.preload?.forEach?.(l => append(l));
+        this.services.backendConnector.load(toLoad, this.options.ns, e => {
+          if (!e && !this.resolvedLanguage && this.language) this.setResolvedLanguage(this.language);
+          usedCallback(e);
+        });
+      } else {
+        usedCallback(null);
+      }
+    }
+    reloadResources(lngs, ns, callback) {
+      const deferred = defer();
+      if (typeof lngs === 'function') {
+        callback = lngs;
+        lngs = undefined;
+      }
+      if (typeof ns === 'function') {
+        callback = ns;
+        ns = undefined;
+      }
+      if (!lngs) lngs = this.languages;
+      if (!ns) ns = this.options.ns;
+      if (!callback) callback = noop;
+      this.services.backendConnector.reload(lngs, ns, err => {
+        deferred.resolve();
+        callback(err);
+      });
+      return deferred;
+    }
+    use(module) {
+      if (!module) throw new Error('You are passing an undefined module! Please check the object you are passing to i18next.use()');
+      if (!module.type) throw new Error('You are passing a wrong module! Please check the object you are passing to i18next.use()');
+      if (module.type === 'backend') {
+        this.modules.backend = module;
+      }
+      if (module.type === 'logger' || module.log && module.warn && module.error) {
+        this.modules.logger = module;
+      }
+      if (module.type === 'languageDetector') {
+        this.modules.languageDetector = module;
+      }
+      if (module.type === 'i18nFormat') {
+        this.modules.i18nFormat = module;
+      }
+      if (module.type === 'postProcessor') {
+        postProcessor.addPostProcessor(module);
+      }
+      if (module.type === 'formatter') {
+        this.modules.formatter = module;
+      }
+      if (module.type === '3rdParty') {
+        this.modules.external.push(module);
+      }
+      return this;
+    }
+    setResolvedLanguage(l) {
+      if (!l || !this.languages) return;
+      if (['cimode', 'dev'].indexOf(l) > -1) return;
+      for (let li = 0; li < this.languages.length; li++) {
+        const lngInLngs = this.languages[li];
+        if (['cimode', 'dev'].indexOf(lngInLngs) > -1) continue;
+        if (this.store.hasLanguageSomeTranslations(lngInLngs)) {
+          this.resolvedLanguage = lngInLngs;
+          break;
+        }
+      }
+      if (!this.resolvedLanguage && this.languages.indexOf(l) < 0 && this.store.hasLanguageSomeTranslations(l)) {
+        this.resolvedLanguage = l;
+        this.languages.unshift(l);
+      }
+    }
+    changeLanguage(lng, callback) {
+      this.isLanguageChangingTo = lng;
+      const deferred = defer();
+      this.emit('languageChanging', lng);
+      const setLngProps = l => {
+        this.language = l;
+        this.languages = this.services.languageUtils.toResolveHierarchy(l);
+        this.resolvedLanguage = undefined;
+        this.setResolvedLanguage(l);
+      };
+      const done = (err, l) => {
+        if (l) {
+          if (this.isLanguageChangingTo === lng) {
+            setLngProps(l);
+            this.translator.changeLanguage(l);
+            this.isLanguageChangingTo = undefined;
+            this.emit('languageChanged', l);
+            this.logger.log('languageChanged', l);
+          }
+        } else {
+          this.isLanguageChangingTo = undefined;
+        }
+        deferred.resolve((...args) => this.t(...args));
+        if (callback) callback(err, (...args) => this.t(...args));
+      };
+      const setLng = lngs => {
+        if (!lng && !lngs && this.services.languageDetector) lngs = [];
+        const fl = isString(lngs) ? lngs : lngs && lngs[0];
+        const l = this.store.hasLanguageSomeTranslations(fl) ? fl : this.services.languageUtils.getBestMatchFromCodes(isString(lngs) ? [lngs] : lngs);
+        if (l) {
+          if (!this.language) {
+            setLngProps(l);
+          }
+          if (!this.translator.language) this.translator.changeLanguage(l);
+          this.services.languageDetector?.cacheUserLanguage?.(l);
+        }
+        this.loadResources(l, err => {
+          done(err, l);
+        });
+      };
+      if (!lng && this.services.languageDetector && !this.services.languageDetector.async) {
+        setLng(this.services.languageDetector.detect());
+      } else if (!lng && this.services.languageDetector && this.services.languageDetector.async) {
+        if (this.services.languageDetector.detect.length === 0) {
+          this.services.languageDetector.detect().then(setLng);
+        } else {
+          this.services.languageDetector.detect(setLng);
+        }
+      } else {
+        setLng(lng);
+      }
+      return deferred;
+    }
+    getFixedT(lng, ns, keyPrefix) {
+      const fixedT = (key, opts, ...rest) => {
+        let o;
+        if (typeof opts !== 'object') {
+          o = this.options.overloadTranslationOptionHandler([key, opts].concat(rest));
+        } else {
+          o = {
+            ...opts
+          };
+        }
+        o.lng = o.lng || fixedT.lng;
+        o.lngs = o.lngs || fixedT.lngs;
+        o.ns = o.ns || fixedT.ns;
+        if (o.keyPrefix !== '') o.keyPrefix = o.keyPrefix || keyPrefix || fixedT.keyPrefix;
+        const keySeparator = this.options.keySeparator || '.';
+        let resultKey;
+        if (o.keyPrefix && Array.isArray(key)) {
+          resultKey = key.map(k => `${o.keyPrefix}${keySeparator}${k}`);
+        } else {
+          resultKey = o.keyPrefix ? `${o.keyPrefix}${keySeparator}${key}` : key;
+        }
+        return this.t(resultKey, o);
+      };
+      if (isString(lng)) {
+        fixedT.lng = lng;
+      } else {
+        fixedT.lngs = lng;
+      }
+      fixedT.ns = ns;
+      fixedT.keyPrefix = keyPrefix;
+      return fixedT;
+    }
+    t(...args) {
+      return this.translator?.translate(...args);
+    }
+    exists(...args) {
+      return this.translator?.exists(...args);
+    }
+    setDefaultNamespace(ns) {
+      this.options.defaultNS = ns;
+    }
+    hasLoadedNamespace(ns, options = {}) {
+      if (!this.isInitialized) {
+        this.logger.warn('hasLoadedNamespace: i18next was not initialized', this.languages);
+        return false;
+      }
+      if (!this.languages || !this.languages.length) {
+        this.logger.warn('hasLoadedNamespace: i18n.languages were undefined or empty', this.languages);
+        return false;
+      }
+      const lng = options.lng || this.resolvedLanguage || this.languages[0];
+      const fallbackLng = this.options ? this.options.fallbackLng : false;
+      const lastLng = this.languages[this.languages.length - 1];
+      if (lng.toLowerCase() === 'cimode') return true;
+      const loadNotPending = (l, n) => {
+        const loadState = this.services.backendConnector.state[`${l}|${n}`];
+        return loadState === -1 || loadState === 0 || loadState === 2;
+      };
+      if (options.precheck) {
+        const preResult = options.precheck(this, loadNotPending);
+        if (preResult !== undefined) return preResult;
+      }
+      if (this.hasResourceBundle(lng, ns)) return true;
+      if (!this.services.backendConnector.backend || this.options.resources && !this.options.partialBundledLanguages) return true;
+      if (loadNotPending(lng, ns) && (!fallbackLng || loadNotPending(lastLng, ns))) return true;
+      return false;
+    }
+    loadNamespaces(ns, callback) {
+      const deferred = defer();
+      if (!this.options.ns) {
+        if (callback) callback();
+        return Promise.resolve();
+      }
+      if (isString(ns)) ns = [ns];
+      ns.forEach(n => {
+        if (this.options.ns.indexOf(n) < 0) this.options.ns.push(n);
+      });
+      this.loadResources(err => {
+        deferred.resolve();
+        if (callback) callback(err);
+      });
+      return deferred;
+    }
+    loadLanguages(lngs, callback) {
+      const deferred = defer();
+      if (isString(lngs)) lngs = [lngs];
+      const preloaded = this.options.preload || [];
+      const newLngs = lngs.filter(lng => preloaded.indexOf(lng) < 0 && this.services.languageUtils.isSupportedCode(lng));
+      if (!newLngs.length) {
+        if (callback) callback();
+        return Promise.resolve();
+      }
+      this.options.preload = preloaded.concat(newLngs);
+      this.loadResources(err => {
+        deferred.resolve();
+        if (callback) callback(err);
+      });
+      return deferred;
+    }
+    dir(lng) {
+      if (!lng) lng = this.resolvedLanguage || (this.languages?.length > 0 ? this.languages[0] : this.language);
+      if (!lng) return 'rtl';
+      try {
+        const l = new Intl.Locale(lng);
+        if (l && l.getTextInfo) {
+          const ti = l.getTextInfo();
+          if (ti && ti.direction) return ti.direction;
+        }
+      } catch (e) {}
+      const rtlLngs = ['ar', 'shu', 'sqr', 'ssh', 'xaa', 'yhd', 'yud', 'aao', 'abh', 'abv', 'acm', 'acq', 'acw', 'acx', 'acy', 'adf', 'ads', 'aeb', 'aec', 'afb', 'ajp', 'apc', 'apd', 'arb', 'arq', 'ars', 'ary', 'arz', 'auz', 'avl', 'ayh', 'ayl', 'ayn', 'ayp', 'bbz', 'pga', 'he', 'iw', 'ps', 'pbt', 'pbu', 'pst', 'prp', 'prd', 'ug', 'ur', 'ydd', 'yds', 'yih', 'ji', 'yi', 'hbo', 'men', 'xmn', 'fa', 'jpr', 'peo', 'pes', 'prs', 'dv', 'sam', 'ckb'];
+      const languageUtils = this.services?.languageUtils || new LanguageUtil(get());
+      if (lng.toLowerCase().indexOf('-latn') > 1) return 'ltr';
+      return rtlLngs.indexOf(languageUtils.getLanguagePartFromCode(lng)) > -1 || lng.toLowerCase().indexOf('-arab') > 1 ? 'rtl' : 'ltr';
+    }
+    static createInstance(options = {}, callback) {
+      return new I18n(options, callback);
+    }
+    cloneInstance(options = {}, callback = noop) {
+      const forkResourceStore = options.forkResourceStore;
+      if (forkResourceStore) delete options.forkResourceStore;
+      const mergedOptions = {
+        ...this.options,
+        ...options,
+        ...{
+          isClone: true
+        }
+      };
+      const clone = new I18n(mergedOptions);
+      if (options.debug !== undefined || options.prefix !== undefined) {
+        clone.logger = clone.logger.clone(options);
+      }
+      const membersToCopy = ['store', 'services', 'language'];
+      membersToCopy.forEach(m => {
+        clone[m] = this[m];
+      });
+      clone.services = {
+        ...this.services
+      };
+      clone.services.utils = {
+        hasLoadedNamespace: clone.hasLoadedNamespace.bind(clone)
+      };
+      if (forkResourceStore) {
+        const clonedData = Object.keys(this.store.data).reduce((prev, l) => {
+          prev[l] = {
+            ...this.store.data[l]
+          };
+          prev[l] = Object.keys(prev[l]).reduce((acc, n) => {
+            acc[n] = {
+              ...prev[l][n]
+            };
+            return acc;
+          }, prev[l]);
+          return prev;
+        }, {});
+        clone.store = new ResourceStore(clonedData, mergedOptions);
+        clone.services.resourceStore = clone.store;
+      }
+      clone.translator = new Translator(clone.services, mergedOptions);
+      clone.translator.on('*', (event, ...args) => {
+        clone.emit(event, ...args);
+      });
+      clone.init(mergedOptions, callback);
+      clone.translator.options = mergedOptions;
+      clone.translator.backendConnector.services.utils = {
+        hasLoadedNamespace: clone.hasLoadedNamespace.bind(clone)
+      };
+      return clone;
+    }
+    toJSON() {
+      return {
+        options: this.options,
+        store: this.store,
+        language: this.language,
+        languages: this.languages,
+        resolvedLanguage: this.resolvedLanguage
+      };
+    }
+  }
+  const instance = I18n.createInstance();
+  instance.createInstance = I18n.createInstance;
+
+  instance.createInstance;
+  instance.dir;
+  instance.init;
+  instance.loadResources;
+  instance.reloadResources;
+  instance.use;
+  instance.changeLanguage;
+  instance.getFixedT;
+  instance.t;
+  instance.exists;
+  instance.setDefaultNamespace;
+  instance.hasLoadedNamespace;
+  instance.loadNamespaces;
+  instance.loadLanguages;
+
+  var data = { en:{ opening_hours:{ pretty:{ off:"closed",
           SH:"school holidays",
           PH:"public holidays" } } },
-    de:{ opening_hours:{ texts:{ "unexpected token":"Unerwartetes Zeichen: \"__token__\" Das bedeutet, dass die Syntax an dieser Stelle nicht erkannt werden konnte.",
+    de:{ opening_hours:{ texts:{ "unexpected token":"Unerwartetes Zeichen: \"{{token}}\" Das bedeutet, dass die Syntax an dieser Stelle nicht erkannt werden konnte.",
           "no string":"Der Wert (erster Parameter) ist kein String",
           nothing:"Der Wert enthält nichts, was ausgewertet werden könnte.",
           "nothing useful":"Diese Regel enthält nichts nützliches. Bitte entferne diese leere Regel.",
-          "combine rules":"Getrennte Regeln erkannt welche jeweils nur aus einer Zeit Bereichsdefinition bestehen. Diese Regeln sollten mittels \"__ok__\" zu einer Regel kombiniert werden.",
-          "value ends with token":"Der Wert endet mit \"__token__\". Bitte ergänze den Wert nach \"__token__\" oder lösche \"__token__\".",
+          "combine rules":"Getrennte Regeln erkannt welche jeweils nur aus einer Zeit Bereichsdefinition bestehen. Diese Regeln sollten mittels \"{{ok}}\" zu einer Regel kombiniert werden.",
+          "value ends with token":"Der Wert endet mit \"{{token}}\". Bitte ergänze den Wert nach \"{{token}}\" oder lösche \"{{token}}\".",
           "programmers joke":"Kann es sein, dass du ein Programmierer bist und das Hinzufügen eines Semikolons nach jedem Statement ist zwanghaft ;) ? Es ist so, dass das Semikolon in der opening_hours-Syntax als Trenner für Regeln definiert ist. Bitte verzichte an dieser Stelle auf ein Semikolon.",
-          "interpreted as year":"Die Zahl __number__ wird als Jahr interpretiert. Vermutlich ist das nicht beabsichtigt. Uhrzeiten werden als \"12:00\" angegeben.",
+          "interpreted as year":"Die Zahl {{number}} wird als Jahr interpretiert. Vermutlich ist das nicht beabsichtigt. Uhrzeiten werden als \"12:00\" angegeben.",
           "rule before fallback empty":"Die Regel vor der Fallback-Regel enthält nichts nützliches",
           "hour min separator":"Bitte benutze \":\" als Stunden/Minuten-Trenner",
-          "warnings severity":"Der Parameter optional_conf_parm[\"warnings_severity\"] muss eine ganze Zahl zwischen (einschließlich) 0 und (einschließlich) 7 sein. Gegeben: __severity__, erwartet: Eine der Zahlen: __allowed__.",
-          "optional conf parm type":"Der optional_conf_parm Parameter hat einen unbekannten Typ. Gegeben: __given__",
+          "warnings severity":"Der Parameter optional_conf_parm[\"warnings_severity\"] muss eine ganze Zahl zwischen (einschließlich) 0 und (einschließlich) 7 sein. Gegeben: {{severity}}, erwartet: Eine der Zahlen: {{allowed}}.",
+          "optional conf parm type":"Der optional_conf_parm Parameter hat einen unbekannten Typ. Gegeben: {{given}}",
           "conf param tag key missing":"Der optional_conf_parm[\"tag_key\"] fehlt, ist aber notwendig wegen optional_conf_parm[\"map_value\"].",
-          "conf param mode invalid":"Der optional_conf_parm[\"mode\"]-Parameter ist eine ungültige Zahl. Gegeben: __given__, erwartet: Eine der Zahlen: __allowed__.",
-          "conf param unknown type":"Der optional_conf_parm[\"__key__\"] Parameter hat einen unbekannten Typ. Gegeben: __given__, erwartet: __expected__.",
-          "library bug":"Bei der Auswertung des Wertes \"__value__\" ist ein Fehler aufgetreten. Bitte melde diesen Fehler oder korrigiere diesen mittels eines Pull Requests oder Patches: __url__.__message__",
-          "library bug PR only":"Bei der Auswertung des Wertes \"__value__\" ist ein Fehler aufgetreten. Du kannst dies korrigieren, indem du das Problem löst und in Form eines Pull Requests oder Patches zum Projekt beiträgst: __url__.__message__",
-          "use multi":"Du hast __count__ __part2__ Einzelne Regeln können mit \";\" getrennt werden.",
-          "selector multi 2a":"__what__ in einer Regel benutzt. Du kannst nur einen davon je Regel verwenden",
-          "selector multi 2b":"nicht verbundene __what__ in einer Regel benutzt. Das ist vermutlich ein Fehler. Gleiche Selektoren können (und sollten) immer zusammen und durch Kommas getrennt geschrieben werden. Beispiel für Zeitspannen \"12:00-13:00,15:00-18:00\". Beispiel für Wochentage \"Mo-We,Fr\".",
+          "conf param mode invalid":"Der optional_conf_parm[\"mode\"]-Parameter ist eine ungültige Zahl. Gegeben: {{given}}, erwartet: Eine der Zahlen: {{allowed}}.",
+          "conf param unknown type":"Der optional_conf_parm[\"{{key}}\"] Parameter hat einen unbekannten Typ. Gegeben: {{given}}, erwartet: {{expected}}.",
+          "library bug":"Bei der Auswertung des Wertes \"{{value}}\" ist ein Fehler aufgetreten. Bitte melde diesen Fehler oder korrigiere diesen mittels eines Pull Requests oder Patches: {{-url}}.{{message}}",
+          "library bug PR only":"Bei der Auswertung des Wertes \"{{value}}\" ist ein Fehler aufgetreten. Du kannst dies korrigieren, indem du das Problem löst und in Form eines Pull Requests oder Patches zum Projekt beiträgst: {{-url}}.{{message}}",
+          "use multi":"Du hast {{count}} {{-part2}} Einzelne Regeln können mit \";\" getrennt werden.",
+          "selector multi 2a":"{{what}} in einer Regel benutzt. Du kannst nur einen davon je Regel verwenden",
+          "selector multi 2b":"nicht verbundene {{what}} in einer Regel benutzt. Das ist vermutlich ein Fehler. Gleiche Selektoren können (und sollten) immer zusammen und durch Kommas getrennt geschrieben werden. Beispiel für Zeitspannen \"12:00-13:00,15:00-18:00\". Beispiel für Wochentage \"Mo-We,Fr\".",
           "selector state":"Status-Schlüsselwörter (offen, geschlossen)",
           comments:"Kommentare",
           months:"Monate",
@@ -17387,139 +27643,182 @@
           "empty comment":"Du hast einen leeren Kommentar verwendet.\" Bitte schreibe entweder einen Kommentar-Text oder benutze stattdessen das Schlüsselwort \"unknown\".",
           separator_for_readability:"Du hast das optionale Symbol <separator_for_readability> an der falschen Stelle benutzt. Bitte lies die Syntax-Spezifikation um zu sehen, wo es verwendet werden kann, oder entferne es.",
           "strange 24/7":"Du hast 24/7 in einer Art verwendet, welche wahrscheinlich nicht als \"24 Stunden, 7 Tage die Woche\" interpretiert wird. Der Richtigkeit halber solltest du \"open\" oder \"closed\" für diese Regel verwenden und dann die Ausnahmen angeben um das selbe Ziel zu erreichen. So ist es klarer – zum Beispiel \"open; Mo 12:00-14:00 off\".",
-          "public holiday":"Es wurde keine Regel für \"PH\" (feiertags) angegeben. Dies ist nicht sehr aussagekräftig.__part2__ Bitte füge die Regel \"PH off\" an, wenn die Einrichtung an allen Feiertagen geschlossen ist oder schreibe \"Sa,Su,PH 12:00-16:00\" um auszudrücken, dass Samstags, Sonntags und feiertags von 12:00-16:00 geöffnet ist. Falls die Einrichtung täglich und an Feiertagen geöffnet ist, kann dies explizit mittels \"Mo-Su,PH\" ausgedrückt werden. Wenn du dir im Unklaren bist, versuche die Öffnungszeit zu klären. Falls das nicht möglich ist, lass die Angabe weg und ignoriere diese Warnung.",
-          "public holiday part2":" Leider ist der \"tag key\" (beispielsweise \"opening_hours\", oder \"lit\") in opening_hours.js nicht bekannt. Diese Warnung betrifft nur die Keys: __keys__. Falls deine Angabe nicht für einen dieser ist, ignoriere bitte folgenden Hinweis:",
+          "public holiday":"Es wurde keine Regel für \"PH\" (feiertags) angegeben. Dies ist nicht sehr aussagekräftig.{{-part2}} Bitte füge die Regel \"PH off\" an, wenn die Einrichtung an allen Feiertagen geschlossen ist oder schreibe \"Sa,Su,PH 12:00-16:00\" um auszudrücken, dass Samstags, Sonntags und feiertags von 12:00-16:00 geöffnet ist. Bei einer Öffnungszeit wie \"Fr-Sa 18:00-06:00\" ist Vorsicht geboten, da \"PH off\" auf 00:00-24:00 zutrifft. Hier kann \"Fr-Sa 18:00-06:00; PH 18:00-06:00 off\" verwendet werden. Falls die Einrichtung täglich und an Feiertagen geöffnet ist, kann dies explizit mittels \"Mo-Su,PH\" ausgedrückt werden. Wenn du dir im Unklaren bist, versuche die Öffnungszeit zu klären. Falls das nicht möglich ist, lass die Angabe weg und ignoriere diese Warnung.",
+          "public holiday part2":" Leider ist der \"tag key\" (beispielsweise \"opening_hours\", oder \"lit\") in opening_hours.js nicht bekannt. Diese Warnung betrifft nur die Keys: {{keys}}. Falls deine Angabe nicht für einen dieser ist, ignoriere bitte folgenden Hinweis:",
           "additional_rule_separator not used after time wrapping midnight":"Diese Regel überschreibt Teile der vorherigen Regel. Der Grund dafür ist, dass normale Regeln auf den ganzen Tag zutreffen und alle Definitionen von vorhergehenden Regeln für diesen Tag überschreiben. Du kannst diese Regel als additive Regel deklarieren indem du ein \",\" anstelle des üblichen \";\" für diese Regel verwendest. Beachte das die Überschreibung auch gewünscht sein kann und in so einem Fall diese Warnung ignoriert werden kann.",
           "additional rule which evaluates to closed":"Diese Regel wird als geschlossen ausgewertet aber wurde als additive Regel angegeben. Sie sollte als normale Regel mittels \";\" definiert sein. Siehe https://wiki.openstreetmap.org/wiki/DE:Key:opening_hours/specification#explain:rule_modifier:closed.",
-          switched:"Der Selektor \"__first__\" wurde für eine bessere Lesbarkeit und der Vollständigkeit halber mit \"__second__\" getauscht.",
-          "no colon after":"Bitte Benutze kein \":\" nach dem Token __token__.",
+          switched:"Der Selektor \"{{first}}\" wurde für eine bessere Lesbarkeit und der Vollständigkeit halber mit \"{{second}}\" getauscht.",
+          "no colon after":"Bitte Benutze kein \":\" nach dem Token {{token}}.",
           "number -5 to 5":"Zahl zwischen -5 und 5 (außer 0) erwartet.",
           "one weekday constraint":"Du kannst höchstens einen beschränkten Wochentag in einer Monats-Spanne verwenden",
           "range constrained weekdays":"Du kannst keine Wochentags-Spanne als Beschränkung in einer Monats-Spanne verwenden",
-          expected:"\"__symbol__\" erwartet.",
-          "range zero":"Du kannst keine __type__-Spanne mit Periode \"0\" verwenden.",
-          "period one year+":"Bitte verwende keine __type__-Spannen mit Periode \"1\". Wenn du ausdrücken willst, das eine Einrichtung ab einem bestimmten Jahr immer offen ist, benutze bitte \"<year>+\".",
-          "period one":"Bitte verwende keine __type__-Spannen mit Periode \"1\".",
-          "month 31":"Die Tagesangabe für __month__ muss zwischen 1 und 31 liegen.",
-          "month 30":"Der Monat __month__ hat keine 31 Tage. Der letzte Tag von __month__ ist Tag 30.",
-          "month feb":"\"Der Monat __month__ hat entweder 28 oder 29 Tage (Schaltjahre).\"",
-          "point in time":"Erwarte Bindestrich (-) oder offenes Ende (+) in der Zeitspanne __calc__. Um mit Zeitpunkten zu arbeiten, muss der Modus für  __libraryname__ umgestellt werden. Vielleicht falsches OSM-tag verwendet?",
+          expected:"\"{{-symbol}}\" erwartet.",
+          "range zero":"Du kannst keine {{type}}-Spanne mit Periode \"0\" verwenden.",
+          "period one year+":"Bitte verwende keine {{type}}-Spannen mit Periode \"1\". Wenn du ausdrücken willst, das eine Einrichtung ab einem bestimmten Jahr immer offen ist, benutze bitte \"<year>+\".",
+          "period one":"Bitte verwende keine {{type}}-Spannen mit Periode \"1\".",
+          "month 31":"Die Tagesangabe für {{month}} muss zwischen 1 und 31 liegen.",
+          "month 30":"Der Monat {{month}} hat keine 31 Tage. Der letzte Tag von {{month}} ist Tag 30.",
+          "month feb":"\"Der Monat {{month}} hat entweder 28 oder 29 Tage (Schaltjahre).\"",
+          "point in time":"Erwarte Bindestrich (-) oder offenes Ende (+) in der Zeitspanne {{calc}}. Um mit Zeitpunkten zu arbeiten, muss der Modus für  {{libraryname}} umgestellt werden. Vielleicht falsches OSM-tag verwendet?",
           calculation:"Berechnung",
           "time range continue":"Die Zeitspanne geht nicht wie erwartet weiter",
           "period continue":"Die Zeitspannen-Periode geht nicht wie erwartet weiter. Beispiel \"/01:30\".",
-          "time range mode":"__libraryname__ wurde im \"Zeitspannen-Modus\" aufgerufen. Zeitpunkt gefunden.",
-          "point in time mode":"__libraryname__ wurde im \"Zeitpunkt-Modus\" aufgerufen. Zeitspanne gefunden.",
+          "time range mode":"{{libraryname}} wurde im \"Zeitspannen-Modus\" aufgerufen. Zeitpunkt gefunden.",
+          "time ranges":"Zeitspannen",
+          "holiday ranges":"Feiertagen",
+          "point in time mode":"{{libraryname}} wurde im \"Zeitpunkt-Modus\" aufgerufen. Zeitspanne gefunden.",
           "outside current day":"Zeitspanne beginnt außerhalb des aktuellen Tages",
           "two midnights":"Zeitspanne welche mehrmals Mitternacht beinhaltet wird nicht unterstützt",
-          "without minutes":"Zeitspanne ohne Minutenangabe angegeben. Das ist nicht sehr eindeutig! Bitte verwende stattdessen folgende Syntax \"__syntax__\".",
+          "without minutes":"Zeitspanne ohne Minutenangabe angegeben. Das ist nicht sehr eindeutig! Bitte verwende stattdessen folgende Syntax \"{{syntax}}\".",
           "outside day":"Die Zeitspanne beginnt außerhalb des aktuellen Tages",
           "zero calculation":"Das Hinzufügen von 0 in einer variablen Zeitberechnung ändert die variable Zeit nicht. Bitte entferne die Zeitberechnung (Beispiel: \"sunrise-(sunset-00:00)\").",
           "calculation syntax":"Berechnung mit variabler Zeit hat nicht die korrekte Syntax",
-          missing:"Fehlendes \"__symbol__\"",
+          missing:"Fehlendes \"{{symbol}}\"",
           "(time)":"(Zeit)",
-          "bad range":"Ungültige Zeitspanne: __from__-__to__",
+          "bad range":"Ungültige Zeitspanne: {{from}}-{{to}}",
           "] or more numbers":"\"]\" oder weitere Zahlen erwartet.",
           "additional rule no sense":"Eine weitere Regel an dieser Stelle ergibt keinen Sinn. Benutze einfach \";\" als Trenner für Regeln. Siehe https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification#explain:additional_rule_separator",
-          "unexpected token weekday range":"Unerwartes Token in Tages-Spanne: __token__",
-          "max differ":"Es sollte keinen Grund geben, mehr als __maxdiffer__ Tage von einem __name__ abzuweichen. Wenn nötig, teile uns dies bitte mit …",
+          "unexpected token weekday range":"Unerwartes Token in Tages-Spanne: {{token}}",
+          "max differ":"Es sollte keinen Grund geben, mehr als {{maxdiffer}} Tage von einem {{name}} abzuweichen. Wenn nötig, teile uns dies bitte mit …",
           "adding 0":"Addition von 0 verändert das Datum nicht. Bitte weglassen.",
-          "unexpected token holiday":"Unerwarteter Token (in Feiertags-Auswertung): __token__",
-          "no holiday definition":"__name__ ist für das Land __cc__ nicht definiert.",
-          "no holiday definition state":"__name__ ist für das Land __cc__ und Bundesland __state__ nicht definiert.",
+          "unexpected token holiday":"Unerwarteter Token (in Feiertags-Auswertung): {{token}}",
+          "no holiday definition":"{{name}} ist für das Land {{cc}} nicht definiert.",
+          "no holiday definition state":"{{name}} ist für das Land {{cc}} und Bundesland {{state}} nicht definiert.",
           "no country code":"Der Ländercode fehlt. Dieser wird benötigt um die korrekten Feiertage zu bestimmen (siehe in der README wie dieser anzugeben ist)",
-          "no SH definition":"Die Schulferien __name__sind für das Jahr __year__ nicht definiert",
-          "movable no formula":"Der bewegliche Feiertag __name__ kann nicht berechnet werden. Bitte füge eine entsprechende Formel hinzu.",
-          "movable not in year":"Der bewegliche Feiertag __name__ plus __days__ Tage befindet sich nicht mehr im selben Jahr. Aktuell nicht unterstützt.",
-          "year range one year":"Eine Jahres-Spanne mit gleichem Jahr als Beginn und Ende ergibt keinen Sinn. Bitte entferne das Ende-Jahr. zum Beispiel: \"__year__ May 23\"",
+          "no SH definition":"Die Schulferien {{name}}sind für das Jahr {{year}} nicht definiert",
+          "movable no formula":"Der bewegliche Feiertag {{name}} kann nicht berechnet werden. Bitte füge eine entsprechende Formel hinzu.",
+          "movable not in year":"Der bewegliche Feiertag {{name}} plus {{days}} Tage befindet sich nicht mehr im selben Jahr. Aktuell nicht unterstützt.",
+          "year range one year":"Eine Jahres-Spanne mit gleichem Jahr als Beginn und Ende ergibt keinen Sinn. Bitte entferne das Ende-Jahr. zum Beispiel: \"{{year}} May 23\"",
           "year range reverse":"Eine Jahres-Spanne mit Beginn größer als Ende ergibt keinen Sinn. Bitte umdrehen.",
           "year past":"Das Jahr liegt in der Vergangenheit.",
-          "unexpected token year range":"Unerwartetes Token in der Jahres-Spanne: __token__",
+          "unexpected token year range":"Unerwartetes Token in der Jahres-Spanne: {{token}}",
           "week range reverse":"Du hast eine Wochen-Spanne in umgekehrter Reihenfolge oder mehrere Jahre umfassende angegeben. Dies ist aktuell nicht unterstützt.",
           "week negative":"Du hast eine Kalenderwoche kleiner 1 angegeben. Korrekte Angaben sind 1-53.",
           "week exceed":"Du hast eine Kalenderwoche größer als 53 angegeben. Korrekte Angaben sind 1-53.",
-          "week period less than 2":"Du hast eine Wochenperiode kleiner 2 angegeben. Wenn du die gesamte Spanne von __weekfrom__ bis __weekto__ angeben willst, lasse \"/__period__\" einfach weg.",
-          "week period greater than 26":"Du hast eine Wochen-Periode größer als 26 angegeben. 26,5 ist die Hälfte des Maximums von 53 Wochen pro Jahr. Damit würde eine Periode größer als 26 nur einmal pro Jahr auftreten. Bitte gibt den Wochen-Selektor als \"week __weekfrom__\" an, wenn es das ist, was du ausdrücken möchtest.",
-          "unexpected token week range":"Unerwartetes Token in Wochen-Spanne: __token__",
-          "unexpected token month range":"Unerwartetes Token in Monats-Spanne: __token__",
+          "week period less than 2":"Du hast eine Wochenperiode kleiner 2 angegeben. Wenn du die gesamte Spanne von {{weekfrom}} bis {{weekto}} angeben willst, lasse \"/{{period}}\" einfach weg.",
+          "week period greater than 26":"Du hast eine Wochen-Periode größer als 26 angegeben. 26,5 ist die Hälfte des Maximums von 53 Wochen pro Jahr. Damit würde eine Periode größer als 26 nur einmal pro Jahr auftreten. Bitte gibt den Wochen-Selektor als \"week {{weekfrom}}\" an, wenn es das ist, was du ausdrücken möchtest.",
+          "unexpected token week range":"Unerwartetes Token in Wochen-Spanne: {{token}}",
+          "unexpected token month range":"Unerwartetes Token in Monats-Spanne: {{token}}",
           "day range reverse":"Zeitspanne in falscher Reihenfolge. Beginn ist größer als Ende.",
           "open end":"Angegeben als \"open end\". Schließzeit wurde geraten.",
           "date parameter needed":"Datumsparameter nötig.",
-          "assuming ok for ko":"\"__ko__\" wird als \"__ok__\" interpretiert.",
-          "please use ok for ko":"Bitte verwende \"__ok__\" anstelle von \"__ko__\".",
-          "please use ok for similar looking ko":"Please use notation \"__ok__\" for \"__ko__\". Those characters look very similar but are not the same!",
+          "assuming ok for ko":"\"{{ko}}\" wird als \"{{ok}}\" interpretiert.",
+          "please use ok for ko":"Bitte verwende \"{{-ok}}\" anstelle von \"{{-ko}}\".",
+          "please use ok for similar looking ko":"Please use notation \"{{ok}}\" for \"{{ko}}\". Those characters look very similar but are not the same!",
           "rant degree sign used for zero":"Beachte das dies ein Gradzeichen ist, welches als (hochgestellte) Null missbraucht wurde. Eine hochgestellte Null ist in Unicode definiert (°) und wäre angebrachter/einheitlicher an dieser Stelle. Allerdings ist die Verwendung von nicht ASCII Ziffern nicht erlaubt.",
-          "please use English written ok for ko":"Bitte benutze die englische Schreibweise \"__ok__\" für \"__ko__\".",
-          "please use English abbreviation ok for ko":"Bitte benutze die englische Abkürzung \"__ok__\" für \"__ko__\".",
-          "please use English abbreviation ok for so":"Bitte benutze die englische Abkürzung \"__ok__\" für \"__ko__\". Beachte das Samstag in Polnisch gemeint sein kann.",
-          "please use off for ko":"Bitte benutze \"__ok__\" für \"__ko__\". Beispiel: \"Mo-Fr 08:00-12:00; Tu off\".",
-          "please use ok for workday":"\"__ko__\" wird als \"__ok__\" interpretiert. Werktag sollte nicht verwendet werden. Siehe https://wiki.openstreetmap.org/wiki/Talk:Key:opening_hours#need_syntax_for_holidays_and_workingdays",
-          "omit hour keyword":"Bitte lasse \"__ko__\" weg oder verwende einen Doppelpunkt. Beispiel: \"12:00-14:00\".",
-          "omit ko":"Bitte verzichte auf \"__ko__\".",
-          "omit tag key":"Bitte lasse \"__ko__\" weg. Der Tag Schlüssel darf nicht im Tag Wert sein.",
-          "omit wrong keyword open end":"Bitte lasse \"__ko__\" weg. Falls du \"open end\" ausdrücken möchtest verwende bitte ein \"+\". Beispiel: \"12:00+\".",
-          "assuming open end for ko":"\"__ko__\" wird als \"__ok__\" (\"open end\") interpretiert. Example: \"12:00+\".",
-          "please use ok for uncertainty":"Bitte verwende \"__ok__\" für \"__ko__\". Falls der begründete Verdacht der Ungewissheit vorliegt ziehe die Verwendung eines Kommentars in Betracht. Beispiel: 12:00-14:00 \"only on sunshine\".",
-          "please use fallback rule":"Bitte verwende \"__ok__\" (Fallback Regel) für \"__ko__\". Beispiel: Mo-Fr 12:00-14:00; PH off || \"nach Vereinbarung\"",
+          "please use English written ok for ko":"Bitte benutze die englische Schreibweise \"{{ok}}\" für \"{{ko}}\".",
+          "please use English abbreviation ok for ko":"Bitte benutze die englische Abkürzung \"{{ok}}\" für \"{{ko}}\".",
+          "please use English abbreviation ok for so":"Bitte benutze die englische Abkürzung \"{{ok}}\" für \"{{ko}}\". Beachte das Samstag in Polnisch gemeint sein kann.",
+          "please use off for ko":"Bitte benutze \"{{ok}}\" für \"{{ko}}\". Beispiel: \"Mo-Fr 08:00-12:00; Tu off\".",
+          "please use ok for workday":"\"{{ko}}\" wird als \"{{ok}}\" interpretiert. Werktag sollte nicht verwendet werden. Siehe https://wiki.openstreetmap.org/wiki/Talk:Key:opening_hours#need_syntax_for_holidays_and_workingdays",
+          "omit hour keyword":"Bitte lasse \"{{ko}}\" weg oder verwende einen Doppelpunkt. Beispiel: \"12:00-14:00\".",
+          "omit ko":"Bitte verzichte auf \"{{ko}}\".",
+          "omit tag key":"Bitte lasse \"{{ko}}\" weg. Der Tag Schlüssel darf nicht im Tag Wert sein.",
+          "omit wrong keyword open end":"Bitte lasse \"{{ko}}\" weg. Falls du \"open end\" ausdrücken möchtest verwende bitte ein \"+\". Beispiel: \"12:00+\".",
+          "assuming open end for ko":"\"{{ko}}\" wird als \"{{ok}}\" (\"open end\") interpretiert. Example: \"12:00+\".",
+          "please use ok for uncertainty":"Bitte verwende \"{{ok}}\" für \"{{ko}}\". Falls der begründete Verdacht der Ungewissheit vorliegt ziehe die Verwendung eines Kommentars in Betracht. Beispiel: 12:00-14:00 \"only on sunshine\".",
+          "please use fallback rule":"Bitte verwende \"{{ok}}\" (Fallback Regel) für \"{{ko}}\". Beispiel: Mo-Fr 12:00-14:00; PH off || \"nach Vereinbarung\"",
           "please use ok for missing data":"Bitte verwende eine FIXME Notiz.",
           "please use 24 hours time for ko":"Bitte verwende 24 Stunden Zeitangaben anstelle der veralteten 12 Stunden Variante. Falls die 12 Stunden Variante verwendet wird ist eventuelle eine Konvertierung notwendig.",
           "please use restriction comment time for ko":"Es sieht so aus also möchtest du zusätzliche Einschränkungen für eine Öffnungszeit geben. Falls sich dies nicht mit der Syntax ausdrücken lässt können Kommentare verwendet werden. Zusätzlich sollte eventuell das Schlüsselwort `open` benutzt werden. Beispiel: open \"Nur Frauen\".",
-          "please use ok for typographically correct":"Bitte verwende \"__ok__\" für \"__ko__\". Auch wenn \"__ko__\" typografisch korrekt ist, ist dies in der opening_hours Syntax nicht definiert. Korrekte Typographie sollte auf Anwendungsebene sichergestellt werden …" },
+          "please use ok for typographically correct":"Bitte verwende \"{{-ok}}\" für \"{{ko}}\". Auch wenn \"{{ko}}\" typografisch korrekt ist, ist dies in der opening_hours Syntax nicht definiert. Korrekte Typographie sollte auf Anwendungsebene sichergestellt werden …" },
         pretty:{ off:"geschlossen",
           SH:"Schulferien",
           PH:"Feiertags" } } },
-    eo:{ opening_hours:{ texts:{ "assuming ok for ko":"\"__ko__\" estas interpretita kiel \"__ok__\".",
-          "please use ok for ko":"Bonvolu uzi la esprimon \"__ok__\" anstataŭ \"__ko__\".",
-          "please use English abbreviation ok for ko":"Bonvolu uzi la anglan mallongigon \"__ok__\" für \"__ko__\"." },
+    eo:{ opening_hours:{ texts:{ "assuming ok for ko":"\"{{ko}}\" estas interpretita kiel \"{{ok}}\".",
+          "please use ok for ko":"Bonvolu uzi la esprimon \"{{-ok}}\" anstataŭ \"{{ko}}\".",
+          "please use English abbreviation ok for ko":"Bonvolu uzi la anglan mallongigon \"{{ok}}\" für \"{{ko}}\"." },
         pretty:{ off:"fermita",
           SH:"lernejaj ferioj",
           PH:"festotagoj" } } },
     fi:{ opening_hours:{ pretty:{ off:"suljettu",
           SH:"koululomat",
           PH:"lailliset vapaapäivät" } } },
-    fr:{ opening_hours:{ texts:{ "assuming ok for ko":"S'il vous plaît utiliser \"<ok>\" pour \"<ko>\".",
-          "please use ok for ko":"S'il vous plaît utiliser \"__ok__\" pour \"__ko__\".",
-          "please use English abbreviation ok for ko":"S'il vous plaît utiliser l'abréviation \"__ok__\" pour \"__ko__\"." },
+    fr:{ opening_hours:{ texts:{ "assuming ok for ko":"suppose \"{{ok}}\" pour \"{{ko}}\".",
+          "please use ok for ko":"S'il vous plaît utilisez \"{{ok}}\" pour \"{{ko}}\".",
+          "please use English abbreviation ok for ko":"S'il vous plaît utiliseé l'abréviation \"{{ok}}\" pour \"{{ko}}\"." },
         pretty:{ off:"fermé",
           SH:"vacances scolaires",
-          PH:"vacances publiques" } } },
-    nl:{ opening_hours:{ texts:{ "please use English abbreviation ok for ko":"Neem de engelse afkorting \"__ok__\" voor \"__ko__\" alstublieft." },
+          PH:"jours fériés" } } },
+    nl:{ opening_hours:{ texts:{ "please use English abbreviation ok for ko":"Neem de engelse afkorting \"{{ok}}\" voor \"{{ko}}\" alstublieft." },
         pretty:{ off:"gesloten",
           SH:"schoolvakantie",
           PH:"feestdagen" } } },
     ru:{ opening_hours:{ pretty:{ off:"закрыто",
           SH:"каникулы",
-          PH:"праздник" } } } };
+          PH:"праздник" } } },
+    it:{ opening_hours:{ pretty:{ off:"chiuso",
+          SH:"festività scolastiche",
+          PH:"festività" } } } };
+  data.en;
+  data.de;
+  data.eo;
+  data.fi;
+  data.fr;
+  data.nl;
+  data.ru;
+  data.it;
 
-  if (!i18next.isInitialized()) {
-      i18next.init({
+  if (!instance.isInitialized) {
+      instance.init({
           fallbackLng: 'en',
           // lngWhitelist: ['en', 'de'],
-          resStore: data$w,
+          resources: data,
           getAsync: true,
           useCookie: true,
           // debug: true,
       });
   } else {
       // compat with an app that already initializes i18n
-      for (var lang in data$w) {
-          i18next.addResourceBundle(lang, 'opening_hours', data$w[lang]['opening_hours'], true);
-
+      for (const lang in data) {
+          instance.addResourceBundle(lang, 'opening_hours', data[lang]['opening_hours'], true);
       }
   }
 
-  /* jshint laxbreak: true */
+  /*
+   * SPDX-FileCopyrightText: © 2013 Robin Schneider <ypid@riseup.net>
+   *
+   * SPDX-License-Identifier: LGPL-3.0-only
+   *
+   * This file is based on work under the following copyright and
+   * BSD-2-Clause permission notice:
+   *
+   *     SPDX-FileCopyrightText: © 2012 Dmitry Marakasov <amdmi3@amdmi3.ru>
+   *     All rights reserved.
+   *
+   *     Redistribution and use in source and binary forms, with or without
+   *     modification, are permitted provided that the following conditions are met:
+   *
+   *     1. Redistributions of source code must retain the above copyright notice, this
+   *     list of conditions and the following disclaimer.
+   *
+   *     2. Redistributions in binary form must reproduce the above copyright notice,
+   *     this list of conditions and the following disclaimer in the documentation
+   *     and/or other materials provided with the distribution.
+   *
+   *     THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+   *     ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+   *     WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+   *     DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+   *     FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+   *     DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+   *     SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+   *     CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+   *     OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+   *     OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+   */
 
   function index(value, nominatim_object, optional_conf_parm) {
       // Short constants {{{
-      var word_value_replacement = { // If the correct values can not be calculated.
+      const word_value_replacement = { // If the correct values can not be calculated.
           dawn    : 60 * 5 + 30,
           sunrise : 60 * 6,
           sunset  : 60 * 18,
           dusk    : 60 * 18 + 30,
       };
-      var months   = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-      var weekdays = ['Su','Mo','Tu','We','Th','Fr','Sa'];
-      var string_to_token_map = {
+      const months   = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      const weekdays = ['Su','Mo','Tu','We','Th','Fr','Sa'];
+      const string_to_token_map = {
           'su': [ 0, 'weekday' ],
           'mo': [ 1, 'weekday' ],
           'tu': [ 2, 'weekday' ],
@@ -17553,7 +27852,7 @@
           'unknown': [ 'unknown', 'state' ],
       };
 
-      var default_prettify_conf = {
+      const default_prettify_conf = {
           // Update README.md if changed.
           'zero_pad_hour': true,           // enforce ("%02d", hour)
           'one_zero_if_hour_zero': false,  // only one zero "0" if hour is zero "0"
@@ -17564,10 +27863,11 @@
           'leave_weekday_sep_one_day_betw': true, // use the separator (either "," or "-" which is used to separate days which follow to each other like Sa,Su or Su-Mo
           'sep_one_day_between': ',',      // separator which should be used
           'zero_pad_month_and_week_numbers': true, // Format week (e.g. `week 01`) and month day numbers (e.g. `Jan 01`) with "%02d".
-          'locale': 'en',                  // use local language (needs i18n.js)
+          'locale': 'en',                  // use local language (needs i18next)
+          'date_format': 'short'           // Use short or long date format (for day and month names)
       };
 
-      var osm_tag_defaults = {
+      const osm_tag_defaults = {
           'opening_hours'       :  { 'mode' :  0, 'warn_for_PH_missing' :  true, },
           'collection_times'    :  { 'mode' :  2, },
           /* oh_mode 2: "including the hyphen because there are post boxes which are
@@ -17591,48 +27891,46 @@
           },
       };
 
-      var minutes_in_day = 60 * 24;
-      var msec_in_day    = 1000 * 60 * minutes_in_day;
-      // var msec_in_week   = msec_in_day * 7;
+      const minutes_in_day = 60 * 24;
+      const msec_in_day    = 1000 * 60 * minutes_in_day;
+      // let msec_in_week   = msec_in_day * 7;
 
-      var library_name   = 'opening_hours.js';
-      var repository_url = 'https://github.com/opening-hours/' + library_name;
-      // var issues_url     = repository_url + '/issues?state=open';
+      const library_name   = 'opening_hours.js';
+      const repository_url = 'https://github.com/opening-hours/' + library_name;
+      // let issues_url     = repository_url + '/issues?state=open';
       /* }}} */
 
       /* Translation function {{{ */
       /* Roughly compatibly to i18next so we can replace everything by i18next with
        * sprintf support.
        */
-      var locale = 'en'; // Default locale
-      if (typeof i18next === 'object') {
-          locale = i18next.lng();
+      let locale = 'en'; // Default locale
+      if (typeof instance === 'object') {
+          locale = instance.language;
       }
 
-      var t = function(str, variables) {
+      const t = function(str, variables) {
           if (
-                  typeof i18next === 'object'
-                  && typeof i18next.t === 'function'
+                  typeof instance === 'object'
+                  && typeof instance.t === 'function'
                   && typeof locale === 'string'
                   && ['de'].indexOf(locale) !== -1
               ) {
 
-              var global_locale = i18next.lng();
-
-              if (global_locale !== locale) {
-                  i18next.setLng(locale);
+              let translatorFunction;
+              if (instance.language !== locale) {
+                  translatorFunction = instance.getFixedT(locale);
+              } else {
+                  translatorFunction = instance.t;
               }
-              var text = i18next.t('opening_hours:texts.' + str, variables);
-              if (global_locale !== locale) {
-                  i18next.setLng(global_locale);
-              }
+              const text = translatorFunction('opening_hours:texts.' + str, variables);
               return text;
           }
-          var text = data$v[str];
+          let text = data$1[str];
           if (typeof text === 'undefined') {
               text = str;
           }
-          return text.replace(/__([^_]*)__/g, function (match, c) {
+          return text.replace(/{{([^{}]*)}}/g, function (match, c) {
               return typeof variables[c] !== 'undefined'
                   ? variables[c]
                   : match
@@ -17648,7 +27946,7 @@
        *
        * Required to reasonably calculate 'sunrise' and holidays.
        */
-      var location_cc, location_state, lat, lon;
+      let location_cc, location_state, lat, lon;
       if (typeof nominatim_object === 'object' && nominatim_object !== null) {
           if (typeof nominatim_object.address === 'object') {
               if (typeof nominatim_object.address.country_code === 'string') {
@@ -17688,14 +27986,14 @@
        * 2: both (time ranges and points in time), tags: collection_times, service_times
        */
 
-      var warnings_severity = 4;
+      let warnings_severity = 4;
       /* Default, currently the highest severity supported.
        * This number is expected to be >= 4. This is not explicitly checked.
        */
 
-      var oh_mode;
-      var oh_map_value = false;
-      var oh_key, oh_regex_key;
+      let oh_mode;
+      let oh_map_value = false;
+      let oh_key, oh_regex_key;
 
       if (typeof optional_conf_parm === 'number') {
           oh_mode = optional_conf_parm;
@@ -17739,7 +28037,7 @@
       }
 
       if (typeof oh_mode === 'undefined') {
-          if (typeof oh_key === 'string') {
+          if (typeof oh_key === 'string' && osm_tag_defaults[oh_regex_key] !== undefined) {
               if (typeof osm_tag_defaults[oh_regex_key]['mode'] === 'number') {
                   oh_mode = osm_tag_defaults[oh_regex_key]['mode'];
               } else {
@@ -17763,24 +28061,26 @@
           throw t('nothing');
       }
 
-      var parsing_warnings = []; // Elements are fed into function formatWarnErrorMessage(nrule, at, message)
-      var done_with_warnings = false; // The functions which returns warnings can be called multiple times.
-      var done_with_selector_reordering = false;
-      var done_with_selector_reordering_warnings = false;
-      var tokens = tokenize(value);
+      const parsing_warnings = []; // Elements are fed into function formatWarnErrorMessage(nrule, at, message)
+      let done_with_warnings = false; // The functions which returns warnings can be called multiple times.
+      let done_with_selector_reordering = false;
+      let done_with_selector_reordering_warnings = false;
+      // eslint-disable-next-line no-var
+      var tokens = tokenize(value); // TODO: Figure out why tests fail if this is const or let.
       // console.log(JSON.stringify(tokens, null, '    '));
-      var prettified_value = '';
-      var week_stable = true;
+      let prettified_value = '';
+      let week_stable = true;
 
-      var rules = [];
-      var rule_infos = {};
+      let rule, nrule;
+      const rules = [];
+      const rule_infos = {};
       /* Not reliable because tokens !== new_tokens */
       // for (var nrule = 0; nrule < tokens.length; nrule++) {
       //     rule_infos[nrule] = {};
       // }
-      var new_tokens = [];
+      const new_tokens = [];
 
-      for (var nrule = 0; nrule < tokens.length; nrule++) {
+      for (nrule = 0; nrule < tokens.length; nrule++) {
           if (tokens[nrule][0].length === 0) {
               // Rule does contain nothing useful e.g. second rule of '10:00-12:00;' (empty) which needs to be handled.
               parsing_warnings.push([nrule, -1,
@@ -17791,8 +28091,9 @@
               continue;
           }
 
-          var continue_at = 0;
-          var next_rule_is_additional = false;
+          let continue_at = 0;
+          let next_rule_is_additional = false;
+
           do {
               if (continue_at === tokens[nrule][0].length) {
                   /* Additional rule does contain nothing useful e.g. second rule
@@ -17801,7 +28102,7 @@
                   break;
               }
 
-              var rule = {
+              rule = {
                   // Time selectors
                   time: [],
 
@@ -17857,7 +28158,7 @@
 
               next_rule_is_additional = continue_at === 0 ? false : true;
 
-              var optimal_selector_order = ['year', 'holiday', 'month', 'monthday', 'week', 'weekday'];
+              const optimal_selector_order = ['year', 'holiday', 'month', 'monthday', 'week', 'weekday'];
               optimal_selector_order.forEach(function (element) {
                   if (rule[element].length > 0) {
                       rule.date.push(rule[element]);
@@ -17872,7 +28173,7 @@
                * It generates wrappers for all selectors and creates a new rule.
                */
               if (rule.wraptime.length > 0) {
-                  var wrapselectors = {
+                  const wrapselectors = {
                       time: rule.wraptime,
                       date: [],
 
@@ -17884,9 +28185,9 @@
                       build_from_token_rule: rule.build_from_token_rule,
                   };
 
-                  for (var dselg = 0; dselg < rule.date.length; dselg++) {
+                  for (let dselg = 0; dselg < rule.date.length; dselg++) {
                       wrapselectors.date.push([]);
-                      for (var dsel = 0; dsel < rule.date[dselg].length; dsel++) {
+                      for (let dsel = 0; dsel < rule.date[dselg].length; dsel++) {
                           wrapselectors.date[wrapselectors.date.length-1].push(
                                   generateDateShifter(rule.date[dselg][dsel], -msec_in_day)
                               );
@@ -17908,8 +28209,8 @@
        * :returns: Regex key from osm_tag_defaults e.g. opening_hours:.*
        */
       function getRegexKeyForKeyFromOsmDefaults(key) {
-          var regex_key;
-          var exact_match = false;
+          let regex_key;
+          let exact_match = false;
 
           Object.keys(osm_tag_defaults).forEach(function (osm_key) {
               if (exact_match === true) {
@@ -17960,12 +28261,12 @@
           // console.log(`Called formatWarnErrorMessage: ${nrule}, ${at}, ${message}`);
           // FIXME: Change to new_tokens.
           if (typeof nrule === 'number') {
-              var pos = 0;
+              let pos = 0;
               if (nrule === -1) { // Usage of rule index not required because we do have access to value.length.
                   pos = value.length - at;
               } else { // Issue occurred at a later time, position in string needs to be reconstructed.
                   if (typeof tokens_to_use[nrule][0][at] === 'undefined') {
-                      if (typeof tokens_to_use[nrule][0] && at === -1) {
+                      if (typeof tokens_to_use[nrule][0] !== 'undefined' && at === -1) {
                           pos = value.length;
                           if (typeof tokens_to_use[nrule+1] === 'object' && typeof tokens_to_use[nrule+1][2] === 'number') {
                               pos -= tokens_to_use[nrule+1][2];
@@ -18032,28 +28333,35 @@
        *        internal documentation in the docs/ directory for details.
        */
       function tokenize(value) {
-          var all_tokens       = [];
-          var curr_rule_tokens = [];
+          // Negative list approach: Match anything that's NOT punctuation, digits, or special chars
+          // This automatically supports all Unicode letter categories without explicit enumeration
+          const WORD_REGEX = /^([^\s\d\p{P}\p{S}\p{C}]{2,})(?=\s|$|[\s\d\p{P}\p{S}\p{C}])((?:[.]| before| after)?)/iu;
 
-          var last_rule_fallback_terminated = false;
+          const all_tokens     = [];
+          let curr_rule_tokens = [];
+
+          let last_rule_fallback_terminated = false;
 
           while (value !== '') {
               /* Ordered after likelihood of input for performance reasons.
                * Also, error tolerance is supposed to happen at the end.
                */
               // console.log("Parsing value: " + value);
-              var tmp = value.match(/^([a-z]{2,})\b((?:[.]| before| after)?)/i);
-              var token_from_map = undefined;
+              
+              // First regex: Match international words (2+ characters) with optional suffixes
+              // Pattern: word characters followed by word boundary, with optional ". before after" suffixes
+              let tmp = value.match(WORD_REGEX);
+              let token_from_map = undefined;
               if (tmp && tmp[2] === '') {
                   token_from_map = string_to_token_map[tmp[1].toLowerCase()];
               }
               if (typeof token_from_map === 'object') {
                   curr_rule_tokens.push(token_from_map.concat([value.length]));
                   value = value.substr(tmp[1].length);
-              } else if (tmp = value.match(/^\s+/)) {
+              } else if ((tmp = value.match(/^\s+/))) {
                   // whitespace is ignored
                   value = value.substr(tmp[0].length);
-              } else if (tmp = value.match(/^24\/7/)) {
+              } else if ((tmp = value.match(/^24\/7/))) {
                   // Reserved keyword.
                   curr_rule_tokens.push([tmp[0], tmp[0], value.length ]);
                   value = value.substr(tmp[0].length);
@@ -18072,20 +28380,20 @@
                   }
                   curr_rule_tokens.push([ ':', 'timesep', value.length ]);
                   value = value.substr(1);
-              } else if (tmp = value.match(/^(?:PH|SH)/i)) {
+              } else if ((tmp = value.match(/^(?:PH|SH)/i))) {
                   // special day name (holidays)
                   curr_rule_tokens.push([tmp[0].toUpperCase(), 'holiday', value.length ]);
                   value = value.substr(2);
-              } else if (tmp = value.match(/^[°\u2070-\u209F\u00B2\u00B3\u00B9]{1,2}/)) {
-                  var unicode_code_point_to_digit = {
+              } else if ((tmp = value.match(/^[°\u2070-\u209F\u00B2\u00B3\u00B9]{1,2}/))) {
+                  const unicode_code_point_to_digit = {
                       176: 0,
                       0x2070: 0,
                       185: 1,
                       178: 2,
                       179: 3,
                   };
-                  var regular_number = tmp[0].split('').map(function (ch) {
-                      var code_point = ch.charCodeAt(0);
+                  const regular_number = tmp[0].split('').map(function (ch) {
+                      const code_point = ch.charCodeAt(0);
                       if (typeof unicode_code_point_to_digit[code_point] === 'number') {
                           return unicode_code_point_to_digit[code_point];
                       } else if (0x2074 <= code_point && code_point <= 0x2079) {
@@ -18094,13 +28402,13 @@
                           return code_point - 0x2080;
                       }
                   }).join('');
-                  var ok = '';
+                  let ok = '';
                   if (curr_rule_tokens.length > 0 && matchTokens(curr_rule_tokens, curr_rule_tokens.length-1, 'number')) {
                       ok += ':';
                   }
                   ok += regular_number;
                   if (!done_with_warnings) {
-                      for (var i = 0; i <= tmp[0].length; i++) {
+                      for (let i = 0; i <= tmp[0].length; i++) {
                           if (value.charCodeAt(i) === 176) {
                               parsing_warnings.push([ -1, value.length - (1 + i),
                                       t('rant degree sign used for zero')]);
@@ -18110,7 +28418,7 @@
                               t('please use ok for ko', {'ko': tmp[0], 'ok': ok})]);
                   }
                   value = ok + value.substr(tmp[0].length);
-              } else if (tmp = value.match(/^(&|_|→|–|−|—|ー|=|·|öffnungszeit(?:en)?:?|opening_hours\s*=|\?|~|～|：|always (?:open|closed)|24x7|24 hours 7 days a week|24 hours|7 ?days(?:(?: a |\/)week)?|7j?\/7|all days?|every day|(?:bis|till?|-|–)? ?(?:open ?end|late)|(?:(?:one )?day (?:before|after) )?(?:school|public) holidays?|days?\b|до|рм|ам|jours fériés|on work days?|sonntags?|(?:nur |an )?sonn-?(?:(?: und |\/)feiertag(?:s|en?)?)?|(?:an )?feiertag(?:s|en?)?|(?:nach|on|by) (?:appointments?|vereinbarung|absprache)|p\.m\.|a\.m\.|[_a-zäößàáéøčěíúýřПнВсо]+\b|à|á|mo|tu|we|th|fr|sa|su|jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)(\.?)/i)) {
+              } else if ((tmp = value.match(/^(&|_|→|–|−|—|ー|=|·|öffnungszeit(?:en)?:?|opening_hours\s*=|\?|~|～|：|always (?:open|closed)|24x7|24 hours 7 days a week|24 hours|7 ?days(?:(?: a |\/)week)?|7j?\/7|all days?|every day|(?:bis|till?|-|–)? ?(?:open ?end|late)|(?:(?:one )?day (?:before|after) )?(?:school|public) holidays?|days(?=\s|$|[^\p{L}_])|до|рм|ам|jours fériés|on work days?|sonntags?|(?:nur |an )?sonn-?(?:(?: und |\/)feiertag(?:s|en?)?)?|(?:an )?feiertag(?:s|en?)?|(?:nach|on|by) (?:appointments?|vereinbarung|absprache)|p\.m\.|a\.m\.|(?:[^\s\d\p{P}\p{S}\p{C}]|_)+(?=\s|$|[\s\d\p{Po}\p{Ps}\p{Pe}\p{Pd}\p{Pf}\p{Pi}\p{S}\p{C}])|à|á|mo|tu|we|th|fr|sa|su|jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)(\.?)/iu))) {
                   /* Handle all remaining words and specific other characters with error tolerance.
                    *
                    * à|á: Word boundary does not work with Unicode chars: 'test à test'.match(/\bà\b/i)
@@ -18120,15 +28428,15 @@
                    * mo|tu|we|th|fr|sa|su|jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec: Prefer defended keywords
                    * if used in cases like 'mo12:00-14:00' (when keyword is followed by number).
                    */
-                  var correct_val = returnCorrectWordOrToken(tmp[1].toLowerCase(), value.length);
+                  let correct_val = returnCorrectWordOrToken(tmp[1].toLowerCase(), value.length);
                   // console.log('Error tolerance for string "' + tmp[1] + '" returned "' + correct_val + '".');
                   if (typeof correct_val === 'object') {
                       curr_rule_tokens.push([ correct_val[0], correct_val[1], value.length ]);
                       value = value.substr(tmp[0].length);
                   } else if (typeof correct_val === 'string') {
                       if (correct_val === 'am' || correct_val === 'pm') {
-                          var hours_token_at = curr_rule_tokens.length - 1;
-                          var hours_token;
+                          let hours_token_at = curr_rule_tokens.length - 1;
+                          let hours_token;
                           if (hours_token_at >= 0) {
                               if (hours_token_at -2 >= 0 &&
                                       matchTokens(
@@ -18154,11 +28462,11 @@
                           }
                           correct_val = '';
                       }
-                      var correct_tokens = tokenize(correct_val)[0];
+                      const correct_tokens = tokenize(correct_val)[0];
                       if (correct_tokens[1] === true) { // last_rule_fallback_terminated
                           throw formatLibraryBugMessage();
                       }
-                      for (var i = 0; i < correct_tokens[0].length; i++) {
+                      for (let i = 0; i < correct_tokens[0].length; i++) {
                           curr_rule_tokens.push([correct_tokens[0][i][0], correct_tokens[0][i][1], value.length]);
                           // value.length - tmp[0].length does not have the desired effect for all test cases.
                       }
@@ -18174,7 +28482,7 @@
                   if (typeof tmp[2] === 'string' && tmp[2] !== '' && !done_with_warnings) {
                       parsing_warnings.push([ -1, value.length, t('omit ko', {'ko': tmp[2]})]);
                   }
-              } else if (tmp = value.match(/^(\d+)(?:([.])([^\d]))?/)) {
+              } else if ((tmp = value.match(/^(\d+)(?:([.])([^\d]))?/))) {
                   // number
                   if (Number(tmp[1]) > 1900) { // Assumed to be a year number.
                       curr_rule_tokens.push([Number(tmp[1]), 'year', value.length ]);
@@ -18204,12 +28512,12 @@
                   value = value.substr(2);
 
                   last_rule_fallback_terminated = true;
-              } else if (tmp = value.match(/^"([^"]+)"/)) {
+              } else if ((tmp = value.match(/^"([^"]+)"/))) {
                   // Comment following the specification.
                   // Any character is allowed inside the comment except " itself.
                   curr_rule_tokens.push([tmp[1], 'comment', value.length ]);
                   value = value.substr(tmp[0].length);
-              } else if (tmp = value.match(/^(["'„“‚‘’«「『])([^"'“”‘’»」』;|]*)(["'”“‘’»」』])/)) {
+              } else if ((tmp = value.match(/^(["'„“‚‘’«「『])([^"'“”‘’»」』;|]*)(["'”“‘’»」』])/))) {
                   // Comments with error tolerance.
                   // The comments still have to be somewhat correct meaning
                   // the start and end quote signs used have to be
@@ -18217,9 +28525,9 @@
                   // quote but rather something unknown which the user should
                   // fix first.
                   // console.log('Matched: ' + JSON.stringify(tmp));
-                  for (var pos = 1; pos <= 3; pos += 2) {
+                  for (let pos = 1; pos <= 3; pos += 2) {
                       // console.log('Pos: ' + pos + ', substring: ' + tmp[pos]);
-                      var correct_val = returnCorrectWordOrToken(tmp[pos],
+                      const correct_val = returnCorrectWordOrToken(tmp[pos],
                           value.length - (pos === 3 ? tmp[1].length + tmp[2].length : 0)
                       );
                       if (typeof correct_val !== 'string' && tmp[pos] !== '"') {
@@ -18260,34 +28568,63 @@
        *        * undefined if word could not be found (and thus is not corrected).
        */
       function returnCorrectWordOrToken(word, value_length) {
-          var correctWordOrToken;
-          var token_from_map = string_to_token_map[word];
+          let correctWordOrToken;
+          const token_from_map = string_to_token_map[word];
           if (typeof token_from_map === 'object') {
               return token_from_map;
           }
-          Object.keys(data$u).forEach(function (comment) {
+          
+          // Check for ambiguous words first - show warning and provide default correction
+          if (data$2['Ambiguous words'] && data$2['Ambiguous words'][word]) {
+              if (!done_with_warnings) {
+                  const warningMessage = data$2['Ambiguous words'][word];
+                  parsing_warnings.push([
+                      -1,
+                      value_length - word.length,
+                      warningMessage
+                  ]);
+              }
+              // For ambiguous words, extract the first possible correction from the warning message
+              // and use it as a default to keep parsing working
+              const warningText = data$2['Ambiguous words'][word];
+              const match = warningText.match(/: (\w+) \(/);
+              if (match && match[1]) {
+                  return match[1]; // Return the first suggested correction (e.g. "Nov" from "Nov (Czech)")
+              }
+              // Fallback: continue with normal processing
+              return undefined;
+          }
+          
+          // Standard processing for all other words using flat structure
+          Object.keys(data$2).forEach(function (comment) {
               if (correctWordOrToken) {
                   return;
               }
-              Object.keys(data$u[comment]).forEach(function (old_val) {
+              // Skip the ambiguous words section for auto-correction
+              if (comment === 'Ambiguous words') {
+                  return;
+              }
+              Object.keys(data$2[comment]).forEach(function (old_val) {
                   if (correctWordOrToken) {
                       return;
                   }
                   if (new RegExp('^' + old_val + '$').test(word)) {
-                      var val = data$u[comment][old_val];
-                      // Replace wrong words or characters with correct ones.
-                      // This will return a string which is then being tokenized.
+                      const val = data$2[comment][old_val];
+                      
                       if (!done_with_warnings) {
+                          const warningMessage = t(comment, {'ko': word, 'ok': val});
+                          
                           parsing_warnings.push([
                               -1,
                               value_length - word.length,
-                              t(comment, {'ko': word, 'ok': val}),
+                              warningMessage
                           ]);
                       }
                       correctWordOrToken = val;
                   }
               });
           });
+          
           return correctWordOrToken;
       }
       /* }}} */
@@ -18314,19 +28651,19 @@
                * code in the (sub) selector parser function directly.
                */
 
-              var wide_range_selector_order = [ 'year', 'month', 'week', 'holiday' ];
-              var small_range_selector_order = [ 'weekday', 'time', '24/7', 'state', 'comment'];
+              const wide_range_selector_order = [ 'year', 'month', 'week', 'holiday' ];
+              const small_range_selector_order = [ 'weekday', 'time', '24/7', 'state', 'comment'];
 
               // How many times was a selector_type used per rule? {{{
-              var used_selectors = [];
-              var used_selectors_types_array = [];
-              var has_token = {};
+              const used_selectors = [];
+              const used_selectors_types_array = [];
+              const has_token = {};
 
-              for (var nrule = 0; nrule < new_tokens.length; nrule++) {
+              for (let nrule = 0; nrule < new_tokens.length; nrule++) {
                   if (new_tokens[nrule][0].length === 0) continue;
                   // Rule does contain nothing useful e.g. second rule of '10:00-12:00;' (empty) which needs to be handled.
 
-                  var selector_start_end_type = [ 0, 0, undefined ];
+                  let selector_start_end_type = [ 0, 0, undefined ];
                   // console.log(new_tokens[nrule][0]);
 
                   used_selectors[nrule] = {};
@@ -18336,7 +28673,7 @@
                       selector_start_end_type = getSelectorRange(new_tokens[nrule][0], selector_start_end_type[1]);
                       // console.log(selector_start_end_type, new_tokens[nrule][0].length);
 
-                      for (var token_pos = 0; token_pos <= selector_start_end_type[1]; token_pos++) {
+                      for (let token_pos = 0; token_pos <= selector_start_end_type[1]; token_pos++) {
                           if (typeof new_tokens[nrule][0][token_pos] === 'object' && new_tokens[nrule][0][token_pos][0] === 'PH') {
                               has_token['PH'] = true;
                           }
@@ -18362,7 +28699,7 @@
               // console.log('used_selectors_types_array: ' + JSON.stringify(used_selectors_types_array, null, '    '));
               /* }}} */
 
-              for (var nrule = 0; nrule < used_selectors.length; nrule++) {
+              for (let nrule = 0; nrule < used_selectors.length; nrule++) {
 
                   /* Check if more than one not connected selector of the same type is used in one rule {{{ */
                   Object.keys(used_selectors[nrule]).forEach(function (selector_type) {
@@ -18415,9 +28752,9 @@
                   }
                   /* }}} */
                   /* Check for valid use of <separator_for_readability> {{{ */
-                  for (var i = 0; i < used_selectors_types_array[nrule].length - 1; i++) {
-                      var selector_type = used_selectors_types_array[nrule][i];
-                      var next_selector_type = used_selectors_types_array[nrule][i+1];
+                  for (let i = 0; i < used_selectors_types_array[nrule].length - 1; i++) {
+                      const selector_type = used_selectors_types_array[nrule][i];
+                      const next_selector_type = used_selectors_types_array[nrule][i+1];
                       if (   (   wide_range_selector_order.indexOf(selector_type)       !== -1
                               && wide_range_selector_order.indexOf(next_selector_type)  !== -1
                           ) || ( small_range_selector_order.indexOf(selector_type)      !== -1
@@ -18441,16 +28778,16 @@
                           && new_tokens[nrule+1][1] === false // Not a fallback rule
                           ) {
 
-                      var rules_too_complex = [ nrule, nrule+1 ].map(function (nrule){
-                          for (var i = 0; i < wide_range_selector_order.length - 1; i++) {
+                      const rules_too_complex = [ nrule, nrule+1 ].map(function (nrule){
+                          for (let i = 0; i < wide_range_selector_order.length - 1; i++) {
                               if (typeof used_selectors[nrule][wide_range_selector_order[i]] === 'object') {
                                   return true;
                               }
                           }
                           return false;
                       });
-                      var rules_too_complex_count = rules_too_complex.filter(function (el){ return el; }).length;
-                      var next_rule_selects_next_day = false;
+                      const rules_too_complex_count = rules_too_complex.filter(function (el){ return el; }).length;
+                      let next_rule_selects_next_day = false;
                       if (
                               typeof rule_infos[nrule] === 'object'
                               && typeof rule_infos[nrule] === 'object'
@@ -18458,8 +28795,8 @@
                               && typeof rule_infos[nrule+1] === 'object'
                               && typeof rule_infos[nrule+1]['week_days'] === 'object'
                               ) {
-                          for (var i = 0; i < rule_infos[nrule]['week_days'].length; i++) {
-                              var week_day = rule_infos[nrule]['week_days'][i];
+                          for (let i = 0; i < rule_infos[nrule]['week_days'].length; i++) {
+                              const week_day = rule_infos[nrule]['week_days'][i];
                                   // console.log(rule_infos[nrule+1]['week_days']);
                                   // console.log(week_day);
                               if (rule_infos[nrule+1]['week_days'].indexOf(week_day === 6 ? 0 : week_day+1) !== -1) {
@@ -18472,7 +28809,7 @@
                       }
                       // console.log(rule_infos);
                       // console.log(next_rule_selects_next_day);
-                      var additional_rule_separator_enabled = (optional_conf_parm||{}).additional_rule_separator !== false;
+                      const additional_rule_separator_enabled = (optional_conf_parm||{}).additional_rule_separator !== false;
                       if (rules_too_complex_count < 2 && next_rule_selects_next_day && additional_rule_separator_enabled) {
                           parsing_warnings.push([nrule+1, new_tokens[nrule+1][0].length - 1,
                               t('additional_rule_separator not used after time wrapping midnight'),
@@ -18502,7 +28839,7 @@
               }
 
               /* Check if 24/7 is used and it does not mean 24/7 because there are other rules {{{ */
-              var has_advanced = it.advance();
+              const has_advanced = it.advance();
 
               if (has_advanced === true && has_token['24/7'] && !done_with_warnings) {
                   parsing_warnings.push([ -1, 0,
@@ -18526,7 +28863,7 @@
                      )
                   ) {
 
-                  var keys_with_warn_for_PH_missing = [];
+                  const keys_with_warn_for_PH_missing = [];
                   Object.keys(osm_tag_defaults).forEach(function (key) {
                       if (osm_tag_defaults[key]['warn_for_PH_missing']) {
                           keys_with_warn_for_PH_missing.push(key);
@@ -18556,9 +28893,9 @@
           }
           done_with_warnings = true;
 
-          var warnings = [];
+          const warnings = [];
           // FIXME: Sort based on parsing_warnings[1], tricky …
-          for (var i = 0; i < parsing_warnings.length; i++) {
+          for (let i = 0; i < parsing_warnings.length; i++) {
               warnings.push( formatWarnErrorMessage(parsing_warnings[i][0], parsing_warnings[i][1], parsing_warnings[i][2], parsing_warnings[i][3]) );
           }
           return warnings;
@@ -18604,7 +28941,7 @@
        *            2. Selector type.
        */
       function getSelectorRange(tokens, at) {
-          var selector_start = at,
+          let selector_start = at,
               selector_end,
               pos_in_token_array;
 
@@ -18647,12 +28984,12 @@
        * :returns: Prettified value string or object if get_internals is true.
        */
       function prettifyValue(argument_hash) {
-          var user_conf = {};
-          var get_internals = false;
-          var rule_index;
+          let user_conf = {};
+          let get_internals = false;
+          let rule_index;
 
           prettified_value = '';
-          var prettified_value_array = [];
+          const prettified_value_array = [];
 
           if (typeof argument_hash === 'object') {
               if (typeof argument_hash.conf === 'object') {
@@ -18677,16 +29014,16 @@
 
           // use months, weekdays for locales 'en' and 'all'
           // otherwise use Date.toLocaleString, see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString
-          var _is_en_or_all = user_conf['locale'] === 'en' || user_conf['locale'] === 'all';
-          var months_local = _is_en_or_all ? months : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(function(month) {
-              return new Date(2018, month - 1, 1).toLocaleString(user_conf['locale'], {month: 'short'});
+          const _is_en_or_all = (user_conf['locale'] === 'en' || user_conf['locale'] === 'all') && user_conf['date_format'] === 'short';
+          const months_local = _is_en_or_all ? months : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(function(month) {
+              return new Date(2018, month - 1, 1).toLocaleString(user_conf['locale'], {month: user_conf['date_format']});
           });
-          var weekdays_local = _is_en_or_all ? weekdays : [1, 2, 3, 4, 5, 6, 7].map(function(weekday) {
+          const weekdays_local = _is_en_or_all ? weekdays : [1, 2, 3, 4, 5, 6, 7].map(function(weekday) {
               // 2017-01-01 is Sunday
-              return new Date(2017, 0, weekday).toLocaleString(user_conf['locale'], {weekday: 'short'});
+              return new Date(2017, 0, weekday).toLocaleString(user_conf['locale'], {weekday: user_conf['date_format']});
           });
 
-          for (var nrule = 0; nrule < new_tokens.length; nrule++) {
+          for (let nrule = 0; nrule < new_tokens.length; nrule++) {
               if (new_tokens[nrule][0].length === 0) continue;
               // Rule does contain nothing useful e.g. second rule of '10:00-12:00;' (empty) which needs to be handled.
 
@@ -18709,9 +29046,9 @@
                           user_conf.rule_sep_string);
               }
 
-              var selector_start_end_type = [ 0, 0, undefined ];
-              var prettified_group_value = [];
-              var count = 0;
+              let selector_start_end_type = [ 0, 0, undefined ];
+              const prettified_group_value = [];
+              let count = 0;
               // console.log(new_tokens[nrule][0]);
 
               do {
@@ -18742,25 +29079,27 @@
                   // console.log(selector_start_end_type, new_tokens[nrule][0].length, count);
               } while (selector_start_end_type[1] < new_tokens[nrule][0].length);
               // console.log('Prettified value: ' + JSON.stringify(prettified_group_value, null, '    '));
-              var not_sorted_prettified_group_value = prettified_group_value.slice();
+              const not_sorted_prettified_group_value = prettified_group_value.slice();
 
               if (!done_with_selector_reordering) {
                   prettified_group_value.sort(
                       function (a, b) {
-                          var selector_order = [ 'year', 'month', 'week', 'holiday', 'weekday', 'time', '24/7', 'state', 'comment'];
+                          const selector_order = [ 'year', 'month', 'week', 'holiday', 'weekday', 'time', '24/7', 'state', 'comment'];
                           return selector_order.indexOf(a[0][2]) - selector_order.indexOf(b[0][2]);
                       }
                   );
               }
-              var old_prettified_value_length = prettified_value.length;
+              const old_prettified_value_length = prettified_value.length;
 
               if (typeof user_conf['locale'] === 'string' && user_conf['locale'] !== 'en') {
-                  var global_locale = i18next.lng();
-                  if (global_locale !== user_conf['locale']) {
-                      i18next.setLng(user_conf['locale']);
+                  let translatorFunction;
+                  if (instance.language !== user_conf['locale']) {
+                      translatorFunction = instance.getFixedT(user_conf['locale']);
+                  } else {
+                      translatorFunction = instance.t;
                   }
-                  for (var i = 0; i < prettified_group_value.length; i++) {
-                      var type = prettified_group_value[i][0][2];
+                  for (let i = 0; i < prettified_group_value.length; i++) {
+                      const type = prettified_group_value[i][0][2];
                       if (type === 'weekday') {
                           weekdays.forEach(function (weekday, key) {
                               prettified_group_value[i][1] = prettified_group_value[i][1].replace(new RegExp(weekday, 'g'), weekdays_local[key]);
@@ -18770,11 +29109,11 @@
                               prettified_group_value[i][1] = prettified_group_value[i][1].replace(new RegExp(month, 'g'), months_local[key]);
                           });
                       } else {
-                          prettified_group_value[i][1] = i18next.t(['opening_hours:pretty.' + prettified_group_value[i][1], prettified_group_value[i][1]]);
+                          const prettifiedValueIsProbablyTranslatable = prettified_group_value[i][1].indexOf(':') === -1;
+                          if (prettifiedValueIsProbablyTranslatable) {
+                              prettified_group_value[i][1] = translatorFunction(['opening_hours:pretty.' + prettified_group_value[i][1], prettified_group_value[i][1]]);
+                          }
                       }
-                  }
-                  if (global_locale !== locale) {
-                      i18next.setLng(global_locale);
                   }
               }
 
@@ -18785,11 +29124,11 @@
               prettified_value_array.push( prettified_group_value );
 
               if (!done_with_selector_reordering_warnings) {
-                  for (var i = 0, l = not_sorted_prettified_group_value.length; i < l; i++) {
+                  for (let i = 0, l = not_sorted_prettified_group_value.length; i < l; i++) {
                       if (not_sorted_prettified_group_value[i] !== prettified_group_value[i]) {
                           // console.log(i + ': ' + prettified_group_value[i][0][2]);
-                          var length = i + old_prettified_value_length; // i: Number of spaces in string.
-                          for (var x = 0; x <= i; x++) {
+                          let length = i + old_prettified_value_length; // i: Number of spaces in string.
+                          for (let x = 0; x <= i; x++) {
                               length += prettified_group_value[x][1].length;
                               // console.log('Length: ' + length + ' ' + prettified_group_value[x][1]);
                           }
@@ -18825,7 +29164,7 @@
       function matchTokens(tokens, at /*, matches... */) {
           if (at + arguments.length - 2 > tokens.length)
               return false;
-          for (var i = 0; i < arguments.length - 2; i++) {
+          for (let i = 0; i < arguments.length - 2; i++) {
               if (tokens[at + i][1] !== arguments[i + 2]) {
                   return false;
               }
@@ -18844,7 +29183,7 @@
        */
       function generateDateShifter(func, shift) {
           return function(date) {
-              var res = func(new Date(date.getTime() + shift));
+              const res = func(new Date(date.getTime() + shift));
 
               if (typeof res[1] === 'undefined')
                   return res;
@@ -18862,10 +29201,10 @@
        * :returns: See selector code.
        */
       function parseGroup(tokens, at, rule, nrule) {
-          var rule_modifier_specified = false;
+          let rule_modifier_specified = false;
 
           // console.log(tokens); // useful for debugging of tokenize
-          var last_selector = [];
+          let last_selector = [];
           while (at < tokens.length) {
               // console.log('Parsing at position', at +':', tokens[at]);
               if (matchTokens(tokens, at, 'weekday')) {
@@ -18957,7 +29296,7 @@
                   // console.log("value: " + nrule);
                   // throw formatLibraryBugMessage('Not implemented yet.');
               } else {
-                  var warnings = getWarnings();
+                  const warnings = getWarnings();
                   throw formatWarnErrorMessage(nrule, at, t('unexpected token', {token: tokens[at][1] })) + (warnings ? (' ' + warnings.join('; ')) : '');
               }
 
@@ -19013,7 +29352,7 @@
        * :returns: Moved date object.
        */
       function dateAtNextWeekday(date, weekday) {
-          var delta = weekday - date.getDay();
+          const delta = weekday - date.getDay();
           return new Date(date.getFullYear(), date.getMonth(), date.getDate() + delta + (delta < 0 ? 7 : 0));
       }
       /* }}} */
@@ -19063,8 +29402,8 @@
        *            1. Position at which the token does not belong to the list any more (after ']' token).
        */
       function getConstrainedWeekday(tokens, at) {
-          var number = 0;
-          var endat = parseNumRange(tokens, at, function(from, to, at) {
+          let number = 0;
+          const endat = parseNumRange(tokens, at, function(from, to, at) {
 
               // bad number
               if (from === 0 || from < -5 || from > 5)
@@ -19081,7 +29420,7 @@
                       t('range constrained weekdays'));
               }
           });
-          for (var i = at; i < endat; i++) {
+          for (let i = at; i < endat; i++) {
               tokens[i][4] = 'positive_number';
           }
 
@@ -19118,7 +29457,7 @@
        * :returns: Date object.
        */
       function getDateForConstrainedWeekday(year, month, weekday, constrained_weekday, add_days) {
-          var tmp_date = dateAtNextWeekday(
+          const tmp_date = dateAtNextWeekday(
               new Date(year, month + (constrained_weekday[0] > 0 ? 0 : 1), 1), weekday);
 
           tmp_date.setDate(tmp_date.getDate() + (constrained_weekday[0] + (constrained_weekday[0] > 0 ? -1 : 0)) * 7);
@@ -19140,7 +29479,7 @@
        */
       function checkIfDateIsValid(month, day, nrule, at) {
           // May use this instead. The problem is that this does not give feedback as precise as the code which is used in this function.
-          // var testDate = new Date(year, month, day);
+          // let testDate = new Date(year, month, day);
           // if (testDate.getDate() !== day || testDate.getMonth() !== month || testDate.getFullYear() !== year) {
           //     console.error('date not valid');
           // }
@@ -19173,19 +29512,19 @@
               tokens[at][3] = 'time';
 
           for (; at < tokens.length; at++) {
-              var has_time_var_calc = [], has_normal_time = []; // element 0: start time, 1: end time
+              const has_time_var_calc = [], has_normal_time = []; // element 0: start time, 1: end time
                   has_normal_time[0]   = matchTokens(tokens, at, 'number', 'timesep', 'number');
                   has_time_var_calc[0] = matchTokens(tokens, at, '(', 'timevar');
-              var minutes_from,
-                  minutes_to;
+              let minutes_from,
+                  minutes_to,
+                  has_open_end = false; // default no open end
               if (has_normal_time[0] || matchTokens(tokens, at, 'timevar') || has_time_var_calc[0]) {
                   // relying on the fact that always *one* of them is true
 
-                  var is_point_in_time = false; // default no time range
-                  var has_open_end     = false; // default no open end
-                  var timevar_add      = [ 0, 0 ];
-                  var timevar_string   = [];    // capture timevar string like 'sunrise' to calculate it for the current date.
-                  var point_in_time_period;
+                  let is_point_in_time = false; // default no time range
+                  const timevar_add    = [ 0, 0 ];
+                  let timevar_string   = [];    // capture timevar string like 'sunrise' to calculate it for the current date.
+                  let point_in_time_period;
 
                   // minutes_from
                   if (has_normal_time[0]) {
@@ -19200,7 +29539,7 @@
                       }
                   }
 
-                  var at_end_time = at+(has_normal_time[0] ? 3 : (has_time_var_calc[0] ? 7 : 1))+1; // after '-'
+                  const at_end_time = at+(has_normal_time[0] ? 3 : (has_time_var_calc[0] ? 7 : 1))+1; // after '-'
                   if (!matchTokens(tokens, at_end_time - 1, '-')) { // not time range
                       if (matchTokens(tokens, at_end_time - 1, '+')) {
                           has_open_end = true;
@@ -19319,14 +29658,14 @@
                   } else {
                       if (minutes_to > minutes_in_day) { // has_normal_time[1] must be true
                           rule.time.push(function(minutes_from, minutes_to, timevar_string, timevar_add, has_open_end, is_point_in_time, point_in_time_period, extended_open_end) { return function(date) {
-                              var ourminutes = date.getHours() * 60 + date.getMinutes();
+                              const ourminutes = date.getHours() * 60 + date.getMinutes();
 
                               if (timevar_string[0]) {
-                                  var date_from = suncalc.getTimes(date, lat, lon)[timevar_string[0]];
+                                  const date_from = SunCalc.getTimes(date, lat, lon)[timevar_string[0]];
                                   minutes_from  = date_from.getHours() * 60 + date_from.getMinutes() + timevar_add[0];
                               }
                               if (timevar_string[1]) {
-                                  var date_to = suncalc.getTimes(date, lat, lon)[timevar_string[1]];
+                                  const date_to = SunCalc.getTimes(date, lat, lon)[timevar_string[1]];
                                   minutes_to  = date_to.getHours() * 60 + date_to.getMinutes() + timevar_add[1];
                                   minutes_to += minutes_in_day;
                                   // Needs to be added because it was added by
@@ -19340,7 +29679,7 @@
                                   if (ourminutes < minutes_from) {
                                       return [false, dateAtDayMinutes(date, minutes_from)];
                                   } else if (ourminutes <= minutes_to) {
-                                      for (var cur_min = minutes_from; ourminutes + point_in_time_period >= cur_min; cur_min += point_in_time_period) {
+                                      for (let cur_min = minutes_from; ourminutes + point_in_time_period >= cur_min; cur_min += point_in_time_period) {
                                           if (cur_min === ourminutes) {
                                               return [true, dateAtDayMinutes(date, ourminutes + 1)];
                                           } else if (ourminutes < cur_min) {
@@ -19362,15 +29701,11 @@
                                   rule_infos[nrule] = {};
                               }
                               rule_infos[nrule]['time_wraps_over_midnight'] = true;
-                              rule.wraptime.push(function(minutes_from, minutes_to, timevar_string, timevar_add, has_open_end, point_in_time_period, extended_open_end) { return function(date) {
-                                  var ourminutes = date.getHours() * 60 + date.getMinutes();
+                              rule.wraptime.push(function(minutes_to, timevar_string, timevar_add, has_open_end, point_in_time_period, extended_open_end) { return function(date) {
+                                  const ourminutes = date.getHours() * 60 + date.getMinutes();
 
-                                  if (timevar_string[0]) {
-                                      var date_from = suncalc.getTimes(date, lat, lon)[timevar_string[0]];
-                                      minutes_from  = date_from.getHours() * 60 + date_from.getMinutes() + timevar_add[0];
-                                  }
                                   if (timevar_string[1]) {
-                                      var date_to = suncalc.getTimes(date, lat, lon)[timevar_string[1]];
+                                      const date_to = SunCalc.getTimes(date, lat, lon)[timevar_string[1]];
                                       minutes_to  = date_to.getHours() * 60 + date_to.getMinutes() + timevar_add[1];
                                       // minutes_in_day does not need to be added.
                                       // For normal times in it was added in: if (minutes_to < // minutes_from)
@@ -19381,7 +29716,7 @@
 
                                   if (typeof point_in_time_period === 'number') {
                                       if (ourminutes <= minutes_to) {
-                                          for (var cur_min = 0; ourminutes + point_in_time_period >= cur_min; cur_min += point_in_time_period) {
+                                          for (let cur_min = 0; ourminutes + point_in_time_period >= cur_min; cur_min += point_in_time_period) {
                                               if (cur_min === ourminutes) {
                                                   return [true, dateAtDayMinutes(date, ourminutes + 1)];
                                               } else if (ourminutes < cur_min) {
@@ -19394,18 +29729,18 @@
                                           return [true, dateAtDayMinutes(date, minutes_to), has_open_end, extended_open_end];
                                   }
                                   return [false, undefined];
-                              }}(minutes_from, minutes_to - minutes_in_day, timevar_string, timevar_add, has_open_end, point_in_time_period, extended_open_end));
+                              }}(minutes_to - minutes_in_day, timevar_string, timevar_add, has_open_end, point_in_time_period, extended_open_end));
                           }
                       } else {
                           rule.time.push(function(minutes_from, minutes_to, timevar_string, timevar_add, has_open_end, is_point_in_time, point_in_time_period) { return function(date) {
-                              var ourminutes = date.getHours() * 60 + date.getMinutes();
+                              const ourminutes = date.getHours() * 60 + date.getMinutes();
 
                               if (timevar_string[0]) {
-                                  var date_from = suncalc.getTimes(date, lat, lon)[timevar_string[0]];
+                                  const date_from = SunCalc.getTimes(date, lat, lon)[timevar_string[0]];
                                   minutes_from  = date_from.getHours() * 60 + date_from.getMinutes() + timevar_add[0];
                               }
                               if (timevar_string[1]) {
-                                  var date_to = suncalc.getTimes(date, lat, lon)[timevar_string[1]];
+                                  const date_to = SunCalc.getTimes(date, lat, lon)[timevar_string[1]];
                                   minutes_to  = date_to.getHours() * 60 + date_to.getMinutes() + timevar_add[1];
                               } else if (is_point_in_time && typeof point_in_time_period !== 'number') {
                                   minutes_to = minutes_from + 1;
@@ -19415,7 +29750,7 @@
                                   if (ourminutes < minutes_from) {
                                       return [false, dateAtDayMinutes(date, minutes_from)];
                                   } else if (ourminutes <= minutes_to) {
-                                      for (var cur_min = minutes_from; ourminutes + point_in_time_period >= cur_min; cur_min += point_in_time_period) {
+                                      for (let cur_min = minutes_from; ourminutes + point_in_time_period >= cur_min; cur_min += point_in_time_period) {
                                           if (cur_min === ourminutes) {
                                               return [true, dateAtDayMinutes(date, ourminutes + 1)];
                                           } else if (ourminutes < cur_min) {
@@ -19455,7 +29790,7 @@
 
                   if (minutes_to > minutes_in_day) {
                       rule.time.push(function(minutes_from, minutes_to) { return function(date) {
-                          var ourminutes = date.getHours() * 60 + date.getMinutes();
+                          const ourminutes = date.getHours() * 60 + date.getMinutes();
 
                           if (ourminutes < minutes_from)
                               return [false, dateAtDayMinutes(date, minutes_from)];
@@ -19469,7 +29804,7 @@
                           }
                           rule_infos[nrule]['time_wraps_over_midnight'] = true;
                           rule.wraptime.push(function(minutes_to) { return function(date) {
-                              var ourminutes = date.getHours() * 60 + date.getMinutes();
+                              const ourminutes = date.getHours() * 60 + date.getMinutes();
 
                               if (ourminutes < minutes_to) {
                                   return [true, dateAtDayMinutes(date, minutes_to)];
@@ -19480,7 +29815,7 @@
                       }
                   } else {
                       rule.time.push(function(minutes_from, minutes_to) { return function(date) {
-                          var ourminutes = date.getHours() * 60 + date.getMinutes();
+                          const ourminutes = date.getHours() * 60 + date.getMinutes();
 
                           if (ourminutes < minutes_from)
                               return [false, dateAtDayMinutes(date, minutes_from)];
@@ -19543,18 +29878,18 @@
        * :returns: Time in minutes on suggest, throws an exception otherwise.
       */
       function parseTimevarCalc(tokens, at) {
-          var error;
+          let error;
           if (matchTokens(tokens, at+2, '+') || matchTokens(tokens, at+2, '-')) {
               if (matchTokens(tokens, at+3, 'number', 'timesep', 'number')) {
                   if (matchTokens(tokens, at+6, ')')) {
-                      var add_or_subtract = tokens[at+2][0] === '+' ? '1' : '-1';
-                      var minutes = getMinutesByHoursMinutes(tokens, nrule, at+3) * add_or_subtract;
+                      const add_or_subtract = tokens[at+2][0] === '+' ? '1' : '-1';
+                      const minutes = getMinutesByHoursMinutes(tokens, nrule, at+3) * add_or_subtract;
                       if (minutes === 0)
                           parsing_warnings.push([ nrule, at+5, t('zero calculation') ]
                               );
                       return minutes;
                   } else {
-                      error = [ at+6, '. ' + t('missing', {'symbol': ")"}) + '.'];
+                      error = [ at+6, '. ' + t('missing', {'symbol': ')'}) + '.'];
                   }
               } else {
                   error = [ at+5, ' ' + t('(time)') + '.'];
@@ -19587,10 +29922,10 @@
           for (; at < tokens.length; at++) {
               if (matchTokens(tokens, at, 'weekday', '[')) {
                   // Conditional weekday (Mo[3])
-                  var numbers = [];
+                  const numbers = [];
 
                   // Get list of constraints
-                  var endat = parseNumRange(tokens, at+2, function(from, to, at) {
+                  const endat = parseNumRange(tokens, at+2, function(from, to, at) {
 
                       // bad number
                       if (from === 0 || from < -5 || from > 5)
@@ -19600,7 +29935,7 @@
                       if (from === to) {
                           numbers.push(from);
                       } else if (from < to) {
-                          for (var i = from; i <= to; i++) {
+                          for (let i = from; i <= to; i++) {
                               // bad number
                               if (i === 0 || i < -5 || i > 5)
                                   throw formatWarnErrorMessage(nrule, at+2,
@@ -19622,22 +29957,20 @@
                       );
                   }
 
-                  var add_days = getMoveDays(tokens, endat+1, 6, 'constrained weekdays');
+                  const add_days = getMoveDays(tokens, endat+1, 6, 'constrained weekdays');
                   week_stable = false;
 
                   // Create selector for each list element.
-                  for (var nnumber = 0; nnumber < numbers.length; nnumber++) {
+                  for (let nnumber = 0; nnumber < numbers.length; nnumber++) {
 
                       rule.weekday.push(function(weekday, number, add_days) { return function(date) {
-                          var date_num = getValueForDate(date, false); // Year not needed to distinguish.
-                          var start_of_this_month = new Date(date.getFullYear(), date.getMonth(), 1);
-                          var start_of_next_month = new Date(date.getFullYear(), date.getMonth() + 1, 1);
+                          const date_num = getValueForDate(date, false); // Year not needed to distinguish.
+                          const start_of_this_month = new Date(date.getFullYear(), date.getMonth(), 1);
+                          const start_of_next_month = new Date(date.getFullYear(), date.getMonth() + 1, 1);
 
-                          var target_day_this_month;
+                          const target_day_this_month = getDateForConstrainedWeekday(date.getFullYear(), date.getMonth(), weekday, [ number ]);
 
-                          target_day_this_month = getDateForConstrainedWeekday(date.getFullYear(), date.getMonth(), weekday, [ number ]);
-
-                          var target_day_with_added_days_this_month = new Date(target_day_this_month.getFullYear(),
+                          let target_day_with_added_days_this_month = new Date(target_day_this_month.getFullYear(),
                               target_day_this_month.getMonth(), target_day_this_month.getDate() + add_days);
 
                           // The target day with added days can be before this month
@@ -19664,7 +29997,7 @@
                                   return [false, start_of_next_month];
                           }
 
-                          var target_day_with_added_moved_days_this_month;
+                          let target_day_with_added_moved_days_this_month;
                           if (add_days > 0) {
                               target_day_with_added_moved_days_this_month = dateAtNextWeekday(
                                   new Date(date.getFullYear(), date.getMonth() + (number > 0 ? 0 : 1) -1, 1), weekday);
@@ -19692,12 +30025,15 @@
                           }
 
                           // we hit the target day
-                          if (date.getDate() === target_day_with_added_days_this_month.getDate()) {
+                          const currentDateOnly = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+                          const targetDateOnly = new Date(target_day_with_added_days_this_month.getFullYear(), target_day_with_added_days_this_month.getMonth(), target_day_with_added_days_this_month.getDate());
+                          
+                          if (currentDateOnly.getTime() === targetDateOnly.getTime()) {
                               return [true, dateAtDayMinutes(date, minutes_in_day)];
                           }
 
                           // we're before target day
-                          if (date.getDate() < target_day_with_added_days_this_month.getDate()) {
+                          if (currentDateOnly.getTime() < targetDateOnly.getTime()) {
                               return [false, target_day_with_added_days_this_month];
                           }
 
@@ -19709,21 +30045,21 @@
                   at = endat + 1 + add_days[1];
               } else if (matchTokens(tokens, at, 'weekday')) {
                   // Single weekday (Mo) or weekday range (Mo-Fr)
-                  var is_range = matchTokens(tokens, at+1, '-', 'weekday');
+                  const is_range = matchTokens(tokens, at+1, '-', 'weekday');
 
-                  var weekday_from = tokens[at][0];
-                  var weekday_to = is_range ? tokens[at+2][0] : weekday_from;
+                  let weekday_from = tokens[at][0];
+                  let weekday_to = is_range ? tokens[at+2][0] : weekday_from;
 
-                  var inside = true;
+                  let inside = true;
 
                   // handle reversed range
                   if (weekday_to < weekday_from) {
-                      var tmp = weekday_to;
+                      const tmp = weekday_to;
                       weekday_to = weekday_from - 1;
                       weekday_from = tmp + 1;
                       inside = false;
                   }
-                  var weekday_list = Array.apply(0, Array(weekday_to - weekday_from + 1)).map(function (_, index) {
+                  const weekday_list = Array.apply(0, Array(weekday_to - weekday_from + 1)).map(function (_, index) {
                       return index + weekday_to;
                   });
                   if (typeof rule_infos[nrule] === 'undefined') {
@@ -19741,7 +30077,7 @@
                       // WRONG: This only works if there is no other selector in this selector group ...
                   } else {
                       rule.weekday.push(function(weekday_from, weekday_to, inside) { return function(date) {
-                          var ourweekday = date.getDay();
+                          const ourweekday = date.getDay();
 
                           if (ourweekday < weekday_from || ourweekday > weekday_to) {
                               return [!inside, dateAtNextWeekday(date, weekday_from)];
@@ -19783,7 +30119,7 @@
        *            1. How many tokens.
        */
       function getMoveDays(tokens, at, max_differ, name) {
-          var add_days = [ 0, 0 ]; // [ 'days to add', 'how many tokens' ]
+          const add_days = [ 0, 0 ]; // [ 'days to add', 'how many tokens' ]
           add_days[0] = matchTokens(tokens, at, '+') || (matchTokens(tokens, at, '-') ? -1 : 0);
           if (add_days[0] !== 0 && matchTokens(tokens, at+1, 'number', 'calcday')) {
               // continues with '+ 5 days' or something like that
@@ -19821,29 +30157,29 @@
           for (; at < tokens.length; at++) {
               if (matchTokens(tokens, at, 'holiday')) {
                   if (tokens[at][0] === 'PH') {
-                      var applying_holidays = getMatchingHoliday(tokens[at][0]);
+                      const applying_holidays = getMatchingHoliday(tokens[at][0]);
 
                       // Only allow moving one day in the past or in the future.
                       // This makes implementation easier because only one holiday is assumed to be moved to the next year.
-                      var add_days = getMoveDays(tokens, at+1, 1, 'public holiday');
+                      const add_days = getMoveDays(tokens, at+1, 1, 'public holiday');
 
-                      var selector = function(applying_holidays, add_days) { return function(date) {
+                      const selector = function(applying_holidays, add_days) { return function(date) {
 
-                          var holidays = getApplyingHolidaysForYear(applying_holidays, date.getFullYear(), add_days);
+                          const holidays = getApplyingHolidaysForYear(applying_holidays, date.getFullYear(), add_days);
                           // Needs to be calculated each time because of movable days.
 
-                          var date_num = getValueForDate(date, true);
+                          const date_num = getValueForDate(date, true);
 
-                          for (var i = 0; i < holidays.length; i++) {
-                              var next_holiday_date_num = getValueForDate(holidays[i][0], true);
+                          for (let i = 0; i < holidays.length; i++) {
+                              const next_holiday_date_num = getValueForDate(holidays[i][0], true);
 
                               if (date_num < next_holiday_date_num) {
 
                                   if (add_days[0] > 0) {
                                       // Calculate the last holiday from previous year to tested against it.
-                                      var holidays_last_year = getApplyingHolidaysForYear(applying_holidays, date.getFullYear() - 1, add_days);
-                                      var last_holiday_last_year = holidays_last_year[holidays_last_year.length - 1];
-                                      var last_holiday_last_year_num = getValueForDate(last_holiday_last_year[0], true);
+                                      const holidays_last_year = getApplyingHolidaysForYear(applying_holidays, date.getFullYear() - 1, add_days);
+                                      const last_holiday_last_year = holidays_last_year[holidays_last_year.length - 1];
+                                      const last_holiday_last_year_num = getValueForDate(last_holiday_last_year[0], true);
 
                                       if (date_num < last_holiday_last_year_num ) {
                                           return [ false, last_holiday_last_year[0] ];
@@ -19862,9 +30198,9 @@
 
                           if (add_days[0] < 0) {
                               // Calculate the first holiday from next year to tested against it.
-                              var holidays_next_year = getApplyingHolidaysForYear(applying_holidays, date.getFullYear() + 1, add_days);
-                              var first_holidays_next_year = holidays_next_year[0];
-                              var first_holidays_next_year_num = getValueForDate(first_holidays_next_year[0], true);
+                              const holidays_next_year = getApplyingHolidaysForYear(applying_holidays, date.getFullYear() + 1, add_days);
+                              const first_holidays_next_year = holidays_next_year[0];
+                              const first_holidays_next_year_num = getValueForDate(first_holidays_next_year[0], true);
                               if (date_num === first_holidays_next_year_num) {
                                   return [true, dateAtDayMinutes(first_holidays_next_year[0], minutes_in_day),
                                       'Day before ' + first_holidays_next_year[1] ];
@@ -19885,37 +30221,37 @@
 
                       at += 1 + add_days[1];
                   } else if (tokens[at][0] === 'SH') {
-                      var applying_holidays = getMatchingHoliday(tokens[at][0]);
+                      const applying_holidays = getMatchingHoliday(tokens[at][0]);
 
-                      var selector = function(applying_holidays) { return function(date) {
-                          var date_num = getValueForDate(date);
+                      const selector = function(applying_holidays) { return function(date) {
+                          const date_num = getValueForDate(date);
 
                           // Iterate over holiday array containing the different holiday ranges.
-                          for (var i = 0; i < applying_holidays.length; i++) {
+                          for (let i = 0; i < applying_holidays.length; i++) {
 
-                              var holiday = getSHForYear(applying_holidays[i], date.getFullYear(), false);
+                              const holiday = getSHForYear(applying_holidays[i], date.getFullYear());
                               if (typeof holiday === 'undefined') {
                                   continue;
                               }
 
-                              for (var h = 0; h < holiday.length; h+=4) {
-                                  var holiday_to_plus = new Date(date.getFullYear(), holiday[2+h] - 1, holiday[3+h] + 1);
-                                  var holiday_from = (holiday[0+h] - 1) * 100 + holiday[1+h];
-                                  var holiday_to   = (holiday[2+h] - 1) * 100 + holiday[3+h];
+                              for (let h = 0; h < holiday.length; h+=4) {
+                                  let holiday_to_plus = new Date(date.getFullYear(), holiday[2+h] - 1, holiday[3+h] + 1);
+                                  const holiday_from = (holiday[0+h] - 1) * 100 + holiday[1+h];
+                                  const holiday_to   = (holiday[2+h] - 1) * 100 + holiday[3+h];
                                   holiday_to_plus  = getValueForDate(holiday_to_plus);
 
                                   // console.log(`holiday_from: ${holiday_from}, holiday_to: ${holiday_to}, holiday_to_plus: ${holiday_to_plus}`);
 
-                                  var holiday_ends_next_year = holiday_to < holiday_from;
+                                  const holiday_ends_next_year = holiday_to < holiday_from;
 
                                   if (date_num < holiday_from) { // date is before selected holiday
 
                                       // check if we are in the holidays from the last year spanning into this year
-                                      var last_year_holiday = getSHForYear(applying_holidays[applying_holidays.length - 1], date.getFullYear() - 1, false);
+                                      const last_year_holiday = getSHForYear(applying_holidays[applying_holidays.length - 1], date.getFullYear() - 1);
                                       if (typeof last_year_holiday === 'object') {
-                                          var last_year_holiday_from = (last_year_holiday[last_year_holiday.length - 4] - 1) * 100
+                                          const last_year_holiday_from = (last_year_holiday[last_year_holiday.length - 4] - 1) * 100
                                               + last_year_holiday[last_year_holiday.length - 3]; // e.g. 1125
-                                          var last_year_holiday_to   = (last_year_holiday[last_year_holiday.length - 2] - 1) * 100
+                                          const last_year_holiday_to   = (last_year_holiday[last_year_holiday.length - 2] - 1) * 100
                                               + last_year_holiday[last_year_holiday.length - 1]; // e.g. 0005
                                           // console.log(last_year_holiday_from, last_year_holiday_to);
 
@@ -20007,20 +30343,12 @@
        * :returns: school holidays for the given year.
        */
       function getSHForYear(SH_hash, year, fatal) {
-          if (typeof fatal !== 'boolean') {
-              fatal = true;
-          }
 
-          var holiday = SH_hash[year];
+          let holiday = SH_hash[year];
           if (typeof holiday === 'undefined') {
               holiday = SH_hash['default']; // applies for any year without explicit definition
               if (typeof holiday === 'undefined') {
-                  if (fatal) {
-                      throw formatLibraryBugMessage(t('no SH definition', {
-                          'name': SH_hash.name + ' ',
-                          'year': year,
-                      }), 'library bug PR only');
-                  } else {
+                  {
                       return undefined;
                   }
               }
@@ -20050,7 +30378,7 @@
               }), 'library bug PR only');
           }
 
-          var matching_holiday = [];
+          let matching_holiday = [];
           if (typeof location_state === 'string'
               && typeof holiday_definitions[location_cc][location_state] === 'object'
               && typeof holiday_definitions[location_cc][location_state][type_of_holidays] === 'object') {
@@ -20060,27 +30388,26 @@
                * country).
                */
 
-              var country_holidays = holiday_definitions[location_cc][type_of_holidays] || [];
-              var state_holidays = holiday_definitions[location_cc][location_state][type_of_holidays];
+              const country_holidays = holiday_definitions[location_cc][type_of_holidays] || [];
+              const state_holidays = holiday_definitions[location_cc][location_state][type_of_holidays];
               if (type_of_holidays === 'PH') {
                   matching_holiday = state_holidays;
               } else if (!country_holidays.length) {
                   matching_holiday = state_holidays;
               } else {
                   // Merge country and state holidays chronologically
-                  var country_holiday_names = country_holidays.map(function(country_holiday) {
+                  const country_holiday_names = country_holidays.map(function(country_holiday) {
                       return country_holiday.name;
                   });
-                  var matching_holiday = [];
                   matching_holiday.push.apply(matching_holiday, country_holidays);
                   matching_holiday.push.apply(matching_holiday, state_holidays.filter(function is_not_a_country_holiday(state_holiday) {
                       return country_holiday_names.indexOf(state_holiday.name) === -1;
                   }));
                   matching_holiday.sort(function(h1, h2) {
-                      var h1_year = Object.keys(h1).find(function(k) {return k !== 'name';});
-                      var h2_year = Object.keys(h2).find(function(k) {return k !== 'name';});
-                      var h1_date = h1[h1_year];
-                      var h2_date = h2[h2_year];
+                      const h1_year = Object.keys(h1).find(function(k) {return k !== 'name';});
+                      const h2_year = Object.keys(h2).find(function(k) {return k !== 'name';});
+                      const h1_date = h1[h1_year];
+                      const h2_date = h2[h2_year];
                       // compare both months, or to break a tie both days
                       return (h1_date[0] - h2_date[0]) || (h1_date[1] - h2_date[1]);
                   });
@@ -20090,7 +30417,7 @@
                * countries only have country-wide holiday definitions
                * so that is ok too.
                */
-              var applying_holidays_for_country = holiday_definitions[location_cc][type_of_holidays];
+              const applying_holidays_for_country = holiday_definitions[location_cc][type_of_holidays];
 
               switch (type_of_holidays) {
                   case 'PH':
@@ -20135,28 +30462,28 @@
        */
       function getMovableEventsForYear(year) {
           /* Calculate easter {{{ */
-          var C = Math.floor(year/100);
-          var N = year - 19*Math.floor(year/19);
-          var K = Math.floor((C - 17)/25);
-          var I = C - Math.floor(C/4) - Math.floor((C - K)/3) + 19*N + 15;
+          const C = Math.floor(year/100);
+          const N = year - 19*Math.floor(year/19);
+          const K = Math.floor((C - 17)/25);
+          let I = C - Math.floor(C/4) - Math.floor((C - K)/3) + 19*N + 15;
           I = I - 30*Math.floor((I/30));
           I = I - Math.floor(I/28)*(1 - Math.floor(I/28)*Math.floor(29/(I + 1))*Math.floor((21 - N)/11));
-          var J = year + Math.floor(year/4) + I + 2 - C + Math.floor(C/4);
+          let J = year + Math.floor(year/4) + I + 2 - C + Math.floor(C/4);
           J = J - 7*Math.floor(J/7);
-          var L = I - J;
-          var M = 3 + Math.floor((L + 40)/44);
-          var D = L + 28 - 31*Math.floor(M/4);
+          const L = I - J;
+          const M = 3 + Math.floor((L + 40)/44);
+          const D = L + 28 - 31*Math.floor(M/4);
           /* }}} */
 
           /* Calculate orthodox easter {{{ */
-          var oA = year % 4;
-          var oB = year % 7;
-          var oC = year % 19;
-          var oD = (19*oC + 15) % 30;
-          var oE = (2*oA+4*oB - oD + 34) % 7;
-          var oF = oD+oE;
+          const oA = year % 4;
+          const oB = year % 7;
+          const oC = year % 19;
+          const oD = (19*oC + 15) % 30;
+          const oE = (2*oA+4*oB - oD + 34) % 7;
+          const oF = oD+oE;
 
-          var oDate;
+          let oDate;
           if (oF < 9) {
               oDate = new Date(year, 4-1, oF+4);
           } else {
@@ -20169,34 +30496,82 @@
           /* }}} */
 
           /* Calculate last Sunday in February {{{ */
-          var lastFebruaryDay = new Date(year, 2, 0);
-          var lastFebruarySunday = lastFebruaryDay.getDate() - lastFebruaryDay.getDay();
+          const lastFebruaryDay = new Date(year, 2, 0);
+          const lastFebruarySunday = lastFebruaryDay.getDate() - lastFebruaryDay.getDay();
           /* }}} */
 
           /* Calculate Victoria Day. last Monday before or on May 24 {{{ */
-          var may_24 = new Date(year, 4, 24);
-          var victoriaDay = 24  - ((6 + may_24.getDay()) % 7);
+          const may_24 = new Date(year, 4, 24);
+          const victoriaDay = 24  - ((6 + may_24.getDay()) % 7);
           /* }}} */
 
           /* Calculate Canada Day. July 1st unless 1st is on Sunday, then July 2. {{{ */
-          var july_1 = new Date(year, 6, 1);
-          var canadaDay = july_1.getDay() === 0 ? 2 : 1;
+          const july_1 = new Date(year, 6, 1);
+          const canadaDay = july_1.getDay() === 0 ? 2 : 1;
           /* }}} */
+
+          /* Calculation of the spring and autumnal equinoxes (for Public holidays in Japan). {{{ */
+          function springEquinoxCalc(year){
+              if(year >= 1900 && year <= 1923){
+                  if(year % 4 === 3) return new Date(year, 2, 22)
+                  else return new Date(year, 2, 21)
+              } else if(year >= 1924 && year <= 1959){
+                  return new Date(year, 2, 21)
+              } else if(year >= 1960 && year <= 1991){
+                  if(year % 4 === 0) return new Date(year, 2, 20)
+                  else return new Date(year, 2, 21)
+              } else if(year >= 1992 && year <= 2023){
+                  if(year % 4 === 0 || year % 4 === 1) return new Date(year, 2, 20)
+                  else return new Date(year, 2, 21)
+              } else if(year >= 2024 && year <= 2055){
+                  if(year % 4 === 3) return new Date(year, 2, 21)
+                  else return new Date(year, 2, 20)
+              } else if(year >= 2056 && year <= 2091){
+                  return new Date(year, 2, 20)
+              } else if(year >= 2092 && year <= 2099){
+                  if(year % 4 === 0) return new Date(year, 2, 19)
+                  else return new Date(year, 2, 20)
+              }
+          }
+
+          function autumnalEquinoxCalc(year){
+              if(year >= 1900 && year <= 1919){
+                  if(year % 4 === 0) return new Date(year, 8, 23)
+                  else return new Date(year, 8, 24)
+              } else if(year >= 1920 && year <= 1947){
+                  if(year % 4 === 0 || year % 4 === 1) return new Date(year, 8, 23)
+                  else return new Date(year, 8, 24)
+              } else if(year >= 1948 && year <= 1979){
+                  if(year % 4 === 3) return new Date(year, 8, 24)
+                  else return new Date(year, 8, 23)
+              } else if(year >= 1980 && year <= 2011){
+                  return new Date(year, 8, 23)
+              } else if(year >= 2012 && year <= 2043){
+                  if(year % 4 === 0) return new Date(year, 8, 22)
+                  else return new Date(year, 8, 23)
+              }  else if(year >= 2044 && year <= 2075){
+                  if(year % 4 === 0 || year % 4 === 1) return new Date(year, 8, 22)
+                  else return new Date(year, 8, 23)
+              } else if(year >= 2076 && year <= 2099){
+                  if(year % 4 === 3) return new Date(year, 8, 23)
+                  else return new Date(year, 8, 22)
+              }
+          }
 
           /* Helper functions {{{ */
           function firstWeekdayOfMonth(month, weekday){
-              var first = new Date(year, month, 1);
+              const first = new Date(year, month, 1);
               return 1 + ((7 + weekday - first.getDay()) % 7);
           }
 
           function lastWeekdayOfMonth(month, weekday){
-              var last = new Date(year, month+1, 0);
-              var offset = ((7 + last.getDay() - weekday) % 7);
+              const last = new Date(year, month+1, 0);
+              const offset = ((7 + last.getDay() - weekday) % 7);
               return last.getDate() - offset;
           }
 
           function getDateOfWeekdayInDateRange(weekday, start_date){
-              var days_to_dest_date = weekday - start_date.getDay();
+              let days_to_dest_date = weekday - start_date.getDay();
               if (days_to_dest_date < 0) {
                   days_to_dest_date += 7;
               }
@@ -20219,7 +30594,7 @@
               if (first_weekday <= start_date.getDay() && start_date.getDay() <= last_weekday) {
                   return start_date;
               } else {
-                  var days_to_dest_date = first_weekday - start_date.getDay();
+                  let days_to_dest_date = first_weekday - start_date.getDay();
                   if (days_to_dest_date < 0) {
                       days_to_dest_date += 7;
                   }
@@ -20268,17 +30643,21 @@
               'nextWednesday16Nov'    : getDateOfWeekdayInDateRange(3, new Date(year, 10, 16)),
               'nextMo-Fr17March'      : getDateOfNextWeekdayRange(1, 5, new Date(year, 2, 17)),
               'nextMo-Sa01May'        : getDateOfNextWeekdayRange(1, 6, new Date(year, 4, 1)),
+              'nextMo-Fr12July'       : getDateOfNextWeekdayRange(1, 5, new Date(year, 6, 12)),
               'nextMo-Sa07August'     : getDateOfNextWeekdayRange(1, 6, new Date(year, 7, 7)),
+              'nextMo-Fr30November'   : getDateOfNextWeekdayRange(1, 5, new Date(year, 10, 30)),
               'nextMo-Sa25December'   : getDateOfNextWeekdayRange(1, 6, new Date(year, 11, 25)),
+              'springEquinox'         : springEquinoxCalc(year),
+              'autumnalEquinox'       : autumnalEquinoxCalc(year),
           };
       }
       /* }}} */
 
       function getApplyingHolidaysForYear(applying_holidays, year, add_days) {
-          var movableDays = getMovableEventsForYear(year);
+          const movableDays = getMovableEventsForYear(year);
 
-          var sorted_holidays = [];
-          var next_holiday;
+          let sorted_holidays = [];
+          let next_holiday;
 
           applying_holidays.forEach(function (holiday_item) {
               if ('fixed_date' in holiday_item) {
@@ -20287,11 +30666,11 @@
                           holiday_item.fixed_date[1]
                       );
               } else if ('variable_date' in holiday_item) {
-                  var selected_movableDay = movableDays[holiday_item.variable_date];
+                  const selected_movableDay = movableDays[holiday_item.variable_date];
                   if (!selected_movableDay) {
                       throw t('movable no formula', {'name': holiday_item.name});
                   }
-                  var date_offset = 0;
+                  let date_offset = 0;
                   if ('offset' in holiday_item) {
                       date_offset = holiday_item.offset;
                   }
@@ -20335,7 +30714,7 @@
           tokens[at][3] = 'year';
           for (; at < tokens.length; at++) {
               if (matchTokens(tokens, at, 'year')) {
-                  var is_range = false,
+                  let is_range = false,
                       has_period,
                       period;
                   if (matchTokens(tokens, at+1, '-', 'year', '/', 'number')) {
@@ -20355,7 +30734,7 @@
                       }
                   }
 
-                  var year_from = parseInt(tokens[at][0]);
+                  const year_from = parseInt(tokens[at][0]);
                   // error checking {{{
                       if (is_range && tokens[at+2][0] <= year_from) {
                           // handle reversed range
@@ -20374,8 +30753,8 @@
                   /* }}} */
 
                   rule.year.push(function(tokens, at, year_from, is_range, has_period, period) { return function(date) {
-                      var ouryear = date.getFullYear();
-                      var year_to = is_range ? parseInt(tokens[at+2][0]) : year_from;
+                      const ouryear = date.getFullYear();
+                      const year_to = is_range ? parseInt(tokens[at+2][0]) : year_from;
 
                       if (ouryear < year_from ){
                           return [false, new Date(year_from, 0, 1)];
@@ -20429,9 +30808,10 @@
                   at++;
               }
               if (matchTokens(tokens, at, 'number')) {
-                  var is_range = matchTokens(tokens, at+1, '-', 'number'), period = 0;
-                  var week_from = tokens[at][0];
-                  var week_to   = is_range ? tokens[at+2][0] : week_from;
+                  const is_range = matchTokens(tokens, at+1, '-', 'number');
+                  let period = 0;
+                  const week_from = tokens[at][0];
+                  const week_to   = is_range ? tokens[at+2][0] : week_from;
                   if (week_from > week_to) {
                       throw formatWarnErrorMessage(nrule, at+2, t('week range reverse'));
                   }
@@ -20467,7 +30847,7 @@
                   } else {
 
                       rule.week.push(function(week_from, week_to, period) { return function(date) {
-                          var ourweek = getWeekNumber(date);
+                          const ourweek = getWeekNumber(date);
 
                           // console.log("week_from: %s, week_to: %s", week_from, week_to);
                           // console.log("ourweek: %s, date: %s", ourweek, date);
@@ -20486,7 +30866,7 @@
 
                           // we're in range
                           if (period) {
-                              var in_period = (ourweek - week_from) % period === 0;
+                              const in_period = (ourweek - week_from) % period === 0;
                               if (in_period) {
                                   return [true, getNextDateOfISOWeek(ourweek + 1, date)];
                               } else {
@@ -20538,15 +30918,15 @@
           // Make Sunday's day number 7
           d.setDate(d.getDate() + 4 - (d.getDay()||7));
           // Get first day of year
-          var yearStart = new Date(d.getFullYear(),0,1);
+          const yearStart = new Date(d.getFullYear(),0,1);
           // Calculate full weeks to nearest Thursday
           return Math.ceil(( ( (d - yearStart) / 86400000) + 1)/7)
       }
       // https://stackoverflow.com/a/16591175
       function getDateOfISOWeek(w, year) {
-          var simple = new Date(year, 0, 1 + (w - 1) * 7);
-          var dow = simple.getDay();
-          var ISOweekStart = simple;
+          const simple = new Date(year, 0, 1 + (w - 1) * 7);
+          const dow = simple.getDay();
+          const ISOweekStart = simple;
           if (dow <= 4)
               ISOweekStart.setDate(simple.getDate() - simple.getDay() + 1);
           else
@@ -20554,8 +30934,8 @@
           return ISOweekStart;
       }
       function getNextDateOfISOWeek(week, date) {
-          var next_date;
-          for (var i = -1; i <= 1; i++) {
+          let next_date;
+          for (let i = -1; i <= 1; i++) {
               next_date = getDateOfISOWeek(week, date.getFullYear() + i);
               if (next_date.getTime() > date.getTime()) {
                   return next_date;
@@ -20582,10 +30962,10 @@
                   return parseMonthdayRange(tokens, at, nrule, true);
               } else if (matchTokens(tokens, at, 'month')) {
                   // Single month (Jan) or month range (Feb-Mar)
-                  var is_range = matchTokens(tokens, at+1, '-', 'month');
+                  const is_range = matchTokens(tokens, at+1, '-', 'month');
 
-                  var month_from = tokens[at][0];
-                  var month_to = is_range ? tokens[at+2][0] : month_from;
+                  let month_from = tokens[at][0];
+                  let month_to = is_range ? tokens[at+2][0] : month_from;
 
                   if (is_range && week_stable) {
                       if (month_from !== (month_to + 1) % 12)
@@ -20594,18 +30974,18 @@
                       week_stable = false;
                   }
 
-                  var inside = true;
+                  let inside = true;
 
                   // handle reversed range
                   if (month_to < month_from) {
-                      var tmp = month_to;
+                      const tmp = month_to;
                       month_to = month_from - 1;
                       month_from = tmp + 1;
                       inside = false;
                   }
 
-                  var selector = function(month_from, month_to, inside) { return function(date) {
-                      var ourmonth = date.getMonth();
+                  const selector = function(month_from, month_to, inside) { return function(date) {
+                      const ourmonth = date.getMonth();
 
                       if (month_to < month_from) {
                           /* Handle full range. */
@@ -20654,7 +31034,8 @@
               tokens[at][3] = 'month';
 
           for (; at < tokens.length; at++) {
-              var has_year = [], has_month = [], has_event = [], has_calc = [], has_constrained_weekday = [];
+              let has_year = [];
+              const has_month = [], has_event = [], has_calc = [], has_constrained_weekday = [];
               has_year[0]  = matchTokens(tokens, at, 'year');
               has_month[0] = matchTokens(tokens, at+has_year[0], 'month', 'number');
               has_event[0] = matchTokens(tokens, at+has_year[0], 'event');
@@ -20662,7 +31043,7 @@
               if (has_event[0])
                   has_calc[0] = getMoveDays(tokens, at+has_year[0]+1, 200, 'event like easter');
 
-              var at_range_sep;
+              let at_range_sep;
               if (matchTokens(tokens, at+has_year[0], 'month', 'weekday', '[')) {
                   has_constrained_weekday[0] = getConstrainedWeekday(tokens, at+has_year[0]+3);
                   has_calc[0] = getMoveDays(tokens, has_constrained_weekday[0][1], 6, 'constrained weekdays');
@@ -20674,7 +31055,7 @@
                           : 2);
               }
 
-              var at_sec_event_or_month;
+              let at_sec_event_or_month;
               if ((has_month[0] || has_event[0] || has_constrained_weekday[0]) && matchTokens(tokens, at_range_sep, '-')) {
                   has_year[1] = matchTokens(tokens, at_range_sep+1, 'year');
                   at_sec_event_or_month = at_range_sep+1+has_year[1];
@@ -20698,16 +31079,16 @@
                   if (has_month[1])
                       checkIfDateIsValid(tokens[at_sec_event_or_month][0], tokens[at_sec_event_or_month+1][0], nrule, at_sec_event_or_month+1);
 
-                  var selector = function(tokens, at, nrule, has_year, has_event, has_calc, at_sec_event_or_month, has_constrained_weekday) { return function(date) {
-                      var start_of_next_year = new Date(date.getFullYear() + 1, 0, 1);
+                  const selector = function(tokens, at, nrule, has_year, has_event, has_calc, at_sec_event_or_month, has_constrained_weekday) { return function(date) {
+                      const start_of_next_year = new Date(date.getFullYear() + 1, 0, 1);
 
-                      var movableDays, from_date;
+                      let movableDays, from_date;
                       if (has_event[0]) {
                           movableDays = getMovableEventsForYear(has_year[0] ? parseInt(tokens[at][0]) : date.getFullYear());
                           from_date = movableDays[tokens[at+has_year[0]][0]];
 
                           if (typeof has_calc[0] === 'object' && has_calc[0][1]) {
-                              var from_year_before_calc = from_date.getFullYear();
+                              const from_year_before_calc = from_date.getFullYear();
                               from_date.setDate(from_date.getDate() + has_calc[0][0]);
                               if (from_year_before_calc !== from_date.getFullYear())
                                   throw formatWarnErrorMessage(nrule, at+has_year[0]+has_calc[0][1]*3,
@@ -20724,7 +31105,7 @@
                               tokens[at+has_year[0]][0], tokens[at+has_year[0]+1][0]);
                       }
 
-                      var to_date;
+                      let to_date;
                       if (has_event[1]) {
                           movableDays = getMovableEventsForYear(has_year[1]
                                       ? parseInt(tokens[at_sec_event_or_month-1][0])
@@ -20732,7 +31113,7 @@
                           to_date = movableDays[tokens[at_sec_event_or_month][0]];
 
                           if (typeof has_calc[1] === 'object' && has_calc[1][1]) {
-                              var to_year_before_calc = to_date.getFullYear();
+                              const to_year_before_calc = to_date.getFullYear();
                               to_date.setDate(to_date.getDate() + has_calc[1][0]);
                               if (to_year_before_calc !== to_date.getFullYear()) {
                                   throw formatWarnErrorMessage(nrule, at_sec_event_or_month+has_calc[1][1],
@@ -20750,10 +31131,10 @@
                               tokens[at_sec_event_or_month][0], tokens[at_sec_event_or_month+1][0] + 1);
                       }
 
-                      var inside = true;
+                      let inside = true;
 
                       if (to_date < from_date) {
-                          var tmp = to_date;
+                          const tmp = to_date;
                           to_date = from_date;
                           from_date = tmp;
                           inside = false;
@@ -20787,16 +31168,17 @@
               } else if (has_month[0]) {
 
                   has_year = has_year[0];
-                  var year = tokens[at][0]; // Could be month if has no year. Tested later.
-                  var month = tokens[at+has_year][0];
+                  const year = tokens[at][0]; // Could be month if has no year. Tested later.
+                  const month = tokens[at+has_year][0];
 
-                  var first_round = true;
+                  let first_round = true;
+                  let is_range;
 
                   do {
-                      var range_from = tokens[at+1 + has_year][0];
-                      var is_range = matchTokens(tokens, at+2+has_year, '-', 'number');
-                      var period = undefined;
-                      var range_to = tokens[at+has_year+(is_range ? 3 : 1)][0] + 1;
+                      const range_from = tokens[at+1 + has_year][0];
+                      is_range = matchTokens(tokens, at+2+has_year, '-', 'number');
+                      let period = undefined;
+                      const range_to = tokens[at+has_year+(is_range ? 3 : 1)][0] + 1;
                       if (is_range && matchTokens(tokens, at+has_year+4, '/', 'number')) {
                           period = tokens[at+has_year+5][0];
                           tokens[at+has_year+5][4] = 'positive_number';
@@ -20804,7 +31186,7 @@
                       }
 
                       if (first_round) {
-                          var at_timesep_if_monthRange = at + has_year + 1 // at month number
+                          const at_timesep_if_monthRange = at + has_year + 1 // at month number
                               + (is_range ? 2 : 0) + (period ? 2 : 0)
                               + !(is_range || period); // if not range nor has period, add one
 
@@ -20827,16 +31209,16 @@
                           nrule, at+has_year+(is_range ? 3 : 1));
                       /* }}} */
 
-                      var selector = function(year, has_year, month, range_from, range_to, period) { return function(date) {
-                          var start_of_next_year = new Date(date.getFullYear() + 1, 0, 1);
+                      const selector = function(year, has_year, month, range_from, range_to, period) { return function(date) {
+                          const start_of_next_year = new Date(date.getFullYear() + 1, 0, 1);
 
-                          var from_date = new Date(has_year ? year : date.getFullYear(),
+                          const from_date = new Date(has_year ? year : date.getFullYear(),
                               month, range_from);
                           if (month === 1 && range_from !== from_date.getDate()) // Only on leap years does this day exist.
                               return [false]; // If day 29 does not exist,
                                               // then the date object adds one day to date
                                               // and this selector should not match.
-                          var to_date   = new Date(from_date.getFullYear(),
+                          const to_date   = new Date(from_date.getFullYear(),
                               month, range_to);
                           if (month === 1 && is_range && range_to !== to_date.getDate()) // Only on leap years does this day exist.
                               return [false];
@@ -20848,8 +31230,8 @@
                           else if (!period)
                               return [true, to_date];
 
-                          var nday = Math.floor((date.getTime() - from_date.getTime()) / msec_in_day);
-                          var in_period = nday % period;
+                          const nday = Math.floor((date.getTime() - from_date.getTime()) / msec_in_day);
+                          const in_period = nday % period;
 
                           if (in_period === 0)
                               return [true, new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1)];
@@ -20874,11 +31256,11 @@
                   // Only event like easter {{{
               } else if (has_event[0]) {
 
-                  var selector = function(tokens, at, nrule, has_year, add_days) { return function(date) {
+                  const selector = function(tokens, at, nrule, has_year, add_days) { return function(date) {
 
                       // console.log('enter selector with date: ' + date);
-                      var movableDays = getMovableEventsForYear((has_year ? tokens[at][0] : date.getFullYear()));
-                      var event_date = movableDays[tokens[at+has_year][0]];
+                      const movableDays = getMovableEventsForYear((has_year ? tokens[at][0] : date.getFullYear()));
+                      const event_date = movableDays[tokens[at+has_year][0]];
                       if (!event_date)
                           throw t('movable no formula', {'name': tokens[at+has_year][0]});
 
@@ -20935,29 +31317,29 @@
        *            4. match_rule: Rule number starting with 0 (nrule).
        */
       this.getStatePair = function(date) {
-          var resultstate = false;
-          var changedate;
-          var unknown = false;
-          var comment;
-          var match_rule;
+          let resultstate = false;
+          let changedate;
+          let unknown = false;
+          let comment;
+          let match_rule;
 
-          var date_matching_rules = [];
+          let date_matching_rules = [];
 
           /* Go though all date selectors and check if they return something
            * else than closed for the given date.
            */
-          for (var nrule = 0; nrule < rules.length; nrule++) {
-              var matching_date_rule = true;
+          for (let nrule = 0; nrule < rules.length; nrule++) {
+              let matching_date_rule = true;
               // console.log(nrule, 'length',  rules[nrule].date.length);
 
               /* Try each date selector type. */
-              for (var ndateselector = 0; ndateselector < rules[nrule].date.length; ndateselector++) {
-                  var dateselectors = rules[nrule].date[ndateselector];
+              for (let ndateselector = 0; ndateselector < rules[nrule].date.length; ndateselector++) {
+                  const dateselectors = rules[nrule].date[ndateselector];
                   // console.log(nrule, ndateselector);
 
-                  var has_matching_selector = false;
-                  for (var datesel = 0; datesel < dateselectors.length; datesel++) {
-                      var res = dateselectors[datesel](date);
+                  let has_matching_selector = false;
+                  for (let datesel = 0; datesel < dateselectors.length; datesel++) {
+                      const res = dateselectors[datesel](date);
                       if (res[0]) {
                           has_matching_selector = true;
 
@@ -20993,7 +31375,7 @@
                           && !rules[nrule].wrapped && !rules[nrule].additional && !rules[nrule].fallback
                       ) {
 
-                      // var old_date_matching_rules = date_matching_rules;
+                      // let old_date_matching_rules = date_matching_rules;
                       date_matching_rules = [];
                       // for (var nrule = 0; nrule < old_date_matching_rules.length; nrule++) {
                       //     if (!rules[old_date_matching_rules[nrule]].wrapped)
@@ -21005,8 +31387,8 @@
           }
 
           // console.log(date_matching_rules);
-          for (var nrule = 0; nrule < date_matching_rules.length; nrule++) {
-              var rule = date_matching_rules[nrule];
+          for (let nrule = 0; nrule < date_matching_rules.length; nrule++) {
+              const rule = date_matching_rules[nrule];
 
               // console.log('Processing rule ' + rule + ': with date ' + date
                   // + ' and ' + rules[rule].time.length + ' time selectors (comment: "' + rules[rule].comment + '").');
@@ -21025,8 +31407,8 @@
                   }
               }
 
-              for (var timesel = 0; timesel < rules[rule].time.length; timesel++) {
-                  var res = rules[rule].time[timesel](date);
+              for (let timesel = 0; timesel < rules[rule].time.length; timesel++) {
+                  const res = rules[rule].time[timesel](date);
 
                   // console.log('res:', res);
                   if (res[0]) {
@@ -21049,7 +31431,7 @@
                               /* Hack to make second rule in '07:00+,12:00-16:00; 16:00-24:00 closed "needed because of open end"' obsolete {{{ */
                               if (typeof rules[rule].time[timesel+1] === 'function') {
 
-                                  var next_res = rules[rule].time[timesel+1](date);
+                                  const next_res = rules[rule].time[timesel+1](date);
                                   if (  !next_res[0]
                                       // && next_res[2]
                                       && typeof next_res[1] === 'object'
@@ -21062,6 +31444,44 @@
                                       ) {
 
                                       // console.log("07:00+,12:00-16:00 matched.");
+
+                                      resultstate = false;
+                                      unknown     = false;
+                                  }
+                              }
+
+                              /* Hack to handle '17:00+,13:00-02:00' {{{ */
+                              /* Not enabled. To complicated, just don‘t use them …
+                               * It gets even crazier …
+                               * Time wrapping over midnight is
+                               * stored in the next internal rule:
+                               * '17:00-00:00 unknown "Specified as open end. Closing time was guessed.", 13:00-00:00 open' // First internal rule.
+                               * + ', ' overwritten part: 00:00-03:00 open + '00:00-02:00 open', // Second internal rule.
+                               */
+
+                              /*
+                              if (
+                                      typeof rules[rule-1] === 'object'
+                                      && rules[rule].build_from_token_rule.toString() === rules[rule-1].build_from_token_rule.toString()
+                                      && typeof rules[rule] === 'object'
+                                      && rules[rule].build_from_token_rule.toString() === rules[rule].build_from_token_rule.toString()
+                                      ) {
+
+                                  let last_wrapping_time_selector = rules[rule].time[rules[rule].time.length - 1];
+                                  let last_w_res = last_wrapping_time_selector(new Date(date.getTime() - 1));
+                                  // console.log(last_w_res);
+
+                                  if (    last_w_res[0]
+                                          &&  typeof last_w_res[2] === 'undefined'
+                                          && (typeof last_w_res[2] === 'undefined' || last_w_res[2] === false) // Do not match for 'Tu 23:59-40:00+'
+                                          &&  typeof last_w_res[1] === 'object'
+                                          && date.getTime() === last_w_res[1].getTime()
+                                      ) {
+
+                                      // '05:00-06:00,17:00+,13:00-02:00',
+
+                                      // console.log("17:00+,13:00-02:00 matched.");
+                                      // console.log(JSON.stringify(rules, null, '    '));
 
                                       resultstate = false;
                                       unknown     = false;
@@ -21112,8 +31532,8 @@
        */
       function prettifySelector(tokens, selector_start, selector_end, selector_type, conf) {
 
-          var prettified_value = '';
-          var at = selector_start;
+          let prettified_value = '';
+          let at = selector_start;
           // console.log(selector_type);
           while (at <= selector_end) {
               // console.log('At: ' + at + ', token: ' + tokens[at]);
@@ -21198,34 +31618,34 @@
       // Simple API {{{
 
       this.getState = function(date) {
-          var it = this.getIterator(date);
+          const it = this.getIterator(date);
           return it.getState();
       };
 
       this.getUnknown = function(date) {
-          var it = this.getIterator(date);
+          const it = this.getIterator(date);
           return it.getUnknown();
       };
 
       this.getStateString = function(date, past) {
-          var it = this.getIterator(date);
+          const it = this.getIterator(date);
           return it.getStateString(past);
       };
 
       this.getComment = function(date) {
-          var it = this.getIterator(date);
+          const it = this.getIterator(date);
           return it.getComment();
       };
 
       this.getMatchingRule = function(date) {
-          var it = this.getIterator(date);
+          const it = this.getIterator(date);
           return it.getMatchingRule();
       };
 
       /* Not available for iterator API {{{ */
       /* getWarnings: Get warnings, empty list if none {{{ */
       this.getWarnings = function() {
-          var it = this.getIterator();
+          const it = this.getIterator();
           return getWarnings(it);
       };
       /* }}} */
@@ -21245,7 +31665,7 @@
 
       /* getNextChange: Get time of next status change {{{ */
       this.getNextChange = function(date, maxdate) {
-          var it = this.getIterator(date);
+          const it = this.getIterator(date);
           if (!it.advance(maxdate))
               return undefined;
           return it.getDate();
@@ -21261,9 +31681,9 @@
       /* isEqualTo: Check if this opening_hours object has the same meaning as the given opening_hours object. {{{ */
       this.isEqualTo = function(second_oh_object, start_date) {
           if (typeof start_date === 'undefined') {
-              var start_date = new Date();
+              start_date = new Date();
           }
-          var datelimit;
+          let datelimit;
 
           if (this.isWeekStable() && second_oh_object.isWeekStable()) {
               datelimit = new Date(start_date.getTime() + msec_in_day * 10);
@@ -21277,13 +31697,13 @@
               datelimit = new Date(start_date.getTime() + msec_in_day * 366 * 5);
           }
 
-          var first_it = this.getIterator(start_date);
-          var second_it = second_oh_object.getIterator(start_date);
+          const first_it = this.getIterator(start_date);
+          const second_it = second_oh_object.getIterator(start_date);
 
           while (first_it.advance(datelimit)) {
               second_it.advance(datelimit);
 
-              var not_equal = [];
+              const not_equal = [];
 
               if (first_it.getDate().getTime() !== second_it.getDate().getTime()) {
                   not_equal.push('getDate');
@@ -21302,7 +31722,7 @@
               }
 
               if (not_equal.length) {
-                  var deviation_for_time = {};
+                  const deviation_for_time = {};
                   deviation_for_time[first_it.getDate().getTime()] = not_equal;
                   return [ false,
                       {
@@ -21323,9 +31743,9 @@
       // High-level API {{{
       /* getOpenIntervals: Get array of open intervals between two dates {{{ */
       this.getOpenIntervals = function(from, to) {
-          var res = [];
+          const res = [];
 
-          var it = this.getIterator(from);
+          const it = this.getIterator(from);
 
           if (it.getState() || it.getUnknown()) {
               res.push([from, undefined, it.getUnknown(), it.getComment()]);
@@ -21357,13 +31777,13 @@
       /* getOpenDuration: Get total number of milliseconds a facility is open,unknown within a given date range {{{ */
       this.getOpenDuration = function(from, to) {
 
-          var open    = 0;
-          var unknown = 0;
+          let open    = 0;
+          let unknown = 0;
 
-          var it = this.getIterator(from);
-          var prevdate    = (it.getState() || it.getUnknown()) ? from : undefined;
-          var prevstate   = it.getState();
-          var prevunknown = it.getUnknown();
+          const it = this.getIterator(from);
+          let prevdate    = (it.getState() || it.getUnknown()) ? from : undefined;
+          let prevstate   = it.getState();
+          let prevunknown = it.getUnknown();
 
           while (it.advance(to)) {
               if (it.getState() || it.getUnknown()) {
@@ -21410,8 +31830,8 @@
               if (typeof date === 'undefined')
                   date = new Date();
 
-              var prevstate = [ undefined, date, undefined, undefined, undefined ];
-              var state = oh.getStatePair(date);
+              let prevstate = [ undefined, date, undefined, undefined, undefined ];
+              let state = oh.getStatePair(date);
 
               /* getDate {{{ */
               this.getDate = function() {
@@ -21513,4 +31933,4 @@
 
   return index;
 
-})));
+}));

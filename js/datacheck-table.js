@@ -41,9 +41,8 @@ async function fetchData() {
       const issueArray = element.properties.issues;
       let issueText = "";
       if (issueArray !== undefined) {
-        // eslint-disable-next-line guard-for-in
-        for (const issue in issueArray) {
-          issueText += `${issueArray[issue]}<br>`;
+        for (const issue of issueArray) {
+          issueText += `${issue}<br>`;
         }
       }
 

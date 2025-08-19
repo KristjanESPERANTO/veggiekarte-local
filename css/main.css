@@ -111,33 +111,28 @@ a:hover {
 }
 
 /* Category properties */
-/* stylelint-disable-next-line selector-class-pattern */
 .vegan_only {
   background: #050;
   border-color: #172;
   color: white;
 }
 
-/* stylelint-disable-next-line selector-class-pattern */
 .vegetarian_only {
   background: #181;
   border-color: #181;
   color: white;
 }
 
-/* stylelint-disable-next-line selector-class-pattern */
 .vegan_friendly {
   background: #00bc00;
   border-color: #00bc00;
 }
 
-/* stylelint-disable-next-line selector-class-pattern */
 .vegan_limited {
   background: #afa;
   border-color: seagreen;
 }
 
-/* stylelint-disable-next-line selector-class-pattern */
 .vegetarian_friendly {
   background: #fefefe;
   border-color: darkgreen;
@@ -145,6 +140,7 @@ a:hover {
 
 /* Layer button: Adjust the size to the other buttons. */
 .leaflet-touch .leaflet-control-layers-toggle {
+  background-image: url("../third-party/leaflet/images/layers.png");
   width: 30px;
   height: 30px;
   background-size: 80%;
@@ -167,35 +163,53 @@ a:hover {
   border-color: transparent;
 }
 
-/* PopupTitle */
+/* Popup layout */
 .map-popup-title {
   font-size: medium;
   text-align: center;
 }
-
-/* Emojis and content in the popup in one line */
 .popupflex-container {
   display: flex;
-  flex-wrap: nowrap;
+  align-items: flex-start;
+  gap: 0.6em;
+  margin-bottom: 0.4em;
 }
 
-.popupflex-container > div {
-  min-width: 2em;
-  padding-bottom: 7px;
+.leaflet-popup-content-wrapper {
+  max-height: 60vh;
+  overflow: hidden; /* scrolling handled inside content */
+  padding-top: 45px; /* space for category banner */
 }
-
 .leaflet-popup-content {
-  margin-top: 45px;
+  width: auto !important;
+  min-width: 280px;
+  max-width: clamp(280px, 48vw, 420px);
+  max-height: calc(60vh - 45px); /* full wrapper height minus banner */
+  overflow-y: auto;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  margin: 0;
+  padding: 0 8px 8px 8px;
 }
-
+@media (max-width: 600px) {
+  .leaflet-popup-content-wrapper {
+    max-height: 70vh; /* allow a bit more on tiny screens */
+    padding-top: 45px;
+  }
+  .leaflet-popup-content {
+    max-width: calc(100vw - 32px);
+    max-height: calc(70vh - 45px);
+    margin: 0;
+  }
+}
 .popup-category {
   font-weight: bold;
   position: absolute;
   top: 0;
   border-radius: 12px 12px 0 0;
+  left: 0;
+  right: 0;
   padding: 12px 0;
-  margin-left: -21px;
-  width: 100%;
   text-align: center;
 }
 
@@ -264,4 +278,8 @@ a:hover {
 
 .leaflet-zoom-anim .leaflet-zoom-animated {
   will-change: auto !important;
+}
+
+.fullscreen-icon {
+  background-image: url("../third-party/leaflet.fullscreen/icon-fullscreen.svg");
 }
