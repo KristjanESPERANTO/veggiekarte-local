@@ -1,0 +1,64 @@
+{
+  "es": {
+    "translation": {
+      "__comment__": "Spanish localization",
+      "texts": {
+        "will open soon": ", pero abrirá pronto",
+        "will close soon": ", pero cerrará pronto",
+        "more_info": "Más información",
+        "content-welcome-heading": "Bienvenida",
+        "content-welcome-text": "En veggiekarte.de puedes encontrar restaurantes, heladerías, cafés,... vegetarianos y veganos registrados en OpenStreetMap. Simplemente usa el campo buscar para buscar tu calle o área. Todos los iconos con fondo verde son lugares con opciones veganas, mientras que los iconos con fondo blanco son lugares con opciones vegetarianas pero no veganas.",
+        "content-osm-heading": "Sobre OpenStreetMap",
+        "content-osm-text": "<a href='https://www.openstreetmap.org' target='_blank' rel='noopener noreferrer'>OpenStreetMap</a> es un mapa mundial libre y funciona de manera similar a la Wikipedia. Cualquier persona puede participar y añadir información. Esto significa que el mapa está lleno de información útil y se actualiza continuamente. Cualquiera que tenga sugerencias para mejorar o encuentre errores en el mapa, puede simplemente añadir o arreglar la información.",
+        "content-contribute-heading": "Contribuye información",
+        "content-contribute-text": "Si conoces restaurantes, cafés, heladerías... que aún no están en el mapa, o si tu misme eres propietarie de una, entonces simplemente los puedes añadir tu misme. Para esto, tienes que marcar el lugar en OpenStreetMap con la etiqueta 'diet:vegan' o 'diet:vegetarian' (\"Diet Types\"). Las instrucciones están disponibles <a href='how-to/tutorial_en.html' target='_blank' rel='noopener noreferrer'>aquí</a>.",
+        "content-reviews-heading": "Reseñas",
+        "content-reviews-text": "<a href='https://lib.reviews/' target='_blank' rel='noopener noreferrer'>lib.reviews</a> es una plataforma libre para reseñar cualquier cosa. Si hay una reseña de un lugar disponible, mostraremos el enlace.",
+        "content-further-heading": "Además",
+        "content-further-text": "Veggiekarte se actualiza automáticamente cada hora. Encontrarás el código en <a href='https://codeberg.org/piratenpanda/veggiekarte' target='_blank' rel='noopener noreferrer'>Codeberg</a>. Y como pequeño artilugio tenemos un pequeño diagrama <a href='data_chart.html'>aquí</a>.",
+        "i18n_vegan_only": "solo vegano",
+        "i18n_vegan_only_title": "Ofrece exclusivamente comida vegana.",
+        "i18n_vegetarian_only": "solo vegano y vegetariano",
+        "i18n_vegetarian_only_title": "Ofrece exclusivamente comida vegetariana y vegana.",
+        "i18n_vegan_friendly": "con opciones veganas",
+        "i18n_vegan_friendly_title": "Ofrece algunas opciones veganas",
+        "i18n_vegan_limited": "con pocas opciones veganas",
+        "i18n_vegan_limited_title": "Ofrece pocas opciones veganas (es posible que tengas que pedirlas fuera del menú)",
+        "i18n_vegetarian_friendly": "con opciones vegetarianas",
+        "i18n_vegetarian_friendly_title": "Ofrece opciones vegetarianas, pero no veganas."
+      },
+      "words": {
+        "loading": "Cargando ...",
+        "open": "abierto",
+        "unknown": "desconocido",
+        "closed": "cerrado",
+        "public_holiday": "día festivo",
+        "review": "reseña",
+        "school_holidays": "vacaciones escolares"
+      },
+      "leaflet": {
+        "L-control-fullscreen": {
+          "fullscreen": "Pantalla completa",
+          "exitFullscreen": "Salir de la pantalla completa"
+        },
+        "L-control-geocoder": {
+          "title": "Buscar",
+          "placeholder": "Buscar…",
+          "error_message": "Sin resultados."
+        },
+        "L-control-infoButton": {
+          "title": "Información sobre este sitio"
+        },
+        "L-control-locate": {
+          "where_am_i": "Muéstrame donde estoy!",
+          "meter": "metros",
+          "distance": "Estás a {distance} {unit} de este punto."
+        },
+        "L-control-zoom": {
+          "zoom_in": "Acercar",
+          "zoom_out": "Alejar"
+        }
+      }
+    }
+  }
+}

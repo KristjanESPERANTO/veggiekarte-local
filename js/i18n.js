@@ -12,6 +12,7 @@ const languages = {
   de: "Deutsch",
   en: "English",
   eo: "Esperanto",
+  es: "Español",
   fi: "suomi",
   fr: "Français",
   it: "Italiano",

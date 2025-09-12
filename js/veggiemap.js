@@ -111,6 +111,7 @@ function veggiemap() {
       L.langObject("de", "de - Deutsch", "./third-party/leaflet.languageselector/images/de.svg"),
       L.langObject("en", "en - English", "./third-party/leaflet.languageselector/images/en.svg"),
       L.langObject("eo", "eo - Esperanto", "./third-party/leaflet.languageselector/images/eo.svg"),
+      L.langObject("es", "es - Español", "./third-party/leaflet.languageselector/images/es.svg"),
       L.langObject("fi", "fi - suomi", "./third-party/leaflet.languageselector/images/fi.svg"),
       L.langObject("fr", "fr - Français", "./third-party/leaflet.languageselector/images/fr.svg"),
       L.langObject("it", "it - Italiano", "./third-party/leaflet.languageselector/images/it.svg"),
