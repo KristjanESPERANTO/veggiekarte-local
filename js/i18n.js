@@ -9,6 +9,7 @@ let languageResources = {};
 
 // Languages (there has to be a json file for each language)
 const languages = {
+  ca: "Català",
   de: "Deutsch",
   en: "English",
   eo: "Esperanto",

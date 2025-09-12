@@ -6,6 +6,7 @@ We only take images that are public domain.
 
 **License**: [Creative Commons Zero 1.0 Public Domain](https://openclipart.org/share "Creative Commons Zero 1.0 Public Domain")
 
+- ca.svg: <https://openclipart.org/detail/257351/flag-of-catalonia>
 - de.svg: <https://openclipart.org/detail/296539/german-flag>
 - en.svg: <https://openclipart.org/detail/326131/flag-uk>
 - eo.svg: <https://openclipart.org/detail/91837/esperanta-flago>
