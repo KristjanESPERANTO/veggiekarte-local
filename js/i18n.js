@@ -202,9 +202,6 @@ function updateContent() {
   document.getElementsByClassName("second-cell")[3].innerText = i18next.t("texts.i18n_vegan_limited");
   document.getElementsByClassName("legend-row")[3].parentElement.parentElement.title = i18next.t("texts.i18n_vegan_limited_title");
 
-  document.getElementsByClassName("second-cell")[4].innerText = i18next.t("texts.i18n_vegetarian_friendly");
-  document.getElementsByClassName("legend-row")[4].parentElement.parentElement.title = i18next.t("texts.i18n_vegetarian_friendly_title");
-
   // Set HTML lang attribute
   document.body.parentElement.lang = i18next.language;
 }

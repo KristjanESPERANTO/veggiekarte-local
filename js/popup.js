@@ -315,6 +315,21 @@ function fillMenu(extratags, container) {
   container.dataset.filled = "1";
 }
 
+/** More info link fill. */
+function fillMoreInfo(feature, container) {
+  if (container.dataset.filled) { return; }
+  if (feature.properties.more_info !== true) { return; }
+  const type = feature.properties._type;
+  const id = feature.properties._id;
+  const url = `https://www.vegan-in-halle.de/wp/leben/vegane-stadtkarte/#${type}${id}`;
+  const link = makeLink(url, i18next.t("texts.more_info"));
+  link.target = "_top";
+  const row = makeRow("ℹ️", [link]);
+  container.replaceChildren(...row.childNodes);
+  container.classList.add("popupflex-container");
+  container.dataset.filled = "1";
+}
+
 /** Enrich popup with Nominatim details (cached, SWR strategy).
  * @param {L.Marker} element marker with feature
  * @param {HTMLElement} popupEl popup root element
@@ -454,6 +469,12 @@ export function calculatePopup(element) {
 
   // Trigger async review lookup (scoped to this popup root)
   addLibReview(element, libReviewsDiv);
+
+  // More info container
+  const moreInfoDiv = document.createElement("div");
+  moreInfoDiv.dataset.section = "more_info";
+  root.appendChild(moreInfoDiv);
+  fillMoreInfo(feature, moreInfoDiv);
 
   return root; // Leaflet accepts an HTMLElement here
 }

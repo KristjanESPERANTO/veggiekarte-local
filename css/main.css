@@ -55,6 +55,7 @@ body {
   border-radius: 10px;
   overflow-y: scroll;
   max-height: 95%;
+  display: none;
 }
 
 h1 {

@@ -24,13 +24,11 @@ const veganOnly = L.featureGroup.subGroup(parentGroup, {});
 const vegetarianOnly = L.featureGroup.subGroup(parentGroup, {});
 const veganFriendly = L.featureGroup.subGroup(parentGroup, {});
 const veganLimited = L.featureGroup.subGroup(parentGroup, {});
-const vegetarianFriendly = L.featureGroup.subGroup(parentGroup, {});
 const subgroups = {
   vegan_only: veganOnly,
   vegetarian_only: vegetarianOnly,
   vegan_friendly: veganFriendly,
-  vegan_limited: veganLimited,
-  vegetarian_friendly: vegetarianFriendly
+  vegan_limited: veganLimited
 };
 
 let map;
@@ -40,8 +38,8 @@ let languageControl;
 function veggiemap() {
   // Map
   map = L.map("map", {
-    center: [20, 17],
-    zoom: 3,
+    center: [51.42, 12.0],
+    zoom: 11,
     worldCopyJump: true,
     zoomControl: false
   });
@@ -61,9 +59,7 @@ function veggiemap() {
     "<div class='legend-row'><div class='first-cell vegetarian_only'></div><div class='second-cell'></div><div class='third-cell' id='n_vegetarian_only'></div></div>":
       vegetarianOnly,
     "<div class='legend-row'><div class='first-cell vegan_friendly'></div><div class='second-cell'></div><div class='third-cell' id='n_vegan_friendly'></div></div>": veganFriendly,
-    "<div class='legend-row'><div class='first-cell vegan_limited'></div><div class='second-cell'></div><div class='third-cell' id='n_vegan_limited'></div></div>": veganLimited,
-    "<div class='legend-row'><div class='first-cell vegetarian_friendly'></div><div class='second-cell'></div><div class='third-cell' id='n_vegetarian_friendly'></div></div>":
-      vegetarianFriendly
+    "<div class='legend-row'><div class='first-cell vegan_limited'></div><div class='second-cell'></div><div class='third-cell' id='n_vegan_limited'></div></div>": veganLimited
   };
 
   // Close the tooltip when opening the popup
@@ -180,7 +176,7 @@ function statPopulate(markerGroups, date) {
     document.getElementById(`n_${categoryName}`).innerHTML = `(${markerNumber})`;
   }
   // Add the date to the Layer Control
-  const lastEntry = document.getElementById("n_vegetarian_friendly").parentNode.parentNode;
+  const lastEntry = document.getElementById("n_vegan_limited").parentNode.parentNode;
   lastEntry.innerHTML += `<br><div>(${date})</div>`;
 }
 
