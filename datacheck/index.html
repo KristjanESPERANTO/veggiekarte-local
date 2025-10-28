@@ -81,10 +81,18 @@
     <script>
       // Apply polyfill to make Leaflet 2.0 compatible with v1 plugins
       applyAllPolyfills();
+
+      // Fix default icon path for Leaflet 2.0
+      delete L.Icon.Default.prototype._getIconUrl;
+      L.Icon.Default.mergeOptions({
+        iconRetinaUrl: "../third-party/leaflet/images/marker-icon-2x.png",
+        iconUrl: "../third-party/leaflet/images/marker-icon.png",
+        shadowUrl: "../third-party/leaflet/images/marker-shadow.png"
+      });
     </script>
     <script src="../third-party/leaflet.markercluster/leaflet.markercluster.js"></script>
     <!-- Removed leaflet.hash (file not present); simple hash implemented in datacheck.js -->
-    <script src="../third-party/leaflet.control.geocoder/Control.Geocoder.js"></script>
+    <script src="../third-party/leaflet.control.geocoder/dist/Control.Geocoder.js"></script>
     <script src="../third-party/leaflet.locatecontrol/L.Control.Locate.min.js"></script>
     <script src="../third-party/leaflet.easybutton/easy-button.js"></script>
     <script src="../third-party/leaflet.featuregroup.subgroup/leaflet.featuregroup.subgroup.js"></script>

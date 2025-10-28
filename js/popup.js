@@ -320,6 +320,8 @@ function fillMenu(extratags, container) {
  * @param {HTMLElement} popupEl popup root element
  */
 export async function addNominatimInformation(element, popupEl) {
+  // Guard against geocoder markers (they don't have a feature)
+  if (!element.feature) { return; }
   const type = element.feature.properties._type;
   const id = element.feature.properties._id;
   const cacheKey = `${type}/${id}`;
@@ -410,6 +412,8 @@ export async function addNominatimInformation(element, popupEl) {
 /** Build initial popup DOM (placeholders only, sync). */
 export function calculatePopup(element) {
   const feature = element.feature;
+  // Guard against geocoder markers (they don't have a feature)
+  if (!feature) { return ""; }
   const root = document.createElement("div");
 
   // Category badge
@@ -463,6 +467,8 @@ export function calculatePopup(element) {
  * @param {HTMLElement} container target div (data-section="libreviews")
  */
 export async function addLibReview(element, container) {
+  // Guard against geocoder markers (they don't have a feature)
+  if (!element.feature) { return; }
   const url = `https://lib.reviews/api/thing?url=https://www.openstreetmap.org/${element.feature.properties._type}/${element.feature.properties._id}`;
   const cacheKey = `${element.feature.properties._type}/${element.feature.properties._id}`;
   try {

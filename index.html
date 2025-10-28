@@ -51,6 +51,14 @@
     <script>
       // Apply polyfill to make Leaflet 2.0 compatible with v1 plugins
       applyAllPolyfills();
+
+      // Fix default icon path for Leaflet 2.0
+      delete L.Icon.Default.prototype._getIconUrl;
+      L.Icon.Default.mergeOptions({
+        iconRetinaUrl: "third-party/leaflet/images/marker-icon-2x.png",
+        iconUrl: "third-party/leaflet/images/marker-icon.png",
+        shadowUrl: "third-party/leaflet/images/marker-shadow.png"
+      });
     </script>
 
     <!-- Leaflet Plugins (must be loaded after polyfill) -->
