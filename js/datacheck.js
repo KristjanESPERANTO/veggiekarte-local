@@ -6,13 +6,13 @@ const parentGroup = L.markerClusterGroup({
   showCoverageOnHover: false,
   maxClusterRadius: 20
 });
-const issueCount1 = L.featureGroup.subGroup(parentGroup, {});
-const issueCount2 = L.featureGroup.subGroup(parentGroup, {});
-const issueCount3 = L.featureGroup.subGroup(parentGroup, {});
-const issueCount4 = L.featureGroup.subGroup(parentGroup, {});
-const issueCount5 = L.featureGroup.subGroup(parentGroup, {});
-const issueCount6 = L.featureGroup.subGroup(parentGroup, {});
-const issueCountMany = L.featureGroup.subGroup(parentGroup, {});
+const issueCount1 = L.featureGroup.subGroup(parentGroup);
+const issueCount2 = L.featureGroup.subGroup(parentGroup);
+const issueCount3 = L.featureGroup.subGroup(parentGroup);
+const issueCount4 = L.featureGroup.subGroup(parentGroup);
+const issueCount5 = L.featureGroup.subGroup(parentGroup);
+const issueCount6 = L.featureGroup.subGroup(parentGroup);
+const issueCountMany = L.featureGroup.subGroup(parentGroup);
 const subgroups = {
   issue_count_1: issueCount1,
   issue_count_2: issueCount2,

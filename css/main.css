@@ -140,7 +140,7 @@ a:hover {
 
 /* Layer button: Adjust the size to the other buttons. */
 .leaflet-touch .leaflet-control-layers-toggle {
-  background-image: url("../third-party/leaflet/images/layers.png");
+  background-image: url("../third-party/leaflet/images/layers.svg");
   width: 30px;
   height: 30px;
   background-size: 80%;

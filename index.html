@@ -45,6 +45,18 @@
       <p style="text-align: center">⚠️ This application requires JavaScript. ⚠️</p>
     </noscript>
 
+    <!-- Leaflet 2.0 with V1 Polyfill -->
+    <script src="third-party/leaflet/leaflet-global-src.js"></script>
+    <script src="third-party/leaflet-v1-polyfill/leaflet-v1-polyfill.js"></script>
+    <script>
+      // Apply polyfill to make Leaflet 2.0 compatible with v1 plugins
+      applyAllPolyfills();
+    </script>
+
+    <!-- Leaflet Plugins (must be loaded after polyfill) -->
+    <script src="third-party/leaflet.markercluster/leaflet.markercluster.js"></script>
+    <script src="third-party/leaflet.featuregroup.subgroup/leaflet.featuregroup.subgroup.js"></script>
+
     <!-- App script -->
     <script src="js/bundle.js" type="module"></script>
 
