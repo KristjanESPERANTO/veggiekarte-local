@@ -210,7 +210,11 @@ function getMarker(feature) {
   const marker = L.marker(eLatLon);
   marker.feature = feature;
   // Bind popups/tooltips at creation time (works with chunkedLoading)
-  marker.bindPopup(calculatePopup);
+  marker.bindPopup(calculatePopup, {
+    minWidth: 300,
+    maxWidth: 520,
+    autoPanPadding: [16, 16]
+  });
   marker.bindTooltip(calculateTooltip);
   return marker;
 }

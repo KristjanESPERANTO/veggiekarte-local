@@ -185,8 +185,9 @@ a:hover {
   max-width: clamp(280px, 48vw, 420px);
   max-height: calc(60vh - 45px); /* full wrapper height minus banner */
   overflow-y: auto;
-  overflow-wrap: anywhere;
-  word-break: break-word;
+  /* Prefer natural breaking; allow breaking long words only when needed */
+  overflow-wrap: break-word;
+  word-break: normal;
   margin: 0;
   padding: 0 8px 8px 8px;
 }

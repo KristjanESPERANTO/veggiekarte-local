@@ -248,7 +248,12 @@ function getMarker(feature) {
   const marker = L.marker(eLatLon, { icon: getIcon(eIco, eCat) });
   marker.feature = feature;
   // Bind lazily-evaluated popup/tooltip at creation time so it also works with chunkedLoading
-  marker.bindPopup(calculatePopup);
+  marker.bindPopup(calculatePopup, {
+    // Widen popup a bit compared to Leaflet default (300px)
+    minWidth: 300,
+    maxWidth: 520,
+    autoPanPadding: [16, 16]
+  });
   marker.bindTooltip(calculateTooltip);
   return marker;
 }
