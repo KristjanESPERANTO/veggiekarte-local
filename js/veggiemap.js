@@ -8,22 +8,25 @@ import "../third-party/leaflet.locatecontrol/L.Control.Locate.min.js";
 import "../third-party/leaflet.easybutton/easy-button.js";
 import "../third-party/leaflet.fullscreen/Control.FullScreen.js";
 import "../third-party/leaflet.languageselector/leaflet.languageselector.js";
+import "./subgroup.js";
 
 import { addLanguageResources, getUserLanguage, setUserLanguage } from "./i18n.js";
 import { addNominatimInformation, calculatePopup } from "./popup.js";
 import { createHash } from "../third-party/leaflet.hash/leaflet-hash.mjs";
 import getIcon from "./veggiemap-icons.js";
 
-// Define marker groups (using global L.markerClusterGroup and L.featureGroup.subGroup)
+// Define marker groups (using global L.markerClusterGroup and our SubGroup)
 const parentGroup = L.markerClusterGroup({
   showCoverageOnHover: false,
-  maxClusterRadius: 20
+  maxClusterRadius: 20,
+  // Smooth UI when adding thousands of markers
+  chunkedLoading: true
 });
-const veganOnly = L.featureGroup.subGroup(parentGroup);
-const vegetarianOnly = L.featureGroup.subGroup(parentGroup);
-const veganFriendly = L.featureGroup.subGroup(parentGroup);
-const veganLimited = L.featureGroup.subGroup(parentGroup);
-const vegetarianFriendly = L.featureGroup.subGroup(parentGroup);
+const veganOnly = new L.SubGroup(parentGroup);
+const vegetarianOnly = new L.SubGroup(parentGroup);
+const veganFriendly = new L.SubGroup(parentGroup);
+const veganLimited = new L.SubGroup(parentGroup);
+const vegetarianFriendly = new L.SubGroup(parentGroup);
 const subgroups = {
   vegan_only: veganOnly,
   vegetarian_only: vegetarianOnly,
@@ -202,10 +205,10 @@ async function veggiemapPopulate(parentGroupVar) {
   const date = markerGroupsAndDate[1];
 
   Object.entries(subgroups).forEach(([key, subgroup]) => {
-    // Bulk add all the markers from a markerGroup to a subgroup in one go
-    // Source: https://github.com/ghybs/Leaflet.FeatureGroup.SubGroup/issues/5
-    subgroup.addLayer(L.layerGroup(markerGroups[key]));
+    // Add subgroup to map first, so batch-adding uses parentGroup.addLayers
     map.addLayer(subgroup);
+    // Directly add all markers (no wrapper LayerGroup needed)
+    subgroup.addLayers(markerGroups[key]);
   });
 
   // Reveal all the markers and clusters on the map in one go
@@ -213,12 +216,6 @@ async function veggiemapPopulate(parentGroupVar) {
 
   // Call the function to put the numbers into the legend
   statPopulate(markerGroups, date);
-
-  // Enable the on-demand popup and tooltip calculation
-  parentGroup.eachLayer((layer) => {
-    layer.bindPopup(calculatePopup);
-    layer.bindTooltip(calculateTooltip);
-  });
 
   // Hide spinner
   hideSpinner();
@@ -249,6 +246,9 @@ function getMarker(feature) {
 
   const marker = L.marker(eLatLon, { icon: getIcon(eIco, eCat) });
   marker.feature = feature;
+  // Bind lazily-evaluated popup/tooltip at creation time so it also works with chunkedLoading
+  marker.bindPopup(calculatePopup);
+  marker.bindTooltip(calculateTooltip);
   return marker;
 }
 

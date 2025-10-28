@@ -4,15 +4,17 @@
 // Define marker groups
 const parentGroup = L.markerClusterGroup({
   showCoverageOnHover: false,
-  maxClusterRadius: 20
+  maxClusterRadius: 20,
+  // Smooth UI when adding many markers
+  chunkedLoading: true
 });
-const issueCount1 = L.featureGroup.subGroup(parentGroup);
-const issueCount2 = L.featureGroup.subGroup(parentGroup);
-const issueCount3 = L.featureGroup.subGroup(parentGroup);
-const issueCount4 = L.featureGroup.subGroup(parentGroup);
-const issueCount5 = L.featureGroup.subGroup(parentGroup);
-const issueCount6 = L.featureGroup.subGroup(parentGroup);
-const issueCountMany = L.featureGroup.subGroup(parentGroup);
+const issueCount1 = new L.SubGroup(parentGroup);
+const issueCount2 = new L.SubGroup(parentGroup);
+const issueCount3 = new L.SubGroup(parentGroup);
+const issueCount4 = new L.SubGroup(parentGroup);
+const issueCount5 = new L.SubGroup(parentGroup);
+const issueCount6 = new L.SubGroup(parentGroup);
+const issueCountMany = new L.SubGroup(parentGroup);
 const subgroups = {
   issue_count_1: issueCount1,
   issue_count_2: issueCount2,
@@ -166,10 +168,9 @@ async function veggiemapPopulate(parentGroupVar) {
     const date = markerGroupsAndDate[1];
 
     Object.entries(subgroups).forEach(([key, subgroup]) => {
-      // Bulk add all the markers from a markerGroup to a subgroup in one go
-      // Source: https://github.com/ghybs/Leaflet.FeatureGroup.SubGroup/issues/5
-      subgroup.addLayer(L.layerGroup(markerGroups[key]));
+      // Add subgroup to map first, then batch-insert markers
       map.addLayer(subgroup);
+      subgroup.addLayers(markerGroups[key]);
     });
 
     // Reveal all the markers and clusters on the map in one go
@@ -178,11 +179,7 @@ async function veggiemapPopulate(parentGroupVar) {
     // Call the function to put the numbers into the legend
     statPopulate(markerGroups, date);
 
-    // Enable the on-demand popup and tooltip calculation
-    parentGroupVar.eachLayer((layer) => {
-      layer.bindPopup(calculatePopup);
-      layer.bindTooltip(calculateTooltip);
-    });
+    // Popups/tooltips are already bound at marker creation
 
     // Hide spinner
     hideSpinner();
@@ -215,6 +212,9 @@ function getMarker(feature) {
   const eLatLon = [feature.geometry.coordinates[1], feature.geometry.coordinates[0]];
   const marker = L.marker(eLatLon);
   marker.feature = feature;
+  // Bind popups/tooltips at creation time (works with chunkedLoading)
+  marker.bindPopup(calculatePopup);
+  marker.bindTooltip(calculateTooltip);
   return marker;
 }
 
