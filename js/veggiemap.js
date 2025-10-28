@@ -5,10 +5,10 @@
 // Only additional plugins and app modules are loaded here
 import "../third-party/leaflet.control.geocoder/Control.Geocoder.js";
 import "../third-party/leaflet.locatecontrol/L.Control.Locate.min.js";
-import "../third-party/leaflet.easybutton/easy-button.js";
 import "../third-party/leaflet.fullscreen/Control.FullScreen.js";
 import "../third-party/leaflet.languageselector/leaflet.languageselector.js";
 import "./subgroup.js";
+import "./info-button-control.js";
 
 import { addLanguageResources, getUserLanguage, setUserLanguage } from "./i18n.js";
 import { addNominatimInformation, calculatePopup } from "./popup.js";
@@ -91,10 +91,11 @@ function veggiemap() {
   document.fullscreenControl.addTo(map);
 
   // Add info button
-  const infoButton = L.easyButton("<div class='info-button'></div>", () => {
-    toggleInfo();
+  new L.Control.InfoButton({
+    position: "topright",
+    onClick: () => toggleInfo(),
+    contentHtml: "<div class='info-button'></div>"
   }).addTo(map);
-  infoButton.setPosition("topright");
 
   // Add button for search places
   L.Control.geocoder().addTo(map);

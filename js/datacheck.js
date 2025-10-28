@@ -92,10 +92,7 @@ function veggiemap() {
   parseHash();
 
   // Add info button
-  const infoButton = L.easyButton("<div class='info-button'></div>", () => {
-    toggleInfo();
-  }).addTo(map);
-  infoButton.setPosition("topright");
+  new L.Control.InfoButton({ position: "topright", onClick: toggleInfo }).addTo(map);
 
   // Add button for search places
   L.Control.geocoder().addTo(map);
