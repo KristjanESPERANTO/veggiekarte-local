@@ -45,24 +45,8 @@
       <p style="text-align: center">⚠️ This application requires JavaScript. ⚠️</p>
     </noscript>
 
-    <!-- Leaflet 2.0 with V1 Polyfill -->
+    <!-- Leaflet -->
     <script src="third-party/leaflet/leaflet-global-src.js"></script>
-    <script src="third-party/leaflet-v1-polyfill/leaflet-v1-polyfill.js"></script>
-    <script>
-      // Apply polyfill to make Leaflet 2.0 compatible with v1 plugins
-      applyAllPolyfills();
-
-      // Fix default icon path for Leaflet 2.0
-      delete L.Icon.Default.prototype._getIconUrl;
-      L.Icon.Default.mergeOptions({
-        iconRetinaUrl: "third-party/leaflet/images/marker-icon-2x.png",
-        iconUrl: "third-party/leaflet/images/marker-icon.png",
-        shadowUrl: "third-party/leaflet/images/marker-shadow.png"
-      });
-    </script>
-
-    <!-- Leaflet Plugins (must be loaded after polyfill) -->
-    <script src="third-party/leaflet.markercluster/leaflet.markercluster.js"></script>
 
     <!-- App script -->
     <script src="js/bundle.js" type="module"></script>
