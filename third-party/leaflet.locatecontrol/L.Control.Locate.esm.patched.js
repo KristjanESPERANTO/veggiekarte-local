@@ -1,8 +1,13 @@
 import { Marker, DivIcon, Control, DomUtil, LayerGroup, DomEvent, Util, Circle } from 'leaflet';
 
-// Alias for compatibility with original code
-const divIcon = DivIcon;
-const circle = Circle;
+// Factory functions for compatibility with original code (Leaflet 2.0 requires 'new')
+const divIcon = (options) => new DivIcon(options);
+// In Leaflet 2.0, Circle constructor takes (latlng, options) where radius is in options
+const circle = (latlng, radius, options) => {
+  const opts = { ...options };
+  opts.radius = radius;
+  return new Circle(latlng, opts);
+};
 
 /*!
 Copyright (c) 2016 Dominik Moritz
@@ -573,10 +578,10 @@ const LocateControl = Control.extend({
           padding: this.options.circlePadding,
           maxZoom: this.options.initialZoomLevel || this.options.locateOptions.maxZoom
         });
-        Util.requestAnimFrame(function () {
+        requestAnimationFrame(() => {
           // Wait until after the next animFrame because the flyTo can be async
           this._ignoreEvent = false;
-        }, this);
+        });
       }
     }
   },
@@ -708,7 +713,7 @@ const LocateControl = Control.extend({
       angle = Math.round(angle);
 
       this._compassHeading = angle;
-      Util.requestAnimFrame(this._drawCompass, this);
+      requestAnimationFrame(() => this._drawCompass.call(this));
     } else {
       this._compassHeading = null;
     }

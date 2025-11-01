@@ -210,3 +210,8 @@ SubGroup.prototype.clearLayers = function clearLayers() {
 
 // Export for ES modules
 export { SubGroup };
+
+// Global registration for non-module scripts (datacheck.js)
+if (typeof L !== "undefined") {
+  L.SubGroup = SubGroup;
+}

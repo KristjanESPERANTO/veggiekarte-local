@@ -49,3 +49,8 @@ const InfoButton = L.Control.extend({
 
 // Export as ES module
 export { InfoButton };
+
+// Global registration for non-module scripts (datacheck.js)
+if (typeof L !== "undefined") {
+  L.Control.InfoButton = InfoButton;
+}
