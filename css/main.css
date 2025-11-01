@@ -20,6 +20,24 @@ body {
   z-index: 0;
 }
 
+/* Progress bar for marker loading */
+#progress {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgb(0 0 0 / 80%);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  z-index: 10000;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 30%);
+  white-space: nowrap;
+}
+
 /* For the close button in the Info box. */
 #close {
   width: 25px;
