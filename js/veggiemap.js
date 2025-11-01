@@ -1,10 +1,10 @@
 /* eslint-disable camelcase */
 /* global L */
 
-// Leaflet 2.0, polyfill, and main plugins are loaded globally via index.html
+// Leaflet and main plugins are loaded globally via index.html
 // Only additional plugins and app modules are loaded here
 import "../third-party/leaflet.control.geocoder/Control.Geocoder.js";
-import "../third-party/leaflet.locatecontrol/L.Control.Locate.min.js";
+import "../third-party/leaflet.locatecontrol/L.Control.Locate.umd.js";
 import "../third-party/leaflet.fullscreen/Control.FullScreen.js";
 import "../third-party/leaflet.languageselector/leaflet.languageselector.js";
 import "./subgroup.js";
@@ -12,11 +12,12 @@ import "./info-button-control.js";
 
 import { addLanguageResources, getUserLanguage, setUserLanguage } from "./i18n.js";
 import { addNominatimInformation, calculatePopup } from "./popup.js";
+import { MarkerClusterGroup } from "@kristjan.esperanto/leaflet.markercluster";
 import { createHash } from "../third-party/leaflet.hash/leaflet-hash.mjs";
 import getIcon from "./veggiemap-icons.js";
 
-// Define marker groups (using global L.markerClusterGroup and our SubGroup)
-const parentGroup = L.markerClusterGroup({
+// Define marker groups (using imported MarkerClusterGroup and our SubGroup)
+const parentGroup = new MarkerClusterGroup({
   showCoverageOnHover: false,
   maxClusterRadius: 20,
   // Smooth UI when adding thousands of markers
@@ -40,8 +41,16 @@ let layerControl;
 let languageControl;
 
 function veggiemap() {
+  // Fix default icon path for Leaflet 2.0
+  delete L.Icon.Default.prototype._getIconUrl;
+  L.Icon.Default.mergeOptions({
+    iconRetinaUrl: "third-party/leaflet/images/marker-icon-2x.png",
+    iconUrl: "third-party/leaflet/images/marker-icon.png",
+    shadowUrl: "third-party/leaflet/images/marker-shadow.png"
+  });
+
   // Map
-  map = L.map("map", {
+  map = new L.Map("map", {
     center: [20, 17],
     zoom: 3,
     worldCopyJump: true,
@@ -49,13 +58,13 @@ function veggiemap() {
   });
 
   // TileLayer
-  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  new L.TileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
     attribution: "© <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap contributors</a>"
   }).addTo(map);
 
   // Add zoom control
-  L.control.zoom({ position: "topright" }).addTo(map);
+  new L.Control.Zoom({ position: "topright" }).addTo(map);
 
   // Define overlays (each marker group gets a layer) + add legend to the description
   const overlays = {
@@ -67,6 +76,10 @@ function veggiemap() {
     "<div class='legend-row'><div class='first-cell vegetarian_friendly'></div><div class='second-cell'></div><div class='third-cell' id='n_vegetarian_friendly'></div></div>":
       vegetarianFriendly
   };
+
+  // Add layer control (we will move it to be last in top-right after other controls are added)
+  layerControl = new L.Control.Layers(null, overlays, { position: "topright" });
+  layerControl.addTo(map);
 
   // Close the tooltip when opening the popup
   parentGroup.on("click", () => {
@@ -83,8 +96,7 @@ function veggiemap() {
   const hash = createHash(map);
 
   // Add fullscreen control button
-  // eslint-disable-next-line new-cap
-  document.fullscreenControl = new L.control.fullscreen({
+  document.fullscreenControl = new L.Control.FullScreen({
     position: "topright",
     fullscreenElement: map.getContainer().parentNode
   });
@@ -98,17 +110,17 @@ function veggiemap() {
   }).addTo(map);
 
   // Add button for search places
-  L.Control.geocoder().addTo(map);
+  new L.Control.Geocoder().addTo(map);
 
   // Add button to search own position
-  document.locateControl = L.control.locate({
+  document.locateControl = new L.Control.Locate.LocateControl({
     showCompass: true,
     locateOptions: { maxZoom: 16 },
     position: "topright"
   });
   document.locateControl.addTo(map);
 
-  // Add language control button
+  // Add language selector
   languageControl = L.languageSelector({
     languages: [
       L.langObject("ca", "ca - Català", "./third-party/leaflet.languageselector/images/ca.svg"),
@@ -129,12 +141,14 @@ function veggiemap() {
   });
   languageControl.addTo(map);
 
-  // Add layer control button
-  layerControl = L.control.layers(null, overlays);
-  layerControl.addTo(map);
+  // Ensure Layers control is last in the top-right stack
+  const topRightCorner = map._controlCorners && map._controlCorners.topright;
+  if (topRightCorner && layerControl && layerControl._container) {
+    topRightCorner.appendChild(layerControl._container);
+  }
 
   // Add scale control
-  L.control.scale().addTo(map);
+  new L.Control.Scale().addTo(map);
 
   // Inject Nominatim data into the popup once it opens
   map.on("popupopen", (evt) => {
@@ -180,11 +194,14 @@ function statPopulate(markerGroups, date) {
     // Get the number of the markers
     const markerNumber = markerGroups[categoryName].length;
     // Add the number to the category entry in the Layer Control
-    document.getElementById(`n_${categoryName}`).innerHTML = `(${markerNumber})`;
+    const el = document.getElementById(`n_${categoryName}`);
+    if (el) { el.innerHTML = `(${markerNumber})`; }
   }
   // Add the date to the Layer Control
-  const lastEntry = document.getElementById("n_vegetarian_friendly").parentNode.parentNode;
-  lastEntry.innerHTML += `<br><div>(${date})</div>`;
+  const lastEntryEl = document.getElementById("n_vegetarian_friendly");
+  if (lastEntryEl && lastEntryEl.parentNode && lastEntryEl.parentNode.parentNode) {
+    lastEntryEl.parentNode.parentNode.innerHTML += `<br><div>(${date})</div>`;
+  }
 }
 
 // Function to get the information from the places json file.
@@ -245,7 +262,7 @@ function getMarker(feature) {
   const eIco = feature.properties.icon;
   const eCat = feature.properties.category;
 
-  const marker = L.marker(eLatLon, { icon: getIcon(eIco, eCat) });
+  const marker = new L.Marker(eLatLon, { icon: getIcon(eIco, eCat) });
   marker.feature = feature;
   // Bind lazily-evaluated popup/tooltip at creation time so it also works with chunkedLoading
   marker.bindPopup(calculatePopup, {

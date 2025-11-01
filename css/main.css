@@ -1,6 +1,6 @@
 @import url("../third-party/leaflet/leaflet.css");
-@import url("../third-party/leaflet.markercluster/MarkerCluster.css");
-@import url("../third-party/leaflet.markercluster/MarkerCluster.Default.css");
+@import url("../node_modules/@kristjan.esperanto/leaflet.markercluster/dist/MarkerCluster.css");
+@import url("../node_modules/@kristjan.esperanto/leaflet.markercluster/dist/MarkerCluster.Default.css");
 @import url("../third-party/leaflet.control.geocoder/Control.Geocoder.css");
 @import url("../third-party/leaflet.locatecontrol/L.Control.Locate.min.css");
 @import url("../third-party/leaflet.fullscreen/Control.FullScreen.css");
