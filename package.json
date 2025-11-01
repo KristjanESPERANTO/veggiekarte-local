@@ -48,6 +48,7 @@
   "dependencies": {
     "@kristjan.esperanto/leaflet.markercluster": "^2.0.0",
     "email-validator": "^2.0.4",
+    "i18next": "^25.6.0",
     "libphonenumber-js": "^1.11.17",
     "opening_hours": "^3.9.0"
   },

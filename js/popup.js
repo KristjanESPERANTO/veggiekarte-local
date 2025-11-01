@@ -1,7 +1,9 @@
 /* eslint-disable camelcase */
-/* global i18next, opening_hours */
+/* global opening_hours */
+
 import "../third-party/opening_hours/opening_hours+deps.min.js";
 import { getUserLanguage } from "./i18n.js";
+import { t } from "i18next";
 
 // Simple in-memory cache for Nominatim lookups
 const nominatimCache = {};
@@ -186,25 +188,25 @@ function fillOpeningHours({ extratags, address, container, locale }) {
     });
     prettifiedValue = prettifiedValue
       .replaceAll(",", ", ")
-      .replaceAll("PH", i18next.t("words.public_holiday"))
-      .replaceAll("SH", i18next.t("words.school_holidays"));
+      .replaceAll("PH", t("words.public_holiday"))
+      .replaceAll("SH", t("words.school_holidays"));
     let openState;
     let openStateEmoji;
     const isOpenNow = oh.getState();
     const willBeOpenSoon = willChangeWithin(oh, 60);
     if (isOpenNow) {
-      openState = i18next.t("words.open");
+      openState = t("words.open");
       openStateEmoji = "open";
       if (!willBeOpenSoon) {
-        openState += i18next.t("texts.will close soon");
+        openState += t("texts.will close soon");
         openStateEmoji = "closes-soon";
       }
     }
     else {
-      openState = i18next.t("words.closed");
+      openState = t("words.closed");
       openStateEmoji = "closed";
       if (willBeOpenSoon) {
-        openState += i18next.t("texts.will open soon");
+        openState += t("texts.will open soon");
         openStateEmoji = "opens-soon";
       }
     }
@@ -420,7 +422,7 @@ export function calculatePopup(element) {
   const catDiv = document.createElement("div");
   catDiv.className = `popup-category ${feature.properties.category}`;
   // Allow potential simple markup in translation (if any) – if not desired, use textContent
-  catDiv.textContent = i18next.t(`texts.i18n_${feature.properties.category}`);
+  catDiv.textContent = t(`texts.i18n_${feature.properties.category}`);
   root.appendChild(catDiv);
 
   // Title line with OSM link
@@ -445,7 +447,7 @@ export function calculatePopup(element) {
       const icon = document.createElement("div");
       icon.textContent = "⏳";
       const text = document.createElement("div");
-      text.textContent = i18next.t("words.loading") || "Loading...";
+      text.textContent = t("words.loading") || "Loading...";
       div.append(icon, text);
     }
     root.appendChild(div);
@@ -479,7 +481,7 @@ export async function addLibReview(element, container) {
       link.href = `https://lib.reviews/${libreviewCache[cacheKey]}`;
       link.target = "_blank";
       link.rel = "noopener noreferrer";
-      link.textContent = i18next.t("words.review");
+      link.textContent = t("words.review");
       container.replaceChildren(makeRow("📓", [link]));
       return;
     }
@@ -491,7 +493,7 @@ export async function addLibReview(element, container) {
     link.href = `https://lib.reviews/${data.thing.urlID}`;
     link.target = "_blank";
     link.rel = "noopener noreferrer";
-    link.textContent = i18next.t("words.review");
+    link.textContent = t("words.review");
     const row = makeRow("📓", [link]);
     container.replaceChildren(row);
     // Store ID (idempotent) – safest to overwrite each time in case of stale value
