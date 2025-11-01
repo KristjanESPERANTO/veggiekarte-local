@@ -1,4 +1,4 @@
-import { Marker, setOptions, divIcon, Control, DomUtil, extend, LayerGroup, DomEvent, Util, circle } from 'leaflet';
+import { Marker, setOptions, divIcon, Control, DomUtil, LayerGroup, DomEvent, Util, circle } from 'leaflet';
 
 /*!
 Copyright (c) 2016 Dominik Moritz
@@ -332,16 +332,16 @@ const LocateControl = Control.extend({
     // set default options if nothing is set (merge one step deep)
     for (const i in options) {
       if (typeof this.options[i] === "object") {
-        extend(this.options[i], options[i]);
+        Object.assign(this.options[i], options[i]);
       } else {
         this.options[i] = options[i];
       }
     }
 
     // extend the follow marker style and circle from the normal style
-    this.options.followMarkerStyle = extend({}, this.options.markerStyle, this.options.followMarkerStyle);
-    this.options.followCircleStyle = extend({}, this.options.circleStyle, this.options.followCircleStyle);
-    this.options.followCompassStyle = extend({}, this.options.compassStyle, this.options.followCompassStyle);
+    this.options.followMarkerStyle = Object.assign({}, this.options.markerStyle, this.options.followMarkerStyle);
+    this.options.followCircleStyle = Object.assign({}, this.options.circleStyle, this.options.followCircleStyle);
+    this.options.followCompassStyle = Object.assign({}, this.options.compassStyle, this.options.followCompassStyle);
   },
 
   /**

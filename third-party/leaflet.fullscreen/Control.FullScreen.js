@@ -220,9 +220,10 @@
 				if (this._screenfull.isEnabled && !this.options.forcePseudoFullscreen) {
 					this._screenfull.exit().then(() => map.invalidateSize());
 				} else {
-					leaflet.DomUtil.removeClass(this.options.fullscreenElement
-						? this.options.fullscreenElement
-						: map._container, 'leaflet-pseudo-fullscreen');
+					const _targetExit = this.options.fullscreenElement ? this.options.fullscreenElement : map._container;
+					if (_targetExit && _targetExit.classList) {
+						_targetExit.classList.remove('leaflet-pseudo-fullscreen');
+					}
 					map.invalidateSize();
 				}
 				map.fire('exitFullscreen');
@@ -234,9 +235,10 @@
 						? this.options.fullscreenElement
 						: map._container).then(() => map.invalidateSize());
 				} else {
-					leaflet.DomUtil.addClass(this.options.fullscreenElement
-						? this.options.fullscreenElement
-						: map._container, 'leaflet-pseudo-fullscreen');
+					const _targetEnter = this.options.fullscreenElement ? this.options.fullscreenElement : map._container;
+					if (_targetEnter && _targetEnter.classList) {
+						_targetEnter.classList.add('leaflet-pseudo-fullscreen');
+					}
 					map.invalidateSize();
 				}
 				map.fire('enterFullscreen');
@@ -248,9 +250,13 @@
 			this.link.title = this._map._isFullscreen
 				? this.options.title
 				: this.options.titleCancel;
-			this._map._isFullscreen
-				? L.DomUtil.removeClass(this.link, 'leaflet-fullscreen-on')
-				: L.DomUtil.addClass(this.link, 'leaflet-fullscreen-on');
+			if (this.link && this.link.classList) {
+				if (this._map._isFullscreen) {
+					this.link.classList.remove('leaflet-fullscreen-on');
+				} else {
+					this.link.classList.add('leaflet-fullscreen-on');
+				}
+			}
 		},
 
 		_handleFullscreenChange(ev) {

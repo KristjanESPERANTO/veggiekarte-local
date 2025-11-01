@@ -86,7 +86,7 @@ L.LanguageSelector = L.Control.extend({
   },
 
   _isButton() {
-    return L.DomUtil.hasClass(this._container, buttonClassName);
+    return this._container.classList.contains(buttonClassName);
   },
 
   _languageChanged(pEvent) {
@@ -128,15 +128,15 @@ L.LanguageSelector = L.Control.extend({
 
   _openSelector() {
     if (this._isButton()) {
-      L.DomUtil.removeClass(this._container, buttonClassName);
-      L.DomUtil.addClass(this._container, buttonDisabledClassName);
+      this._container.classList.remove(buttonClassName);
+      this._container.classList.add(buttonDisabledClassName);
     }
   },
 
   onAdd(map) {
     this._map = map;
     if (this.options.button) {
-      L.DomUtil.addClass(this._container, buttonClassName);
+      this._container.classList.add(buttonClassName);
       L.DomEvent.on(this._container, "mouseup", this._openSelector, this);
 
       // Add listener to the map to close the button on click on the map
@@ -147,7 +147,7 @@ L.LanguageSelector = L.Control.extend({
           languageButtonDisabled.classList.add(buttonClassName);
         }
       };
-      L.DomEvent.on(this._map, "click", this._onMapClick, this);
+      this._map.on("click", this._onMapClick, this);
     }
     return this._container;
   },
@@ -156,7 +156,7 @@ L.LanguageSelector = L.Control.extend({
     if (this.options.button) {
       L.DomEvent.off(this._container, "mouseup", this._openSelector, this);
       if (this._onMapClick && this._map) {
-        L.DomEvent.off(this._map, "click", this._onMapClick, this);
+        this._map.off("click", this._onMapClick, this);
       }
     }
     // Detach event listeners from language buttons to avoid leaks

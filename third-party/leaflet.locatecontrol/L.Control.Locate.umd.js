@@ -27,7 +27,8 @@
    */
   const LocationMarker = leaflet.Marker.extend({
     initialize(latlng, options) {
-      leaflet.setOptions(this, options);
+      // Preserve prototype-inherited defaults (like pane) by mutating, not replacing, the options object
+      Object.assign(this.options, options);
       this._latlng = latlng;
       this.createIcon();
     },
@@ -51,7 +52,7 @@
 
       const icon = this._getIconSVG(opt, style);
 
-      this._locationIcon = leaflet.divIcon({
+      this._locationIcon = new leaflet.DivIcon({
         className: icon.className,
         html: icon.svg,
         iconSize: [icon.w, icon.h]
@@ -82,14 +83,16 @@
     },
 
     setStyle(style) {
-      leaflet.setOptions(this, style);
+      // Preserve prototype-inherited defaults by mutating existing options
+      Object.assign(this.options, style);
       this.createIcon();
     }
   });
 
   const CompassMarker = LocationMarker.extend({
     initialize(latlng, heading, options) {
-      leaflet.setOptions(this, options);
+      // Preserve prototype-inherited defaults by mutating existing options
+      Object.assign(this.options, options);
       this._latlng = latlng;
       this._heading = heading;
       this.createIcon();
@@ -336,16 +339,16 @@
       // set default options if nothing is set (merge one step deep)
       for (const i in options) {
         if (typeof this.options[i] === "object") {
-          leaflet.extend(this.options[i], options[i]);
+          Object.assign(this.options[i], options[i]);
         } else {
           this.options[i] = options[i];
         }
       }
 
       // extend the follow marker style and circle from the normal style
-      this.options.followMarkerStyle = leaflet.extend({}, this.options.markerStyle, this.options.followMarkerStyle);
-      this.options.followCircleStyle = leaflet.extend({}, this.options.circleStyle, this.options.followCircleStyle);
-      this.options.followCompassStyle = leaflet.extend({}, this.options.compassStyle, this.options.followCompassStyle);
+      this.options.followMarkerStyle = Object.assign({}, this.options.markerStyle, this.options.followMarkerStyle);
+      this.options.followCircleStyle = Object.assign({}, this.options.circleStyle, this.options.followCircleStyle);
+      this.options.followCompassStyle = Object.assign({}, this.options.compassStyle, this.options.followCompassStyle);
     },
 
     /**
@@ -499,21 +502,47 @@
       if (this.options.showCompass) {
         const oriAbs = "ondeviceorientationabsolute" in window;
         if (oriAbs || "ondeviceorientation" in window) {
-          const _this = this;
-          const deviceorientation = function () {
-            leaflet.DomEvent.on(window, oriAbs ? "deviceorientationabsolute" : "deviceorientation", _this._onDeviceOrientation, _this);
-          };
-          if (DeviceOrientationEvent && typeof DeviceOrientationEvent.requestPermission === "function") {
-            DeviceOrientationEvent.requestPermission().then(function (permissionState) {
-              if (permissionState === "granted") {
-                deviceorientation();
-              }
-            });
+          // Check permission with Permissions API (skip if not supported or invalid)
+          if (navigator.permissions && navigator.permissions.query) {
+            try {
+              navigator.permissions.query({ name: 'accelerometer' }).then(result => {
+                if (result.state === 'granted') {
+                  this._setupOrientationListener(oriAbs);
+                } else if (result.state === 'prompt') {
+                  // Request permission
+                  if (DeviceOrientationEvent && typeof DeviceOrientationEvent.requestPermission === 'function') {
+                    DeviceOrientationEvent.requestPermission().then(permissionState => {
+                      if (permissionState === 'granted') {
+                        this._setupOrientationListener(oriAbs);
+                      }
+                    });
+                  }
+                }
+                // On 'denied' or error: disable compass
+              }).catch(() => {
+                // Permission not supported, fallback to direct setup
+                this._setupOrientationListener(oriAbs);
+              });
+            } catch (e) {
+              // Invalid permission name or other error, fallback
+              this._setupOrientationListener(oriAbs);
+            }
           } else {
-            deviceorientation();
+            // Fallback for browsers without Permissions API
+            this._setupOrientationListener(oriAbs);
           }
         }
       }
+    },
+
+    /**
+     * Setup orientation listener after permission check
+     */
+    _setupOrientationListener(oriAbs) {
+      const deviceorientation = () => {
+        leaflet.DomEvent.on(window, oriAbs ? "deviceorientationabsolute" : "deviceorientation", this._onDeviceOrientation, this);
+      };
+      deviceorientation();
     },
 
     /**
@@ -573,10 +602,10 @@
             padding: this.options.circlePadding,
             maxZoom: this.options.initialZoomLevel || this.options.locateOptions.maxZoom
           });
-          leaflet.Util.requestAnimFrame(function () {
-            // Wait until after the next animFrame because the flyTo can be async
+          // Wait until after the next animFrame because the flyTo can be async
+          requestAnimationFrame(() => {
             this._ignoreEvent = false;
-          }, this);
+          });
         }
       }
     },
@@ -629,7 +658,8 @@
         const style = this._isFollowing() ? this.options.followCircleStyle : this.options.circleStyle;
 
         if (!this._circle) {
-          this._circle = leaflet.circle(latlng, radius, style).addTo(this._layer);
+          const circleOptions = Object.assign({}, style, { radius });
+          this._circle = new leaflet.Circle(latlng, circleOptions).addTo(this._layer);
         } else {
           this._circle.setLatLng(latlng).setRadius(radius).setStyle(style);
         }
@@ -664,7 +694,15 @@
       const t = this.options.strings.popup;
       function getPopupText() {
         if (typeof t === "string") {
-          return leaflet.Util.template(t, { distance, unit });
+          // Minimal Leaflet 2-compatible template replacement
+          const data = { distance, unit };
+          return t.replace(/\{ *([\w_ -]+) *\}/g, (m, key) => {
+            const v = data[key];
+            if (v === undefined) {
+              throw new Error(`No value provided for variable {${key}}`);
+            }
+            return String(v);
+          });
         } else if (typeof t === "function") {
           return t({ distance, unit });
         } else {
@@ -708,7 +746,7 @@
         angle = Math.round(angle);
 
         this._compassHeading = angle;
-        leaflet.Util.requestAnimFrame(this._drawCompass, this);
+  requestAnimationFrame(() => this._drawCompass());
       } else {
         this._compassHeading = null;
       }
