@@ -1,33 +1,34 @@
 /* eslint-disable camelcase */
-/* global L */
 
-// Leaflet and main plugins are loaded globally via index.html
-// Only additional plugins and app modules are loaded here
-import "../third-party/leaflet.control.geocoder/Control.Geocoder.js";
-import "../third-party/leaflet.locatecontrol/L.Control.Locate.umd.js";
-import "../third-party/leaflet.fullscreen/Control.FullScreen.js";
-import "../third-party/leaflet.languageselector/leaflet.languageselector.js";
-import "./subgroup.js";
-import "./info-button-control.js";
-
+import * as L from "leaflet";
 import { addLanguageResources, getUserLanguage, setUserLanguage } from "./i18n.js";
 import { addNominatimInformation, calculatePopup } from "./popup.js";
+import { langObject, languageSelector } from "../third-party/leaflet.languageselector/leaflet.languageselector.esm.js";
+import { FullScreen } from "../third-party/leaflet.fullscreen/Control.FullScreen.esm.js";
+import { Geocoder } from "../third-party/leaflet.control.geocoder/Control.Geocoder.modern.js";
+import { InfoButton } from "./info-button-control.js";
+import { LocateControl } from "../third-party/leaflet.locatecontrol/L.Control.Locate.esm.patched.js";
 import { MarkerClusterGroup } from "@kristjan.esperanto/leaflet.markercluster";
+import { SubGroup } from "./subgroup.js";
 import { createHash } from "../third-party/leaflet.hash/leaflet-hash.mjs";
 import getIcon from "./veggiemap-icons.js";
+
+// Expose L globally for any remaining global dependencies
+window.L = L;
 
 // Define marker groups (using imported MarkerClusterGroup and our SubGroup)
 const parentGroup = new MarkerClusterGroup({
   showCoverageOnHover: false,
   maxClusterRadius: 20,
   // Smooth UI when adding thousands of markers
-  chunkedLoading: true
+  chunkedLoading: true,
+  chunkProgress: updateProgressBar
 });
-const veganOnly = new L.SubGroup(parentGroup);
-const vegetarianOnly = new L.SubGroup(parentGroup);
-const veganFriendly = new L.SubGroup(parentGroup);
-const veganLimited = new L.SubGroup(parentGroup);
-const vegetarianFriendly = new L.SubGroup(parentGroup);
+const veganOnly = new SubGroup(parentGroup);
+const vegetarianOnly = new SubGroup(parentGroup);
+const veganFriendly = new SubGroup(parentGroup);
+const veganLimited = new SubGroup(parentGroup);
+const vegetarianFriendly = new SubGroup(parentGroup);
 const subgroups = {
   vegan_only: veganOnly,
   vegetarian_only: vegetarianOnly,
@@ -39,6 +40,29 @@ const subgroups = {
 let map;
 let layerControl;
 let languageControl;
+
+/**
+                                                                                                                                                                     * Update the progress indicator during chunked marker loading
+ * @param {number} processed - Number of processed markers
+ * @param {number} total - Total number of markers being added
+ */
+function updateProgressBar(processed, total) {
+  const progressElement = document.getElementById("progress");
+  if (progressElement) {
+    if (processed < total) {
+      // Show progress
+      const percent = Math.round((processed / total) * 100);
+      progressElement.style.display = "block";
+      progressElement.textContent = `${percent}% (${processed}/${total})`;
+    }
+    else {
+      // Hide when complete
+      setTimeout(() => {
+        progressElement.style.display = "none";
+      }, 500);
+    }
+  }
+}
 
 function veggiemap() {
   // Fix default icon path for Leaflet 2.0
@@ -96,24 +120,24 @@ function veggiemap() {
   const hash = createHash(map);
 
   // Add fullscreen control button
-  document.fullscreenControl = new L.Control.FullScreen({
+  document.fullscreenControl = new FullScreen({
     position: "topright",
     fullscreenElement: map.getContainer().parentNode
   });
   document.fullscreenControl.addTo(map);
 
   // Add info button
-  new L.Control.InfoButton({
+  new InfoButton({
     position: "topright",
     onClick: () => toggleInfo(),
     contentHtml: "<div class='info-button'></div>"
   }).addTo(map);
 
   // Add button for search places
-  new L.Control.Geocoder().addTo(map);
+  new Geocoder().addTo(map);
 
   // Add button to search own position
-  document.locateControl = new L.Control.Locate.LocateControl({
+  document.locateControl = new LocateControl({
     showCompass: true,
     locateOptions: { maxZoom: 16 },
     position: "topright"
@@ -121,18 +145,18 @@ function veggiemap() {
   document.locateControl.addTo(map);
 
   // Add language selector
-  languageControl = L.languageSelector({
+  languageControl = languageSelector({
     languages: [
-      L.langObject("ca", "ca - Català", "./third-party/leaflet.languageselector/images/ca.svg"),
-      L.langObject("de", "de - Deutsch", "./third-party/leaflet.languageselector/images/de.svg"),
-      L.langObject("en", "en - English", "./third-party/leaflet.languageselector/images/en.svg"),
-      L.langObject("eo", "eo - Esperanto", "./third-party/leaflet.languageselector/images/eo.svg"),
-      L.langObject("es", "es - Español", "./third-party/leaflet.languageselector/images/es.svg"),
-      L.langObject("fi", "fi - suomi", "./third-party/leaflet.languageselector/images/fi.svg"),
-      L.langObject("fr", "fr - Français", "./third-party/leaflet.languageselector/images/fr.svg"),
-      L.langObject("it", "it - Italiano", "./third-party/leaflet.languageselector/images/it.svg"),
-      L.langObject("ko", "ko - 한국어", "./third-party/leaflet.languageselector/images/ko.svg"),
-      L.langObject("ru", "ru - Русский", "./third-party/leaflet.languageselector/images/ru.svg")
+      langObject("ca", "ca - Català", "./third-party/leaflet.languageselector/images/ca.svg"),
+      langObject("de", "de - Deutsch", "./third-party/leaflet.languageselector/images/de.svg"),
+      langObject("en", "en - English", "./third-party/leaflet.languageselector/images/en.svg"),
+      langObject("eo", "eo - Esperanto", "./third-party/leaflet.languageselector/images/eo.svg"),
+      langObject("es", "es - Español", "./third-party/leaflet.languageselector/images/es.svg"),
+      langObject("fi", "fi - suomi", "./third-party/leaflet.languageselector/images/fi.svg"),
+      langObject("fr", "fr - Français", "./third-party/leaflet.languageselector/images/fr.svg"),
+      langObject("it", "it - Italiano", "./third-party/leaflet.languageselector/images/it.svg"),
+      langObject("ko", "ko - 한국어", "./third-party/leaflet.languageselector/images/ko.svg"),
+      langObject("ru", "ru - Русский", "./third-party/leaflet.languageselector/images/ru.svg")
     ],
     callback: setUserLanguage,
     initialLanguage: getUserLanguage(),
