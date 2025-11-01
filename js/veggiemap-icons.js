@@ -33,7 +33,7 @@ export default function getIcon(symbol, category) {
     iconPath = "third-party/icons/openstreetmap-carto/";
   }
 
-  return L.icon({
+  return new L.Icon({
     iconUrl: iconPath + symbol + iconColor,
     iconSize: [18, 18],
     iconAnchor: [11, 18],

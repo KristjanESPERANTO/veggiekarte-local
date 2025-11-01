@@ -2,7 +2,7 @@
 /* global L */
 
 // Define marker groups
-const parentGroup = L.markerClusterGroup({
+const parentGroup = new L.MarkerClusterGroup({
   showCoverageOnHover: false,
   maxClusterRadius: 20,
   // Smooth UI when adding many markers
@@ -29,13 +29,13 @@ let map;
 
 function veggiemap() {
   // TileLayer
-  const tileOSM = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  const tileOSM = new L.TileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap contributors</a>",
     maxZoom: 18
   });
 
   // Map
-  map = L.map("map", {
+  map = new L.Map("map", {
     layers: [tileOSM],
     center: [20, 17],
     zoom: 3,
@@ -44,7 +44,7 @@ function veggiemap() {
   });
 
   // Add zoom control
-  L.control.zoom({ position: "topright" }).addTo(map);
+  new L.Control.Zoom({ position: "topright" }).addTo(map);
 
   // Populate map async then add overlays
   veggiemapPopulate(parentGroup).then(() => {
@@ -57,7 +57,7 @@ function veggiemap() {
       "<div class='legend-row'><div class='second-cell'>6 issues</div><div class='third-cell' id='issue_count_6'></div></div>": issueCount6,
       "<div class='legend-row'><div class='second-cell'>more than 6</div><div class='third-cell' id='issue_count_many'></div></div>": issueCountMany
     };
-    L.control.layers(null, overlays).addTo(map);
+    new L.Control.Layers(null, overlays).addTo(map);
   });
 
   // Close the tooltip when opening the popup
@@ -95,16 +95,14 @@ function veggiemap() {
   new L.Control.InfoButton({ position: "topright", onClick: toggleInfo }).addTo(map);
 
   // Add button for search places
-  L.Control.geocoder().addTo(map);
+  new L.Control.Geocoder().addTo(map);
 
   // Add button to search own position
-  L.control
-    .locate({
-      showCompass: true,
-      locateOptions: { maxZoom: 16 },
-      position: "topright"
-    })
-    .addTo(map);
+  new L.Control.Locate.LocateControl({
+    showCompass: true,
+    locateOptions: { maxZoom: 16 },
+    position: "topright"
+  }).addTo(map);
 }
 
 // Function to toggle the visibility of the Info box.
@@ -207,7 +205,7 @@ function geojsonToMarkerGroups(geojson) {
 // Function to get the marker.
 function getMarker(feature) {
   const eLatLon = [feature.geometry.coordinates[1], feature.geometry.coordinates[0]];
-  const marker = L.marker(eLatLon);
+  const marker = new L.Marker(eLatLon);
   marker.feature = feature;
   // Bind popups/tooltips at creation time (works with chunkedLoading)
   marker.bindPopup(calculatePopup, {
