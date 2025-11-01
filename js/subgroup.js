@@ -11,7 +11,7 @@
 
 /* global L */
 
-L.SubGroup = L.LayerGroup.extend({
+const SubGroup = L.LayerGroup.extend({
   /**
    * Create a new SubGroup.
    * @param {L.LayerGroup} parentGroup - The parent group (e.g., MarkerClusterGroup)
@@ -120,7 +120,7 @@ L.SubGroup = L.LayerGroup.extend({
  * addLayers method (e.g., MarkerClusterGroup), that is used for performance.
  * The internal registry (_layers) is always kept in sync.
  */
-L.SubGroup.prototype.addLayers = function addLayers(layers) {
+SubGroup.prototype.addLayers = function addLayers(layers) {
   if (!Array.isArray(layers) || layers.length === 0) { return this; }
 
   // Filter bereits vorhandene Layer und registriere neue in _layers
@@ -158,7 +158,7 @@ L.SubGroup.prototype.addLayers = function addLayers(layers) {
  * currently on the map — also from the parent group (using removeLayers
  * when available, otherwise one by one).
  */
-L.SubGroup.prototype.removeLayers = function removeLayers(layers) {
+SubGroup.prototype.removeLayers = function removeLayers(layers) {
   if (!Array.isArray(layers) || layers.length === 0) { return this; }
 
   const toRemove = [];
@@ -191,7 +191,7 @@ L.SubGroup.prototype.removeLayers = function removeLayers(layers) {
  * first removes all layers from the parent group in one go and then clears
  * the internal registry.
  */
-L.SubGroup.prototype.clearLayers = function clearLayers() {
+SubGroup.prototype.clearLayers = function clearLayers() {
   const layers = this.getLayers();
   if (layers.length && this._map && this._parentGroup) {
     if (typeof this._parentGroup.removeLayers === "function") {
@@ -207,3 +207,6 @@ L.SubGroup.prototype.clearLayers = function clearLayers() {
   L.LayerGroup.prototype.clearLayers.call(this);
   return this;
 };
+
+// Export for ES modules
+export { SubGroup };

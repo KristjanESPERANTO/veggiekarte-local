@@ -4,14 +4,14 @@
  * L.Control.InfoButton - minimal Leaflet 2-style control for a single info button.
  *
  * Usage:
- *   new L.Control.InfoButton({ position: 'topright', onClick: () => { ... } }).addTo(map);
+ *   new InfoButton({ position: 'topright', onClick: () => { ... } }).addTo(map);
  *
  * Notes:
  * - Renders a standard Leaflet control bar with a single anchor element.
  * - Inner element gets the CSS class `info-button` (existing styles apply).
  * - Title/ARIA can be set by i18n.js after creation (keeps current behavior).
  */
-L.Control.InfoButton = L.Control.extend({
+const InfoButton = L.Control.extend({
   options: {
     position: "topright",
     onClick: null, // Function (evt)
@@ -46,3 +46,6 @@ L.Control.InfoButton = L.Control.extend({
     return container;
   }
 });
+
+// Export as ES module
+export { InfoButton };
