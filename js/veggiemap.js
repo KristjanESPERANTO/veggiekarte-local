@@ -68,9 +68,9 @@ function veggiemap() {
   // Fix default icon path for Leaflet 2.0
   delete L.Icon.Default.prototype._getIconUrl;
   L.Icon.Default.mergeOptions({
-    iconRetinaUrl: "third-party/leaflet/images/marker-icon-2x.png",
-    iconUrl: "third-party/leaflet/images/marker-icon.png",
-    shadowUrl: "third-party/leaflet/images/marker-shadow.png"
+    iconRetinaUrl: "node_modules/leaflet/dist/images/marker-icon-2x.png",
+    iconUrl: "node_modules/leaflet/dist/images/marker-icon.png",
+    shadowUrl: "node_modules/leaflet/dist/images/marker-shadow.png"
   });
 
   // Map

@@ -18,7 +18,8 @@ export default defineConfig([
     "data/check_results.json",
     "data/overpass.json",
     "data/places.json",
-    "data/places_old.json"
+    "data/places_old.json",
+    "datacheck/datacheck-bundle.js"
   ]),
   { files: ["**/*.css"], plugins: { css }, language: "css/css", extends: ["css/recommended"], rules: { "css/no-important": "off", "css/use-baseline": "off" } },
   {

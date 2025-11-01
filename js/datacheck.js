@@ -1,20 +1,32 @@
 /* eslint-disable camelcase */
-/* global L */
+
+import * as L from "leaflet";
+import { Geocoder } from "../third-party/leaflet.control.geocoder/Control.Geocoder.modern.js";
+import { InfoButton } from "./info-button-control.js";
+import { LocateControl } from "../third-party/leaflet.locatecontrol/L.Control.Locate.esm.patched.js";
+import { MarkerClusterGroup } from "@kristjan.esperanto/leaflet.markercluster";
+import { SubGroup } from "./subgroup.js";
+
+// Expose L globally for any remaining global dependencies
+window.L = L;
+
+// Ensure InfoButton is registered globally (used later as L.Control.InfoButton)
+if (InfoButton) { /* Side-effect import */ }
 
 // Define marker groups
-const parentGroup = new L.MarkerClusterGroup({
+const parentGroup = new MarkerClusterGroup({
   showCoverageOnHover: false,
   maxClusterRadius: 20,
   // Smooth UI when adding many markers
   chunkedLoading: true
 });
-const issueCount1 = new L.SubGroup(parentGroup);
-const issueCount2 = new L.SubGroup(parentGroup);
-const issueCount3 = new L.SubGroup(parentGroup);
-const issueCount4 = new L.SubGroup(parentGroup);
-const issueCount5 = new L.SubGroup(parentGroup);
-const issueCount6 = new L.SubGroup(parentGroup);
-const issueCountMany = new L.SubGroup(parentGroup);
+const issueCount1 = new SubGroup(parentGroup);
+const issueCount2 = new SubGroup(parentGroup);
+const issueCount3 = new SubGroup(parentGroup);
+const issueCount4 = new SubGroup(parentGroup);
+const issueCount5 = new SubGroup(parentGroup);
+const issueCount6 = new SubGroup(parentGroup);
+const issueCountMany = new SubGroup(parentGroup);
 const subgroups = {
   issue_count_1: issueCount1,
   issue_count_2: issueCount2,
@@ -28,6 +40,14 @@ const subgroups = {
 let map;
 
 function veggiemap() {
+  // Fix default icon path for Leaflet 2.0
+  delete L.Icon.Default.prototype._getIconUrl;
+  L.Icon.Default.mergeOptions({
+    iconRetinaUrl: "../node_modules/leaflet/dist/images/marker-icon-2x.png",
+    iconUrl: "../node_modules/leaflet/dist/images/marker-icon.png",
+    shadowUrl: "../node_modules/leaflet/dist/images/marker-shadow.png"
+  });
+
   // TileLayer
   const tileOSM = new L.TileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap contributors</a>",
@@ -92,13 +112,13 @@ function veggiemap() {
   parseHash();
 
   // Add info button
-  new L.Control.InfoButton({ position: "topright", onClick: toggleInfo }).addTo(map);
+  new InfoButton({ position: "topright", onClick: toggleInfo }).addTo(map);
 
   // Add button for search places
-  new L.Control.Geocoder().addTo(map);
+  new Geocoder().addTo(map);
 
   // Add button to search own position
-  new L.Control.Locate.LocateControl({
+  new LocateControl({
     showCompass: true,
     locateOptions: { maxZoom: 16 },
     position: "topright"
