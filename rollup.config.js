@@ -1,4 +1,5 @@
 import terser from "@rollup/plugin-terser";
+import { nodeResolve } from "@rollup/plugin-node-resolve";
 import { readFileSync } from "fs";
 
 const pkg = JSON.parse(readFileSync("./package.json"));
@@ -25,5 +26,5 @@ export default {
     format: "es",
     sourcemap: true
   },
-  plugins: [terser()]
+  plugins: [nodeResolve(), terser()]
 };

@@ -26,6 +26,7 @@
     "@eslint/css": "^0.10.0",
     "@eslint/js": "^9.33.0",
     "@eslint/markdown": "^7.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-terser": "^0.4.4",
     "@stylistic/eslint-plugin": "^5.2.3",
     "autoprefixer": "^10.4.21",
@@ -45,6 +46,7 @@
     "stylelint-prettier": "^5.0.3"
   },
   "dependencies": {
+    "@kristjan.esperanto/leaflet.markercluster": "^2.0.0",
     "email-validator": "^2.0.4",
     "libphonenumber-js": "^1.11.17",
     "opening_hours": "^3.9.0"
