@@ -1,18 +1,32 @@
 /* eslint-disable camelcase */
-/* global L */
+
+import * as L from "leaflet";
+import { Geocoder } from "../third-party/leaflet.control.geocoder/Control.Geocoder.modern.js";
+import { InfoButton } from "./info-button-control.js";
+import { LocateControl } from "../third-party/leaflet.locatecontrol/L.Control.Locate.esm.patched.js";
+import { MarkerClusterGroup } from "@kristjan.esperanto/leaflet.markercluster";
+import { SubGroup } from "./subgroup.js";
+
+// Expose L globally for any remaining global dependencies
+window.L = L;
+
+// Ensure InfoButton is registered globally (used later as L.Control.InfoButton)
+if (InfoButton) { /* Side-effect import */ }
 
 // Define marker groups
-const parentGroup = L.markerClusterGroup({
+const parentGroup = new MarkerClusterGroup({
   showCoverageOnHover: false,
-  maxClusterRadius: 20
+  maxClusterRadius: 20,
+  // Smooth UI when adding many markers
+  chunkedLoading: true
 });
-const issueCount1 = L.featureGroup.subGroup(parentGroup, {});
-const issueCount2 = L.featureGroup.subGroup(parentGroup, {});
-const issueCount3 = L.featureGroup.subGroup(parentGroup, {});
-const issueCount4 = L.featureGroup.subGroup(parentGroup, {});
-const issueCount5 = L.featureGroup.subGroup(parentGroup, {});
-const issueCount6 = L.featureGroup.subGroup(parentGroup, {});
-const issueCountMany = L.featureGroup.subGroup(parentGroup, {});
+const issueCount1 = new SubGroup(parentGroup);
+const issueCount2 = new SubGroup(parentGroup);
+const issueCount3 = new SubGroup(parentGroup);
+const issueCount4 = new SubGroup(parentGroup);
+const issueCount5 = new SubGroup(parentGroup);
+const issueCount6 = new SubGroup(parentGroup);
+const issueCountMany = new SubGroup(parentGroup);
 const subgroups = {
   issue_count_1: issueCount1,
   issue_count_2: issueCount2,
@@ -26,14 +40,22 @@ const subgroups = {
 let map;
 
 function veggiemap() {
+  // Fix default icon path for Leaflet 2.0
+  delete L.Icon.Default.prototype._getIconUrl;
+  L.Icon.Default.mergeOptions({
+    iconRetinaUrl: "../node_modules/leaflet/dist/images/marker-icon-2x.png",
+    iconUrl: "../node_modules/leaflet/dist/images/marker-icon.png",
+    shadowUrl: "../node_modules/leaflet/dist/images/marker-shadow.png"
+  });
+
   // TileLayer
-  const tileOSM = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  const tileOSM = new L.TileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap contributors</a>",
     maxZoom: 18
   });
 
   // Map
-  map = L.map("map", {
+  map = new L.Map("map", {
     layers: [tileOSM],
     center: [20, 17],
     zoom: 3,
@@ -42,7 +64,7 @@ function veggiemap() {
   });
 
   // Add zoom control
-  L.control.zoom({ position: "topright" }).addTo(map);
+  new L.Control.Zoom({ position: "topright" }).addTo(map);
 
   // Populate map async then add overlays
   veggiemapPopulate(parentGroup).then(() => {
@@ -55,7 +77,7 @@ function veggiemap() {
       "<div class='legend-row'><div class='second-cell'>6 issues</div><div class='third-cell' id='issue_count_6'></div></div>": issueCount6,
       "<div class='legend-row'><div class='second-cell'>more than 6</div><div class='third-cell' id='issue_count_many'></div></div>": issueCountMany
     };
-    L.control.layers(null, overlays).addTo(map);
+    new L.Control.Layers(null, overlays).addTo(map);
   });
 
   // Close the tooltip when opening the popup
@@ -90,22 +112,17 @@ function veggiemap() {
   parseHash();
 
   // Add info button
-  const infoButton = L.easyButton("<div class='info-button'></div>", () => {
-    toggleInfo();
-  }).addTo(map);
-  infoButton.setPosition("topright");
+  new InfoButton({ position: "topright", onClick: toggleInfo }).addTo(map);
 
   // Add button for search places
-  L.Control.geocoder().addTo(map);
+  new Geocoder().addTo(map);
 
   // Add button to search own position
-  L.control
-    .locate({
-      showCompass: true,
-      locateOptions: { maxZoom: 16 },
-      position: "topright"
-    })
-    .addTo(map);
+  new LocateControl({
+    showCompass: true,
+    locateOptions: { maxZoom: 16 },
+    position: "topright"
+  }).addTo(map);
 }
 
 // Function to toggle the visibility of the Info box.
@@ -166,10 +183,9 @@ async function veggiemapPopulate(parentGroupVar) {
     const date = markerGroupsAndDate[1];
 
     Object.entries(subgroups).forEach(([key, subgroup]) => {
-      // Bulk add all the markers from a markerGroup to a subgroup in one go
-      // Source: https://github.com/ghybs/Leaflet.FeatureGroup.SubGroup/issues/5
-      subgroup.addLayer(L.layerGroup(markerGroups[key]));
+      // Add subgroup to map first, then batch-insert markers
       map.addLayer(subgroup);
+      subgroup.addLayers(markerGroups[key]);
     });
 
     // Reveal all the markers and clusters on the map in one go
@@ -178,11 +194,7 @@ async function veggiemapPopulate(parentGroupVar) {
     // Call the function to put the numbers into the legend
     statPopulate(markerGroups, date);
 
-    // Enable the on-demand popup and tooltip calculation
-    parentGroupVar.eachLayer((layer) => {
-      layer.bindPopup(calculatePopup);
-      layer.bindTooltip(calculateTooltip);
-    });
+    // Popups/tooltips are already bound at marker creation
 
     // Hide spinner
     hideSpinner();
@@ -213,8 +225,15 @@ function geojsonToMarkerGroups(geojson) {
 // Function to get the marker.
 function getMarker(feature) {
   const eLatLon = [feature.geometry.coordinates[1], feature.geometry.coordinates[0]];
-  const marker = L.marker(eLatLon);
+  const marker = new L.Marker(eLatLon);
   marker.feature = feature;
+  // Bind popups/tooltips at creation time (works with chunkedLoading)
+  marker.bindPopup(calculatePopup, {
+    minWidth: 300,
+    maxWidth: 520,
+    autoPanPadding: [16, 16]
+  });
+  marker.bindTooltip(calculateTooltip);
   return marker;
 }
 

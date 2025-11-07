@@ -1,5 +1,5 @@
 // Version will be updated by the build process
-const CACHE_NAME = "veggiekarte_v1.3.1";
+const CACHE_NAME = "veggiekarte_v2.0.0";
 
 console.info(CACHE_NAME);
 

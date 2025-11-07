@@ -1,4 +1,5 @@
 import terser from "@rollup/plugin-terser";
+import { nodeResolve } from "@rollup/plugin-node-resolve";
 import { readFileSync } from "fs";
 
 const pkg = JSON.parse(readFileSync("./package.json"));
@@ -17,13 +18,27 @@ const banner = `/*! ************************************************************
 ***************************************************************************** */
 `;
 
-export default {
-  input: "js/veggiemap.js",
-  output: {
-    banner,
-    file: "js/bundle.js",
-    format: "es",
-    sourcemap: true
+export default [
+  // Main app bundle
+  {
+    input: "js/veggiemap.js",
+    output: {
+      banner,
+      file: "js/bundle.js",
+      format: "es",
+      sourcemap: true
+    },
+    plugins: [nodeResolve(), terser()]
   },
-  plugins: [terser()]
-};
+  // Datacheck bundle
+  {
+    input: "js/datacheck.js",
+    output: {
+      banner,
+      file: "datacheck/datacheck-bundle.js",
+      format: "es",
+      sourcemap: true
+    },
+    plugins: [nodeResolve(), terser()]
+  }
+];

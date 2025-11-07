@@ -1,9 +1,8 @@
-@import url("../third-party/leaflet/leaflet.css");
-@import url("../third-party/leaflet.markercluster/MarkerCluster.css");
-@import url("../third-party/leaflet.markercluster/MarkerCluster.Default.css");
+@import url("../node_modules/leaflet/dist/leaflet.css");
+@import url("../node_modules/@kristjan.esperanto/leaflet.markercluster/dist/MarkerCluster.css");
+@import url("../node_modules/@kristjan.esperanto/leaflet.markercluster/dist/MarkerCluster.Default.css");
 @import url("../third-party/leaflet.control.geocoder/Control.Geocoder.css");
 @import url("../third-party/leaflet.locatecontrol/L.Control.Locate.min.css");
-@import url("../third-party/leaflet.easybutton/easy-button.css");
 @import url("../third-party/leaflet.fullscreen/Control.FullScreen.css");
 @import url("../third-party/leaflet.languageselector/leaflet.languageselector.css");
 
@@ -19,6 +18,24 @@ body {
   height: 100%;
   width: 100%;
   z-index: 0;
+}
+
+/* Progress bar for marker loading */
+#progress {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgb(0 0 0 / 80%);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  z-index: 10000;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 30%);
+  white-space: nowrap;
 }
 
 /* For the close button in the Info box. */
@@ -140,7 +157,7 @@ a:hover {
 
 /* Layer button: Adjust the size to the other buttons. */
 .leaflet-touch .leaflet-control-layers-toggle {
-  background-image: url("../third-party/leaflet/images/layers.png");
+  background-image: url("../node_modules/leaflet/dist/images/layers.svg");
   width: 30px;
   height: 30px;
   background-size: 80%;
@@ -186,8 +203,9 @@ a:hover {
   max-width: clamp(280px, 48vw, 420px);
   max-height: calc(60vh - 45px); /* full wrapper height minus banner */
   overflow-y: auto;
-  overflow-wrap: anywhere;
-  word-break: break-word;
+  /* Prefer natural breaking; allow breaking long words only when needed */
+  overflow-wrap: break-word;
+  word-break: normal;
   margin: 0;
   padding: 0 8px 8px 8px;
 }

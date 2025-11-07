@@ -3,7 +3,7 @@
  * (c) Bruno B.; MIT License
  * Uses fragments from the package 'screenfull'
  */
-(function (root, factory) {
+(function(root, factory) {
 	if (typeof define === 'function' && define.amd) {
 		// define an AMD module that requires 'leaflet'
 		// and resolve to an object containing leaflet
@@ -70,7 +70,7 @@
 	const fullscreenAPI = {
 		request(element, options) {
 			return new Promise((resolve, reject) => {
-				const onFullScreenEntered = function () {
+				const onFullScreenEntered = function() {
 					this.off('change', onFullScreenEntered);
 					resolve();
 				}.bind(this);
@@ -90,7 +90,7 @@
 					return;
 				}
 
-				const onFullScreenExit = function () {
+				const onFullScreenExit = function() {
 					this.off('change', onFullScreenExit);
 					resolve();
 				}.bind(this);
@@ -158,7 +158,7 @@
 			if (this.options.content) {
 				content = this.options.content;
 			} else {
-				className += ' fullscreen-icon';
+				className += ' leaflet-fullscreen-icon';
 			}
 
 			this._createButton(this.options.title, className, content, container, this.toggleFullScreen, this);
@@ -220,9 +220,10 @@
 				if (this._screenfull.isEnabled && !this.options.forcePseudoFullscreen) {
 					this._screenfull.exit().then(() => map.invalidateSize());
 				} else {
-					leaflet.DomUtil.removeClass(this.options.fullscreenElement
-						? this.options.fullscreenElement
-						: map._container, 'leaflet-pseudo-fullscreen');
+					const _targetExit = this.options.fullscreenElement ? this.options.fullscreenElement : map._container;
+					if (_targetExit && _targetExit.classList) {
+						_targetExit.classList.remove('leaflet-pseudo-fullscreen');
+					}
 					map.invalidateSize();
 				}
 				map.fire('exitFullscreen');
@@ -234,9 +235,10 @@
 						? this.options.fullscreenElement
 						: map._container).then(() => map.invalidateSize());
 				} else {
-					leaflet.DomUtil.addClass(this.options.fullscreenElement
-						? this.options.fullscreenElement
-						: map._container, 'leaflet-pseudo-fullscreen');
+					const _targetEnter = this.options.fullscreenElement ? this.options.fullscreenElement : map._container;
+					if (_targetEnter && _targetEnter.classList) {
+						_targetEnter.classList.add('leaflet-pseudo-fullscreen');
+					}
 					map.invalidateSize();
 				}
 				map.fire('enterFullscreen');
@@ -248,9 +250,13 @@
 			this.link.title = this._map._isFullscreen
 				? this.options.title
 				: this.options.titleCancel;
-			this._map._isFullscreen
-				? L.DomUtil.removeClass(this.link, 'leaflet-fullscreen-on')
-				: L.DomUtil.addClass(this.link, 'leaflet-fullscreen-on');
+			if (this.link && this.link.classList) {
+				if (this._map._isFullscreen) {
+					this.link.classList.remove('leaflet-fullscreen-on');
+				} else {
+					this.link.classList.add('leaflet-fullscreen-on');
+				}
+			}
 		},
 
 		_handleFullscreenChange(ev) {
@@ -270,13 +276,13 @@
 		}
 	});
 
-	leaflet.Map.addInitHook(function () {
+	leaflet.Map.addInitHook(function() {
 		if (this.options.fullscreenControl) {
 			this.addControl(leaflet.control.fullscreen(this.options.fullscreenControlOptions));
 		}
 	});
 
-	leaflet.control.fullscreen = function (options) {
+	leaflet.control.fullscreen = function(options) {
 		return new leaflet.Control.FullScreen(options);
 	};
 

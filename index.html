@@ -19,6 +19,8 @@
 
   <body>
     <div>
+      <!-- Progress bar for marker loading -->
+      <div id="progress"></div>
       <!-- Info box -->
       <div id="information">
         <div id="close" onclick="toggleInfo()">✖</div>
@@ -45,8 +47,8 @@
       <p style="text-align: center">⚠️ This application requires JavaScript. ⚠️</p>
     </noscript>
 
-    <!-- App script -->
-    <script src="js/bundle.js" type="module"></script>
+    <!-- App script (all dependencies loaded as ES modules) -->
+    <script type="module" src="js/bundle.js"></script>
 
     <!-- Service worker -->
     <script>

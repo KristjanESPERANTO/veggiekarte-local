@@ -1,30 +1,34 @@
 /* eslint-disable camelcase */
-/* global L */
 
-import "../third-party/leaflet/leaflet.js";
-import "../third-party/leaflet.control.geocoder/Control.Geocoder.js";
-import "../third-party/leaflet.locatecontrol/L.Control.Locate.min.js";
-import "../third-party/leaflet.easybutton/easy-button.js";
-import "../third-party/leaflet.featuregroup.subgroup/leaflet.featuregroup.subgroup.js";
-import "../third-party/leaflet.fullscreen/Control.FullScreen.js";
-import "../third-party/leaflet.languageselector/leaflet.languageselector.js";
-
+import * as L from "leaflet";
 import { addLanguageResources, getUserLanguage, setUserLanguage } from "./i18n.js";
 import { addNominatimInformation, calculatePopup } from "./popup.js";
-import { MarkerClusterGroup } from "../third-party/leaflet.markercluster/leaflet.markercluster-esm.js";
+import { langObject, languageSelector } from "../third-party/leaflet.languageselector/leaflet.languageselector.esm.js";
+import { FullScreen } from "../third-party/leaflet.fullscreen/Control.FullScreen.esm.js";
+import { Geocoder } from "../third-party/leaflet.control.geocoder/Control.Geocoder.modern.js";
+import { InfoButton } from "./info-button-control.js";
+import { LocateControl } from "../third-party/leaflet.locatecontrol/L.Control.Locate.esm.patched.js";
+import { MarkerClusterGroup } from "@kristjan.esperanto/leaflet.markercluster";
+import { SubGroup } from "./subgroup.js";
 import { createHash } from "../third-party/leaflet.hash/leaflet-hash.mjs";
 import getIcon from "./veggiemap-icons.js";
 
-// Define marker groups
+// Expose L globally for any remaining global dependencies
+window.L = L;
+
+// Define marker groups (using imported MarkerClusterGroup and our SubGroup)
 const parentGroup = new MarkerClusterGroup({
   showCoverageOnHover: false,
-  maxClusterRadius: 20
+  maxClusterRadius: 20,
+  // Smooth UI when adding thousands of markers
+  chunkedLoading: true,
+  chunkProgress: updateProgressBar
 });
-const veganOnly = L.featureGroup.subGroup(parentGroup, {});
-const vegetarianOnly = L.featureGroup.subGroup(parentGroup, {});
-const veganFriendly = L.featureGroup.subGroup(parentGroup, {});
-const veganLimited = L.featureGroup.subGroup(parentGroup, {});
-const vegetarianFriendly = L.featureGroup.subGroup(parentGroup, {});
+const veganOnly = new SubGroup(parentGroup);
+const vegetarianOnly = new SubGroup(parentGroup);
+const veganFriendly = new SubGroup(parentGroup);
+const veganLimited = new SubGroup(parentGroup);
+const vegetarianFriendly = new SubGroup(parentGroup);
 const subgroups = {
   vegan_only: veganOnly,
   vegetarian_only: vegetarianOnly,
@@ -37,9 +41,40 @@ let map;
 let layerControl;
 let languageControl;
 
+/**
+                                                                                                                                                                     * Update the progress indicator during chunked marker loading
+ * @param {number} processed - Number of processed markers
+ * @param {number} total - Total number of markers being added
+ */
+function updateProgressBar(processed, total) {
+  const progressElement = document.getElementById("progress");
+  if (progressElement) {
+    if (processed < total) {
+      // Show progress
+      const percent = Math.round((processed / total) * 100);
+      progressElement.style.display = "block";
+      progressElement.textContent = `${percent}% (${processed}/${total})`;
+    }
+    else {
+      // Hide when complete
+      setTimeout(() => {
+        progressElement.style.display = "none";
+      }, 500);
+    }
+  }
+}
+
 function veggiemap() {
+  // Fix default icon path for Leaflet 2.0
+  delete L.Icon.Default.prototype._getIconUrl;
+  L.Icon.Default.mergeOptions({
+    iconRetinaUrl: "node_modules/leaflet/dist/images/marker-icon-2x.png",
+    iconUrl: "node_modules/leaflet/dist/images/marker-icon.png",
+    shadowUrl: "node_modules/leaflet/dist/images/marker-shadow.png"
+  });
+
   // Map
-  map = L.map("map", {
+  map = new L.Map("map", {
     center: [20, 17],
     zoom: 3,
     worldCopyJump: true,
@@ -47,13 +82,13 @@ function veggiemap() {
   });
 
   // TileLayer
-  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  new L.TileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
     attribution: "© <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap contributors</a>"
   }).addTo(map);
 
   // Add zoom control
-  L.control.zoom({ position: "topright" }).addTo(map);
+  new L.Control.Zoom({ position: "topright" }).addTo(map);
 
   // Define overlays (each marker group gets a layer) + add legend to the description
   const overlays = {
@@ -65,6 +100,10 @@ function veggiemap() {
     "<div class='legend-row'><div class='first-cell vegetarian_friendly'></div><div class='second-cell'></div><div class='third-cell' id='n_vegetarian_friendly'></div></div>":
       vegetarianFriendly
   };
+
+  // Add layer control (we will move it to be last in top-right after other controls are added)
+  layerControl = new L.Control.Layers(null, overlays, { position: "topright" });
+  layerControl.addTo(map);
 
   // Close the tooltip when opening the popup
   parentGroup.on("click", () => {
@@ -81,43 +120,43 @@ function veggiemap() {
   const hash = createHash(map);
 
   // Add fullscreen control button
-  // eslint-disable-next-line new-cap
-  document.fullscreenControl = new L.control.fullscreen({
+  document.fullscreenControl = new FullScreen({
     position: "topright",
     fullscreenElement: map.getContainer().parentNode
   });
   document.fullscreenControl.addTo(map);
 
   // Add info button
-  const infoButton = L.easyButton("<div class='info-button'></div>", () => {
-    toggleInfo();
+  new InfoButton({
+    position: "topright",
+    onClick: () => toggleInfo(),
+    contentHtml: "<div class='info-button'></div>"
   }).addTo(map);
-  infoButton.setPosition("topright");
 
   // Add button for search places
-  L.Control.geocoder().addTo(map);
+  new Geocoder().addTo(map);
 
   // Add button to search own position
-  document.locateControl = L.control.locate({
+  document.locateControl = new LocateControl({
     showCompass: true,
     locateOptions: { maxZoom: 16 },
     position: "topright"
   });
   document.locateControl.addTo(map);
 
-  // Add language control button
-  languageControl = L.languageSelector({
+  // Add language selector
+  languageControl = languageSelector({
     languages: [
-      L.langObject("ca", "ca - Català", "./third-party/leaflet.languageselector/images/ca.svg"),
-      L.langObject("de", "de - Deutsch", "./third-party/leaflet.languageselector/images/de.svg"),
-      L.langObject("en", "en - English", "./third-party/leaflet.languageselector/images/en.svg"),
-      L.langObject("eo", "eo - Esperanto", "./third-party/leaflet.languageselector/images/eo.svg"),
-      L.langObject("es", "es - Español", "./third-party/leaflet.languageselector/images/es.svg"),
-      L.langObject("fi", "fi - suomi", "./third-party/leaflet.languageselector/images/fi.svg"),
-      L.langObject("fr", "fr - Français", "./third-party/leaflet.languageselector/images/fr.svg"),
-      L.langObject("it", "it - Italiano", "./third-party/leaflet.languageselector/images/it.svg"),
-      L.langObject("ko", "ko - 한국어", "./third-party/leaflet.languageselector/images/ko.svg"),
-      L.langObject("ru", "ru - Русский", "./third-party/leaflet.languageselector/images/ru.svg")
+      langObject("ca", "ca - Català", "./third-party/leaflet.languageselector/images/ca.svg"),
+      langObject("de", "de - Deutsch", "./third-party/leaflet.languageselector/images/de.svg"),
+      langObject("en", "en - English", "./third-party/leaflet.languageselector/images/en.svg"),
+      langObject("eo", "eo - Esperanto", "./third-party/leaflet.languageselector/images/eo.svg"),
+      langObject("es", "es - Español", "./third-party/leaflet.languageselector/images/es.svg"),
+      langObject("fi", "fi - suomi", "./third-party/leaflet.languageselector/images/fi.svg"),
+      langObject("fr", "fr - Français", "./third-party/leaflet.languageselector/images/fr.svg"),
+      langObject("it", "it - Italiano", "./third-party/leaflet.languageselector/images/it.svg"),
+      langObject("ko", "ko - 한국어", "./third-party/leaflet.languageselector/images/ko.svg"),
+      langObject("ru", "ru - Русский", "./third-party/leaflet.languageselector/images/ru.svg")
     ],
     callback: setUserLanguage,
     initialLanguage: getUserLanguage(),
@@ -126,12 +165,14 @@ function veggiemap() {
   });
   languageControl.addTo(map);
 
-  // Add layer control button
-  layerControl = L.control.layers(null, overlays);
-  layerControl.addTo(map);
+  // Ensure Layers control is last in the top-right stack
+  const topRightCorner = map._controlCorners && map._controlCorners.topright;
+  if (topRightCorner && layerControl && layerControl._container) {
+    topRightCorner.appendChild(layerControl._container);
+  }
 
   // Add scale control
-  L.control.scale().addTo(map);
+  new L.Control.Scale().addTo(map);
 
   // Inject Nominatim data into the popup once it opens
   map.on("popupopen", (evt) => {
@@ -177,11 +218,14 @@ function statPopulate(markerGroups, date) {
     // Get the number of the markers
     const markerNumber = markerGroups[categoryName].length;
     // Add the number to the category entry in the Layer Control
-    document.getElementById(`n_${categoryName}`).innerHTML = `(${markerNumber})`;
+    const el = document.getElementById(`n_${categoryName}`);
+    if (el) { el.innerHTML = `(${markerNumber})`; }
   }
   // Add the date to the Layer Control
-  const lastEntry = document.getElementById("n_vegetarian_friendly").parentNode.parentNode;
-  lastEntry.innerHTML += `<br><div>(${date})</div>`;
+  const lastEntryEl = document.getElementById("n_vegetarian_friendly");
+  if (lastEntryEl && lastEntryEl.parentNode && lastEntryEl.parentNode.parentNode) {
+    lastEntryEl.parentNode.parentNode.innerHTML += `<br><div>(${date})</div>`;
+  }
 }
 
 // Function to get the information from the places json file.
@@ -203,10 +247,10 @@ async function veggiemapPopulate(parentGroupVar) {
   const date = markerGroupsAndDate[1];
 
   Object.entries(subgroups).forEach(([key, subgroup]) => {
-    // Bulk add all the markers from a markerGroup to a subgroup in one go
-    // Source: https://github.com/ghybs/Leaflet.FeatureGroup.SubGroup/issues/5
-    subgroup.addLayer(L.layerGroup(markerGroups[key]));
+    // Add subgroup to map first, so batch-adding uses parentGroup.addLayers
     map.addLayer(subgroup);
+    // Directly add all markers (no wrapper LayerGroup needed)
+    subgroup.addLayers(markerGroups[key]);
   });
 
   // Reveal all the markers and clusters on the map in one go
@@ -214,12 +258,6 @@ async function veggiemapPopulate(parentGroupVar) {
 
   // Call the function to put the numbers into the legend
   statPopulate(markerGroups, date);
-
-  // Enable the on-demand popup and tooltip calculation
-  parentGroup.eachLayer((layer) => {
-    layer.bindPopup(calculatePopup);
-    layer.bindTooltip(calculateTooltip);
-  });
 
   // Hide spinner
   hideSpinner();
@@ -248,8 +286,16 @@ function getMarker(feature) {
   const eIco = feature.properties.icon;
   const eCat = feature.properties.category;
 
-  const marker = L.marker(eLatLon, { icon: getIcon(eIco, eCat) });
+  const marker = new L.Marker(eLatLon, { icon: getIcon(eIco, eCat) });
   marker.feature = feature;
+  // Bind lazily-evaluated popup/tooltip at creation time so it also works with chunkedLoading
+  marker.bindPopup(calculatePopup, {
+    // Widen popup a bit compared to Leaflet default (300px)
+    minWidth: 300,
+    maxWidth: 520,
+    autoPanPadding: [16, 16]
+  });
+  marker.bindTooltip(calculateTooltip);
   return marker;
 }
 
