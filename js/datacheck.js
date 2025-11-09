@@ -69,15 +69,29 @@ function veggiemap() {
   // Populate map async then add overlays
   veggiemapPopulate(parentGroup).then(() => {
     const overlays = {
-      "<div class='legend-row'><div class='second-cell'>1 issue</div><div class='third-cell' id='issue_count_1'></div></div>": issueCount1,
-      "<div class='legend-row'><div class='second-cell'>2 issues</div><div class='third-cell' id='issue_count_2'></div></div>": issueCount2,
-      "<div class='legend-row'><div class='second-cell'>3 issues</div><div class='third-cell' id='issue_count_3'></div></div>": issueCount3,
-      "<div class='legend-row'><div class='second-cell'>4 issues</div><div class='third-cell' id='issue_count_4'></div></div>": issueCount4,
-      "<div class='legend-row'><div class='second-cell'>5 issues</div><div class='third-cell' id='issue_count_5'></div></div>": issueCount5,
-      "<div class='legend-row'><div class='second-cell'>6 issues</div><div class='third-cell' id='issue_count_6'></div></div>": issueCount6,
-      "<div class='legend-row'><div class='second-cell'>more than 6</div><div class='third-cell' id='issue_count_many'></div></div>": issueCountMany
+      "<div class='legend-row' data-layer='issue_count_1'><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'>1 issue</div><div class='third-cell' id='issue_count_1'></div></div>": issueCount1,
+      "<div class='legend-row' data-layer='issue_count_2'><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'>2 issues</div><div class='third-cell' id='issue_count_2'></div></div>": issueCount2,
+      "<div class='legend-row' data-layer='issue_count_3'><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'>3 issues</div><div class='third-cell' id='issue_count_3'></div></div>": issueCount3,
+      "<div class='legend-row' data-layer='issue_count_4'><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'>4 issues</div><div class='third-cell' id='issue_count_4'></div></div>": issueCount4,
+      "<div class='legend-row' data-layer='issue_count_5'><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'>5 issues</div><div class='third-cell' id='issue_count_5'></div></div>": issueCount5,
+      "<div class='legend-row' data-layer='issue_count_6'><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'>6 issues</div><div class='third-cell' id='issue_count_6'></div></div>": issueCount6,
+      "<div class='legend-row' data-layer='issue_count_many'><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'>more than 6</div><div class='third-cell' id='issue_count_many'></div></div>": issueCountMany
     };
-    new L.Control.Layers(null, overlays).addTo(map);
+    const layerControl = new L.Control.Layers(null, overlays);
+    layerControl.addTo(map);
+
+    // Update active state styling when layers are toggled
+    function updateActiveStates() {
+      Object.entries(subgroups).forEach(([categoryName, subgroup]) => {
+        const rowElement = document.querySelector(`.legend-row[data-layer='${categoryName}']`);
+        if (rowElement) {
+          rowElement.classList.toggle("is-active", map.hasLayer(subgroup));
+        }
+      });
+    }
+    map.on("overlayadd", updateActiveStates);
+    map.on("overlayremove", updateActiveStates);
+    updateActiveStates();
   });
 
   // Close the tooltip when opening the popup

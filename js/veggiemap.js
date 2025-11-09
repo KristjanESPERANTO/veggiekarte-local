@@ -60,6 +60,7 @@ function updateProgressBar(processed, total) {
       setTimeout(() => {
         progressElement.style.display = "none";
       }, 500);
+      updateVisibleCounts();
     }
   }
 }
@@ -92,12 +93,12 @@ function veggiemap() {
 
   // Define overlays (each marker group gets a layer) + add legend to the description
   const overlays = {
-    "<div class='legend-row'><div class='first-cell vegan_only'></div><div class='second-cell'></div><div class='third-cell' id='n_vegan_only'></div></div>": veganOnly,
-    "<div class='legend-row'><div class='first-cell vegetarian_only'></div><div class='second-cell'></div><div class='third-cell' id='n_vegetarian_only'></div></div>":
+    "<div class='legend-row' data-layer='vegan_only'><div class='first-cell vegan_only'></div><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'></div><div class='third-cell'><span class='count-visible' id='v_vegan_only'>0</span><span class='count-divider'>/</span><span class='count-total' id='n_vegan_only'>0</span></div></div>": veganOnly,
+    "<div class='legend-row' data-layer='vegetarian_only'><div class='first-cell vegetarian_only'></div><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'></div><div class='third-cell'><span class='count-visible' id='v_vegetarian_only'>0</span><span class='count-divider'>/</span><span class='count-total' id='n_vegetarian_only'>0</span></div></div>":
       vegetarianOnly,
-    "<div class='legend-row'><div class='first-cell vegan_friendly'></div><div class='second-cell'></div><div class='third-cell' id='n_vegan_friendly'></div></div>": veganFriendly,
-    "<div class='legend-row'><div class='first-cell vegan_limited'></div><div class='second-cell'></div><div class='third-cell' id='n_vegan_limited'></div></div>": veganLimited,
-    "<div class='legend-row'><div class='first-cell vegetarian_friendly'></div><div class='second-cell'></div><div class='third-cell' id='n_vegetarian_friendly'></div></div>":
+    "<div class='legend-row' data-layer='vegan_friendly'><div class='first-cell vegan_friendly'></div><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'></div><div class='third-cell'><span class='count-visible' id='v_vegan_friendly'>0</span><span class='count-divider'>/</span><span class='count-total' id='n_vegan_friendly'>0</span></div></div>": veganFriendly,
+    "<div class='legend-row' data-layer='vegan_limited'><div class='first-cell vegan_limited'></div><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'></div><div class='third-cell'><span class='count-visible' id='v_vegan_limited'>0</span><span class='count-divider'>/</span><span class='count-total' id='n_vegan_limited'>0</span></div></div>": veganLimited,
+    "<div class='legend-row' data-layer='vegetarian_friendly'><div class='first-cell vegetarian_friendly'></div><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'></div><div class='third-cell'><span class='count-visible' id='v_vegetarian_friendly'>0</span><span class='count-divider'>/</span><span class='count-total' id='n_vegetarian_friendly'>0</span></div></div>":
       vegetarianFriendly
   };
 
@@ -174,6 +175,10 @@ function veggiemap() {
   // Add scale control
   new L.Control.Scale().addTo(map);
 
+  map.on("moveend", updateVisibleCounts);
+  map.on("overlayadd", updateVisibleCounts);
+  map.on("overlayremove", updateVisibleCounts);
+
   // Inject Nominatim data into the popup once it opens
   map.on("popupopen", (evt) => {
     const popupElement = evt.popup.getElement();
@@ -218,14 +223,46 @@ function statPopulate(markerGroups, date) {
     // Get the number of the markers
     const markerNumber = markerGroups[categoryName].length;
     // Add the number to the category entry in the Layer Control
-    const el = document.getElementById(`n_${categoryName}`);
-    if (el) { el.innerHTML = `(${markerNumber})`; }
+    const totalElement = document.getElementById(`n_${categoryName}`);
+    if (totalElement) { totalElement.textContent = `${markerNumber}`; }
+    const visibleElement = document.getElementById(`v_${categoryName}`);
+    if (visibleElement) { visibleElement.textContent = "0"; }
   }
-  // Add the date to the Layer Control
-  const lastEntryEl = document.getElementById("n_vegetarian_friendly");
-  if (lastEntryEl && lastEntryEl.parentNode && lastEntryEl.parentNode.parentNode) {
-    lastEntryEl.parentNode.parentNode.innerHTML += `<br><div>(${date})</div>`;
+  const legendList = document.querySelector(".leaflet-control-layers-overlays");
+  if (legendList) {
+    let metaEl = legendList.querySelector(".legend-meta");
+    if (!metaEl) {
+      metaEl = document.createElement("div");
+      metaEl.className = "legend-meta";
+      legendList.appendChild(metaEl);
+    }
+    metaEl.textContent = date ? `${date}` : "";
   }
+}
+
+function updateVisibleCounts() {
+  if (!map) { return; }
+  const bounds = map.getBounds();
+  Object.entries(subgroups).forEach(([categoryName, subgroup]) => {
+    const visibleElement = document.getElementById(`v_${categoryName}`);
+    const rowElement = document.querySelector(`.legend-row[data-layer='${categoryName}']`);
+    const isActive = map.hasLayer(subgroup);
+    if (rowElement) {
+      rowElement.classList.toggle("is-active", isActive);
+    }
+    if (!visibleElement) { return; }
+    if (!isActive) {
+      visibleElement.textContent = "0";
+      return;
+    }
+    let visibleCount = 0;
+    subgroup.eachLayer((layer) => {
+      if (typeof layer.getLatLng !== "function") { return; }
+      const latlng = layer.getLatLng();
+      if (latlng && bounds.contains(latlng)) { visibleCount += 1; }
+    });
+    visibleElement.textContent = `${visibleCount}`;
+  });
 }
 
 // Function to get the information from the places json file.
@@ -258,6 +295,7 @@ async function veggiemapPopulate(parentGroupVar) {
 
   // Call the function to put the numbers into the legend
   statPopulate(markerGroups, date);
+  updateVisibleCounts();
 
   // Hide spinner
   hideSpinner();
