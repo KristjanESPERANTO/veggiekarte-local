@@ -157,7 +157,7 @@ a:hover {
 
 /* Layer button: Adjust the size to the other buttons. */
 .leaflet-touch .leaflet-control-layers-toggle {
-  background-image: url("../node_modules/leaflet/dist/images/layers.svg");
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNiIgaGVpZ2h0PSIyNiI+PHBhdGggZmlsbD0iI2I5YjliOSIgZD0ibS4wMzIgMTcuMDU2IDEzLTggMTMgOC0xMyA4eiIvPjxwYXRoIGZpbGw9IiM3MzczNzMiIGQ9Im0uMDMyIDE3LjA1Ni0uMDMyLjkzIDEzIDggMTMtOCAuMDMyLS45My0xMyA4eiIvPjxwYXRoIGZpbGw9IiNjZGNkY2QiIGQ9Im0wIDEzLjA3NiAxMy04IDEzIDgtMTMgOHoiLz48cGF0aCBmaWxsPSIjNzM3MzczIiBkPSJNMCAxMy4wNzZ2LjkxbDEzIDggMTMtOHYtLjkxbC0xMyA4eiIvPjxwYXRoIGZpbGw9IiNlOWU5ZTkiIGZpbGwtb3BhY2l0eT0iLjU4NSIgc3Ryb2tlPSIjNzk3OTc5IiBzdHJva2Utd2lkdGg9Ii4xIiBkPSJtMCA4Ljk4NiAxMy04IDEzIDgtMTMgOC0xMy04Ii8+PHBhdGggZmlsbD0iIzczNzM3MyIgZD0iTTAgOC45ODZ2MWwxMyA4IDEzLTh2LTFsLTEzIDh6Ii8+PC9zdmc+");
   width: 30px;
   height: 30px;
   background-size: 80%;
