@@ -40,12 +40,12 @@ const subgroups = {
 let map;
 
 function veggiemap() {
-  // Fix default icon path for Leaflet 2.0
+  // Provide inline SVG defaults to decouple from external marker assets
   delete L.Icon.Default.prototype._getIconUrl;
   L.Icon.Default.mergeOptions({
-    iconRetinaUrl: "../node_modules/leaflet/dist/images/marker-icon-2x.png",
-    iconUrl: "../node_modules/leaflet/dist/images/marker-icon.png",
-    shadowUrl: "../node_modules/leaflet/dist/images/marker-shadow.png"
+    iconRetinaUrl: "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2728%27%20height%3D%2741%27%20viewBox%3D%270%200%2028%2041%27%3E%3Cpath%20fill%3D%27%232c7a7b%27%20d%3D%27M14%200c-7.18%200-13%206.1-13%2013.6%200%2011.6%2013%2027.4%2013%2027.4s13-15.8%2013-27.4C27%206.1%2021.18%200%2014%200z%27/%3E%3Ccircle%20fill%3D%27%23ffffff%27%20cx%3D%2714%27%20cy%3D%2713%27%20r%3D%276%27/%3E%3C/svg%3E",
+    iconUrl: "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2728%27%20height%3D%2741%27%20viewBox%3D%270%200%2028%2041%27%3E%3Cpath%20fill%3D%27%232c7a7b%27%20d%3D%27M14%200c-7.18%200-13%206.1-13%2013.6%200%2011.6%2013%2027.4%2013%2027.4s13-15.8%2013-27.4C27%206.1%2021.18%200%2014%200z%27/%3E%3Ccircle%20fill%3D%27%23ffffff%27%20cx%3D%2714%27%20cy%3D%2713%27%20r%3D%276%27/%3E%3C/svg%3E",
+    shadowUrl: "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2728%27%20height%3D%2712%27%3E%3Cellipse%20cx%3D%2714%27%20cy%3D%276%27%20rx%3D%2710%27%20ry%3D%275%27%20fill%3D%27rgba%280%2C0%2C0%2C0.25%29%27/%3E%3C/svg%3E"
   });
 
   // TileLayer
@@ -69,15 +69,29 @@ function veggiemap() {
   // Populate map async then add overlays
   veggiemapPopulate(parentGroup).then(() => {
     const overlays = {
-      "<div class='legend-row'><div class='second-cell'>1 issue</div><div class='third-cell' id='issue_count_1'></div></div>": issueCount1,
-      "<div class='legend-row'><div class='second-cell'>2 issues</div><div class='third-cell' id='issue_count_2'></div></div>": issueCount2,
-      "<div class='legend-row'><div class='second-cell'>3 issues</div><div class='third-cell' id='issue_count_3'></div></div>": issueCount3,
-      "<div class='legend-row'><div class='second-cell'>4 issues</div><div class='third-cell' id='issue_count_4'></div></div>": issueCount4,
-      "<div class='legend-row'><div class='second-cell'>5 issues</div><div class='third-cell' id='issue_count_5'></div></div>": issueCount5,
-      "<div class='legend-row'><div class='second-cell'>6 issues</div><div class='third-cell' id='issue_count_6'></div></div>": issueCount6,
-      "<div class='legend-row'><div class='second-cell'>more than 6</div><div class='third-cell' id='issue_count_many'></div></div>": issueCountMany
+      "<div class='legend-row' data-layer='issue_count_1'><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'>1 issue</div><div class='third-cell' id='issue_count_1'></div></div>": issueCount1,
+      "<div class='legend-row' data-layer='issue_count_2'><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'>2 issues</div><div class='third-cell' id='issue_count_2'></div></div>": issueCount2,
+      "<div class='legend-row' data-layer='issue_count_3'><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'>3 issues</div><div class='third-cell' id='issue_count_3'></div></div>": issueCount3,
+      "<div class='legend-row' data-layer='issue_count_4'><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'>4 issues</div><div class='third-cell' id='issue_count_4'></div></div>": issueCount4,
+      "<div class='legend-row' data-layer='issue_count_5'><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'>5 issues</div><div class='third-cell' id='issue_count_5'></div></div>": issueCount5,
+      "<div class='legend-row' data-layer='issue_count_6'><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'>6 issues</div><div class='third-cell' id='issue_count_6'></div></div>": issueCount6,
+      "<div class='legend-row' data-layer='issue_count_many'><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'>more than 6</div><div class='third-cell' id='issue_count_many'></div></div>": issueCountMany
     };
-    new L.Control.Layers(null, overlays).addTo(map);
+    const layerControl = new L.Control.Layers(null, overlays);
+    layerControl.addTo(map);
+
+    // Update active state styling when layers are toggled
+    function updateActiveStates() {
+      Object.entries(subgroups).forEach(([categoryName, subgroup]) => {
+        const rowElement = document.querySelector(`.legend-row[data-layer='${categoryName}']`);
+        if (rowElement) {
+          rowElement.classList.toggle("is-active", map.hasLayer(subgroup));
+        }
+      });
+    }
+    map.on("overlayadd", updateActiveStates);
+    map.on("overlayremove", updateActiveStates);
+    updateActiveStates();
   });
 
   // Close the tooltip when opening the popup
@@ -136,6 +150,7 @@ function toggleInfo() {
     element.style.display = "block";
   }
 }
+window.toggleInfo = toggleInfo;
 
 // Function to hide the spinner.
 function hideSpinner() {

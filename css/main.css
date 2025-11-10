@@ -87,30 +87,169 @@ a:hover {
   color: #038;
 }
 
-/* Legend */
+/* Legend - Modern minimal design */
+.leaflet-control-layers {
+  border: none;
+  border-radius: 4px;
+  box-shadow:
+    0 0 0 1px rgb(0 0 0 / 6%),
+    0 2px 4px rgb(0 0 0 / 4%),
+    0 8px 16px rgb(0 0 0 / 6%);
+  overflow: visible;
+  background: #fff;
+}
+
+.leaflet-control-layers-expanded {
+  border-radius: 20px;
+  backdrop-filter: blur(20px) saturate(180%);
+  background: rgb(255 255 255 / 72%);
+  box-shadow:
+    0 0 0 1px rgb(0 0 0 / 5%),
+    0 8px 32px rgb(0 0 0 / 12%);
+}
+
+.leaflet-control-layers-overlays {
+  margin: 0;
+}
+
+.leaflet-control-layers-overlays label {
+  display: block;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+
+.leaflet-control-layers-selector {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.leaflet-control-layers-list {
+  padding: 0.6em;
+}
+
 .legend-row {
-  display: table-cell;
-  max-height: 15px;
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+  padding: 0.7em 0.85em;
+  border-radius: 14px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  top: -3px;
+  overflow: hidden;
+}
+
+.legend-row::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgb(44 122 123 / 0%);
+  border-radius: 14px;
+  transition: background 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.legend-row:hover::before {
+  background: rgb(44 122 123 / 8%);
+}
+
+.legend-row.is-active::before {
+  background: linear-gradient(135deg, rgb(44 122 123 / 16%), rgb(44 122 123 / 8%));
+}
+
+.legend-row.is-active {
+  box-shadow:
+    inset 0 0 0 1px rgb(44 122 123 / 15%),
+    0 2px 6px rgb(44 122 123 / 8%);
+}
+
+.legend-row + .legend-row {
+  margin-top: 0.4em;
 }
 
 .first-cell {
-  display: table-cell;
-  width: 15px;
-  border-radius: 5px;
-  border: solid 1px #cdcdcddd;
-  margin-right: 5px;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 8px;
+  border: none;
+  box-shadow:
+    inset 0 0 0 1.5px rgb(0 0 0 / 10%),
+    0 2px 6px rgb(0 0 0 / 12%);
+  position: relative;
+  z-index: 1;
+}
+
+.row-toggle {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: none;
+  background: transparent;
+  position: relative;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+.legend-row.is-active .row-toggle::after {
+  content: "✓";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(44 122 123 / 65%);
+  font-size: 13px;
+  font-weight: 700;
 }
 
 .second-cell {
-  display: table-cell;
-  padding-left: 5px;
+  flex: 1;
+  font-weight: 600;
+  font-size: 0.95em;
+  color: #0d1f20;
+  letter-spacing: -0.01em;
+  position: relative;
+  z-index: 1;
 }
 
 .third-cell {
-  display: table-cell;
-  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  gap: 0.35em;
+  font-size: 0.82em;
+  color: #2c7a7b;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+}
+
+.count-visible {
+  color: rgb(44 122 123 / 90%);
+}
+
+.count-divider {
+  color: rgb(0 0 0 / 30%);
+  font-weight: 400;
+}
+
+.count-total {
+  color: rgb(0 0 0 / 45%);
+  font-weight: 500;
+}
+
+.legend-meta {
+  margin-top: 0.8em;
+  padding: 0.75em 0.85em 0.35em;
+  font-size: 0.72em;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgb(0 0 0 / 40%);
+  text-align: center;
+  border-top: 1px solid rgb(0 0 0 / 8%);
 }
 
 /* Marker properties */
@@ -155,9 +294,25 @@ a:hover {
   border-color: darkgreen;
 }
 
+/* Language selector button: ensure icon is visible */
+.leaflet-control-languageselector-button {
+  background-color: #fff !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cdefs/%3E%3Cpath d='M8.9 5.8c-.6 2-1.4 3.7-2.4 5-1-1.3-1.9-3-2.5-5zm4 0v-2H7.2V1H5.7v2.8H.2v2h2a23 23 0 003 6.7 13.4 13.4 0 01-5.2 3l1 2c2.1-.8 4-2 5.4-3.5 1.5 1.6 3.3 2.8 5.5 3.5.2-.6.8-1.6 1.2-2-2.1-.7-3.9-1.7-5.3-3.1a20 20 0 003-6.6zm4.6 2.6L15 16.9h4.8zm-1.4-2h2.8L24 23h-3l-.6-4.3h-5.9l-.8 4.3H11z'/%3E%3C/svg%3E") !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: 24px !important;
+}
+
+/* Ensure all collapsed Leaflet controls have white background */
+.leaflet-bar a,
+.leaflet-control-zoom a,
+.leaflet-control-layers-toggle {
+  background-color: #fff !important;
+}
+
 /* Layer button: Adjust the size to the other buttons. */
 .leaflet-touch .leaflet-control-layers-toggle {
-  background-image: url("../node_modules/leaflet/dist/images/layers.svg");
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNiIgaGVpZ2h0PSIyNiI+PHBhdGggZmlsbD0iI2I5YjliOSIgZD0ibS4wMzIgMTcuMDU2IDEzLTggMTMgOC0xMyA4eiIvPjxwYXRoIGZpbGw9IiM3MzczNzMiIGQ9Im0uMDMyIDE3LjA1Ni0uMDMyLjkzIDEzIDggMTMtOCAuMDMyLS45My0xMyA4eiIvPjxwYXRoIGZpbGw9IiNjZGNkY2QiIGQ9Im0wIDEzLjA3NiAxMy04IDEzIDgtMTMgOHoiLz48cGF0aCBmaWxsPSIjNzM3MzczIiBkPSJNMCAxMy4wNzZ2LjkxbDEzIDggMTMtOHYtLjkxbC0xMyA4eiIvPjxwYXRoIGZpbGw9IiNlOWU5ZTkiIGZpbGwtb3BhY2l0eT0iLjU4NSIgc3Ryb2tlPSIjNzk3OTc5IiBzdHJva2Utd2lkdGg9Ii4xIiBkPSJtMCA4Ljk4NiAxMy04IDEzIDgtMTMgOC0xMy04Ii8+PHBhdGggZmlsbD0iIzczNzM3MyIgZD0iTTAgOC45ODZ2MWwxMyA4IDEzLTh2LTFsLTEzIDh6Ii8+PC9zdmc+");
   width: 30px;
   height: 30px;
   background-size: 80%;

@@ -60,17 +60,18 @@ function updateProgressBar(processed, total) {
       setTimeout(() => {
         progressElement.style.display = "none";
       }, 500);
+      updateVisibleCounts();
     }
   }
 }
 
 function veggiemap() {
-  // Fix default icon path for Leaflet 2.0
+  // Replace Leaflet's default marker assets with inline SVG data URIs
   delete L.Icon.Default.prototype._getIconUrl;
   L.Icon.Default.mergeOptions({
-    iconRetinaUrl: "node_modules/leaflet/dist/images/marker-icon-2x.png",
-    iconUrl: "node_modules/leaflet/dist/images/marker-icon.png",
-    shadowUrl: "node_modules/leaflet/dist/images/marker-shadow.png"
+    iconRetinaUrl: "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2728%27%20height%3D%2741%27%20viewBox%3D%270%200%2028%2041%27%3E%3Cpath%20fill%3D%27%232c7a7b%27%20d%3D%27M14%200c-7.18%200-13%206.1-13%2013.6%200%2011.6%2013%2027.4%2013%2027.4s13-15.8%2013-27.4C27%206.1%2021.18%200%2014%200z%27/%3E%3Ccircle%20fill%3D%27%23ffffff%27%20cx%3D%2714%27%20cy%3D%2713%27%20r%3D%276%27/%3E%3C/svg%3E",
+    iconUrl: "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2728%27%20height%3D%2741%27%20viewBox%3D%270%200%2028%2041%27%3E%3Cpath%20fill%3D%27%232c7a7b%27%20d%3D%27M14%200c-7.18%200-13%206.1-13%2013.6%200%2011.6%2013%2027.4%2013%2027.4s13-15.8%2013-27.4C27%206.1%2021.18%200%2014%200z%27/%3E%3Ccircle%20fill%3D%27%23ffffff%27%20cx%3D%2714%27%20cy%3D%2713%27%20r%3D%276%27/%3E%3C/svg%3E",
+    shadowUrl: "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2728%27%20height%3D%2712%27%3E%3Cellipse%20cx%3D%2714%27%20cy%3D%276%27%20rx%3D%2710%27%20ry%3D%275%27%20fill%3D%27rgba%280%2C0%2C0%2C0.25%29%27/%3E%3C/svg%3E"
   });
 
   // Map
@@ -92,12 +93,12 @@ function veggiemap() {
 
   // Define overlays (each marker group gets a layer) + add legend to the description
   const overlays = {
-    "<div class='legend-row'><div class='first-cell vegan_only'></div><div class='second-cell'></div><div class='third-cell' id='n_vegan_only'></div></div>": veganOnly,
-    "<div class='legend-row'><div class='first-cell vegetarian_only'></div><div class='second-cell'></div><div class='third-cell' id='n_vegetarian_only'></div></div>":
+    "<div class='legend-row' data-layer='vegan_only'><div class='first-cell vegan_only'></div><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'></div><div class='third-cell'><span class='count-visible' id='v_vegan_only'>0</span><span class='count-divider'>/</span><span class='count-total' id='n_vegan_only'>0</span></div></div>": veganOnly,
+    "<div class='legend-row' data-layer='vegetarian_only'><div class='first-cell vegetarian_only'></div><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'></div><div class='third-cell'><span class='count-visible' id='v_vegetarian_only'>0</span><span class='count-divider'>/</span><span class='count-total' id='n_vegetarian_only'>0</span></div></div>":
       vegetarianOnly,
-    "<div class='legend-row'><div class='first-cell vegan_friendly'></div><div class='second-cell'></div><div class='third-cell' id='n_vegan_friendly'></div></div>": veganFriendly,
-    "<div class='legend-row'><div class='first-cell vegan_limited'></div><div class='second-cell'></div><div class='third-cell' id='n_vegan_limited'></div></div>": veganLimited,
-    "<div class='legend-row'><div class='first-cell vegetarian_friendly'></div><div class='second-cell'></div><div class='third-cell' id='n_vegetarian_friendly'></div></div>":
+    "<div class='legend-row' data-layer='vegan_friendly'><div class='first-cell vegan_friendly'></div><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'></div><div class='third-cell'><span class='count-visible' id='v_vegan_friendly'>0</span><span class='count-divider'>/</span><span class='count-total' id='n_vegan_friendly'>0</span></div></div>": veganFriendly,
+    "<div class='legend-row' data-layer='vegan_limited'><div class='first-cell vegan_limited'></div><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'></div><div class='third-cell'><span class='count-visible' id='v_vegan_limited'>0</span><span class='count-divider'>/</span><span class='count-total' id='n_vegan_limited'>0</span></div></div>": veganLimited,
+    "<div class='legend-row' data-layer='vegetarian_friendly'><div class='first-cell vegetarian_friendly'></div><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'></div><div class='third-cell'><span class='count-visible' id='v_vegetarian_friendly'>0</span><span class='count-divider'>/</span><span class='count-total' id='n_vegetarian_friendly'>0</span></div></div>":
       vegetarianFriendly
   };
 
@@ -174,6 +175,10 @@ function veggiemap() {
   // Add scale control
   new L.Control.Scale().addTo(map);
 
+  map.on("moveend", updateVisibleCounts);
+  map.on("overlayadd", updateVisibleCounts);
+  map.on("overlayremove", updateVisibleCounts);
+
   // Inject Nominatim data into the popup once it opens
   map.on("popupopen", (evt) => {
     const popupElement = evt.popup.getElement();
@@ -218,14 +223,46 @@ function statPopulate(markerGroups, date) {
     // Get the number of the markers
     const markerNumber = markerGroups[categoryName].length;
     // Add the number to the category entry in the Layer Control
-    const el = document.getElementById(`n_${categoryName}`);
-    if (el) { el.innerHTML = `(${markerNumber})`; }
+    const totalElement = document.getElementById(`n_${categoryName}`);
+    if (totalElement) { totalElement.textContent = `${markerNumber}`; }
+    const visibleElement = document.getElementById(`v_${categoryName}`);
+    if (visibleElement) { visibleElement.textContent = "0"; }
   }
-  // Add the date to the Layer Control
-  const lastEntryEl = document.getElementById("n_vegetarian_friendly");
-  if (lastEntryEl && lastEntryEl.parentNode && lastEntryEl.parentNode.parentNode) {
-    lastEntryEl.parentNode.parentNode.innerHTML += `<br><div>(${date})</div>`;
+  const legendList = document.querySelector(".leaflet-control-layers-overlays");
+  if (legendList) {
+    let metaEl = legendList.querySelector(".legend-meta");
+    if (!metaEl) {
+      metaEl = document.createElement("div");
+      metaEl.className = "legend-meta";
+      legendList.appendChild(metaEl);
+    }
+    metaEl.textContent = date ? `${date}` : "";
   }
+}
+
+function updateVisibleCounts() {
+  if (!map) { return; }
+  const bounds = map.getBounds();
+  Object.entries(subgroups).forEach(([categoryName, subgroup]) => {
+    const visibleElement = document.getElementById(`v_${categoryName}`);
+    const rowElement = document.querySelector(`.legend-row[data-layer='${categoryName}']`);
+    const isActive = map.hasLayer(subgroup);
+    if (rowElement) {
+      rowElement.classList.toggle("is-active", isActive);
+    }
+    if (!visibleElement) { return; }
+    if (!isActive) {
+      visibleElement.textContent = "0";
+      return;
+    }
+    let visibleCount = 0;
+    subgroup.eachLayer((layer) => {
+      if (typeof layer.getLatLng !== "function") { return; }
+      const latlng = layer.getLatLng();
+      if (latlng && bounds.contains(latlng)) { visibleCount += 1; }
+    });
+    visibleElement.textContent = `${visibleCount}`;
+  });
 }
 
 // Function to get the information from the places json file.
@@ -258,6 +295,7 @@ async function veggiemapPopulate(parentGroupVar) {
 
   // Call the function to put the numbers into the legend
   statPopulate(markerGroups, date);
+  updateVisibleCounts();
 
   // Hide spinner
   hideSpinner();
