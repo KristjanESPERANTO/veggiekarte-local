@@ -40,5 +40,16 @@ export default [
       sourcemap: true
     },
     plugins: [nodeResolve(), terser()]
+  },
+  // Chart bundle
+  {
+    input: "js/veggiemap_chart.js",
+    output: {
+      banner,
+      file: "js/veggiemap_chart-bundle.js",
+      format: "es",
+      sourcemap: true
+    },
+    plugins: [nodeResolve(), terser()]
   }
 ];
