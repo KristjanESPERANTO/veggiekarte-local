@@ -1,7 +1,7 @@
 @import url("../node_modules/leaflet/dist/leaflet.css");
 @import url("../node_modules/@kristjan.esperanto/leaflet.markercluster/dist/MarkerCluster.css");
 @import url("../node_modules/@kristjan.esperanto/leaflet.markercluster/dist/MarkerCluster.Default.css");
-@import url("../third-party/leaflet.control.geocoder/Control.Geocoder.css");
+@import url("../node_modules/leaflet-control-geocoder/dist/Control.Geocoder.css");
 @import url("../third-party/leaflet.locatecontrol/L.Control.Locate.min.css");
 @import url("../third-party/leaflet.fullscreen/Control.FullScreen.css");
 @import url("../third-party/leaflet.languageselector/leaflet.languageselector.css");

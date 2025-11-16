@@ -5,7 +5,7 @@ import { addLanguageResources, getUserLanguage, setUserLanguage } from "./i18n.j
 import { addNominatimInformation, calculatePopup } from "./popup.js";
 import { langObject, languageSelector } from "../third-party/leaflet.languageselector/leaflet.languageselector.esm.js";
 import { FullScreen } from "../third-party/leaflet.fullscreen/Control.FullScreen.esm.js";
-import { Geocoder } from "../third-party/leaflet.control.geocoder/Control.Geocoder.modern.js";
+import { Geocoder } from "leaflet-control-geocoder";
 import { InfoButton } from "./info-button-control.js";
 import { LocateControl } from "../third-party/leaflet.locatecontrol/L.Control.Locate.esm.patched.js";
 import { MarkerClusterGroup } from "@kristjan.esperanto/leaflet.markercluster";

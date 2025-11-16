@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 
 import * as L from "leaflet";
-import { Geocoder } from "../third-party/leaflet.control.geocoder/Control.Geocoder.modern.js";
+import { Geocoder } from "leaflet-control-geocoder";
 import { InfoButton } from "./info-button-control.js";
 import { LocateControl } from "../third-party/leaflet.locatecontrol/L.Control.Locate.esm.patched.js";
 import { MarkerClusterGroup } from "@kristjan.esperanto/leaflet.markercluster";
