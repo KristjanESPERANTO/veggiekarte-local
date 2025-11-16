@@ -10,7 +10,7 @@ import { InfoButton } from "./info-button-control.js";
 import { LocateControl } from "../third-party/leaflet.locatecontrol/L.Control.Locate.esm.patched.js";
 import { MarkerClusterGroup } from "@kristjan.esperanto/leaflet.markercluster";
 import { SubGroup } from "./subgroup.js";
-import { createHash } from "../third-party/leaflet.hash/leaflet-hash.mjs";
+import { createHash } from "@qgustavor/leaflet-hash";
 import getIcon from "./veggiemap-icons.js";
 
 // Expose L globally for any remaining global dependencies
