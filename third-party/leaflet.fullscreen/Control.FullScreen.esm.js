@@ -5,7 +5,7 @@
  * 
  * ES Module version
  */
-/* global L */
+import * as L from "leaflet";
 
 if (typeof document === 'undefined') {
 	console.warn('"window.document" is undefined; leaflet.fullscreen requires this object to access the DOM');

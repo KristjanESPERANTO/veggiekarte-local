@@ -1,4 +1,4 @@
-/* global L */
+import * as L from "leaflet";
 
 /**
  * L.Control.InfoButton - minimal Leaflet 2-style control for a single info button.
@@ -49,8 +49,3 @@ const InfoButton = L.Control.extend({
 
 // Export as ES module
 export { InfoButton };
-
-// Global registration for non-module scripts (datacheck.js)
-if (typeof L !== "undefined") {
-  L.Control.InfoButton = InfoButton;
-}
