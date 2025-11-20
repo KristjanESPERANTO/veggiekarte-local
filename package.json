@@ -46,6 +46,7 @@
     "stylelint-prettier": "^5.0.3"
   },
   "dependencies": {
+    "@kristjan.esperanto/leaflet-language-selector": "^3.3.0",
     "@kristjan.esperanto/leaflet.markercluster": "^3.0.0-alpha.1",
     "@qgustavor/leaflet-hash": "github:qgustavor/modern-leaflet-hash#v1.2.0",
     "chart.js": "^4.5.1",

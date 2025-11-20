@@ -9,16 +9,16 @@
  * optimized for Leaflet 2.0.
  */
 
-/* global L */
+import { LayerGroup } from "leaflet";
 
-const SubGroup = L.LayerGroup.extend({
+const SubGroup = LayerGroup.extend({
   /**
    * Create a new SubGroup.
-   * @param {L.LayerGroup} parentGroup - The parent group (e.g., MarkerClusterGroup)
+   * @param {LayerGroup} parentGroup - The parent group (e.g., MarkerClusterGroup)
    * @param {Array} layers - Optional initial layers
    */
   initialize(parentGroup, layers) {
-    L.LayerGroup.prototype.initialize.call(this, layers);
+    LayerGroup.prototype.initialize.call(this, layers);
     this._parentGroup = parentGroup;
   },
 
@@ -204,14 +204,9 @@ SubGroup.prototype.clearLayers = function clearLayers() {
     }
   }
   // Clear LayerGroup internal registry
-  L.LayerGroup.prototype.clearLayers.call(this);
+  LayerGroup.prototype.clearLayers.call(this);
   return this;
 };
 
 // Export for ES modules
 export { SubGroup };
-
-// Global registration for non-module scripts (datacheck.js)
-if (typeof L !== "undefined") {
-  L.SubGroup = SubGroup;
-}

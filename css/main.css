@@ -4,7 +4,8 @@
 @import url("../node_modules/leaflet-control-geocoder/dist/Control.Geocoder.css");
 @import url("../third-party/leaflet.locatecontrol/L.Control.Locate.min.css");
 @import url("../third-party/leaflet.fullscreen/Control.FullScreen.css");
-@import url("../third-party/leaflet.languageselector/leaflet.languageselector.css");
+@import url("../node_modules/@kristjan.esperanto/leaflet-language-selector/src/leaflet.languageselector.css");
+@import url("../node_modules/@kristjan.esperanto/leaflet-language-selector/src/leaflet.languageselector-flags.css");
 
 body {
   margin: 0;

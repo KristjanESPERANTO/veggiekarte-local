@@ -1,9 +1,9 @@
 /* eslint-disable camelcase */
 
-import * as L from "leaflet";
+import { Control, Icon, Map, Marker, TileLayer } from "leaflet";
 import { addLanguageResources, getUserLanguage, setUserLanguage } from "./i18n.js";
 import { addNominatimInformation, calculatePopup } from "./popup.js";
-import { langObject, languageSelector } from "../third-party/leaflet.languageselector/leaflet.languageselector.esm.js";
+import { langObject, languageSelector } from "@kristjan.esperanto/leaflet-language-selector";
 import { FullScreen } from "../third-party/leaflet.fullscreen/Control.FullScreen.esm.js";
 import { Geocoder } from "leaflet-control-geocoder";
 import { InfoButton } from "./info-button-control.js";
@@ -12,9 +12,6 @@ import { MarkerClusterGroup } from "@kristjan.esperanto/leaflet.markercluster";
 import { SubGroup } from "./subgroup.js";
 import { createHash } from "@qgustavor/leaflet-hash";
 import getIcon from "./veggiemap-icons.js";
-
-// Expose L globally for any remaining global dependencies
-window.L = L;
 
 // Define marker groups (using imported MarkerClusterGroup and our SubGroup)
 const parentGroup = new MarkerClusterGroup({
@@ -67,15 +64,15 @@ function updateProgressBar(processed, total) {
 
 function veggiemap() {
   // Replace Leaflet's default marker assets with inline SVG data URIs
-  delete L.Icon.Default.prototype._getIconUrl;
-  L.Icon.Default.mergeOptions({
+  delete Icon.Default.prototype._getIconUrl;
+  Icon.Default.mergeOptions({
     iconRetinaUrl: "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2728%27%20height%3D%2741%27%20viewBox%3D%270%200%2028%2041%27%3E%3Cpath%20fill%3D%27%232c7a7b%27%20d%3D%27M14%200c-7.18%200-13%206.1-13%2013.6%200%2011.6%2013%2027.4%2013%2027.4s13-15.8%2013-27.4C27%206.1%2021.18%200%2014%200z%27/%3E%3Ccircle%20fill%3D%27%23ffffff%27%20cx%3D%2714%27%20cy%3D%2713%27%20r%3D%276%27/%3E%3C/svg%3E",
     iconUrl: "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2728%27%20height%3D%2741%27%20viewBox%3D%270%200%2028%2041%27%3E%3Cpath%20fill%3D%27%232c7a7b%27%20d%3D%27M14%200c-7.18%200-13%206.1-13%2013.6%200%2011.6%2013%2027.4%2013%2027.4s13-15.8%2013-27.4C27%206.1%2021.18%200%2014%200z%27/%3E%3Ccircle%20fill%3D%27%23ffffff%27%20cx%3D%2714%27%20cy%3D%2713%27%20r%3D%276%27/%3E%3C/svg%3E",
     shadowUrl: "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2728%27%20height%3D%2712%27%3E%3Cellipse%20cx%3D%2714%27%20cy%3D%276%27%20rx%3D%2710%27%20ry%3D%275%27%20fill%3D%27rgba%280%2C0%2C0%2C0.25%29%27/%3E%3C/svg%3E"
   });
 
   // Map
-  map = new L.Map("map", {
+  map = new Map("map", {
     center: [20, 17],
     zoom: 3,
     worldCopyJump: true,
@@ -83,13 +80,13 @@ function veggiemap() {
   });
 
   // TileLayer
-  new L.TileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  new TileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
     attribution: "© <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap contributors</a>"
   }).addTo(map);
 
   // Add zoom control
-  new L.Control.Zoom({ position: "topright" }).addTo(map);
+  new Control.Zoom({ position: "topright" }).addTo(map);
 
   // Define overlays (each marker group gets a layer) + add legend to the description
   const overlays = {
@@ -103,7 +100,7 @@ function veggiemap() {
   };
 
   // Add layer control (we will move it to be last in top-right after other controls are added)
-  layerControl = new L.Control.Layers(null, overlays, { position: "topright" });
+  layerControl = new Control.Layers(null, overlays, { position: "topright" });
   layerControl.addTo(map);
 
   // Close the tooltip when opening the popup
@@ -148,16 +145,16 @@ function veggiemap() {
   // Add language selector
   languageControl = languageSelector({
     languages: [
-      langObject("ca", "ca - Català", "./third-party/leaflet.languageselector/images/ca.svg"),
-      langObject("de", "de - Deutsch", "./third-party/leaflet.languageselector/images/de.svg"),
-      langObject("en", "en - English", "./third-party/leaflet.languageselector/images/en.svg"),
-      langObject("eo", "eo - Esperanto", "./third-party/leaflet.languageselector/images/eo.svg"),
-      langObject("es", "es - Español", "./third-party/leaflet.languageselector/images/es.svg"),
-      langObject("fi", "fi - suomi", "./third-party/leaflet.languageselector/images/fi.svg"),
-      langObject("fr", "fr - Français", "./third-party/leaflet.languageselector/images/fr.svg"),
-      langObject("it", "it - Italiano", "./third-party/leaflet.languageselector/images/it.svg"),
-      langObject("ko", "ko - 한국어", "./third-party/leaflet.languageselector/images/ko.svg"),
-      langObject("ru", "ru - Русский", "./third-party/leaflet.languageselector/images/ru.svg")
+      langObject("ca", "ca - Català"),
+      langObject("de", "de - Deutsch"),
+      langObject("en", "en - English"),
+      langObject("eo", "eo - Esperanto"),
+      langObject("es", "es - Español"),
+      langObject("fi", "fi - suomi"),
+      langObject("fr", "fr - Français"),
+      langObject("it", "it - Italiano"),
+      langObject("ko", "ko - 한국어"),
+      langObject("ru", "ru - Русский")
     ],
     callback: setUserLanguage,
     initialLanguage: getUserLanguage(),
@@ -173,7 +170,7 @@ function veggiemap() {
   }
 
   // Add scale control
-  new L.Control.Scale().addTo(map);
+  new Control.Scale().addTo(map);
 
   map.on("moveend", updateVisibleCounts);
   map.on("overlayadd", updateVisibleCounts);
@@ -324,7 +321,7 @@ function getMarker(feature) {
   const eIco = feature.properties.icon;
   const eCat = feature.properties.category;
 
-  const marker = new L.Marker(eLatLon, { icon: getIcon(eIco, eCat) });
+  const marker = new Marker(eLatLon, { icon: getIcon(eIco, eCat) });
   marker.feature = feature;
   // Bind lazily-evaluated popup/tooltip at creation time so it also works with chunkedLoading
   marker.bindPopup(calculatePopup, {

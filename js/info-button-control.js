@@ -1,7 +1,7 @@
-import * as L from "leaflet";
+import { Control, DomEvent, DomUtil } from "leaflet";
 
 /**
- * L.Control.InfoButton - minimal Leaflet 2-style control for a single info button.
+ * InfoButton - minimal Leaflet 2-style control for a single info button.
  *
  * Usage:
  *   new InfoButton({ position: 'topright', onClick: () => { ... } }).addTo(map);
@@ -11,7 +11,7 @@ import * as L from "leaflet";
  * - Inner element gets the CSS class `info-button` (existing styles apply).
  * - Title/ARIA can be set by i18n.js after creation (keeps current behavior).
  */
-const InfoButton = L.Control.extend({
+const InfoButton = Control.extend({
   options: {
     position: "topright",
     onClick: null, // Function (evt)
@@ -20,9 +20,9 @@ const InfoButton = L.Control.extend({
   },
 
   onAdd(map) {
-    const container = L.DomUtil.create("div", "leaflet-bar");
+    const container = DomUtil.create("div", "leaflet-bar");
 
-    const link = L.DomUtil.create("a", "", container);
+    const link = DomUtil.create("a", "", container);
     link.href = "#";
     link.setAttribute("role", "button");
     link.setAttribute("aria-label", this.options.ariaLabel || "Info");
@@ -32,12 +32,12 @@ const InfoButton = L.Control.extend({
       link.innerHTML = this.options.contentHtml;
     }
     else {
-      L.DomUtil.create("div", "info-button", link);
+      DomUtil.create("div", "info-button", link);
     }
 
     // Prevent map interactions on click and call handler
-    L.DomEvent.on(link, "click", (event) => {
-      L.DomEvent.stop(event);
+    DomEvent.on(link, "click", (event) => {
+      DomEvent.stop(event);
       if (typeof this.options.onClick === "function") {
         this.options.onClick(event, map);
       }

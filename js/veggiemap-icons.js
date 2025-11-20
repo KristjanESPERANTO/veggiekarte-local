@@ -1,4 +1,4 @@
-/* global L */
+import { Icon } from "leaflet";
 
 /* Variables for the icon color */
 const whiteIconColor = "-white.svg";
@@ -33,7 +33,7 @@ export default function getIcon(symbol, category) {
     iconPath = "third-party/icons/openstreetmap-carto/";
   }
 
-  return new L.Icon({
+  return new Icon({
     iconUrl: iconPath + symbol + iconColor,
     iconSize: [18, 18],
     iconAnchor: [11, 18],
