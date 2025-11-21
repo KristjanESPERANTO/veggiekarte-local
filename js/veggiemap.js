@@ -10,7 +10,7 @@ import { InfoButton } from "./info-button-control.js";
 import { LocateControl } from "../third-party/leaflet.locatecontrol/L.Control.Locate.esm.patched.js";
 import { MarkerClusterGroup } from "@kristjan.esperanto/leaflet.markercluster";
 import { SubGroup } from "./subgroup.js";
-import { createHash } from "@qgustavor/leaflet-hash";
+import { createMapHash } from "./map-hash.js";
 import getIcon from "./veggiemap-icons.js";
 
 // Define marker groups (using imported MarkerClusterGroup and our SubGroup)
@@ -114,8 +114,7 @@ function veggiemap() {
   veggiemapPopulate(parentGroup);
 
   // Add hash to the url
-  // eslint-disable-next-line no-unused-vars
-  const hash = createHash(map);
+  createMapHash(map);
 
   // Add fullscreen control button
   document.fullscreenControl = new FullScreen({

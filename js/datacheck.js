@@ -6,6 +6,7 @@ import { InfoButton } from "./info-button-control.js";
 import { LocateControl } from "../third-party/leaflet.locatecontrol/L.Control.Locate.esm.patched.js";
 import { MarkerClusterGroup } from "@kristjan.esperanto/leaflet.markercluster";
 import { SubGroup } from "./subgroup.js";
+import { createMapHash } from "./map-hash.js";
 
 // Ensure InfoButton is registered globally (used later as L.Control.InfoButton)
 if (InfoButton) { /* Side-effect import */ }
@@ -98,29 +99,8 @@ function veggiemap() {
     }
   });
 
-  // Basic hash (zoom/lat/lon) handling (replacement for leaflet-hash)
-  function setHash() {
-    const mapCenter = map.getCenter();
-    const mapZoomValue = map.getZoom();
-    const precision = Math.max(0, Math.ceil(Math.log(mapZoomValue) / Math.LN2));
-    const hashStr = `#${mapZoomValue}/${mapCenter.lat.toFixed(precision)}/${mapCenter.lng.toFixed(precision)}`;
-    if (location.hash !== hashStr) { history.replaceState(null, "", hashStr); }
-  }
-  function parseHash() {
-    if (location.hash && location.hash.startsWith("#")) {
-      const parts = location.hash.slice(1).split("/");
-      if (parts.length === 3) {
-        const parsedValue = parseInt(parts[0], 10);
-        const lat = parseFloat(parts[1]);
-        const lon = parseFloat(parts[2]);
-        if (!Number.isNaN(parsedValue) && !Number.isNaN(lat) && !Number.isNaN(lon)) {
-          map.setView([lat, lon], parsedValue);
-        }
-      }
-    }
-  }
-  map.on("moveend", setHash);
-  parseHash();
+  // Sync map position with URL hash
+  createMapHash(map);
 
   // Add info button
   new InfoButton({ position: "topright", onClick: toggleInfo }).addTo(map);

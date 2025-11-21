@@ -1,6 +1,5 @@
 /* eslint-disable camelcase */
 /* global opening_hours */
-
 import "../third-party/opening_hours/opening_hours+deps.min.js";
 import { getUserLanguage } from "./i18n.js";
 import { t } from "i18next";
@@ -19,17 +18,14 @@ const POPUP_SECTIONS = Object.freeze([
   "vegan_description",
   "menu_url"
 ]);
-
 // In-flight fetch promises to de-duplicate concurrent requests
 const inflight = {};
-
 // Persistent cache (localStorage) configuration
 const PERSIST_KEY = "vk_nominatim_v1"; // Bump to invalidate
 const MAX_ENTRIES = 300;
 const TTL_MS = 24 * 60 * 60 * 1000; // 24h
 let persistentLoaded = false;
 let persistentStore = { entries: {}, order: [] };
-
 /** Load persistence state from localStorage once (lazy). */
 function loadPersistentStore() {
   if (persistentLoaded) { return; }
@@ -43,7 +39,6 @@ function loadPersistentStore() {
   }
   catch { /* Ignore parse / access errors */ }
 }
-
 /** Persist current in‑memory store to localStorage (best effort). */
 function savePersistentStore() {
   try {

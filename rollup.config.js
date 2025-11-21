@@ -18,21 +18,6 @@ const banner = `/*! ************************************************************
 ***************************************************************************** */
 `;
 
-// Plugin to inject default export for packages that use "import L from 'leaflet'"
-const injectLeafletDefaultExport = {
-  name: 'inject-leaflet-default',
-  transform(code, id) {
-    // Only process the leaflet-hash package
-    if (id.includes('leaflet-hash') && code.includes("import L from 'leaflet'")) {
-      return code.replace(
-        /import L from ['"]leaflet['"]/,
-        "import * as L from 'leaflet'"
-      );
-    }
-    return null;
-  }
-};
-
 export default [
   // Main app bundle
   {
@@ -44,7 +29,6 @@ export default [
       sourcemap: true
     },
     plugins: [
-      injectLeafletDefaultExport,
       nodeResolve({ browser: true }),
       terser()
     ]
@@ -59,7 +43,6 @@ export default [
       sourcemap: true
     },
     plugins: [
-      injectLeafletDefaultExport,
       nodeResolve({ browser: true }),
       terser()
     ]
@@ -74,7 +57,6 @@ export default [
       sourcemap: true
     },
     plugins: [
-      injectLeafletDefaultExport,
       nodeResolve({ browser: true }),
       terser()
     ]
