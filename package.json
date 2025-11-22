@@ -56,6 +56,11 @@
     "libphonenumber-js": "^1.12.26",
     "opening_hours": "^3.9.0"
   },
+  "overrides": {
+    "leaflet-control-geocoder": {
+      "leaflet": "$leaflet"
+    }
+  },
   "scripts": {
     "build": "rollup -c && postcss ./css/main.css -o ./css/bundle.css",
     "bump": "npx bumpp package.json package-lock.json js/bundle.js service-worker.js --no-push",
