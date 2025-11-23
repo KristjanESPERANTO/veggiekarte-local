@@ -3,6 +3,7 @@
 import { Control, Icon, Map, Marker, TileLayer } from "leaflet";
 import { addLanguageResources, getUserLanguage, setUserLanguage } from "./i18n.js";
 import { addNominatimInformation, calculatePopup } from "./popup.js";
+import { getIcon, iconToEmoji } from "./veggiemap-icons.js";
 import { langObject, languageSelector } from "@kristjan.esperanto/leaflet-language-selector";
 import { FullScreen } from "../third-party/leaflet.fullscreen/Control.FullScreen.esm.js";
 import { Geocoder } from "leaflet-control-geocoder";
@@ -11,7 +12,6 @@ import { LocateControl } from "../third-party/leaflet.locatecontrol/L.Control.Lo
 import { MarkerClusterGroup } from "@kristjan.esperanto/leaflet.markercluster";
 import { SubGroup } from "./subgroup.js";
 import { createMapHash } from "./map-hash.js";
-import getIcon from "./veggiemap-icons.js";
 
 // Define marker groups (using imported MarkerClusterGroup and our SubGroup)
 const parentGroup = new MarkerClusterGroup({
@@ -336,7 +336,8 @@ function getMarker(feature) {
 // Calculate tooltip content for a given marker layer
 function calculateTooltip(layer) {
   const feature = layer.feature;
-  const eSym = feature.properties.symbol;
+  const eIco = feature.properties.icon;
+  const eSym = iconToEmoji[eIco] || "";
   const eNam = feature.properties.name;
   return `${eSym} ${eNam}`;
 }

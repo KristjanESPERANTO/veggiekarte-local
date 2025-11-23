@@ -2,6 +2,7 @@
 /* global opening_hours */
 import "../third-party/opening_hours/opening_hours+deps.min.js";
 import { getUserLanguage } from "./i18n.js";
+import { iconToEmoji } from "./veggiemap-icons.js";
 import { t } from "i18next";
 
 // Simple in-memory cache for Nominatim lookups
@@ -423,7 +424,9 @@ export function calculatePopup(element) {
   // Title line with OSM link
   const title = document.createElement("div");
   title.className = "map-popup-title";
-  title.appendChild(document.createTextNode(`${feature.properties.symbol} ${feature.properties.name}`));
+  const eIco = feature.properties.icon;
+  const eSym = iconToEmoji[eIco] || "";
+  title.appendChild(document.createTextNode(`${eSym} ${feature.properties.name}`));
   const osmLink = document.createElement("a");
   osmLink.href = `https://openstreetmap.org/${feature.properties._type}/${feature.properties._id}`;
   osmLink.target = "_blank";

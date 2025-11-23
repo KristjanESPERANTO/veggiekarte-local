@@ -252,7 +252,6 @@ def write_data(data):
 
         icon = determine_icon(tags)
         place_obj["properties"]["icon"] = icon[0]
-        place_obj["properties"]["symbol"] = icon[1]
 
         # Get a name
         if "name" in tags:
