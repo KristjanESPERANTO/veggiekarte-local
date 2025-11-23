@@ -26,6 +26,8 @@
     "@eslint/css": "^0.14.1",
     "@eslint/js": "^9.39.1",
     "@eslint/markdown": "^7.5.1",
+    "@mapbox/maki": "^8.2.0",
+    "@rapideditor/temaki": "^5.11.0",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-terser": "^0.4.4",
     "@stylistic/eslint-plugin": "^5.5.0",
@@ -62,7 +64,7 @@
     }
   },
   "scripts": {
-    "build": "rollup -c && postcss ./css/main.css -o ./css/bundle.css",
+    "build": "node scripts/generate_icons.js && rollup -c && postcss ./css/main.css -o ./css/bundle.css",
     "bump": "npx bumpp package.json package-lock.json js/bundle.js service-worker.js --no-push",
     "datacheck": "node ./datacheck/datacheck.js",
     "lint": "eslint && prettier . --check",

@@ -6,6 +6,7 @@
 @import url("../third-party/leaflet.fullscreen/Control.FullScreen.css");
 @import url("../node_modules/@kristjan.esperanto/leaflet-language-selector/src/leaflet.languageselector.css");
 @import url("../node_modules/@kristjan.esperanto/leaflet-language-selector/src/leaflet.languageselector-flags.css");
+@import url("icons.css");
 
 body {
   margin: 0;
@@ -258,13 +259,13 @@ a:hover {
   border-radius: 40% 5%;
   border-style: solid;
   border-width: 2px;
-  padding: 2px;
+  padding: 1px;
   box-shadow: 4px 4px 4px dimgray;
 }
 
 .marker:hover {
   border-color: navajowhite;
-  padding: 3px;
+  padding: 2px;
 }
 
 /* Category properties */
@@ -283,16 +284,19 @@ a:hover {
 .vegan_friendly {
   background: #00bc00;
   border-color: #00bc00;
+  color: black;
 }
 
 .vegan_limited {
   background: #afa;
   border-color: seagreen;
+  color: black;
 }
 
 .vegetarian_friendly {
   background: #fefefe;
   border-color: darkgreen;
+  color: black;
 }
 
 /* Language selector button: ensure icon is visible */
