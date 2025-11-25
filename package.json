@@ -38,10 +38,7 @@
     "lightningcss-cli": "^1.30.2",
     "lint-staged": "^16.2.6",
     "prettier": "^3.6.2",
-    "rollup": "^4.53.1",
-    "stylelint": "^16.25.0",
-    "stylelint-config-standard": "^39.0.1",
-    "stylelint-prettier": "^5.0.3"
+    "rollup": "^4.53.1"
   },
   "dependencies": {
     "@kristjan.esperanto/leaflet-language-selector": "^3.3.0",
