@@ -20,22 +20,26 @@
   <body>
     <div>
       <!-- Progress bar for marker loading -->
-      <div id="progress"></div>
+      <div id="progress">
+        <div id="progress-bar"></div>
+      </div>
       <!-- Info box -->
-      <div id="information">
-        <div id="close" onclick="toggleInfo()">✖</div>
-        <div id="spinner"></div>
-        <div id="content">
-          <h1 id="content-welcome-heading"></h1>
-          <p id="content-welcome-text"></p>
-          <h1 id="content-osm-heading"></h1>
-          <p id="content-osm-text"></p>
-          <h1 id="content-contribute-heading"></h1>
-          <p id="content-contribute-text"></p>
-          <h1 id="content-reviews-heading"></h1>
-          <p id="content-reviews-text"></p>
-          <h1 id="content-further-heading"></h1>
-          <p id="content-further-text"></p>
+      <div id="info-overlay" class="info-overlay">
+        <div id="information" class="info-modal">
+          <div id="close" onclick="toggleInfo()">✖</div>
+          <div id="spinner"></div>
+          <div id="content">
+            <h1 id="content-welcome-heading"></h1>
+            <p id="content-welcome-text"></p>
+            <h1 id="content-osm-heading"></h1>
+            <p id="content-osm-text"></p>
+            <h1 id="content-contribute-heading"></h1>
+            <p id="content-contribute-text"></p>
+            <h1 id="content-reviews-heading"></h1>
+            <p id="content-reviews-text"></p>
+            <h1 id="content-further-heading"></h1>
+            <p id="content-further-text"></p>
+          </div>
         </div>
       </div>
       <!-- Map -->

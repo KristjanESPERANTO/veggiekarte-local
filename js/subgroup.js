@@ -35,10 +35,12 @@ const SubGroup = LayerGroup.extend({
 
     // Batch optimization: MarkerClusterGroup exposes addLayers()
     if (this._parentGroup.addLayers) {
+      console.log(`SubGroup: Adding ${this.getLayers().length} layers to parentGroup via addLayers`);
       this._parentGroup.addLayers(this.getLayers());
     }
     // Fallback: add layers one by one
     else {
+      console.log(`SubGroup: Adding ${this.getLayers().length} layers to parentGroup one by one`);
       this.eachLayer(this._parentGroup.addLayer, this._parentGroup);
     }
   },
@@ -52,6 +54,8 @@ const SubGroup = LayerGroup.extend({
       this._map = null;
       return;
     }
+
+    console.log(`SubGroup: Removing ${this.getLayers().length} layers from parentGroup`);
 
     // Batch optimization: MarkerClusterGroup exposes removeLayers()
     if (this._parentGroup.removeLayers) {

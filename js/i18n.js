@@ -191,18 +191,10 @@ function updateContent() {
   document.fullscreenControl.options.title = i18next.t("leaflet.L-control-fullscreen.fullscreen");
   document.fullscreenControl.options.titleCancel = i18next.t("leaflet.L-control-fullscreen.exitFullscreen");
 
-  // Layer control
-  document.getElementsByClassName("second-cell")[0].innerText = i18next.t("texts.i18n_vegan_only");
-  document.getElementsByClassName("legend-row")[0].parentElement.parentElement.title = i18next.t("texts.i18n_vegan_only_title");
-  document.getElementsByClassName("second-cell")[1].innerText = i18next.t("texts.i18n_vegetarian_only");
-  document.getElementsByClassName("legend-row")[1].parentElement.parentElement.title = i18next.t("texts.i18n_vegetarian_only_title");
-  document.getElementsByClassName("second-cell")[2].innerText = i18next.t("texts.i18n_vegan_friendly");
-  document.getElementsByClassName("legend-row")[2].parentElement.parentElement.title = i18next.t("texts.i18n_vegan_friendly_title");
-  document.getElementsByClassName("second-cell")[3].innerText = i18next.t("texts.i18n_vegan_limited");
-  document.getElementsByClassName("legend-row")[3].parentElement.parentElement.title = i18next.t("texts.i18n_vegan_limited_title");
-
-  document.getElementsByClassName("second-cell")[4].innerText = i18next.t("texts.i18n_vegetarian_friendly");
-  document.getElementsByClassName("legend-row")[4].parentElement.parentElement.title = i18next.t("texts.i18n_vegetarian_friendly_title");
+  // Update category filter control translations
+  if (window.categoryFilterControl && window.categoryFilterControl.updateTranslations) {
+    window.categoryFilterControl.updateTranslations();
+  }
 
   // Set HTML lang attribute
   document.body.parentElement.lang = i18next.language;
