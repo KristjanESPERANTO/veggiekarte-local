@@ -47,5 +47,39 @@ const InfoButton = Control.extend({
   }
 });
 
+/**
+ * Open the Info box.
+ */
+function openInfo() {
+  const overlay = document.getElementById("info-overlay");
+  if (overlay) { overlay.classList.add("visible"); }
+}
+
+/**
+ * Close the Info box.
+ */
+function closeInfo() {
+  const overlay = document.getElementById("info-overlay");
+  if (overlay) { overlay.classList.remove("visible"); }
+}
+
+/**
+ * Show info modal on startup and set up backdrop click handler.
+ */
+function showInfoOnStartup() {
+  const overlay = document.getElementById("info-overlay");
+  if (overlay) {
+    openInfo();
+    // Close on backdrop click
+    overlay.addEventListener("click", (evt) => {
+      if (evt.target === overlay) { closeInfo(); }
+    });
+  }
+}
+
+// Register global functions for onclick handlers in HTML
+window.openInfo = openInfo;
+window.closeInfo = closeInfo;
+
 // Export as ES module
-export { InfoButton };
+export { InfoButton, openInfo, closeInfo, showInfoOnStartup };

@@ -63,7 +63,7 @@ const CategoryFilterControl = Control.extend({
     this._panel.className = "category-filter-modal";
     this._overlay.appendChild(this._panel);
 
-    // Close button (like #close in info box) - use onclick attribute like toggleInfo()
+    // Close button (like #close in info box)
     const closeBtn = document.createElement("div");
     closeBtn.id = "category-filter-close";
     closeBtn.className = "category-filter-close";
@@ -71,7 +71,7 @@ const CategoryFilterControl = Control.extend({
     closeBtn.setAttribute("onclick", "document.toggleCategoryFilter()");
     this._panel.appendChild(closeBtn);
 
-    // Register global toggle function (like toggleInfo)
+    // Register global toggle function
     document.toggleCategoryFilter = () => this._togglePanel();
 
     // Content container
@@ -91,8 +91,6 @@ const CategoryFilterControl = Control.extend({
     }
     else {
       this._overlay.classList.add("visible");
-      // Trigger filter update when panel opens to refresh counts
-      this._notifyChange();
     }
   },
 
@@ -181,6 +179,7 @@ const CategoryFilterControl = Control.extend({
   },
 
   _toggleMainCategory(mainId, enabled) {
+    if (this._isUpdating) { return; } // Prevent recursion from _updateUI
     this._categoryStates[mainId] = enabled;
     const mainCat = CATEGORY_HIERARCHY[mainId];
     Object.keys(mainCat.subcategories).forEach((subId) => {
@@ -192,6 +191,7 @@ const CategoryFilterControl = Control.extend({
   },
 
   _toggleSubCategory(mainId, subId, enabled) {
+    if (this._isUpdating) { return; } // Prevent recursion from _updateUI
     this._categoryStates[`${mainId}.${subId}`] = enabled;
     const mainCat = CATEGORY_HIERARCHY[mainId];
     const subCats = Object.keys(mainCat.subcategories);
@@ -267,6 +267,8 @@ const CategoryFilterControl = Control.extend({
 
   _updateUI() {
     if (!this._contentDiv) { return; }
+    if (this._isUpdating) { return; } // Prevent recursion
+    this._isUpdating = true;
 
     // Update category checkboxes
     Object.entries(CATEGORY_HIERARCHY).forEach(([mainId, mainCat]) => {
@@ -302,6 +304,8 @@ const CategoryFilterControl = Control.extend({
       const catId = el.dataset.categoryId;
       el.textContent = this._categoryCounts[catId] || "0";
     });
+
+    this._isUpdating = false;
   },
 
   _loadStates() {

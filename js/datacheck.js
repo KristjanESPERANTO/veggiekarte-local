@@ -1,8 +1,8 @@
 /* eslint-disable camelcase */
 
 import { Control, Icon, Map, Marker, TileLayer } from "leaflet";
+import { InfoButton, openInfo, showInfoOnStartup } from "./info-button-control.js";
 import { Geocoder } from "leaflet-control-geocoder";
-import { InfoButton } from "./info-button-control.js";
 import { LocateControl } from "../third-party/leaflet.locatecontrol/L.Control.Locate.esm.patched.js";
 import { MarkerClusterGroup } from "@kristjan.esperanto/leaflet.markercluster";
 import { SubGroup } from "./subgroup.js";
@@ -103,7 +103,7 @@ function veggiemap() {
   createMapHash(map);
 
   // Add info button
-  new InfoButton({ position: "topright", onClick: toggleInfo }).addTo(map);
+  new InfoButton({ position: "topright", onClick: openInfo }).addTo(map);
 
   // Add button for search places
   new Geocoder().addTo(map);
@@ -115,19 +115,6 @@ function veggiemap() {
     position: "topright"
   }).addTo(map);
 }
-
-// Function to toggle the visibility of the Info box.
-function toggleInfo() {
-  const element = document.getElementById("information"); // Get the element of the information window
-  const computedStyle = window.getComputedStyle(element); // Get the actual style information
-  if (computedStyle.display === "block") {
-    element.style.display = "none";
-  }
-  else {
-    element.style.display = "block";
-  }
-}
-window.toggleInfo = toggleInfo;
 
 // Function to hide the spinner.
 function hideSpinner() {
@@ -270,3 +257,6 @@ function calculatePopup(layer) {
 
 // Main function
 veggiemap();
+
+// Show info modal on startup
+showInfoOnStartup();

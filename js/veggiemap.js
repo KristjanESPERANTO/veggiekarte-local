@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 import { CATEGORY_HIERARCHY, getCategoryForIcon } from "./category-mapping.js";
 import { Control, Icon, Map, Marker, TileLayer } from "leaflet";
+import { InfoButton, openInfo, showInfoOnStartup } from "./info-button-control.js";
 import { addLanguageResources, getUserLanguage, setUserLanguage } from "./i18n.js";
 import { addNominatimInformation, calculatePopup } from "./popup.js";
 import { getIcon, iconToEmoji } from "./veggiemap-icons.js";
@@ -8,7 +9,6 @@ import { langObject, languageSelector } from "@kristjan.esperanto/leaflet-langua
 import { CategoryFilterControl } from "./category-filter-control.js";
 import { FullScreen } from "../third-party/leaflet.fullscreen/Control.FullScreen.esm.js";
 import { Geocoder } from "leaflet-control-geocoder";
-import { InfoButton } from "./info-button-control.js";
 import { LocateControl } from "../third-party/leaflet.locatecontrol/L.Control.Locate.esm.patched.js";
 import { MarkerClusterGroup } from "@kristjan.esperanto/leaflet.markercluster";
 import { SubGroup } from "./subgroup.js";
@@ -42,7 +42,7 @@ const categorySubgroups = {}; // Storage for category-based subgroups
 const allMarkersByCategory = {}; // Store all markers by category key for filtering
 
 /**
-                                                                                                                                                                     * Update the progress indicator during chunked marker loading
+ * Update the progress indicator during chunked marker loading
  * @param {number} processed - Number of processed markers
  * @param {number} total - Total number of markers being added
  */
@@ -83,7 +83,7 @@ function updateProgressBar(processed, total) {
       progressStarted = false;
     }, 500);
     updateVisibleCounts();
-    updateFilterCounts(); // Update counts when markers are fully loaded
+    updateFilterCounts(subgroups); // Update counts when markers are fully loaded
   }
 }
 
@@ -120,6 +120,28 @@ function applyAllFilters() {
 
   updateFilterCounts();
   updateVisibleCounts();
+}
+
+/**
+ * Count markers in the current viewport
+ */
+function countMarkersInViewport() {
+  if (!map) { return 0; }
+  const bounds = map.getBounds();
+  let count = 0;
+
+  Object.entries(categorySubgroups).forEach(([, subgroup]) => {
+    if (!map.hasLayer(subgroup)) { return; }
+    subgroup.eachLayer((layer) => {
+      if (typeof layer.getLatLng !== "function") { return; }
+      const latlng = layer.getLatLng();
+      if (latlng && bounds.contains(latlng)) {
+        count += 1;
+      }
+    });
+  });
+
+  return count;
 }
 
 function updateFilterCounts() {
@@ -164,31 +186,9 @@ function updateFilterCounts() {
     categoryFilterControl.updateDietCount(dietKey, count);
   });
 
-  // Update marker counter (Punkt 6)
+  // Update marker counter
   const viewportCount = countMarkersInViewport();
   categoryFilterControl.updateMarkerCounter(totalVisible, totalMarkers, viewportCount);
-}
-
-// Count markers in current viewport
-function countMarkersInViewport() {
-  if (!map) { return 0; }
-  const bounds = map.getBounds();
-  let count = 0;
-
-  const enabledDietTypes = categoryFilterControl.getEnabledDietTypes();
-  Object.entries(allMarkersByCategory).forEach(([key, markers]) => {
-    const [mainId, subId] = key.split(".");
-    const isCategoryEnabled = categoryFilterControl.isSubCategoryEnabled(mainId, subId);
-
-    markers.forEach((marker) => {
-      const isVisible = isCategoryEnabled && enabledDietTypes.includes(marker.dietType);
-      if (isVisible && marker.getLatLng && bounds.contains(marker.getLatLng())) {
-        count += 1;
-      }
-    });
-  });
-
-  return count;
 }
 
 function veggiemap() {
@@ -240,7 +240,7 @@ function veggiemap() {
   // Add info button
   new InfoButton({
     position: "topright",
-    onClick: () => toggleInfo(),
+    onClick: () => openInfo(),
     contentHtml: "<div class='info-button'></div>"
   }).addTo(map);
 
@@ -303,30 +303,6 @@ function veggiemap() {
     const marker = evt.popup._source; // Marker that owns the popup
     if (marker) { addNominatimInformation(marker, popupElement); }
   });
-}
-// Function to toggle the visibility of the Info box (modal style).
-function toggleInfo() {
-  const overlay = document.getElementById("info-overlay");
-  if (!overlay) { return; }
-  if (overlay.classList.contains("visible")) {
-    overlay.classList.remove("visible");
-  }
-  else {
-    overlay.classList.add("visible");
-  }
-}
-document.toggleInfo = toggleInfo;
-
-// Show info modal on startup
-function showInfoOnStartup() {
-  const overlay = document.getElementById("info-overlay");
-  if (overlay) {
-    overlay.classList.add("visible");
-    // Close on backdrop click
-    overlay.addEventListener("click", (evt) => {
-      if (evt.target === overlay) { toggleInfo(); }
-    });
-  }
 }
 
 // Function to hide the spinner.
