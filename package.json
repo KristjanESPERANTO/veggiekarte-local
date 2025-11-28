@@ -30,25 +30,25 @@
     "@rapideditor/temaki": "^5.11.0",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-terser": "^0.4.4",
-    "@stylistic/eslint-plugin": "^5.5.0",
+    "@stylistic/eslint-plugin": "^5.6.1",
     "eslint": "^9.39.1",
     "eslint-plugin-import-x": "^4.16.1",
     "globals": "^16.5.0",
     "husky": "^9.1.7",
     "lightningcss-cli": "^1.30.2",
-    "lint-staged": "^16.2.6",
-    "prettier": "^3.6.2",
-    "rollup": "^4.53.1"
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.7.2",
+    "rollup": "^4.53.3"
   },
   "dependencies": {
     "@kristjan.esperanto/leaflet-language-selector": "^3.3.0",
     "@kristjan.esperanto/leaflet.markercluster": "^3.0.0-alpha.1",
     "chart.js": "^4.5.1",
     "email-validator": "^2.0.4",
-    "i18next": "^25.6.1",
+    "i18next": "^25.6.3",
     "leaflet": "^2.0.0-alpha.1",
     "leaflet-control-geocoder": "^3.3.1",
-    "libphonenumber-js": "^1.12.26",
+    "libphonenumber-js": "^1.12.29",
     "opening_hours": "^3.9.0"
   },
   "overrides": {
