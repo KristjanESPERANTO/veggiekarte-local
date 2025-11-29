@@ -355,7 +355,8 @@ def check_data():
     if VEGGIEPLACES_TEMPFILE_BR.exists():                              # check if the temp file exists
         if VEGGIEPLACES_TEMPFILE_BR.stat().st_size > 500:              # check if the temp file isn't too small (see issue #21)
             print("rename " + str(VEGGIEPLACES_TEMPFILE) + " to " + str(VEGGIEPLACES_FILE))
-            VEGGIEPLACES_FILE.rename(VEGGIEPLACES_OLDFILE)             # rename old file
+            if VEGGIEPLACES_FILE.exists():
+                VEGGIEPLACES_FILE.rename(VEGGIEPLACES_OLDFILE)         # rename old file
             VEGGIEPLACES_TEMPFILE.rename(VEGGIEPLACES_FILE)            # rename temp file to new file
             print("rename " + str(VEGGIEPLACES_TEMPFILE_MIN) + " to " + str(VEGGIEPLACES_FILE_MIN))
             VEGGIEPLACES_TEMPFILE_MIN.rename(VEGGIEPLACES_FILE_MIN)    # rename minimized temp file to new file
