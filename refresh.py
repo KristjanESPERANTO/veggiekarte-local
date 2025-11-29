@@ -46,90 +46,90 @@ OVERPASS_FILE = DATA_DIR / "overpass.json"                     # the raw overpas
 # variables to handle the json data
 stat_data = {}
 
-# icon mapping
-# (the first element of the array is for the icon in the marker, the second is an emoji which is used in the title)
-ICON_MAPPING = {
+# Maps OSM tags to icon names
+# (Emojis are maintained separately in the frontend: js/veggiemap-icons.js)
+TAG_ICON_MAP = {
     # Intentionally not alphabetical order
-    "cuisine:pizza": ["restaurant-pizza", "🍕"],
+    "cuisine:pizza": "restaurant-pizza",
     # Alphabetical order
-    "amenity:bar": ["bar", "🍸"],
-    "amenity:bbq": ["bbq", "🍴"],
-    "amenity:biergarten": ["pub", "🍻"],
-    "amenity:cafe": ["cafe", "☕"],
-    "amenity:canteen": ["restaurant", "🍽️"],
-    "amenity:cinema": ["cinema", "🎦"],
-    "amenity:college": ["college", "🎓"],
-    "amenity:fast_food": ["fast_food", "🍔"],
-    "amenity:food_court": ["restaurant", "🍽️"],
-    "amenity:fuel": ["fuel", "⛽"],
-    "amenity:hospital": ["hospital", "🏥"],
-    "amenity:ice_cream": ["ice_cream", "🍨"],
-    "amenity:kindergarten": ["playground", "🧒"],
-    "amenity:pharmacy": ["pharmacy", "💊"],
-    "amenity:place_of_worship": ["place_of_worship", "🛐"],
-    "amenity:pub": ["pub", "🍻"],
-    "amenity:restaurant": ["restaurant", "🍽️"],
-    "amenity:school": ["school", "🏫"],
-    "amenity:shelter": ["shelter", "☂️"],
-    "amenity:swimming_pool": ["swimming", "🏊‍♀️"],
-    "amenity:theatre": ["theatre", "🎭"],
-    "amenity:university": ["college", "🎓"],
-    "amenity:vending_machine": ["shop", "🛒"],
-    "historic:memorial": ["monument", "🗿"],
-    "leisure:golf_course": ["golf", "🏌️"],
-    "leisure:pitch": ["pitch", "🏃"],
-    "leisure:sauna": ["spa", "🧖"],
-    "leisure:sports_centre": ["sports", "🤼"],
-    "leisure:stadium": ["stadium", "🏟️"],
-    "shop:alcohol": ["alcohol", "🍷"],
-    "shop:bakery": ["bakery", "🥨"],
-    "shop:beauty": ["beauty", "💇"],
-    "shop:bicycle": ["bicycle", "🚲"],
-    "shop:books": ["library", "📚"],
-    "shop:butcher": ["butcher", "🔪"],
-    "shop:chemist": ["pharmacy", "💊"],
-    "shop:chocolate": ["confectionery", "🍬"],
-    "shop:clothes": ["clothes", "👚"],
-    "shop:coffee": ["cafe", "☕"],
-    "shop:confectionery": ["confectionery", "🍬"],
-    "shop:convenience": ["convenience", "🏪"],
-    "shop:cosmetics": ["beauty", "💄"],
-    "shop:deli": ["shop", "🛒"],
-    "shop:department_store": ["department_store", "🏬"],
-    "shop:doityourself": ["diy", "🛠️"],
-    "shop:drugstore": ["pharmacy", "💊"],
-    "shop:farm": ["greengrocer", "🚜"],
-    "shop:fishmonger": ["shop", "🐟"],
-    "shop:florist": ["garden-centre", "💐"],
-    "shop:garden_centre": ["garden-centre", "🏡"],
-    "shop:general": ["shop", "🛒"],
-    "shop:gift": ["gift", "🎁"],
-    "shop:greengrocer": ["greengrocer", "🍏"],
-    "shop:grocery": ["greengrocer", "🍏"],
-    "shop:hairdresser": ["hairdresser", "💇"],
-    "shop:health_food": ["shop", "🛒"],
-    "shop:herbalist": ["pharmacy", "🌿"],
-    "shop:kiosk": ["shop", "🛒"],
-    "shop:music": ["music", "🎶"],
-    "shop:nutrition_supplements": ["pharmacy", "💊"],
-    "shop:pastry": ["bakery", "🥨"],
-    "shop:shoes": ["shoe", "👞"],
-    "shop:supermarket": ["supermarket", "🏪"],
-    "shop:tea": ["cafe", "🍵"],
-    "shop:wine": ["alcohol", "🍷"],
-    "tourism:alpine_hut": ["hut", "🛖"],
-    "tourism:guest_house": ["guest_house", "🏠"],
-    "tourism:hostel": ["guest_house", "🏠"],
-    "tourism:hotel": ["guest_house", "🏠"],
-    "tourism:museum": ["museum", "🖼️"],
-    "tourism:wilderness_hut": ["hut", "🛖"],
+    "amenity:bar": "bar",
+    "amenity:bbq": "bbq",
+    "amenity:biergarten": "pub",
+    "amenity:cafe": "cafe",
+    "amenity:canteen": "restaurant",
+    "amenity:cinema": "cinema",
+    "amenity:college": "college",
+    "amenity:fast_food": "fast_food",
+    "amenity:food_court": "restaurant",
+    "amenity:fuel": "fuel",
+    "amenity:hospital": "hospital",
+    "amenity:ice_cream": "ice_cream",
+    "amenity:kindergarten": "playground",
+    "amenity:pharmacy": "pharmacy",
+    "amenity:place_of_worship": "place_of_worship",
+    "amenity:pub": "pub",
+    "amenity:restaurant": "restaurant",
+    "amenity:school": "school",
+    "amenity:shelter": "shelter",
+    "amenity:swimming_pool": "swimming",
+    "amenity:theatre": "theatre",
+    "amenity:university": "college",
+    "amenity:vending_machine": "shop",
+    "historic:memorial": "monument",
+    "leisure:golf_course": "golf",
+    "leisure:pitch": "pitch",
+    "leisure:sauna": "spa",
+    "leisure:sports_centre": "sports",
+    "leisure:stadium": "stadium",
+    "shop:alcohol": "alcohol",
+    "shop:bakery": "bakery",
+    "shop:beauty": "beauty",
+    "shop:bicycle": "bicycle",
+    "shop:books": "library",
+    "shop:butcher": "butcher",
+    "shop:chemist": "pharmacy",
+    "shop:chocolate": "confectionery",
+    "shop:clothes": "clothes",
+    "shop:coffee": "cafe",
+    "shop:confectionery": "confectionery",
+    "shop:convenience": "convenience",
+    "shop:cosmetics": "beauty",
+    "shop:deli": "shop",
+    "shop:department_store": "department_store",
+    "shop:doityourself": "diy",
+    "shop:drugstore": "pharmacy",
+    "shop:farm": "greengrocer",
+    "shop:fishmonger": "shop",
+    "shop:florist": "garden-centre",
+    "shop:garden_centre": "garden-centre",
+    "shop:general": "shop",
+    "shop:gift": "gift",
+    "shop:greengrocer": "greengrocer",
+    "shop:grocery": "greengrocer",
+    "shop:hairdresser": "hairdresser",
+    "shop:health_food": "shop",
+    "shop:herbalist": "pharmacy",
+    "shop:kiosk": "shop",
+    "shop:music": "music",
+    "shop:nutrition_supplements": "pharmacy",
+    "shop:pastry": "bakery",
+    "shop:shoes": "shoe",
+    "shop:supermarket": "supermarket",
+    "shop:tea": "cafe",
+    "shop:wine": "alcohol",
+    "tourism:alpine_hut": "hut",
+    "tourism:guest_house": "guest_house",
+    "tourism:hostel": "guest_house",
+    "tourism:hotel": "guest_house",
+    "tourism:museum": "museum",
+    "tourism:wilderness_hut": "hut",
 }
 
 
 def determine_icon(tags):
     """Determine an icon for the marker."""
-    icon = ["star-stroked", ""]  # Use this icon if there is no matching per ICON_MAPPING.
-    for key_value, icon_array in ICON_MAPPING.items():
+    icon = "star-stroked"  # Default icon if there is no matching per TAG_ICON_MAP.
+    for key_value, icon_name in TAG_ICON_MAP.items():
         key, value = key_value.split(":")
         tag = tags.get(key)
 
@@ -139,7 +139,7 @@ def determine_icon(tags):
         tag = tag.split(";")[0]
 
         if tag == value:
-            icon = icon_array
+            icon = icon_name
             break
     return icon
 
@@ -251,7 +251,7 @@ def write_data(data):
         place_obj["geometry"]["coordinates"] = [lon, lat]
 
         icon = determine_icon(tags)
-        place_obj["properties"]["icon"] = icon[0]
+        place_obj["properties"]["icon"] = icon
 
         # Get a name
         if "name" in tags:
