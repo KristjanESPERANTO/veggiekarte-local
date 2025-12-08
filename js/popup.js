@@ -451,6 +451,14 @@ export function calculatePopup(element) {
     root.appendChild(div);
   });
 
+  // More info container (Halle-specific)
+  if (feature.properties.more_info) {
+    const moreInfoDiv = document.createElement("div");
+    moreInfoDiv.dataset.section = "more_info";
+    root.appendChild(moreInfoDiv);
+    addMoreInfo(element, moreInfoDiv);
+  }
+
   // Libreviews container
   const libReviewsDiv = document.createElement("div");
   libReviewsDiv.dataset.section = "libreviews";
@@ -460,6 +468,27 @@ export function calculatePopup(element) {
   addLibReview(element, libReviewsDiv);
 
   return root; // Leaflet accepts an HTMLElement here
+}
+
+/** Add more info link for Halle-specific locations.
+ * @param {L.Marker} element marker
+ * @param {HTMLElement} container target div (data-section="more_info")
+ */
+export function addMoreInfo(element, container) {
+  // Guard against geocoder markers (they don't have a feature)
+  if (!element.feature) { return; }
+  if (!element.feature.properties.more_info) { return; }
+
+  const TOP_URL = "https://www.vegan-in-halle.de/wp/leben/vegane-stadtkarte/";
+  const osmType = element.feature.properties._type;
+  const osmId = element.feature.properties._id;
+  const link = document.createElement("a");
+  link.href = `${TOP_URL}#${osmType}${osmId}`;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.textContent = t("words.more_info") || "More information";
+  const row = makeRow("ℹ️", [link]);
+  container.replaceChildren(row);
 }
 
 /** Fetch & inject libreview link if available (cached by ID).

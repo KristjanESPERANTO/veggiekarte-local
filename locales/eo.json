@@ -77,7 +77,8 @@
         "closed": "fermita",
         "public_holiday": "festotago",
         "review": "recenzo",
-        "school_holidays": "ferioj"
+        "school_holidays": "ferioj",
+        "more_info": "Pliaj informoj"
       },
       "leaflet": {
         "L-control-fullscreen": {

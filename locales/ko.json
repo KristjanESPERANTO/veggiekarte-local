@@ -77,7 +77,8 @@
         "closed": "영업 중이 아님",
         "public_holiday": "공휴일",
         "review": "리뷰",
-        "school_holidays": "방학 중"
+        "school_holidays": "방학 중",
+        "more_info": "더 많은 정보"
       },
       "leaflet": {
         "L-control-fullscreen": {

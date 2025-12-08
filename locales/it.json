@@ -77,7 +77,8 @@
         "closed": "chiuso",
         "public_holiday": "festività",
         "review": "recensione",
-        "school_holidays": "giorno non scolastico"
+        "school_holidays": "giorno non scolastico",
+        "more_info": "Maggiori informazioni"
       },
       "leaflet": {
         "L-control-fullscreen": {

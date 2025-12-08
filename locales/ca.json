@@ -77,7 +77,8 @@
         "closed": "tancat",
         "public_holiday": "dia festiu",
         "review": "ressenya",
-        "school_holidays": "vacances escolars"
+        "school_holidays": "vacances escolars",
+        "more_info": "Més informació"
       },
       "leaflet": {
         "L-control-fullscreen": {

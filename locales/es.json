@@ -77,7 +77,8 @@
         "closed": "cerrado",
         "public_holiday": "día festivo",
         "review": "reseña",
-        "school_holidays": "vacaciones escolares"
+        "school_holidays": "vacaciones escolares",
+        "more_info": "Más información"
       },
       "leaflet": {
         "L-control-fullscreen": {

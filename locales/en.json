@@ -77,7 +77,8 @@
         "closed": "closed",
         "public_holiday": "holiday",
         "review": "review",
-        "school_holidays": "school holidays"
+        "school_holidays": "school holidays",
+        "more_info": "More information"
       },
       "leaflet": {
         "L-control-fullscreen": {
