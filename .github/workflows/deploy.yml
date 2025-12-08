@@ -1,0 +1,41 @@
+name: Deploy Veggiekarte Halle
+
+on:
+  push:
+    branches:
+      - halle
+  # Allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: 🚀 Deploy to Server
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v4
+
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 21
+          protocol: ftps
+          # Exclude unnecessary files from deployment
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/__pycache__/**
+            **/docs/**
+            **/*.py
+            **/*.md
+            **/package*.json
+            **/rollup.config.js
+            **/eslint.config.js
+            **/prettier.config.js
+            **/requirements.txt
+            **/scripts/**
+          server-dir: /home/gsi_5693_1_github/web/map/
