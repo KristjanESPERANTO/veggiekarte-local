@@ -49,7 +49,7 @@
     "leaflet": "^2.0.0-alpha.1",
     "leaflet-control-geocoder": "^3.3.1",
     "leaflet.fullscreen": "^5.1.1",
-    "libphonenumber-js": "^1.12.29",
+    "libphonenumber-js": "^1.12.31",
     "opening_hours": "^3.9.0"
   },
   "overrides": {
