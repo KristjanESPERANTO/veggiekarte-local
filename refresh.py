@@ -69,6 +69,7 @@ TAG_ICON_MAP = {
     "amenity:place_of_worship": "place_of_worship",
     "amenity:pub": "pub",
     "amenity:restaurant": "restaurant",
+    "social_facility:soup_kitchen": "soup_kitchen",
     "amenity:school": "school",
     "amenity:shelter": "shelter",
     "amenity:swimming_pool": "swimming",

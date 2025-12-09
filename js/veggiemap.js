@@ -386,7 +386,8 @@ async function veggiemapPopulate(parentGroupVar) {
 
   // Collect all markers and organize by diet type
   Object.entries(subgroups).forEach(([key]) => {
-    markerGroups[key].forEach((marker) => {
+    const markers = markerGroups[key] || [];
+    markers.forEach((marker) => {
       marker.dietType = key;
       allMarkers.push(marker);
     });

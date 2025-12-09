@@ -40,6 +40,7 @@ export const iconToEmoji = {
   "restaurant-pizza": "🍕",
   "school": "🏫",
   "shelter": "☂️",
+  "soup_kitchen": "🥣",
   "shoe": "👞",
   "shop": "🛒",
   "spa": "🧖",

@@ -17,6 +17,13 @@ export const CATEGORY_HIERARCHY = {
         icon: "🍽️",
         icons: ["restaurant", "bbq", "canteen", "food_court"]
       },
+      community_meals: {
+        id: "community_meals",
+        labelKey: "category.food.community_meals",
+        label: "Community meals",
+        icon: "🥣",
+        icons: ["soup_kitchen"]
+      },
       pizza: {
         id: "pizza",
         labelKey: "category.food.pizza",

@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { fileURLToPath } from "url";
 import fs from "fs";
 import path from "path";
@@ -8,6 +9,11 @@ const __dirname = path.dirname(__filename);
 const MAKI_DIR = path.join(__dirname, "../node_modules/@mapbox/maki/icons");
 const TEMAKI_DIR = path.join(__dirname, "../node_modules/@rapideditor/temaki/icons");
 const OUTPUT_CSS = path.join(__dirname, "../css/icons.css");
+
+// Inline-only icons that are not available in maki/temaki
+const INLINE_ICONS = {
+  soup_kitchen: "<svg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 15 15'><path d='M2 6h11v1c0 3-2.7 5.5-5.5 5.5S2 10 2 7zM3 4.5c0-1 .8-1.5 1.5-1.5S6 3.5 6 4.5c0 .5-.2 1-.5 1.5h-1C3.3 5.5 3 5 3 4.5zM7.5 4c0-1 .8-1.5 1.5-1.5S10.5 3 10.5 4c0 .5-.2 1-.5 1.5H9C8.3 5 7.5 4.5 7.5 4z'/></svg>"
+};
 
 // Mapping: internal_name -> source_name (or array of candidates)
 // If source_name is null, use internal_name
@@ -49,6 +55,7 @@ const ICONS = {
   "pub": ["beer", "pub"],
   "restaurant": "restaurant",
   "restaurant-pizza": "restaurant-pizza",
+  "soup_kitchen": "soup_kitchen",
   "school": "school",
   "shelter": "shelter",
   "shoe": "shoe",
@@ -98,9 +105,16 @@ function generateCSS() {
 
   for (const [internalName, sourceName] of Object.entries(ICONS)) {
     const iconPath = findIcon(sourceName || internalName);
+    let svgContent = null;
 
     if (iconPath) {
-      const svgContent = fs.readFileSync(iconPath, "utf8");
+      svgContent = fs.readFileSync(iconPath, "utf8");
+    }
+    else if (INLINE_ICONS[internalName]) {
+      svgContent = INLINE_ICONS[internalName];
+    }
+
+    if (svgContent) {
       // Simple optimization: remove newlines and double spaces
       const optimizedSvg = svgContent
         .replace(/\n/gu, "")
