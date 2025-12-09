@@ -191,6 +191,14 @@ function updateContent() {
   document.fullscreenControl.options.title = i18next.t("leaflet.L-control-fullscreen.fullscreen");
   document.fullscreenControl.options.titleCancel = i18next.t("leaflet.L-control-fullscreen.exitFullscreen");
 
+  // Language selector control
+  const langButton = document.querySelector(".leaflet-control-languageselector-button");
+  if (langButton) {
+    const langTitle = i18next.t("leaflet.L-control-languageselector.title");
+    langButton.title = langTitle;
+    langButton.setAttribute("aria-label", langTitle);
+  }
+
   // Update category filter control translations
   if (window.categoryFilterControl && window.categoryFilterControl.updateTranslations) {
     window.categoryFilterControl.updateTranslations();
