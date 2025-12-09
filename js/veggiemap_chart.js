@@ -1,4 +1,7 @@
-/* global Chart */
+import { Chart, registerables } from "chart.js";
+
+// Register all chart.js components
+Chart.register(...registerables);
 
 // Global variables for the config
 const dateArray = [];

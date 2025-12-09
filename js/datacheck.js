@@ -1,14 +1,12 @@
 /* eslint-disable camelcase */
 
-import * as L from "leaflet";
-import { Geocoder } from "../third-party/leaflet.control.geocoder/Control.Geocoder.modern.js";
-import { InfoButton } from "./info-button-control.js";
+import { Control, Icon, Map, Marker, TileLayer } from "leaflet";
+import { InfoButton, openInfo, showInfoOnStartup } from "./info-button-control.js";
+import { Geocoder } from "leaflet-control-geocoder";
 import { LocateControl } from "../third-party/leaflet.locatecontrol/L.Control.Locate.esm.patched.js";
 import { MarkerClusterGroup } from "@kristjan.esperanto/leaflet.markercluster";
 import { SubGroup } from "./subgroup.js";
-
-// Expose L globally for any remaining global dependencies
-window.L = L;
+import { createMapHash } from "./map-hash.js";
 
 // Ensure InfoButton is registered globally (used later as L.Control.InfoButton)
 if (InfoButton) { /* Side-effect import */ }
@@ -41,21 +39,21 @@ let map;
 
 function veggiemap() {
   // Provide inline SVG defaults to decouple from external marker assets
-  delete L.Icon.Default.prototype._getIconUrl;
-  L.Icon.Default.mergeOptions({
+  delete Icon.Default.prototype._getIconUrl;
+  Icon.Default.mergeOptions({
     iconRetinaUrl: "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2728%27%20height%3D%2741%27%20viewBox%3D%270%200%2028%2041%27%3E%3Cpath%20fill%3D%27%232c7a7b%27%20d%3D%27M14%200c-7.18%200-13%206.1-13%2013.6%200%2011.6%2013%2027.4%2013%2027.4s13-15.8%2013-27.4C27%206.1%2021.18%200%2014%200z%27/%3E%3Ccircle%20fill%3D%27%23ffffff%27%20cx%3D%2714%27%20cy%3D%2713%27%20r%3D%276%27/%3E%3C/svg%3E",
     iconUrl: "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2728%27%20height%3D%2741%27%20viewBox%3D%270%200%2028%2041%27%3E%3Cpath%20fill%3D%27%232c7a7b%27%20d%3D%27M14%200c-7.18%200-13%206.1-13%2013.6%200%2011.6%2013%2027.4%2013%2027.4s13-15.8%2013-27.4C27%206.1%2021.18%200%2014%200z%27/%3E%3Ccircle%20fill%3D%27%23ffffff%27%20cx%3D%2714%27%20cy%3D%2713%27%20r%3D%276%27/%3E%3C/svg%3E",
     shadowUrl: "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2728%27%20height%3D%2712%27%3E%3Cellipse%20cx%3D%2714%27%20cy%3D%276%27%20rx%3D%2710%27%20ry%3D%275%27%20fill%3D%27rgba%280%2C0%2C0%2C0.25%29%27/%3E%3C/svg%3E"
   });
 
   // TileLayer
-  const tileOSM = new L.TileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  const tileOSM = new TileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap contributors</a>",
     maxZoom: 18
   });
 
   // Map
-  map = new L.Map("map", {
+  map = new Map("map", {
     layers: [tileOSM],
     center: [20, 17],
     zoom: 3,
@@ -64,7 +62,7 @@ function veggiemap() {
   });
 
   // Add zoom control
-  new L.Control.Zoom({ position: "topright" }).addTo(map);
+  new Control.Zoom({ position: "topright" }).addTo(map);
 
   // Populate map async then add overlays
   veggiemapPopulate(parentGroup).then(() => {
@@ -77,7 +75,7 @@ function veggiemap() {
       "<div class='legend-row' data-layer='issue_count_6'><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'>6 issues</div><div class='third-cell' id='issue_count_6'></div></div>": issueCount6,
       "<div class='legend-row' data-layer='issue_count_many'><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'>more than 6</div><div class='third-cell' id='issue_count_many'></div></div>": issueCountMany
     };
-    const layerControl = new L.Control.Layers(null, overlays);
+    const layerControl = new Control.Layers(null, overlays);
     layerControl.addTo(map);
 
     // Update active state styling when layers are toggled
@@ -101,32 +99,11 @@ function veggiemap() {
     }
   });
 
-  // Basic hash (zoom/lat/lon) handling (replacement for leaflet-hash)
-  function setHash() {
-    const mapCenter = map.getCenter();
-    const mapZoomValue = map.getZoom();
-    const precision = Math.max(0, Math.ceil(Math.log(mapZoomValue) / Math.LN2));
-    const hashStr = `#${mapZoomValue}/${mapCenter.lat.toFixed(precision)}/${mapCenter.lng.toFixed(precision)}`;
-    if (location.hash !== hashStr) { history.replaceState(null, "", hashStr); }
-  }
-  function parseHash() {
-    if (location.hash && location.hash.startsWith("#")) {
-      const parts = location.hash.slice(1).split("/");
-      if (parts.length === 3) {
-        const parsedValue = parseInt(parts[0], 10);
-        const lat = parseFloat(parts[1]);
-        const lon = parseFloat(parts[2]);
-        if (!Number.isNaN(parsedValue) && !Number.isNaN(lat) && !Number.isNaN(lon)) {
-          map.setView([lat, lon], parsedValue);
-        }
-      }
-    }
-  }
-  map.on("moveend", setHash);
-  parseHash();
+  // Sync map position with URL hash
+  createMapHash(map);
 
   // Add info button
-  new InfoButton({ position: "topright", onClick: toggleInfo }).addTo(map);
+  new InfoButton({ position: "topright", onClick: openInfo }).addTo(map);
 
   // Add button for search places
   new Geocoder().addTo(map);
@@ -138,19 +115,6 @@ function veggiemap() {
     position: "topright"
   }).addTo(map);
 }
-
-// Function to toggle the visibility of the Info box.
-function toggleInfo() {
-  const element = document.getElementById("information"); // Get the element of the information window
-  const computedStyle = window.getComputedStyle(element); // Get the actual style information
-  if (computedStyle.display === "block") {
-    element.style.display = "none";
-  }
-  else {
-    element.style.display = "block";
-  }
-}
-window.toggleInfo = toggleInfo;
 
 // Function to hide the spinner.
 function hideSpinner() {
@@ -240,7 +204,7 @@ function geojsonToMarkerGroups(geojson) {
 // Function to get the marker.
 function getMarker(feature) {
   const eLatLon = [feature.geometry.coordinates[1], feature.geometry.coordinates[0]];
-  const marker = new L.Marker(eLatLon);
+  const marker = new Marker(eLatLon);
   marker.feature = feature;
   // Bind popups/tooltips at creation time (works with chunkedLoading)
   marker.bindPopup(calculatePopup, {
@@ -293,3 +257,6 @@ function calculatePopup(layer) {
 
 // Main function
 veggiemap();
+
+// Show info modal on startup
+showInfoOnStartup();

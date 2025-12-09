@@ -11,6 +11,7 @@ export default defineConfig([
     ".venv/",
     "css/bundle.css",
     "js/bundle.js",
+    "js/veggiemap_chart-bundle.js",
     "package-lock.json",
     "rollup.config.js",
     "third-party/",

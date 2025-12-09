@@ -1,20 +1,18 @@
 /* eslint-disable camelcase */
-
-import * as L from "leaflet";
+import { CATEGORY_HIERARCHY, getCategoryForIcon } from "./category-mapping.js";
+import { Control, Icon, Map, Marker, TileLayer } from "leaflet";
+import { InfoButton, openInfo, showInfoOnStartup } from "./info-button-control.js";
 import { addLanguageResources, getUserLanguage, setUserLanguage } from "./i18n.js";
 import { addNominatimInformation, calculatePopup } from "./popup.js";
-import { langObject, languageSelector } from "../third-party/leaflet.languageselector/leaflet.languageselector.esm.js";
-import { FullScreen } from "../third-party/leaflet.fullscreen/Control.FullScreen.esm.js";
-import { Geocoder } from "../third-party/leaflet.control.geocoder/Control.Geocoder.modern.js";
-import { InfoButton } from "./info-button-control.js";
+import { getIcon, iconToEmoji } from "./veggiemap-icons.js";
+import { langObject, languageSelector } from "@kristjan.esperanto/leaflet-language-selector";
+import { CategoryFilterControl } from "./category-filter-control.js";
+import { FullScreen } from "leaflet.fullscreen";
+import { Geocoder } from "leaflet-control-geocoder";
 import { LocateControl } from "../third-party/leaflet.locatecontrol/L.Control.Locate.esm.patched.js";
 import { MarkerClusterGroup } from "@kristjan.esperanto/leaflet.markercluster";
 import { SubGroup } from "./subgroup.js";
-import { createHash } from "../third-party/leaflet.hash/leaflet-hash.mjs";
-import getIcon from "./veggiemap-icons.js";
-
-// Expose L globally for any remaining global dependencies
-window.L = L;
+import { createMapHash } from "./map-hash.js";
 
 // Define marker groups (using imported MarkerClusterGroup and our SubGroup)
 const parentGroup = new MarkerClusterGroup({
@@ -38,44 +36,172 @@ const subgroups = {
 };
 
 let map;
-let layerControl;
 let languageControl;
+let categoryFilterControl;
+const categorySubgroups = {}; // Storage for category-based subgroups
+const allMarkersByCategory = {}; // Store all markers by category key for filtering
 
 /**
-                                                                                                                                                                     * Update the progress indicator during chunked marker loading
+ * Update the progress indicator during chunked marker loading
  * @param {number} processed - Number of processed markers
  * @param {number} total - Total number of markers being added
  */
+let lastProgressPercent = 0;
+let progressTimeout;
+let progressStarted = false;
+
 function updateProgressBar(processed, total) {
-  const progressElement = document.getElementById("progress");
-  if (progressElement) {
-    if (processed < total) {
-      // Show progress
-      const percent = Math.round((processed / total) * 100);
-      progressElement.style.display = "block";
-      progressElement.textContent = `${percent}% (${processed}/${total})`;
+  const el = document.getElementById("progress");
+  const bar = document.getElementById("progress-bar");
+  if (!el || !bar) { return; }
+
+  // Clear any pending hide
+  if (progressTimeout) {
+    clearTimeout(progressTimeout);
+    progressTimeout = null;
+  }
+
+  if (processed < total) {
+    // Show immediately on first call
+    if (!progressStarted) {
+      progressStarted = true;
+      lastProgressPercent = 0;
+      bar.style.width = "0%";
     }
-    else {
-      // Hide when complete
-      setTimeout(() => {
-        progressElement.style.display = "none";
-      }, 500);
-      updateVisibleCounts();
+    el.style.display = "flex";
+    const percent = Math.round((processed / total) * 100);
+    // Only increase, never decrease
+    if (percent > lastProgressPercent) {
+      lastProgressPercent = percent;
+      bar.style.width = `${percent}%`;
     }
   }
+  else {
+    progressTimeout = setTimeout(() => {
+      el.style.display = "none";
+      lastProgressPercent = 0;
+      progressStarted = false;
+    }, 500);
+    updateVisibleCounts();
+    updateFilterCounts(subgroups); // Update counts when markers are fully loaded
+  }
+}
+
+// Function to apply all filters (diet + category)
+function applyAllFilters() {
+  if (!categoryFilterControl) { return; }
+
+  const enabledDietTypes = categoryFilterControl.getEnabledDietTypes();
+
+  // For each category subgroup, add/remove markers based on filters
+  Object.entries(allMarkersByCategory).forEach(([key, markers]) => {
+    const [mainId, subId] = key.split(".");
+    const isCategoryEnabled = categoryFilterControl.isSubCategoryEnabled(mainId, subId);
+    const subgroup = categorySubgroups[key];
+    if (!subgroup) { return; }
+
+    // Ensure subgroup is on the map
+    if (!map.hasLayer(subgroup)) { map.addLayer(subgroup); }
+
+    // Filter markers: visible if category enabled AND diet type enabled
+    const markersToShow = [];
+    const markersToHide = [];
+
+    markers.forEach((marker) => {
+      const shouldShow = isCategoryEnabled && enabledDietTypes.includes(marker.dietType);
+      const isShown = subgroup.hasLayer(marker);
+      if (shouldShow && !isShown) { markersToShow.push(marker); }
+      else if (!shouldShow && isShown) { markersToHide.push(marker); }
+    });
+
+    if (markersToShow.length > 0) { subgroup.addLayers(markersToShow); }
+    if (markersToHide.length > 0) { subgroup.removeLayers(markersToHide); }
+  });
+
+  updateFilterCounts();
+  updateVisibleCounts();
+}
+
+/**
+ * Count markers in the current viewport
+ */
+function countMarkersInViewport() {
+  if (!map) { return 0; }
+  const bounds = map.getBounds();
+  let count = 0;
+
+  Object.entries(categorySubgroups).forEach(([, subgroup]) => {
+    if (!map.hasLayer(subgroup)) { return; }
+    subgroup.eachLayer((layer) => {
+      if (typeof layer.getLatLng !== "function") { return; }
+      const latlng = layer.getLatLng();
+      if (latlng && bounds.contains(latlng)) {
+        count += 1;
+      }
+    });
+  });
+
+  return count;
+}
+
+function updateFilterCounts() {
+  if (!categoryFilterControl) { return; }
+  const enabledDietTypes = categoryFilterControl.getEnabledDietTypes();
+  const enabledCategories = categoryFilterControl.getCategoryStates();
+  const categoryCounts = {};
+  const dietCounts = {};
+  Object.keys(subgroups).forEach((key) => { dietCounts[key] = 0; });
+  let totalVisible = 0;
+  let totalMarkers = 0;
+
+  Object.entries(allMarkersByCategory).forEach(([key, markers]) => {
+    const [mainId, subId] = key.split(".");
+    const isCategoryEnabled = enabledCategories[`${mainId}.${subId}`] !== false;
+
+    markers.forEach((marker) => {
+      totalMarkers += 1;
+
+      // Category counts: count only if diet type is enabled
+      if (enabledDietTypes.includes(marker.dietType)) {
+        categoryCounts[mainId] = (categoryCounts[mainId] || 0) + 1;
+        categoryCounts[key] = (categoryCounts[key] || 0) + 1;
+      }
+
+      // Diet counts: count if category is enabled (regardless of diet filter state)
+      // This shows how many would be visible if that diet type was enabled
+      if (isCategoryEnabled && marker.dietType) {
+        dietCounts[marker.dietType] = (dietCounts[marker.dietType] || 0) + 1;
+      }
+
+      // Count visible markers for counter (both filters active)
+      const isVisible = isCategoryEnabled && enabledDietTypes.includes(marker.dietType);
+      if (isVisible) {
+        totalVisible += 1;
+      }
+    });
+  });
+
+  categoryFilterControl.setCategoryCounts(categoryCounts);
+  Object.entries(dietCounts).forEach(([dietKey, count]) => {
+    categoryFilterControl.updateDietCount(dietKey, count);
+  });
+
+  // Update marker counter
+  const viewportCount = countMarkersInViewport();
+  categoryFilterControl.updateMarkerCounter(totalVisible, totalMarkers, viewportCount);
 }
 
 function veggiemap() {
   // Replace Leaflet's default marker assets with inline SVG data URIs
-  delete L.Icon.Default.prototype._getIconUrl;
-  L.Icon.Default.mergeOptions({
+  delete Icon.Default.prototype._getIconUrl;
+  Icon.Default.mergeOptions({
     iconRetinaUrl: "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2728%27%20height%3D%2741%27%20viewBox%3D%270%200%2028%2041%27%3E%3Cpath%20fill%3D%27%232c7a7b%27%20d%3D%27M14%200c-7.18%200-13%206.1-13%2013.6%200%2011.6%2013%2027.4%2013%2027.4s13-15.8%2013-27.4C27%206.1%2021.18%200%2014%200z%27/%3E%3Ccircle%20fill%3D%27%23ffffff%27%20cx%3D%2714%27%20cy%3D%2713%27%20r%3D%276%27/%3E%3C/svg%3E",
     iconUrl: "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2728%27%20height%3D%2741%27%20viewBox%3D%270%200%2028%2041%27%3E%3Cpath%20fill%3D%27%232c7a7b%27%20d%3D%27M14%200c-7.18%200-13%206.1-13%2013.6%200%2011.6%2013%2027.4%2013%2027.4s13-15.8%2013-27.4C27%206.1%2021.18%200%2014%200z%27/%3E%3Ccircle%20fill%3D%27%23ffffff%27%20cx%3D%2714%27%20cy%3D%2713%27%20r%3D%276%27/%3E%3C/svg%3E",
     shadowUrl: "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2728%27%20height%3D%2712%27%3E%3Cellipse%20cx%3D%2714%27%20cy%3D%276%27%20rx%3D%2710%27%20ry%3D%275%27%20fill%3D%27rgba%280%2C0%2C0%2C0.25%29%27/%3E%3C/svg%3E"
   });
 
   // Map
-  map = new L.Map("map", {
+  map = new Map("map", {
     center: [20, 17],
     zoom: 3,
     worldCopyJump: true,
@@ -83,28 +209,13 @@ function veggiemap() {
   });
 
   // TileLayer
-  new L.TileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  new TileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
     attribution: "© <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap contributors</a>"
   }).addTo(map);
 
   // Add zoom control
-  new L.Control.Zoom({ position: "topright" }).addTo(map);
-
-  // Define overlays (each marker group gets a layer) + add legend to the description
-  const overlays = {
-    "<div class='legend-row' data-layer='vegan_only'><div class='first-cell vegan_only'></div><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'></div><div class='third-cell'><span class='count-visible' id='v_vegan_only'>0</span><span class='count-divider'>/</span><span class='count-total' id='n_vegan_only'>0</span></div></div>": veganOnly,
-    "<div class='legend-row' data-layer='vegetarian_only'><div class='first-cell vegetarian_only'></div><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'></div><div class='third-cell'><span class='count-visible' id='v_vegetarian_only'>0</span><span class='count-divider'>/</span><span class='count-total' id='n_vegetarian_only'>0</span></div></div>":
-      vegetarianOnly,
-    "<div class='legend-row' data-layer='vegan_friendly'><div class='first-cell vegan_friendly'></div><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'></div><div class='third-cell'><span class='count-visible' id='v_vegan_friendly'>0</span><span class='count-divider'>/</span><span class='count-total' id='n_vegan_friendly'>0</span></div></div>": veganFriendly,
-    "<div class='legend-row' data-layer='vegan_limited'><div class='first-cell vegan_limited'></div><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'></div><div class='third-cell'><span class='count-visible' id='v_vegan_limited'>0</span><span class='count-divider'>/</span><span class='count-total' id='n_vegan_limited'>0</span></div></div>": veganLimited,
-    "<div class='legend-row' data-layer='vegetarian_friendly'><div class='first-cell vegetarian_friendly'></div><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'></div><div class='third-cell'><span class='count-visible' id='v_vegetarian_friendly'>0</span><span class='count-divider'>/</span><span class='count-total' id='n_vegetarian_friendly'>0</span></div></div>":
-      vegetarianFriendly
-  };
-
-  // Add layer control (we will move it to be last in top-right after other controls are added)
-  layerControl = new L.Control.Layers(null, overlays, { position: "topright" });
-  layerControl.addTo(map);
+  new Control.Zoom({ position: "topright" }).addTo(map);
 
   // Close the tooltip when opening the popup
   parentGroup.on("click", () => {
@@ -117,8 +228,7 @@ function veggiemap() {
   veggiemapPopulate(parentGroup);
 
   // Add hash to the url
-  // eslint-disable-next-line no-unused-vars
-  const hash = createHash(map);
+  createMapHash(map);
 
   // Add fullscreen control button
   document.fullscreenControl = new FullScreen({
@@ -130,7 +240,7 @@ function veggiemap() {
   // Add info button
   new InfoButton({
     position: "topright",
-    onClick: () => toggleInfo(),
+    onClick: () => openInfo(),
     contentHtml: "<div class='info-button'></div>"
   }).addTo(map);
 
@@ -148,16 +258,16 @@ function veggiemap() {
   // Add language selector
   languageControl = languageSelector({
     languages: [
-      langObject("ca", "ca - Català", "./third-party/leaflet.languageselector/images/ca.svg"),
-      langObject("de", "de - Deutsch", "./third-party/leaflet.languageselector/images/de.svg"),
-      langObject("en", "en - English", "./third-party/leaflet.languageselector/images/en.svg"),
-      langObject("eo", "eo - Esperanto", "./third-party/leaflet.languageselector/images/eo.svg"),
-      langObject("es", "es - Español", "./third-party/leaflet.languageselector/images/es.svg"),
-      langObject("fi", "fi - suomi", "./third-party/leaflet.languageselector/images/fi.svg"),
-      langObject("fr", "fr - Français", "./third-party/leaflet.languageselector/images/fr.svg"),
-      langObject("it", "it - Italiano", "./third-party/leaflet.languageselector/images/it.svg"),
-      langObject("ko", "ko - 한국어", "./third-party/leaflet.languageselector/images/ko.svg"),
-      langObject("ru", "ru - Русский", "./third-party/leaflet.languageselector/images/ru.svg")
+      langObject("ca", "ca - Català"),
+      langObject("de", "de - Deutsch"),
+      langObject("en", "en - English"),
+      langObject("eo", "eo - Esperanto"),
+      langObject("es", "es - Español"),
+      langObject("fi", "fi - suomi"),
+      langObject("fr", "fr - Français"),
+      langObject("it", "it - Italiano"),
+      langObject("ko", "ko - 한국어"),
+      langObject("ru", "ru - Русский")
     ],
     callback: setUserLanguage,
     initialLanguage: getUserLanguage(),
@@ -166,16 +276,23 @@ function veggiemap() {
   });
   languageControl.addTo(map);
 
-  // Ensure Layers control is last in the top-right stack
-  const topRightCorner = map._controlCorners && map._controlCorners.topright;
-  if (topRightCorner && layerControl && layerControl._container) {
-    topRightCorner.appendChild(layerControl._container);
-  }
+  // Add category filter control
+  categoryFilterControl = new CategoryFilterControl({
+    position: "topright",
+    collapsed: true
+  });
+  categoryFilterControl.addTo(map);
+  categoryFilterControl.onChange(() => {
+    applyAllFilters();
+  });
 
   // Add scale control
-  new L.Control.Scale().addTo(map);
+  new Control.Scale().addTo(map);
 
-  map.on("moveend", updateVisibleCounts);
+  map.on("moveend", () => {
+    updateVisibleCounts();
+    updateFilterCounts();
+  });
   map.on("overlayadd", updateVisibleCounts);
   map.on("overlayremove", updateVisibleCounts);
 
@@ -187,18 +304,6 @@ function veggiemap() {
     if (marker) { addNominatimInformation(marker, popupElement); }
   });
 }
-// Function to toggle the visibility of the Info box.
-function toggleInfo() {
-  const element = document.getElementById("information"); // Get the element of the information window
-  const computedStyle = window.getComputedStyle(element); // Get the actual style information
-  if (computedStyle.display === "block") {
-    element.style.display = "none";
-  }
-  else {
-    element.style.display = "block";
-  }
-}
-document.toggleInfo = toggleInfo;
 
 // Function to hide the spinner.
 function hideSpinner() {
@@ -206,23 +311,11 @@ function hideSpinner() {
   element.style.display = "none";
 }
 
-/**
- * Function to detect the number of markers for each category and
- * add them to the Layer Control.
- *
- * @param {object} markerGroups The marker groups.
- * @param {string} date The date when the data was queried.
- */
 function statPopulate(markerGroups, date) {
-  // Get all categories
   const markerGroupCategories = Object.keys(markerGroups);
-  // Go through the list of categories
   for (let i = 0; i < markerGroupCategories.length; i += 1) {
-    // Get the name
     const categoryName = markerGroupCategories[i];
-    // Get the number of the markers
     const markerNumber = markerGroups[categoryName].length;
-    // Add the number to the category entry in the Layer Control
     const totalElement = document.getElementById(`n_${categoryName}`);
     if (totalElement) { totalElement.textContent = `${markerNumber}`; }
     const visibleElement = document.getElementById(`v_${categoryName}`);
@@ -243,66 +336,91 @@ function statPopulate(markerGroups, date) {
 function updateVisibleCounts() {
   if (!map) { return; }
   const bounds = map.getBounds();
-  Object.entries(subgroups).forEach(([categoryName, subgroup]) => {
-    const visibleElement = document.getElementById(`v_${categoryName}`);
-    const rowElement = document.querySelector(`.legend-row[data-layer='${categoryName}']`);
+  Object.entries(categorySubgroups).forEach(([key, subgroup]) => {
+    const visibleElement = document.getElementById(`v_${key}`);
     const isActive = map.hasLayer(subgroup);
-    if (rowElement) {
-      rowElement.classList.toggle("is-active", isActive);
-    }
-    if (!visibleElement) { return; }
-    if (!isActive) {
-      visibleElement.textContent = "0";
-      return;
-    }
     let visibleCount = 0;
-    subgroup.eachLayer((layer) => {
-      if (typeof layer.getLatLng !== "function") { return; }
-      const latlng = layer.getLatLng();
-      if (latlng && bounds.contains(latlng)) { visibleCount += 1; }
-    });
-    visibleElement.textContent = `${visibleCount}`;
+    if (isActive) {
+      subgroup.eachLayer((layer) => {
+        if (typeof layer.getLatLng !== "function") { return; }
+        const latlng = layer.getLatLng();
+        if (latlng && bounds.contains(latlng)) { visibleCount += 1; }
+      });
+    }
+    if (visibleElement) { visibleElement.textContent = isActive ? `${visibleCount}` : "0"; }
   });
 }
 
-// Function to get the information from the places json file.
 async function veggiemapPopulate(parentGroupVar) {
-  // Initiate translations (To have a text in the info box at the first start.)
   addLanguageResources(getUserLanguage());
+
+  // Show progress bar immediately at 0%
+  const progressEl = document.getElementById("progress");
+  const progressBar = document.getElementById("progress-bar");
+  if (progressEl && progressBar) {
+    progressBar.style.width = "0%";
+    progressEl.style.display = "flex";
+    progressStarted = true;
+    lastProgressPercent = 0;
+  }
 
   const url = new URL("data/places.min.json", window.location.href);
   const response = await fetch(url);
-
-  if (response.status === 404) {
-    console.error(`Couldn't load data from ${url.href}.`);
-    return;
-  }
+  if (response.status === 404) { return; }
 
   const geojson = await response.json();
   const markerGroupsAndDate = geojsonToMarkerGroups(geojson);
   const markerGroups = markerGroupsAndDate[0];
   const date = markerGroupsAndDate[1];
 
-  Object.entries(subgroups).forEach(([key, subgroup]) => {
-    // Add subgroup to map first, so batch-adding uses parentGroup.addLayers
-    map.addLayer(subgroup);
-    // Directly add all markers (no wrapper LayerGroup needed)
-    subgroup.addLayers(markerGroups[key]);
+  initCategorySubgroups();
+
+  // Clear old subgroups
+  Object.values(subgroups).forEach((sg) => {
+    sg.clearLayers();
+    if (map.hasLayer(sg)) { map.removeLayer(sg); }
   });
 
-  // Reveal all the markers and clusters on the map in one go
-  map.addLayer(parentGroupVar);
+  // Collect all markers for category distribution
+  const allMarkers = [];
 
-  // Call the function to put the numbers into the legend
+  // Collect all markers and organize by diet type
+  Object.entries(subgroups).forEach(([key]) => {
+    const markers = markerGroups[key] || [];
+    markers.forEach((marker) => {
+      marker.dietType = key;
+      allMarkers.push(marker);
+    });
+  });
+
+  distributeMarkersByCategory(allMarkers);
+
+  // Add diet filters in order from least to most vegan
+  const dietOrder = ["vegetarian_friendly", "vegan_limited", "vegan_friendly", "vegetarian_only", "vegan_only"];
+  dietOrder.forEach((dietKey) => {
+    const markers = markerGroups[dietKey] || [];
+    const labelHtml = `<div class='first-cell ${dietKey}'></div>`;
+    categoryFilterControl.addDietFilter({
+      dietKey,
+      labelHtml,
+      count: markers.length,
+      onToggle: () => { applyAllFilters(); }
+    });
+  });
+
+  /* eslint-disable-next-line require-atomic-updates */
+  window.categoryFilterControl = categoryFilterControl;
+  map.addLayer(parentGroupVar);
   statPopulate(markerGroups, date);
   updateVisibleCounts();
 
-  // Hide spinner
+  // Update counts AFTER diet filters are added to DOM
+  // Use setTimeout to ensure DOM is ready
+  setTimeout(() => {
+    applyAllFilters();
+  }, 0);
   hideSpinner();
-
-  // Second call of the translation
-  // The legend would not be translated without the second call.
-  // TODO: Figure out how to get by without the second call.
+  showInfoOnStartup();
   addLanguageResources(getUserLanguage());
 }
 
@@ -323,27 +441,51 @@ function getMarker(feature) {
   const eLatLon = [feature.geometry.coordinates[1], feature.geometry.coordinates[0]];
   const eIco = feature.properties.icon;
   const eCat = feature.properties.category;
-
-  const marker = new L.Marker(eLatLon, { icon: getIcon(eIco, eCat) });
+  const marker = new Marker(eLatLon, { icon: getIcon(eIco, eCat) });
   marker.feature = feature;
-  // Bind lazily-evaluated popup/tooltip at creation time so it also works with chunkedLoading
-  marker.bindPopup(calculatePopup, {
-    // Widen popup a bit compared to Leaflet default (300px)
-    minWidth: 300,
-    maxWidth: 520,
-    autoPanPadding: [16, 16]
-  });
+  marker.categoryInfo = getCategoryForIcon(eIco);
+  marker.bindPopup(calculatePopup, { minWidth: 300, maxWidth: 520, autoPanPadding: [16, 16] });
   marker.bindTooltip(calculateTooltip);
   return marker;
 }
 
-// Calculate tooltip content for a given marker layer
-function calculateTooltip(layer) {
-  const feature = layer.feature;
-  const eSym = feature.properties.symbol;
-  const eNam = feature.properties.name;
-  return `${eSym} ${eNam}`;
+function initCategorySubgroups() {
+  Object.entries(CATEGORY_HIERARCHY).forEach(([mainId, mainCat]) => {
+    Object.entries(mainCat.subcategories).forEach(([subId]) => {
+      const key = `${mainId}.${subId}`;
+      categorySubgroups[key] = new SubGroup(parentGroup);
+    });
+  });
 }
 
-// Main function
+function distributeMarkersByCategory(markers) {
+  const categoryCounts = {};
+  const dietCounts = {};
+
+  markers.forEach((marker) => {
+    if (!marker.categoryInfo) { return; }
+    const { mainCategory, subCategory } = marker.categoryInfo;
+    const key = `${mainCategory}.${subCategory}`;
+    const dietType = marker.dietType;
+
+    if (categorySubgroups[key]) {
+      if (!allMarkersByCategory[key]) { allMarkersByCategory[key] = []; }
+      allMarkersByCategory[key].push(marker);
+      categoryCounts[mainCategory] = (categoryCounts[mainCategory] || 0) + 1;
+      categoryCounts[key] = (categoryCounts[key] || 0) + 1;
+      if (dietType) { dietCounts[dietType] = (dietCounts[dietType] || 0) + 1; }
+    }
+  });
+  if (categoryFilterControl) { categoryFilterControl.setCategoryCounts(categoryCounts); }
+  Object.entries(dietCounts).forEach(([dietKey, count]) => {
+    if (categoryFilterControl) { categoryFilterControl.updateDietCount(dietKey, count); }
+  });
+}
+
+function calculateTooltip(layer) {
+  const feature = layer.feature;
+  const eIco = feature.properties.icon;
+  return `${iconToEmoji[eIco] || ""} ${feature.properties.name}`;
+}
+
 veggiemap();

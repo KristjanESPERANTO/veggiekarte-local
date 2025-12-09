@@ -28,7 +28,10 @@ export default [
       format: "es",
       sourcemap: true
     },
-    plugins: [nodeResolve(), terser()]
+    plugins: [
+      nodeResolve({ browser: true }),
+      terser()
+    ]
   },
   // Datacheck bundle
   {
@@ -39,6 +42,23 @@ export default [
       format: "es",
       sourcemap: true
     },
-    plugins: [nodeResolve(), terser()]
+    plugins: [
+      nodeResolve({ browser: true }),
+      terser()
+    ]
+  },
+  // Chart bundle
+  {
+    input: "js/veggiemap_chart.js",
+    output: {
+      banner,
+      file: "js/veggiemap_chart-bundle.js",
+      format: "es",
+      sourcemap: true
+    },
+    plugins: [
+      nodeResolve({ browser: true }),
+      terser()
+    ]
   }
 ];
