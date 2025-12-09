@@ -41,7 +41,7 @@
     "rollup": "^4.53.3"
   },
   "dependencies": {
-    "@kristjan.esperanto/leaflet-language-selector": "^3.3.0",
+    "@kristjan.esperanto/leaflet-language-selector": "^3.4.0",
     "@kristjan.esperanto/leaflet.markercluster": "^3.0.0-alpha.1",
     "chart.js": "^4.5.1",
     "email-validator": "^2.0.4",
