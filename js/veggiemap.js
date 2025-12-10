@@ -13,6 +13,10 @@ import { LocateControl } from "../third-party/leaflet.locatecontrol/L.Control.Lo
 import { MarkerClusterGroup } from "@kristjan.esperanto/leaflet.markercluster";
 import { SubGroup } from "./subgroup.js";
 import { createMapHash } from "./map-hash.js";
+import { createProgressController } from "./progress.js";
+
+// Shared progress bar controller (used for chunked marker loading)
+const progress = createProgressController();
 
 // Define marker groups (using imported MarkerClusterGroup and our SubGroup)
 const parentGroup = new MarkerClusterGroup({
@@ -20,7 +24,7 @@ const parentGroup = new MarkerClusterGroup({
   maxClusterRadius: 20,
   // Smooth UI when adding thousands of markers
   chunkedLoading: true,
-  chunkProgress: updateProgressBar
+  chunkProgress: (processed, total) => progress.updateChunk(processed, total)
 });
 const veganOnly = new SubGroup(parentGroup);
 const vegetarianOnly = new SubGroup(parentGroup);
@@ -46,47 +50,6 @@ const allMarkersByCategory = {}; // Store all markers by category key for filter
  * @param {number} processed - Number of processed markers
  * @param {number} total - Total number of markers being added
  */
-let lastProgressPercent = 0;
-let progressTimeout;
-let progressStarted = false;
-
-function updateProgressBar(processed, total) {
-  const el = document.getElementById("progress");
-  const bar = document.getElementById("progress-bar");
-  if (!el || !bar) { return; }
-
-  // Clear any pending hide
-  if (progressTimeout) {
-    clearTimeout(progressTimeout);
-    progressTimeout = null;
-  }
-
-  if (processed < total) {
-    // Show immediately on first call
-    if (!progressStarted) {
-      progressStarted = true;
-      lastProgressPercent = 0;
-      bar.style.width = "0%";
-    }
-    el.style.display = "flex";
-    const percent = Math.round((processed / total) * 100);
-    // Only increase, never decrease
-    if (percent > lastProgressPercent) {
-      lastProgressPercent = percent;
-      bar.style.width = `${percent}%`;
-    }
-  }
-  else {
-    progressTimeout = setTimeout(() => {
-      el.style.display = "none";
-      lastProgressPercent = 0;
-      progressStarted = false;
-    }, 500);
-    updateVisibleCounts();
-    updateFilterCounts(subgroups); // Update counts when markers are fully loaded
-  }
-}
-
 // Function to apply all filters (diet + category)
 function applyAllFilters() {
   if (!categoryFilterControl) { return; }
@@ -224,6 +187,9 @@ function veggiemap() {
     }
   });
 
+  // Show the info box during initial loading so progress stay visible
+  showInfoOnStartup();
+
   // Load the places and put them on the map
   veggiemapPopulate(parentGroup);
 
@@ -305,12 +271,6 @@ function veggiemap() {
   });
 }
 
-// Function to hide the spinner.
-function hideSpinner() {
-  const element = document.getElementById("spinner");
-  element.style.display = "none";
-}
-
 function statPopulate(markerGroups, date) {
   const markerGroupCategories = Object.keys(markerGroups);
   for (let i = 0; i < markerGroupCategories.length; i += 1) {
@@ -355,18 +315,14 @@ async function veggiemapPopulate(parentGroupVar) {
   addLanguageResources(getUserLanguage());
 
   // Show progress bar immediately at 0%
-  const progressEl = document.getElementById("progress");
-  const progressBar = document.getElementById("progress-bar");
-  if (progressEl && progressBar) {
-    progressBar.style.width = "0%";
-    progressEl.style.display = "flex";
-    progressStarted = true;
-    lastProgressPercent = 0;
-  }
+  progress.start();
 
   const url = new URL("data/places.min.json", window.location.href);
   const response = await fetch(url);
-  if (response.status === 404) { return; }
+  if (response.status === 404) {
+    progress.finish();
+    return;
+  }
 
   const geojson = await response.json();
   const markerGroupsAndDate = geojsonToMarkerGroups(geojson);
@@ -419,9 +375,8 @@ async function veggiemapPopulate(parentGroupVar) {
   setTimeout(() => {
     applyAllFilters();
   }, 0);
-  hideSpinner();
-  showInfoOnStartup();
   addLanguageResources(getUserLanguage());
+  progress.finish();
 }
 
 // Process the places GeoJSON into the groups of markers

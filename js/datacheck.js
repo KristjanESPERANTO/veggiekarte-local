@@ -7,6 +7,7 @@ import { LocateControl } from "../third-party/leaflet.locatecontrol/L.Control.Lo
 import { MarkerClusterGroup } from "@kristjan.esperanto/leaflet.markercluster";
 import { SubGroup } from "./subgroup.js";
 import { createMapHash } from "./map-hash.js";
+import { createProgressController } from "./progress.js";
 
 // Ensure InfoButton is registered globally (used later as L.Control.InfoButton)
 if (InfoButton) { /* Side-effect import */ }
@@ -36,6 +37,7 @@ const subgroups = {
 };
 
 let map;
+const progress = createProgressController();
 
 function veggiemap() {
   // Provide inline SVG defaults to decouple from external marker assets
@@ -116,12 +118,6 @@ function veggiemap() {
   }).addTo(map);
 }
 
-// Function to hide the spinner.
-function hideSpinner() {
-  const element = document.getElementById("spinner");
-  element.style.display = "none";
-}
-
 /**
  * Function to detect the number of markers for each category and
  * add them to the Layer Control.
@@ -153,6 +149,8 @@ function statPopulate(markerGroups, date) {
 async function veggiemapPopulate(parentGroupVar) {
   const url = "../data/check_results.json";
 
+  progress.start();
+
   try {
     const response = await fetch(url);
     const geojson = await response.json();
@@ -175,11 +173,12 @@ async function veggiemapPopulate(parentGroupVar) {
 
     // Popups/tooltips are already bound at marker creation
 
-    // Hide spinner
-    hideSpinner();
+    // Hide progress bar
+    progress.finish(300);
   }
   catch (error) {
     console.log("Request failed", error);
+    progress.finish(300);
   }
 }
 

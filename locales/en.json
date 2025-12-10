@@ -101,6 +101,9 @@
         "L-control-zoom": {
           "zoom_in": "Zoom in",
           "zoom_out": "Zoom out"
+        },
+        "L-control-languageselector": {
+          "title": "Select language"
         }
       }
     }

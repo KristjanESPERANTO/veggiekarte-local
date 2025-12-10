@@ -101,6 +101,9 @@
         "L-control-zoom": {
           "zoom_in": "Acercar",
           "zoom_out": "Alejar"
+        },
+        "L-control-languageselector": {
+          "title": "Seleccionar idioma"
         }
       }
     }

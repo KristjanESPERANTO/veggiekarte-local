@@ -101,6 +101,9 @@
         "L-control-zoom": {
           "zoom_in": "Lähennä",
           "zoom_out": "Loitonna"
+        },
+        "L-control-languageselector": {
+          "title": "Valitse kieli"
         }
       }
     }

@@ -19,15 +19,16 @@
 
   <body>
     <div>
-      <!-- Progress bar for marker loading -->
-      <div id="progress">
-        <div id="progress-bar"></div>
-      </div>
       <!-- Info box -->
       <div id="info-overlay" class="info-overlay">
         <div id="information" class="info-modal">
-          <div id="close" onclick="closeInfo()">✖</div>
-          <div id="spinner"></div>
+          <div id="close" onclick="closeInfo()">×</div>
+          <div class="info-loading">
+            <div id="progress">
+              <div id="progress-label"></div>
+              <div id="progress-bar"></div>
+            </div>
+          </div>
           <div id="content">
             <h1 id="content-welcome-heading"></h1>
             <p id="content-welcome-text"></p>

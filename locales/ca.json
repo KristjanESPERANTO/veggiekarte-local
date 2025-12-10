@@ -101,6 +101,9 @@
         "L-control-zoom": {
           "zoom_in": "Apropar",
           "zoom_out": "Allunyar"
+        },
+        "L-control-languageselector": {
+          "title": "Selecciona l'idioma"
         }
       }
     }

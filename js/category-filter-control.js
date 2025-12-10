@@ -27,14 +27,13 @@ const CategoryFilterControl = Control.extend({
 
     // Create button container (like InfoButton)
     const container = DomUtil.create("div", "leaflet-bar leaflet-control");
-    const link = DomUtil.create("a", "category-filter-btn", container);
-    link.href = "#";
-    link.setAttribute("role", "button");
-    link.setAttribute("aria-label", t("category.selection_title") || "Category Selection");
-    link.innerHTML = "<svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><rect x='3' y='3' width='7' height='7'/><rect x='14' y='3' width='7' height='7'/><rect x='3' y='14' width='7' height='7'/><rect x='14' y='14' width='7' height='7'/></svg>";
+    this._link = DomUtil.create("a", "category-filter-btn", container);
+    this._link.href = "#";
+    this._link.setAttribute("role", "button");
+    this._link.innerHTML = "<svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><rect x='3' y='3' width='7' height='7'/><rect x='14' y='3' width='7' height='7'/><rect x='3' y='14' width='7' height='7'/><rect x='14' y='14' width='7' height='7'/></svg>";
 
     // Toggle panel on click
-    DomEvent.on(link, "click", (evt) => {
+    DomEvent.on(this._link, "click", (evt) => {
       DomEvent.stop(evt);
       this._togglePanel();
     });
@@ -98,10 +97,12 @@ const CategoryFilterControl = Control.extend({
     if (!this._contentDiv) { return; }
     this._contentDiv.innerHTML = "";
 
+    const selectionTitle = t("category.selection_title") || "Selection";
+
     // Header with counter
     const header = DomUtil.create("div", "category-filter-header", this._contentDiv);
     const title = DomUtil.create("div", "category-filter-title", header);
-    title.innerHTML = `<svg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><rect x='3' y='3' width='7' height='7'/><rect x='14' y='3' width='7' height='7'/><rect x='3' y='14' width='7' height='7'/><rect x='14' y='14' width='7' height='7'/></svg> ${t("category.selection_title") || "Selection"}`;
+    title.innerHTML = `<svg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><rect x='3' y='3' width='7' height='7'/><rect x='14' y='3' width='7' height='7'/><rect x='3' y='14' width='7' height='7'/><rect x='14' y='14' width='7' height='7'/></svg> ${selectionTitle}`;
     this._markerCounter = DomUtil.create("div", "category-filter-counter", header);
     const loadingText = t("words.loading") || "Loading...";
     this._markerCounter.innerHTML = `<span style="color:#999">${loadingText}</span>`;
@@ -137,6 +138,10 @@ const CategoryFilterControl = Control.extend({
     Object.entries(CATEGORY_HIERARCHY).forEach(([mainId, mainCat]) => {
       this._createCategorySection(categoryList, mainId, mainCat);
     });
+
+    // Update button that opens this panel
+    this._link.title = selectionTitle;
+    this._link.setAttribute("aria-label", selectionTitle);
   },
 
   _createCategorySection(parent, mainId, mainCat) {

@@ -101,6 +101,9 @@
         "L-control-zoom": {
           "zoom_in": "확대",
           "zoom_out": "축소"
+        },
+        "L-control-languageselector": {
+          "title": "언어 선택"
         }
       }
     }
