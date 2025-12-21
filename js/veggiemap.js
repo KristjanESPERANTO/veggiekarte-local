@@ -401,6 +401,12 @@ async function veggiemapPopulate(parentGroupVar) {
   // Apply filters asynchronously to allow chunkedLoading to start
   setTimeout(() => {
     applyAllFilters();
+
+    // Fallback: If no chunkedLoading happens (few markers), finish after 1s
+    // The debounce in updateChunk() will cancel this if updates arrive
+    setTimeout(() => {
+      progress.finish();
+    }, 1000);
   }, 0);
 
   addLanguageResources(getUserLanguage());
