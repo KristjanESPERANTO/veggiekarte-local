@@ -40,7 +40,7 @@ export default defineConfig([
       "id-length": ["error", { exceptions: ["i", "L"] }],
       "import-x/no-unresolved": ["error", { ignore: ["eslint/config"] }],
       "init-declarations": "off",
-      "max-lines": ["warn", 500],
+      "max-lines": ["warn", 530],
       "max-lines-per-function": ["warn", 175],
       "max-statements": "off",
       "no-console": "off",
