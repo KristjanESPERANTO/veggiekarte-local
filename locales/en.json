@@ -80,6 +80,10 @@
         "review": "review",
         "school_holidays": "school holidays"
       },
+      "edit_modal": {
+        "title": "Edit data",
+        "intro": "Help improve the data at OpenStreetMap. Your edits will benefit Veggiekarte and many other projects."
+      },
       "leaflet": {
         "L-control-fullscreen": {
           "fullscreen": "Fullscreen",

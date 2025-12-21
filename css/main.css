@@ -145,6 +145,112 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Edit modal */
+.edit-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgb(0 0 0 / 50%);
+  z-index: 10001;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.edit-modal-overlay.visible {
+  display: flex;
+}
+
+.edit-modal {
+  position: relative;
+  font-size: 14px;
+  width: 90%;
+  max-width: 500px;
+  background-color: #fff;
+  box-shadow: 0 4px 20px rgb(0 0 0 / 30%);
+  color: #111;
+  line-height: 150%;
+  padding: 24px;
+  border-radius: 10px;
+}
+
+.edit-modal h2 {
+  margin: 0 0 16px;
+  font-size: 18px;
+  color: #2e7d32;
+}
+
+.edit-modal p {
+  margin: 0 0 20px;
+  color: #444;
+}
+
+.edit-modal-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.edit-modal-link {
+  display: block;
+  padding: 12px 16px;
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #2e7d32;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.edit-modal-link:hover {
+  background: #2e7d32;
+  color: #fff;
+  border-color: #2e7d32;
+  text-decoration: none;
+}
+
+.edit-modal-link.primary {
+  background: #2e7d32;
+  color: #fff;
+  border-color: #2e7d32;
+}
+
+.edit-modal-link.primary:hover {
+  background: #1b5e20;
+  border-color: #1b5e20;
+}
+
+.edit-modal-note {
+  font-size: 12px;
+  color: #666;
+  font-style: italic;
+  margin-top: 12px;
+}
+
+.edit-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 50%;
+  background: #f0f0f0;
+  color: #111;
+  font-weight: 600;
+}
+
+.edit-modal-close:hover {
+  background: #e0e0e0;
+  transform: rotate(90deg);
+  transition: all 0.3s ease;
+}
+
 /* Legend - Modern minimal design */
 .leaflet-control-layers {
   border: none;
@@ -400,7 +506,35 @@ a:hover {
 .map-popup-title {
   font-size: medium;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: visible;
 }
+
+.popup-edit-button {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 6px 10px;
+  color: #2e7d32;
+  text-decoration: none !important;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  background: rgb(46 125 50 / 8%);
+  line-height: 1;
+}
+
+.popup-edit-button:hover {
+  color: #fff;
+  background: #2e7d32;
+  text-decoration: none !important;
+  border-radius: 6px;
+  transform: scale(1.05);
+}
+
 .popupflex-container {
   display: flex;
   align-items: flex-start;
@@ -423,7 +557,7 @@ a:hover {
   overflow-wrap: break-word;
   word-break: normal;
   margin: 0;
-  padding: 0 8px 8px 8px;
+  padding: 4px 8px 8px 8px;
 }
 @media (max-width: 600px) {
   .leaflet-popup-content-wrapper {

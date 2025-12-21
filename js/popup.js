@@ -421,18 +421,25 @@ export function calculatePopup(element) {
   catDiv.textContent = t(`texts.i18n_${feature.properties.category}`);
   root.appendChild(catDiv);
 
-  // Title line with OSM link
+  // Title line with edit button
   const title = document.createElement("div");
   title.className = "map-popup-title";
   const eIco = feature.properties.icon;
   const eSym = iconToEmoji[eIco] || "";
   title.appendChild(document.createTextNode(`${eSym} ${feature.properties.name}`));
-  const osmLink = document.createElement("a");
-  osmLink.href = `https://openstreetmap.org/${feature.properties._type}/${feature.properties._id}`;
-  osmLink.target = "_blank";
-  osmLink.rel = "noopener noreferrer";
-  osmLink.appendChild(document.createTextNode(" *"));
-  title.appendChild(osmLink);
+
+  // Edit button (right-aligned)
+  const editButton = document.createElement("a");
+  editButton.className = "popup-edit-button";
+  editButton.href = "#";
+  editButton.setAttribute("aria-label", "Edit");
+  editButton.appendChild(document.createTextNode("✏️"));
+  editButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    showEditModal(feature.properties._type, feature.properties._id);
+  });
+  title.appendChild(editButton);
+
   root.appendChild(title);
   root.appendChild(document.createElement("hr"));
 
@@ -500,4 +507,80 @@ export async function addLibReview(element, container) {
   catch {
     // Ignore - no review or service unavailable (leave placeholder empty)
   }
+}
+
+/** Show edit modal with links to OSM and MapComplete
+ * @param {string} type OSM element type (node/way/relation)
+ * @param {string} id OSM element ID
+ */
+function showEditModal(type, id) {
+  // Create overlay if it doesn't exist
+  let overlay = document.querySelector(".edit-modal-overlay");
+  if (!overlay) {
+    overlay = document.createElement("div");
+    overlay.className = "edit-modal-overlay";
+
+    const modal = document.createElement("div");
+    modal.className = "edit-modal";
+
+    const closeBtn = document.createElement("div");
+    closeBtn.className = "edit-modal-close";
+    closeBtn.textContent = "×";
+    closeBtn.addEventListener("click", () => {
+      overlay.classList.remove("visible");
+    });
+    modal.appendChild(closeBtn);
+
+    const title = document.createElement("h2");
+    title.dataset.i18n = "title";
+    modal.appendChild(title);
+
+    const intro = document.createElement("p");
+    intro.dataset.i18n = "intro";
+    modal.appendChild(intro);
+
+    const linksContainer = document.createElement("div");
+    linksContainer.className = "edit-modal-links";
+    linksContainer.dataset.links = "placeholder";
+    modal.appendChild(linksContainer);
+
+    overlay.appendChild(modal);
+    document.body.appendChild(overlay);
+
+    // Close on overlay click
+    overlay.addEventListener("click", (event) => {
+      if (event.target === overlay) {
+        overlay.classList.remove("visible");
+      }
+    });
+  }
+
+  // Update texts (for language changes)
+  const title = overlay.querySelector("[data-i18n='title']");
+  const intro = overlay.querySelector("[data-i18n='intro']");
+  if (title) { title.textContent = t("edit_modal.title"); }
+  if (intro) { intro.textContent = t("edit_modal.intro"); }
+
+  // Update links
+  const linksContainer = overlay.querySelector("[data-links]");
+  linksContainer.innerHTML = "";
+
+  const mapCompleteLink = document.createElement("a");
+  mapCompleteLink.className = "edit-modal-link";
+  mapCompleteLink.href = `https://mapcomplete.org/food.html?#${type}/${id}`;
+  mapCompleteLink.target = "_blank";
+  mapCompleteLink.rel = "noopener noreferrer";
+  mapCompleteLink.textContent = "MapComplete";
+  linksContainer.appendChild(mapCompleteLink);
+
+  const osmLink = document.createElement("a");
+  osmLink.className = "edit-modal-link";
+  osmLink.href = `https://openstreetmap.org/${type}/${id}`;
+  osmLink.target = "_blank";
+  osmLink.rel = "noopener noreferrer";
+  osmLink.textContent = "OpenStreetMap";
+  linksContainer.appendChild(osmLink);
+
+  // Show modal
+  overlay.classList.add("visible");
 }

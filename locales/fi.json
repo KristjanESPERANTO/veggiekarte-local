@@ -80,6 +80,10 @@
         "review": "arvostelu",
         "school_holidays": "lomakaudet"
       },
+      "edit_modal": {
+        "title": "Muokkaa tietoja",
+        "intro": "Auta parantamaan tietoja OpenStreetMapissa. Muokkauksesi hyödyttävät Veggiekartea ja monia muita projekteja."
+      },
       "leaflet": {
         "L-control-fullscreen": {
           "fullscreen": "koko näyttö",

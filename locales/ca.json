@@ -80,6 +80,10 @@
         "review": "ressenya",
         "school_holidays": "vacances escolars"
       },
+      "edit_modal": {
+        "title": "Editar dades",
+        "intro": "Ajuda a millorar les dades a OpenStreetMap. Les teves edicions beneficiaran Veggiekarte i molts altres projectes."
+      },
       "leaflet": {
         "L-control-fullscreen": {
           "fullscreen": "Pantalla completa",
