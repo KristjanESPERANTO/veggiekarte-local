@@ -1,9 +1,8 @@
 /* eslint-disable camelcase */
 /* global opening_hours */
 import "../third-party/opening_hours/opening_hours+deps.min.js";
-import { getUserLanguage } from "./i18n.js";
+import { getUserLanguage, t } from "./i18n.js";
 import { iconToEmoji } from "./veggiemap-icons.js";
-import { t } from "i18next";
 
 const nominatimCache = {};
 const libreviewCache = {};

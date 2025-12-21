@@ -1,12 +1,15 @@
-/* eslint-disable import-x/no-named-as-default-member */
-import i18next from "i18next";
+/**
+ * Simple i18n implementation for Veggiekarte
+ * Replaces i18next with a lightweight solution for basic key-value translations
+ */
 
-// Declare module variables
-let userLanguage;
+// Module state
+let currentLanguage;
 const fallbackLanguage = "en";
-let languageResources = {};
+const translations = {}; // { lang: { key: value } }
+const languageChangeListeners = [];
 
-// Languages (there has to be a json file for each language)
+// Supported languages (there has to be a json file for each language)
 const languages = {
   ca: "Català",
   de: "Deutsch",
@@ -20,109 +23,138 @@ const languages = {
   ru: "Русский"
 };
 
+/**
+ * Translate a key to the current language
+ * @param {string} key - Translation key (e.g. "texts.content-osm-heading")
+ * @returns {string} Translated string or key if not found
+ */
+// eslint-disable-next-line id-length
+function t(key) {
+  const lang = currentLanguage || fallbackLanguage;
+
+  // Try current language
+  if (translations[lang]) {
+    const value = getNestedValue(translations[lang], key);
+    if (value !== undefined) { return value; }
+  }
+
+  // Fallback to English
+  if (lang !== fallbackLanguage && translations[fallbackLanguage]) {
+    const value = getNestedValue(translations[fallbackLanguage], key);
+    if (value !== undefined) { return value; }
+  }
+
+  return key; // Return key if translation not found
+}
+
+/**
+ * Get nested object value by dot notation key
+ * @param {object} obj - Object to search
+ * @param {string} key - Dot-separated key (e.g. "texts.heading")
+ * @returns {any} Value or undefined
+ */
+function getNestedValue(obj, key) {
+  return key.split(".").reduce((current, part) => current?.[part], obj);
+}
+
+/**
+ * Set the current language and trigger updates
+ * @param {string} language - Language code
+ */
 function setUserLanguage(language) {
-  userLanguage = language;
-  if (i18next.isInitialized) {
-    i18next.changeLanguage(language);
-    if (language in i18next.store.data) {
-      console.info(`i18n: Use language data for ${language} from storage.`);
-    }
-    else {
-      console.info(`i18n: Load language data for ${language} from file.`);
-      addLanguageResources(language);
-    }
+  currentLanguage = language;
+
+  if (translations[language]) {
+    console.info(`i18n: Use language data for ${language} from storage.`);
+    notifyLanguageChange();
   }
   else {
-    initTranslate(language);
+    console.info(`i18n: Load language data for ${language} from file.`);
+    addLanguageResources(language);
   }
 }
 
+/**
+ * Get the current language (from URL, browser, or default)
+ * @returns {string} Language code
+ */
 function getUserLanguage() {
-  // 1. If set, take language from URL parameter
-  // 2. Else take browser language
-  // 3. If the taken language isn't one of the translated, return English
-
-  if (userLanguage === undefined) {
-    // Get language from URL
-    const urlParameters = new URLSearchParams(document.location.search.substring(1));
+  if (currentLanguage === undefined) {
+    // 1. Try URL parameter
+    const urlParameters = new URLSearchParams(document.location.search);
     const urlLanguage = urlParameters.get("lang");
 
     if (urlLanguage) {
       console.info(`i18n: Language from URL: ${urlLanguage}`);
-      userLanguage = urlLanguage;
+      currentLanguage = urlLanguage;
     }
     else {
-      // Get language from browser
+      // 2. Try browser language
       const browserLanguage = navigator.language.split("-")[0];
       console.info(`i18n: Browser language: ${browserLanguage}`);
-      userLanguage = browserLanguage;
+      currentLanguage = browserLanguage;
     }
 
-    // Check if we support the taken language
-    if (!Object.keys(languages).includes(userLanguage)) {
-      console.warn(`i18n: This Website is not translated to language with language code '${userLanguage}'. Help to translate it!`);
-      userLanguage = "en";
+    // 3. Check if we support the language
+    if (!Object.keys(languages).includes(currentLanguage)) {
+      console.warn(`i18n: This Website is not translated to language with language code '${currentLanguage}'. Help to translate it!`);
+      currentLanguage = fallbackLanguage;
     }
   }
 
-  return userLanguage;
+  return currentLanguage;
 }
 
+/**
+ * Load translation resources for a language
+ * @param {string} language - Language code to load
+ */
 async function addLanguageResources(language) {
   try {
     const languageFile = `./locales/${language}.json`;
     const response = await fetch(languageFile);
 
     if (!response.ok) {
-      console.error("Error");
-      throw new Error(response.statusText);
+      throw new Error(`Failed to load ${languageFile}: ${response.statusText}`);
     }
 
     const data = await response.json();
+    translations[language] = data[language].translation;
 
-    if (i18next.isInitialized) {
-      const translations = data[language].translation;
-      i18next.addResourceBundle(language, "translation", translations);
-      updateContent();
+    // Load fallback language if needed
+    if (language !== fallbackLanguage && !translations[fallbackLanguage]) {
+      await addLanguageResources(fallbackLanguage);
     }
-    else {
-      // Merge new data per spread operator
-      languageResources = { ...languageResources, ...data };
 
-      if (language === fallbackLanguage) {
-        initTranslate(userLanguage);
-      }
-      else {
-        // Get fallback language resources
-        await addLanguageResources(fallbackLanguage);
-      }
-    }
+    notifyLanguageChange();
   }
   catch (err) {
-    console.error(err);
+    console.error(`i18n: Error loading language ${language}:`, err);
   }
 }
 
-function initTranslate(language) {
-  i18next.init({
-    lng: language,
-    fallbackLng: fallbackLanguage,
-    debug: false,
-    resources: languageResources
-  });
+/**
+ * Notify all listeners that the language changed
+ */
+function notifyLanguageChange() {
+  window.history.replaceState({}, "", updateURLParameter(window.location.href, "lang", currentLanguage));
+  languageChangeListeners.forEach(fn => fn());
 }
 
-i18next.on("languageChanged", () => {
-  window.history.replaceState({}, "", updateURLParameter(window.location.href, "lang", i18next.language));
-  updateContent();
-});
+/**
+ * Register a callback for language changes
+ * @param {Function} callback - Function to call when language changes
+ */
+function onLanguageChange(callback) {
+  languageChangeListeners.push(callback);
+}
 
 /**
  * Add or replace a parameter (with value) in the given URL.
- * @param String url the URL
- * @param String param the parameter
- * @param String paramVal the value of the parameter
- * @return String the changed URL
+ * @param {string} url - the URL
+ * @param {string} param - the parameter
+ * @param {string} paramVal - the value of the parameter
+ * @returns {string} the changed URL
  */
 function updateURLParameter(url, param, paramVal) {
   let theAnchor;
@@ -162,18 +194,21 @@ function updateURLParameter(url, param, paramVal) {
   return `${baseURL}?${newAdditionalURL}${rowsTxt}`;
 }
 
+/**
+ * Update all translated content in the page
+ */
 function updateContent() {
   // Info box
-  document.getElementById("content-welcome-heading").innerText = i18next.t("texts.content-welcome-heading");
-  document.getElementById("content-welcome-text").innerHTML = i18next.t("texts.content-welcome-text");
-  document.getElementById("content-osm-heading").innerText = i18next.t("texts.content-osm-heading");
-  document.getElementById("content-osm-text").innerHTML = i18next.t("texts.content-osm-text");
-  document.getElementById("content-contribute-heading").innerText = i18next.t("texts.content-contribute-heading");
-  document.getElementById("content-contribute-text").innerHTML = i18next.t("texts.content-contribute-text");
-  document.getElementById("content-reviews-heading").innerText = i18next.t("texts.content-reviews-heading");
-  document.getElementById("content-reviews-text").innerHTML = i18next.t("texts.content-reviews-text");
-  document.getElementById("content-further-heading").innerText = i18next.t("texts.content-further-heading");
-  document.getElementById("content-further-text").innerHTML = i18next.t("texts.content-further-text");
+  document.getElementById("content-welcome-heading").innerText = t("texts.content-welcome-heading");
+  document.getElementById("content-welcome-text").innerHTML = t("texts.content-welcome-text");
+  document.getElementById("content-osm-heading").innerText = t("texts.content-osm-heading");
+  document.getElementById("content-osm-text").innerHTML = t("texts.content-osm-text");
+  document.getElementById("content-contribute-heading").innerText = t("texts.content-contribute-heading");
+  document.getElementById("content-contribute-text").innerHTML = t("texts.content-contribute-text");
+  document.getElementById("content-reviews-heading").innerText = t("texts.content-reviews-heading");
+  document.getElementById("content-reviews-text").innerHTML = t("texts.content-reviews-text");
+  document.getElementById("content-further-heading").innerText = t("texts.content-further-heading");
+  document.getElementById("content-further-text").innerHTML = t("texts.content-further-text");
 
   // Show content now that translations are loaded
   const content = document.getElementById("content");
@@ -182,25 +217,25 @@ function updateContent() {
   }
 
   // Controls
-  document.getElementsByClassName("leaflet-control-zoom-in")[0].title = i18next.t("leaflet.L-control-zoom.zoom_in");
-  document.getElementsByClassName("leaflet-control-zoom-out")[0].title = i18next.t("leaflet.L-control-zoom.zoom_out");
-  document.getElementsByClassName("info-button")[0].parentElement.parentElement.title = i18next.t("leaflet.L-control-infoButton.title");
-  document.getElementsByClassName("leaflet-control-geocoder")[0].title = i18next.t("leaflet.L-control-geocoder.title");
-  document.getElementsByClassName("leaflet-control-geocoder-form")[0].firstChild.placeholder = i18next.t("leaflet.L-control-geocoder.placeholder");
-  document.getElementsByClassName("leaflet-control-geocoder-form-no-error")[0].innerText = i18next.t("leaflet.L-control-geocoder.error_message");
-  document.getElementsByClassName("leaflet-control-locate")[0].firstChild.title = i18next.t("leaflet.L-control-locate.where_am_i");
-  document.locateControl.options.strings.metersUnit = i18next.t("leaflet.L-control-locate.meter");
-  document.locateControl.options.strings.popup = i18next.t("leaflet.L-control-locate.distance");
+  document.getElementsByClassName("leaflet-control-zoom-in")[0].title = t("leaflet.L-control-zoom.zoom_in");
+  document.getElementsByClassName("leaflet-control-zoom-out")[0].title = t("leaflet.L-control-zoom.zoom_out");
+  document.getElementsByClassName("info-button")[0].parentElement.parentElement.title = t("leaflet.L-control-infoButton.title");
+  document.getElementsByClassName("leaflet-control-geocoder")[0].title = t("leaflet.L-control-geocoder.title");
+  document.getElementsByClassName("leaflet-control-geocoder-form")[0].firstChild.placeholder = t("leaflet.L-control-geocoder.placeholder");
+  document.getElementsByClassName("leaflet-control-geocoder-form-no-error")[0].innerText = t("leaflet.L-control-geocoder.error_message");
+  document.getElementsByClassName("leaflet-control-locate")[0].firstChild.title = t("leaflet.L-control-locate.where_am_i");
+  document.locateControl.options.strings.metersUnit = t("leaflet.L-control-locate.meter");
+  document.locateControl.options.strings.popup = t("leaflet.L-control-locate.distance");
 
   // Fullscreen control
-  document.fullscreenControl.link.title = i18next.t("leaflet.L-control-fullscreen.fullscreen");
-  document.fullscreenControl.options.title = i18next.t("leaflet.L-control-fullscreen.fullscreen");
-  document.fullscreenControl.options.titleCancel = i18next.t("leaflet.L-control-fullscreen.exitFullscreen");
+  document.fullscreenControl.link.title = t("leaflet.L-control-fullscreen.fullscreen");
+  document.fullscreenControl.options.title = t("leaflet.L-control-fullscreen.fullscreen");
+  document.fullscreenControl.options.titleCancel = t("leaflet.L-control-fullscreen.exitFullscreen");
 
   // Language selector control
   const langButton = document.querySelector(".leaflet-control-languageselector-button");
   if (langButton) {
-    const langTitle = i18next.t("leaflet.L-control-languageselector.title");
+    const langTitle = t("leaflet.L-control-languageselector.title");
     langButton.title = langTitle;
     langButton.setAttribute("aria-label", langTitle);
   }
@@ -211,7 +246,10 @@ function updateContent() {
   }
 
   // Set HTML lang attribute
-  document.body.parentElement.lang = i18next.language;
+  document.body.parentElement.lang = currentLanguage;
 }
 
-export { setUserLanguage, getUserLanguage, addLanguageResources };
+// Initialize on module load
+onLanguageChange(updateContent);
+
+export { setUserLanguage, getUserLanguage, addLanguageResources, t };

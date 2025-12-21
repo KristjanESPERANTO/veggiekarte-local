@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import { Control, DomEvent, DomUtil } from "leaflet";
 import { CATEGORY_HIERARCHY } from "./category-mapping.js";
-import { t } from "i18next";
+import { t } from "./i18n.js";
 
 /**
  * CategoryFilterControl - Leaflet control for filtering markers by category and diet type.
