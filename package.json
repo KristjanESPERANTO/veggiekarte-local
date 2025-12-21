@@ -28,6 +28,7 @@
     "@eslint/markdown": "^7.5.1",
     "@mapbox/maki": "^8.2.0",
     "@rapideditor/temaki": "^5.11.0",
+    "@rollup/plugin-commonjs": "^29.0.0",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-terser": "^0.4.4",
     "@stylistic/eslint-plugin": "^5.6.1",
@@ -49,7 +50,7 @@
     "leaflet-control-geocoder": "^3.3.1",
     "leaflet.fullscreen": "^5.1.1",
     "libphonenumber-js": "^1.12.33",
-    "opening_hours": "^3.9.0"
+    "opening_hours": "^3.10.0-rc.1"
   },
   "overrides": {
     "leaflet-control-geocoder": {

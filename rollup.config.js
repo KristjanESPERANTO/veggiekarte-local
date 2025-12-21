@@ -1,5 +1,6 @@
 import terser from "@rollup/plugin-terser";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
 import { readFileSync } from "fs";
 
 const pkg = JSON.parse(readFileSync("./package.json"));
@@ -30,6 +31,7 @@ export default [
     },
     plugins: [
       nodeResolve({ browser: true }),
+      commonjs(),
       terser()
     ]
   },
@@ -44,6 +46,7 @@ export default [
     },
     plugins: [
       nodeResolve({ browser: true }),
+      commonjs(),
       terser()
     ]
   },
@@ -58,6 +61,7 @@ export default [
     },
     plugins: [
       nodeResolve({ browser: true }),
+      commonjs(),
       terser()
     ]
   }
