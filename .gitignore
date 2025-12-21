@@ -2,7 +2,6 @@
 .vscode/
 node_modules/
 __pycache__/
-data/places.json
 data/places_old.json
 data/places.min.json.br.json.old
 data/overpass.json

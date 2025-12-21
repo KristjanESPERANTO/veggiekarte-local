@@ -78,7 +78,8 @@
         "closed": "closed",
         "public_holiday": "holiday",
         "review": "review",
-        "school_holidays": "school holidays"
+        "school_holidays": "school holidays",
+        "more_info": "More information"
       },
       "edit_modal": {
         "title": "Edit data",

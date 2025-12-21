@@ -78,7 +78,8 @@
         "closed": "закрыто",
         "public_holiday": "праздник",
         "review": "отзыв",
-        "school_holidays": "школьные каникулы"
+        "school_holidays": "школьные каникулы",
+        "more_info": "Дополнительная информация"
       },
       "edit_modal": {
         "title": "Редактировать данные",

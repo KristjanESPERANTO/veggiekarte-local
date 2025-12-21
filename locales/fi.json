@@ -78,7 +78,8 @@
         "closed": "kiinni",
         "public_holiday": "pyhäpäivät",
         "review": "arvostelu",
-        "school_holidays": "lomakaudet"
+        "school_holidays": "lomakaudet",
+        "more_info": "Lisätietoja"
       },
       "edit_modal": {
         "title": "Muokkaa tietoja",

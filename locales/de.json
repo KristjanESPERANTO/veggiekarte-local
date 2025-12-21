@@ -78,7 +78,8 @@
         "closed": "geschlossen",
         "public_holiday": "Feiertag",
         "review": "Rezension",
-        "school_holidays": "Ferien"
+        "school_holidays": "Ferien",
+        "more_info": "Mehr Infos"
       },
       "edit_modal": {
         "title": "Daten bearbeiten",

@@ -34,13 +34,11 @@ const veganOnly = new SubGroup(parentGroup);
 const vegetarianOnly = new SubGroup(parentGroup);
 const veganFriendly = new SubGroup(parentGroup);
 const veganLimited = new SubGroup(parentGroup);
-const vegetarianFriendly = new SubGroup(parentGroup);
 const subgroups = {
   vegan_only: veganOnly,
   vegetarian_only: vegetarianOnly,
   vegan_friendly: veganFriendly,
-  vegan_limited: veganLimited,
-  vegetarian_friendly: vegetarianFriendly
+  vegan_limited: veganLimited
 };
 
 let map;
@@ -174,8 +172,8 @@ function veggiemap() {
 
   // Map
   map = new Map("map", {
-    center: [20, 17],
-    zoom: 3,
+    center: [51.42, 12.0], // Halle (Saale)
+    zoom: 11,
     worldCopyJump: true,
     zoomControl: false
   });
@@ -366,17 +364,18 @@ async function veggiemapPopulate(parentGroupVar) {
 
   // Collect all markers and organize by diet type
   Object.entries(subgroups).forEach(([key]) => {
-    const markers = markerGroups[key] || [];
-    markers.forEach((marker) => {
-      marker.dietType = key;
-      allMarkers.push(marker);
-    });
+    if (markerGroups[key]) {
+      markerGroups[key].forEach((marker) => {
+        marker.dietType = key;
+        allMarkers.push(marker);
+      });
+    }
   });
 
   distributeMarkersByCategory(allMarkers);
 
-  // Add diet filters in order from least to most vegan
-  const dietOrder = ["vegetarian_friendly", "vegan_limited", "vegan_friendly", "vegetarian_only", "vegan_only"];
+  // Add diet filters in order from least to most vegan (without vegetarian_friendly for Halle)
+  const dietOrder = ["vegan_limited", "vegan_friendly", "vegetarian_only", "vegan_only"];
   dietOrder.forEach((dietKey) => {
     const markers = markerGroups[dietKey] || [];
     const labelHtml = `<div class='first-cell ${dietKey}'></div>`;
@@ -401,6 +400,12 @@ async function veggiemapPopulate(parentGroupVar) {
   // Apply filters asynchronously to allow chunkedLoading to start
   setTimeout(() => {
     applyAllFilters();
+
+    // Fallback: If no chunkedLoading happens (few markers), finish after 1s
+    // The debounce in updateChunk() will cancel this if updates arrive
+    setTimeout(() => {
+      progress.finish();
+    }, 1000);
   }, 0);
 
   addLanguageResources(getUserLanguage());

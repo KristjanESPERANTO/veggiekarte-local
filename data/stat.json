@@ -43137,12 +43137,20 @@
    "n_vegetarian_only": 2183
   },
   {
+   "date": "2025-12-08",
+   "n_vegan_friendly": 142,
+   "n_vegan_limited": 30,
+   "n_vegan_only": 6,
+   "n_vegetarian_friendly": 0,
+   "n_vegetarian_only": 10
+  },
+  {
    "date": "2025-12-09",
-   "n_vegan_friendly": 39722,
-   "n_vegan_limited": 881,
-   "n_vegan_only": 3615,
-   "n_vegetarian_friendly": 57581,
-   "n_vegetarian_only": 2192
+   "n_vegan_friendly": 142,
+   "n_vegan_limited": 30,
+   "n_vegan_only": 6,
+   "n_vegetarian_friendly": 0,
+   "n_vegetarian_only": 10
   }
  ]
 }

@@ -403,30 +403,68 @@ export function calculatePopup(element) {
     root.appendChild(div);
   });
 
-  // Libreviews
-  const libDiv = document.createElement("div");
-  libDiv.dataset.section = "libreviews";
-  root.appendChild(libDiv);
-  addLibReview(element, libDiv);
+  // More info container (Halle-specific)
+  if (feature.properties.more_info) {
+    const moreInfoDiv = document.createElement("div");
+    moreInfoDiv.dataset.section = "more_info";
+    root.appendChild(moreInfoDiv);
+    addMoreInfo(element, moreInfoDiv);
+  }
+
+  // Libreviews container
+  const libReviewsDiv = document.createElement("div");
+  libReviewsDiv.dataset.section = "libreviews";
+  root.appendChild(libReviewsDiv);
+
+  // Trigger async review lookup (scoped to this popup root)
+  addLibReview(element, libReviewsDiv);
 
   return root;
 }
 
-/** Fetch & inject libreview link if available (cached by ID). */
+/** Add more info link for Halle-specific locations.
+ * @param {L.Marker} element marker
+ * @param {HTMLElement} container target div (data-section="more_info")
+ */
+export function addMoreInfo(element, container) {
+  // Guard against geocoder markers (they don't have a feature)
+  if (!element.feature) { return; }
+  if (!element.feature.properties.more_info) { return; }
+
+  const TOP_URL = "https://www.vegan-in-halle.de/wp/leben/vegane-stadtkarte/";
+  const osmType = element.feature.properties._type;
+  const osmId = element.feature.properties._id;
+  const link = document.createElement("a");
+  link.href = `${TOP_URL}#${osmType}${osmId}`;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.textContent = t("words.more_info") || "More information";
+  const row = makeRow("ℹ️", [link]);
+  container.replaceChildren(row);
+}
+
+/** Fetch & inject libreview link if available (cached by ID).
+ * @param {L.Marker} element marker
+ * @param {HTMLElement} container target div (data-section="libreviews")
+ */
 export async function addLibReview(element, container) {
-  if (!element.feature || !container) { return; }
-
-  const { _type: type, _id: id } = element.feature.properties;
-  const cacheKey = `${type}/${id}`;
-
-  // Check cache first
-  if (libreviewCache[cacheKey]) {
-    container.replaceChildren(makeRow("📓", [makeLink(`https://lib.reviews/${libreviewCache[cacheKey]}`, t("words.review"))]));
-    return;
-  }
-
+  // Guard against geocoder markers (they don't have a feature)
+  if (!element.feature) { return; }
+  const url = `https://lib.reviews/api/thing?url=https://www.openstreetmap.org/${element.feature.properties._type}/${element.feature.properties._id}`;
+  const cacheKey = `${element.feature.properties._type}/${element.feature.properties._id}`;
   try {
-    const response = await fetch(`https://lib.reviews/api/thing?url=https://www.openstreetmap.org/${type}/${id}`);
+    // Allow running before the popup root is attached; DOM nodes will carry over.
+    if (!container) { return; }
+    if (libreviewCache[cacheKey]) {
+      const link = document.createElement("a");
+      link.href = `https://lib.reviews/${libreviewCache[cacheKey]}`;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = t("words.review");
+      container.replaceChildren(makeRow("📓", [link]));
+      return;
+    }
+    const response = await fetch(url);
     const data = await response.json();
     if (!container.isConnected || !data?.thing?.urlID) { return; }
     // Re-check cache after await (another call may have populated it)
