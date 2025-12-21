@@ -15,6 +15,24 @@ import urllib3            # for the HTTP GET request
 
 assert sys.version_info >= (3, 0)
 
+# Load configuration: config.custom.json if it exists, otherwise config.default.json
+CONFIG_CUSTOM = Path("./config.custom.json")
+CONFIG_DEFAULT = Path("./config.default.json")
+
+if CONFIG_CUSTOM.exists():
+    CONFIG_FILE = CONFIG_CUSTOM
+    print(f"Using custom config: {CONFIG_FILE}")
+elif CONFIG_DEFAULT.exists():
+    CONFIG_FILE = CONFIG_DEFAULT
+    print(f"Using default config: {CONFIG_FILE}")
+else:
+    raise FileNotFoundError(
+        "No config file found. Please create config.custom.json or ensure config.default.json exists."
+    )
+
+with open(CONFIG_FILE) as f:
+    CONFIG = json.load(f)
+
 # constants for the overpass request
 
 # # server list (from: https://wiki.openstreetmap.org/wiki/Overpass_API)
@@ -145,21 +163,69 @@ def determine_icon(tags):
     return icon
 
 
+def build_overpass_query():
+    """Build the Overpass query from config."""
+    query = "?data=[out:json][timeout:900];"
+    
+    # Build area query if areas are defined
+    if CONFIG["areas"] and len(CONFIG["areas"]) > 0:
+        area_names = []
+        for area in CONFIG["areas"]:
+            area_name = area["name"]
+            area_names.append(area_name)
+            query += f"area['{area['type']}'='{area['value']}']->.{area_name};"
+        
+        # Combine areas into search area
+        query += f"({';'.join(f'.{name}' for name in area_names)};)->.searchArea;"
+        query += "("
+        
+        # Always include vegan
+        query += "nwr(area.searchArea)['diet:vegan'~'yes|only|limited'];"
+        
+        # Add vegetarian if configured
+        if CONFIG["includeVegetarian"]:
+            query += "nwr(area.searchArea)['diet:vegetarian'~'yes|only'];"
+        
+        query += ");"
+    elif CONFIG["areaQuery"]:
+        # Use custom area query
+        query += CONFIG["areaQuery"]
+        query += "("
+        
+        # Always include vegan
+        query += "nwr(area.searchArea)['diet:vegan'~'yes|only|limited'];"
+        
+        # Add vegetarian if configured
+        if CONFIG["includeVegetarian"]:
+            query += "nwr(area.searchArea)['diet:vegetarian'~'yes|only'];"
+        
+        query += ");"
+    else:
+        # Worldwide query
+        query += "("
+        
+        # Always include vegan
+        query += "nwr['diet:vegan'~'yes|only|limited'];"
+        
+        # Add vegetarian if configured
+        if CONFIG["includeVegetarian"]:
+            query += "nwr['diet:vegetarian'~'yes|only'];"
+        
+        query += ");"
+    
+    query += "out+center;"
+    return query
+
+
 def get_osm_data():
     """Get the data from OSM."""
     # Initialize variables
     server = 0
     result = None
 
-    # Preparing the string for the Overpass request
-    # Define export format
-    overpass_query = "?data=[out:json][timeout:900];("
-    # # Collect the vegan nodes, ways and relations
-    overpass_query += "nwr['diet:vegan'~'yes|only|limited'];"
-    # # Collect the vegetarian nodes, ways and relations
-    overpass_query += "nwr['diet:vegetarian'~'yes|only'];"
-    # # End of the query and use "out center" to reduce the geometry of ways and relations to a single coordinate
-    overpass_query += ");out+center;"
+    # Build the Overpass query from config
+    overpass_query = build_overpass_query()
+    print("Overpass query:", overpass_query)
 
     # Sending a request to one server after another until one gives a valid answer or
     # the end of the server list is reached.
@@ -253,6 +319,10 @@ def write_data(data):
 
         icon = determine_icon(tags)
         place_obj["properties"]["icon"] = icon
+
+        # Add "more_info" flag if element is in the config list
+        if CONFIG["localSiteEnabled"] and element_id in CONFIG["localSiteMoreInfoIds"]:
+            place_obj["properties"]["more_info"] = True
 
         # Get a name
         if "name" in tags:

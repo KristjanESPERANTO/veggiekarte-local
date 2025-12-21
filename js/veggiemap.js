@@ -174,15 +174,15 @@ function veggiemap() {
 
   // Map
   map = new Map("map", {
-    center: [20, 17],
-    zoom: 3,
+    center: __MAP_CENTER__,
+    zoom: __MAP_ZOOM__,
     worldCopyJump: true,
     zoomControl: false
   });
 
   // TileLayer
   new TileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 19,
+    maxZoom: __MAP_MAX_ZOOM__,
     attribution: "© <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap contributors</a>"
   }).addTo(map);
 
@@ -376,7 +376,10 @@ async function veggiemapPopulate(parentGroupVar) {
   distributeMarkersByCategory(allMarkers);
 
   // Add diet filters in order from least to most vegan
-  const dietOrder = ["vegetarian_friendly", "vegan_limited", "vegan_friendly", "vegetarian_only", "vegan_only"];
+  const dietOrder = __INCLUDE_VEGETARIAN__
+    ? ["vegetarian_friendly", "vegan_limited", "vegan_friendly", "vegetarian_only", "vegan_only"]
+    : ["vegan_limited", "vegan_friendly", "vegetarian_only", "vegan_only"];
+
   dietOrder.forEach((dietKey) => {
     const markers = markerGroups[dietKey] || [];
     const labelHtml = `<div class='first-cell ${dietKey}'></div>`;

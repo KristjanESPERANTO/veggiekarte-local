@@ -25,7 +25,22 @@ export default defineConfig([
   { files: ["**/*.css"], plugins: { css }, language: "css/css", extends: ["css/recommended"], rules: { "css/no-important": "off", "css/use-baseline": "off" } },
   {
     files: ["**/*.js"],
-    languageOptions: { ecmaVersion: "latest", globals: globals.browser },
+    languageOptions: {
+      ecmaVersion: "latest",
+      globals: {
+        ...globals.browser,
+        // Build-time constants injected by @rollup/plugin-replace
+        __APP_NAME__: "readonly",
+        __APP_DESCRIPTION__: "readonly",
+        __MAP_CENTER__: "readonly",
+        __MAP_ZOOM__: "readonly",
+        __MAP_MIN_ZOOM__: "readonly",
+        __MAP_MAX_ZOOM__: "readonly",
+        __INCLUDE_VEGETARIAN__: "readonly",
+        __LOCAL_SITE_ENABLED__: "readonly",
+        __LOCAL_SITE_URL__: "readonly"
+      }
+    },
     plugins: { js, stylistic },
     extends: [importX.recommended, "js/all", "stylistic/recommended"],
     rules: {

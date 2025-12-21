@@ -1,9 +1,17 @@
 import terser from "@rollup/plugin-terser";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
-import { readFileSync } from "fs";
+import replace from "@rollup/plugin-replace";
+import { readFileSync, existsSync } from "fs";
 
 const pkg = JSON.parse(readFileSync("./package.json"));
+
+// Load config.custom.json if it exists, otherwise config.default.json
+const configFile = existsSync("./config.custom.json") 
+  ? "./config.custom.json" 
+  : "./config.default.json";
+const config = JSON.parse(readFileSync(configFile));
+console.log(`Using config file: ${configFile}`);
 
 const banner = `/*! *****************************************************************************
   ${pkg.name}
@@ -19,6 +27,27 @@ const banner = `/*! ************************************************************
 ***************************************************************************** */
 `;
 
+// Shared plugins for all bundles
+const sharedPlugins = [
+  replace({
+    preventAssignment: true,
+    values: {
+      __APP_NAME__: JSON.stringify(config.appName),
+      __APP_DESCRIPTION__: JSON.stringify(config.appDescription),
+      __MAP_CENTER__: JSON.stringify(config.mapCenter),
+      __MAP_ZOOM__: JSON.stringify(config.mapZoom),
+      __MAP_MIN_ZOOM__: JSON.stringify(config.mapMinZoom),
+      __MAP_MAX_ZOOM__: JSON.stringify(config.mapMaxZoom),
+      __INCLUDE_VEGETARIAN__: JSON.stringify(config.includeVegetarian),
+      __LOCAL_SITE_ENABLED__: JSON.stringify(config.localSiteEnabled),
+      __LOCAL_SITE_URL__: JSON.stringify(config.localSiteUrl)
+    }
+  }),
+  nodeResolve({ browser: true }),
+  commonjs(),
+  terser()
+];
+
 export default [
   // Main app bundle
   {
@@ -29,11 +58,7 @@ export default [
       format: "es",
       sourcemap: true
     },
-    plugins: [
-      nodeResolve({ browser: true }),
-      commonjs(),
-      terser()
-    ]
+    plugins: sharedPlugins
   },
   // Datacheck bundle
   {
@@ -44,11 +69,7 @@ export default [
       format: "es",
       sourcemap: true
     },
-    plugins: [
-      nodeResolve({ browser: true }),
-      commonjs(),
-      terser()
-    ]
+    plugins: sharedPlugins
   },
   // Chart bundle
   {
@@ -59,10 +80,6 @@ export default [
       format: "es",
       sourcemap: true
     },
-    plugins: [
-      nodeResolve({ browser: true }),
-      commonjs(),
-      terser()
-    ]
+    plugins: sharedPlugins
   }
 ];

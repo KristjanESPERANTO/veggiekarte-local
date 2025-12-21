@@ -1,0 +1,14 @@
+{
+  "appName": "Veggiekarte",
+  "appDescription": "Vegan and vegetarian places on OpenStreetMap",
+  "mapCenter": [51.1657, 10.4515],
+  "mapZoom": 6,
+  "mapMinZoom": 3,
+  "mapMaxZoom": 19,
+  "areas": [],
+  "areaQuery": null,
+  "includeVegetarian": true,
+  "localSiteEnabled": false,
+  "localSiteUrl": null,
+  "localSiteMoreInfoIds": []
+}
