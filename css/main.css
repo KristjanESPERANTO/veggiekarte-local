@@ -120,6 +120,15 @@ body {
   margin-top: 20px;
 }
 
+/* Hide content until translations are loaded to prevent flickering of translation keys */
+#information #content {
+  display: none;
+}
+
+#information #content.loaded {
+  display: block;
+}
+
 h1 {
   font-size: 14pt;
 }

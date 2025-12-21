@@ -175,6 +175,12 @@ function updateContent() {
   document.getElementById("content-further-heading").innerText = i18next.t("texts.content-further-heading");
   document.getElementById("content-further-text").innerHTML = i18next.t("texts.content-further-text");
 
+  // Show content now that translations are loaded
+  const content = document.getElementById("content");
+  if (content) {
+    content.classList.add("loaded");
+  }
+
   // Controls
   document.getElementsByClassName("leaflet-control-zoom-in")[0].title = i18next.t("leaflet.L-control-zoom.zoom_in");
   document.getElementsByClassName("leaflet-control-zoom-out")[0].title = i18next.t("leaflet.L-control-zoom.zoom_out");
