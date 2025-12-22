@@ -1,6 +1,6 @@
 {
   "name": "veggiekarte",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "A OpenStreetMap based map to easily find places, like restaurants and cafes, with vegetarian and vegan options.",
   "repository": {
     "type": "git",
@@ -24,33 +24,34 @@
   "homepage": "https://veggiekarte.de/",
   "devDependencies": {
     "@eslint/css": "^0.14.1",
-    "@eslint/js": "^9.39.1",
+    "@eslint/js": "^9.39.2",
     "@eslint/markdown": "^7.5.1",
     "@mapbox/maki": "^8.2.0",
     "@rapideditor/temaki": "^5.11.0",
+    "@rollup/plugin-commonjs": "^29.0.0",
     "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-replace": "^6.0.3",
     "@rollup/plugin-terser": "^0.4.4",
     "@stylistic/eslint-plugin": "^5.6.1",
-    "eslint": "^9.39.1",
+    "eslint": "^9.39.2",
     "eslint-plugin-import-x": "^4.16.1",
     "globals": "^16.5.0",
     "husky": "^9.1.7",
     "lightningcss-cli": "^1.30.2",
     "lint-staged": "^16.2.7",
     "prettier": "^3.7.4",
-    "rollup": "^4.53.3"
+    "rollup": "^4.54.0"
   },
   "dependencies": {
     "@kristjan.esperanto/leaflet-language-selector": "^3.4.0",
-    "@kristjan.esperanto/leaflet.markercluster": "^3.0.0-alpha.1",
+    "@kristjan.esperanto/leaflet.markercluster": "^3.0.0",
     "chart.js": "^4.5.1",
     "email-validator": "^2.0.4",
-    "i18next": "^25.7.2",
     "leaflet": "^2.0.0-alpha.1",
     "leaflet-control-geocoder": "^3.3.1",
     "leaflet.fullscreen": "^5.1.1",
-    "libphonenumber-js": "^1.12.31",
-    "opening_hours": "^3.9.0"
+    "libphonenumber-js": "^1.12.33",
+    "opening_hours": "^3.10.0-rc.1"
   },
   "overrides": {
     "leaflet-control-geocoder": {

@@ -80,6 +80,10 @@
         "review": "recenzo",
         "school_holidays": "ferioj"
       },
+      "edit_modal": {
+        "title": "Redakti datumojn",
+        "intro": "Helpu plibonigi la datumojn ĉe OpenStreetMap. Viaj redaktoj utilos al Veggiekarte kaj multaj aliaj projektoj."
+      },
       "leaflet": {
         "L-control-fullscreen": {
           "fullscreen": "Tutekrana reĝimo",

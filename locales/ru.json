@@ -80,6 +80,10 @@
         "review": "отзыв",
         "school_holidays": "школьные каникулы"
       },
+      "edit_modal": {
+        "title": "Редактировать данные",
+        "intro": "Помогите улучшить данные в OpenStreetMap. Ваши правки принесут пользу Veggiekarte и многим другим проектам."
+      },
       "leaflet": {
         "L-control-fullscreen": {
           "fullscreen": "Полный экран",

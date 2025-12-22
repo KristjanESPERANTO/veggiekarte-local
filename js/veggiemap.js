@@ -15,7 +15,11 @@ import { SubGroup } from "./subgroup.js";
 import { createMapHash } from "./map-hash.js";
 import { createProgressController } from "./progress.js";
 
-// Shared progress bar controller (used for chunked marker loading)
+/**
+ * Shared progress bar controller for tracking map loading progress.
+ * Handles two-phase loading: data fetch (0-50%) and marker rendering (50-100%).
+ * See progress.js for implementation details.
+ */
 const progress = createProgressController();
 
 // Define marker groups (using imported MarkerClusterGroup and our SubGroup)
@@ -46,11 +50,16 @@ const categorySubgroups = {}; // Storage for category-based subgroups
 const allMarkersByCategory = {}; // Store all markers by category key for filtering
 
 /**
- * Update the progress indicator during chunked marker loading
- * @param {number} processed - Number of processed markers
- * @param {number} total - Total number of markers being added
+ * Apply both diet type and category filters to show/hide markers.
+ *
+ * This function is called during initial load and whenever filters change.
+ * Each category has its own SubGroup, and each SubGroup may trigger
+ * MarkerCluster's chunkedLoading when markers are added/removed in bulk.
+ *
+ * During initial load, this results in multiple parallel chunkedLoading
+ * operations across different SubGroups - this is why the progress bar
+ * uses debouncing to detect completion.
  */
-// Function to apply all filters (diet + category)
 function applyAllFilters() {
   if (!categoryFilterControl) { return; }
 
@@ -165,15 +174,15 @@ function veggiemap() {
 
   // Map
   map = new Map("map", {
-    center: [20, 17],
-    zoom: 3,
+    center: __MAP_CENTER__,
+    zoom: __MAP_ZOOM__,
     worldCopyJump: true,
     zoomControl: false
   });
 
   // TileLayer
   new TileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 19,
+    maxZoom: __MAP_MAX_ZOOM__,
     attribution: "© <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap contributors</a>"
   }).addTo(map);
 
@@ -311,10 +320,21 @@ function updateVisibleCounts() {
   });
 }
 
+/**
+ * Populate the map with vegetarian/vegan places from GeoJSON data.
+ *
+ * Loading happens in two phases:
+ * 1. Data loading (0-50%): Fetch and parse places.min.json
+ * 2. Marker rendering (50-100%): MarkerCluster's chunkedLoading renders markers in batches
+ *
+ * The progress bar auto-completes via debouncing when all SubGroups finish rendering.
+ *
+ * @param {MarkerClusterGroup} parentGroupVar - The parent marker cluster group
+ */
 async function veggiemapPopulate(parentGroupVar) {
   addLanguageResources(getUserLanguage());
 
-  // Show progress bar immediately at 0%
+  // Phase 1: Start progress bar at 0%
   progress.start();
 
   const url = new URL("data/places.min.json", window.location.href);
@@ -325,6 +345,10 @@ async function veggiemapPopulate(parentGroupVar) {
   }
 
   const geojson = await response.json();
+
+  // Phase 1 complete: Data loaded, update to 50%
+  progress.setPercent(50);
+
   const markerGroupsAndDate = geojsonToMarkerGroups(geojson);
   const markerGroups = markerGroupsAndDate[0];
   const date = markerGroupsAndDate[1];
@@ -352,7 +376,10 @@ async function veggiemapPopulate(parentGroupVar) {
   distributeMarkersByCategory(allMarkers);
 
   // Add diet filters in order from least to most vegan
-  const dietOrder = ["vegetarian_friendly", "vegan_limited", "vegan_friendly", "vegetarian_only", "vegan_only"];
+  const dietOrder = __INCLUDE_VEGETARIAN__
+    ? ["vegetarian_friendly", "vegan_limited", "vegan_friendly", "vegetarian_only", "vegan_only"]
+    : ["vegan_limited", "vegan_friendly", "vegetarian_only", "vegan_only"];
+
   dietOrder.forEach((dietKey) => {
     const markers = markerGroups[dietKey] || [];
     const labelHtml = `<div class='first-cell ${dietKey}'></div>`;
@@ -366,17 +393,26 @@ async function veggiemapPopulate(parentGroupVar) {
 
   /* eslint-disable-next-line require-atomic-updates */
   window.categoryFilterControl = categoryFilterControl;
+
+  // Phase 2: Add parentGroup to trigger chunkedLoading (50-100%)
+  // The chunkProgress callback (progress.updateChunk) will handle updates
+  // And auto-finish when all SubGroups complete (debounced 300ms)
   map.addLayer(parentGroupVar);
   statPopulate(markerGroups, date);
   updateVisibleCounts();
 
-  // Update counts AFTER diet filters are added to DOM
-  // Use setTimeout to ensure DOM is ready
+  // Apply filters asynchronously to allow chunkedLoading to start
   setTimeout(() => {
     applyAllFilters();
+
+    // Fallback: If no chunkedLoading happens (few markers), finish after 1s
+    // The debounce in updateChunk() will cancel this if updates arrive
+    setTimeout(() => {
+      progress.finish();
+    }, 1000);
   }, 0);
+
   addLanguageResources(getUserLanguage());
-  progress.finish();
 }
 
 // Process the places GeoJSON into the groups of markers
