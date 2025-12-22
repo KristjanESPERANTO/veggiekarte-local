@@ -40,14 +40,13 @@ function t(key) {
 }
 
 /**
- * Get the current language (from URL, browser, or default)
+ * Get the current language (from localStorage, browser, or default)
  */
 function getUserLanguage() {
   if (currentLanguage === undefined) {
-    const urlParams = new URLSearchParams(document.location.search);
-    const urlLang = urlParams.get("lang");
+    const storedLang = localStorage.getItem("veggiekarte_language");
 
-    currentLanguage = urlLang || navigator.language.split("-")[0];
+    currentLanguage = storedLang || navigator.language.split("-")[0];
     console.info(`i18n: Language: ${currentLanguage}`);
 
     if (!Object.keys(languages).includes(currentLanguage)) {
@@ -81,10 +80,8 @@ async function addLanguageResources(language) {
     }
   }
 
-  // Update URL and notify listeners
-  const url = new URL(window.location.href);
-  url.searchParams.set("lang", currentLanguage);
-  window.history.replaceState({}, "", url);
+  // Save language preference and notify listeners
+  localStorage.setItem("veggiekarte_language", currentLanguage);
   languageChangeListeners.forEach(fn => fn());
 }
 
