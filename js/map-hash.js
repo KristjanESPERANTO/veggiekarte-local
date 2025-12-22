@@ -30,6 +30,6 @@ export function createMapHash(map) {
     }
   }
 
-  map.on("moveend", setHash);
   parseHash();
+  map.on("moveend", setHash);
 }
