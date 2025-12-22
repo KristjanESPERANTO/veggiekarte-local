@@ -458,7 +458,7 @@ function createEditModal() {
   modal.className = "edit-modal";
 
   const closeBtn = document.createElement("div");
-  closeBtn.className = "edit-modal-close";
+  closeBtn.className = "edit-modal-close close-button";
   closeBtn.textContent = "×";
 
   const title = document.createElement("h2");
