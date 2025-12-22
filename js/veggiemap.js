@@ -332,7 +332,7 @@ function updateVisibleCounts() {
  * @param {MarkerClusterGroup} parentGroupVar - The parent marker cluster group
  */
 async function veggiemapPopulate(parentGroupVar) {
-  addLanguageResources(getUserLanguage());
+  await addLanguageResources(getUserLanguage());
 
   // Phase 1: Start progress bar at 0%
   progress.start();
@@ -411,8 +411,6 @@ async function veggiemapPopulate(parentGroupVar) {
       progress.finish();
     }, 1000);
   }, 0);
-
-  addLanguageResources(getUserLanguage());
 }
 
 // Process the places GeoJSON into the groups of markers
