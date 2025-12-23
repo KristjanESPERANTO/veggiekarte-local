@@ -219,49 +219,52 @@ def build_overpass_query():
 
 def get_osm_data():
     """Get the data from OSM."""
-    # Initialize variables
-    server = 0
-    result = None
-
-    # Build the Overpass query from config
     overpass_query = build_overpass_query()
     print("Overpass query:", overpass_query)
 
-    # Sending a request to one server after another until one gives a valid answer or
-    # the end of the server list is reached.
-    while (server < len(SERVERS)) and (result is None):
-        # Get a server from the server list
-        overpass_server = SERVERS[server]
+    # Try servers until one gives a valid response
+    for overpass_server in SERVERS:
+        print(f"Send query to server: {overpass_server}")
+        
+        try:
+            response = HTTP.request("GET", overpass_server + overpass_query)
+        except Exception as e:
+            print(f"Network error: {e}")
+            continue
 
-        # Overpass request
-        print("Send query to server: ", overpass_server)
-        osm_request = HTTP.request("GET", overpass_server + overpass_query)
-
-        # Check the status of the request
-        if osm_request.status == 200:
+        # Handle HTTP status codes
+        if response.status == 200:
             print("Received answer successfully.")
-
-            # Store the raw output in a file (for any later use)
-            OVERPASS_FILE.touch()
-            OVERPASS_FILE.write_bytes(osm_request.data)
-
-            result = json.loads(osm_request.data.decode("utf-8"))
-        elif osm_request.status == 400:
-            print("HTTP error code ", osm_request.status, ": Bad Request")
+            
+            if not response.data:
+                print("Empty response body, trying next server...")
+                continue
+            
+            try:
+                result = json.loads(response.data.decode("utf-8"))
+                # Success - save raw data and return result
+                OVERPASS_FILE.touch()
+                OVERPASS_FILE.write_bytes(response.data)
+                print("Data successfully retrieved and saved.")
+                return result
+            except json.JSONDecodeError as e:
+                print(f"Failed to decode JSON: {e}")
+                continue
+        
+        elif response.status == 400:
+            print(f"HTTP {response.status}: Bad Request")
             time.sleep(5)
-        elif osm_request.status == 429:
-            print("HTTP error code ", osm_request.status, ": Too Many Requests")
+        elif response.status == 429:
+            print(f"HTTP {response.status}: Too Many Requests")
             time.sleep(60)
-        elif osm_request.status == 504:
-            print("HTTP error code ", osm_request.status, ": Gateway Timeout")
+        elif response.status == 504:
+            print(f"HTTP {response.status}: Gateway Timeout")
             time.sleep(600)
         else:
-            print("Unknown HTTP error code: ", osm_request.status)
+            print(f"HTTP {response.status}: Unknown error")
 
-        # Increase to get another server for the next pass of the loop.
-        server += 1
-
-    return result
+    print("All servers failed.")
+    return None
 
 
 def write_data(data):
