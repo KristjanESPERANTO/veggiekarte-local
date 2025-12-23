@@ -144,10 +144,10 @@ function getOpenState(oh) {
   const isOpen = oh.getState();
   const willChangeSoon = willChangeWithin(oh, 60);
 
-  if (isOpen && !willChangeSoon) { return { emoji: "open", text: t("words.open") }; }
-  if (isOpen) { return { emoji: "closes-soon", text: t("words.open") + t("texts.will close soon") }; }
-  if (willChangeSoon) { return { emoji: "opens-soon", text: t("words.closed") + t("texts.will open soon") }; }
-  return { emoji: "closed", text: t("words.closed") };
+  if (isOpen && !willChangeSoon) { return { emoji: "open", text: t("words_open") }; }
+  if (isOpen) { return { emoji: "closes-soon", text: t("words_open") + t("texts_will_close_soon") }; }
+  if (willChangeSoon) { return { emoji: "opens-soon", text: t("words_closed") + t("texts_will_open_soon") }; }
+  return { emoji: "closed", text: t("words_closed") };
 }
 
 /** Opening hours section fill. */
@@ -164,8 +164,8 @@ function fillOpeningHours({ extratags, address, container, locale }) {
       conf: { locale, rule_sep_string: "<br>", print_semicolon: false, sep_one_day_between: ", " }
     })
       .replaceAll(",", ", ")
-      .replaceAll("PH", t("words.public_holiday"))
-      .replaceAll("SH", t("words.school_holidays"));
+      .replaceAll("PH", t("words_public_holiday"))
+      .replaceAll("SH", t("words_school_holidays"));
 
     const state = getOpenState(oh);
     const nodes = [createOpenStateSpan(state.emoji, state.text), "\n"];
@@ -365,7 +365,7 @@ export function calculatePopup(element) {
   // Category badge
   const catDiv = document.createElement("div");
   catDiv.className = `popup-category ${feature.properties.category}`;
-  catDiv.textContent = t(`texts.i18n_${feature.properties.category}`);
+  catDiv.textContent = t(`texts_i18n_${feature.properties.category}`);
   root.appendChild(catDiv);
 
   // Title with edit button
@@ -396,7 +396,7 @@ export function calculatePopup(element) {
       const icon = document.createElement("div");
       icon.textContent = "⏳";
       const text = document.createElement("div");
-      text.textContent = t("words.loading") || "Loading...";
+      text.textContent = t("words_loading");
       div.append(icon, text);
     }
     root.appendChild(div);
@@ -420,7 +420,7 @@ export async function addLibReview(element, container) {
 
   // Check cache first
   if (libreviewCache[cacheKey]) {
-    container.replaceChildren(makeRow("📓", [makeLink(`https://lib.reviews/${libreviewCache[cacheKey]}`, t("words.review"))]));
+    container.replaceChildren(makeRow("📓", [makeLink(`https://lib.reviews/${libreviewCache[cacheKey]}`, t("words_review"))]));
     return;
   }
 
@@ -430,7 +430,7 @@ export async function addLibReview(element, container) {
     if (!container.isConnected || !data?.thing?.urlID) { return; }
     // Re-check cache after await (another call may have populated it)
     if (!libreviewCache[cacheKey]) { libreviewCache[cacheKey] = data.thing.urlID; }
-    container.replaceChildren(makeRow("📓", [makeLink(`https://lib.reviews/${data.thing.urlID}`, t("words.review"))]));
+    container.replaceChildren(makeRow("📓", [makeLink(`https://lib.reviews/${data.thing.urlID}`, t("words_review"))]));
   }
   catch { /* Ignore - no review or service unavailable */ }
 }
@@ -458,7 +458,7 @@ function createEditModal() {
   modal.className = "edit-modal";
 
   const closeBtn = document.createElement("div");
-  closeBtn.className = "edit-modal-close";
+  closeBtn.className = "edit-modal-close close-button";
   closeBtn.textContent = "×";
 
   const title = document.createElement("h2");
@@ -492,8 +492,8 @@ function createEditModal() {
  */
 function updateEditModalContent(overlay, type, id) {
   // Update translations
-  overlay.querySelector("[data-i18n='title']").textContent = t("edit_modal.title");
-  overlay.querySelector("[data-i18n='intro']").textContent = t("edit_modal.intro");
+  overlay.querySelector("[data-i18n='title']").textContent = t("edit_modal_title");
+  overlay.querySelector("[data-i18n='intro']").textContent = t("edit_modal_intro");
 
   // Update links
   const linksContainer = overlay.querySelector("[data-links]");

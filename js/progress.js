@@ -15,19 +15,16 @@
  * @param {Object} options - Configuration options
  * @param {string} [options.containerId="progress"] - Progress container element ID
  * @param {string} [options.barId="progress-bar"] - Progress bar element ID
- * @param {string} [options.labelId="progress-label"] - Optional label element ID
  * @param {number} [options.hideDelay=500] - Delay before hiding after 100%
  * @returns {Object} Controller with start, setPercent, finish, updateChunk, disable methods
  */
 export function createProgressController({
   containerId = "progress",
   barId = "progress-bar",
-  labelId = "progress-label",
   hideDelay = 500
 } = {}) {
   const container = () => document.getElementById(containerId);
   const bar = () => document.getElementById(barId);
-  const label = () => document.getElementById(labelId);
 
   let lastPercent = 0;
   let progressStarted = false;
@@ -57,9 +54,6 @@ export function createProgressController({
     lastPercent = 0;
     barEl.style.width = "0%";
     el.style.display = "flex";
-
-    const labelEl = label();
-    if (labelEl) { labelEl.textContent = "0%"; }
   }
 
   function setPercent(percent) {
@@ -74,9 +68,6 @@ export function createProgressController({
     if (clamped > lastPercent) {
       lastPercent = clamped;
       barEl.style.width = `${clamped}%`;
-
-      const labelEl = label();
-      if (labelEl) { labelEl.textContent = `${clamped}%`; }
     }
   }
 
@@ -88,15 +79,11 @@ export function createProgressController({
     clearAllTimeouts();
     barEl.style.width = "100%";
 
-    const labelEl = label();
-    if (labelEl) { labelEl.textContent = "100%"; }
-
     hideTimeout = setTimeout(() => {
       el.style.display = "none";
       barEl.style.width = "0%";
       lastPercent = 0;
       progressStarted = false;
-      if (labelEl) { labelEl.textContent = "0%"; }
     }, delay);
   }
 

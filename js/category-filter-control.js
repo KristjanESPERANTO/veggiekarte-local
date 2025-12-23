@@ -77,9 +77,6 @@ const CategoryFilterControl = Control.extend({
     this._contentDiv = document.createElement("div");
     this._contentDiv.className = "category-filter-content";
     this._panel.appendChild(this._contentDiv);
-
-    // Build the UI
-    this._createUI();
   },
 
   _togglePanel() {
@@ -89,6 +86,10 @@ const CategoryFilterControl = Control.extend({
       this._overlay.classList.remove("visible");
     }
     else {
+      // Build UI on first open if not yet created
+      if (this._contentDiv.children.length === 0) {
+        this._createUI();
+      }
       this._overlay.classList.add("visible");
     }
   },
@@ -97,20 +98,20 @@ const CategoryFilterControl = Control.extend({
     if (!this._contentDiv) { return; }
     this._contentDiv.innerHTML = "";
 
-    const selectionTitle = t("category.selection_title") || "Selection";
+    const selectionTitle = t("category_selection_title");
 
     // Header with counter
     const header = DomUtil.create("div", "category-filter-header", this._contentDiv);
     const title = DomUtil.create("div", "category-filter-title", header);
     title.innerHTML = `<svg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><rect x='3' y='3' width='7' height='7'/><rect x='14' y='3' width='7' height='7'/><rect x='3' y='14' width='7' height='7'/><rect x='14' y='14' width='7' height='7'/></svg> ${selectionTitle}`;
     this._markerCounter = DomUtil.create("div", "category-filter-counter", header);
-    const loadingText = t("words.loading") || "Loading...";
+    const loadingText = t("words_loading");
     this._markerCounter.innerHTML = `<span style="color:#999">${loadingText}</span>`;
 
     // Diet filter section
     const dietSection = DomUtil.create("div", "diet-filter-section", this._contentDiv);
     const dietTitle = DomUtil.create("h4", "diet-filter-title", dietSection);
-    dietTitle.textContent = t("category.diet_types") || "Diet Types";
+    dietTitle.textContent = t("category_diet_types");
     this._dietList = DomUtil.create("div", "diet-filter-list", dietSection);
     this._dietFilters.forEach(options => this._addDietFilterToDOM(options));
 
@@ -118,19 +119,19 @@ const CategoryFilterControl = Control.extend({
     const categorySection = DomUtil.create("div", "category-section-wrapper", this._contentDiv);
     const categoryHeader = DomUtil.create("div", "category-section-header", categorySection);
     const categoryTitle = DomUtil.create("h4", "category-section-title", categoryHeader);
-    categoryTitle.textContent = t("category.categories") || "Categories";
+    categoryTitle.textContent = t("category_categories");
 
     // Quick toggle buttons - now clearly part of category section
     const quickToggle = DomUtil.create("div", "category-quick-toggle", categoryHeader);
     const foodOnlyBtn = DomUtil.create("button", "btn-food-only", quickToggle);
-    foodOnlyBtn.textContent = t("category.food_only") || "🍽️ Food only";
+    foodOnlyBtn.textContent = t("category_food_only");
     DomEvent.on(foodOnlyBtn, "click", () => this._toggleFoodOnly());
     const allBtn = DomUtil.create("button", "btn-enable-all", quickToggle);
-    allBtn.textContent = t("category.show_all") || "✓ Show all";
+    allBtn.textContent = t("category_show_all");
     DomEvent.on(allBtn, "click", () => this._enableAll());
     const resetBtn = DomUtil.create("button", "btn-reset", quickToggle);
-    resetBtn.textContent = t("category.reset") || "↺ Reset";
-    resetBtn.title = t("category.reset_hint") || "Reset to default settings";
+    resetBtn.textContent = t("category_reset");
+    resetBtn.title = t("category_reset_hint");
     DomEvent.on(resetBtn, "click", () => this._resetToDefaults());
 
     // Category list
@@ -156,8 +157,7 @@ const CategoryFilterControl = Control.extend({
     DomEvent.on(mainInput, "change", () => this._toggleMainCategory(mainId, mainInput.checked));
 
     const mainText = DomUtil.create("span", "category-text", mainLabel);
-    const translatedLabel = t(`category.${mainId}`) || mainCat.label;
-    mainText.textContent = translatedLabel;
+    mainText.textContent = t(`category_${mainId}`);
 
     const mainCount = DomUtil.create("span", "category-count", mainLabel);
     mainCount.dataset.categoryId = mainId;
@@ -165,8 +165,8 @@ const CategoryFilterControl = Control.extend({
 
     // Subcategories
     const subList = DomUtil.create("div", "category-sub-list", section);
-    Object.entries(mainCat.subcategories).forEach(([subId, subCat]) => {
-      const key = `${mainId}.${subId}`;
+    Object.entries(mainCat.subcategories).forEach(([subId]) => {
+      const key = `${mainId}_${subId}`;
       const subLabel = DomUtil.create("label", "category-sub", subList);
       const subInput = DomUtil.create("input", "", subLabel);
       subInput.type = "checkbox";
@@ -174,8 +174,7 @@ const CategoryFilterControl = Control.extend({
       DomEvent.on(subInput, "change", () => this._toggleSubCategory(mainId, subId, subInput.checked));
 
       const subText = DomUtil.create("span", "category-text", subLabel);
-      const translatedSubLabel = t(`category.${mainId}.${subId}`) || subCat.label;
-      subText.textContent = translatedSubLabel;
+      subText.textContent = t(`category_${mainId}_${subId}`);
 
       const subCount = DomUtil.create("span", "category-count", subLabel);
       subCount.dataset.categoryId = key;
@@ -188,7 +187,7 @@ const CategoryFilterControl = Control.extend({
     this._categoryStates[mainId] = enabled;
     const mainCat = CATEGORY_HIERARCHY[mainId];
     Object.keys(mainCat.subcategories).forEach((subId) => {
-      this._categoryStates[`${mainId}.${subId}`] = enabled;
+      this._categoryStates[`${mainId}_${subId}`] = enabled;
     });
     this._saveStates();
     this._updateUI();
@@ -197,10 +196,10 @@ const CategoryFilterControl = Control.extend({
 
   _toggleSubCategory(mainId, subId, enabled) {
     if (this._isUpdating) { return; } // Prevent recursion from _updateUI
-    this._categoryStates[`${mainId}.${subId}`] = enabled;
+    this._categoryStates[`${mainId}_${subId}`] = enabled;
     const mainCat = CATEGORY_HIERARCHY[mainId];
     const subCats = Object.keys(mainCat.subcategories);
-    const enabledSubs = subCats.filter(id => this._categoryStates[`${mainId}.${id}`] !== false);
+    const enabledSubs = subCats.filter(id => this._categoryStates[`${mainId}_${id}`] !== false);
 
     if (enabledSubs.length === 0) {
       this._categoryStates[mainId] = false;
@@ -221,7 +220,7 @@ const CategoryFilterControl = Control.extend({
       const isFood = mainId === "food";
       this._categoryStates[mainId] = isFood;
       Object.keys(mainCat.subcategories).forEach((subId) => {
-        this._categoryStates[`${mainId}.${subId}`] = isFood;
+        this._categoryStates[`${mainId}_${subId}`] = isFood;
       });
     });
     this._saveStates();
@@ -233,7 +232,7 @@ const CategoryFilterControl = Control.extend({
     Object.entries(CATEGORY_HIERARCHY).forEach(([mainId, mainCat]) => {
       this._categoryStates[mainId] = true;
       Object.keys(mainCat.subcategories).forEach((subId) => {
-        this._categoryStates[`${mainId}.${subId}`] = true;
+        this._categoryStates[`${mainId}_${subId}`] = true;
       });
     });
     this._saveStates();
@@ -247,7 +246,7 @@ const CategoryFilterControl = Control.extend({
       const enabled = mainId === "food" || mainId === "shopping";
       this._categoryStates[mainId] = enabled;
       Object.keys(mainCat.subcategories).forEach((subId) => {
-        this._categoryStates[`${mainId}.${subId}`] = enabled;
+        this._categoryStates[`${mainId}_${subId}`] = enabled;
       });
     });
     // Reset diet types to all enabled
@@ -288,7 +287,7 @@ const CategoryFilterControl = Control.extend({
       }
 
       Object.keys(mainCat.subcategories).forEach((subId) => {
-        const key = `${mainId}.${subId}`;
+        const key = `${mainId}_${subId}`;
         const subInputs = section.querySelectorAll(".category-sub input");
         subInputs.forEach((input) => {
           const label = input.closest("label");
@@ -326,7 +325,7 @@ const CategoryFilterControl = Control.extend({
       const enabled = mainId === "food" || mainId === "shopping";
       defaults[mainId] = enabled;
       Object.keys(mainCat.subcategories).forEach((subId) => {
-        defaults[`${mainId}.${subId}`] = enabled;
+        defaults[`${mainId}_${subId}`] = enabled;
       });
     });
     return defaults;
@@ -372,7 +371,7 @@ const CategoryFilterControl = Control.extend({
   },
 
   isSubCategoryEnabled(mainId, subId) {
-    return this._categoryStates[`${mainId}.${subId}`] !== false;
+    return this._categoryStates[`${mainId}_${subId}`] !== false;
   },
 
   getCategoryStates() {
@@ -406,8 +405,8 @@ const CategoryFilterControl = Control.extend({
     labelSpan.innerHTML = labelHtml;
 
     const textSpan = DomUtil.create("span", "diet-text", label);
-    textSpan.textContent = t(`texts.i18n_${dietKey}`) || dietKey.replace(/_/gu, " ");
-    textSpan.title = t(`texts.i18n_${dietKey}_title`) || "";
+    textSpan.textContent = t(`texts_i18n_${dietKey}`);
+    textSpan.title = t(`texts_i18n_${dietKey}_title`);
 
     const countSpan = DomUtil.create("span", "category-count", label);
     countSpan.dataset.dietKey = dietKey;
@@ -428,9 +427,9 @@ const CategoryFilterControl = Control.extend({
 
   updateMarkerCounter(totalVisible, totalMarkers, viewportCount) {
     if (!this._markerCounter) { return; }
-    const totalText = t("category.counter_total") || "total";
-    const visibleText = t("category.counter_visible") || "visible";
-    const viewportText = t("category.counter_viewport") || "in viewport";
+    const totalText = t("category_counter_total");
+    const visibleText = t("category_counter_visible");
+    const viewportText = t("category_counter_viewport");
     this._markerCounter.innerHTML = `<span style="color:#999">${totalMarkers.toLocaleString()} ${totalText}</span> | <strong style="color:#4caf50">${totalVisible.toLocaleString()}</strong> ${visibleText} | <span style="color:#666">${viewportCount.toLocaleString()} ${viewportText}</span>`;
   },
 
@@ -453,7 +452,10 @@ const CategoryFilterControl = Control.extend({
   },
 
   updateTranslations() {
-    this._createUI();
+    // Only rebuild if UI was already created
+    if (this._contentDiv.children.length > 0) {
+      this._createUI();
+    }
   }
 });
 
