@@ -396,7 +396,7 @@ export function calculatePopup(element) {
       const icon = document.createElement("div");
       icon.textContent = "⏳";
       const text = document.createElement("div");
-      text.textContent = t("words_loading") || "Loading...";
+      text.textContent = t("words_loading");
       div.append(icon, text);
     }
     root.appendChild(div);

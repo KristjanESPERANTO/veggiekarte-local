@@ -98,20 +98,20 @@ const CategoryFilterControl = Control.extend({
     if (!this._contentDiv) { return; }
     this._contentDiv.innerHTML = "";
 
-    const selectionTitle = t("category_selection_title") || "Selection";
+    const selectionTitle = t("category_selection_title");
 
     // Header with counter
     const header = DomUtil.create("div", "category-filter-header", this._contentDiv);
     const title = DomUtil.create("div", "category-filter-title", header);
     title.innerHTML = `<svg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><rect x='3' y='3' width='7' height='7'/><rect x='14' y='3' width='7' height='7'/><rect x='3' y='14' width='7' height='7'/><rect x='14' y='14' width='7' height='7'/></svg> ${selectionTitle}`;
     this._markerCounter = DomUtil.create("div", "category-filter-counter", header);
-    const loadingText = t("words_loading") || "Loading...";
+    const loadingText = t("words_loading");
     this._markerCounter.innerHTML = `<span style="color:#999">${loadingText}</span>`;
 
     // Diet filter section
     const dietSection = DomUtil.create("div", "diet-filter-section", this._contentDiv);
     const dietTitle = DomUtil.create("h4", "diet-filter-title", dietSection);
-    dietTitle.textContent = t("category_diet_types") || "Diet Types";
+    dietTitle.textContent = t("category_diet_types");
     this._dietList = DomUtil.create("div", "diet-filter-list", dietSection);
     this._dietFilters.forEach(options => this._addDietFilterToDOM(options));
 
@@ -119,19 +119,19 @@ const CategoryFilterControl = Control.extend({
     const categorySection = DomUtil.create("div", "category-section-wrapper", this._contentDiv);
     const categoryHeader = DomUtil.create("div", "category-section-header", categorySection);
     const categoryTitle = DomUtil.create("h4", "category-section-title", categoryHeader);
-    categoryTitle.textContent = t("category_categories") || "Categories";
+    categoryTitle.textContent = t("category_categories");
 
     // Quick toggle buttons - now clearly part of category section
     const quickToggle = DomUtil.create("div", "category-quick-toggle", categoryHeader);
     const foodOnlyBtn = DomUtil.create("button", "btn-food-only", quickToggle);
-    foodOnlyBtn.textContent = t("category_food_only") || "🍽️ Food only";
+    foodOnlyBtn.textContent = t("category_food_only");
     DomEvent.on(foodOnlyBtn, "click", () => this._toggleFoodOnly());
     const allBtn = DomUtil.create("button", "btn-enable-all", quickToggle);
-    allBtn.textContent = t("category_show_all") || "✓ Show all";
+    allBtn.textContent = t("category_show_all");
     DomEvent.on(allBtn, "click", () => this._enableAll());
     const resetBtn = DomUtil.create("button", "btn-reset", quickToggle);
-    resetBtn.textContent = t("category_reset") || "↺ Reset";
-    resetBtn.title = t("category_reset_hint") || "Reset to default settings";
+    resetBtn.textContent = t("category_reset");
+    resetBtn.title = t("category_reset_hint");
     DomEvent.on(resetBtn, "click", () => this._resetToDefaults());
 
     // Category list
@@ -157,8 +157,7 @@ const CategoryFilterControl = Control.extend({
     DomEvent.on(mainInput, "change", () => this._toggleMainCategory(mainId, mainInput.checked));
 
     const mainText = DomUtil.create("span", "category-text", mainLabel);
-    const translatedLabel = t(`category_${mainId}`) || mainCat.label;
-    mainText.textContent = translatedLabel;
+    mainText.textContent = t(`category_${mainId}`);
 
     const mainCount = DomUtil.create("span", "category-count", mainLabel);
     mainCount.dataset.categoryId = mainId;
@@ -166,7 +165,7 @@ const CategoryFilterControl = Control.extend({
 
     // Subcategories
     const subList = DomUtil.create("div", "category-sub-list", section);
-    Object.entries(mainCat.subcategories).forEach(([subId, subCat]) => {
+    Object.entries(mainCat.subcategories).forEach(([subId]) => {
       const key = `${mainId}_${subId}`;
       const subLabel = DomUtil.create("label", "category-sub", subList);
       const subInput = DomUtil.create("input", "", subLabel);
@@ -175,8 +174,7 @@ const CategoryFilterControl = Control.extend({
       DomEvent.on(subInput, "change", () => this._toggleSubCategory(mainId, subId, subInput.checked));
 
       const subText = DomUtil.create("span", "category-text", subLabel);
-      const translatedSubLabel = t(`category_${mainId}_${subId}`) || subCat.label;
-      subText.textContent = translatedSubLabel;
+      subText.textContent = t(`category_${mainId}_${subId}`);
 
       const subCount = DomUtil.create("span", "category-count", subLabel);
       subCount.dataset.categoryId = key;
@@ -407,8 +405,8 @@ const CategoryFilterControl = Control.extend({
     labelSpan.innerHTML = labelHtml;
 
     const textSpan = DomUtil.create("span", "diet-text", label);
-    textSpan.textContent = t(`texts_i18n_${dietKey}`) || dietKey.replace(/_/gu, " ");
-    textSpan.title = t(`texts_i18n_${dietKey}_title`) || "";
+    textSpan.textContent = t(`texts_i18n_${dietKey}`);
+    textSpan.title = t(`texts_i18n_${dietKey}_title`);
 
     const countSpan = DomUtil.create("span", "category-count", label);
     countSpan.dataset.dietKey = dietKey;
@@ -429,9 +427,9 @@ const CategoryFilterControl = Control.extend({
 
   updateMarkerCounter(totalVisible, totalMarkers, viewportCount) {
     if (!this._markerCounter) { return; }
-    const totalText = t("category_counter_total") || "total";
-    const visibleText = t("category_counter_visible") || "visible";
-    const viewportText = t("category_counter_viewport") || "in viewport";
+    const totalText = t("category_counter_total");
+    const visibleText = t("category_counter_visible");
+    const viewportText = t("category_counter_viewport");
     this._markerCounter.innerHTML = `<span style="color:#999">${totalMarkers.toLocaleString()} ${totalText}</span> | <strong style="color:#4caf50">${totalVisible.toLocaleString()}</strong> ${visibleText} | <span style="color:#666">${viewportCount.toLocaleString()} ${viewportText}</span>`;
   },
 
