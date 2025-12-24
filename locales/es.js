@@ -91,5 +91,6 @@ export default {
   "leaflet_L_control_zoom_zoom_in": "Acercar",
   "leaflet_L_control_zoom_zoom_out": "Alejar",
   "leaflet_L_control_languageselector_title": "Seleccionar idioma",
-  "leaflet_L_control_darkMode_title": "Cambiar al modo oscuro"
+  "leaflet_L_control_darkMode_title": "Cambiar modo oscuro",
+  "texts_data_date": "Datos del"
 };

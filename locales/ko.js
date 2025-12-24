@@ -91,5 +91,6 @@ export default {
   "leaflet_L_control_zoom_zoom_in": "확대",
   "leaflet_L_control_zoom_zoom_out": "축소",
   "leaflet_L_control_languageselector_title": "언어 선택",
-  "leaflet_L_control_darkMode_title": "다크 모드 전환"
+  "leaflet_L_control_darkMode_title": "다크 모드 전환",
+  "texts_data_date": "데이터 기준일"
 };

@@ -91,5 +91,6 @@ export default {
   "leaflet_L_control_zoom_zoom_in": "Ingrandisci",
   "leaflet_L_control_zoom_zoom_out": "Rimpicciolisci",
   "leaflet_L_control_languageselector_title": "Seleziona la lingua",
-  "leaflet_L_control_darkMode_title": "Attiva/disattiva modalità scura"
+  "leaflet_L_control_darkMode_title": "Attiva/disattiva modalità scura",
+  "texts_data_date": "Dati del"
 };

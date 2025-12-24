@@ -91,5 +91,6 @@ export default {
   "leaflet_L_control_zoom_zoom_in": "hineinzoomen",
   "leaflet_L_control_zoom_zoom_out": "herauszoomen",
   "leaflet_L_control_languageselector_title": "Sprache auswählen",
-  "leaflet_L_control_darkMode_title": "Dark-Mode umschalten"
+  "leaflet_L_control_darkMode_title": "Dark-Mode umschalten",
+  "texts_data_date": "Datenstand"
 };

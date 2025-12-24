@@ -91,5 +91,6 @@ export default {
   "leaflet_L_control_zoom_zoom_in": "Lähennä",
   "leaflet_L_control_zoom_zoom_out": "Loitonna",
   "leaflet_L_control_languageselector_title": "Valitse kieli",
-  "leaflet_L_control_darkMode_title": "Vaihda tumma tila"
+  "leaflet_L_control_darkMode_title": "Vaihda tumma tila",
+  "texts_data_date": "Tiedot"
 };

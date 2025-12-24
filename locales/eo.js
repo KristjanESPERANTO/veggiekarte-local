@@ -91,5 +91,6 @@ export default {
   "leaflet_L_control_zoom_zoom_in": "zomi",
   "leaflet_L_control_zoom_zoom_out": "malzomi",
   "leaflet_L_control_languageselector_title": "Elektu lingvon",
-  "leaflet_L_control_darkMode_title": "Ŝalti malluman reĝimon"
+  "leaflet_L_control_darkMode_title": "Ŝalti malhelan reĝimon",
+  "texts_data_date": "Datumoj de"
 };

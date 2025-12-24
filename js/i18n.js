@@ -116,6 +116,12 @@ function updateContent() {
   document.getElementById("content-further-heading").innerText = t("texts_content_further_heading");
   document.getElementById("content-further-text").innerHTML = t("texts_content_further_text");
 
+  // Update data date if it exists
+  const dataDateElement = document.getElementById("content-data-date");
+  if (dataDateElement && window._veggiekarteDataDate) {
+    dataDateElement.textContent = `${t("texts_data_date")}: ${window._veggiekarteDataDate}`;
+  }
+
   // Show content now that translations are loaded
   document.getElementById("content")?.classList.add("loaded");
 

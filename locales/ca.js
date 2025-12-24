@@ -91,5 +91,6 @@ export default {
   "leaflet_L_control_zoom_zoom_in": "Apropar",
   "leaflet_L_control_zoom_zoom_out": "Allunyar",
   "leaflet_L_control_languageselector_title": "Selecciona l'idioma",
-  "leaflet_L_control_darkMode_title": "Canviar al mode fosc"
+  "leaflet_L_control_darkMode_title": "Canviar mode fosc",
+  "texts_data_date": "Dades del"
 };

@@ -2,7 +2,7 @@
 import { CATEGORY_HIERARCHY, getCategoryForIcon } from "./category-mapping.js";
 import { Control, Icon, Map, Marker, TileLayer } from "leaflet";
 import { InfoButton, openInfo, showInfoOnStartup } from "./info-button-control.js";
-import { addLanguageResources, getUserLanguage, setUserLanguage } from "./i18n.js";
+import { addLanguageResources, getUserLanguage, setUserLanguage, t } from "./i18n.js";
 import { addNominatimInformation, calculatePopup } from "./popup.js";
 import { getIcon, iconToEmoji } from "./veggiemap-icons.js";
 import { langObject, languageSelector } from "@kristjan.esperanto/leaflet-language-selector";
@@ -413,6 +413,18 @@ async function veggiemapPopulate(parentGroupVar) {
   map.addLayer(parentGroupVar);
   statPopulate(markerGroups, date);
   updateVisibleCounts();
+
+  // Store data timestamp for language switching
+  const dataDate = date;
+  if (dataDate) {
+    // eslint-disable-next-line require-atomic-updates
+    window._veggiekarteDataDate = dataDate;
+  }
+  // Display data timestamp in info box
+  const dataDateElement = document.getElementById("content-data-date");
+  if (dataDateElement && dataDate) {
+    dataDateElement.textContent = `${t("texts_data_date")}: ${dataDate}`;
+  }
 
   // Apply filters asynchronously to allow chunkedLoading to start
   setTimeout(() => {
