@@ -4,6 +4,7 @@
  */
 export default {
   "__comment__": "Frensh localization",
+  "page_title": "Veggiekarte - Trouvez des lieux végétariens et véganes",
   "texts_will open soon": ", mais ouvrira bientôt",
   "texts_will close soon": ", mais fermera bientôt.",
   "texts_more_info": "Plus d'info",

@@ -101,6 +101,9 @@ function onLanguageChange(callback) {
  * Update all translated content in the page
  */
 function updateContent() {
+  // Page title
+  document.title = t("page_title");
+
   // Info box
   document.getElementById("content-welcome-heading").innerText = t("texts_content_welcome_heading");
   document.getElementById("content-welcome-text").innerHTML = t("texts_content_welcome_text");

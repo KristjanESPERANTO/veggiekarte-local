@@ -4,6 +4,7 @@
  */
 export default {
   "__comment__": "Traduzione Italiana",
+  "page_title": "Veggiekarte - Trova luoghi vegetariani e vegani",
   "texts_will open soon": ", aprirà tra poco",
   "texts_will close soon": ", chiuderà tra poco",
   "texts_more_info": "Più informazioni",

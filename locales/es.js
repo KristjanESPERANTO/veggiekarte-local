@@ -4,6 +4,7 @@
  */
 export default {
   "__comment__": "Spanish localization",
+  "page_title": "Veggiekarte - Encuentra lugares vegetarianos y veganos",
   "texts_will open soon": ", pero abrirá pronto",
   "texts_will close soon": ", pero cerrará pronto",
   "texts_more_info": "Más información",

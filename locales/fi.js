@@ -4,6 +4,7 @@
  */
 export default {
   "__comment__": "Finnish localization",
+  "page_title": "Veggiekarte - Löydä kasvissyöjä- ja vegaanipaikkoja",
   "texts_will open soon": ", mutta aukeaa pian",
   "texts_will close soon": ", mutta menee pian kiinni",
   "texts_more_info": "Lisää tietoa",

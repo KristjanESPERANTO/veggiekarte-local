@@ -4,6 +4,7 @@
  */
 export default {
   "__comment__": "Esperanto localization",
+  "page_title": "Veggiekarte - Trovu vegetarajn kaj veganajn lokojn",
   "texts_will open soon": ", sed baldaŭ malfermiĝos",
   "texts_will close soon": ", sed baldaŭ fermiĝos",
   "texts_more_info": "Pliaj informoj",

@@ -4,6 +4,7 @@
  */
 export default {
   "__comment__": "Korean localization",
+  "page_title": "Veggiekarte - 채식 및 비건 장소 찾기",
   "texts_will open soon": ", 하지만 곧 오픈",
   "texts_will close soon": "이나 곧 닫음",
   "texts_more_info": "추가 정보",

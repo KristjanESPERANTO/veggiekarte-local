@@ -4,6 +4,7 @@
  */
 export default {
   "__comment__": "German localization",
+  "page_title": "Veggiekarte - Finde vegetarische und vegane Orte",
   "texts_will open soon": ", aber wird bald öffnen",
   "texts_will close soon": ", aber wird bald schließen",
   "texts_more_info": "Mehr Infos",

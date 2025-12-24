@@ -4,6 +4,7 @@
  */
 export default {
   "__comment__": "Russian localization (Please review!)",
+  "page_title": "Veggiekarte - Найдите вегетарианские и веганские места",
   "texts_will open soon": ", но скоро откроется",
   "texts_will close soon": ", но скоро закроется",
   "texts_more_info": "Подробнее",

@@ -4,6 +4,7 @@
  */
 export default {
   "__comment__": "Catalan localization",
+  "page_title": "Veggiekarte - Troba llocs vegetarians i vegans",
   "texts_will open soon": ", però obrirà aviat",
   "texts_will close soon": ", però tancarà aviat",
   "texts_more_info": "Més informació",
