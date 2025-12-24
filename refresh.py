@@ -397,10 +397,30 @@ def write_data(data):
                 print("Downloaded and saved remote statistic file.")
             else:
                 print(f"Failed to download remote statistic file. HTTP status: {response.status}")
-                stat_data["stat"] = []
+                print("Trying to generate statistics locally via generate_stats.py...")
+                import subprocess
+                result = subprocess.run(["python3", "generate_stats.py"], capture_output=True, text=True)
+                if result.returncode == 0 and VEGGIESTAT_FILE.exists():
+                    print("Successfully generated statistics locally.")
+                else:
+                    print("Failed to generate statistics locally.")
+                    print("Creating empty statistic file.")
+                    VEGGIESTAT_FILE.touch()
+                    VEGGIESTAT_FILE.write_text(json.dumps({"stat": []}, indent=1))
+                    stat_data["stat"] = []
         except Exception as e:
             print(f"Error while downloading remote statistic file: {e}")
-            stat_data["stat"] = []
+            print("Trying to generate statistics locally via generate_stats.py...")
+            import subprocess
+            result = subprocess.run(["python3", "generate_stats.py"], capture_output=True, text=True)
+            if result.returncode == 0 and VEGGIESTAT_FILE.exists():
+                print("Successfully generated statistics locally.")
+            else:
+                print("Failed to generate statistics locally.")
+                print("Creating empty statistic file.")
+                VEGGIESTAT_FILE.touch()
+                VEGGIESTAT_FILE.write_text(json.dumps({"stat": []}, indent=1))
+                stat_data["stat"] = []
     else:
         print(f"Local statistic file {VEGGIESTAT_FILE} found.")
 

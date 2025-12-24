@@ -9,3 +9,6 @@ data/overpass.json
 
 # Custom configuration (not tracked)
 config.custom.json
+
+# Stats file
+data/stat.json
