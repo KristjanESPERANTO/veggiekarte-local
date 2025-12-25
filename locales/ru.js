@@ -90,5 +90,6 @@ export default {
   "leaflet_L_control_locate_distance": "Вы находитесь в пределах {distance} {unit} от этой точки.",
   "leaflet_L_control_zoom_zoom_in": "Приблизить",
   "leaflet_L_control_zoom_zoom_out": "Отдалить",
-  "leaflet_L_control_languageselector_title": "Выбрать язык"
+  "leaflet_L_control_languageselector_title": "Выбрать язык",
+  "leaflet_L_control_darkMode_title": "Переключить тёмный режим"
 };

@@ -90,5 +90,6 @@ export default {
   "leaflet_L_control_locate_distance": "당신은 여기에서 {distance} {unit} 내에 있습니다.",
   "leaflet_L_control_zoom_zoom_in": "확대",
   "leaflet_L_control_zoom_zoom_out": "축소",
-  "leaflet_L_control_languageselector_title": "언어 선택"
+  "leaflet_L_control_languageselector_title": "언어 선택",
+  "leaflet_L_control_darkMode_title": "다크 모드 전환"
 };

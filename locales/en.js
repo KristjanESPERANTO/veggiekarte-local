@@ -90,5 +90,6 @@ export default {
   "leaflet_L_control_locate_distance": "You are within {distance} {unit} from this point.",
   "leaflet_L_control_zoom_zoom_in": "Zoom in",
   "leaflet_L_control_zoom_zoom_out": "Zoom out",
-  "leaflet_L_control_languageselector_title": "Select language"
+  "leaflet_L_control_languageselector_title": "Select language",
+  "leaflet_L_control_darkMode_title": "Toggle dark mode"
 };

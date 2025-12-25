@@ -154,6 +154,13 @@ function updateContent() {
     langButton.setAttribute("aria-label", langTitle);
   }
 
+  // Dark mode control
+  if (document.darkModeControl?.link) {
+    const darkModeTitle = t("leaflet_L_control_darkMode_title");
+    document.darkModeControl.link.title = darkModeTitle;
+    document.darkModeControl.link.setAttribute("aria-label", darkModeTitle);
+  }
+
   // Update category filter control translations
   window.categoryFilterControl?.updateTranslations();
 

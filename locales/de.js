@@ -90,5 +90,6 @@ export default {
   "leaflet_L_control_locate_distance": "Du befindest dich maximal {distance} {unit} entfernt von diesem Punkt.",
   "leaflet_L_control_zoom_zoom_in": "hineinzoomen",
   "leaflet_L_control_zoom_zoom_out": "herauszoomen",
-  "leaflet_L_control_languageselector_title": "Sprache auswählen"
+  "leaflet_L_control_languageselector_title": "Sprache auswählen",
+  "leaflet_L_control_darkMode_title": "Dark-Mode umschalten"
 };

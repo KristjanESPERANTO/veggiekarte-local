@@ -7,6 +7,7 @@ import { addNominatimInformation, calculatePopup } from "./popup.js";
 import { getIcon, iconToEmoji } from "./veggiemap-icons.js";
 import { langObject, languageSelector } from "@kristjan.esperanto/leaflet-language-selector";
 import { CategoryFilterControl } from "./category-filter-control.js";
+import { DarkModeButton } from "./dark-mode-control.js";
 import { FullScreen } from "leaflet.fullscreen";
 import { Geocoder } from "leaflet-control-geocoder";
 import { LocateControl } from "../third-party/leaflet.locatecontrol/L.Control.Locate.esm.patched.js";
@@ -172,19 +173,27 @@ function veggiemap() {
     shadowUrl: "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2728%27%20height%3D%2712%27%3E%3Cellipse%20cx%3D%2714%27%20cy%3D%276%27%20rx%3D%2710%27%20ry%3D%275%27%20fill%3D%27rgba%280%2C0%2C0%2C0.25%29%27/%3E%3C/svg%3E"
   });
 
+  // Tile Layer (CSS filter handles dark mode styling)
+  const osmLayer = new TileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: __MAP_MAX_ZOOM__,
+    attribution: "© <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap contributors</a>"
+  });
+
+  // Create Dark Mode Control
+  const darkModeControl = new DarkModeButton({
+    position: "topright",
+    lightLayer: osmLayer,
+    darkLayer: osmLayer
+  });
+
   // Map
   map = new Map("map", {
     center: __MAP_CENTER__,
     zoom: __MAP_ZOOM__,
     worldCopyJump: true,
-    zoomControl: false
+    zoomControl: false,
+    layers: [osmLayer]
   });
-
-  // TileLayer
-  new TileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: __MAP_MAX_ZOOM__,
-    attribution: "© <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap contributors</a>"
-  }).addTo(map);
 
   // Add zoom control
   new Control.Zoom({ position: "topright" }).addTo(map);
@@ -229,6 +238,10 @@ function veggiemap() {
     position: "topright"
   });
   document.locateControl.addTo(map);
+
+  // Add dark mode control
+  document.darkModeControl = darkModeControl;
+  darkModeControl.addTo(map);
 
   // Add language selector
   languageControl = languageSelector({

@@ -304,3 +304,97 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+
+/* ===== Dark Mode Styles for Category Filter ===== */
+
+/* Button in control bar */
+:root[data-theme="dark"] .category-filter-btn {
+  background: #3a3a3a;
+  color: #fff;
+}
+
+:root[data-theme="dark"] .category-filter-btn:hover {
+  background: #555;
+}
+
+/* Modal */
+:root[data-theme="dark"] .category-filter-modal {
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+}
+
+/* Close button */
+:root[data-theme="dark"] .category-filter-close {
+  background: #3a3a3a;
+  color: #fff;
+}
+
+:root[data-theme="dark"] .category-filter-close:hover {
+  background: #555;
+}
+
+/* Header */
+:root[data-theme="dark"] .category-filter-header {
+  border-bottom-color: #555;
+}
+
+:root[data-theme="dark"] .category-filter-counter {
+  color: #aaa;
+}
+
+/* Diet filter section */
+:root[data-theme="dark"] .diet-filter-section {
+  background: linear-gradient(135deg, #1a3a1a 0%, #2a3a1a 100%);
+  border-color: #3a5a3a;
+}
+
+:root[data-theme="dark"] .diet-filter-title {
+  color: #66bb6a;
+}
+
+:root[data-theme="dark"] .diet-filter-item label:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Category section wrapper */
+:root[data-theme="dark"] .category-section-wrapper {
+  background: #1f1f1f;
+  border-color: #444;
+}
+
+:root[data-theme="dark"] .category-section-header {
+  border-bottom-color: #444;
+}
+
+:root[data-theme="dark"] .category-section-title {
+  color: #aaa;
+}
+
+/* Quick toggle buttons */
+:root[data-theme="dark"] .category-quick-toggle button {
+  background: #3a3a3a;
+  border-color: #555;
+  color: #e0e0e0;
+}
+
+:root[data-theme="dark"] .category-quick-toggle button:hover {
+  background: #4a4a4a;
+  border-color: #66bb6a;
+}
+
+/* Category sections */
+:root[data-theme="dark"] .category-section {
+  background: #2a2a2a;
+  border-color: #444;
+}
+
+:root[data-theme="dark"] .category-sub:hover {
+  background: #333;
+}
+
+:root[data-theme="dark"] .category-count {
+  background: #3a3a3a;
+  color: #aaa;
+}
+
+/* ===== End Dark Mode Styles ===== */

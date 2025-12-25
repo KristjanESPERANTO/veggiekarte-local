@@ -90,5 +90,6 @@ export default {
   "leaflet_L_control_locate_distance": "Ets a {distance} {unit} d'aquest punt.",
   "leaflet_L_control_zoom_zoom_in": "Apropar",
   "leaflet_L_control_zoom_zoom_out": "Allunyar",
-  "leaflet_L_control_languageselector_title": "Selecciona l'idioma"
+  "leaflet_L_control_languageselector_title": "Selecciona l'idioma",
+  "leaflet_L_control_darkMode_title": "Canviar al mode fosc"
 };

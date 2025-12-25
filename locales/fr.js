@@ -90,5 +90,6 @@ export default {
   "leaflet_L_control_locate_distance": "Vous êtes au plus {distance} {unit} de ce point.",
   "leaflet_L_control_zoom_zoom_in": "zoom avant",
   "leaflet_L_control_zoom_zoom_out": "zoom arrière",
-  "leaflet_L_control_languageselector_title": "Sélectionner la langue"
+  "leaflet_L_control_languageselector_title": "Sélectionner la langue",
+  "leaflet_L_control_darkMode_title": "Basculer le mode sombre"
 };
