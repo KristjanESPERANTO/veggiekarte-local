@@ -1,13 +1,13 @@
 /* eslint-disable camelcase */
 import { CATEGORY_HIERARCHY, getCategoryForIcon } from "./category-mapping.js";
 import { Control, Icon, Map, Marker, TileLayer } from "leaflet";
+import { DEFAULT_THEMES, ThemeControl } from "leaflet-theme-control";
 import { InfoButton, openInfo, showInfoOnStartup } from "./info-button-control.js";
 import { addLanguageResources, getUserLanguage, setUserLanguage, t } from "./i18n.js";
 import { addNominatimInformation, calculatePopup } from "./popup.js";
 import { getIcon, iconToEmoji } from "./veggiemap-icons.js";
 import { langObject, languageSelector } from "@kristjan.esperanto/leaflet-language-selector";
 import { CategoryFilterControl } from "./category-filter-control.js";
-import { DarkModeButton } from "./dark-mode-control.js";
 import { FullScreen } from "leaflet.fullscreen";
 import { Geocoder } from "leaflet-control-geocoder";
 import { LocateControl } from "../third-party/leaflet.locatecontrol/L.Control.Locate.esm.patched.js";
@@ -47,6 +47,7 @@ const subgroups = {
 let map;
 let languageControl;
 let categoryFilterControl;
+let themeControl;
 const categorySubgroups = {}; // Storage for category-based subgroups
 const allMarkersByCategory = {}; // Store all markers by category key for filtering
 
@@ -164,7 +165,10 @@ function updateFilterCounts() {
   categoryFilterControl.updateMarkerCounter(totalVisible, totalMarkers, viewportCount);
 }
 
-function veggiemap() {
+async function veggiemap() {
+  // Load language resources first so translations are available for controls
+  await addLanguageResources(getUserLanguage());
+
   // Replace Leaflet's default marker assets with inline SVG data URIs
   delete Icon.Default.prototype._getIconUrl;
   Icon.Default.mergeOptions({
@@ -177,13 +181,6 @@ function veggiemap() {
   const osmLayer = new TileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: __MAP_MAX_ZOOM__,
     attribution: "© <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap contributors</a>"
-  });
-
-  // Create Dark Mode Control
-  const darkModeControl = new DarkModeButton({
-    position: "topright",
-    lightLayer: osmLayer,
-    darkLayer: osmLayer
   });
 
   // Map
@@ -239,9 +236,28 @@ function veggiemap() {
   });
   document.locateControl.addTo(map);
 
-  // Add dark mode control
-  document.darkModeControl = darkModeControl;
-  darkModeControl.addTo(map);
+  // Add theme control
+  const customThemes = {
+    ...DEFAULT_THEMES,
+    dark: {
+      ...DEFAULT_THEMES.dark,
+      filter: "invert(1) hue-rotate(200deg) saturate(0.9) brightness(0.9)"
+    }
+  };
+
+  themeControl = new ThemeControl({
+    position: "topright",
+    themes: customThemes,
+    defaultTheme: "light",
+    detectSystemTheme: true,
+    storageKey: "veggiekarte-theme",
+    enableEditor: true,
+    getLabel: themeKey => t(`themes.${themeKey}`),
+    getEditorLabels: key => t(`themeEditor.${key}`)
+  }).addTo(map);
+
+  // Make themeControl globally accessible for language updates
+  window.themeControl = themeControl;
 
   // Add language selector
   languageControl = languageSelector({
@@ -345,8 +361,6 @@ function updateVisibleCounts() {
  * @param {MarkerClusterGroup} parentGroupVar - The parent marker cluster group
  */
 async function veggiemapPopulate(parentGroupVar) {
-  await addLanguageResources(getUserLanguage());
-
   // Phase 1: Start progress bar at 0%
   progress.start();
 
