@@ -4,6 +4,7 @@
  */
 export default {
   "__comment__": "Finnish localization",
+  "page_title": "Veggiekarte - Löydä kasvissyöjä- ja vegaanipaikkoja",
   "texts_will open soon": ", mutta aukeaa pian",
   "texts_will close soon": ", mutta menee pian kiinni",
   "texts_more_info": "Lisää tietoa",
@@ -89,5 +90,7 @@ export default {
   "leaflet_L_control_locate_distance": "Olet korkeintaan {distance} {unit} päässä tästä pisteestä.",
   "leaflet_L_control_zoom_zoom_in": "Lähennä",
   "leaflet_L_control_zoom_zoom_out": "Loitonna",
-  "leaflet_L_control_languageselector_title": "Valitse kieli"
+  "leaflet_L_control_languageselector_title": "Valitse kieli",
+  "leaflet_L_control_darkMode_title": "Vaihda tumma tila",
+  "texts_data_date": "Tiedot"
 };

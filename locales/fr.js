@@ -4,6 +4,7 @@
  */
 export default {
   "__comment__": "Frensh localization",
+  "page_title": "Veggiekarte - Trouvez des lieux végétariens et véganes",
   "texts_will open soon": ", mais ouvrira bientôt",
   "texts_will close soon": ", mais fermera bientôt.",
   "texts_more_info": "Plus d'info",
@@ -89,5 +90,7 @@ export default {
   "leaflet_L_control_locate_distance": "Vous êtes au plus {distance} {unit} de ce point.",
   "leaflet_L_control_zoom_zoom_in": "zoom avant",
   "leaflet_L_control_zoom_zoom_out": "zoom arrière",
-  "leaflet_L_control_languageselector_title": "Sélectionner la langue"
+  "leaflet_L_control_languageselector_title": "Sélectionner la langue",
+  "leaflet_L_control_darkMode_title": "Basculer en mode sombre",
+  "texts_data_date": "Données du"
 };

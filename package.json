@@ -1,6 +1,6 @@
 {
   "name": "veggiekarte",
-  "version": "2.5.0",
+  "version": "2.6.0",
   "description": "A OpenStreetMap based map to easily find places, like restaurants and cafes, with vegetarian and vegan options.",
   "repository": {
     "type": "git",
@@ -60,7 +60,7 @@
   },
   "scripts": {
     "build": "node scripts/generate_icons.js && rollup -c && lightningcss --minify --bundle css/main.css -o css/bundle.css",
-    "bump": "npx bumpp package.json package-lock.json js/bundle.js datacheck/datacheck-bundle.js js/veggiemap_chart-bundle.js service-worker.js --no-push",
+    "bump": "npx bumpp package.json service-worker.js --all --no-push",
     "datacheck": "node ./datacheck/datacheck.js",
     "lint": "eslint && prettier . --check",
     "lint:fix": "eslint --fix && prettier . --write",

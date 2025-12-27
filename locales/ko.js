@@ -4,6 +4,7 @@
  */
 export default {
   "__comment__": "Korean localization",
+  "page_title": "Veggiekarte - 채식 및 비건 장소 찾기",
   "texts_will open soon": ", 하지만 곧 오픈",
   "texts_will close soon": "이나 곧 닫음",
   "texts_more_info": "추가 정보",
@@ -89,5 +90,7 @@ export default {
   "leaflet_L_control_locate_distance": "당신은 여기에서 {distance} {unit} 내에 있습니다.",
   "leaflet_L_control_zoom_zoom_in": "확대",
   "leaflet_L_control_zoom_zoom_out": "축소",
-  "leaflet_L_control_languageselector_title": "언어 선택"
+  "leaflet_L_control_languageselector_title": "언어 선택",
+  "leaflet_L_control_darkMode_title": "다크 모드 전환",
+  "texts_data_date": "데이터 기준일"
 };

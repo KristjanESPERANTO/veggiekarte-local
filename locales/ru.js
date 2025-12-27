@@ -4,6 +4,7 @@
  */
 export default {
   "__comment__": "Russian localization (Please review!)",
+  "page_title": "Veggiekarte - Найдите вегетарианские и веганские места",
   "texts_will open soon": ", но скоро откроется",
   "texts_will close soon": ", но скоро закроется",
   "texts_more_info": "Подробнее",
@@ -89,5 +90,7 @@ export default {
   "leaflet_L_control_locate_distance": "Вы находитесь в пределах {distance} {unit} от этой точки.",
   "leaflet_L_control_zoom_zoom_in": "Приблизить",
   "leaflet_L_control_zoom_zoom_out": "Отдалить",
-  "leaflet_L_control_languageselector_title": "Выбрать язык"
+  "leaflet_L_control_languageselector_title": "Выбрать язык",
+  "leaflet_L_control_darkMode_title": "Переключить темный режим",
+  "texts_data_date": "Данные на"
 };

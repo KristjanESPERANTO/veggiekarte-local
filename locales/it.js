@@ -4,6 +4,7 @@
  */
 export default {
   "__comment__": "Traduzione Italiana",
+  "page_title": "Veggiekarte - Trova luoghi vegetariani e vegani",
   "texts_will open soon": ", aprirà tra poco",
   "texts_will close soon": ", chiuderà tra poco",
   "texts_more_info": "Più informazioni",
@@ -89,5 +90,7 @@ export default {
   "leaflet_L_control_locate_distance": "Sei a {distance} {unit} da questo punto.",
   "leaflet_L_control_zoom_zoom_in": "Ingrandisci",
   "leaflet_L_control_zoom_zoom_out": "Rimpicciolisci",
-  "leaflet_L_control_languageselector_title": "Seleziona la lingua"
+  "leaflet_L_control_languageselector_title": "Seleziona la lingua",
+  "leaflet_L_control_darkMode_title": "Attiva/disattiva modalità scura",
+  "texts_data_date": "Dati del"
 };

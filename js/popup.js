@@ -498,7 +498,7 @@ function updateEditModalContent(overlay, type, id) {
   // Update links
   const linksContainer = overlay.querySelector("[data-links]");
   linksContainer.replaceChildren(
-    createEditLink("MapComplete", `https://mapcomplete.org/food.html?#${type}/${id}`),
+    createEditLink("MapComplete", `https://mapcomplete.org/food.html?z=19#${type}/${id}`),
     createEditLink("OpenStreetMap", `https://openstreetmap.org/${type}/${id}`)
   );
 }

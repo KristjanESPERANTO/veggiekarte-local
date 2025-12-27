@@ -9,6 +9,286 @@
 @import url("icons.css");
 @import url("category-filter.css");
 
+/* ===== Dark Mode Styles ===== */
+
+/* Smooth transitions for theme changes */
+html,
+body {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Light mode color tokens (default) */
+:root {
+  color-scheme: light;
+
+  /* Color tokens for light mode */
+  --light-bg-primary: #fff;
+  --light-bg-secondary: #f8f9fa;
+  --light-bg-control: #fff;
+  --light-bg-hover: #f4f4f4;
+  --light-bg-elevated: #fff;
+
+  --light-text-primary: #333;
+  --light-text-secondary: #666;
+  --light-text-heading: #111;
+
+  --light-accent-green: #2e7d32;
+  --light-accent-green-hover: #1b5e20;
+  --light-accent-blue: #1976d2;
+  --light-accent-blue-hover: #0d47a1;
+
+  --light-border: rgba(0, 0, 0, 0.2);
+  --light-border-subtle: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode map tiles inversion */
+:root[data-theme="dark"] .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) saturate(0.6) brightness(0.5);
+}
+
+/* Dark mode color tokens */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Color tokens for dark mode */
+  --dark-bg-primary: #1a1a1a;
+  --dark-bg-secondary: #2a2a2a;
+  --dark-bg-control: #3a3a3a;
+  --dark-bg-hover: #555;
+  --dark-bg-elevated: #4a4a4a;
+
+  --dark-text-primary: #e0e0e0;
+  --dark-text-secondary: #aaa;
+  --dark-text-heading: #f0f0f0;
+
+  --dark-accent-green: #66bb6a;
+  --dark-accent-green-hover: #81c784;
+  --dark-accent-blue: #6db3f2;
+  --dark-accent-blue-hover: #90caf9;
+
+  --dark-border: rgba(255, 255, 255, 0.2);
+  --dark-border-subtle: rgba(255, 255, 255, 0.1);
+}
+
+/* Body and general background */
+html[data-theme="dark"],
+html[data-theme="dark"] body {
+  background-color: var(--dark-bg-primary);
+  color: var(--dark-text-primary);
+}
+
+/* Leaflet controls (zoom, locate, geocoder, etc.) */
+:root[data-theme="dark"] .leaflet-bar,
+:root[data-theme="dark"] .leaflet-bar a,
+:root[data-theme="dark"] .leaflet-control-layers,
+:root[data-theme="dark"] .leaflet-control-geocoder-form input,
+:root[data-theme="dark"] .leaflet-control-geocoder-alternatives {
+  background-color: var(--dark-bg-control) !important;
+  color: #fff !important;
+  border-color: var(--dark-border) !important;
+}
+
+:root[data-theme="dark"] .leaflet-bar a:hover {
+  background-color: var(--dark-bg-hover) !important;
+  text-decoration: none !important;
+}
+
+/* Fullscreen control icon color - white icons in dark mode */
+:root[data-theme="dark"] {
+  --fullscreen-icon-enter: url("data:image/svg+xml,<svg viewBox='0 0 26 26' xmlns='http://www.w3.org/2000/svg'><path d='M5 10.3V5.9c0-.5.4-.9.9-.9h4.4c.2 0 .4.2.4.4V7c0 .2-.2.4-.4.4h-3v3c0 .2-.2.4-.4.4H5.4a.4.4 0 0 1-.4-.4zm10.3-4.9V7c0 .2.2.4.4.4h3v3c0 .2.2.4.4.4h1.5c.2 0 .4-.2.4-.4V5.9c0-.5-.4-.9-.9-.9h-4.4c-.2 0-.4.2-.4.4zm5.3 9.9H19c-.2 0-.4.2-.4.4v3h-3c-.2 0-.4.2-.4.4v1.5c0 .2.2.4.4.4h4.4c.5 0 .9-.4.9-.9v-4.4c0-.2-.2-.4-.4-.4zm-9.9 5.3V19c0-.2-.2-.4-.4-.4h-3v-3c0-.2-.2-.4-.4-.4H5.4c-.2 0-.4.2-.4.4v4.4c0 .5.4.9.9.9h4.4c.2 0 .4-.2.4-.4z' fill='%23fff'/></svg>");
+  --fullscreen-icon-exit: url("data:image/svg+xml,<svg viewBox='0 0 26 26' xmlns='http://www.w3.org/2000/svg'><path d='M20.6 10.7H16a.9.9 0 0 1-.8-.8v-4.5c0-.2.2-.4.4-.4h1.4c.3 0 .5.2.5.4v3h3c.2 0 .4.2.4.5v1.4c0 .2-.2.4-.4.4zm-9.9-.8V5.4c0-.2-.2-.4-.4-.4H8.9c-.3 0-.5.2-.5.4v3h-3c-.2 0-.4.2-.4.5v1.4c0 .2.2.4.4.4H9.9c.4 0 .8-.4.8-.8zm0 10.7V16c0-.4-.4-.8-.8-.8H5.4c-.2 0-.4.2-.4.4v1.4c0 .3.2.5.4.5h3v3c0 .2.2.4.5.4h1.4c.2 0 .4-.2.4-.4zm6.9 0v-3h3c.2 0 .4-.2.4-.5v-1.4c0-.2-.2-.4-.4-.4H16c-.4 0-.8.4-.8.8v4.5c0 .2.2.4.4.4h1.5c.3 0 .5-.2.5-.4z' fill='%23fff'/></svg>");
+}
+
+/* Locate control icon color */
+:root[data-theme="dark"] .leaflet-control-locate {
+  --locate-control-icon-color: #fff;
+}
+
+/* Locate control icon - white arrow in dark mode */
+:root[data-theme="dark"] .leaflet-control-locate a .leaflet-control-locate-location-arrow {
+  background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='white' d='M445 4 29 195c-48 23-32 93 19 93h176v176c0 51 70 67 93 19L508 67c16-38-25-79-63-63z'/></svg>");
+}
+
+/* Locate control spinner - white in dark mode */
+:root[data-theme="dark"] .leaflet-control-locate a .leaflet-control-locate-spinner {
+  background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='white' d='M304 48a48 48 0 1 1-96 0 48 48 0 0 1 96 0zm-48 368a48 48 0 1 0 0 96 48 48 0 0 0 0-96zm208-208a48 48 0 1 0 0 96 48 48 0 0 0 0-96zM96 256a48 48 0 1 0-96 0 48 48 0 0 0 96 0zm13 99a48 48 0 1 0 0 96 48 48 0 0 0 0-96zm294 0a48 48 0 1 0 0 96 48 48 0 0 0 0-96zM109 61a48 48 0 1 0 0 96 48 48 0 0 0 0-96z'/></svg>");
+}
+
+/* Leaflet popups */
+:root[data-theme="dark"] .leaflet-popup-content-wrapper,
+:root[data-theme="dark"] .leaflet-popup-tip {
+  background-color: var(--dark-bg-control);
+  color: #fff;
+}
+
+:root[data-theme="dark"] .leaflet-popup-content-wrapper a {
+  color: var(--dark-accent-blue);
+}
+
+/* Attribution */
+:root[data-theme="dark"] .leaflet-control-attribution {
+  background-color: rgba(58, 58, 58, 0.8);
+  color: #fff;
+}
+
+:root[data-theme="dark"] .leaflet-control-attribution a {
+  color: var(--dark-accent-blue);
+}
+
+/* Info modal */
+:root[data-theme="dark"] #information {
+  background-color: var(--dark-bg-secondary);
+  color: var(--dark-text-primary);
+}
+
+:root[data-theme="dark"] #information h1 {
+  color: var(--dark-text-heading);
+}
+
+:root[data-theme="dark"] #information a {
+  color: var(--dark-accent-green);
+}
+
+:root[data-theme="dark"] #information a:hover {
+  color: var(--dark-accent-green-hover);
+}
+
+/* Edit modal */
+:root[data-theme="dark"] .edit-modal {
+  background-color: var(--dark-bg-secondary);
+  color: var(--dark-text-primary);
+}
+
+:root[data-theme="dark"] .edit-modal h2 {
+  color: var(--dark-accent-green);
+}
+
+:root[data-theme="dark"] .edit-modal p {
+  color: #ccc;
+}
+
+:root[data-theme="dark"] .edit-modal-link {
+  background: var(--dark-bg-control);
+  border-color: var(--dark-bg-hover);
+  color: #fff;
+}
+
+:root[data-theme="dark"] .edit-modal-link:hover {
+  background: var(--dark-bg-elevated);
+  border-color: var(--dark-accent-green);
+}
+
+/* Close buttons */
+:root[data-theme="dark"] .close-button {
+  background: var(--dark-bg-control);
+  color: #fff;
+}
+
+:root[data-theme="dark"] .close-button:hover {
+  background: var(--dark-bg-hover);
+}
+
+/* Progress bar */
+:root[data-theme="dark"] #progress {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Links */
+:root[data-theme="dark"] a {
+  color: var(--dark-accent-blue);
+}
+
+:root[data-theme="dark"] a:hover {
+  color: var(--dark-accent-blue-hover);
+}
+
+/* Geocoder results */
+:root[data-theme="dark"] .leaflet-control-geocoder-alternatives a {
+  color: #fff;
+  background-color: var(--dark-bg-control);
+  border-color: var(--dark-border-subtle);
+}
+
+:root[data-theme="dark"] .leaflet-control-geocoder-alternatives a:hover {
+  background-color: var(--dark-bg-elevated);
+}
+
+:root[data-theme="dark"] .leaflet-control-geocoder-selected {
+  background-color: var(--dark-bg-hover) !important;
+}
+
+/* Geocoder (search) control - white icon in dark mode */
+:root[data-theme="dark"] .leaflet-control-geocoder-icon {
+  background-color: var(--dark-bg-control) !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M12.2 13l3.4 6.6c.6 1.1 2.5-.4 2-1.2l-4-6.2z'/%3E%3Ccircle cx='10.8' cy='8.9' r='3.9' fill='none' stroke='%23fff' stroke-width='1.5'/%3E%3C/svg%3E") !important;
+}
+
+/* Geocoder throbber (loading) - white icon in dark mode */
+:root[data-theme="dark"] .leaflet-control-geocoder-throbber .leaflet-control-geocoder-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' stroke='%23fff' stroke-linecap='round' stroke-width='1.6' viewBox='0 0 24 24'%3E%3Cdefs/%3E%3Cg%3E%3Cpath stroke-opacity='.1' d='M14 8.4l3-5'/%3E%3Cpath stroke-opacity='.2' d='M15.6 10l5-3'/%3E%3Cpath stroke-opacity='.3' d='M16.2 12H22'/%3E%3Cpath stroke-opacity='.4' d='M15.6 14l5 3m-6.5-1.4l2.9 5'/%3E%3Cpath stroke-opacity='.5' d='M12 16.2V22m-2-6.4l-3 5'/%3E%3Cpath stroke-opacity='.6' d='M8.4 14l-5 3'/%3E%3Cpath stroke-opacity='.7' d='M7.8 12H2'/%3E%3Cpath stroke-opacity='.8' d='M8.4 10l-5-3'/%3E%3Cpath stroke-opacity='.9' d='M10 5.6L7.1.6'/%3E%3C/g%3E%3C/svg%3E") !important;
+}
+
+/* Language selector */
+:root[data-theme="dark"] .leaflet-control-languageselector {
+  background-color: var(--dark-bg-control) !important;
+}
+
+:root[data-theme="dark"] .leaflet-control-languageselector a {
+  color: #fff !important;
+  background-color: var(--dark-bg-control) !important;
+}
+
+:root[data-theme="dark"] .leaflet-control-languageselector a:hover {
+  background-color: var(--dark-bg-hover) !important;
+}
+
+/* Language selector button - white icon in dark mode */
+:root[data-theme="dark"] .leaflet-control-languageselector-button {
+  background-color: var(--dark-bg-control) !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cdefs/%3E%3Cpath fill='%23fff' d='M8.9 5.8c-.6 2-1.4 3.7-2.4 5-1-1.3-1.9-3-2.5-5zm4 0v-2H7.2V1H5.7v2.8H.2v2h2a23 23 0 003 6.7 13.4 13.4 0 01-5.2 3l1 2c2.1-.8 4-2 5.4-3.5 1.5 1.6 3.3 2.8 5.5 3.5.2-.6.8-1.6 1.2-2-2.1-.7-3.9-1.7-5.3-3.1a20 20 0 003-6.6zm4.6 2.6L15 16.9h4.8zm-1.4-2h2.8L24 23h-3l-.6-4.3h-5.9l-.8 4.3H11z'/%3E%3C/svg%3E") !important;
+}
+
+:root[data-theme="dark"] .leaflet-control-languageselector-button:hover {
+  background-color: var(--dark-bg-hover) !important;
+}
+
+:root[data-theme="dark"] .leaflet-control-geocoder-icon:hover {
+  background-color: var(--dark-bg-hover) !important;
+}
+
+/* Language selector expanded popup */
+:root[data-theme="dark"] .leaflet-languageselector-title,
+:root[data-theme="dark"] .leaflet-languageselector-languagesdiv {
+  background-color: var(--dark-bg-control) !important;
+  color: #fff !important;
+}
+
+:root[data-theme="dark"] .leaflet-languageselector-langdiv {
+  color: #fff !important;
+}
+
+:root[data-theme="dark"] .leaflet-languageselector-langdiv:hover {
+  background-color: var(--dark-bg-hover) !important;
+}
+
+:root[data-theme="dark"] .languageselector-selected {
+  background-color: #2e7d32 !important;
+}
+
+/* Info button - white icon in dark mode */
+:root[data-theme="dark"] .info-button {
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6 14'%3E%3Cdefs/%3E%3Cpath fill='white' d='M24.3-5.9H53v270H24.3zM1.5 6.5h-1v-.2l3.4-1v6.2c0 .6.1 1 .3 1.2l1.3.3v.2h-5V13c.7 0 1.2-.1 1.4-.3.2-.2.3-.6.3-1.2v-4c0-.4 0-.6-.2-.8l-.5-.2z'/%3E%3Ccircle fill='white' cx='2.9' cy='2.3' r='1.3'/%3E%3C/svg%3E");
+}
+
+/* ===== End Dark Mode Styles ===== */
+
+/* General leaflet controls - remove text decoration on hover */
+.leaflet-bar a:hover {
+  text-decoration: none !important;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -458,6 +738,15 @@ a:hover {
   background-position: center !important;
   background-repeat: no-repeat !important;
   background-size: 24px !important;
+  cursor: pointer !important;
+}
+
+.leaflet-control-languageselector-button:hover {
+  background-color: #f4f4f4 !important;
+}
+
+.leaflet-control-geocoder-icon:hover {
+  background-color: #f4f4f4 !important;
 }
 
 /* Ensure all collapsed Leaflet controls have white background */

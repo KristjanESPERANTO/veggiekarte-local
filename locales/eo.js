@@ -4,6 +4,7 @@
  */
 export default {
   "__comment__": "Esperanto localization",
+  "page_title": "Veggiekarte - Trovu vegetarajn kaj veganajn lokojn",
   "texts_will open soon": ", sed baldaŭ malfermiĝos",
   "texts_will close soon": ", sed baldaŭ fermiĝos",
   "texts_more_info": "Pliaj informoj",
@@ -89,5 +90,7 @@ export default {
   "leaflet_L_control_locate_distance": "Vi estas ene de {distance} {unit} de ĉi tiu punkto.",
   "leaflet_L_control_zoom_zoom_in": "zomi",
   "leaflet_L_control_zoom_zoom_out": "malzomi",
-  "leaflet_L_control_languageselector_title": "Elektu lingvon"
+  "leaflet_L_control_languageselector_title": "Elektu lingvon",
+  "leaflet_L_control_darkMode_title": "Ŝalti malhelan reĝimon",
+  "texts_data_date": "Datumoj de"
 };
