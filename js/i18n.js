@@ -170,6 +170,23 @@ function updateContent() {
   // Update category filter control translations
   window.categoryFilterControl?.updateTranslations();
 
+  // Update close button aria-labels
+  const closeBtn = document.getElementById("close");
+  if (closeBtn) {
+    closeBtn.setAttribute("aria-label", t("words_close"));
+  }
+
+  // Update Leaflet popup close buttons (if any are currently open)
+  const popupCloseButtons = document.querySelectorAll(".leaflet-popup-close-button");
+  popupCloseButtons.forEach((button) => {
+    button.setAttribute("aria-label", t("words_close"));
+  });
+
+  // Update theme control button label
+  if (window.themeControl) {
+    window.themeControl.updateButtonLabel();
+  }
+
   // Set HTML lang attribute
   document.body.parentElement.lang = currentLanguage;
 }
@@ -177,4 +194,21 @@ function updateContent() {
 // Initialize on module load
 onLanguageChange(updateContent);
 
-export { setUserLanguage, getUserLanguage, addLanguageResources, t };
+/**
+ * Initialize close buttons with aria-labels
+ * Can be called from pages that don't use full i18n
+ */
+function initCloseButtons() {
+  const closeBtn = document.getElementById("close");
+  if (closeBtn) {
+    closeBtn.setAttribute("aria-label", t("words_close"));
+  }
+
+  // Handle Leaflet popup close buttons (if any are currently open)
+  const popupCloseButtons = document.querySelectorAll(".leaflet-popup-close-button");
+  popupCloseButtons.forEach((button) => {
+    button.setAttribute("aria-label", t("words_close"));
+  });
+}
+
+export { setUserLanguage, getUserLanguage, addLanguageResources, t, initCloseButtons };

@@ -253,7 +253,13 @@ async function veggiemap() {
     storageKey: "veggiekarte-theme",
     enableEditor: true,
     getLabel: themeKey => t(`themes.${themeKey}`),
-    getEditorLabels: key => t(`themeEditor.${key}`)
+    getEditorLabels: (key) => {
+      // Map close to generic words_close
+      if (key === "close") {
+        return t("words_close");
+      }
+      return t(`themeEditor.${key}`);
+    }
   }).addTo(map);
 
   // Make themeControl globally accessible for language updates
@@ -304,6 +310,11 @@ async function veggiemap() {
   map.on("popupopen", (evt) => {
     const popupElement = evt.popup.getElement();
     if (!popupElement) { return; }
+    // Set aria-label on popup close button
+    const closeButton = popupElement.querySelector(".leaflet-popup-close-button");
+    if (closeButton) {
+      closeButton.setAttribute("aria-label", t("words_close"));
+    }
     const marker = evt.popup._source; // Marker that owns the popup
     if (marker) { addNominatimInformation(marker, popupElement); }
   });

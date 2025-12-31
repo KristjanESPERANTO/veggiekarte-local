@@ -30,6 +30,9 @@ const CategoryFilterControl = Control.extend({
     this._link = DomUtil.create("a", "category-filter-btn", container);
     this._link.href = "#";
     this._link.setAttribute("role", "button");
+    const selectionTitle = t("category_selection_title");
+    this._link.title = selectionTitle;
+    this._link.setAttribute("aria-label", selectionTitle);
     this._link.innerHTML = "<svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><rect x='3' y='3' width='7' height='7'/><rect x='14' y='3' width='7' height='7'/><rect x='3' y='14' width='7' height='7'/><rect x='14' y='14' width='7' height='7'/></svg>";
 
     // Toggle panel on click
@@ -63,10 +66,11 @@ const CategoryFilterControl = Control.extend({
     this._overlay.appendChild(this._panel);
 
     // Close button (like #close in info box)
-    const closeBtn = document.createElement("div");
+    const closeBtn = document.createElement("button");
     closeBtn.id = "category-filter-close";
     closeBtn.className = "category-filter-close";
-    closeBtn.textContent = "✖";
+    closeBtn.type = "button";
+    closeBtn.setAttribute("aria-label", t("words_close"));
     closeBtn.setAttribute("onclick", "document.toggleCategoryFilter()");
     this._panel.appendChild(closeBtn);
 
@@ -139,10 +143,6 @@ const CategoryFilterControl = Control.extend({
     Object.entries(CATEGORY_HIERARCHY).forEach(([mainId, mainCat]) => {
       this._createCategorySection(categoryList, mainId, mainCat);
     });
-
-    // Update button that opens this panel
-    this._link.title = selectionTitle;
-    this._link.setAttribute("aria-label", selectionTitle);
   },
 
   _createCategorySection(parent, mainId, mainCat) {
@@ -452,8 +452,21 @@ const CategoryFilterControl = Control.extend({
   },
 
   updateTranslations() {
-    // Only rebuild if UI was already created
-    if (this._contentDiv.children.length > 0) {
+    // Update button label even if panel not yet opened
+    const selectionTitle = t("category_selection_title");
+    if (this._link) {
+      this._link.title = selectionTitle;
+      this._link.setAttribute("aria-label", selectionTitle);
+    }
+
+    // Update close button aria-label
+    const closeBtn = document.getElementById("category-filter-close");
+    if (closeBtn) {
+      closeBtn.setAttribute("aria-label", t("words_close"));
+    }
+
+    // Rebuild UI if panel was already opened
+    if (this._contentDiv && this._contentDiv.children.length > 0) {
       this._createUI();
     }
   }

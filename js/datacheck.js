@@ -8,9 +8,7 @@ import { MarkerClusterGroup } from "@kristjan.esperanto/leaflet.markercluster";
 import { SubGroup } from "./subgroup.js";
 import { createMapHash } from "./map-hash.js";
 import { createProgressController } from "./progress.js";
-
-// Ensure InfoButton is registered globally (used later as L.Control.InfoButton)
-if (InfoButton) { /* Side-effect import */ }
+import { initCloseButtons } from "./i18n.js";
 
 // Define marker groups
 const parentGroup = new MarkerClusterGroup({
@@ -259,3 +257,6 @@ veggiemap();
 
 // Show info modal on startup
 showInfoOnStartup();
+
+// Set aria-labels for close buttons (no i18n system in datacheck)
+initCloseButtons();
