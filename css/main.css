@@ -1037,6 +1037,45 @@ a:hover {
   background-color: red;
 }
 
+/* Wheelchair accessibility styling */
+.wheelchair-yes {
+  color: #2e7d32; /* Green for accessible */
+}
+
+.wheelchair-no {
+  color: #c62828; /* Red for not accessible */
+}
+
+.wheelchair-limited {
+  color: #f57c00; /* Orange for limited accessibility */
+}
+
+.wheelchair-unknown {
+  color: #757575; /* Gray for unknown - more subtle */
+  font-style: italic;
+}
+
+/* Dark mode adjustments for wheelchair info */
+:root.theme-dark .wheelchair-yes,
+:root[data-control-style="dark"] .wheelchair-yes {
+  color: #66bb6a;
+}
+
+:root.theme-dark .wheelchair-no,
+:root[data-control-style="dark"] .wheelchair-no {
+  color: #ef5350;
+}
+
+:root.theme-dark .wheelchair-limited,
+:root[data-control-style="dark"] .wheelchair-limited {
+  color: #ffa726;
+}
+
+:root.theme-dark .wheelchair-unknown,
+:root[data-control-style="dark"] .wheelchair-unknown {
+  color: #9e9e9e;
+}
+
 /* Firefox workaround for https://github.com/Leaflet/Leaflet/issues/4686 */
 .leaflet-fade-anim .leaflet-tile {
   will-change: auto !important;

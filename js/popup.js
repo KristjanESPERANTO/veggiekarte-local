@@ -5,7 +5,7 @@ import opening_hours from "opening_hours";
 
 const nominatimCache = {};
 const libreviewCache = {};
-const POPUP_SECTIONS = Object.freeze(["cuisine", "address", "opening_hours", "contacts", "social", "vegan_description", "menu_url"]);
+const POPUP_SECTIONS = Object.freeze(["cuisine", "address", "opening_hours", "wheelchair", "contacts", "social", "vegan_description", "menu_url"]);
 const inflight = {};
 const PERSIST_KEY = "vk_nominatim_v1";
 const MAX_ENTRIES = 300;
@@ -251,6 +251,23 @@ function fillSocial(extratags, container) {
   });
 }
 
+/** Wheelchair accessibility fill. */
+function fillWheelchair(extratags, container) {
+  fillSection(container, () => {
+    const wheelchair = extratags.wheelchair;
+    const wheelchairInfo = {
+      yes: { emoji: "♿", text: t("wheelchair_yes"), className: "wheelchair-yes" },
+      no: { emoji: "🚫", text: t("wheelchair_no"), className: "wheelchair-no" },
+      limited: { emoji: "⚠️", text: t("wheelchair_limited"), className: "wheelchair-limited" },
+      unknown: { emoji: "❓", text: t("wheelchair_unknown"), className: "wheelchair-unknown" }
+    };
+    const info = wheelchairInfo[wheelchair] || wheelchairInfo.unknown;
+    const row = makeRow(info.emoji, [info.text]);
+    row.classList.add(info.className);
+    return row;
+  });
+}
+
 /** Vegan description fill. */
 function fillVeganDescription(extratags, container) {
   fillSection(container, () => {
@@ -302,6 +319,7 @@ export async function addNominatimInformation(element, popupEl) {
     if (contactsContainer) { fillContacts(extratags, contactsContainer); }
     [
       ["cuisine", fillCuisine],
+      ["wheelchair", fillWheelchair],
       ["contacts", fillContacts],
       ["social", fillSocial],
       ["vegan_description", fillVeganDescription],

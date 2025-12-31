@@ -189,6 +189,25 @@
       "description": "📍 Value and emoji displayed in popup"
     },
     {
+      "key": "wheelchair",
+      "description": "♿ Wheelchair accessibility status displayed in popup"
+    },
+    {
+      "key": "wheelchair",
+      "value": "yes",
+      "description": "♿ Displayed as 'Wheelchair accessible' in popup"
+    },
+    {
+      "key": "wheelchair",
+      "value": "no",
+      "description": "🚫 Displayed as 'Not wheelchair accessible' in popup"
+    },
+    {
+      "key": "wheelchair",
+      "value": "limited",
+      "description": "⚠️ Displayed as 'Limited wheelchair accessibility' in popup"
+    },
+    {
       "key": "name",
       "description": "Displayed in tooltip and in popup"
     }
