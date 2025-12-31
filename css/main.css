@@ -241,15 +241,25 @@ html[data-control-style="dark"] body {
   border-color: var(--dark-accent-green);
 }
 
-/* Close buttons */
-:root.theme-dark,
-:root[data-control-style="dark"] .close-button {
+/* Close buttons - all types */
+:root.theme-dark .close-button,
+:root.theme-dark .category-filter-close,
+:root.theme-dark .leaflet-container a.leaflet-popup-close-button,
+:root[data-control-style="dark"] .close-button,
+:root[data-control-style="dark"] .category-filter-close,
+:root[data-control-style="dark"] .leaflet-container a.leaflet-popup-close-button {
   background: var(--dark-bg-control);
   color: #fff;
 }
 
-:root.theme-dark,
-:root[data-control-style="dark"] .close-button:hover {
+:root.theme-dark .close-button:hover,
+:root.theme-dark .category-filter-close:hover,
+:root.theme-dark .leaflet-container a.leaflet-popup-close-button:hover,
+:root.theme-dark .leaflet-container a.leaflet-popup-close-button:focus,
+:root[data-control-style="dark"] .close-button:hover,
+:root[data-control-style="dark"] .category-filter-close:hover,
+:root[data-control-style="dark"] .leaflet-container a.leaflet-popup-close-button:hover,
+:root[data-control-style="dark"] .leaflet-container a.leaflet-popup-close-button:focus {
   background: var(--dark-bg-hover);
 }
 
@@ -414,24 +424,46 @@ body {
   min-width: 0;
 }
 
-/* Shared close button base styles */
-.close-button {
+/* ===== Shared Close Button Styles ===== */
+
+/* Base styles for all close buttons */
+.close-button,
+.category-filter-close,
+.leaflet-container a.leaflet-popup-close-button {
   cursor: pointer;
+  border: none;
   border-radius: 50%;
   background: #f0f0f0;
   color: #111;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: 600;
+  text-decoration: none;
 }
 
-.close-button:hover {
+/* × symbol via CSS */
+.close-button::before,
+.category-filter-close::before,
+.leaflet-container a.leaflet-popup-close-button::before {
+  content: "×";
+}
+
+/* Hide Leaflet's default × span */
+.leaflet-container a.leaflet-popup-close-button span {
+  display: none;
+}
+
+.close-button:hover,
+.category-filter-close:hover,
+.leaflet-container a.leaflet-popup-close-button:hover,
+.leaflet-container a.leaflet-popup-close-button:focus {
   background: #e0e0e0;
   transform: rotate(360deg);
   transition: all 0.6s ease-in-out;
 }
 
-/* For the close button in the Info box. */
+/* Specific sizing for info modal close button */
 #close {
   width: 30px;
   height: 30px;
@@ -441,6 +473,35 @@ body {
   font-size: 18px;
   z-index: 1;
 }
+
+/* Specific sizing for category filter close button */
+.category-filter-close {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 18px;
+  z-index: 1;
+}
+
+/* Specific sizing for Leaflet popup close button */
+.leaflet-container a.leaflet-popup-close-button {
+  width: 22px;
+  height: 22px;
+  font-size: 14px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgb(240 240 240 / 70%);
+}
+
+.leaflet-container a.leaflet-popup-close-button:hover,
+.leaflet-container a.leaflet-popup-close-button:focus {
+  background: rgb(224 224 224 / 85%);
+}
+
+/* ===== End Close Button Styles ===== */
 
 /* Info overlay (modal backdrop) */
 .info-overlay {
@@ -943,31 +1004,6 @@ a:hover {
   text-align: center;
 }
 
-/* Popup close button: match infobox #close style */
-.leaflet-container a.leaflet-popup-close-button {
-  width: 22px;
-  height: 22px;
-  font-size: 14px;
-  font-weight: 600;
-  border: none;
-  top: 8px;
-  right: 8px;
-  background: rgb(240 240 240 / 70%);
-  cursor: pointer;
-  border-radius: 50%;
-  color: #111;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.leaflet-container a.leaflet-popup-close-button:hover,
-.leaflet-container a.leaflet-popup-close-button:focus {
-  background: rgb(224 224 224 / 85%);
-  transform: rotate(360deg);
-  transition: all 0.6s ease-in-out;
-}
-
 /* The i symbol in the information button */
 .info-button {
   height: 60%;
@@ -999,6 +1035,45 @@ a:hover {
 
 .closed {
   background-color: red;
+}
+
+/* Wheelchair accessibility styling */
+.wheelchair-yes {
+  color: #2e7d32; /* Green for accessible */
+}
+
+.wheelchair-no {
+  color: #c62828; /* Red for not accessible */
+}
+
+.wheelchair-limited {
+  color: #f57c00; /* Orange for limited accessibility */
+}
+
+.wheelchair-unknown {
+  color: #757575; /* Gray for unknown - more subtle */
+  font-style: italic;
+}
+
+/* Dark mode adjustments for wheelchair info */
+:root.theme-dark .wheelchair-yes,
+:root[data-control-style="dark"] .wheelchair-yes {
+  color: #66bb6a;
+}
+
+:root.theme-dark .wheelchair-no,
+:root[data-control-style="dark"] .wheelchair-no {
+  color: #ef5350;
+}
+
+:root.theme-dark .wheelchair-limited,
+:root[data-control-style="dark"] .wheelchair-limited {
+  color: #ffa726;
+}
+
+:root.theme-dark .wheelchair-unknown,
+:root[data-control-style="dark"] .wheelchair-unknown {
+  color: #9e9e9e;
 }
 
 /* Firefox workaround for https://github.com/Leaflet/Leaflet/issues/4686 */

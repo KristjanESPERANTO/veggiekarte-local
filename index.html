@@ -4,7 +4,7 @@
     <title>Veggiekarte - Find vegetarian and vegan places</title>
     <meta charset="utf-8" />
     <meta name="description" content="A map to find vegetarian and vegan restaurants in your city." />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Favicon (build with https://realfavicongenerator.net) -->
     <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
@@ -18,11 +18,11 @@
   </head>
 
   <body>
-    <div>
+    <main>
       <!-- Info box -->
       <div id="info-overlay" class="info-overlay">
         <div id="information" class="info-modal">
-          <div id="close" class="close-button" onclick="closeInfo()">×</div>
+          <button id="close" class="close-button" onclick="closeInfo()" type="button"></button>
           <div class="info-loading">
             <div id="progress">
               <div id="progress-bar"></div>
@@ -45,7 +45,7 @@
       </div>
       <!-- Map -->
       <div id="map"></div>
-    </div>
+    </main>
 
     <!-- Content if scripts are disabled or not supported. -->
     <noscript>

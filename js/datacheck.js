@@ -8,9 +8,7 @@ import { MarkerClusterGroup } from "@kristjan.esperanto/leaflet.markercluster";
 import { SubGroup } from "./subgroup.js";
 import { createMapHash } from "./map-hash.js";
 import { createProgressController } from "./progress.js";
-
-// Ensure InfoButton is registered globally (used later as L.Control.InfoButton)
-if (InfoButton) { /* Side-effect import */ }
+import { initCloseButtons } from "./i18n.js";
 
 // Define marker groups
 const parentGroup = new MarkerClusterGroup({
@@ -203,6 +201,7 @@ function geojsonToMarkerGroups(geojson) {
 // Function to get the marker.
 function getMarker(feature) {
   const eLatLon = [feature.geometry.coordinates[1], feature.geometry.coordinates[0]];
+  const eName = feature.properties.name || "Unknown location";
   const marker = new Marker(eLatLon);
   marker.feature = feature;
   // Bind popups/tooltips at creation time (works with chunkedLoading)
@@ -212,6 +211,15 @@ function getMarker(feature) {
     autoPanPadding: [16, 16]
   });
   marker.bindTooltip(calculateTooltip);
+
+  // Set aria-label when marker is added to map (for screen readers)
+  marker.on("add", () => {
+    if (marker._icon) {
+      marker._icon.setAttribute("aria-label", eName);
+      marker._icon.setAttribute("role", "button");
+    }
+  });
+
   return marker;
 }
 
@@ -259,3 +267,6 @@ veggiemap();
 
 // Show info modal on startup
 showInfoOnStartup();
+
+// Set aria-labels for close buttons (no i18n system in datacheck)
+initCloseButtons();

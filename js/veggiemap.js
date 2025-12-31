@@ -253,7 +253,13 @@ async function veggiemap() {
     storageKey: "veggiekarte-theme",
     enableEditor: true,
     getLabel: themeKey => t(`themes.${themeKey}`),
-    getEditorLabels: key => t(`themeEditor.${key}`)
+    getEditorLabels: (key) => {
+      // Map close to generic words_close
+      if (key === "close") {
+        return t("words_close");
+      }
+      return t(`themeEditor.${key}`);
+    }
   }).addTo(map);
 
   // Make themeControl globally accessible for language updates
@@ -304,6 +310,11 @@ async function veggiemap() {
   map.on("popupopen", (evt) => {
     const popupElement = evt.popup.getElement();
     if (!popupElement) { return; }
+    // Set aria-label on popup close button
+    const closeButton = popupElement.querySelector(".leaflet-popup-close-button");
+    if (closeButton) {
+      closeButton.setAttribute("aria-label", t("words_close"));
+    }
     const marker = evt.popup._source; // Marker that owns the popup
     if (marker) { addNominatimInformation(marker, popupElement); }
   });
@@ -469,11 +480,21 @@ function getMarker(feature) {
   const eLatLon = [feature.geometry.coordinates[1], feature.geometry.coordinates[0]];
   const eIco = feature.properties.icon;
   const eCat = feature.properties.category;
+  const eName = feature.properties.name || "Unknown location";
   const marker = new Marker(eLatLon, { icon: getIcon(eIco, eCat) });
   marker.feature = feature;
   marker.categoryInfo = getCategoryForIcon(eIco);
   marker.bindPopup(calculatePopup, { minWidth: 300, maxWidth: 520, autoPanPadding: [16, 16] });
   marker.bindTooltip(calculateTooltip);
+
+  // Set aria-label when marker is added to map (for screen readers)
+  marker.on("add", () => {
+    if (marker._icon) {
+      marker._icon.setAttribute("aria-label", eName);
+      marker._icon.setAttribute("role", "button");
+    }
+  });
+
   return marker;
 }
 
