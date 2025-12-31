@@ -201,6 +201,7 @@ function geojsonToMarkerGroups(geojson) {
 // Function to get the marker.
 function getMarker(feature) {
   const eLatLon = [feature.geometry.coordinates[1], feature.geometry.coordinates[0]];
+  const eName = feature.properties.name || "Unknown location";
   const marker = new Marker(eLatLon);
   marker.feature = feature;
   // Bind popups/tooltips at creation time (works with chunkedLoading)
@@ -210,6 +211,15 @@ function getMarker(feature) {
     autoPanPadding: [16, 16]
   });
   marker.bindTooltip(calculateTooltip);
+
+  // Set aria-label when marker is added to map (for screen readers)
+  marker.on("add", () => {
+    if (marker._icon) {
+      marker._icon.setAttribute("aria-label", eName);
+      marker._icon.setAttribute("role", "button");
+    }
+  });
+
   return marker;
 }
 

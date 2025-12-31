@@ -480,11 +480,21 @@ function getMarker(feature) {
   const eLatLon = [feature.geometry.coordinates[1], feature.geometry.coordinates[0]];
   const eIco = feature.properties.icon;
   const eCat = feature.properties.category;
+  const eName = feature.properties.name || "Unknown location";
   const marker = new Marker(eLatLon, { icon: getIcon(eIco, eCat) });
   marker.feature = feature;
   marker.categoryInfo = getCategoryForIcon(eIco);
   marker.bindPopup(calculatePopup, { minWidth: 300, maxWidth: 520, autoPanPadding: [16, 16] });
   marker.bindTooltip(calculateTooltip);
+
+  // Set aria-label when marker is added to map (for screen readers)
+  marker.on("add", () => {
+    if (marker._icon) {
+      marker._icon.setAttribute("aria-label", eName);
+      marker._icon.setAttribute("role", "button");
+    }
+  });
+
   return marker;
 }
 
