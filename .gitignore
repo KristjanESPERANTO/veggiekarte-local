@@ -12,3 +12,6 @@ config.custom.json
 
 # Stats file
 data/stat.json
+
+# old husky directory
+.husky/

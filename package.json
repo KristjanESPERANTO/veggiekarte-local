@@ -36,11 +36,11 @@
     "eslint": "^9.39.2",
     "eslint-plugin-import-x": "^4.16.1",
     "globals": "^16.5.0",
-    "husky": "^9.1.7",
     "lightningcss-cli": "^1.30.2",
     "lint-staged": "^16.2.7",
     "prettier": "^3.7.4",
-    "rollup": "^4.54.0"
+    "rollup": "^4.54.0",
+    "simple-git-hooks": "^2.13.1"
   },
   "dependencies": {
     "@kristjan.esperanto/leaflet-language-selector": "^3.4.0",
@@ -65,7 +65,7 @@
     "datacheck": "node ./datacheck/datacheck.js",
     "lint": "eslint && prettier . --check",
     "lint:fix": "eslint --fix && prettier . --write",
-    "prepare": "husky",
+    "prepare": "simple-git-hooks",
     "refresh": "python3 refresh.py",
     "release": "node --run lint:fix && node --run build && node --run bump",
     "test": "node --run lint"
@@ -76,5 +76,8 @@
       "eslint --fix",
       "prettier --write --ignore-unknown"
     ]
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
   }
 }
