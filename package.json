@@ -61,13 +61,13 @@
   },
   "scripts": {
     "build": "node scripts/generate_icons.js && rollup -c && lightningcss --minify --bundle css/main.css -o css/bundle.css",
-    "bump": "npx bumpp package.json service-worker.js --all --no-push",
+    "bump": "npx bumpp package.json service-worker.js --all --no-push --execute=\"npm run build\"",
     "datacheck": "node ./datacheck/datacheck.js",
     "lint": "eslint && prettier . --check",
     "lint:fix": "eslint --fix && prettier . --write",
     "prepare": "simple-git-hooks",
     "refresh": "python3 refresh.py",
-    "release": "node --run lint:fix && node --run build && node --run bump",
+    "release": "node --run lint:fix && node --run bump",
     "test": "node --run lint"
   },
   "type": "module",
