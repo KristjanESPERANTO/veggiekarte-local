@@ -19,3 +19,8 @@ tr:nth-child(even) {
 tr:nth-child(odd) {
   background: #fff;
 }
+
+/* Override main.css: show static content immediately (no dynamic i18n loading in datacheck) */
+#information #content {
+  display: block;
+}
