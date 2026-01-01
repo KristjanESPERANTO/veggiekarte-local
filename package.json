@@ -1,6 +1,6 @@
 {
   "name": "veggiekarte",
-  "version": "2.8.0",
+  "version": "2.8.1",
   "description": "A OpenStreetMap based map to easily find places, like restaurants and cafes, with vegetarian and vegan options.",
   "repository": {
     "type": "git",
