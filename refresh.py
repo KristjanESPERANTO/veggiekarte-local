@@ -40,7 +40,6 @@ SERVERS = [
     "https://overpass-api.de/api/interpreter",
     "https://overpass.kumi.systems/api/interpreter",
     "https://z.overpass-api.de/api/interpreter",
-    "http://api.openstreetmap.fr/api/interpreter",
     "http://dev.overpass-api.de/api_drolbr/interpreter",
     "http://overpass-api.de/api/interpreter",
     "http://overpass.openstreetmap.fr/api/interpreter"
@@ -222,48 +221,80 @@ def get_osm_data():
     overpass_query = build_overpass_query()
     print("Overpass query:", overpass_query)
 
-    # Try servers until one gives a valid response
-    for overpass_server in SERVERS:
-        print(f"Send query to server: {overpass_server}")
+    max_retries = 3
+    retry_count = 0
+    
+    # Try multiple times if all servers fail
+    while retry_count < max_retries:
+        if retry_count > 0:
+            print(f"\n=== Retry attempt {retry_count + 1} of {max_retries} ===")
         
-        try:
-            response = HTTP.request("GET", overpass_server + overpass_query)
-        except Exception as e:
-            print(f"Network error: {e}")
-            continue
-
-        # Handle HTTP status codes
-        if response.status == 200:
-            print("Received answer successfully.")
-            
-            if not response.data:
-                print("Empty response body, trying next server...")
-                continue
+        # Try servers until one gives a valid response
+        for server_index, overpass_server in enumerate(SERVERS):
+            print(f"Send query to server [{server_index + 1}/{len(SERVERS)}]: {overpass_server}")
             
             try:
-                result = json.loads(response.data.decode("utf-8"))
-                # Success - save raw data and return result
-                OVERPASS_FILE.touch()
-                OVERPASS_FILE.write_bytes(response.data)
-                print("Data successfully retrieved and saved.")
-                return result
-            except json.JSONDecodeError as e:
-                print(f"Failed to decode JSON: {e}")
+                # Add timeout to prevent indefinite hanging
+                response = HTTP.request("GET", overpass_server + overpass_query, timeout=urllib3.Timeout(connect=30.0, read=960.0))
+            except urllib3.exceptions.TimeoutError as e:
+                print(f"Request timeout: {e}")
+                print("Trying next server...")
                 continue
-        
-        elif response.status == 400:
-            print(f"HTTP {response.status}: Bad Request")
-            time.sleep(5)
-        elif response.status == 429:
-            print(f"HTTP {response.status}: Too Many Requests")
-            time.sleep(60)
-        elif response.status == 504:
-            print(f"HTTP {response.status}: Gateway Timeout")
-            time.sleep(600)
-        else:
-            print(f"HTTP {response.status}: Unknown error")
+            except Exception as e:
+                print(f"Network error: {e}")
+                print("Trying next server...")
+                continue
 
-    print("All servers failed.")
+            # Handle HTTP status codes
+            if response.status == 200:
+                print("Received answer successfully.")
+                
+                if not response.data:
+                    print("Empty response body, trying next server...")
+                    continue
+                
+                try:
+                    result = json.loads(response.data.decode("utf-8"))
+                    # Success - save raw data and return result
+                    OVERPASS_FILE.touch()
+                    OVERPASS_FILE.write_bytes(response.data)
+                    print("Data successfully retrieved and saved.")
+                    return result
+                except json.JSONDecodeError as e:
+                    print(f"Failed to decode JSON: {e}")
+                    print("Trying next server...")
+                    continue
+            
+            elif response.status == 400:
+                print(f"HTTP {response.status}: Bad Request - Query might be invalid")
+                print("Trying next server...")
+                time.sleep(5)
+            elif response.status == 429:
+                print(f"HTTP {response.status}: Too Many Requests - Rate limit exceeded")
+                print("Waiting 60 seconds before trying next server...")
+                time.sleep(60)
+            elif response.status == 504:
+                print(f"HTTP {response.status}: Gateway Timeout - Server took too long to respond")
+                print("This can happen with large queries. Trying next server...")
+                time.sleep(10)  # Reduced from 600 to 10 seconds
+            else:
+                print(f"HTTP {response.status}: Unexpected error")
+                print("Trying next server...")
+                time.sleep(5)
+        
+        # All servers failed this round
+        retry_count += 1
+        if retry_count < max_retries:
+            wait_time = 60 * retry_count  # Increasing wait time: 60s, 120s
+            print(f"\nAll servers failed. Waiting {wait_time} seconds before retry {retry_count + 1}/{max_retries}...")
+            time.sleep(wait_time)
+
+    print("\n=== All retry attempts exhausted ===")
+    print("All servers failed after multiple attempts.")
+    print("Possible solutions:")
+    print("  - Wait a few minutes and try again")
+    print("  - Reduce the query area in config.custom.json")
+    print("  - Try again during off-peak hours")
     return None
 
 
