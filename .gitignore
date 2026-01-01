@@ -2,16 +2,15 @@
 .vscode/
 node_modules/
 __pycache__/
-data/places.json
 data/places_old.json
 data/places.min.json.br.json.old
 data/overpass.json
 
 # Custom configuration (not tracked)
-config.custom.json
+# config.custom.json
 
 # Stats file
-data/stat.json
+# data/stat.json
 
 # old husky directory
 .husky/
