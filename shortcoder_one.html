@@ -1,0 +1,177 @@
+<style>
+  /*****     OSM-Container     *****/
+  .divPlaceOsmData {
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    background-color: #f0f0f0;
+  }
+
+  /*****     OSM-Überschrift     *****/
+  .osmHead {
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+  }
+
+  /*****     Links in der OSM-Tabelle etwas kleiner     *****/
+  .emojiCell ~ td > a {
+    font-size: 14px;
+  }
+
+  /*****     Emojis zentriert     *****/
+  .emojiCell {
+    text-align: center;
+  }
+
+  /*****     Zellen ohne Rand     *****/
+  table > tbody > tr {
+    border-bottom: 0px solid #eee !important;
+  }
+</style>
+
+<div class="divPlaceOsmData"></div>
+
+<script>
+  // URL to the json file.
+  const url = "https://www.vegan-in-halle.de/map/veggiekarte-halle/data/places.json";
+
+  // Function to get the information from the places json file.
+  const fetchOsmData = async () => {
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      await appendOsmData(data);
+    } catch (error) {
+      console.error("Request failed", error);
+    }
+  };
+
+  // Function to fetch data from Nominatim for a single place
+  const fetchNominatimData = async (place) => {
+    // Map OSM type to Nominatim format
+    const typeMap = { node: "N", way: "W", relation: "R" };
+    const nominatimType = typeMap[place.properties._type] || "N";
+    const osmId = `${nominatimType}${place.properties._id}`;
+
+    const nominatimUrl = `https://nominatim.openstreetmap.org/lookup?osm_ids=${osmId}&format=json&extratags=1&addressdetails=1`;
+
+    try {
+      const response = await fetch(nominatimUrl, {
+        headers: { "User-Agent": "VeganInHalle-Stadtkarte/1.0" }
+      });
+      const data = await response.json();
+      return data && data.length > 0 ? data[0] : null;
+    } catch (error) {
+      console.error("Nominatim request failed:", error);
+      return null;
+    }
+  };
+
+  // Function to build OSM data HTML from Nominatim response
+  const buildOsmDataHtml = (place, nominatimData) => {
+    let osmData = '<div class="osmHead"><a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap-Daten ©</a></div>';
+    osmData += "<table><tbody>";
+
+    const extratags = nominatimData?.extratags || {};
+    const address = nominatimData?.address || {};
+
+    // ######## Address ########
+    const street = address.road || address.pedestrian || address.footway;
+    const houseNumber = address.house_number;
+    const city = address.city || address.town || address.village;
+
+    if (street) {
+      let addressText = street;
+      if (houseNumber) addressText += " " + houseNumber;
+      // Add city if it's not Halle
+      if (city && city !== "Halle (Saale)" && city !== "Halle") {
+        addressText += ", " + city;
+      }
+      osmData += `<tr><td class="emojiCell">📍</td><td><a rel="noreferrer noopener" href="https://www.openstreetmap.org/?mlat=${place.geometry.coordinates[1]}&mlon=${place.geometry.coordinates[0]}#map=18/${place.geometry.coordinates[1]}/${place.geometry.coordinates[0]}" target="_blank">${addressText}</a></td></tr>`;
+    }
+
+    // ######## Website ########
+    const website = extratags.website || extratags["contact:website"];
+    if (website) {
+      const displayUrl = website.replace(/^https?:\/\//, "").replace(/\/$/, "");
+      osmData += `<tr><td class="emojiCell">🌐</td><td><a rel="noreferrer noopener" href="${website}" target="_blank">${displayUrl}</a></td></tr>`;
+    }
+
+    // ######## Facebook ########
+    const facebook = extratags["contact:facebook"];
+    if (facebook) {
+      const fbName = facebook.replace(/^https?:\/\/(www\.)?facebook\.com\//, "").replace(/\/$/, "");
+      const fbHref = facebook.startsWith("http") ? facebook : `https://www.facebook.com/${facebook}`;
+      osmData += `<tr><td class="emojiCell">🇫</td><td><a rel="noreferrer noopener" href="${fbHref}" target="_blank">${fbName}</a></td></tr>`;
+    }
+
+    // ######## Instagram ########
+    const instagram = extratags["contact:instagram"];
+    if (instagram) {
+      const igName = instagram.replace(/^https?:\/\/(www\.)?instagram\.com\//, "").replace(/\/$/, "");
+      const igHref = instagram.startsWith("http") ? instagram : `https://www.instagram.com/${instagram}`;
+      osmData += `<tr><td class="emojiCell">📸</td><td><a rel="noreferrer noopener" href="${igHref}" target="_blank">${igName}</a></td></tr>`;
+    }
+
+    // ######## Telephone ########
+    const phone = extratags.phone || extratags["contact:phone"];
+    if (phone) {
+      osmData += `<tr><td class="emojiCell">☎️</td><td><a href="tel:${phone.replace(/\s/g, "")}">${phone}</a></td></tr>`;
+    }
+
+    // ######## Email ########
+    const email = extratags.email || extratags["contact:email"];
+    if (email) {
+      osmData += `<tr><td class="emojiCell">✉️</td><td><a href="mailto:${email}">${email}</a></td></tr>`;
+    }
+
+    // ######## Opening Hours ########
+    const openingHours = extratags.opening_hours;
+    if (openingHours) {
+      const formattedHours = openingHours
+        .replace(/Mo/g, "Mo")
+        .replace(/Tu/g, "Di")
+        .replace(/We/g, "Mi")
+        .replace(/Th/g, "Do")
+        .replace(/Fr/g, "Fr")
+        .replace(/Sa/g, "Sa")
+        .replace(/Su/g, "So")
+        .replace(/PH/g, "Feiertag")
+        .replace(/off/g, "geschlossen")
+        .replace(/, /g, "<br />")
+        .replace(/,/g, ", ")
+        .replace(/; /g, "<br />");
+      osmData += `<tr><td class="emojiCell">🕐</td><td>${formattedHours}</td></tr>`;
+    }
+
+    osmData += "</tbody></table>";
+    return osmData;
+  };
+
+  // Function to put the information from the places json file to the page.
+  const appendOsmData = async (data) => {
+    for (let i = 0; i < data.features.length; i++) {
+      const place = data.features[i];
+
+      if (place.properties._type + "_" + place.properties._id == "%%id%%") {
+        // Fetch additional data from Nominatim
+        const nominatimData = await fetchNominatimData(place);
+
+        if (nominatimData) {
+          const osmData = buildOsmDataHtml(place, nominatimData);
+          document.getElementsByClassName("divPlaceOsmData")[0].innerHTML = osmData;
+        } else {
+          // Fallback if Nominatim fails
+          document.getElementsByClassName("divPlaceOsmData")[0].innerHTML =
+            '<div class="osmHead"><a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap-Daten ©</a></div>' + "<p>Daten konnten nicht geladen werden.</p>";
+        }
+
+        break;
+      }
+    }
+  };
+
+  // Fetch the OSM data from the json file and append them to the Stadtkarte.
+  fetchOsmData();
+</script>

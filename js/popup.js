@@ -420,7 +420,15 @@ export function calculatePopup(element) {
     root.appendChild(div);
   });
 
-  // Libreviews
+  // More info
+  if (feature.properties.more_info) {
+    const moreInfoDiv = document.createElement("div");
+    moreInfoDiv.dataset.section = "more_info";
+    root.appendChild(moreInfoDiv);
+    addMoreInfo(element, moreInfoDiv);
+  }
+
+  // Libreviews container
   const libDiv = document.createElement("div");
   libDiv.dataset.section = "libreviews";
   root.appendChild(libDiv);
@@ -429,7 +437,30 @@ export function calculatePopup(element) {
   return root;
 }
 
-/** Fetch & inject libreview link if available (cached by ID). */
+/** Add more info link for Halle-specific locations.
+ * @param {L.Marker} element marker
+ * @param {HTMLElement} container target div (data-section="more_info")
+ */
+export function addMoreInfo(element, container) {
+  // Guard against geocoder markers (they don't have a feature)
+  if (!element.feature) { return; }
+  if (!element.feature.properties.more_info) { return; }
+
+  const osmType = element.feature.properties._type;
+  const osmId = element.feature.properties._id;
+  const link = document.createElement("a");
+  link.href = `${__LOCAL_SITE_URL__}#${osmType}${osmId}`;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.textContent = t("texts_more_info");
+  const row = makeRow("ℹ️", [link]);
+  container.replaceChildren(row);
+}
+
+/** Fetch & inject libreview link if available (cached by ID).
+ * @param {L.Marker} element marker
+ * @param {HTMLElement} container target div (data-section="libreviews")
+ */
 export async function addLibReview(element, container) {
   if (!element.feature || !container) { return; }
 
