@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 import { Control, DomEvent, DomUtil } from "leaflet";
 import { CATEGORY_HIERARCHY } from "./category-mapping.js";
+import opening_hours from "opening_hours";
 import { t } from "./i18n.js";
 
 /**
@@ -472,4 +473,52 @@ const CategoryFilterControl = Control.extend({
   }
 });
 
-export { CategoryFilterControl };
+/**
+ * Check if a place is currently open based on opening_hours tag
+ * @param {object} feature - GeoJSON feature with properties
+ * @returns {boolean|null} - true if open, false if closed, null if unknown/no opening hours
+ */
+/**
+ * Check if a place is currently open
+ * @param {object} feature - GeoJSON feature
+ * @param {object} openingHoursData - Opening hours data (format: {node: {"123": "Mo-Fr 10:00-18:00"}, way: {...}, relation: {...}})
+ * @returns {boolean|null} true if open, false if closed, null if unknown
+ */
+function isPlaceOpen(feature, openingHoursData) {
+  if (!openingHoursData) {
+    return null; // No data available
+  }
+
+  try {
+    // Build key from feature properties
+    const featureType = feature?.properties?._type;
+    const featureId = feature?.properties?._id;
+    if (!featureType || !featureId) {
+      return null; // Missing type or id
+    }
+
+    // Look up in type-grouped structure
+    const typeGroup = openingHoursData[featureType];
+    if (!typeGroup) {
+      return null; // Type not found
+    }
+
+    const openingHoursStr = typeGroup[String(featureId)];
+    if (!openingHoursStr) {
+      return null; // No opening hours data for this place
+    }
+
+    const address = feature?.properties?.address || {};
+    // eslint-disable-next-line new-cap
+    const oh = new opening_hours(
+      openingHoursStr,
+      { address: { country_code: address.country_code, state: address.state } }
+    );
+    return oh.getState();
+  }
+  catch {
+    return null; // Error parsing opening hours
+  }
+}
+
+export { CategoryFilterControl, isPlaceOpen };

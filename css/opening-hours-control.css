@@ -1,0 +1,126 @@
+/* Opening Hours Control Button Styles */
+
+.opening-hours-control-btn {
+  width: 30px;
+  height: 30px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.opening-hours-control-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Light Mode - Verfügbar: background weiß, symbol schwarz */
+.opening-hours-control-btn {
+  background: #fff;
+}
+
+.opening-hours-control-btn circle,
+.opening-hours-control-btn polyline {
+  stroke: #333;
+  fill: none;
+  transition:
+    stroke 0.2s ease,
+    background 0.2s ease;
+}
+
+/* Light Mode - Nicht verfügbar: background weiß, symbol grau */
+.opening-hours-control-btn.disabled {
+  background: #fff;
+  cursor: not-allowed;
+}
+
+.opening-hours-control-btn.disabled circle,
+.opening-hours-control-btn.disabled polyline {
+  stroke: #999;
+}
+
+/* Light Mode - Aktiv: background grün, symbol schwarz */
+.opening-hours-control-btn.active {
+  background: #4caf50 !important;
+  border-color: #45a049;
+}
+
+.opening-hours-control-btn.active circle,
+.opening-hours-control-btn.active polyline {
+  stroke: #333;
+}
+
+/* Hover states - Light Mode */
+.opening-hours-control-btn:hover {
+  background: #f4f4f4;
+}
+
+.opening-hours-control-btn.active:hover {
+  background: #45a049;
+}
+
+.opening-hours-control-btn.disabled:hover {
+  background: #fff;
+  cursor: not-allowed;
+}
+
+/* Dark Mode */
+:root.theme-dark .opening-hours-control-btn,
+:root[data-control-style="dark"] .opening-hours-control-btn {
+  /* Dark Mode - Verfügbar: background dunkel, symbol weiß */
+  background: #3a3a3a;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+:root.theme-dark .opening-hours-control-btn circle,
+:root[data-control-style="dark"] .opening-hours-control-btn circle,
+:root.theme-dark .opening-hours-control-btn polyline,
+:root[data-control-style="dark"] .opening-hours-control-btn polyline {
+  stroke: #fff;
+}
+
+/* Dark Mode - Nicht verfügbar: background dunkel, symbol grau */
+:root.theme-dark .opening-hours-control-btn.disabled,
+:root[data-control-style="dark"] .opening-hours-control-btn.disabled {
+  background: #3a3a3a;
+}
+
+:root.theme-dark .opening-hours-control-btn.disabled circle,
+:root[data-control-style="dark"] .opening-hours-control-btn.disabled circle,
+:root.theme-dark .opening-hours-control-btn.disabled polyline,
+:root[data-control-style="dark"] .opening-hours-control-btn.disabled polyline {
+  stroke: #999;
+}
+
+/* Dark Mode - Aktiv: background grün, symbol weiß */
+:root.theme-dark .opening-hours-control-btn.active,
+:root[data-control-style="dark"] .opening-hours-control-btn.active {
+  background: #4caf50 !important;
+  border-color: #45a049;
+}
+
+:root.theme-dark .opening-hours-control-btn.active circle,
+:root[data-control-style="dark"] .opening-hours-control-btn.active circle,
+:root.theme-dark .opening-hours-control-btn.active polyline,
+:root[data-control-style="dark"] .opening-hours-control-btn.active polyline {
+  stroke: #fff;
+}
+
+/* Hover states - Dark Mode */
+:root.theme-dark .opening-hours-control-btn:hover,
+:root[data-control-style="dark"] .opening-hours-control-btn:hover {
+  background: #555;
+}
+
+:root.theme-dark .opening-hours-control-btn.active:hover,
+:root[data-control-style="dark"] .opening-hours-control-btn.active:hover {
+  background: #45a049;
+}
+
+:root.theme-dark .opening-hours-control-btn.disabled:hover,
+:root[data-control-style="dark"] .opening-hours-control-btn.disabled:hover {
+  background: #3a3a3a;
+}

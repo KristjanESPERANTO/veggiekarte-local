@@ -59,6 +59,7 @@ VEGGIEPLACES_FILE_BR = DATA_DIR / "places.min.json.br"         # the brotli comp
 VEGGIESTAT_FILE = DATA_DIR / "stat.json"                       # the statistics data file which will be used for the map
 VEGGIEPLACES_OLDFILE = DATA_DIR / "places_old.json"            # previous version of the data file (helpful to examine changes)
 OVERPASS_FILE = DATA_DIR / "overpass.json"                     # the raw overpass output file (useful for later use)
+OPENING_HOURS_FILE = DATA_DIR / "opening_hours.json"           # opening hours data for filtering
 
 # variables to handle the json data
 stat_data = {}
@@ -165,7 +166,7 @@ def determine_icon(tags):
 def build_overpass_query():
     """Build the Overpass query from config."""
     query = "?data=[out:json][timeout:900];"
-    
+
     # Build area query if areas are defined
     if CONFIG["areas"] and len(CONFIG["areas"]) > 0:
         area_names = []
@@ -173,45 +174,45 @@ def build_overpass_query():
             area_name = area["name"]
             area_names.append(area_name)
             query += f"area['{area['type']}'='{area['value']}']->.{area_name};"
-        
+
         # Combine areas into search area
         query += f"({';'.join(f'.{name}' for name in area_names)};)->.searchArea;"
         query += "("
-        
+
         # Always include vegan
         query += "nwr(area.searchArea)['diet:vegan'~'yes|only|limited'];"
-        
+
         # Add vegetarian if configured
         if CONFIG["includeVegetarian"]:
             query += "nwr(area.searchArea)['diet:vegetarian'~'yes|only'];"
-        
+
         query += ");"
     elif CONFIG["areaQuery"]:
         # Use custom area query
         query += CONFIG["areaQuery"]
         query += "("
-        
+
         # Always include vegan
         query += "nwr(area.searchArea)['diet:vegan'~'yes|only|limited'];"
-        
+
         # Add vegetarian if configured
         if CONFIG["includeVegetarian"]:
             query += "nwr(area.searchArea)['diet:vegetarian'~'yes|only'];"
-        
+
         query += ");"
     else:
         # Worldwide query
         query += "("
-        
+
         # Always include vegan
         query += "nwr['diet:vegan'~'yes|only|limited'];"
-        
+
         # Add vegetarian if configured
         if CONFIG["includeVegetarian"]:
             query += "nwr['diet:vegetarian'~'yes|only'];"
-        
+
         query += ");"
-    
+
     query += "out+center;"
     return query
 
@@ -223,16 +224,16 @@ def get_osm_data():
 
     max_retries = 3
     retry_count = 0
-    
+
     # Try multiple times if all servers fail
     while retry_count < max_retries:
         if retry_count > 0:
             print(f"\n=== Retry attempt {retry_count + 1} of {max_retries} ===")
-        
+
         # Try servers until one gives a valid response
         for server_index, overpass_server in enumerate(SERVERS):
             print(f"Send query to server [{server_index + 1}/{len(SERVERS)}]: {overpass_server}")
-            
+
             try:
                 # Add timeout to prevent indefinite hanging
                 response = HTTP.request("GET", overpass_server + overpass_query, timeout=urllib3.Timeout(connect=30.0, read=960.0))
@@ -248,11 +249,11 @@ def get_osm_data():
             # Handle HTTP status codes
             if response.status == 200:
                 print("Received answer successfully.")
-                
+
                 if not response.data:
                     print("Empty response body, trying next server...")
                     continue
-                
+
                 try:
                     result = json.loads(response.data.decode("utf-8"))
                     # Success - save raw data and return result
@@ -264,7 +265,7 @@ def get_osm_data():
                     print(f"Failed to decode JSON: {e}")
                     print("Trying next server...")
                     continue
-            
+
             elif response.status == 400:
                 print(f"HTTP {response.status}: Bad Request - Query might be invalid")
                 print("Trying next server...")
@@ -281,7 +282,7 @@ def get_osm_data():
                 print(f"HTTP {response.status}: Unexpected error")
                 print("Trying next server...")
                 time.sleep(5)
-        
+
         # All servers failed this round
         retry_count += 1
         if retry_count < max_retries:
@@ -498,6 +499,36 @@ def check_data():
         print("temp file doesn't exist!")
 
 
+def write_opening_hours(osm_data):
+    """Extract opening hours from OSM data and write to JSON file."""
+    # Group by type for smaller file size
+    opening_hours = {
+        "node": {},
+        "way": {},
+        "relation": {}
+    }
+    total_count = 0
+
+    for element in osm_data.get("elements", []):
+        element_id = element.get("id")
+        element_type = element.get("type")
+        tags = element.get("tags", {})
+
+        # Check if place has opening_hours tag
+        if "opening_hours" in tags and element_id and element_type in opening_hours:
+            opening_hours[element_type][str(element_id)] = tags["opening_hours"]
+            total_count += 1
+
+    # Write to file
+    print(f"Writing {total_count} opening hours entries to {OPENING_HOURS_FILE}")
+    OPENING_HOURS_FILE.touch()
+    OPENING_HOURS_FILE.write_text(
+        json.dumps(opening_hours, indent=None, separators=(",", ":"), ensure_ascii=False)
+    )
+
+    return opening_hours
+
+
 def main():
     """Call the functions to get and write the osm data."""
     # Get data
@@ -511,6 +542,9 @@ def main():
     # Write data
     if osm_data is not None:
         places_data = write_data(osm_data)
+
+        # Write opening hours data
+        write_opening_hours(osm_data)
 
         # Write file in pretty format
         VEGGIEPLACES_TEMPFILE.touch()

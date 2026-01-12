@@ -9,6 +9,7 @@ import stylistic from "@stylistic/eslint-plugin";
 export default defineConfig([
   globalIgnores([
     ".venv/",
+    "venv/",
     "css/bundle.css",
     "js/bundle.js",
     "js/veggiemap_chart-bundle.js",

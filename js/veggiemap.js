@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 import { CATEGORY_HIERARCHY, getCategoryForIcon } from "./category-mapping.js";
+import { CategoryFilterControl, isPlaceOpen } from "./category-filter-control.js";
 import { Control, Icon, Map, Marker, TileLayer } from "leaflet";
 import { DEFAULT_THEMES, ThemeControl } from "leaflet-theme-control";
 import { InfoButton, openInfo, showInfoOnStartup } from "./info-button-control.js";
@@ -7,11 +8,11 @@ import { addLanguageResources, getUserLanguage, setUserLanguage, t } from "./i18
 import { addNominatimInformation, calculatePopup } from "./popup.js";
 import { getIcon, iconToEmoji } from "./veggiemap-icons.js";
 import { langObject, languageSelector } from "@kristjan.esperanto/leaflet-language-selector";
-import { CategoryFilterControl } from "./category-filter-control.js";
 import { FullScreen } from "leaflet.fullscreen";
 import { Geocoder } from "leaflet-control-geocoder";
 import { LocateControl } from "../third-party/leaflet.locatecontrol/L.Control.Locate.esm.patched.js";
 import { MarkerClusterGroup } from "@kristjan.esperanto/leaflet.markercluster";
+import { OpeningHoursControl } from "./opening-hours-control.js";
 import { SubGroup } from "./subgroup.js";
 import { createMapHash } from "./map-hash.js";
 import { createProgressController } from "./progress.js";
@@ -47,6 +48,7 @@ const subgroups = {
 let map;
 let languageControl;
 let categoryFilterControl;
+let openingHoursControl;
 let themeControl;
 const categorySubgroups = {}; // Storage for category-based subgroups
 const allMarkersByCategory = {}; // Store all markers by category key for filtering
@@ -62,10 +64,17 @@ const allMarkersByCategory = {}; // Store all markers by category key for filter
  * operations across different SubGroups - this is why the progress bar
  * uses debouncing to detect completion.
  */
-function applyAllFilters() {
+async function applyAllFilters() {
   if (!categoryFilterControl) { return; }
 
   const enabledDietTypes = categoryFilterControl.getEnabledDietTypes();
+  const openingHoursFilterEnabled = openingHoursControl ? openingHoursControl.isEnabled() : false;
+
+  // Load opening hours data if needed
+  let openingHoursData = null;
+  if (openingHoursFilterEnabled && openingHoursControl) {
+    openingHoursData = await openingHoursControl.loadOpeningHoursData();
+  }
 
   // For each category subgroup, add/remove markers based on filters
   Object.entries(allMarkersByCategory).forEach(([key, markers]) => {
@@ -77,12 +86,21 @@ function applyAllFilters() {
     // Ensure subgroup is on the map
     if (!map.hasLayer(subgroup)) { map.addLayer(subgroup); }
 
-    // Filter markers: visible if category enabled AND diet type enabled
+    // Filter markers: visible if category enabled AND diet type enabled AND (if applicable) currently open
     const markersToShow = [];
     const markersToHide = [];
 
     markers.forEach((marker) => {
-      const shouldShow = isCategoryEnabled && enabledDietTypes.includes(marker.dietType);
+      let shouldShow = isCategoryEnabled && enabledDietTypes.includes(marker.dietType);
+
+      // Apply opening hours filter if enabled
+      if (shouldShow && openingHoursFilterEnabled) {
+        const isOpen = isPlaceOpen(marker.feature, openingHoursData);
+        // Only show if explicitly open (true)
+        // Hide if closed (false) or unknown/no opening hours (null)
+        shouldShow = isOpen === true;
+      }
+
       const isShown = subgroup.hasLayer(marker);
       if (shouldShow && !isShown) { markersToShow.push(marker); }
       else if (!shouldShow && isShown) { markersToHide.push(marker); }
@@ -236,6 +254,15 @@ async function veggiemap() {
   });
   document.locateControl.addTo(map);
 
+  // Add opening hours control (filter for open places)
+  openingHoursControl = new OpeningHoursControl({
+    position: "topright"
+  });
+  openingHoursControl.addTo(map);
+  openingHoursControl.onChange(() => {
+    applyAllFilters();
+  });
+
   // Add theme control
   const customThemes = {
     ...DEFAULT_THEMES,
@@ -302,6 +329,10 @@ async function veggiemap() {
   map.on("moveend", () => {
     updateVisibleCounts();
     updateFilterCounts();
+  });
+  map.on("zoomend", () => {
+    // Re-apply filters when zoom changes (important for opening hours filter)
+    applyAllFilters();
   });
   map.on("overlayadd", updateVisibleCounts);
   map.on("overlayremove", updateVisibleCounts);
