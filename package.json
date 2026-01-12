@@ -32,14 +32,14 @@
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-replace": "^6.0.3",
     "@rollup/plugin-terser": "^0.4.4",
-    "@stylistic/eslint-plugin": "^5.6.1",
+    "@stylistic/eslint-plugin": "^5.7.1",
     "eslint": "^9.39.2",
     "eslint-plugin-import-x": "^4.16.1",
-    "globals": "^17.0.0",
-    "lightningcss-cli": "^1.30.2",
+    "globals": "^17.2.0",
+    "lightningcss-cli": "^1.31.1",
     "lint-staged": "^16.2.7",
-    "prettier": "^3.7.4",
-    "rollup": "^4.55.1",
+    "prettier": "^3.8.1",
+    "rollup": "^4.57.0",
     "simple-git-hooks": "^2.13.1"
   },
   "dependencies": {
@@ -50,9 +50,9 @@
     "leaflet": "^2.0.0-alpha.1",
     "leaflet-control-geocoder": "^3.3.1",
     "leaflet-theme-control": "^0.1.4",
-    "leaflet.fullscreen": "^5.2.0",
-    "libphonenumber-js": "^1.12.33",
-    "opening_hours": "^3.10.0"
+    "leaflet.fullscreen": "^5.3.0",
+    "libphonenumber-js": "^1.12.35",
+    "opening_hours": "^3.11.0"
   },
   "overrides": {
     "leaflet-control-geocoder": {

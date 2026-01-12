@@ -42,8 +42,8 @@ export default defineConfig([
         __LOCAL_SITE_URL__: "readonly"
       }
     },
-    plugins: { js, stylistic },
-    extends: [importX.recommended, "js/all", "stylistic/recommended"],
+    plugins: { js },
+    extends: [importX.recommended, "js/all", stylistic.configs.recommended],
     rules: {
       "@stylistic/comma-dangle": ["error", "never"],
       "@stylistic/dot-location": ["error", "property"],
