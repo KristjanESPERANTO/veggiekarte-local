@@ -9,6 +9,7 @@ import stylistic from "@stylistic/eslint-plugin";
 export default defineConfig([
   globalIgnores([
     ".venv/",
+    "venv/",
     "css/bundle.css",
     "js/bundle.js",
     "js/veggiemap_chart-bundle.js",
@@ -41,8 +42,8 @@ export default defineConfig([
         __LOCAL_SITE_URL__: "readonly"
       }
     },
-    plugins: { js, stylistic },
-    extends: [importX.recommended, "js/all", "stylistic/recommended"],
+    plugins: { js },
+    extends: [importX.recommended, "js/all", stylistic.configs.recommended],
     rules: {
       "@stylistic/comma-dangle": ["error", "never"],
       "@stylistic/dot-location": ["error", "property"],
