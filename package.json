@@ -52,7 +52,7 @@
     "leaflet-theme-control": "^0.1.4",
     "leaflet.fullscreen": "^5.2.0",
     "libphonenumber-js": "^1.12.33",
-    "opening_hours": "^3.10.0"
+    "opening_hours": "^3.11.0"
   },
   "overrides": {
     "leaflet-control-geocoder": {
