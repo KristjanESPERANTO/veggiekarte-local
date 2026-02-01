@@ -36,7 +36,7 @@
     "eslint": "^9.39.2",
     "eslint-plugin-import-x": "^4.16.1",
     "globals": "^17.0.0",
-    "lightningcss-cli": "^1.30.2",
+    "lightningcss-cli": "^1.31.1",
     "lint-staged": "^16.2.7",
     "prettier": "^3.7.4",
     "rollup": "^4.55.1",
