@@ -10,7 +10,7 @@ import { getIcon, iconToEmoji } from "./veggiemap-icons.js";
 import { langObject, languageSelector } from "@kristjan.esperanto/leaflet-language-selector";
 import { FullScreen } from "leaflet.fullscreen";
 import { Geocoder } from "leaflet-control-geocoder";
-import { LocateControl } from "../third-party/leaflet.locatecontrol/L.Control.Locate.esm.patched.js";
+import { LocateControl } from "leaflet.locatecontrol";
 import { MarkerClusterGroup } from "@kristjan.esperanto/leaflet.markercluster";
 import { OpeningHoursControl } from "./opening-hours-control.js";
 import { SubGroup } from "./subgroup.js";

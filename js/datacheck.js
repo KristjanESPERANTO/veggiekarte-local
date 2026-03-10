@@ -3,7 +3,7 @@
 import { Control, Icon, Map, Marker, TileLayer } from "leaflet";
 import { InfoButton, openInfo, showInfoOnStartup } from "./info-button-control.js";
 import { Geocoder } from "leaflet-control-geocoder";
-import { LocateControl } from "../third-party/leaflet.locatecontrol/L.Control.Locate.esm.patched.js";
+import { LocateControl } from "leaflet.locatecontrol";
 import { MarkerClusterGroup } from "@kristjan.esperanto/leaflet.markercluster";
 import { SubGroup } from "./subgroup.js";
 import { createMapHash } from "./map-hash.js";
