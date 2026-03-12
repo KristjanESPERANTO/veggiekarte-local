@@ -89,6 +89,7 @@ export default {
   words_closed: "kiinni",
   words_public_holiday: "pyhäpäivät",
   words_review: "arvostelu",
+  words_share: "Jaa",
   words_school_holidays: "lomakaudet",
   edit_modal_title: "Muokkaa tietoja",
   edit_modal_intro: "Auta parantamaan tietoja OpenStreetMapissa. Muokkauksesi hyödyttävät Veggiekartea ja monia muita projekteja.",

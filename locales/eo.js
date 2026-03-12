@@ -89,6 +89,7 @@ export default {
   words_closed: "fermita",
   words_public_holiday: "festotago",
   words_review: "recenzo",
+  words_share: "Kunhavigi",
   words_school_holidays: "ferioj",
   edit_modal_title: "Redakti datumojn",
   edit_modal_intro: "Helpu plibonigi la datumojn ĉe OpenStreetMap. Viaj redaktoj utilos al Veggiekarte kaj multaj aliaj projektoj.",

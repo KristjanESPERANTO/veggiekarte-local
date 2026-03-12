@@ -89,6 +89,7 @@ export default {
   words_closed: "영업 중이 아님",
   words_public_holiday: "공휴일",
   words_review: "리뷰",
+  words_share: "공유",
   words_school_holidays: "방학 중",
   edit_modal_title: "데이터 편집",
   edit_modal_intro: "OpenStreetMap의 데이터 개선을 도와주세요. 편집 내용은 Veggiekarte와 많은 다른 프로젝트에 도움이 됩니다.",

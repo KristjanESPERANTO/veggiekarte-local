@@ -89,6 +89,7 @@ export default {
   words_closed: "tancat",
   words_public_holiday: "dia festiu",
   words_review: "ressenya",
+  words_share: "Compartir",
   words_school_holidays: "vacances escolars",
   edit_modal_title: "Editar dades",
   edit_modal_intro: "Ajuda a millorar les dades a OpenStreetMap. Les teves edicions beneficiaran Veggiekarte i molts altres projectes.",

@@ -4,6 +4,7 @@ import { Control, Icon, Map, TileLayer } from "leaflet";
 import { DEFAULT_THEMES, ThemeControl } from "leaflet-theme-control";
 import { InfoButton, openInfo, showInfoOnStartup } from "./info-button-control.js";
 import { addLanguageResources, getUserLanguage, setUserLanguage, t } from "./i18n.js";
+import { createMapHash, parseMarkerHash, setMarkerHash } from "./map-hash.js";
 import { geojsonToMarkerGroups, statPopulate } from "./veggiemap-data.js";
 import { langObject, languageSelector } from "@kristjan.esperanto/leaflet-language-selector";
 import { CATEGORY_HIERARCHY } from "./category-mapping.js";
@@ -14,7 +15,6 @@ import { MarkerClusterGroup } from "@kristjan.esperanto/leaflet.markercluster";
 import { OpeningHoursControl } from "./opening-hours-control.js";
 import { SubGroup } from "./subgroup.js";
 import { addNominatimInformation } from "./popup.js";
-import { createMapHash } from "./map-hash.js";
 import { createProgressController } from "./progress.js";
 
 /**
@@ -220,14 +220,18 @@ async function veggiemap() {
     }
   });
 
-  // Show the info box during initial loading so progress stay visible
-  showInfoOnStartup();
+  // Capture marker permalink before map movements overwrite it
+  const pendingMarkerHash = parseMarkerHash();
+
+  // Show the info box during initial loading so progress stays visible
+  // Skip if a marker permalink is active — the popup will open instead
+  if (!pendingMarkerHash) { showInfoOnStartup(); }
 
   // Load the places and put them on the map
-  veggiemapPopulate(parentGroup);
+  veggiemapPopulate(parentGroup, pendingMarkerHash);
 
   // Add hash to the url
-  createMapHash(map);
+  const { syncHash } = createMapHash(map);
 
   // Add fullscreen control button
   document.fullscreenControl = new FullScreen({
@@ -347,8 +351,15 @@ async function veggiemap() {
       closeButton.setAttribute("aria-label", t("words_close"));
     }
     const marker = evt.popup._source; // Marker that owns the popup
-    if (marker) { addNominatimInformation(marker, popupElement); }
+    if (marker?.feature) {
+      const { _type: type, _id: id } = marker.feature.properties;
+      setMarkerHash(type, id);
+      addNominatimInformation(marker, popupElement);
+    }
   });
+
+  // Restore map position hash when popup closes
+  map.on("popupclose", () => { syncHash(); });
 }
 
 function updateVisibleCounts() {
@@ -369,6 +380,25 @@ function updateVisibleCounts() {
   });
 }
 
+/** Find a marker by OSM type + id and open its popup.
+ * Centers the map on the marker at zoom level 16.
+ * @param {string} type - OSM element type: node | way | relation
+ * @param {string} id - OSM element ID
+ */
+function openMarkerByTypeId(type, id) {
+  const strId = String(id);
+  for (const markers of Object.values(allMarkersByCategory)) {
+    for (const marker of markers) {
+      const props = marker.feature?.properties;
+      if (props?._type === type && String(props._id) === strId) {
+        map.setView(marker.getLatLng(), 16);
+        marker.openPopup();
+        return;
+      }
+    }
+  }
+}
+
 /**
  * Populate the map with vegetarian/vegan places from GeoJSON data.
  *
@@ -379,8 +409,9 @@ function updateVisibleCounts() {
  * The progress bar auto-completes via debouncing when all SubGroups finish rendering.
  *
  * @param {MarkerClusterGroup} parentGroupVar - The parent marker cluster group
+ * @param {{type: string, id: string}|null} pendingMarkerHash - Parsed permalink hash to open on load, or null
  */
-async function veggiemapPopulate(parentGroupVar) {
+async function veggiemapPopulate(parentGroupVar, pendingMarkerHash = null) {
   // Phase 1: Start progress bar at 0%
   progress.start();
 
@@ -463,6 +494,9 @@ async function veggiemapPopulate(parentGroupVar) {
   // Apply filters asynchronously to allow chunkedLoading to start
   setTimeout(() => {
     applyAllFilters();
+
+    // Open marker from permalink hash if present
+    if (pendingMarkerHash) { openMarkerByTypeId(pendingMarkerHash.type, pendingMarkerHash.id); }
 
     // Fallback: If no chunkedLoading happens (few markers), finish after 1s
     // The debounce in updateChunk() will cancel this if updates arrive

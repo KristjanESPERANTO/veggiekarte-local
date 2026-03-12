@@ -1,12 +1,34 @@
-/**
- * Simple hash management for Leaflet maps
- * Syncs map position with URL hash: #map=zoom/lat/lng (OpenStreetMap format)
- * Falls back to localStorage if no hash is present
- *
+/** @module map-hash */
+
+let markerHashActive = false;
+
+/** Write a marker permalink to the URL hash and lock map-position updates.
+ * @param {string} type - OSM type: node | way | relation
+ * @param {string|number} id - OSM element ID
+ */
+export function setMarkerHash(type, id) {
+  markerHashActive = true;
+  history.replaceState(null, "", `#${type}/${id}`);
+}
+
+/** Parse a marker permalink from the current URL hash.
+ * @returns {{type: string, id: string}|null}
+ */
+export function parseMarkerHash() {
+  const match = /^#(?<type>node|way|relation)\/(?<id>\d+)$/u.exec(location.hash);
+  return match ? { type: match.groups.type, id: match.groups.id } : null;
+}
+
+/** Sync map position with URL hash (#map=zoom/lat/lng).
+ * Supports a marker permalink format (#node/id, #way/id, #relation/id);
+ * while a marker hash is active, moveend will not overwrite the URL.
+ * Falls back to localStorage if no hash is present on load.
  * @param {import('leaflet').Map} map - Leaflet map instance
+ * @returns {{syncHash: Function}} syncHash() clears any active marker hash and updates the URL to the current map position
  */
 export function createMapHash(map) {
   function setHash() {
+    if (markerHashActive) { return; }
     const center = map.getCenter();
     const zoom = map.getZoom();
     const precision = Math.max(0, Math.ceil(Math.log(zoom) / Math.LN2));
@@ -43,4 +65,12 @@ export function createMapHash(map) {
   }
 
   map.on("moveend", setHash);
+
+  /** Unlock marker hash and sync URL to current map position. */
+  function syncHash() {
+    markerHashActive = false;
+    setHash();
+  }
+
+  return { syncHash };
 }

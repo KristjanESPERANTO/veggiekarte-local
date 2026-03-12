@@ -89,6 +89,7 @@ export default {
   words_closed: "geschlossen",
   words_public_holiday: "Feiertag",
   words_review: "Rezension",
+  words_share: "Teilen",
   words_school_holidays: "Ferien",
   edit_modal_title: "Daten bearbeiten",
   edit_modal_intro: "Hilf mit, die Daten bei OpenStreetMap zu verbessern. Deine Änderungen helfen Veggiekarte und vielen anderen Projekten.",

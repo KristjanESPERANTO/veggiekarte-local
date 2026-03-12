@@ -929,17 +929,23 @@ a:hover {
 /* Popup layout */
 .map-popup-title {
   font-size: medium;
-  text-align: center;
   display: flex;
   align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: visible;
+  gap: 8px;
 }
 
-.popup-edit-button {
-  position: absolute;
-  right: 0;
+.map-popup-title-name {
+  flex: 1;
+  min-width: 0;
+}
+
+.popup-title-actions {
+  display: flex;
+  flex-shrink: 0;
+  gap: 2px;
+}
+
+.popup-action-button {
   cursor: pointer;
   font-size: 16px;
   padding: 6px 10px;
@@ -951,7 +957,7 @@ a:hover {
   line-height: 1;
 }
 
-.popup-edit-button:hover {
+.popup-action-button:hover {
   color: #fff;
   background: #2e7d32;
   text-decoration: none !important;
