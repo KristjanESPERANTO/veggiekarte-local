@@ -92,6 +92,7 @@ export default {
   words_share: "공유",
   words_school_holidays: "방학 중",
   edit_modal_title: "데이터 편집",
+  words_edit: "편집",
   edit_modal_intro: "OpenStreetMap의 데이터 개선을 도와주세요. 편집 내용은 Veggiekarte와 많은 다른 프로젝트에 도움이 됩니다.",
   leaflet_L_control_fullscreen_fullscreen: "전체화면",
   leaflet_L_control_fullscreen_exitFullscreen: "전체화면 끝내기",

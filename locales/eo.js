@@ -92,6 +92,7 @@ export default {
   words_share: "Kunhavigi",
   words_school_holidays: "ferioj",
   edit_modal_title: "Redakti datumojn",
+  words_edit: "Redakti",
   edit_modal_intro: "Helpu plibonigi la datumojn ĉe OpenStreetMap. Viaj redaktoj utilos al Veggiekarte kaj multaj aliaj projektoj.",
   leaflet_L_control_fullscreen_fullscreen: "Tutekrana reĝimo",
   leaflet_L_control_fullscreen_exitFullscreen: "Eliri tutekranan reĝimon",

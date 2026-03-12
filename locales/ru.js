@@ -92,6 +92,7 @@ export default {
   words_share: "Поделиться",
   words_school_holidays: "школьные каникулы",
   edit_modal_title: "Редактировать данные",
+  words_edit: "Редактировать",
   edit_modal_intro: "Помогите улучшить данные в OpenStreetMap. Ваши правки принесут пользу Veggiekarte и многим другим проектам.",
   leaflet_L_control_fullscreen_fullscreen: "Полный экран",
   leaflet_L_control_fullscreen_exitFullscreen: "Выйти из полного экрана",

@@ -92,6 +92,7 @@ export default {
   words_share: "Jaa",
   words_school_holidays: "lomakaudet",
   edit_modal_title: "Muokkaa tietoja",
+  words_edit: "Muokkaa",
   edit_modal_intro: "Auta parantamaan tietoja OpenStreetMapissa. Muokkauksesi hyödyttävät Veggiekartea ja monia muita projekteja.",
   leaflet_L_control_fullscreen_fullscreen: "koko näyttö",
   leaflet_L_control_fullscreen_exitFullscreen: "poistua koko näytön tilasta",

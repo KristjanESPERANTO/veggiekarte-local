@@ -92,6 +92,7 @@ export default {
   words_share: "Compartir",
   words_school_holidays: "vacaciones escolares",
   edit_modal_title: "Editar datos",
+  words_edit: "Editar",
   edit_modal_intro: "Ayuda a mejorar los datos en OpenStreetMap. Tus ediciones beneficiarán a Veggiekarte y muchos otros proyectos.",
   leaflet_L_control_fullscreen_fullscreen: "Pantalla completa",
   leaflet_L_control_fullscreen_exitFullscreen: "Salir de la pantalla completa",

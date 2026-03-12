@@ -415,7 +415,7 @@ export function calculatePopup(element) {
   editBtn.className = "popup-action-button";
   editBtn.href = "#";
   editBtn.textContent = "✏️";
-  editBtn.setAttribute("aria-label", "Edit");
+  editBtn.setAttribute("aria-label", t("words_edit"));
   editBtn.addEventListener("click", (evt) => {
     evt.preventDefault();
     showEditModal(feature.properties._type, feature.properties._id);
