@@ -1,19 +1,19 @@
 /* eslint-disable camelcase */
-import { CATEGORY_HIERARCHY, getCategoryForIcon } from "./category-mapping.js";
 import { CategoryFilterControl, isPlaceOpen } from "./category-filter-control.js";
-import { Control, Icon, Map, Marker, TileLayer } from "leaflet";
+import { Control, Icon, Map, TileLayer } from "leaflet";
 import { DEFAULT_THEMES, ThemeControl } from "leaflet-theme-control";
 import { InfoButton, openInfo, showInfoOnStartup } from "./info-button-control.js";
 import { addLanguageResources, getUserLanguage, setUserLanguage, t } from "./i18n.js";
-import { addNominatimInformation, calculatePopup } from "./popup.js";
-import { getIcon, iconToEmoji } from "./veggiemap-icons.js";
+import { geojsonToMarkerGroups, statPopulate } from "./veggiemap-data.js";
 import { langObject, languageSelector } from "@kristjan.esperanto/leaflet-language-selector";
+import { CATEGORY_HIERARCHY } from "./category-mapping.js";
 import { FullScreen } from "leaflet.fullscreen";
 import { Geocoder } from "leaflet-control-geocoder";
 import { LocateControl } from "leaflet.locatecontrol";
 import { MarkerClusterGroup } from "@kristjan.esperanto/leaflet.markercluster";
 import { OpeningHoursControl } from "./opening-hours-control.js";
 import { SubGroup } from "./subgroup.js";
+import { addNominatimInformation } from "./popup.js";
 import { createMapHash } from "./map-hash.js";
 import { createProgressController } from "./progress.js";
 
@@ -351,28 +351,6 @@ async function veggiemap() {
   });
 }
 
-function statPopulate(markerGroups, date) {
-  const markerGroupCategories = Object.keys(markerGroups);
-  for (let i = 0; i < markerGroupCategories.length; i += 1) {
-    const categoryName = markerGroupCategories[i];
-    const markerNumber = markerGroups[categoryName].length;
-    const totalElement = document.getElementById(`n_${categoryName}`);
-    if (totalElement) { totalElement.textContent = `${markerNumber}`; }
-    const visibleElement = document.getElementById(`v_${categoryName}`);
-    if (visibleElement) { visibleElement.textContent = "0"; }
-  }
-  const legendList = document.querySelector(".leaflet-control-layers-overlays");
-  if (legendList) {
-    let metaEl = legendList.querySelector(".legend-meta");
-    if (!metaEl) {
-      metaEl = document.createElement("div");
-      metaEl.className = "legend-meta";
-      legendList.appendChild(metaEl);
-    }
-    metaEl.textContent = date ? `${date}` : "";
-  }
-}
-
 function updateVisibleCounts() {
   if (!map) { return; }
   const bounds = map.getBounds();
@@ -494,41 +472,6 @@ async function veggiemapPopulate(parentGroupVar) {
   }, 0);
 }
 
-// Process the places GeoJSON into the groups of markers
-function geojsonToMarkerGroups(geojson) {
-  const date = geojson._timestamp.split(" ")[0];
-  const groups = {};
-  geojson.features.forEach((feature) => {
-    const eCat = feature.properties.category;
-    if (!groups[eCat]) { groups[eCat] = []; }
-    groups[eCat].push(getMarker(feature));
-  });
-  return [groups, date];
-}
-
-// Function to get the marker.
-function getMarker(feature) {
-  const eLatLon = [feature.geometry.coordinates[1], feature.geometry.coordinates[0]];
-  const eIco = feature.properties.icon;
-  const eCat = feature.properties.category;
-  const eName = feature.properties.name || "Unknown location";
-  const marker = new Marker(eLatLon, { icon: getIcon(eIco, eCat) });
-  marker.feature = feature;
-  marker.categoryInfo = getCategoryForIcon(eIco);
-  marker.bindPopup(calculatePopup, { minWidth: 300, maxWidth: 520, autoPanPadding: [16, 16] });
-  marker.bindTooltip(calculateTooltip);
-
-  // Set aria-label when marker is added to map (for screen readers)
-  marker.on("add", () => {
-    if (marker._icon) {
-      marker._icon.setAttribute("aria-label", eName);
-      marker._icon.setAttribute("role", "button");
-    }
-  });
-
-  return marker;
-}
-
 function initCategorySubgroups() {
   Object.entries(CATEGORY_HIERARCHY).forEach(([mainId, mainCat]) => {
     Object.entries(mainCat.subcategories).forEach(([subId]) => {
@@ -560,12 +503,6 @@ function distributeMarkersByCategory(markers) {
   Object.entries(dietCounts).forEach(([dietKey, count]) => {
     if (categoryFilterControl) { categoryFilterControl.updateDietCount(dietKey, count); }
   });
-}
-
-function calculateTooltip(layer) {
-  const feature = layer.feature;
-  const eIco = feature.properties.icon;
-  return `${iconToEmoji[eIco] || ""} ${feature.properties.name}`;
 }
 
 veggiemap();

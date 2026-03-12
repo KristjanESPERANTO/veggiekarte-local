@@ -302,22 +302,16 @@ export async function addNominatimInformation(element, popupEl) {
   function applyData(nominatimPlace) {
     if (!popupEl || !nominatimPlace || !popupEl.isConnected) { return; }
     const querySection = name => popupEl.querySelector(`[data-section="${name}"]`);
+    // Address is handled separately — buildAddressNodeFromNominatim needs the full place object
     const addressContainer = querySection("address");
-    if (addressContainer) {
+    if (addressContainer && !addressContainer.dataset.filled) {
       const addressNode = buildAddressNodeFromNominatim(nominatimPlace);
-      if (addressNode) { addressContainer.replaceChildren(...addressNode.childNodes); }
+      addressContainer.replaceChildren(...(addressNode ? addressNode.childNodes : []));
+      addressContainer.dataset.filled = "1";
     }
     const extratags = nominatimPlace.extratags || {};
-    // Opening hours
-    const ohContainer = querySection("opening_hours");
-    if (ohContainer) { fillOpeningHours({ extratags, address: nominatimPlace.address, container: ohContainer, locale }); }
-    // Cuisine
-    const cuisineContainer = querySection("cuisine");
-    if (cuisineContainer) { fillCuisine(extratags, cuisineContainer); }
-    // Contacts
-    const contactsContainer = querySection("contacts");
-    if (contactsContainer) { fillContacts(extratags, contactsContainer); }
     [
+      ["opening_hours", (et, container) => fillOpeningHours({ extratags: et, address: nominatimPlace.address, container, locale })],
       ["cuisine", fillCuisine],
       ["wheelchair", fillWheelchair],
       ["contacts", fillContacts],
