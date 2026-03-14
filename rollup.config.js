@@ -7,8 +7,8 @@ import { readFileSync, existsSync } from "fs";
 const pkg = JSON.parse(readFileSync("./package.json"));
 
 // Load config.custom.json if it exists, otherwise config.default.json
-const configFile = existsSync("./config.custom.json") 
-  ? "./config.custom.json" 
+const configFile = existsSync("./config.custom.json")
+  ? "./config.custom.json"
   : "./config.default.json";
 const config = JSON.parse(readFileSync(configFile));
 console.log(`Using config file: ${configFile}`);

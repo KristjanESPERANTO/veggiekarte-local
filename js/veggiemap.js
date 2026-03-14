@@ -1,20 +1,20 @@
 /* eslint-disable camelcase */
-import { CATEGORY_HIERARCHY, getCategoryForIcon } from "./category-mapping.js";
 import { CategoryFilterControl, isPlaceOpen } from "./category-filter-control.js";
-import { Control, Icon, Map, Marker, TileLayer } from "leaflet";
+import { Control, Icon, Map, TileLayer } from "leaflet";
 import { DEFAULT_THEMES, ThemeControl } from "leaflet-theme-control";
 import { InfoButton, openInfo, showInfoOnStartup } from "./info-button-control.js";
 import { addLanguageResources, getUserLanguage, setUserLanguage, t } from "./i18n.js";
-import { addNominatimInformation, calculatePopup } from "./popup.js";
-import { getIcon, iconToEmoji } from "./veggiemap-icons.js";
+import { createMapHash, parseMarkerHash, setMarkerHash } from "./map-hash.js";
+import { geojsonToMarkerGroups, statPopulate } from "./veggiemap-data.js";
 import { langObject, languageSelector } from "@kristjan.esperanto/leaflet-language-selector";
+import { CATEGORY_HIERARCHY } from "./category-mapping.js";
 import { FullScreen } from "leaflet.fullscreen";
 import { Geocoder } from "leaflet-control-geocoder";
-import { LocateControl } from "../third-party/leaflet.locatecontrol/L.Control.Locate.esm.patched.js";
+import { LocateControl } from "leaflet.locatecontrol";
 import { MarkerClusterGroup } from "@kristjan.esperanto/leaflet.markercluster";
 import { OpeningHoursControl } from "./opening-hours-control.js";
 import { SubGroup } from "./subgroup.js";
-import { createMapHash } from "./map-hash.js";
+import { addNominatimInformation } from "./popup.js";
 import { createProgressController } from "./progress.js";
 
 /**
@@ -220,14 +220,18 @@ async function veggiemap() {
     }
   });
 
-  // Show the info box during initial loading so progress stay visible
-  showInfoOnStartup();
+  // Capture marker permalink before map movements overwrite it
+  const pendingMarkerHash = parseMarkerHash();
+
+  // Show the info box during initial loading so progress stays visible
+  // Skip if a marker permalink is active — the popup will open instead
+  if (!pendingMarkerHash) { showInfoOnStartup(); }
 
   // Load the places and put them on the map
-  veggiemapPopulate(parentGroup);
+  veggiemapPopulate(parentGroup, pendingMarkerHash);
 
   // Add hash to the url
-  createMapHash(map);
+  const { syncHash } = createMapHash(map);
 
   // Add fullscreen control button
   document.fullscreenControl = new FullScreen({
@@ -347,30 +351,15 @@ async function veggiemap() {
       closeButton.setAttribute("aria-label", t("words_close"));
     }
     const marker = evt.popup._source; // Marker that owns the popup
-    if (marker) { addNominatimInformation(marker, popupElement); }
-  });
-}
-
-function statPopulate(markerGroups, date) {
-  const markerGroupCategories = Object.keys(markerGroups);
-  for (let i = 0; i < markerGroupCategories.length; i += 1) {
-    const categoryName = markerGroupCategories[i];
-    const markerNumber = markerGroups[categoryName].length;
-    const totalElement = document.getElementById(`n_${categoryName}`);
-    if (totalElement) { totalElement.textContent = `${markerNumber}`; }
-    const visibleElement = document.getElementById(`v_${categoryName}`);
-    if (visibleElement) { visibleElement.textContent = "0"; }
-  }
-  const legendList = document.querySelector(".leaflet-control-layers-overlays");
-  if (legendList) {
-    let metaEl = legendList.querySelector(".legend-meta");
-    if (!metaEl) {
-      metaEl = document.createElement("div");
-      metaEl.className = "legend-meta";
-      legendList.appendChild(metaEl);
+    if (marker?.feature) {
+      const { _type: type, _id: id } = marker.feature.properties;
+      setMarkerHash(type, id);
+      addNominatimInformation(marker, popupElement);
     }
-    metaEl.textContent = date ? `${date}` : "";
-  }
+  });
+
+  // Restore map position hash when popup closes
+  map.on("popupclose", () => { syncHash(); });
 }
 
 function updateVisibleCounts() {
@@ -391,6 +380,25 @@ function updateVisibleCounts() {
   });
 }
 
+/** Find a marker by OSM type + id and open its popup.
+ * Centers the map on the marker at zoom level 16.
+ * @param {string} type - OSM element type: node | way | relation
+ * @param {string} id - OSM element ID
+ */
+function openMarkerByTypeId(type, id) {
+  const strId = String(id);
+  for (const markers of Object.values(allMarkersByCategory)) {
+    for (const marker of markers) {
+      const props = marker.feature?.properties;
+      if (props?._type === type && String(props._id) === strId) {
+        map.setView(marker.getLatLng(), 16);
+        marker.openPopup();
+        return;
+      }
+    }
+  }
+}
+
 /**
  * Populate the map with vegetarian/vegan places from GeoJSON data.
  *
@@ -401,8 +409,9 @@ function updateVisibleCounts() {
  * The progress bar auto-completes via debouncing when all SubGroups finish rendering.
  *
  * @param {MarkerClusterGroup} parentGroupVar - The parent marker cluster group
+ * @param {{type: string, id: string}|null} pendingMarkerHash - Parsed permalink hash to open on load, or null
  */
-async function veggiemapPopulate(parentGroupVar) {
+async function veggiemapPopulate(parentGroupVar, pendingMarkerHash = null) {
   // Phase 1: Start progress bar at 0%
   progress.start();
 
@@ -486,47 +495,15 @@ async function veggiemapPopulate(parentGroupVar) {
   setTimeout(() => {
     applyAllFilters();
 
+    // Open marker from permalink hash if present
+    if (pendingMarkerHash) { openMarkerByTypeId(pendingMarkerHash.type, pendingMarkerHash.id); }
+
     // Fallback: If no chunkedLoading happens (few markers), finish after 1s
     // The debounce in updateChunk() will cancel this if updates arrive
     setTimeout(() => {
       progress.finish();
     }, 1000);
   }, 0);
-}
-
-// Process the places GeoJSON into the groups of markers
-function geojsonToMarkerGroups(geojson) {
-  const date = geojson._timestamp.split(" ")[0];
-  const groups = {};
-  geojson.features.forEach((feature) => {
-    const eCat = feature.properties.category;
-    if (!groups[eCat]) { groups[eCat] = []; }
-    groups[eCat].push(getMarker(feature));
-  });
-  return [groups, date];
-}
-
-// Function to get the marker.
-function getMarker(feature) {
-  const eLatLon = [feature.geometry.coordinates[1], feature.geometry.coordinates[0]];
-  const eIco = feature.properties.icon;
-  const eCat = feature.properties.category;
-  const eName = feature.properties.name || "Unknown location";
-  const marker = new Marker(eLatLon, { icon: getIcon(eIco, eCat) });
-  marker.feature = feature;
-  marker.categoryInfo = getCategoryForIcon(eIco);
-  marker.bindPopup(calculatePopup, { minWidth: 300, maxWidth: 520, autoPanPadding: [16, 16] });
-  marker.bindTooltip(calculateTooltip);
-
-  // Set aria-label when marker is added to map (for screen readers)
-  marker.on("add", () => {
-    if (marker._icon) {
-      marker._icon.setAttribute("aria-label", eName);
-      marker._icon.setAttribute("role", "button");
-    }
-  });
-
-  return marker;
 }
 
 function initCategorySubgroups() {
@@ -560,12 +537,6 @@ function distributeMarkersByCategory(markers) {
   Object.entries(dietCounts).forEach(([dietKey, count]) => {
     if (categoryFilterControl) { categoryFilterControl.updateDietCount(dietKey, count); }
   });
-}
-
-function calculateTooltip(layer) {
-  const feature = layer.feature;
-  const eIco = feature.properties.icon;
-  return `${iconToEmoji[eIco] || ""} ${feature.properties.name}`;
 }
 
 veggiemap();

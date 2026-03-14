@@ -2,7 +2,7 @@
 @import url("../node_modules/@kristjan.esperanto/leaflet.markercluster/dist/MarkerCluster.css");
 @import url("../node_modules/@kristjan.esperanto/leaflet.markercluster/dist/MarkerCluster.Default.css");
 @import url("../node_modules/leaflet-control-geocoder/dist/Control.Geocoder.css");
-@import url("../third-party/leaflet.locatecontrol/L.Control.Locate.min.css");
+@import url("../node_modules/leaflet.locatecontrol/dist/L.Control.Locate.min.css");
 @import url("../node_modules/leaflet.fullscreen/dist/Control.FullScreen.css");
 @import url("../node_modules/@kristjan.esperanto/leaflet-language-selector/src/leaflet.languageselector.css");
 @import url("../node_modules/@kristjan.esperanto/leaflet-language-selector/src/leaflet.languageselector-flags.css");
@@ -929,17 +929,23 @@ a:hover {
 /* Popup layout */
 .map-popup-title {
   font-size: medium;
-  text-align: center;
   display: flex;
   align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: visible;
+  gap: 8px;
 }
 
-.popup-edit-button {
-  position: absolute;
-  right: 0;
+.map-popup-title-name {
+  flex: 1;
+  min-width: 0;
+}
+
+.popup-title-actions {
+  display: flex;
+  flex-shrink: 0;
+  gap: 2px;
+}
+
+.popup-action-button {
   cursor: pointer;
   font-size: 16px;
   padding: 6px 10px;
@@ -951,7 +957,7 @@ a:hover {
   line-height: 1;
 }
 
-.popup-edit-button:hover {
+.popup-action-button:hover {
   color: #fff;
   background: #2e7d32;
   text-decoration: none !important;

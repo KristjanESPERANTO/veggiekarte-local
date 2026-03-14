@@ -42,8 +42,7 @@ export default defineConfig([
         __LOCAL_SITE_URL__: "readonly"
       }
     },
-    plugins: { js },
-    extends: [importX.recommended, "js/all", stylistic.configs.recommended],
+    extends: [importX.recommended, js.configs.all, stylistic.configs.recommended],
     rules: {
       "@stylistic/comma-dangle": ["error", "never"],
       "@stylistic/dot-location": ["error", "property"],
@@ -56,8 +55,8 @@ export default defineConfig([
       "id-length": ["error", { exceptions: ["i", "L"] }],
       "import-x/no-unresolved": ["error", { ignore: ["eslint/config"] }],
       "init-declarations": "off",
-      "max-lines": ["warn", 530],
-      "max-lines-per-function": ["warn", 175],
+      "max-lines": ["warn", 560],
+      "max-lines-per-function": ["warn", 180],
       "max-statements": "off",
       "no-console": "off",
       "no-inline-comments": "off",
@@ -74,5 +73,6 @@ export default defineConfig([
       "sort-vars": "off"
     }
   },
+  { files: ["locales/*.js"], rules: { camelcase: "off" } },
   { files: ["**/*.md"], plugins: { markdown }, language: "markdown/gfm", extends: ["markdown/recommended"] }
 ]);

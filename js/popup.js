@@ -302,22 +302,16 @@ export async function addNominatimInformation(element, popupEl) {
   function applyData(nominatimPlace) {
     if (!popupEl || !nominatimPlace || !popupEl.isConnected) { return; }
     const querySection = name => popupEl.querySelector(`[data-section="${name}"]`);
+    // Address is handled separately — buildAddressNodeFromNominatim needs the full place object
     const addressContainer = querySection("address");
-    if (addressContainer) {
+    if (addressContainer && !addressContainer.dataset.filled) {
       const addressNode = buildAddressNodeFromNominatim(nominatimPlace);
-      if (addressNode) { addressContainer.replaceChildren(...addressNode.childNodes); }
+      addressContainer.replaceChildren(...(addressNode ? addressNode.childNodes : []));
+      addressContainer.dataset.filled = "1";
     }
     const extratags = nominatimPlace.extratags || {};
-    // Opening hours
-    const ohContainer = querySection("opening_hours");
-    if (ohContainer) { fillOpeningHours({ extratags, address: nominatimPlace.address, container: ohContainer, locale }); }
-    // Cuisine
-    const cuisineContainer = querySection("cuisine");
-    if (cuisineContainer) { fillCuisine(extratags, cuisineContainer); }
-    // Contacts
-    const contactsContainer = querySection("contacts");
-    if (contactsContainer) { fillContacts(extratags, contactsContainer); }
     [
+      ["opening_hours", (et, container) => fillOpeningHours({ extratags: et, address: nominatimPlace.address, container, locale })],
       ["cuisine", fillCuisine],
       ["wheelchair", fillWheelchair],
       ["contacts", fillContacts],
@@ -386,22 +380,49 @@ export function calculatePopup(element) {
   catDiv.textContent = t(`texts_i18n_${feature.properties.category}`);
   root.appendChild(catDiv);
 
-  // Title with edit button
+  // Title with action buttons
   const title = document.createElement("div");
   title.className = "map-popup-title";
   const emoji = iconToEmoji[feature.properties.icon] || "";
-  title.textContent = `${emoji} ${feature.properties.name}`;
+  const titleName = document.createElement("span");
+  titleName.className = "map-popup-title-name";
+  titleName.textContent = `${emoji} ${feature.properties.name}`;
+  title.appendChild(titleName);
+
+  const actions = document.createElement("div");
+  actions.className = "popup-title-actions";
+
+  const shareBtn = document.createElement("a");
+  shareBtn.className = "popup-action-button";
+  shareBtn.href = "#";
+  shareBtn.textContent = "🔗";
+  shareBtn.setAttribute("aria-label", t("words_share"));
+  shareBtn.addEventListener("click", async (evt) => {
+    evt.preventDefault();
+    const url = location.href;
+    try {
+      if (navigator.share) { await navigator.share({ title: feature.properties.name, url }); }
+      else {
+        await navigator.clipboard.writeText(url);
+        shareBtn.textContent = "✓";
+        setTimeout(() => { shareBtn.textContent = "🔗"; }, 1500);
+      }
+    }
+    catch { /* User cancelled or clipboard denied */ }
+  });
 
   const editBtn = document.createElement("a");
-  editBtn.className = "popup-edit-button";
+  editBtn.className = "popup-action-button";
   editBtn.href = "#";
   editBtn.textContent = "✏️";
-  editBtn.setAttribute("aria-label", "Edit");
+  editBtn.setAttribute("aria-label", t("words_edit"));
   editBtn.addEventListener("click", (evt) => {
     evt.preventDefault();
     showEditModal(feature.properties._type, feature.properties._id);
   });
-  title.appendChild(editBtn);
+
+  actions.append(shareBtn, editBtn);
+  title.appendChild(actions);
 
   root.append(title, document.createElement("hr"));
 
