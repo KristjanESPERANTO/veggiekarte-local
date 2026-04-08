@@ -1,0 +1,384 @@
+<style>
+  /*****    Zentralen Inhalts-Container bei breiten Bildschirmen breiter machen     *****/
+  @media (min-width: 992px) {
+    .col-md-offset-2 {
+      margin-left: 5% !important;
+    }
+    .col-md-8 {
+      width: 90% !important;
+    }
+  }
+
+  /*****    Darstellung für normal breite Bildschirme     *****/
+  @media only screen and (min-width: 768px) {
+    /* Info- und OSM-Container nebeneinander */
+    .divContentRow {
+      display: flex;
+      flex-wrap: nowrap;
+      width: 95%;
+    }
+    /*****     Place-Info-Container     *****/
+    .divPlaceContent {
+      width: 100%;
+      border-radius: 6px 0 0 6px;
+    }
+    /*****     OSM-Container     *****/
+    .divPlaceOsmData {
+      width: 100%;
+      border-radius: 0 6px 6px 0;
+    }
+
+    /* Links in der OSM-Tabelle etwas kleiner */
+    .emojiCell ~ td > a {
+      font-size: 16px;
+    }
+  }
+
+  /*****    globale Einstellungen     *****/
+
+  /* Korrektur Ankerversatz */
+  .anchor > h4::before,
+  h2.anchor:before {
+    display: inline;
+    vertical-align: bottom !important;
+    line-height: 5em;
+    content: " ";
+  }
+  .divContentRow,
+  h2.anchor {
+    margin-bottom: -2em;
+  }
+
+  /*****     Emojis zentriert     *****/
+  .emojiCell {
+    text-align: center;
+  }
+
+  /*****     Emoji-Größe anpasse (fällt nur bei kleinen Displays auf)     *****/
+  img.emoji {
+    max-width: 400%;
+  }
+
+  /*****     Zellen ohne Rand     *****/
+  table > tbody > tr {
+    border-bottom: 0px solid #eee !important;
+  }
+
+  /*****     Place-Info-Container     *****/
+  .divPlaceContent {
+    background-color: #f8f8f8;
+    padding: 20px;
+  }
+
+  /*****     OSM-Container     *****/
+  .divPlaceOsmData {
+    background-color: #f0f0f0;
+    padding: 20px;
+  }
+
+  /*****     OSM-Überschrift     *****/
+  .osmHead {
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+  }
+
+  /*****    Darstellung für schmale Bildschirme     *****/
+  @media only screen and (max-width: 768px) {
+    /* Runde Ecken */
+    .divPlaceContent {
+      border-radius: 6px 6px 0 0;
+    }
+    .divPlaceOsmData {
+      border-radius: 0 0 6px 6px;
+    }
+  }
+</style>
+
+<script>
+  // URL to the json file.
+  const url = "https://www.vegan-in-halle.de/map/veggiekarte-halle/data/places.json";
+
+  // Cache for Nominatim data
+  const nominatimCache = {};
+
+  // Function to get the information from the places json file.
+  const fetchOsmData = async () => {
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      await appendOsmData(data);
+    } catch (error) {
+      console.error("Request failed", error);
+    }
+  };
+
+  // Small helper for timeout-controlled fetch
+  const fetchWithTimeout = (fetchUrl, options = {}, timeoutMs = 8000) => {
+    const controller = new AbortController();
+    const id = setTimeout(() => controller.abort(), timeoutMs);
+    return fetch(fetchUrl, { ...options, signal: controller.signal }).finally(() => clearTimeout(id));
+  };
+
+  // Function to fetch data for multiple places from Nominatim in one request
+  const fetchNominatimDataBatch = async (places) => {
+    // Map OSM type to Nominatim format
+    const typeMap = { node: "N", way: "W", relation: "R" };
+
+    // Nominatim allows max 50 IDs per request, so we need to chunk
+    const chunkSize = 50;
+    for (let i = 0; i < places.length; i += chunkSize) {
+      const chunk = places.slice(i, i + chunkSize);
+
+      const osmIds = chunk
+        .map((p) => {
+          const nominatimType = typeMap[p.properties._type] || "N";
+          return `${nominatimType}${p.properties._id}`;
+        })
+        .join(",");
+
+      const nominatimUrl = `https://nominatim.openstreetmap.org/lookup?osm_ids=${osmIds}&format=json&extratags=1&addressdetails=1`;
+
+      try {
+        const response = await fetch(nominatimUrl, {
+          headers: { "User-Agent": "VeganInHalle-Stadtkarte/1.0" }
+        });
+        const data = await response.json();
+
+        // Store all results in cache
+        if (data && data.length > 0) {
+          data.forEach((item) => {
+            const cacheKey = `${item.osm_type}/${item.osm_id}`;
+            nominatimCache[cacheKey] = item;
+          });
+        }
+      } catch (error) {
+        console.error("Nominatim batch request failed:", error);
+      }
+
+      // Small delay between chunks to respect rate limits
+      if (i + chunkSize < places.length) {
+        await new Promise((resolve) => setTimeout(resolve, 500));
+      }
+    }
+  };
+
+  // Function to build OSM data HTML from Nominatim response
+  const buildOsmDataHtml = (place, nominatimData) => {
+    let osmData = '<div class="osmHead"><a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap-Daten ©</a></div>';
+    osmData += "<table><tbody>";
+
+    const extratags = nominatimData?.extratags || {};
+    const address = nominatimData?.address || {};
+
+    // ######## Address ########
+    const street = address.road || address.pedestrian || address.footway;
+    const houseNumber = address.house_number;
+    const city = address.city || address.town || address.village;
+
+    if (street) {
+      let addressText = street;
+      if (houseNumber) addressText += " " + houseNumber;
+      // Add city if it's not Halle
+      if (city && city !== "Halle (Saale)" && city !== "Halle") {
+        addressText += ", " + city;
+      }
+      osmData += `<tr><td class="emojiCell">📍</td><td><a rel="noreferrer noopener" href="https://www.openstreetmap.org/?mlat=${place.geometry.coordinates[1]}&mlon=${place.geometry.coordinates[0]}#map=18/${place.geometry.coordinates[1]}/${place.geometry.coordinates[0]}" target="_blank">${addressText}</a></td></tr>`;
+    }
+
+    // ######## Website ########
+    const website = extratags.website || extratags["contact:website"];
+    if (website) {
+      const displayUrl = website.replace(/^https?:\/\//, "").replace(/\/$/, "");
+      osmData += `<tr><td class="emojiCell">🌐</td><td><a rel="noreferrer noopener" href="${website}" target="_blank">${displayUrl}</a></td></tr>`;
+    }
+
+    // ######## Facebook ########
+    const facebook = extratags["contact:facebook"];
+    if (facebook) {
+      const fbName = facebook.replace(/^https?:\/\/(www\.)?facebook\.com\//, "").replace(/\/$/, "");
+      const fbHref = facebook.startsWith("http") ? facebook : `https://www.facebook.com/${facebook}`;
+      osmData += `<tr><td class="emojiCell">🇫</td><td><a rel="noreferrer noopener" href="${fbHref}" target="_blank">${fbName}</a></td></tr>`;
+    }
+
+    // ######## Instagram ########
+    const instagram = extratags["contact:instagram"];
+    if (instagram) {
+      const igName = instagram.replace(/^https?:\/\/(www\.)?instagram\.com\//, "").replace(/\/$/, "");
+      const igHref = instagram.startsWith("http") ? instagram : `https://www.instagram.com/${instagram}`;
+      osmData += `<tr><td class="emojiCell">📸</td><td><a rel="noreferrer noopener" href="${igHref}" target="_blank">${igName}</a></td></tr>`;
+    }
+
+    // ######## Telephone ########
+    const phone = extratags.phone || extratags["contact:phone"];
+    if (phone) {
+      osmData += `<tr><td class="emojiCell">☎️</td><td><a href="tel:${phone.replace(/\s/g, "")}">${phone}</a></td></tr>`;
+    }
+
+    // ######## Email ########
+    const email = extratags.email || extratags["contact:email"];
+    if (email) {
+      osmData += `<tr><td class="emojiCell">✉️</td><td><a href="mailto:${email}">${email}</a></td></tr>`;
+    }
+
+    // ######## Opening Hours ########
+    const openingHours = extratags.opening_hours;
+    if (openingHours) {
+      const formattedHours = openingHours
+        .replace(/Mo/g, "Mo")
+        .replace(/Tu/g, "Di")
+        .replace(/We/g, "Mi")
+        .replace(/Th/g, "Do")
+        .replace(/Fr/g, "Fr")
+        .replace(/Sa/g, "Sa")
+        .replace(/Su/g, "So")
+        .replace(/PH/g, "Feiertag")
+        .replace(/off/g, "geschlossen")
+        .replace(/, /g, "<br />")
+        .replace(/,/g, ", ")
+        .replace(/; /g, "<br />");
+      osmData += `<tr><td class="emojiCell">🕐</td><td>${formattedHours}</td></tr>`;
+    }
+
+    osmData += "</tbody></table>";
+    return osmData;
+  };
+
+  // Function to put the information from the places json file to the page.
+  const appendOsmData = async (data) => {
+    // Build a quick lookup for all feature IDs
+    const featureIdSet = new Set(data.features.map((place) => `${place.properties._type}${place.properties._id}`));
+
+    // Find all containers on the page that look like place IDs
+    const containerCandidates = Array.from(document.querySelectorAll("[id]"))
+      .map((el) => el.id)
+      .filter((id) => /^(node|way|relation)\d+$/.test(id));
+
+    // Warn for containers that exist on the page but have no matching data
+    containerCandidates.forEach((containerId) => {
+      if (!featureIdSet.has(containerId)) {
+        console.warn(`Kein Datensatz für ${containerId}.`);
+        const containerEl = document.getElementById(containerId);
+        const infoCell = containerEl?.querySelector(".divPlaceContent");
+        if (infoCell) {
+          infoCell.innerHTML = "<div><strong>Keine Daten.</strong></div>";
+        }
+      }
+    });
+
+    // Filter places that exist on the page (have a container with matching ID)
+    const placesOnPage = data.features.filter((place) => {
+      const placeId = `${place.properties._type}${place.properties._id}`;
+      return document.getElementById(placeId) !== null;
+    });
+
+    if (placesOnPage.length === 0) return;
+
+    // Fetch all Nominatim data in one batch request
+    await fetchNominatimDataBatch(placesOnPage);
+
+    // Build tasks for WP detail fetches
+    const tasks = placesOnPage.map((place) => async () => {
+      const placeId = `${place.properties._type}${place.properties._id}`;
+      const mainContainer = document.getElementById(placeId);
+
+      try {
+        // Get Nominatim data from cache
+        const cacheKey = `${place.properties._type}/${place.properties._id}`;
+        const nominatimData = nominatimCache[cacheKey];
+
+        // Build and insert OSM data using querySelector for robustness
+        const osmData = buildOsmDataHtml(place, nominatimData);
+        const osmContainer = mainContainer?.querySelector(".divPlaceOsmData");
+        if (osmContainer) {
+          osmContainer.innerHTML = osmData;
+        } else {
+          console.warn("No .divPlaceOsmData found for:", placeId);
+        }
+
+        const infoCell = mainContainer?.querySelector(".divPlaceContent");
+        if (!infoCell) {
+          console.warn("No .divPlaceContent found for:", placeId);
+          return;
+        }
+
+        const placeName = mainContainer?.querySelector("h2, h3, h4");
+        if (!placeName) {
+          console.warn("No heading found for:", placeId);
+          return;
+        }
+
+        const uri = getURI(placeName.innerText);
+        if (uri !== "undefined") {
+          await fetchHtmlData(infoCell, uri);
+        }
+      } catch (err) {
+        console.error(`Error processing ${placeId}:`, err);
+      }
+    });
+
+    // Fetch all WordPress detail pages in parallel
+    await Promise.all(tasks.map((t) => t()));
+  };
+
+  // Function to get the information from the places page.
+  const fetchHtmlData = async (infoCell, uri) => {
+    try {
+      const response = await fetchWithTimeout(uri, {}, 10000);
+      if (!response.ok) {
+        console.warn(`HTTP error for ${uri}: ${response.status}`);
+      }
+      const data = await response.text();
+      appendHtmlData(data, infoCell, uri);
+    } catch (error) {
+      console.error(`Request failed for ${uri}:`, error);
+    }
+  };
+
+  // Function to put the information from the places page to the Stadtkarte page.
+  const appendHtmlData = (data, infoCell, uri) => {
+    try {
+      const el = document.createElement("html");
+      el.innerHTML = data;
+
+      const pageContent = el.getElementsByClassName("page-content-wrap")[0];
+      if (!pageContent) {
+        console.warn("No page-content-wrap found for:", uri);
+        return;
+      }
+
+      let al = pageContent.innerHTML;
+      al = al.split('<span id="more-')[0];
+      al += `<div><a href="${uri}">ℹ️ » Detailseite «</a></div>`;
+
+      infoCell.innerHTML = al;
+    } catch (err) {
+      console.error(`Error in appendHtmlData for ${uri}:`, err);
+    }
+  };
+
+  // Function to get the URI to the location page.
+  const getURI = (text) => {
+    const normalized = text
+      .replace(/[Ää]/g, "ae")
+      .replace(/[Öö]/g, "oe")
+      .replace(/[Üü]/g, "ue")
+      .replace(/ß/g, "ss")
+      .replace(/[’'‘`´]/g, "")
+      .replace(/&/g, "und")
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9-]+/g, "-")
+      .replace(/-+/g, "-")
+      .replace(/^-|-$/g, "");
+
+    return `./${normalized}/`;
+  };
+
+  // Fetch the OSM data from the json file and append them to the Stadtkarte.
+  fetchOsmData();
+</script>
+
+<!-- Abstand zum Footer -->
+<div><br /><br /><br /></div>
