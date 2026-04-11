@@ -508,12 +508,13 @@ function isPlaceOpen(feature, openingHoursData) {
       return null; // No opening hours data for this place
     }
 
-    const address = feature?.properties?.address || {};
+    const address = feature?.properties?.address;
+    // Pass null instead of { address: { country_code: undefined } } — the library throws when country_code is undefined but the string contains "PH" (public holiday).
+    const nominatimAddress = address?.country_code
+      ? { address: { country_code: address.country_code, state: address.state } }
+      : null;
     // eslint-disable-next-line new-cap
-    const oh = new opening_hours(
-      openingHoursStr,
-      { address: { country_code: address.country_code, state: address.state } }
-    );
+    const oh = new opening_hours(openingHoursStr, nominatimAddress);
     return oh.getState();
   }
   catch {
