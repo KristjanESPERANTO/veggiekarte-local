@@ -23,23 +23,23 @@
   },
   "homepage": "https://veggiekarte.de/",
   "devDependencies": {
-    "@eslint/css": "^1.0.0",
+    "@eslint/css": "^1.1.0",
     "@eslint/js": "^10.0.1",
-    "@eslint/markdown": "^7.5.1",
+    "@eslint/markdown": "^8.0.1",
     "@mapbox/maki": "^8.2.0",
-    "@rapideditor/temaki": "^5.12.0",
+    "@rapideditor/temaki": "^5.13.0",
     "@rollup/plugin-commonjs": "^29.0.2",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-replace": "^6.0.3",
     "@rollup/plugin-terser": "^1.0.0",
     "@stylistic/eslint-plugin": "^5.10.0",
-    "eslint": "^10.0.3",
+    "eslint": "^10.2.0",
     "eslint-plugin-import-x": "^4.16.2",
     "globals": "^17.4.0",
     "lightningcss-cli": "^1.32.0",
-    "lint-staged": "^16.3.3",
-    "prettier": "^3.8.1",
-    "rollup": "^4.59.0",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.8.2",
+    "rollup": "^4.60.1",
     "simple-git-hooks": "^2.13.1"
   },
   "dependencies": {
@@ -49,11 +49,11 @@
     "email-validator": "^2.0.4",
     "leaflet": "^2.0.0-alpha.1",
     "leaflet-control-geocoder": "^3.3.1",
-    "leaflet-theme-control": "^0.1.4",
-    "leaflet.fullscreen": "^5.3.0",
+    "leaflet-theme-control": "^0.1.5",
+    "leaflet.fullscreen": "^5.3.1",
     "leaflet.locatecontrol": "^0.89.0",
-    "libphonenumber-js": "^1.12.39",
-    "opening_hours": "^3.11.0"
+    "libphonenumber-js": "^1.12.41",
+    "opening_hours": "^3.12.0"
   },
   "overrides": {
     "leaflet-control-geocoder": {
