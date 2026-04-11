@@ -38,22 +38,32 @@ self.addEventListener("activate", (event) => {
 
 // Service Worker Caching Strategy: Stale-While-Revalidate
 self.addEventListener("fetch", (event) => {
+  const { request } = event;
+  if (request.method !== "GET") { return; }
+
+  const requestUrl = new URL(request.url);
+  if (requestUrl.origin !== self.location.origin) { return; }
+
   event.respondWith(
-    caches.match(event.request)
+    caches.match(request)
       .then((cachedResponse) => {
-        const fetchPromise = fetch(event.request)
+        const fetchPromise = fetch(request)
           .then((networkResponse) => {
             // Clone BEFORE using the response
             if (networkResponse && networkResponse.ok) {
               const responseToCache = networkResponse.clone();
               caches.open(CACHE_NAME)
-                .then(cache => cache.put(event.request, responseToCache));
+                .then(cache => cache.put(request, responseToCache));
             }
             return networkResponse;
           })
           .catch((error) => {
-            // Log the error to the console when the fetch fails
             console.error("Fetch failed:", error);
+            // Explicit offline response for uncached or failed network requests.
+            return new Response("Offline", {
+              status: 503,
+              statusText: "Service Unavailable"
+            });
           });
 
         // Return cached response immediately, or wait for network
