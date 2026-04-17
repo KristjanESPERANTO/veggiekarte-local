@@ -380,11 +380,16 @@ function updateVisibleCounts() {
   });
 }
 
-/** Find a marker by OSM type + id and open its popup.
- * Centers the map on the marker at zoom level 16.
- * @param {string} type - OSM element type: node | way | relation
- * @param {string} id - OSM element ID
- */
+/** Open popup now, or once marker is added by chunked loading. */
+function openPopupWhenMarkerReady(marker) {
+  if (map.hasLayer(marker)) {
+    marker.openPopup();
+    return;
+  }
+  marker.once("add", () => { marker.openPopup(); });
+}
+
+/** Find a marker by OSM type + id, center map, and open its popup. */
 function openMarkerByTypeId(type, id) {
   const strId = String(id);
   for (const markers of Object.values(allMarkersByCategory)) {
@@ -392,7 +397,9 @@ function openMarkerByTypeId(type, id) {
       const props = marker.feature?.properties;
       if (props?._type === type && String(props._id) === strId) {
         map.setView(marker.getLatLng(), 16);
-        marker.openPopup();
+        // On mobile, chunked cluster loading may not have added this marker yet.
+        // Listen for layeradd and only open when the target marker appears.
+        openPopupWhenMarkerReady(marker);
         return;
       }
     }

@@ -1,58 +1,12 @@
 /* eslint-disable camelcase */
+import { clearInflightNominatim, getInflightNominatim, getMemoryNominatim, getPersistentNominatim, setInflightNominatim, setMemoryNominatim, setPersistentNominatim } from "./popup-cache.js";
 import { getUserLanguage, t } from "./i18n.js";
 import { iconToEmoji } from "./veggiemap-icons.js";
 import opening_hours from "opening_hours";
+import { showEditModal } from "./popup-edit-modal.js";
 
-const nominatimCache = {};
 const libreviewCache = {};
 const POPUP_SECTIONS = Object.freeze(["cuisine", "address", "opening_hours", "wheelchair", "contacts", "social", "vegan_description", "menu_url"]);
-const inflight = {};
-const PERSIST_KEY = "vk_nominatim_v1";
-const MAX_ENTRIES = 300;
-const TTL_MS = 24 * 60 * 60 * 1000;
-let persistentLoaded = false;
-let persistentStore = { entries: {}, order: [] };
-
-function loadPersistentStore() {
-  if (persistentLoaded) { return; }
-  persistentLoaded = true;
-  try {
-    const parsed = JSON.parse(window.localStorage.getItem(PERSIST_KEY) || "{}");
-    if (parsed.entries && parsed.order) { persistentStore = parsed; }
-  }
-  catch { /* Ignore */ }
-}
-
-function savePersistentStore() {
-  try { window.localStorage.setItem(PERSIST_KEY, JSON.stringify(persistentStore)); }
-  catch { /* Ignore */ }
-}
-
-function touchOrder(key) {
-  const idx = persistentStore.order.indexOf(key);
-  if (idx >= 0) { persistentStore.order.splice(idx, 1); }
-  persistentStore.order.push(key);
-  if (persistentStore.order.length > MAX_ENTRIES) {
-    delete persistentStore.entries[persistentStore.order.shift()];
-  }
-}
-
-/** Retrieve entry from cache. */
-function getPersistent(key) {
-  loadPersistentStore();
-  const entry = persistentStore.entries[key];
-  if (!entry) { return null; }
-  const age = Date.now() - entry.ts;
-  return { data: entry.data, ts: entry.ts, fresh: age < TTL_MS, stale: age >= TTL_MS };
-}
-
-/** Store entry in cache. */
-function setPersistent(key, data) {
-  loadPersistentStore();
-  persistentStore.entries[key] = { ts: Date.now(), data };
-  touchOrder(key);
-  savePersistentStore();
-}
 
 // --- DOM helper utilities (replace inline HTML string concatenation) ---
 /** Build a two‑column row (emoji + content).
@@ -325,22 +279,24 @@ export async function addNominatimInformation(element, popupEl) {
   }
 
   // 1. Memory cache
-  if (nominatimCache[cacheKey]) {
-    applyData(nominatimCache[cacheKey]);
+  const memoryCached = getMemoryNominatim(cacheKey);
+  if (memoryCached) {
+    applyData(memoryCached);
     return;
   }
 
   // 2. Persistent cache (stale-while-revalidate)
-  const persisted = getPersistent(cacheKey);
+  const persisted = getPersistentNominatim(cacheKey);
   if (persisted) {
     applyData(persisted.data);
-    nominatimCache[cacheKey] = persisted.data;
+    setMemoryNominatim(cacheKey, persisted.data);
     if (persisted.fresh) { return; }
   }
 
   // 3. De-duplicate fetches
-  if (inflight[cacheKey]) {
-    inflight[cacheKey].then(place => place && applyData(place));
+  const inflightRequest = getInflightNominatim(cacheKey);
+  if (inflightRequest) {
+    inflightRequest.then(place => place && applyData(place));
     return;
   }
 
@@ -348,24 +304,27 @@ export async function addNominatimInformation(element, popupEl) {
   const url = `https://nominatim.openstreetmap.org/lookup?osm_ids=${osmType}${id}&extratags=1&addressdetails=1&format=json&accept-language=${locale}`;
 
   try {
-    inflight[cacheKey] = fetch(url, { headers: { Accept: "application/json" } })
-      .then(async (res) => {
-        if (!res.ok) { throw new Error(`HTTP ${res.status}`); }
-        const data = await res.json();
-        if (!data?.[0]) { throw new Error("No result"); }
-        const place = data[0];
-        nominatimCache[cacheKey] = place;
-        setPersistent(cacheKey, place);
-        applyData(place);
-        return place;
-      })
-      .catch((err) => {
-        console.warn("Nominatim error:", err);
-        return null;
-      });
-    await inflight[cacheKey];
+    setInflightNominatim(
+      cacheKey,
+      fetch(url, { headers: { Accept: "application/json" } })
+        .then(async (res) => {
+          if (!res.ok) { throw new Error(`HTTP ${res.status}`); }
+          const data = await res.json();
+          if (!data?.[0]) { throw new Error("No result"); }
+          const place = data[0];
+          setMemoryNominatim(cacheKey, place);
+          setPersistentNominatim(cacheKey, place);
+          applyData(place);
+          return place;
+        })
+        .catch((err) => {
+          console.warn("Nominatim error:", err);
+          return null;
+        })
+    );
+    await getInflightNominatim(cacheKey);
   }
-  finally { delete inflight[cacheKey]; }
+  finally { clearInflightNominatim(cacheKey); }
 }
 
 /** Build initial popup DOM (placeholders only, sync). */
@@ -472,86 +431,4 @@ export async function addLibReview(element, container) {
     container.replaceChildren(makeRow("📓", [makeLink(`https://lib.reviews/${data.thing.urlID}`, t("words_review"))]));
   }
   catch { /* Ignore - no review or service unavailable */ }
-}
-
-/** Show edit modal with links to OSM and MapComplete
- * @param {string} type OSM element type (node/way/relation)
- * @param {string} id OSM element ID
- */
-function showEditModal(type, id) {
-  let overlay = document.querySelector(".edit-modal-overlay");
-  if (!overlay) { overlay = createEditModal(); }
-
-  updateEditModalContent(overlay, type, id);
-  overlay.classList.add("visible");
-}
-
-/** Create the edit modal structure (once)
- * @returns {HTMLElement} overlay element
- */
-function createEditModal() {
-  const overlay = document.createElement("div");
-  overlay.className = "edit-modal-overlay";
-
-  const modal = document.createElement("div");
-  modal.className = "edit-modal";
-
-  const closeBtn = document.createElement("div");
-  closeBtn.className = "edit-modal-close close-button";
-
-  const title = document.createElement("h2");
-  title.dataset.i18n = "title";
-
-  const intro = document.createElement("p");
-  intro.dataset.i18n = "intro";
-
-  const linksContainer = document.createElement("div");
-  linksContainer.className = "edit-modal-links";
-  linksContainer.dataset.links = "";
-
-  modal.append(closeBtn, title, intro, linksContainer);
-  overlay.appendChild(modal);
-
-  // Event delegation for close actions
-  overlay.addEventListener("click", (event) => {
-    if (event.target.classList.contains("edit-modal-close") || event.target === overlay) {
-      overlay.classList.remove("visible");
-    }
-  });
-
-  document.body.appendChild(overlay);
-  return overlay;
-}
-
-/** Update modal content with current language and URLs
- * @param {HTMLElement} overlay modal overlay element
- * @param {string} type OSM element type
- * @param {string} id OSM element ID
- */
-function updateEditModalContent(overlay, type, id) {
-  // Update translations
-  overlay.querySelector("[data-i18n='title']").textContent = t("edit_modal_title");
-  overlay.querySelector("[data-i18n='intro']").textContent = t("edit_modal_intro");
-
-  // Update links
-  const linksContainer = overlay.querySelector("[data-links]");
-  linksContainer.replaceChildren(
-    createEditLink("MapComplete", `https://mapcomplete.org/food.html?z=19#${type}/${id}`),
-    createEditLink("OpenStreetMap", `https://openstreetmap.org/${type}/${id}`)
-  );
-}
-
-/** Create an external edit link
- * @param {string} text link text
- * @param {string} url link URL
- * @returns {HTMLAnchorElement}
- */
-function createEditLink(text, url) {
-  const link = document.createElement("a");
-  link.className = "edit-modal-link";
-  link.href = url;
-  link.target = "_blank";
-  link.rel = "noopener noreferrer";
-  link.textContent = text;
-  return link;
 }
