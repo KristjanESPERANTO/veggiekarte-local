@@ -33,6 +33,11 @@ else:
 with open(CONFIG_FILE) as f:
     CONFIG = json.load(f)
 
+# Read version from package.json for the User-Agent header
+_PACKAGE_JSON = Path(__file__).parent / "package.json"
+with open(_PACKAGE_JSON) as f:
+    VERSION = json.load(f)["version"]
+
 # constants for the overpass request
 
 # # server list (from: https://wiki.openstreetmap.org/wiki/Overpass_API)
@@ -40,11 +45,13 @@ SERVERS = [
     "https://overpass-api.de/api/interpreter",
     "https://overpass.kumi.systems/api/interpreter",
     "https://z.overpass-api.de/api/interpreter",
-    "http://dev.overpass-api.de/api_drolbr/interpreter",
-    "http://overpass-api.de/api/interpreter",
     "http://overpass.openstreetmap.fr/api/interpreter"
 ]
-HTTP = urllib3.PoolManager()
+HTTP = urllib3.PoolManager(
+    headers={
+        "User-Agent": f"VeggieKarte/{VERSION} (https://codeberg.org/piratenpanda/veggiekarte/)"
+    }
+)
 
 # # constants for the output files
 TIMESTAMP = str(datetime.datetime.now())                       # the actual date and time
@@ -271,9 +278,10 @@ def get_osm_data():
                 print("Trying next server...")
                 time.sleep(5)
             elif response.status == 429:
+                retry_after = int(response.headers.get("Retry-After", 60))
                 print(f"HTTP {response.status}: Too Many Requests - Rate limit exceeded")
-                print("Waiting 60 seconds before trying next server...")
-                time.sleep(60)
+                print(f"Waiting {retry_after} seconds as requested before trying next server...")
+                time.sleep(retry_after)
             elif response.status == 504:
                 print(f"HTTP {response.status}: Gateway Timeout - Server took too long to respond")
                 print("This can happen with large queries. Trying next server...")

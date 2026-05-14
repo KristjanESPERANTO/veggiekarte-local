@@ -15,6 +15,10 @@ import { parsePhoneNumberFromString } from "libphonenumber-js";
 import path from "node:path";
 import process from "node:process";
 import validator from "email-validator";
+import { createRequire } from "node:module";
+
+const _require = createRequire(import.meta.url);
+const { version } = _require("../package.json");
 
 // ---------------- Constants ----------------
 const TIMESTAMP = new Date().toISOString();
@@ -33,7 +37,7 @@ const FETCH_CONCURRENCY = 25; // Higher concurrency for network phase
 const SKIP_FULL_CHECK_DOMAINS = ["instagram.com", "www.instagram.com", "facebook.com", "www.facebook.com"]; // Heavy domains -> skip network
 
 const REQUEST_HEADERS = {
-  "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) VeggieKarteDatacheck/1.0 Safari/537.36"
+  "User-Agent": `VeggieKarte/${version} (https://codeberg.org/piratenpanda/veggiekarte/)`
 };
 
 class Processor {
