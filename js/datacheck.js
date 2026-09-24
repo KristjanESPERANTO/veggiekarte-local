@@ -223,11 +223,29 @@ function getMarker(feature) {
   return marker;
 }
 
-// Calculate tooltip content for a given marker layer
+// Calculate tooltip content for a given marker layer (text only, no HTML parsing)
 function calculateTooltip(layer) {
-  const feature = layer.feature;
-  const eNam = feature.properties.name;
-  return eNam;
+  const span = document.createElement("span");
+  span.textContent = layer.feature.properties.name;
+  return span;
+}
+
+// Create an element with a class name and text content
+function createTextElement(tag, className, text) {
+  const el = document.createElement(tag);
+  el.className = className;
+  el.textContent = text;
+  return el;
+}
+
+// Create an external link that opens in a new tab
+function createExternalLink(url, text) {
+  const link = document.createElement("a");
+  link.href = url;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.textContent = text;
+  return link;
 }
 
 // Calculate popup content for a given marker layer
@@ -239,27 +257,34 @@ function calculatePopup(layer) {
   const eTyp = feature.properties._type;
 
   /** * Building the popup content ** */
+  const root = document.createElement("div");
 
   // Popup title
-  let popupContent = `<div class='map-popup-title'>${eNam}</div><hr/>`;
+  root.append(createTextElement("div", "map-popup-title", eNam), document.createElement("hr"));
 
   // Add undefined keys
   if (feature.properties.undefined !== undefined) {
-    feature.properties.undefined.forEach(key => (popupContent += `<div class='popup-issue'>'${key}' is undefined</div>`));
+    feature.properties.undefined.forEach(key => root.appendChild(createTextElement("div", "popup-issue", `'${key}' is undefined`)));
   }
 
   // Add issues
   if (feature.properties.issues !== undefined) {
-    feature.properties.issues.forEach(issue => (popupContent += `<div class='popup-issue'>${issue}</div>`));
+    feature.properties.issues.forEach(issue => root.appendChild(createTextElement("div", "popup-issue", issue)));
   }
 
   // OSM link to edit
-  const osmShowUrl = `https://openstreetmap.org/${eTyp}/${eId}`;
-  const osmEditUrl = `https://www.openstreetmap.org/edit?${eTyp}=${eId}`;
-  popupContent += `<hr/><div class='map-editor-link'><a href='${osmShowUrl}' target='_blank' rel='noopener noreferrer'>Show on OpenStreetMap</a><br>
-  <a href='${osmEditUrl}' target='_blank' rel='noopener noreferrer'>Edit on OpenStreetMap</a></div>`;
+  const osmShowUrl = `https://openstreetmap.org/${encodeURIComponent(eTyp)}/${encodeURIComponent(eId)}`;
+  const osmEditUrl = `https://www.openstreetmap.org/edit?${encodeURIComponent(eTyp)}=${encodeURIComponent(eId)}`;
+  const editorLinks = document.createElement("div");
+  editorLinks.className = "map-editor-link";
+  editorLinks.append(
+    createExternalLink(osmShowUrl, "Show on OpenStreetMap"),
+    document.createElement("br"),
+    createExternalLink(osmEditUrl, "Edit on OpenStreetMap")
+  );
+  root.append(document.createElement("hr"), editorLinks);
 
-  return popupContent;
+  return root;
 }
 
 // Main function

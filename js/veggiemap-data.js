@@ -3,11 +3,13 @@ import { Marker } from "leaflet";
 import { calculatePopup } from "./popup.js";
 import { getCategoryForIcon } from "./category-mapping.js";
 
-/** Build a tooltip string for a marker layer. */
+/** Build a tooltip element for a marker layer (text only, no HTML parsing). */
 function calculateTooltip(layer) {
   const feature = layer.feature;
   const eIco = feature.properties.icon;
-  return `${iconToEmoji[eIco] || ""} ${feature.properties.name}`;
+  const span = document.createElement("span");
+  span.textContent = `${iconToEmoji[eIco] || ""} ${feature.properties.name}`;
+  return span;
 }
 
 /** Create a Leaflet Marker from a GeoJSON feature. */

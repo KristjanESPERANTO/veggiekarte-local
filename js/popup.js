@@ -33,14 +33,32 @@ function makeRow(emoji, contentNodes) {
   return wrap;
 }
 
-/** Create a safe external link.
+const ALLOWED_LINK_PROTOCOLS = Object.freeze(["http:", "https:", "mailto:", "tel:"]);
+
+/** Normalize a URL and allow only http(s), mailto and tel schemes.
+ * Values without a scheme are treated as https URLs.
+ * @param {string} raw
+ * @returns {string|null} normalized URL, or null if the scheme is not allowed or the URL is invalid
+ */
+function safeUrl(raw) {
+  const withScheme = /^[a-z][a-z0-9+.-]*:/iu.test(raw) ? raw : `https://${raw}`;
+  try {
+    const parsed = new URL(withScheme);
+    return ALLOWED_LINK_PROTOCOLS.includes(parsed.protocol) ? parsed.href : null;
+  }
+  catch { return null; }
+}
+
+/** Create a safe external link, or a plain text node if the URL is not allowed.
  * @param {string} url
  * @param {string} label
- * @returns {HTMLAnchorElement}
+ * @returns {HTMLAnchorElement|Text}
  */
 function makeLink(url, label) {
+  const href = safeUrl(url);
+  if (!href) { return document.createTextNode(label); }
   const anchor = document.createElement("a");
-  anchor.href = url;
+  anchor.href = href;
   anchor.target = "_blank";
   anchor.rel = "noopener noreferrer";
   anchor.textContent = label;

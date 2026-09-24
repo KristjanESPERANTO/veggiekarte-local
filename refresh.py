@@ -45,7 +45,7 @@ SERVERS = [
     "https://overpass-api.de/api/interpreter",
     "https://overpass.kumi.systems/api/interpreter",
     "https://z.overpass-api.de/api/interpreter",
-    "http://overpass.openstreetmap.fr/api/interpreter"
+    "https://overpass.openstreetmap.fr/api/interpreter"
 ]
 HTTP = urllib3.PoolManager(
     headers={
