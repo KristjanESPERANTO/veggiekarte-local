@@ -47,6 +47,7 @@ SERVERS = [
     "https://z.overpass-api.de/api/interpreter",
     "https://overpass.openstreetmap.fr/api/interpreter"
 ]
+MAX_DATA_AGE = datetime.timedelta(days=1)  # maximum accepted age of a server's OSM database
 HTTP = urllib3.PoolManager(
     headers={
         "User-Agent": f"VeggieKarte/{VERSION} (https://codeberg.org/piratenpanda/veggiekarte/)"
@@ -263,6 +264,22 @@ def get_osm_data():
 
                 try:
                     result = json.loads(response.data.decode("utf-8"))
+
+                    # Overpass reports runtime errors (timeout, out of memory) with HTTP 200 and a "remark"
+                    if "remark" in result:
+                        print(f"Overpass remark: {result['remark']}")
+                        print("Trying next server...")
+                        continue
+
+                    # Reject servers whose database lags behind the main OSM database
+                    osm_base = result.get("osm3s", {}).get("timestamp_osm_base")
+                    if osm_base:
+                        data_age = datetime.datetime.now(datetime.timezone.utc) - datetime.datetime.fromisoformat(osm_base.replace("Z", "+00:00"))
+                        print(f"Server data timestamp: {osm_base}")
+                        if data_age > MAX_DATA_AGE:
+                            print(f"Server data is outdated ({data_age} old), trying next server...")
+                            continue
+
                     # Success - save raw data and return result
                     OVERPASS_FILE.touch()
                     OVERPASS_FILE.write_bytes(response.data)
