@@ -8,6 +8,7 @@ from pathlib import Path  # for handling files
 
 import datetime           # for the timestamp
 import json               # read and write json
+import re                 # for matching tag values
 import sys                # to check the python version
 import time               # for sleep
 import brotli             # for compressing the data
@@ -48,6 +49,11 @@ SERVERS = [
     "https://overpass.openstreetmap.fr/api/interpreter"
 ]
 MAX_DATA_AGE = datetime.timedelta(days=1)  # maximum accepted age of a server's OSM database
+
+# Postpass (https://postpass.geofabrik.de/), primary data source for worldwide queries
+POSTPASS_SERVER = "https://postpass.geofabrik.de/api/interpreter"
+POSTPASS_TYPES = {"N": "node", "W": "way", "R": "relation"}
+
 HTTP = urllib3.PoolManager(
     headers={
         "User-Agent": f"VeggieKarte/{VERSION} (https://codeberg.org/piratenpanda/veggiekarte/)"
@@ -67,6 +73,7 @@ VEGGIEPLACES_FILE_BR = DATA_DIR / "places.min.json.br"         # the brotli comp
 VEGGIESTAT_FILE = DATA_DIR / "stat.json"                       # the statistics data file which will be used for the map
 VEGGIEPLACES_OLDFILE = DATA_DIR / "places_old.json"            # previous version of the data file (helpful to examine changes)
 OVERPASS_FILE = DATA_DIR / "overpass.json"                     # the raw overpass output file (useful for later use)
+POSTPASS_FILE = DATA_DIR / "postpass.json"                     # the raw postpass output file (useful for later use)
 OPENING_HOURS_FILE = DATA_DIR / "opening_hours.json"           # opening hours data for filtering
 
 # variables to handle the json data
@@ -223,6 +230,93 @@ def build_overpass_query():
 
     query += "out+center;"
     return query
+
+
+def build_postpass_query():
+    """Build the Postpass SQL query from config.
+
+    The query filters on key existence only, which is answered by the tags index.
+    Tag values are filtered afterwards in postpass_tags_match().
+    """
+    keys = ["diet:vegan"]
+    if CONFIG["includeVegetarian"]:
+        keys.append("diet:vegetarian")
+    key_array = ",".join(f"'{key}'" for key in keys)
+    return (
+        "select osm_type, osm_id, tags, ST_PointOnSurface(geom) as geom "
+        "from postpass_pointlinepolygon "
+        f"where tags ?| array[{key_array}]"
+    )
+
+
+def postpass_tags_match(tags):
+    """Check the diet tag values with the same patterns as the Overpass query."""
+    if re.search("yes|only|limited", tags.get("diet:vegan", "")):
+        return True
+    if CONFIG["includeVegetarian"] and re.search("yes|only", tags.get("diet:vegetarian", "")):
+        return True
+    return False
+
+
+def get_postpass_data():
+    """Get the data from Postpass and convert it to the Overpass JSON structure."""
+    postpass_query = build_postpass_query()
+    print("Postpass query:", postpass_query)
+    print(f"Send query to server: {POSTPASS_SERVER}")
+
+    try:
+        response = HTTP.request(
+            "GET",
+            POSTPASS_SERVER,
+            fields={"data": postpass_query},
+            timeout=urllib3.Timeout(connect=30.0, read=960.0)
+        )
+    except Exception as e:
+        print(f"Network error: {e}")
+        return None
+
+    if response.status != 200:
+        print(f"HTTP {response.status}: {response.data[:500].decode('utf-8', 'replace')}")
+        return None
+
+    try:
+        result = json.loads(response.data.decode("utf-8"))
+    except json.JSONDecodeError as e:
+        print(f"Failed to decode JSON: {e}")
+        return None
+
+    features = result.get("features")
+    if not features:
+        print("Postpass returned no features.")
+        return None
+
+    elements = []
+    for feature in features:
+        properties = feature.get("properties", {})
+        element_type = POSTPASS_TYPES.get(properties.get("osm_type"))
+        geometry = feature.get("geometry") or {}
+        if element_type is None or geometry.get("type") != "Point":
+            continue
+
+        tags = properties.get("tags") or {}
+        if isinstance(tags, str):
+            tags = json.loads(tags)
+        if not postpass_tags_match(tags):
+            continue
+
+        lon, lat = geometry["coordinates"][:2]
+        element = {"type": element_type, "id": abs(int(properties["osm_id"])), "tags": tags}
+        if element_type == "node":
+            element["lat"] = lat
+            element["lon"] = lon
+        else:
+            element["center"] = {"lat": lat, "lon": lon}
+        elements.append(element)
+
+    print(f"Received {len(elements)} elements from Postpass.")
+    POSTPASS_FILE.touch()
+    POSTPASS_FILE.write_bytes(response.data)
+    return {"elements": elements}
 
 
 def get_osm_data():
@@ -558,7 +652,14 @@ def main():
     """Call the functions to get and write the osm data."""
     # Get data
     if len(sys.argv) < 2:
-        osm_data = get_osm_data()
+        osm_data = None
+        # Postpass is used for worldwide queries; area queries are Overpass-specific
+        if not CONFIG["areas"] and not CONFIG["areaQuery"]:
+            osm_data = get_postpass_data()
+            if osm_data is None:
+                print("Postpass failed, falling back to Overpass.")
+        if osm_data is None:
+            osm_data = get_osm_data()
     else:
         # For testing without new OSM requests
         # Example: 'python refresh.py ./data/overpass.json'
