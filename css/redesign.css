@@ -845,6 +845,7 @@ body.is-updating .chip {
 }
 
 .menu-item {
+  box-sizing: border-box;
   width: 100%;
 }
 
