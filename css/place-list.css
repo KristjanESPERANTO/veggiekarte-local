@@ -136,7 +136,7 @@
   white-space: nowrap;
 }
 
-.place-list-diet {
+.place-list-cuisine {
   font-size: 0.9em;
   color: #666;
 }
@@ -196,6 +196,6 @@
   background: #2f4a2f;
 }
 
-:root.theme-dark .place-list-diet {
+:root.theme-dark .place-list-cuisine {
   color: #aaa;
 }

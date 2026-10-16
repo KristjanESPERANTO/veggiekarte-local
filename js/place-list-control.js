@@ -172,7 +172,7 @@ export const PlaceListControl = Control.extend({
   },
 
   _addEntry(marker) {
-    const { name, icon, category } = marker.feature.properties;
+    const { name, icon, category, cuisine } = marker.feature.properties;
     const entry = DomUtil.create("li", "place-list-entry", this._list);
     entry.classList.toggle("selected", marker === this._selectedMarker);
     const button = DomUtil.create("button", "", entry);
@@ -180,11 +180,16 @@ export const PlaceListControl = Control.extend({
 
     const iconElement = DomUtil.create("span", `place-list-icon ${category}`, button);
     iconElement.textContent = iconToEmoji[icon] || "⭐";
-    iconElement.setAttribute("aria-hidden", "true");
+    // The icon colors show the diet category; its label is the tooltip and the accessible name
+    iconElement.title = t(`texts_i18n_${category}`);
+    iconElement.setAttribute("role", "img");
+    iconElement.setAttribute("aria-label", iconElement.title);
 
     const text = DomUtil.create("span", "place-list-text", button);
     DomUtil.create("span", "place-list-name", text).textContent = name;
-    DomUtil.create("span", "place-list-diet", text).textContent = t(`texts_i18n_${category}`);
+    if (cuisine) {
+      DomUtil.create("span", "place-list-cuisine", text).textContent = cuisine.replaceAll(";", ", ").replaceAll("_", " ");
+    }
 
     DomEvent.on(button, "click", () => {
       this._frozenBounds ||= this._visibleBounds();

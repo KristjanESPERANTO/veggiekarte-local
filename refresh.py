@@ -517,9 +517,11 @@ def write_data(data):
             place_obj["properties"]["category"] = "vegetarian_friendly"
             n_vegetarian_friendly += 1
 
-    # The following detailed fields (cuisine, contacts, opening hours, descriptions, menu)
-    # are intentionally omitted to shrink the base dataset. They are now fetched lazily
-    # from Nominatim (extratags) when a popup opens.
+        # Cuisine is shown in the place list. Further details (contacts, opening hours,
+        # descriptions, menu) are omitted to keep the base dataset small; they are
+        # fetched from Nominatim (extratags) when a popup opens.
+        if "cuisine" in tags:
+            place_obj["properties"]["cuisine"] = tags["cuisine"]
 
         places_data["features"].append(place_obj)
 
