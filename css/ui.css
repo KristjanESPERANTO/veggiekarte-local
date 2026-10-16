@@ -907,6 +907,26 @@ body.is-updating .chip {
     0 6px 16px rgb(21 35 26 / 35%);
 }
 
+/* Clusters: a 30px circle with the number of places inside a 40px halo */
+.marker-cluster {
+  background-clip: padding-box;
+  border-radius: 20px;
+}
+
+.marker-cluster div {
+  width: 30px;
+  height: 30px;
+  margin-top: 5px;
+  margin-left: 5px;
+  border-radius: 15px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.marker-cluster span {
+  line-height: 30px;
+}
+
 .marker-cluster-small,
 .marker-cluster-medium,
 .marker-cluster-large {

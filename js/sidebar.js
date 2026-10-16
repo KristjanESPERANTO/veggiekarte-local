@@ -9,7 +9,6 @@ import { setMarkerHash } from "./map-hash.js";
 const NARROW_QUERY = "(max-width: 600px)";
 const SHEET_STATES = ["peek", "half", "full"];
 const SHEET_STORAGE_KEY = "veggiekarte_sheet_state";
-const SELECTED_CLASS = "marker-selected";
 
 const ICONS = {
   filter: "<svg width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 6h9M17 6h3M4 12h3M11 12h9M4 18h11M19 18h1'/><circle cx='15' cy='6' r='2'/><circle cx='9' cy='12' r='2'/><circle cx='17' cy='18' r='2'/></svg>",
@@ -40,32 +39,30 @@ export class Sidebar {
   /**
    * @param {object} options
    * @param {import('leaflet').Map} options.map - Leaflet map instance
-   * @param {object} options.subgroups - Category SubGroups keyed by "mainCategory.subCategory"
-   * @param {object} options.clusterGroup - MarkerClusterGroup holding the place markers
+   * @param {import('./place-cluster-layer.js').PlaceClusterLayer} options.clusterLayer - Layer with the clustered places
    * @param {object} options.geocoder - Geocoder control; its element moves into the search card
    * @param {object} options.categoryFilterControl - Category and diet filter control
    * @param {object} options.openingHoursControl - Open-now filter control
    * @param {Function} options.onClosePlace - Called after the place details are closed
    */
-  constructor({ map, subgroups, clusterGroup, geocoder, categoryFilterControl, openingHoursControl, onClosePlace }) {
+  constructor({ map, clusterLayer, geocoder, categoryFilterControl, openingHoursControl, onClosePlace }) {
     this._map = map;
-    this._clusterGroup = clusterGroup;
+    this._clusterLayer = clusterLayer;
     this._categoryFilterControl = categoryFilterControl;
     this._openingHoursControl = openingHoursControl;
     this._onClosePlace = onClosePlace;
-    this._selectedMarker = null;
+    this._selectedPlace = null;
     this._narrow = window.matchMedia(NARROW_QUERY);
     this._sheetState = SHEET_STATES.includes(loadSetting(SHEET_STORAGE_KEY)) ? loadSetting(SHEET_STORAGE_KEY) : "half";
 
     this._createElements(geocoder);
     this.list = new PlaceList({
-      map,
-      subgroups,
+      getPlaces: bounds => clusterLayer.getPlacesInBounds(bounds),
       container: this._listView,
       getBounds: () => this.getListBounds(),
       getOpenState: feature => this._getOpenState(feature),
-      onSelect: marker => this.showPlace(marker, { fromList: true }),
-      onHighlight: marker => this._highlightMarker(marker)
+      onSelect: place => this.showPlace(place, { fromList: true }),
+      onHighlight: place => clusterLayer.setHighlighted(place)
     });
     this._createLegend();
     this._bindEvents();
@@ -202,9 +199,10 @@ export class Sidebar {
 
     onLanguageChange(() => {
       this.list.clearEntries();
+      this._clusterLayer.redraw();
       this._updateLabels();
       this.refresh();
-      if (this._selectedMarker) { this._renderPlace(this._selectedMarker); }
+      if (this._selectedPlace) { this._renderPlace(this._selectedPlace); }
     });
 
     const updateLayout = () => {
@@ -395,20 +393,20 @@ export class Sidebar {
 
   /**
    * Show the details of a place in the panel, highlight its marker and keep it in view.
-   * @param {import('leaflet').Marker} marker - Place marker
+   * @param {object} place - Place
    * @param {object} [options]
    * @param {boolean} [options.fromList] - Selected in the list (the list keeps its area)
    */
-  showPlace(marker, { fromList = false } = {}) {
+  showPlace(place, { fromList = false } = {}) {
     if (!fromList) { this.list.release(); }
     if (this._detailView.hidden) { this._returnFocus = document.activeElement; }
     // A place selected in the list restores the map view of the list when going back
     if (!fromList) { this._viewBeforePlace = null; }
     else if (this._detailView.hidden) { this._viewBeforePlace = { center: this._map.getCenter(), zoom: this._map.getZoom() }; }
-    this._setSelectedMarker(marker);
-    this._renderPlace(marker);
+    this._setSelectedPlace(place);
+    this._renderPlace(place);
 
-    const { _type: type, _id: id } = marker.feature.properties;
+    const { _type: type, _id: id } = place.feature.properties;
     setMarkerHash(type, id);
 
     this._listView.hidden = true;
@@ -420,34 +418,23 @@ export class Sidebar {
     this._detailView.scrollTop = 0;
     this._backButton.focus({ preventScroll: true });
 
-    this._revealMarker(marker);
+    // Zoom in until the place is out of its cluster, then pan it into the uncovered map area
+    this._clusterLayer.revealPlace(place, () => {
+      if (place === this._selectedPlace) { this._panIntoView(place); }
+    });
   }
 
-  /**
-   * Zoom to the marker (opening its cluster) and pan it into the uncovered map area.
-   * While the cluster group is still loading, the marker's cluster and its bounds are not ready yet;
-   * it is retried then.
-   */
-  _revealMarker(marker, attempts = 50) {
-    if (marker !== this._selectedMarker) { return; }
-    if (!marker.__parent?._bounds?.isValid()) {
-      if (attempts > 0) { setTimeout(() => this._revealMarker(marker, attempts - 1), 200); }
-      return;
-    }
-    this._clusterGroup.zoomToShowLayer(marker, () => this._panIntoView(marker));
-  }
-
-  _renderPlace(marker) {
-    const content = calculatePopup(marker);
+  _renderPlace(place) {
+    const content = calculatePopup(place);
     this._detailContent.replaceChildren(content);
-    addNominatimInformation(marker, content);
+    addNominatimInformation(place, content);
   }
 
   /** Close the place details and show the list again. */
   closePlace() {
     if (this._detailView.hidden) { return; }
-    const marker = this._selectedMarker;
-    this._setSelectedMarker(null);
+    const place = this._selectedPlace;
+    this._setSelectedPlace(null);
     this._detailView.hidden = true;
     this._listView.hidden = false;
     this._backButton.hidden = true;
@@ -462,44 +449,21 @@ export class Sidebar {
     }
 
     // Focus goes back to where the details were opened from (list entry or marker)
-    const target = this._returnFocus?.isConnected && this._returnFocus !== document.body ? this._returnFocus : marker?.getElement();
+    const target = this._returnFocus?.isConnected && this._returnFocus !== document.body ? this._returnFocus : place && this._clusterLayer.getMarkerElement(place);
     target?.focus({ preventScroll: true });
     this._returnFocus = null;
   }
 
-  /**
-   * Highlight a place on the map: its marker, or the cluster it is in.
-   * @param {import('leaflet').Marker|null} marker - Place marker, or null to remove the highlight
-   */
-  _highlightMarker(marker) {
-    this._highlightElement?.classList.remove("marker-highlight");
-    const shown = marker && this._clusterGroup.getVisibleParent(marker);
-    this._highlightElement = shown?.getElement() || null;
-    this._highlightElement?.classList.add("marker-highlight");
+  _setSelectedPlace(place) {
+    this._selectedPlace = place;
+    this._clusterLayer.setSelected(place);
   }
 
-  _setSelectedMarker(marker) {
-    if (this._selectedMarker) {
-      this._selectedMarker.getElement()?.classList.remove(SELECTED_CLASS);
-      this._selectedMarker.off("add", this._markSelected, this);
-    }
-    this._selectedMarker = marker;
-    if (marker) {
-      marker.on("add", this._markSelected, this);
-      this._markSelected();
-    }
-  }
-
-  // The cluster group re-adds markers on zoom; the highlight is restored each time
-  _markSelected() {
-    this._selectedMarker?.getElement()?.classList.add(SELECTED_CLASS);
-  }
-
-  /** Pan the map so the marker lies in the part of the map that the sidebar does not cover. */
-  _panIntoView(marker) {
+  /** Pan the map so the place lies in the part of the map that the sidebar does not cover. */
+  _panIntoView(place) {
     const map = this._map;
     const { left, top, right, bottom } = this._visibleRect();
-    const point = map.latLngToContainerPoint(marker.getLatLng());
+    const point = map.latLngToContainerPoint(place.getLatLng());
     const margin = 48;
     const inside = point.x > left + margin && point.x < right - margin && point.y > top + margin && point.y < bottom - margin;
     if (inside) { return; }

@@ -148,6 +148,7 @@ export default {
   filter_changes_other: "{count} ŝanĝoj kompare kun la defaŭltaj agordoj",
   filter_reset: "Restarigi",
   map_label: "Mapo",
+  cluster_label: "{count} lokoj",
   menu_title: "Menuo",
   menu_statistics: "Statistiko"
 };

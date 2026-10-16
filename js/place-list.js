@@ -13,24 +13,6 @@ export const DIET_ORDER = ["vegan_only", "vegetarian_only", "vegan_friendly", "v
 const collator = new Intl.Collator(undefined, { sensitivity: "base" });
 
 /**
- * Collect the markers currently shown on the map (all filters applied) within the given bounds.
- * @param {object} subgroups - Category SubGroups keyed by "mainCategory.subCategory"
- * @param {import('leaflet').Map} map - Leaflet map instance
- * @param {import('leaflet').LatLngBounds} bounds - Area to search
- * @returns {Array} Markers within the bounds
- */
-export function getShownMarkersInBounds(subgroups, map, bounds) {
-  const markers = [];
-  Object.values(subgroups).forEach((subgroup) => {
-    if (!map.hasLayer(subgroup)) { return; }
-    subgroup.eachLayer((layer) => {
-      if (typeof layer.getLatLng === "function" && bounds.contains(layer.getLatLng())) { markers.push(layer); }
-    });
-  });
-  return markers;
-}
-
-/**
  * Format an OSM cuisine value for display ("vietnamese;sushi" → "vietnamese, sushi").
  * @param {string} cuisine - Value of the cuisine tag
  * @returns {string} Display text
@@ -48,24 +30,22 @@ export function formatCuisine(cuisine) {
 export class PlaceList {
   /**
    * @param {object} options
-   * @param {import('leaflet').Map} options.map - Leaflet map instance
-   * @param {object} options.subgroups - Category SubGroups keyed by "mainCategory.subCategory"
+   * @param {Function} options.getPlaces - Returns the shown places (all filters applied) within the given bounds
    * @param {HTMLElement} options.container - Element the list is rendered into
    * @param {Function} options.getBounds - Returns the map bounds the list covers
    * @param {Function} options.getOpenState - Returns the open state of a feature (true, false or null)
-   * @param {Function} options.onSelect - Called with the marker of a selected entry
-   * @param {Function} [options.onHighlight] - Called with the marker of a hovered or focused entry, and with null afterwards
+   * @param {Function} options.onSelect - Called with the place of a selected entry
+   * @param {Function} [options.onHighlight] - Called with the place of a hovered or focused entry, and with null afterwards
    */
-  constructor({ map, subgroups, container, getBounds, getOpenState, onSelect, onHighlight }) {
-    this._map = map;
-    this._subgroups = subgroups;
+  constructor({ getPlaces, container, getBounds, getOpenState, onSelect, onHighlight }) {
+    this._getPlaces = getPlaces;
     this._getBounds = getBounds;
     this._getOpenState = getOpenState;
     this._onSelect = onSelect;
     this._onHighlight = onHighlight;
     this._frozenBounds = null;
-    this._selectedMarker = null;
-    // List entries by marker, reused across refreshes so unchanged entries stay in place
+    this._selectedPlace = null;
+    // List entries by place, reused across refreshes so unchanged entries stay in place
     this._entries = new Map();
 
     // The visible heading is the sidebar's panel handle; this one names the list for screen readers
@@ -81,16 +61,16 @@ export class PlaceList {
   /** Let the list follow the map area again and clear the selected entry. */
   release() {
     this._frozenBounds = null;
-    this._selectedMarker = null;
+    this._selectedPlace = null;
   }
 
   /**
-   * Keep the current area and mark the given marker as selected.
-   * @param {import('leaflet').Marker} marker - Selected marker
+   * Keep the current area and mark the given place as selected.
+   * @param {object} place - Selected place
    */
-  freeze(marker) {
+  freeze(place) {
     this._frozenBounds ||= this._getBounds();
-    this._selectedMarker = marker;
+    this._selectedPlace = place;
   }
 
   /** @returns {string} Heading of the last rendered list ("199 places") */
@@ -106,26 +86,26 @@ export class PlaceList {
 
   /** Update the list for the current (or frozen) map area and filters. */
   refresh() {
-    const markers = getShownMarkersInBounds(this._subgroups, this._map, this._frozenBounds || this._getBounds());
-    this._renderSummary(markers);
+    const places = this._getPlaces(this._frozenBounds || this._getBounds());
+    this._renderSummary(places);
 
-    this._title.textContent = markers.length > 0
-      ? t("place_list_count").replace("{count}", markers.length.toLocaleString())
+    this._title.textContent = places.length > 0
+      ? t("place_list_count").replace("{count}", places.length.toLocaleString())
       : t("place_list_title");
 
-    if (markers.length === 0 || markers.length > MAX_ENTRIES) {
-      this._status.textContent = markers.length === 0
+    if (places.length === 0 || places.length > MAX_ENTRIES) {
+      this._status.textContent = places.length === 0
         ? t("place_list_empty")
-        : t("place_list_zoom_in").replace("{count}", markers.length.toLocaleString());
+        : t("place_list_zoom_in").replace("{count}", places.length.toLocaleString());
       this._status.hidden = false;
       this._list.replaceChildren();
       return;
     }
 
     this._status.hidden = true;
-    const entries = markers
-      .sort((markerA, markerB) => collator.compare(markerA.feature.properties.name, markerB.feature.properties.name))
-      .map(marker => this._updateEntry(marker));
+    const entries = places
+      .sort((placeA, placeB) => collator.compare(placeA.feature.properties.name, placeB.feature.properties.name))
+      .map(place => this._updateEntry(place));
     this._placeEntries(entries);
   }
 
@@ -141,16 +121,16 @@ export class PlaceList {
     });
     // Keep the cache from growing without bound while panning through many areas
     if (this._entries.size > 4 * MAX_ENTRIES) {
-      this._entries.forEach((entry, marker) => {
-        if (!entry.isConnected) { this._entries.delete(marker); }
+      this._entries.forEach((entry, place) => {
+        if (!entry.isConnected) { this._entries.delete(place); }
       });
     }
   }
 
-  _renderSummary(markers) {
+  _renderSummary(places) {
     const counts = {};
-    markers.forEach((marker) => {
-      const { category } = marker.feature.properties;
+    places.forEach((place) => {
+      const { category } = place.feature.properties;
       counts[category] = (counts[category] || 0) + 1;
     });
     this._summary.replaceChildren();
@@ -165,17 +145,17 @@ export class PlaceList {
     });
   }
 
-  /** Get the entry of a marker (created on first use) with its selected and open state updated. */
-  _updateEntry(marker) {
-    let entry = this._entries.get(marker);
+  /** Get the entry of a place (created on first use) with its selected and open state updated. */
+  _updateEntry(place) {
+    let entry = this._entries.get(place);
     if (!entry) {
-      entry = this._createEntry(marker);
-      this._entries.set(marker, entry);
+      entry = this._createEntry(place);
+      this._entries.set(place, entry);
     }
-    entry.classList.toggle("selected", marker === this._selectedMarker);
+    entry.classList.toggle("selected", place === this._selectedPlace);
 
     // Open state, once the opening hours data has been loaded
-    const open = this._getOpenState(marker.feature);
+    const open = this._getOpenState(place.feature);
     let state = entry.querySelector(".place-list-state");
     if (open === null) {
       state?.remove();
@@ -188,8 +168,8 @@ export class PlaceList {
     return entry;
   }
 
-  _createEntry(marker) {
-    const { name, icon, category, cuisine } = marker.feature.properties;
+  _createEntry(place) {
+    const { name, icon, category, cuisine } = place.feature.properties;
     const entry = DomUtil.create("li", "place-list-entry");
     const button = DomUtil.create("button", "", entry);
     button.type = "button";
@@ -209,16 +189,16 @@ export class PlaceList {
 
     // Mouse hover and keyboard focus point the entry out on the map (touch taps open the place instead)
     DomEvent.on(button, "pointerenter", (evt) => {
-      if (evt.pointerType === "mouse") { this._onHighlight?.(marker); }
+      if (evt.pointerType === "mouse") { this._onHighlight?.(place); }
     });
-    DomEvent.on(button, "focus", () => this._onHighlight?.(marker));
+    DomEvent.on(button, "focus", () => this._onHighlight?.(place));
     DomEvent.on(button, "pointerleave blur", () => this._onHighlight?.(null));
 
     DomEvent.on(button, "click", () => {
-      this.freeze(marker);
+      this.freeze(place);
       this._list.querySelector(".place-list-entry.selected")?.classList.remove("selected");
       entry.classList.add("selected");
-      this._onSelect(marker);
+      this._onSelect(place);
     });
     return entry;
   }

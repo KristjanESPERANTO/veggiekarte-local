@@ -1,29 +1,24 @@
 /* eslint-disable camelcase */
 
-import { Control, Icon, Map, Marker, TileLayer } from "leaflet";
+import { Control, Icon, LatLng, LayerGroup, Map, Marker, TileLayer } from "leaflet";
 import { InfoButton, openInfo, showInfoOnStartup } from "./info-button-control.js";
+import { PlaceClusterLayer, clusterRadiusForZoom } from "./place-cluster-layer.js";
 import { Geocoder } from "leaflet-control-geocoder";
 import { LocateControl } from "leaflet.locatecontrol";
-import { MarkerClusterGroup } from "@kristjan.esperanto/leaflet.markercluster";
-import { SubGroup } from "./subgroup.js";
 import { createMapHash } from "./map-hash.js";
 import { createProgressController } from "./progress.js";
 import { initCloseButtons } from "./i18n.js";
 
-// Define marker groups
-const parentGroup = new MarkerClusterGroup({
-  showCoverageOnHover: false,
-  maxClusterRadius: 20,
-  // Smooth UI when adding many markers
-  chunkedLoading: true
-});
-const issueCount1 = new SubGroup(parentGroup);
-const issueCount2 = new SubGroup(parentGroup);
-const issueCount3 = new SubGroup(parentGroup);
-const issueCount4 = new SubGroup(parentGroup);
-const issueCount5 = new SubGroup(parentGroup);
-const issueCount6 = new SubGroup(parentGroup);
-const issueCountMany = new SubGroup(parentGroup);
+const MAX_ZOOM = 18;
+
+// One (empty) layer per issue count; switching them in the layer control filters the clustered places
+const issueCount1 = new LayerGroup();
+const issueCount2 = new LayerGroup();
+const issueCount3 = new LayerGroup();
+const issueCount4 = new LayerGroup();
+const issueCount5 = new LayerGroup();
+const issueCount6 = new LayerGroup();
+const issueCountMany = new LayerGroup();
 const subgroups = {
   issue_count_1: issueCount1,
   issue_count_2: issueCount2,
@@ -35,7 +30,15 @@ const subgroups = {
 };
 
 let map;
+let clusterLayer;
+let placeGroups = {};
 const progress = createProgressController();
+
+/** Show the places of the issue counts that are switched on in the layer control. */
+function applyIssueFilter() {
+  const shownKeys = Object.keys(subgroups).filter(key => map.hasLayer(subgroups[key]));
+  clusterLayer.setPlaces(shownKeys.flatMap(key => placeGroups[key] || []), shownKeys.join());
+}
 
 function veggiemap() {
   // Provide inline SVG defaults to decouple from external marker assets
@@ -49,7 +52,7 @@ function veggiemap() {
   // TileLayer
   const tileOSM = new TileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap contributors</a>",
-    maxZoom: 18
+    maxZoom: MAX_ZOOM
   });
 
   // Map
@@ -64,8 +67,17 @@ function veggiemap() {
   // Add zoom control
   new Control.Zoom({ position: "topright" }).addTo(map);
 
+  // Clustered places with issues
+  clusterLayer = new PlaceClusterLayer(map, {
+    maxZoom: MAX_ZOOM,
+    radiusForZoom: clusterRadiusForZoom,
+    createMarker: getMarker,
+    clusterLabel: count => `${count} places`
+  });
+  Object.values(subgroups).forEach(group => map.addLayer(group));
+
   // Populate map async then add overlays
-  veggiemapPopulate(parentGroup).then(() => {
+  veggiemapPopulate().then((date) => {
     const overlays = {
       "<div class='legend-row' data-layer='issue_count_1'><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'>1 issue</div><div class='third-cell' id='issue_count_1'></div></div>": issueCount1,
       "<div class='legend-row' data-layer='issue_count_2'><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'>2 issues</div><div class='third-cell' id='issue_count_2'></div></div>": issueCount2,
@@ -78,6 +90,9 @@ function veggiemap() {
     const layerControl = new Control.Layers(null, overlays);
     layerControl.addTo(map);
 
+    // Put the numbers and the data date into the legend (its rows exist once the control is added)
+    if (date) { statPopulate(placeGroups, date); }
+
     // Update active state styling when layers are toggled
     function updateActiveStates() {
       Object.entries(subgroups).forEach(([categoryName, subgroup]) => {
@@ -87,16 +102,11 @@ function veggiemap() {
         }
       });
     }
-    map.on("overlayadd", updateActiveStates);
-    map.on("overlayremove", updateActiveStates);
+    map.on("overlayadd overlayremove", () => {
+      updateActiveStates();
+      applyIssueFilter();
+    });
     updateActiveStates();
-  });
-
-  // Close the tooltip when opening the popup
-  parentGroup.on("click", () => {
-    if (parentGroup.isPopupOpen()) {
-      parentGroup.closeTooltip();
-    }
   });
 
   // Sync map position with URL hash
@@ -144,7 +154,7 @@ function statPopulate(markerGroups, date) {
 }
 
 // Function to get the information from the places json file.
-async function veggiemapPopulate(parentGroupVar) {
+async function veggiemapPopulate() {
   const url = "../data/check_results.json";
 
   progress.start();
@@ -152,36 +162,23 @@ async function veggiemapPopulate(parentGroupVar) {
   try {
     const response = await fetch(url);
     const geojson = await response.json();
-    const markerGroupsAndDate = await geojsonToMarkerGroups(geojson);
-
-    const markerGroups = markerGroupsAndDate[0];
-    const date = markerGroupsAndDate[1];
-
-    Object.entries(subgroups).forEach(([key, subgroup]) => {
-      // Add subgroup to map first, then batch-insert markers
-      map.addLayer(subgroup);
-      subgroup.addLayers(markerGroups[key]);
-    });
-
-    // Reveal all the markers and clusters on the map in one go
-    map.addLayer(parentGroupVar);
-
-    // Call the function to put the numbers into the legend
-    statPopulate(markerGroups, date);
-
-    // Popups/tooltips are already bound at marker creation
+    const [groups, date] = geojsonToPlaceGroups(geojson);
+    placeGroups = groups;
+    applyIssueFilter();
 
     // Hide progress bar
     progress.finish(300);
+    return date;
   }
   catch (error) {
     console.log("Request failed", error);
     progress.finish(300);
+    return null;
   }
 }
 
-// Process the places GeoJSON into the groups of markers
-function geojsonToMarkerGroups(geojson) {
+// Process the places GeoJSON into groups of places by issue count
+function geojsonToPlaceGroups(geojson) {
   const date = geojson._timestamp.split(" ")[0];
   const groups = {};
   geojson.features.forEach((feature) => {
@@ -193,24 +190,31 @@ function geojsonToMarkerGroups(geojson) {
       eCat += feature.properties.issue_count;
     }
     if (!groups[eCat]) { groups[eCat] = []; }
-    groups[eCat].push(getMarker(feature));
+    groups[eCat].push(createPlace(feature));
   });
   return [groups, date];
 }
 
-// Function to get the marker.
-function getMarker(feature) {
-  const eLatLon = [feature.geometry.coordinates[1], feature.geometry.coordinates[0]];
+// A place for the cluster layer: the feature with its position (the marker is created when it is first shown)
+function createPlace(feature) {
+  const [lng, lat] = feature.geometry.coordinates;
+  const latlng = new LatLng(lat, lng);
+  return { feature, geometry: feature.geometry, getLatLng: () => latlng };
+}
+
+// Function to get the marker of a place.
+function getMarker(place) {
+  const { feature } = place;
   const eName = feature.properties.name || "Unknown location";
-  const marker = new Marker(eLatLon);
+  const marker = new Marker(place.getLatLng());
   marker.feature = feature;
-  // Bind popups/tooltips at creation time (works with chunkedLoading)
   marker.bindPopup(calculatePopup, {
     minWidth: 300,
     maxWidth: 520,
     autoPanPadding: [16, 16]
   });
   marker.bindTooltip(calculateTooltip);
+  marker.on("popupopen", () => marker.closeTooltip());
 
   // Set aria-label when marker is added to map (for screen readers)
   marker.on("add", () => {

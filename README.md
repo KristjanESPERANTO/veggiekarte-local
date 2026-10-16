@@ -18,8 +18,8 @@ There are several ways to get involved:
    3. Check and fix issues on <https://veggiekarte.de/datacheck/>
 2. Report issues
 3. Help to translate
-   1. Translate to new languages - take [locales/en.json](locales/en.json) as template.
-   2. Complete translations: [locales/ko.json](locales/ko.json) is incomplete.
+   1. Translate to new languages - take [locales/en.js](locales/en.js) as template.
+   2. Complete translations: [locales/ko.js](locales/ko.js) is incomplete.
 4. Participate in development
 5. Write reviews for places on [https://lib.reviews/](lib.reviews)
 
@@ -41,16 +41,19 @@ This is an overview of the third-party software and data we use. Many thanks to 
 | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- | ------------- | -------------------------------------------------------------------------------------- |
 | [chart.js](https://github.com/chartjs/Chart.js)                                            | MIT [\*](https://github.com/chartjs/Chart.js/blob/master/LICENSE.md)                                             | 4.5.1         | JavaScript library to create charts. We use this in the `data_chart.html`.             |
 | [leaflet](https://github.com/Leaflet/Leaflet/)                                             | BSD-2-Clause [\*](https://github.com/Leaflet/Leaflet/blob/master/LICENSE)                                        | 2.0.0-alpha.1 | JavaScript library to create interactive maps.                                         |
-| [leaflet.control.geocoder](https://github.com/perliedman/leaflet-control-geocoder/)        | BSD-2-Clause [\*](https://github.com/perliedman/leaflet-control-geocoder/blob/master/LICENSE)                    | 3.3.1         | A control to locate places. The button with the magnifier 🔍.                          |
+| [leaflet.control.geocoder](https://github.com/perliedman/leaflet-control-geocoder/)        | BSD-2-Clause [\*](https://github.com/perliedman/leaflet-control-geocoder/blob/master/LICENSE)                    | 3.3.1         | Place search in the sidebar.                                                           |
 | [leaflet.fullscreen](https://github.com/brunob/leaflet.fullscreen)                         | MIT [\*](https://github.com/brunob/leaflet.fullscreen/blob/master/LICENSE.md)                                    | 5.2.1         | Add a fullscreen button.                                                               |
 | [leaflet.languageselector](https://github.com/KristjanESPERANTO/Leaflet.LanguageSelector/) | CC0 [\*](https://github.com/KristjanESPERANTO/Leaflet.LanguageSelector/blob/master/LICENSE)                      | 3.4.0         | A control to switch between languages.                                                 |
 | [leaflet.locatecontrol](https://github.com/domoritz/leaflet-locatecontrol/)                | MIT [\*](https://github.com/domoritz/leaflet-locatecontrol/blob/gh-pages/LICENSE)                                | 0.89.0        | A control to locate the position of the user.                                          |
-| [leaflet.markercluster](https://github.com/KristjanESPERANTO/Leaflet.markercluster)        | MIT [\*](https://github.com/KristjanESPERANTO/Leaflet.markercluster/blob/main/LICENCE.md)                        | 2.0.0         | Marker Clustering plugin.                                                              |
 | [leaflet-theme-control](https://github.com/KristjanESPERANTO/leaflet-theme-control/)       | MIT [\*](https://github.com/KristjanESPERANTO/leaflet-theme-control/blob/main/LICENSE.md)                        | 0.1.3         | A control to switch between map themes.                                                |
 | [opening_hours.js](https://github.com/opening-hours/opening_hours.js)                      | LGPL-3.0-only [\*](https://github.com/opening-hours/opening_hours.js/blob/master/LICENSES/LGPL-3.0-or-later.txt) | 3.10.0        | Library to parse and process the opening_hours tag from OpenStreetMap data.            |
+| [supercluster](https://github.com/mapbox/supercluster)                                     | ISC [\*](https://github.com/mapbox/supercluster/blob/main/LICENSE)                                               | 8.0.1         | Fast clustering of the place markers (map and data check).                             |
+| [kdbush](https://github.com/mourner/kdbush)                                                | ISC [\*](https://github.com/mourner/kdbush/blob/main/LICENSE)                                                    | 4.1.0         | Spatial index used by supercluster.                                                    |
 | [OpenStreetMap](https://www.openstreetmap.org)                                             | CC BY-SA [\*](https://www.openstreetmap.org/copyright)                                                           |               | There we get the data of the places. We also show the markers on an OpenStreetMap map. |
 | icons from [Maki](https://labs.mapbox.com/maki-icons/)                                     | CC0 [\*](https://github.com/mapbox/maki/blob/main/LICENSE.txt)                                                   | 8.2.0         | Marker icons (primary source)                                                          |
 | icons from [Temaki](https://github.com/rapideditor/temaki)                                 | CC0 [\*](https://github.com/rapideditor/temaki/blob/main/LICENSE.md)                                             | 5.11.0        | Marker icons (fallback source)                                                         |
+| [Bricolage Grotesque](https://github.com/ateliertriay/bricolage)                           | OFL-1.1 [\*](fonts/OFL-bricolage-grotesque.txt)                                                                  |               | Font for headings (self-hosted in `fonts/`).                                           |
+| [Public Sans](https://github.com/uswds/public-sans)                                        | OFL-1.1 [\*](fonts/OFL-public-sans.txt)                                                                          |               | Font for text (self-hosted in `fonts/`).                                               |
 | [veggiepenguin](https://openclipart.org/detail/189178/veggiepenguin)                       | CC0 [\*](https://openclipart.org/share)                                                                          |               | Favicon                                                                                |
 
 ## For developers
@@ -85,11 +88,11 @@ in the index.html.
 
 ### Manually update data
 
-Run `python3 refresh.py` to get new data from OpenStreetMap.
+Run `python3 refresh.py` (or `node --run refresh`) to get new data from OpenStreetMap. The places are downloaded from [Postpass](https://postpass.geofabrik.de/); the Overpass API is used if Postpass is not available.
 
 ### Check data
 
-Run `python3 datacheck/datacheck.py` to run the data check on the data.
+Run `node --run datacheck` to run the data check on the data. The results are shown at `datacheck/`.
 
 ### Release
 
@@ -97,6 +100,6 @@ To create a new release, you have to run the following command: `node --run rele
 
 1. Run the linter and fix some errors.
 2. Build the bundle.
-3. Update the version in the package.json, package-lock.json and the bundle.js. And add a new tag to the git repository.
+3. Update the version in the package.json, package-lock.json and the cache name in the service-worker.js. And add a new tag to the git repository.
 
 The changes are not pushed to the repository. You have to do that manually after checking the changes.

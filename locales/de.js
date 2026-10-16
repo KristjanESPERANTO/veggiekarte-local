@@ -148,6 +148,7 @@ export default {
   filter_changes_other: "{count} Änderungen gegenüber den Standardeinstellungen",
   filter_reset: "Zurücksetzen",
   map_label: "Karte",
+  cluster_label: "{count} Orte",
   menu_title: "Menü",
   menu_statistics: "Statistik"
 };

@@ -1,11 +1,11 @@
+import { LatLng, Marker } from "leaflet";
 import { getIcon, iconToEmoji } from "./veggiemap-icons.js";
-import { Marker } from "leaflet";
 import { getCategoryForIcon } from "./category-mapping.js";
 
 let placeClickHandler = null;
 
 /**
- * Set the function that is called with the marker when a place marker is clicked.
+ * Set the function that is called with the place when its marker is clicked.
  * @param {Function} handler - Click handler
  */
 export function setPlaceClickHandler(handler) {
@@ -21,22 +21,46 @@ function calculateTooltip(layer) {
   return span;
 }
 
-/** Create a Leaflet Marker from a GeoJSON feature. */
-function getMarker(feature) {
-  const eLatLon = [feature.geometry.coordinates[1], feature.geometry.coordinates[0]];
+/**
+ * A place from the GeoJSON data. Its map marker is created only when it is first shown.
+ * The point geometry is what the cluster index reads.
+ */
+class Place {
+  constructor(feature) {
+    this.feature = feature;
+    this.geometry = feature.geometry;
+    this.dietType = feature.properties.category;
+    this.categoryInfo = getCategoryForIcon(feature.properties.icon);
+  }
+
+  /** @returns {LatLng} Position of the place */
+  getLatLng() {
+    if (!this._latlng) {
+      const [lng, lat] = this.geometry.coordinates;
+      this._latlng = new LatLng(lat, lng);
+    }
+    return this._latlng;
+  }
+}
+
+/**
+ * Create the Leaflet marker of a place.
+ * @param {Place} place - Place
+ * @returns {Marker} Marker; clicking it or pressing Enter on it calls the place click handler
+ */
+export function createPlaceMarker(place) {
+  const { feature } = place;
   const eIco = feature.properties.icon;
-  const eCat = feature.properties.category;
   const eName = feature.properties.name || "Unknown location";
-  const marker = new Marker(eLatLon, { icon: getIcon(eIco, eCat) });
+  const marker = new Marker(place.getLatLng(), { icon: getIcon(eIco, feature.properties.category) });
   marker.feature = feature;
-  marker.categoryInfo = getCategoryForIcon(eIco);
   marker.bindTooltip(calculateTooltip);
   marker.on("click", () => {
     marker.closeTooltip();
-    if (placeClickHandler) { placeClickHandler(marker); }
+    if (placeClickHandler) { placeClickHandler(place); }
   });
   marker.on("keypress", (evt) => {
-    if (evt.originalEvent.code === "Enter" && placeClickHandler) { placeClickHandler(marker); }
+    if (evt.originalEvent.code === "Enter" && placeClickHandler) { placeClickHandler(place); }
   });
 
   // Set aria-label when marker is added to map (for screen readers)
@@ -50,17 +74,17 @@ function getMarker(feature) {
   return marker;
 }
 
-/** Process a places GeoJSON into diet-category groups of markers.
+/** Process a places GeoJSON into groups of places by diet category.
  * @param {object} geojson
- * @returns {[object, string]} [markerGroups, dateString]
+ * @returns {[object, string]} [placeGroups, dateString]
  */
-export function geojsonToMarkerGroups(geojson) {
+export function geojsonToPlaceGroups(geojson) {
   const date = geojson._timestamp.split(" ")[0];
   const groups = {};
   geojson.features.forEach((feature) => {
     const eCat = feature.properties.category;
     if (!groups[eCat]) { groups[eCat] = []; }
-    groups[eCat].push(getMarker(feature));
+    groups[eCat].push(new Place(feature));
   });
   return [groups, date];
 }

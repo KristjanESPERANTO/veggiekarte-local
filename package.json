@@ -1,6 +1,6 @@
 {
   "name": "veggiekarte",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "A OpenStreetMap based map to easily find places, like restaurants and cafes, with vegetarian and vegan options.",
   "repository": {
     "type": "git",
@@ -44,7 +44,6 @@
   },
   "dependencies": {
     "@kristjan.esperanto/leaflet-language-selector": "^3.4.0",
-    "@kristjan.esperanto/leaflet.markercluster": "^3.0.2",
     "chart.js": "^4.5.1",
     "email-validator": "^2.0.4",
     "leaflet": "^2.0.0-alpha.1",
@@ -53,7 +52,8 @@
     "leaflet.fullscreen": "^5.3.1",
     "leaflet.locatecontrol": "^0.89.0",
     "libphonenumber-js": "^1.12.41",
-    "opening_hours": "^3.12.0"
+    "opening_hours": "^3.12.0",
+    "supercluster": "^8.0.1"
   },
   "overrides": {
     "leaflet-control-geocoder": {

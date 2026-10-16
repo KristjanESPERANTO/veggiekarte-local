@@ -148,6 +148,7 @@ export default {
   filter_changes_other: "{count} changes from the default settings",
   filter_reset: "Reset",
   map_label: "Map",
+  cluster_label: "{count} places",
   menu_title: "Menu",
   menu_statistics: "Statistics"
 };

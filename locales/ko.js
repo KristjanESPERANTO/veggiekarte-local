@@ -148,6 +148,7 @@ export default {
   filter_changes_other: "기본 설정에서 {count}개 변경됨",
   filter_reset: "초기화",
   map_label: "지도",
+  cluster_label: "장소 {count}곳",
   menu_title: "메뉴",
   menu_statistics: "통계"
 };

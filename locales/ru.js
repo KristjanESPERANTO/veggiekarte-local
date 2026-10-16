@@ -148,6 +148,7 @@ export default {
   filter_changes_other: "Изменено настроек по умолчанию: {count}",
   filter_reset: "Сбросить",
   map_label: "Карта",
+  cluster_label: "Мест: {count}",
   menu_title: "Меню",
   menu_statistics: "Статистика"
 };
