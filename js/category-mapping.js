@@ -232,9 +232,11 @@ export function createIconToCategoryMap() {
  * @param {string} icon - Icon name
  * @returns {Object|null} Category information or null if not found
  */
+let iconToCategoryMap = null;
+
 export function getCategoryForIcon(icon) {
-  const iconMap = createIconToCategoryMap();
-  return iconMap[icon] || {
+  iconToCategoryMap ||= createIconToCategoryMap();
+  return iconToCategoryMap[icon] || {
     mainCategory: "other",
     subCategory: "misc",
     mainCategoryData: CATEGORY_HIERARCHY.other,

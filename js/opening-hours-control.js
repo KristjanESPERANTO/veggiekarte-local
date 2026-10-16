@@ -1,4 +1,5 @@
 import { Control, DomEvent, DomUtil } from "leaflet";
+import { isPlaceOpen } from "./category-filter-control.js";
 import { t } from "./i18n.js";
 
 /**
@@ -126,6 +127,42 @@ const OpeningHoursControl = Control.extend({
     const currentZoom = this._map ? this._map.getZoom() : 0;
     const MIN_ZOOM = 10;
     return this._enabled && currentZoom >= MIN_ZOOM;
+  },
+
+  /**
+   * @returns {boolean} Whether the filter can be used at the current zoom level
+   */
+  isAvailable() {
+    return Boolean(this._map) && this._map.getZoom() >= 10;
+  },
+
+  /** Switch the filter on or off (no effect below the minimum zoom level). */
+  toggle() {
+    this._toggle();
+  },
+
+  /**
+   * @returns {object|null} Opening hours data if it has been loaded already
+   */
+  getLoadedData() {
+    return this._openingHoursData;
+  },
+
+  /**
+   * Open state of a place from the loaded data; results are cached for the current minute.
+   * @param {object} feature - GeoJSON feature of the place
+   * @returns {boolean|null} Open or closed, or null without opening hours or before the data is loaded
+   */
+  isOpen(feature) {
+    if (!this._openingHoursData) { return null; }
+    const minute = Math.floor(Date.now() / 60000);
+    if (minute !== this._openStateMinute) {
+      this._openStateCache = new Map();
+      this._openStateMinute = minute;
+    }
+    const key = `${feature.properties._type}/${feature.properties._id}`;
+    if (!this._openStateCache.has(key)) { this._openStateCache.set(key, isPlaceOpen(feature, this._openingHoursData)); }
+    return this._openStateCache.get(key);
   },
 
   updateTranslations() {

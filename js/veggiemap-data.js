@@ -1,7 +1,16 @@
 import { getIcon, iconToEmoji } from "./veggiemap-icons.js";
 import { Marker } from "leaflet";
-import { calculatePopup } from "./popup.js";
 import { getCategoryForIcon } from "./category-mapping.js";
+
+let placeClickHandler = null;
+
+/**
+ * Set the function that is called with the marker when a place marker is clicked.
+ * @param {Function} handler - Click handler
+ */
+export function setPlaceClickHandler(handler) {
+  placeClickHandler = handler;
+}
 
 /** Build a tooltip element for a marker layer (text only, no HTML parsing). */
 function calculateTooltip(layer) {
@@ -21,8 +30,14 @@ function getMarker(feature) {
   const marker = new Marker(eLatLon, { icon: getIcon(eIco, eCat) });
   marker.feature = feature;
   marker.categoryInfo = getCategoryForIcon(eIco);
-  marker.bindPopup(calculatePopup, { minWidth: 300, maxWidth: 520, autoPanPadding: [16, 16] });
   marker.bindTooltip(calculateTooltip);
+  marker.on("click", () => {
+    marker.closeTooltip();
+    if (placeClickHandler) { placeClickHandler(marker); }
+  });
+  marker.on("keypress", (evt) => {
+    if (evt.originalEvent.code === "Enter" && placeClickHandler) { placeClickHandler(marker); }
+  });
 
   // Set aria-label when marker is added to map (for screen readers)
   marker.on("add", () => {

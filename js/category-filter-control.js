@@ -111,11 +111,11 @@ const CategoryFilterControl = Control.extend({
     title.innerHTML = `<svg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><rect x='3' y='3' width='7' height='7'/><rect x='14' y='3' width='7' height='7'/><rect x='3' y='14' width='7' height='7'/><rect x='14' y='14' width='7' height='7'/></svg> ${selectionTitle}`;
     this._markerCounter = DomUtil.create("div", "category-filter-counter", header);
     const loadingText = t("words_loading");
-    this._markerCounter.innerHTML = `<span style="color:#999">${loadingText}</span>`;
+    this._markerCounter.textContent = loadingText;
 
     // Diet filter section
     const dietSection = DomUtil.create("div", "diet-filter-section", this._contentDiv);
-    const dietTitle = DomUtil.create("h4", "diet-filter-title", dietSection);
+    const dietTitle = DomUtil.create("h3", "diet-filter-title", dietSection);
     dietTitle.textContent = t("category_diet_types");
     this._dietList = DomUtil.create("div", "diet-filter-list", dietSection);
     this._dietFilters.forEach(options => this._addDietFilterToDOM(options));
@@ -123,7 +123,7 @@ const CategoryFilterControl = Control.extend({
     // Category section with title and quick toggle buttons
     const categorySection = DomUtil.create("div", "category-section-wrapper", this._contentDiv);
     const categoryHeader = DomUtil.create("div", "category-section-header", categorySection);
-    const categoryTitle = DomUtil.create("h4", "category-section-title", categoryHeader);
+    const categoryTitle = DomUtil.create("h3", "category-section-title", categoryHeader);
     categoryTitle.textContent = t("category_categories");
 
     // Quick toggle buttons - now clearly part of category section
@@ -320,7 +320,11 @@ const CategoryFilterControl = Control.extend({
     }
     catch { /* Ignore */ }
 
-    // Default: food + shopping enabled, others disabled
+    return this._defaultStates();
+  },
+
+  // Default: food + shopping enabled, others disabled
+  _defaultStates() {
     const defaults = {};
     Object.entries(CATEGORY_HIERARCHY).forEach(([mainId, mainCat]) => {
       const enabled = mainId === "food" || mainId === "shopping";
@@ -369,6 +373,37 @@ const CategoryFilterControl = Control.extend({
   // Public API
   onChange(callback) {
     this._listeners.push(callback);
+  },
+
+  /** Whether the filter dialog is open. */
+  isPanelVisible() { return Boolean(this._overlay?.classList.contains("visible")); },
+
+  /** Whether the main category or any of its subcategories is enabled. */
+  isMainCategoryEnabled(mainId) { return this._categoryStates[mainId] !== false; },
+
+  /** Enable or disable a main category with all its subcategories. */
+  setMainCategoryEnabled(mainId, enabled) { this._toggleMainCategory(mainId, enabled); },
+
+  /** Whether places of a diet type (e.g. "vegetarian_friendly") are shown. */
+  isDietEnabled(dietKey) { return this.getEnabledDietTypes().includes(dietKey); },
+
+  /** Show or hide places of a diet type. */
+  setDietEnabled(dietKey, enabled) {
+    this._dietStates[dietKey] = enabled;
+    this._saveDietStates();
+    const checkbox = this._dietList?.querySelector(`input[data-diet-key="${dietKey}"]`);
+    if (checkbox) { checkbox.checked = enabled; }
+    this._notifyChange();
+  },
+
+  /** Diet types off, main categories differing from the defaults and subcategories differing from their main category. */
+  countChangedFilters({ ignoreDiets = [], ignoreCategories = [] } = {}) {
+    const [defaults, dietsOff] = [this._defaultStates(), Object.keys(this._dietStates).filter(key => !ignoreDiets.includes(key) && !this.isDietEnabled(key)).length];
+    return Object.entries(CATEGORY_HIERARCHY).reduce((sum, [mainId, { subcategories }]) => {
+      const mainOn = this.isMainCategoryEnabled(mainId);
+      const subsChanged = Object.keys(subcategories).filter(subId => this.isSubCategoryEnabled(mainId, subId) !== mainOn).length;
+      return sum + subsChanged + (!ignoreCategories.includes(mainId) && mainOn !== defaults[mainId] ? 1 : 0);
+    }, dietsOff);
   },
 
   isSubCategoryEnabled(mainId, subId) {
@@ -431,7 +466,7 @@ const CategoryFilterControl = Control.extend({
     const totalText = t("category_counter_total");
     const visibleText = t("category_counter_visible");
     const viewportText = t("category_counter_viewport");
-    this._markerCounter.innerHTML = `<span style="color:#999">${totalMarkers.toLocaleString()} ${totalText}</span> | <strong style="color:#4caf50">${totalVisible.toLocaleString()}</strong> ${visibleText} | <span style="color:#666">${viewportCount.toLocaleString()} ${viewportText}</span>`;
+    this._markerCounter.innerHTML = `<span>${totalMarkers.toLocaleString()} ${totalText}</span> | <strong class="counter-visible">${totalVisible.toLocaleString()}</strong> ${visibleText} | <span>${viewportCount.toLocaleString()} ${viewportText}</span>`;
   },
 
   getEnabledDietTypes() {

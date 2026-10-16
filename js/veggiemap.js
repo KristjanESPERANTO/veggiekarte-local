@@ -1,22 +1,24 @@
 /* eslint-disable camelcase */
-import { CategoryFilterControl, isPlaceOpen } from "./category-filter-control.js";
 import { Control, Icon, Map, TileLayer } from "leaflet";
 import { DEFAULT_THEMES, ThemeControl } from "leaflet-theme-control";
-import { InfoButton, openInfo, showInfoOnStartup } from "./info-button-control.js";
-import { PlaceListControl, getShownMarkersInBounds } from "./place-list-control.js";
-import { addLanguageResources, getUserLanguage, setUserLanguage, t } from "./i18n.js";
+import { addLanguageResources, getUserLanguage, t } from "./i18n.js";
+import { closeInfo, initInfoTutorials, showInfoOnStartup } from "./info-button-control.js";
 import { createMapHash, parseMarkerHash, setMarkerHash } from "./map-hash.js";
-import { geojsonToMarkerGroups, statPopulate } from "./veggiemap-data.js";
-import { langObject, languageSelector } from "@kristjan.esperanto/leaflet-language-selector";
+import { geojsonToMarkerGroups, setPlaceClickHandler, statPopulate } from "./veggiemap-data.js";
 import { CATEGORY_HIERARCHY } from "./category-mapping.js";
+import { CategoryFilterControl } from "./category-filter-control.js";
 import { FullScreen } from "leaflet.fullscreen";
 import { LocateControl } from "leaflet.locatecontrol";
 import { MarkerClusterGroup } from "@kristjan.esperanto/leaflet.markercluster";
+import { MenuControl } from "./menu-control.js";
 import { OpeningHoursControl } from "./opening-hours-control.js";
+import { Sidebar } from "./sidebar.js";
 import { SubGroup } from "./subgroup.js";
 import { addGeocoder } from "./geocoder-control.js";
 import { addNominatimInformation } from "./popup.js";
 import { createProgressController } from "./progress.js";
+import { getShownMarkersInBounds } from "./place-list.js";
+import { initDialog } from "./dialog.js";
 import { initUpdateCheck } from "./update-check.js";
 
 /**
@@ -50,40 +52,49 @@ const subgroups = {
 };
 
 let map;
-let languageControl;
 let categoryFilterControl;
 let openingHoursControl;
 let themeControl;
-let placeListControl;
+let sidebar;
 const categorySubgroups = {}; // Storage for category-based subgroups
 const allMarkersByCategory = {}; // Store all markers by category key for filtering
 
+let filterPending = false;
+
 /**
- * Apply both diet type and category filters to show/hide markers.
+ * Apply the filters once after the next repaint, however often this is called until then.
+ * The repaint shows the changed button or checkbox before the (possibly long) update starts.
+ */
+function scheduleFilters() {
+  if (filterPending) { return; }
+  filterPending = true;
+  document.body.classList.add("is-updating");
+  requestAnimationFrame(() => setTimeout(async () => {
+    filterPending = false;
+    await applyAllFilters();
+    document.body.classList.remove("is-updating");
+  }, 0));
+}
+
+/**
+ * Apply the category, diet type and open-now filters to show/hide markers.
  *
- * This function is called during initial load and whenever filters change.
- * Each category has its own SubGroup, and each SubGroup may trigger
- * MarkerCluster's chunkedLoading when markers are added/removed in bulk.
- *
- * During initial load, this results in multiple parallel chunkedLoading
- * operations across different SubGroups - this is why the progress bar
- * uses debouncing to detect completion.
+ * Called during the initial load and whenever filters change. The initial load adds the markers
+ * with MarkerCluster's chunkedLoading (progress bar); later changes are applied in one step.
  */
 async function applyAllFilters() {
   if (!categoryFilterControl) { return; }
 
   const enabledDietTypes = categoryFilterControl.getEnabledDietTypes();
-  const openingHoursFilterEnabled = openingHoursControl ? openingHoursControl.isEnabled() : false;
-
-  // Load opening hours data if needed
-  let openingHoursData = null;
-  if (openingHoursFilterEnabled && openingHoursControl) {
-    openingHoursData = await openingHoursControl.loadOpeningHoursData();
-  }
+  const openNowFilter = openingHoursControl ? openingHoursControl.isEnabled() : false;
+  if (openNowFilter) { await openingHoursControl.loadOpeningHoursData(); }
+  // Opening hours are checked near the visible area only; places further away stay hidden until the map moves there
+  const openNowBounds = openNowFilter ? map.getBounds().pad(0.5) : null;
 
   // Markers of all subgroups go to the parent group in one call, so MarkerCluster renders them only once
   const allMarkersToShow = [];
   const allMarkersToHide = [];
+  const allShownMarkers = [];
 
   // For each category subgroup, add/remove markers based on filters
   Object.entries(allMarkersByCategory).forEach(([key, markers]) => {
@@ -102,13 +113,11 @@ async function applyAllFilters() {
     markers.forEach((marker) => {
       let shouldShow = isCategoryEnabled && enabledDietTypes.includes(marker.dietType);
 
-      // Apply opening hours filter if enabled
-      if (shouldShow && openingHoursFilterEnabled) {
-        const isOpen = isPlaceOpen(marker.feature, openingHoursData);
-        // Only show if explicitly open (true)
-        // Hide if closed (false) or unknown/no opening hours (null)
-        shouldShow = isOpen === true;
+      // Open-now filter: only places that are open (closed or without opening hours are hidden)
+      if (shouldShow && openNowFilter) {
+        shouldShow = openNowBounds.contains(marker.getLatLng()) && openingHoursControl.isOpen(marker.feature) === true;
       }
+      if (shouldShow) { allShownMarkers.push(marker); }
 
       const isShown = subgroup.hasLayer(marker);
       if (shouldShow && !isShown) { markersToShow.push(marker); }
@@ -119,12 +128,20 @@ async function applyAllFilters() {
     subgroup.unregisterLayers(markersToHide).forEach((marker) => { allMarkersToHide.push(marker); });
   });
 
-  if (allMarkersToHide.length > 0) { parentGroup.removeLayers(allMarkersToHide); }
-  if (allMarkersToShow.length > 0) { parentGroup.addLayers(allMarkersToShow); }
+  // Removing many markers one by one is slower than clustering the remaining markers anew
+  if (allMarkersToHide.length > allShownMarkers.length) {
+    parentGroup.clearLayers();
+    parentGroup.addLayers(allShownMarkers);
+  }
+  else {
+    if (allMarkersToHide.length > 0) { parentGroup.removeLayers(allMarkersToHide); }
+    if (allMarkersToShow.length > 0) { parentGroup.addLayers(allMarkersToShow); }
+  }
+  parentGroup.options.chunkedLoading = false;
 
   updateFilterCounts();
   updateVisibleCounts();
-  placeListControl?.refresh();
+  sidebar?.refresh();
 }
 
 function updateFilterCounts() {
@@ -139,7 +156,7 @@ function updateFilterCounts() {
 
   Object.entries(allMarkersByCategory).forEach(([key, markers]) => {
     const [mainId, subId] = key.split(".");
-    const isCategoryEnabled = enabledCategories[`${mainId}.${subId}`] !== false;
+    const isCategoryEnabled = enabledCategories[`${mainId}_${subId}`] !== false;
 
     markers.forEach((marker) => {
       totalMarkers += 1;
@@ -147,7 +164,7 @@ function updateFilterCounts() {
       // Category counts: count only if diet type is enabled
       if (enabledDietTypes.includes(marker.dietType)) {
         categoryCounts[mainId] = (categoryCounts[mainId] || 0) + 1;
-        categoryCounts[key] = (categoryCounts[key] || 0) + 1;
+        categoryCounts[`${mainId}_${subId}`] = (categoryCounts[`${mainId}_${subId}`] || 0) + 1;
       }
 
       // Diet counts: count if category is enabled (regardless of diet filter state)
@@ -205,18 +222,16 @@ async function veggiemap() {
   // Add zoom control
   new Control.Zoom({ position: "topright" }).addTo(map);
 
-  // Close the tooltip when opening the popup
-  parentGroup.on("click", () => {
-    if (parentGroup.isPopupOpen()) {
-      parentGroup.closeTooltip();
-    }
-  });
-
   // Capture marker permalink before map movements overwrite it
   const pendingMarkerHash = parseMarkerHash();
 
   // Show the info box during initial loading so progress stays visible
   // Skip if a marker permalink is active — the popup will open instead
+  initDialog(document.getElementById("info-overlay"), document.getElementById("information"), {
+    close: closeInfo,
+    getLabelElement: () => document.getElementById("content-welcome-heading")
+  });
+  initInfoTutorials();
   if (!pendingMarkerHash) { showInfoOnStartup(); }
 
   // Load the places and put them on the map
@@ -225,22 +240,16 @@ async function veggiemap() {
   // Add hash to the url
   const { syncHash } = createMapHash(map);
 
-  // Add fullscreen control button
+  // Fullscreen control (its button is hidden; the menu toggles it)
   document.fullscreenControl = new FullScreen({
     position: "topright",
     fullscreenElement: map.getContainer().parentNode
   });
   document.fullscreenControl.addTo(map);
+  document.fullscreenControl.getContainer().hidden = true;
 
-  // Add info button
-  new InfoButton({
-    position: "topright",
-    onClick: () => openInfo(),
-    contentHtml: "<div class='info-button'></div>"
-  }).addTo(map);
-
-  // Add button for search places
-  addGeocoder(map);
+  // Place search (moved into the sidebar's search card)
+  const geocoder = addGeocoder(map, () => sidebar?.getViewOffset() ?? [0, 0]);
 
   // Add button to search own position
   document.locateControl = new LocateControl({
@@ -255,9 +264,7 @@ async function veggiemap() {
     position: "topright"
   });
   openingHoursControl.addTo(map);
-  openingHoursControl.onChange(() => {
-    applyAllFilters();
-  });
+  openingHoursControl.onChange(scheduleFilters);
 
   // Add theme control
   const customThemes = {
@@ -288,26 +295,8 @@ async function veggiemap() {
   // Make themeControl globally accessible for language updates
   window.themeControl = themeControl;
 
-  // Add language selector
-  languageControl = languageSelector({
-    languages: [
-      langObject("ca", "ca - Català"),
-      langObject("de", "de - Deutsch"),
-      langObject("en", "en - English"),
-      langObject("eo", "eo - Esperanto"),
-      langObject("es", "es - Español"),
-      langObject("fi", "fi - suomi"),
-      langObject("fr", "fr - Français"),
-      langObject("it", "it - Italiano"),
-      langObject("ko", "ko - 한국어"),
-      langObject("ru", "ru - Русский")
-    ],
-    callback: setUserLanguage,
-    initialLanguage: getUserLanguage(),
-    vertical: false,
-    button: true
-  });
-  languageControl.addTo(map);
+  // Menu with language, information, fullscreen and statistics
+  new MenuControl({ position: "topright", fullscreenControl: document.fullscreenControl }).addTo(map);
 
   // Add category filter control
   categoryFilterControl = new CategoryFilterControl({
@@ -315,20 +304,44 @@ async function veggiemap() {
     collapsed: true
   });
   categoryFilterControl.addTo(map);
-  categoryFilterControl.onChange(() => {
-    applyAllFilters();
+  categoryFilterControl.onChange(scheduleFilters);
+
+  initDialog(document.getElementById("category-filter-overlay"), document.getElementById("category-filter-modal"), {
+    close: () => document.toggleCategoryFilter(),
+    getLabelElement: () => document.querySelector(".category-filter-title")
   });
+
+  // The viewport count in the filter dialog is only updated while the dialog is open
+  const toggleCategoryFilter = document.toggleCategoryFilter;
+  document.toggleCategoryFilter = () => {
+    toggleCategoryFilter();
+    if (categoryFilterControl.isPanelVisible()) { updateFilterCounts(); }
+  };
+
+  // The quick filters in the sidebar replace the buttons of these controls; their dialogs stay
+  openingHoursControl.getContainer().hidden = true;
+  categoryFilterControl.getContainer().hidden = true;
+
+  sidebar = new Sidebar({
+    map,
+    subgroups: categorySubgroups,
+    clusterGroup: parentGroup,
+    geocoder,
+    categoryFilterControl,
+    openingHoursControl,
+    onClosePlace: syncHash
+  });
+  setPlaceClickHandler(marker => sidebar.showPlace(marker));
 
   // Add scale control
   new Control.Scale().addTo(map);
 
+  // The open-now filter covers the area around the view, so it follows the map
+  // (crossing its minimum zoom level is handled by the control's own zoomend callback)
   map.on("moveend", () => {
+    if (openingHoursControl.isEnabled()) { scheduleFilters(); }
     updateVisibleCounts();
-    updateFilterCounts();
-  });
-  map.on("zoomend", () => {
-    // Re-apply filters when zoom changes (important for opening hours filter)
-    applyAllFilters();
+    if (categoryFilterControl.isPanelVisible()) { updateFilterCounts(); }
   });
   map.on("overlayadd", updateVisibleCounts);
   map.on("overlayremove", updateVisibleCounts);
@@ -355,7 +368,7 @@ async function veggiemap() {
 }
 
 function updateVisibleCounts() {
-  if (!map) { return; }
+  if (!map || !document.querySelector("[id^='v_']")) { return; }
   const bounds = map.getBounds();
   Object.entries(categorySubgroups).forEach(([key, subgroup]) => {
     const visibleElement = document.getElementById(`v_${key}`);
@@ -372,16 +385,7 @@ function updateVisibleCounts() {
   });
 }
 
-/** Open popup now, or once marker is added by chunked loading. */
-function openPopupWhenMarkerReady(marker) {
-  if (map.hasLayer(marker)) {
-    marker.openPopup();
-    return;
-  }
-  marker.once("add", () => { marker.openPopup(); });
-}
-
-/** Find a marker by OSM type + id, center map, and open its popup. */
+/** Find a marker by OSM type + id, center the map and show its details. */
 function openMarkerByTypeId(type, id) {
   const strId = String(id);
   for (const markers of Object.values(allMarkersByCategory)) {
@@ -389,9 +393,7 @@ function openMarkerByTypeId(type, id) {
       const props = marker.feature?.properties;
       if (props?._type === type && String(props._id) === strId) {
         map.setView(marker.getLatLng(), 16);
-        // On mobile, chunked cluster loading may not have added this marker yet.
-        // Listen for layeradd and only open when the target marker appears.
-        openPopupWhenMarkerReady(marker);
+        sidebar.showPlace(marker);
         return;
       }
     }
@@ -464,7 +466,7 @@ async function veggiemapPopulate(parentGroupVar, pendingMarkerHash = null) {
       dietKey,
       labelHtml,
       count: markers.length,
-      onToggle: () => { applyAllFilters(); }
+      onToggle: scheduleFilters
     });
   });
 
@@ -477,12 +479,6 @@ async function veggiemapPopulate(parentGroupVar, pendingMarkerHash = null) {
   map.addLayer(parentGroupVar);
   statPopulate(markerGroups, date);
   updateVisibleCounts();
-
-  // Sidebar listing the places in the visible map area
-  placeListControl = new PlaceListControl({
-    subgroups: categorySubgroups,
-    onSelect: marker => parentGroupVar.zoomToShowLayer(marker, () => marker.openPopup())
-  }).addTo(map);
 
   // Store data timestamp for language switching
   const dataDate = date;
@@ -534,7 +530,7 @@ function distributeMarkersByCategory(markers) {
       if (!allMarkersByCategory[key]) { allMarkersByCategory[key] = []; }
       allMarkersByCategory[key].push(marker);
       categoryCounts[mainCategory] = (categoryCounts[mainCategory] || 0) + 1;
-      categoryCounts[key] = (categoryCounts[key] || 0) + 1;
+      categoryCounts[`${mainCategory}_${subCategory}`] = (categoryCounts[`${mainCategory}_${subCategory}`] || 0) + 1;
       if (dietType) { dietCounts[dietType] = (dietCounts[dietType] || 0) + 1; }
     }
   });

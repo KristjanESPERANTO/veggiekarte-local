@@ -1,3 +1,4 @@
+import { initDialog } from "./dialog.js";
 import { t } from "./i18n.js";
 
 /** Show edit modal with links to OSM and MapComplete.
@@ -9,6 +10,7 @@ export function showEditModal(type, id) {
   if (!overlay) { overlay = createEditModal(); }
 
   updateEditModalContent(overlay, type, id);
+  overlay.querySelector(".edit-modal-close").setAttribute("aria-label", t("words_close"));
   overlay.classList.add("visible");
 }
 
@@ -22,7 +24,8 @@ function createEditModal() {
   const modal = document.createElement("div");
   modal.className = "edit-modal";
 
-  const closeBtn = document.createElement("div");
+  const closeBtn = document.createElement("button");
+  closeBtn.type = "button";
   closeBtn.className = "edit-modal-close close-button";
 
   const title = document.createElement("h2");
@@ -46,6 +49,7 @@ function createEditModal() {
   });
 
   document.body.appendChild(overlay);
+  initDialog(overlay, modal, { close: () => overlay.classList.remove("visible"), getLabelElement: () => title });
   return overlay;
 }
 
