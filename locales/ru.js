@@ -147,6 +147,7 @@ export default {
   filter_changes_one: "Изменено настроек по умолчанию: 1",
   filter_changes_other: "Изменено настроек по умолчанию: {count}",
   filter_reset: "Сбросить",
+  map_label: "Карта",
   menu_title: "Меню",
   menu_statistics: "Статистика"
 };

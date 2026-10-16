@@ -147,6 +147,7 @@ export default {
   filter_changes_one: "1 Änderung gegenüber den Standardeinstellungen",
   filter_changes_other: "{count} Änderungen gegenüber den Standardeinstellungen",
   filter_reset: "Zurücksetzen",
+  map_label: "Karte",
   menu_title: "Menü",
   menu_statistics: "Statistik"
 };

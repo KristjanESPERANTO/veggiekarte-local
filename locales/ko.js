@@ -147,6 +147,7 @@ export default {
   filter_changes_one: "기본 설정에서 1개 변경됨",
   filter_changes_other: "기본 설정에서 {count}개 변경됨",
   filter_reset: "초기화",
+  map_label: "지도",
   menu_title: "메뉴",
   menu_statistics: "통계"
 };

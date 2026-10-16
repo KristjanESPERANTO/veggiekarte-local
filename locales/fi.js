@@ -147,6 +147,7 @@ export default {
   filter_changes_one: "1 muutos oletusasetuksiin",
   filter_changes_other: "{count} muutosta oletusasetuksiin",
   filter_reset: "Palauta",
+  map_label: "Kartta",
   menu_title: "Valikko",
   menu_statistics: "Tilastot"
 };

@@ -147,6 +147,7 @@ export default {
   filter_changes_one: "1 modifica rispetto alle impostazioni predefinite",
   filter_changes_other: "{count} modifiche rispetto alle impostazioni predefinite",
   filter_reset: "Ripristina",
+  map_label: "Mappa",
   menu_title: "Menu",
   menu_statistics: "Statistiche"
 };

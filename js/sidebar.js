@@ -80,6 +80,8 @@ export class Sidebar {
     this._root.id = "sidebar";
     const mapElement = this._map.getContainer();
     mapElement.parentNode.insertBefore(this._root, mapElement);
+    // The map is focusable for keyboard panning and zooming, so it gets a widget role and a name
+    mapElement.setAttribute("role", "application");
 
     // Search card
     this._searchCard = DomUtil.create("div", "search-card", this._root);
@@ -271,7 +273,8 @@ export class Sidebar {
     this._root.dataset.sheet = state;
     const expanded = state !== "peek";
     this._handle.setAttribute("aria-expanded", String(expanded));
-    this._handle.setAttribute("aria-label", expanded ? t("sidebar_collapse") : t("sidebar_expand"));
+    // The visible list title is the button's name (voice control); the action is a tooltip and aria-expanded
+    this._handle.title = expanded ? t("sidebar_collapse") : t("sidebar_expand");
     if (save) { saveSetting(SHEET_STORAGE_KEY, state); }
     this._updateMapOffsets();
     if (this._detailView.hidden) { this._refreshList(); }
@@ -344,6 +347,7 @@ export class Sidebar {
     this._filterButton.setAttribute("aria-label", t("category_selection_title"));
     this._filterButton.title = t("category_selection_title");
     this._chipRow.setAttribute("aria-label", t("sidebar_quick_filters"));
+    this._map.getContainer().setAttribute("aria-label", t("map_label"));
     this._chips.food.labelElement.textContent = t("sidebar_food");
     this._chips.food.title = t("category_food");
     this._chips.shopping.labelElement.textContent = t("sidebar_shopping");

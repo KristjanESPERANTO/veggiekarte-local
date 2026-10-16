@@ -147,6 +147,7 @@ export default {
   filter_changes_one: "1 ŝanĝo kompare kun la defaŭltaj agordoj",
   filter_changes_other: "{count} ŝanĝoj kompare kun la defaŭltaj agordoj",
   filter_reset: "Restarigi",
+  map_label: "Mapo",
   menu_title: "Menuo",
   menu_statistics: "Statistiko"
 };
