@@ -15,7 +15,6 @@ const ICONS = {
   filter: "<svg width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M4 6h9M17 6h3M4 12h3M11 12h9M4 18h11M19 18h1'/><circle cx='15' cy='6' r='2'/><circle cx='9' cy='12' r='2'/><circle cx='17' cy='18' r='2'/></svg>",
   clock: "<svg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><circle cx='12' cy='12' r='9'/><path d='M12 7v5l3 2'/></svg>",
   back: "<svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M19 12H5M11 6l-6 6 6 6'/></svg>",
-  close: "<svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' aria-hidden='true'><path d='M6 6l12 12M18 6 6 18'/></svg>",
   chevron: "<svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='m6 15 6-6 6 6'/></svg>"
 };
 
@@ -111,18 +110,16 @@ export class Sidebar {
     this._handle.setAttribute("aria-controls", "sidebar-panel-body");
     this._handle.innerHTML = `<span class="sheet-grip" aria-hidden="true"></span><span class="sheet-label"></span><span class="sheet-chevron">${ICONS.chevron}</span>`;
     this._handleLabel = this._handle.querySelector(".sheet-label");
+    // While place details are shown, the panel header shows this button instead of the list title
+    this._backButton = DomUtil.create("button", "detail-back", this._panel);
+    this._backButton.type = "button";
+    this._backButton.hidden = true;
     this._body = DomUtil.create("div", "sidebar-panel-body", this._panel);
     this._body.id = "sidebar-panel-body";
 
     this._listView = DomUtil.create("div", "list-view", this._body);
     this._detailView = DomUtil.create("div", "detail-view", this._body);
     this._detailView.hidden = true;
-    const detailNav = DomUtil.create("div", "detail-nav", this._detailView);
-    this._backButton = DomUtil.create("button", "detail-back", detailNav);
-    this._backButton.type = "button";
-    this._closeButton = DomUtil.create("button", "detail-close", detailNav);
-    this._closeButton.type = "button";
-    this._closeButton.innerHTML = ICONS.close;
     this._detailContent = DomUtil.create("div", "detail-content", this._detailView);
   }
 
@@ -187,8 +184,7 @@ export class Sidebar {
     });
 
     DomEvent.on(this._backButton, "click", () => this.closePlace());
-    DomEvent.on(this._closeButton, "click", () => this.closePlace());
-    DomEvent.on(this._detailView, "keydown", (evt) => {
+    DomEvent.on(this._panel, "keydown", (evt) => {
       if (evt.key === "Escape") { this.closePlace(); }
     });
 
@@ -275,9 +271,16 @@ export class Sidebar {
     this._handle.setAttribute("aria-expanded", String(expanded));
     // The visible list title is the button's name (voice control); the action is a tooltip and aria-expanded
     this._handle.title = expanded ? t("sidebar_collapse") : t("sidebar_expand");
+    this._updateHandleName();
     if (save) { saveSetting(SHEET_STORAGE_KEY, state); }
     this._updateMapOffsets();
     if (this._detailView.hidden) { this._refreshList(); }
+  }
+
+  /** With place details the list title is hidden, so the handle is named by its action. */
+  _updateHandleName() {
+    if (this._detailView.hidden) { this._handle.removeAttribute("aria-label"); }
+    else { this._handle.setAttribute("aria-label", this._handle.title); }
   }
 
   /** Expose the space the sidebar covers to CSS, so map controls and attribution stay visible. */
@@ -357,7 +360,6 @@ export class Sidebar {
     this._chips.vegan.title = t("sidebar_vegan_options_hint");
     this._backButton.innerHTML = ICONS.back;
     DomUtil.create("span", "", this._backButton).textContent = t("place_list_back");
-    this._closeButton.setAttribute("aria-label", t("words_close"));
     this._legendItems.forEach(({ diet, label }) => { label.textContent = t(`texts_i18n_${diet}`); });
     this._setSheetState(this._sheetState, false);
   }
@@ -410,9 +412,12 @@ export class Sidebar {
 
     this._listView.hidden = true;
     this._detailView.hidden = false;
+    this._backButton.hidden = false;
+    this._root.dataset.view = "detail";
+    this._updateHandleName();
     if (this._sheetState === "peek") { this._setSheetState("half", false); }
     this._detailView.scrollTop = 0;
-    this._closeButton.focus({ preventScroll: true });
+    this._backButton.focus({ preventScroll: true });
 
     this._revealMarker(marker);
   }
@@ -444,6 +449,9 @@ export class Sidebar {
     this._setSelectedMarker(null);
     this._detailView.hidden = true;
     this._listView.hidden = false;
+    this._backButton.hidden = true;
+    delete this._root.dataset.view;
+    this._updateHandleName();
     this._detailContent.replaceChildren();
     this._refreshList();
     if (typeof this._onClosePlace === "function") { this._onClosePlace(); }

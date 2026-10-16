@@ -561,54 +561,45 @@ body.is-updating .chip {
   overflow-y: auto;
 }
 
-.detail-nav {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px 12px 8px 8px;
-  background: var(--vk-surface);
+/* Back button in the panel header, over the (then hidden) list title */
+.sidebar-panel {
+  position: relative;
 }
 
-.detail-back,
-.detail-close {
-  border: none;
-  color: var(--vk-ink);
-  font: inherit;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
+.sidebar[data-view="detail"] .sheet-label {
+  visibility: hidden;
 }
 
 .detail-back {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
   gap: 6px;
-  padding: 8px;
+  height: 36px;
+  padding: 0 10px 0 8px;
+  border: none;
   border-radius: 10px;
   background: none;
+  color: var(--vk-ink);
+  font: inherit;
   font-size: 14px;
   font-weight: 600;
+  cursor: pointer;
+}
+
+.detail-back[hidden] {
+  display: none;
 }
 
 .detail-back:hover {
   background: var(--vk-hover);
 }
 
-.detail-close {
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--vk-tint);
-}
-
-.detail-close:hover {
-  background: var(--vk-hover);
-}
-
 .detail-content {
-  padding: 4px 20px 24px;
+  padding: 14px 20px 24px;
   font-size: 14px;
   line-height: 1.5;
 }
@@ -1010,6 +1001,10 @@ body.is-updating .chip {
     position: relative;
     min-height: 60px;
     padding: 22px 16px 12px;
+  }
+
+  .detail-back {
+    top: 18px;
   }
 
   .sheet-grip {
