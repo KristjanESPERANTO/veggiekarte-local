@@ -27,7 +27,13 @@ const progress = createProgressController();
 // Define marker groups (using imported MarkerClusterGroup and our SubGroup)
 const parentGroup = new MarkerClusterGroup({
   showCoverageOnHover: false,
-  maxClusterRadius: 20,
+  // Radius in pixels per zoom level; at least the cluster icon size (40px) so clusters don't overlap
+  maxClusterRadius: (zoom) => {
+    if (zoom <= 6) { return 80; }
+    if (zoom <= 10) { return 60; }
+    if (zoom <= 13) { return 45; }
+    return 30;
+  },
   // Smooth UI when adding thousands of markers
   chunkedLoading: true,
   chunkProgress: (processed, total) => progress.updateChunk(processed, total)
