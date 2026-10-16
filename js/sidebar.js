@@ -195,8 +195,11 @@ export class Sidebar {
     map.on("moveend", () => {
       if (this._detailView.hidden) { this._refreshList(); }
     });
-    // A user interaction with the map lets the list follow the map area again
-    DomEvent.on(map.getContainer(), "pointerdown wheel keydown", () => this.list.release());
+    // A user interaction with the map lets the list follow the map area again and keeps the map view on "back"
+    DomEvent.on(map.getContainer(), "pointerdown wheel keydown", () => {
+      this.list.release();
+      this._viewBeforePlace = null;
+    });
 
     onLanguageChange(() => {
       this.list.clearEntries();
@@ -380,6 +383,9 @@ export class Sidebar {
   showPlace(marker, { fromList = false } = {}) {
     if (!fromList) { this.list.release(); }
     if (this._detailView.hidden) { this._returnFocus = document.activeElement; }
+    // A place selected in the list restores the map view of the list when going back
+    if (!fromList) { this._viewBeforePlace = null; }
+    else if (this._detailView.hidden) { this._viewBeforePlace = { center: this._map.getCenter(), zoom: this._map.getZoom() }; }
     this._setSelectedMarker(marker);
     this._renderPlace(marker);
 
@@ -425,6 +431,10 @@ export class Sidebar {
     this._detailContent.replaceChildren();
     this._refreshList();
     if (typeof this._onClosePlace === "function") { this._onClosePlace(); }
+    if (this._viewBeforePlace) {
+      this._map.setView(this._viewBeforePlace.center, this._viewBeforePlace.zoom);
+      this._viewBeforePlace = null;
+    }
 
     // Focus goes back to where the details were opened from (list entry or marker)
     const target = this._returnFocus?.isConnected && this._returnFocus !== document.body ? this._returnFocus : marker?.getElement();
