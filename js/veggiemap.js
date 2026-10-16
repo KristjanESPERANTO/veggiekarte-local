@@ -9,11 +9,11 @@ import { geojsonToMarkerGroups, statPopulate } from "./veggiemap-data.js";
 import { langObject, languageSelector } from "@kristjan.esperanto/leaflet-language-selector";
 import { CATEGORY_HIERARCHY } from "./category-mapping.js";
 import { FullScreen } from "leaflet.fullscreen";
-import { Geocoder } from "leaflet-control-geocoder";
 import { LocateControl } from "leaflet.locatecontrol";
 import { MarkerClusterGroup } from "@kristjan.esperanto/leaflet.markercluster";
 import { OpeningHoursControl } from "./opening-hours-control.js";
 import { SubGroup } from "./subgroup.js";
+import { addGeocoder } from "./geocoder-control.js";
 import { addNominatimInformation } from "./popup.js";
 import { createProgressController } from "./progress.js";
 import { initUpdateCheck } from "./update-check.js";
@@ -259,7 +259,7 @@ async function veggiemap() {
   }).addTo(map);
 
   // Add button for search places
-  new Geocoder().addTo(map);
+  addGeocoder(map);
 
   // Add button to search own position
   document.locateControl = new LocateControl({
