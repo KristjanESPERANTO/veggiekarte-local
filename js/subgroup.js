@@ -191,6 +191,41 @@ SubGroup.prototype.removeLayers = function removeLayers(layers) {
 };
 
 /**
+ * Register layers in the SubGroup without passing them to the parent group.
+ * Returns the layers that were not registered before, so the caller can add
+ * them to the parent group together with layers of other SubGroups.
+ */
+SubGroup.prototype.registerLayers = function registerLayers(layers) {
+  const added = [];
+  for (let i = 0; i < layers.length; i += 1) {
+    const layer = layers[i];
+    const id = this.getLayerId(layer);
+    if (!this._layers[id]) {
+      this._layers[id] = layer;
+      added.push(layer);
+    }
+  }
+  return added;
+};
+
+/**
+ * Unregister layers from the SubGroup without removing them from the parent group.
+ * Returns the layers that were registered, so the caller can remove them from
+ * the parent group together with layers of other SubGroups.
+ */
+SubGroup.prototype.unregisterLayers = function unregisterLayers(layers) {
+  const removed = [];
+  for (let i = 0; i < layers.length; i += 1) {
+    const id = this.getLayerId(layers[i]);
+    if (this._layers[id]) {
+      removed.push(this._layers[id]);
+      delete this._layers[id];
+    }
+  }
+  return removed;
+};
+
+/**
  * Override clearLayers with a batched variant that — when possible —
  * first removes all layers from the parent group in one go and then clears
  * the internal registry.

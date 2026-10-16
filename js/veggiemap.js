@@ -76,6 +76,11 @@ async function applyAllFilters() {
     openingHoursData = await openingHoursControl.loadOpeningHoursData();
   }
 
+  // Markers of all subgroups are collected and passed to the parent group in a single
+  // removeLayers/addLayers call, so MarkerCluster clusters and renders them only once
+  const allMarkersToShow = [];
+  const allMarkersToHide = [];
+
   // For each category subgroup, add/remove markers based on filters
   Object.entries(allMarkersByCategory).forEach(([key, markers]) => {
     const [mainId, subId] = key.split(".");
@@ -106,9 +111,12 @@ async function applyAllFilters() {
       else if (!shouldShow && isShown) { markersToHide.push(marker); }
     });
 
-    if (markersToShow.length > 0) { subgroup.addLayers(markersToShow); }
-    if (markersToHide.length > 0) { subgroup.removeLayers(markersToHide); }
+    subgroup.registerLayers(markersToShow).forEach((marker) => { allMarkersToShow.push(marker); });
+    subgroup.unregisterLayers(markersToHide).forEach((marker) => { allMarkersToHide.push(marker); });
   });
+
+  if (allMarkersToHide.length > 0) { parentGroup.removeLayers(allMarkersToHide); }
+  if (allMarkersToShow.length > 0) { parentGroup.addLayers(allMarkersToShow); }
 
   updateFilterCounts();
   updateVisibleCounts();
