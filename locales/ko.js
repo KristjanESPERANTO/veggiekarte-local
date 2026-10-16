@@ -129,5 +129,10 @@ export default {
   themeEditor_themeButton: "테마",
   texts_data_date: "데이터 기준일",
   texts_check_updates: "업데이트 확인",
-  texts_checking_updates: "업데이트 중…"
+  texts_checking_updates: "업데이트 중…",
+  place_list_button: "현재 화면의 장소 목록",
+  place_list_title: "현재 화면의 장소",
+  place_list_count: "장소 {count}곳",
+  place_list_zoom_in: "현재 화면에 장소 {count}곳 – 목록을 보려면 확대하세요",
+  place_list_empty: "현재 화면에 장소가 없습니다"
 };

@@ -129,5 +129,10 @@ export default {
   themeEditor_themeButton: "Theme",
   texts_data_date: "Data as of",
   texts_check_updates: "Check for updates",
-  texts_checking_updates: "Updating…"
+  texts_checking_updates: "Updating…",
+  place_list_button: "List of places in this view",
+  place_list_title: "Places in this view",
+  place_list_count: "{count} places",
+  place_list_zoom_in: "{count} places in this view – zoom in to see the list",
+  place_list_empty: "No places in this view"
 };

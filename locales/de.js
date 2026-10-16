@@ -129,5 +129,10 @@ export default {
   themeEditor_themeButton: "Thema",
   texts_data_date: "Datenstand",
   texts_check_updates: "Nach Updates suchen",
-  texts_checking_updates: "Wird aktualisiert…"
+  texts_checking_updates: "Wird aktualisiert…",
+  place_list_button: "Liste der Orte in diesem Kartenausschnitt",
+  place_list_title: "Orte in diesem Ausschnitt",
+  place_list_count: "{count} Orte",
+  place_list_zoom_in: "{count} Orte in diesem Ausschnitt – hineinzoomen, um die Liste zu sehen",
+  place_list_empty: "Keine Orte in diesem Ausschnitt"
 };

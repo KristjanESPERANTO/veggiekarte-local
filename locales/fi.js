@@ -129,5 +129,10 @@ export default {
   themeEditor_themeButton: "Teema",
   texts_data_date: "Tiedot",
   texts_check_updates: "Tarkista päivitykset",
-  texts_checking_updates: "Päivitetään…"
+  texts_checking_updates: "Päivitetään…",
+  place_list_button: "Luettelo tämän näkymän paikoista",
+  place_list_title: "Paikat tässä näkymässä",
+  place_list_count: "{count} paikkaa",
+  place_list_zoom_in: "{count} paikkaa tässä näkymässä – lähennä nähdäksesi luettelon",
+  place_list_empty: "Ei paikkoja tässä näkymässä"
 };

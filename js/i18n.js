@@ -213,4 +213,4 @@ function initCloseButtons() {
   });
 }
 
-export { setUserLanguage, getUserLanguage, addLanguageResources, t, initCloseButtons };
+export { setUserLanguage, getUserLanguage, addLanguageResources, t, initCloseButtons, onLanguageChange };

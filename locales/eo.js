@@ -129,5 +129,10 @@ export default {
   themeEditor_themeButton: "Temo",
   texts_data_date: "Datumoj de",
   texts_check_updates: "Kontroli ĝisdatigojn",
-  texts_checking_updates: "Ĝisdatigante…"
+  texts_checking_updates: "Ĝisdatigante…",
+  place_list_button: "Listo de lokoj en ĉi tiu vido",
+  place_list_title: "Lokoj en ĉi tiu vido",
+  place_list_count: "{count} lokoj",
+  place_list_zoom_in: "{count} lokoj en ĉi tiu vido – zomu por vidi la liston",
+  place_list_empty: "Neniuj lokoj en ĉi tiu vido"
 };

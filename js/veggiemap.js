@@ -3,6 +3,7 @@ import { CategoryFilterControl, isPlaceOpen } from "./category-filter-control.js
 import { Control, Icon, Map, TileLayer } from "leaflet";
 import { DEFAULT_THEMES, ThemeControl } from "leaflet-theme-control";
 import { InfoButton, openInfo, showInfoOnStartup } from "./info-button-control.js";
+import { PlaceListControl, getShownMarkersInBounds } from "./place-list-control.js";
 import { addLanguageResources, getUserLanguage, setUserLanguage, t } from "./i18n.js";
 import { createMapHash, parseMarkerHash, setMarkerHash } from "./map-hash.js";
 import { geojsonToMarkerGroups, statPopulate } from "./veggiemap-data.js";
@@ -53,6 +54,7 @@ let languageControl;
 let categoryFilterControl;
 let openingHoursControl;
 let themeControl;
+let placeListControl;
 const categorySubgroups = {}; // Storage for category-based subgroups
 const allMarkersByCategory = {}; // Store all markers by category key for filtering
 
@@ -122,28 +124,7 @@ async function applyAllFilters() {
 
   updateFilterCounts();
   updateVisibleCounts();
-}
-
-/**
- * Count markers in the current viewport
- */
-function countMarkersInViewport() {
-  if (!map) { return 0; }
-  const bounds = map.getBounds();
-  let count = 0;
-
-  Object.entries(categorySubgroups).forEach(([, subgroup]) => {
-    if (!map.hasLayer(subgroup)) { return; }
-    subgroup.eachLayer((layer) => {
-      if (typeof layer.getLatLng !== "function") { return; }
-      const latlng = layer.getLatLng();
-      if (latlng && bounds.contains(latlng)) {
-        count += 1;
-      }
-    });
-  });
-
-  return count;
+  placeListControl?.refresh();
 }
 
 function updateFilterCounts() {
@@ -189,7 +170,7 @@ function updateFilterCounts() {
   });
 
   // Update marker counter
-  const viewportCount = countMarkersInViewport();
+  const viewportCount = map ? getShownMarkersInBounds(categorySubgroups, map, map.getBounds()).length : 0;
   categoryFilterControl.updateMarkerCounter(totalVisible, totalMarkers, viewportCount);
 }
 
@@ -496,6 +477,12 @@ async function veggiemapPopulate(parentGroupVar, pendingMarkerHash = null) {
   map.addLayer(parentGroupVar);
   statPopulate(markerGroups, date);
   updateVisibleCounts();
+
+  // Sidebar listing the places in the visible map area
+  placeListControl = new PlaceListControl({
+    subgroups: categorySubgroups,
+    onSelect: marker => parentGroupVar.zoomToShowLayer(marker, () => marker.openPopup())
+  }).addTo(map);
 
   // Store data timestamp for language switching
   const dataDate = date;

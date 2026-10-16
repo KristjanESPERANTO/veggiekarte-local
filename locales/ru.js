@@ -129,5 +129,10 @@ export default {
   themeEditor_themeButton: "Тема",
   texts_data_date: "Данные на",
   texts_check_updates: "Проверить обновления",
-  texts_checking_updates: "Обновление…"
+  texts_checking_updates: "Обновление…",
+  place_list_button: "Список мест в этой области",
+  place_list_title: "Места в этой области",
+  place_list_count: "Мест: {count}",
+  place_list_zoom_in: "Мест в этой области: {count} – приблизьте карту, чтобы увидеть список",
+  place_list_empty: "В этой области нет мест"
 };

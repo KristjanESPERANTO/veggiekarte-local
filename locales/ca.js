@@ -129,5 +129,10 @@ export default {
   themeEditor_themeButton: "Tema",
   texts_data_date: "Dades del",
   texts_check_updates: "Cerca actualitzacions",
-  texts_checking_updates: "S'està actualitzant…"
+  texts_checking_updates: "S'està actualitzant…",
+  place_list_button: "Llista de llocs en aquesta vista",
+  place_list_title: "Llocs en aquesta vista",
+  place_list_count: "{count} llocs",
+  place_list_zoom_in: "{count} llocs en aquesta vista – apropa't per veure la llista",
+  place_list_empty: "No hi ha llocs en aquesta vista"
 };
