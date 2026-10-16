@@ -266,6 +266,37 @@ input {
   display: none;
 }
 
+/* Filter dialog: note on changed filter settings with a reset button */
+.filter-note {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--vk-muted);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 6px;
+}
+
+.filter-note[hidden] {
+  display: none;
+}
+
+.filter-reset {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--vk-accent);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+:root.theme-dark .filter-reset,
+:root[data-control-style="dark"] .filter-reset {
+  color: var(--vk-accent-strong);
+}
+
 /* Quick filter chips */
 .chip-row {
   display: flex;

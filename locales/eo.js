@@ -144,6 +144,9 @@ export default {
   sidebar_vegan_options_hint: "Nur lokoj kun veganaj elektoj",
   place_list_back: "Reen al la listo",
   info_back: "Reen",
+  filter_changes_one: "1 ŝanĝo kompare kun la defaŭltaj agordoj",
+  filter_changes_other: "{count} ŝanĝoj kompare kun la defaŭltaj agordoj",
+  filter_reset: "Restarigi",
   menu_title: "Menuo",
   menu_statistics: "Statistiko"
 };

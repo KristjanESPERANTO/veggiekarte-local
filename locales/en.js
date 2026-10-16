@@ -144,6 +144,9 @@ export default {
   sidebar_vegan_options_hint: "Only places with vegan options",
   place_list_back: "Back to the list",
   info_back: "Back",
+  filter_changes_one: "1 change from the default settings",
+  filter_changes_other: "{count} changes from the default settings",
+  filter_reset: "Reset",
   menu_title: "Menu",
   menu_statistics: "Statistics"
 };

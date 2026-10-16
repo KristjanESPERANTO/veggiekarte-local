@@ -67,13 +67,11 @@ const CategoryFilterControl = Control.extend({
     this._overlay.appendChild(this._panel);
 
     // Close button (like #close in info box)
-    const closeBtn = document.createElement("button");
+    const closeBtn = DomUtil.create("button", "category-filter-close", this._panel);
     closeBtn.id = "category-filter-close";
-    closeBtn.className = "category-filter-close";
     closeBtn.type = "button";
     closeBtn.setAttribute("aria-label", t("words_close"));
     closeBtn.setAttribute("onclick", "document.toggleCategoryFilter()");
-    this._panel.appendChild(closeBtn);
 
     // Register global toggle function
     document.toggleCategoryFilter = () => this._togglePanel();
@@ -110,8 +108,9 @@ const CategoryFilterControl = Control.extend({
     const title = DomUtil.create("div", "category-filter-title", header);
     title.innerHTML = `<svg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><rect x='3' y='3' width='7' height='7'/><rect x='14' y='3' width='7' height='7'/><rect x='3' y='14' width='7' height='7'/><rect x='14' y='14' width='7' height='7'/></svg> ${selectionTitle}`;
     this._markerCounter = DomUtil.create("div", "category-filter-counter", header);
-    const loadingText = t("words_loading");
-    this._markerCounter.textContent = loadingText;
+    this._markerCounter.textContent = t("words_loading");
+    this._changeNote = DomUtil.create("p", "filter-note", header);
+    this._renderChangeNote();
 
     // Diet filter section
     const dietSection = DomUtil.create("div", "diet-filter-section", this._contentDiv);
@@ -242,22 +241,9 @@ const CategoryFilterControl = Control.extend({
   },
 
   _resetToDefaults() {
-    // Reset categories to default (food + shopping)
-    Object.entries(CATEGORY_HIERARCHY).forEach(([mainId, mainCat]) => {
-      const enabled = mainId === "food" || mainId === "shopping";
-      this._categoryStates[mainId] = enabled;
-      Object.keys(mainCat.subcategories).forEach((subId) => {
-        this._categoryStates[`${mainId}_${subId}`] = enabled;
-      });
-    });
-    // Reset diet types to all enabled
-    this._dietStates = {
-      vegan_only: true,
-      vegetarian_only: true,
-      vegan_friendly: true,
-      vegan_limited: true,
-      vegetarian_friendly: true
-    };
+    // Categories: food and shopping; diet types: all enabled
+    this._categoryStates = this._defaultStates();
+    this._dietStates = Object.fromEntries(Object.keys(this._dietStates).map(key => [key, true]));
     // Update diet checkboxes in DOM
     if (this._dietList) {
       this._dietList.querySelectorAll("input[type='checkbox']").forEach((cb) => {
@@ -350,13 +336,7 @@ const CategoryFilterControl = Control.extend({
     }
     catch { /* Ignore */ }
     // Default: all diet types enabled
-    return {
-      vegan_only: true,
-      vegetarian_only: true,
-      vegan_friendly: true,
-      vegan_limited: true,
-      vegetarian_friendly: true
-    };
+    return { vegan_only: true, vegetarian_only: true, vegan_friendly: true, vegan_limited: true, vegetarian_friendly: true };
   },
 
   _saveDietStates() {
@@ -377,6 +357,26 @@ const CategoryFilterControl = Control.extend({
 
   /** Whether the filter dialog is open. */
   isPanelVisible() { return Boolean(this._overlay?.classList.contains("visible")); },
+
+  /** Restore the default categories and diet types. */
+  resetToDefaults() { this._resetToDefaults(); },
+
+  /** Show how many filter settings differ from the defaults with a reset button (hidden for 0); reset focuses the close button. */
+  setChangeCount(count, onReset) {
+    [this._changeCount, this._onResetChanges] = [count, onReset];
+    this._renderChangeNote();
+  },
+
+  _renderChangeNote() {
+    if (!this._changeNote) { return; }
+    this._changeNote.hidden = !this._changeCount;
+    this._changeNote.textContent = `${t(this._changeCount === 1 ? "filter_changes_one" : "filter_changes_other").replace("{count}", this._changeCount)} `;
+    const reset = Object.assign(DomUtil.create("button", "filter-reset", this._changeNote), { type: "button", textContent: t("filter_reset") });
+    DomEvent.on(reset, "click", () => {
+      this._onResetChanges?.();
+      this._panel.querySelector(".category-filter-close")?.focus();
+    });
+  },
 
   /** Whether the main category or any of its subcategories is enabled. */
   isMainCategoryEnabled(mainId) { return this._categoryStates[mainId] !== false; },

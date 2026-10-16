@@ -144,6 +144,9 @@ export default {
   sidebar_vegan_options_hint: "Только места с веганскими блюдами",
   place_list_back: "Назад к списку",
   info_back: "Назад",
+  filter_changes_one: "Изменено настроек по умолчанию: 1",
+  filter_changes_other: "Изменено настроек по умолчанию: {count}",
+  filter_reset: "Сбросить",
   menu_title: "Меню",
   menu_statistics: "Статистика"
 };

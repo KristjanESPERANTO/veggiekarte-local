@@ -245,6 +245,17 @@ export class Sidebar {
     });
   }
 
+  /** Restore the default filter settings except those shown as quick filters. */
+  _resetHiddenFilters() {
+    const filters = this._categoryFilterControl;
+    const vegetarianFriendly = filters.isDietEnabled("vegetarian_friendly");
+    const [food, shopping] = [filters.isMainCategoryEnabled("food"), filters.isMainCategoryEnabled("shopping")];
+    filters.resetToDefaults();
+    filters.setDietEnabled("vegetarian_friendly", vegetarianFriendly);
+    filters.setMainCategoryEnabled("food", food);
+    filters.setMainCategoryEnabled("shopping", shopping);
+  }
+
   _toggleMainCategory(mainId) {
     const enabled = this._categoryFilterControl.isMainCategoryEnabled(mainId);
     this._categoryFilterControl.setMainCategoryEnabled(mainId, !enabled);
@@ -365,6 +376,7 @@ export class Sidebar {
     const changed = filters.countChangedFilters({ ignoreDiets: ["vegetarian_friendly"], ignoreCategories: ["food", "shopping"] });
     this._filterBadge.hidden = changed === 0;
     this._filterBadge.textContent = String(changed);
+    filters.setChangeCount(changed, () => this._resetHiddenFilters());
 
     if (this._detailView.hidden) { this._refreshList(); }
   }

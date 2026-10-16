@@ -144,6 +144,9 @@ export default {
   sidebar_vegan_options_hint: "Uniquement les lieux avec des options véganes",
   place_list_back: "Retour à la liste",
   info_back: "Retour",
+  filter_changes_one: "1 modification par rapport aux réglages par défaut",
+  filter_changes_other: "{count} modifications par rapport aux réglages par défaut",
+  filter_reset: "Réinitialiser",
   menu_title: "Menu",
   menu_statistics: "Statistiques"
 };

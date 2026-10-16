@@ -144,6 +144,9 @@ export default {
   sidebar_vegan_options_hint: "비건 메뉴가 있는 장소만",
   place_list_back: "목록으로 돌아가기",
   info_back: "뒤로",
+  filter_changes_one: "기본 설정에서 1개 변경됨",
+  filter_changes_other: "기본 설정에서 {count}개 변경됨",
+  filter_reset: "초기화",
   menu_title: "메뉴",
   menu_statistics: "통계"
 };

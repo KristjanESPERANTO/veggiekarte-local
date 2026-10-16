@@ -144,6 +144,9 @@ export default {
   sidebar_vegan_options_hint: "Nur Orte mit veganen Angeboten",
   place_list_back: "Zurück zur Liste",
   info_back: "Zurück",
+  filter_changes_one: "1 Änderung gegenüber den Standardeinstellungen",
+  filter_changes_other: "{count} Änderungen gegenüber den Standardeinstellungen",
+  filter_reset: "Zurücksetzen",
   menu_title: "Menü",
   menu_statistics: "Statistik"
 };

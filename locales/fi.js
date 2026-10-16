@@ -144,6 +144,9 @@ export default {
   sidebar_vegan_options_hint: "Vain paikat, joissa on vegaanivaihtoehtoja",
   place_list_back: "Takaisin luetteloon",
   info_back: "Takaisin",
+  filter_changes_one: "1 muutos oletusasetuksiin",
+  filter_changes_other: "{count} muutosta oletusasetuksiin",
+  filter_reset: "Palauta",
   menu_title: "Valikko",
   menu_statistics: "Tilastot"
 };

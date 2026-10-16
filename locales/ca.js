@@ -144,6 +144,9 @@ export default {
   sidebar_vegan_options_hint: "Només llocs amb opcions veganes",
   place_list_back: "Torna a la llista",
   info_back: "Enrere",
+  filter_changes_one: "1 canvi respecte a la configuració per defecte",
+  filter_changes_other: "{count} canvis respecte a la configuració per defecte",
+  filter_reset: "Restableix",
   menu_title: "Menú",
   menu_statistics: "Estadístiques"
 };
