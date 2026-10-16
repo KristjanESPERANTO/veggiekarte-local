@@ -6,6 +6,7 @@
  */
 
 import fallbackTranslations from "../locales/en.js";
+import { updateCheckLabel } from "./update-check.js";
 
 // Module state
 let currentLanguage;
@@ -121,6 +122,7 @@ function updateContent() {
   if (dataDateElement && window._veggiekarteDataDate) {
     dataDateElement.textContent = `${t("texts_data_date")}: ${window._veggiekarteDataDate}`;
   }
+  updateCheckLabel(t);
 
   // Show content now that translations are loaded
   document.getElementById("content")?.classList.add("loaded");

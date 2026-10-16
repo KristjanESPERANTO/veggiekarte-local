@@ -127,5 +127,7 @@ export default {
   themeEditor_sepia: "Сепия",
   themeEditor_grayscale: "Градации серого",
   themeEditor_themeButton: "Тема",
-  texts_data_date: "Данные на"
+  texts_data_date: "Данные на",
+  texts_check_updates: "Проверить обновления",
+  texts_checking_updates: "Обновление…"
 };

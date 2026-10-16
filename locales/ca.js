@@ -127,5 +127,7 @@ export default {
   themeEditor_sepia: "Sèpia",
   themeEditor_grayscale: "Escala de grisos",
   themeEditor_themeButton: "Tema",
-  texts_data_date: "Dades del"
+  texts_data_date: "Dades del",
+  texts_check_updates: "Cerca actualitzacions",
+  texts_checking_updates: "S'està actualitzant…"
 };

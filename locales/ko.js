@@ -127,5 +127,7 @@ export default {
   themeEditor_sepia: "세피아",
   themeEditor_grayscale: "회색조",
   themeEditor_themeButton: "테마",
-  texts_data_date: "데이터 기준일"
+  texts_data_date: "데이터 기준일",
+  texts_check_updates: "업데이트 확인",
+  texts_checking_updates: "업데이트 중…"
 };

@@ -547,6 +547,10 @@ body {
   display: block;
 }
 
+#content-data-date:not(:empty)::after {
+  content: " ·";
+}
+
 h1 {
   font-size: 14pt;
 }

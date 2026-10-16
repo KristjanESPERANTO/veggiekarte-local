@@ -127,5 +127,7 @@ export default {
   themeEditor_sepia: "Seepia",
   themeEditor_grayscale: "Harmaasävy",
   themeEditor_themeButton: "Teema",
-  texts_data_date: "Tiedot"
+  texts_data_date: "Tiedot",
+  texts_check_updates: "Tarkista päivitykset",
+  texts_checking_updates: "Päivitetään…"
 };

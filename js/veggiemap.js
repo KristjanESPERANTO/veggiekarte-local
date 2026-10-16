@@ -16,6 +16,7 @@ import { OpeningHoursControl } from "./opening-hours-control.js";
 import { SubGroup } from "./subgroup.js";
 import { addNominatimInformation } from "./popup.js";
 import { createProgressController } from "./progress.js";
+import { initUpdateCheck } from "./update-check.js";
 
 /**
  * Shared progress bar controller for tracking map loading progress.
@@ -24,16 +25,12 @@ import { createProgressController } from "./progress.js";
  */
 const progress = createProgressController();
 
+// Cluster radius in pixels as [highest zoom level, radius], at least the cluster icon size (40px) up to zoom 13
+const CLUSTER_RADIUS_BY_ZOOM = [[6, 80], [10, 60], [13, 45]];
 // Define marker groups (using imported MarkerClusterGroup and our SubGroup)
 const parentGroup = new MarkerClusterGroup({
   showCoverageOnHover: false,
-  // Radius in pixels per zoom level; at least the cluster icon size (40px) so clusters don't overlap
-  maxClusterRadius: (zoom) => {
-    if (zoom <= 6) { return 80; }
-    if (zoom <= 10) { return 60; }
-    if (zoom <= 13) { return 45; }
-    return 30;
-  },
+  maxClusterRadius: zoom => (CLUSTER_RADIUS_BY_ZOOM.find(([maxZoom]) => zoom <= maxZoom)?.[1] ?? 30),
   // Smooth UI when adding thousands of markers
   chunkedLoading: true,
   chunkProgress: (processed, total) => progress.updateChunk(processed, total)
@@ -82,8 +79,7 @@ async function applyAllFilters() {
     openingHoursData = await openingHoursControl.loadOpeningHoursData();
   }
 
-  // Markers of all subgroups are collected and passed to the parent group in a single
-  // removeLayers/addLayers call, so MarkerCluster clusters and renders them only once
+  // Markers of all subgroups go to the parent group in one call, so MarkerCluster renders them only once
   const allMarkersToShow = [];
   const allMarkersToHide = [];
 
@@ -200,6 +196,7 @@ function updateFilterCounts() {
 async function veggiemap() {
   // Load language resources first so translations are available for controls
   await addLanguageResources(getUserLanguage());
+  initUpdateCheck(t);
 
   // Replace Leaflet's default marker assets with inline SVG data URIs
   delete Icon.Default.prototype._getIconUrl;

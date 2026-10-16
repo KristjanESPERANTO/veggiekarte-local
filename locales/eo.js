@@ -127,5 +127,7 @@ export default {
   themeEditor_sepia: "Sepio",
   themeEditor_grayscale: "Grizskalo",
   themeEditor_themeButton: "Temo",
-  texts_data_date: "Datumoj de"
+  texts_data_date: "Datumoj de",
+  texts_check_updates: "Kontroli ĝisdatigojn",
+  texts_checking_updates: "Ĝisdatigante…"
 };
