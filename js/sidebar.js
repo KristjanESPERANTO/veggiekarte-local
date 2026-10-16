@@ -64,7 +64,8 @@ export class Sidebar {
       container: this._listView,
       getBounds: () => this.getListBounds(),
       getOpenState: feature => this._getOpenState(feature),
-      onSelect: marker => this.showPlace(marker, { fromList: true })
+      onSelect: marker => this.showPlace(marker, { fromList: true }),
+      onHighlight: marker => this._highlightMarker(marker)
     });
     this._createLegend();
     this._bindEvents();
@@ -464,6 +465,17 @@ export class Sidebar {
     const target = this._returnFocus?.isConnected && this._returnFocus !== document.body ? this._returnFocus : marker?.getElement();
     target?.focus({ preventScroll: true });
     this._returnFocus = null;
+  }
+
+  /**
+   * Highlight a place on the map: its marker, or the cluster it is in.
+   * @param {import('leaflet').Marker|null} marker - Place marker, or null to remove the highlight
+   */
+  _highlightMarker(marker) {
+    this._highlightElement?.classList.remove("marker-highlight");
+    const shown = marker && this._clusterGroup.getVisibleParent(marker);
+    this._highlightElement = shown?.getElement() || null;
+    this._highlightElement?.classList.add("marker-highlight");
   }
 
   _setSelectedMarker(marker) {

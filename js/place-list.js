@@ -54,13 +54,15 @@ export class PlaceList {
    * @param {Function} options.getBounds - Returns the map bounds the list covers
    * @param {Function} options.getOpenState - Returns the open state of a feature (true, false or null)
    * @param {Function} options.onSelect - Called with the marker of a selected entry
+   * @param {Function} [options.onHighlight] - Called with the marker of a hovered or focused entry, and with null afterwards
    */
-  constructor({ map, subgroups, container, getBounds, getOpenState, onSelect }) {
+  constructor({ map, subgroups, container, getBounds, getOpenState, onSelect, onHighlight }) {
     this._map = map;
     this._subgroups = subgroups;
     this._getBounds = getBounds;
     this._getOpenState = getOpenState;
     this._onSelect = onSelect;
+    this._onHighlight = onHighlight;
     this._frozenBounds = null;
     this._selectedMarker = null;
     // List entries by marker, reused across refreshes so unchanged entries stay in place
@@ -204,6 +206,13 @@ export class PlaceList {
     if (cuisine) {
       DomUtil.create("span", "place-list-cuisine", text).textContent = formatCuisine(cuisine);
     }
+
+    // Mouse hover and keyboard focus point the entry out on the map (touch taps open the place instead)
+    DomEvent.on(button, "pointerenter", (evt) => {
+      if (evt.pointerType === "mouse") { this._onHighlight?.(marker); }
+    });
+    DomEvent.on(button, "focus", () => this._onHighlight?.(marker));
+    DomEvent.on(button, "pointerleave blur", () => this._onHighlight?.(null));
 
     DomEvent.on(button, "click", () => {
       this.freeze(marker);

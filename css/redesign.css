@@ -913,6 +913,19 @@ body.is-updating .chip {
   background-color: rgb(27 110 63 / 20%) !important;
 }
 
+/* Place (or its cluster) of the list entry under the mouse or with keyboard focus */
+.leaflet-marker-icon.marker-highlight {
+  z-index: 100001 !important;
+  box-shadow:
+    0 0 0 3px #fff,
+    0 0 0 6px #f0a020,
+    0 6px 16px rgb(21 35 26 / 35%);
+}
+
+.marker-cluster.marker-highlight {
+  border-radius: 50%;
+}
+
 .marker-cluster div {
   font-family: var(--vk-font);
   font-weight: 700;
