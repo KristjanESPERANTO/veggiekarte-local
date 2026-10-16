@@ -351,20 +351,20 @@ export function calculatePopup(element) {
   const { feature } = element;
   const root = document.createElement("div");
 
-  // Category badge
-  const catDiv = document.createElement("div");
-  catDiv.className = `popup-category ${feature.properties.category}`;
-  catDiv.textContent = t(`texts_i18n_${feature.properties.category}`);
-  root.appendChild(catDiv);
-
-  // Title with action buttons
+  // Title (name with the category badge below it) and action buttons
   const title = document.createElement("div");
   title.className = "map-popup-title";
+  const heading = document.createElement("div");
+  heading.className = "map-popup-heading";
   const emoji = iconToEmoji[feature.properties.icon] || "";
   const titleName = document.createElement("span");
   titleName.className = "map-popup-title-name";
   titleName.textContent = `${emoji} ${feature.properties.name}`;
-  title.appendChild(titleName);
+  const catDiv = document.createElement("div");
+  catDiv.className = `popup-category ${feature.properties.category}`;
+  catDiv.textContent = t(`texts_i18n_${feature.properties.category}`);
+  heading.append(titleName, catDiv);
+  title.appendChild(heading);
 
   const actions = document.createElement("div");
   actions.className = "popup-title-actions";
