@@ -30,6 +30,8 @@ export function getShownMarkersInBounds(subgroups, map, bounds) {
 /**
  * PlaceListControl - map button that opens a sidebar listing the places in the visible map area.
  * The list follows map movements and filter changes while the sidebar is open.
+ * After an entry is selected, the list keeps the area it showed at that moment, so moving to the
+ * selected place does not replace the list; it follows the map again on the next user interaction.
  *
  * Options:
  * - subgroups: category SubGroups keyed by "mainCategory.subCategory"
@@ -62,6 +64,7 @@ export const PlaceListControl = Control.extend({
     this._updateLabels();
 
     map.on("moveend", this.refresh, this);
+    DomEvent.on(map.getContainer(), "pointerdown wheel keydown", this._releaseFrozenBounds, this);
     onLanguageChange(() => {
       this._updateLabels();
       this.refresh();
@@ -109,6 +112,7 @@ export const PlaceListControl = Control.extend({
    */
   toggle(open = !this._open) {
     this._open = open;
+    this._releaseFrozenBounds();
     this._panel.classList.toggle("visible", open);
     this._button.setAttribute("aria-expanded", String(open));
     if (open) { this.refresh(); }
@@ -136,12 +140,20 @@ export const PlaceListControl = Control.extend({
   },
 
   /**
-   * Rebuild the list for the current map area and filters (only while the sidebar is open).
+   * Let the list follow the map area again and clear the selected entry.
+   */
+  _releaseFrozenBounds() {
+    this._frozenBounds = null;
+    this._selectedMarker = null;
+  },
+
+  /**
+   * Rebuild the list for the current (or frozen) map area and filters (only while the sidebar is open).
    */
   refresh() {
     if (!this._open || !this._map) { return; }
 
-    const markers = getShownMarkersInBounds(this.options.subgroups, this._map, this._visibleBounds());
+    const markers = getShownMarkersInBounds(this.options.subgroups, this._map, this._frozenBounds || this._visibleBounds());
     this._list.replaceChildren();
 
     if (markers.length === 0) {
@@ -162,6 +174,7 @@ export const PlaceListControl = Control.extend({
   _addEntry(marker) {
     const { name, icon, category } = marker.feature.properties;
     const entry = DomUtil.create("li", "place-list-entry", this._list);
+    entry.classList.toggle("selected", marker === this._selectedMarker);
     const button = DomUtil.create("button", "", entry);
     button.type = "button";
 
@@ -174,6 +187,10 @@ export const PlaceListControl = Control.extend({
     DomUtil.create("span", "place-list-diet", text).textContent = t(`texts_i18n_${category}`);
 
     DomEvent.on(button, "click", () => {
+      this._frozenBounds ||= this._visibleBounds();
+      this._selectedMarker = marker;
+      this._list.querySelector(".place-list-entry.selected")?.classList.remove("selected");
+      entry.classList.add("selected");
       if (typeof this.options.onSelect === "function") { this.options.onSelect(marker); }
     });
   }

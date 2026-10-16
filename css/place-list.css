@@ -104,6 +104,11 @@
   background: #f4f4f4;
 }
 
+.place-list-entry.selected button {
+  background: #e3f2e3;
+  box-shadow: inset 3px 0 0 #2c7a7b;
+}
+
 /* Icon with the diet category colors (.vegan_only etc.) */
 .place-list-icon {
   flex-shrink: 0;
@@ -185,6 +190,10 @@
 :root.theme-dark .place-list-entry button:hover,
 :root.theme-dark .place-list-entry button:focus-visible {
   background: #3a3a3a;
+}
+
+:root.theme-dark .place-list-entry.selected button {
+  background: #2f4a2f;
 }
 
 :root.theme-dark .place-list-diet {
