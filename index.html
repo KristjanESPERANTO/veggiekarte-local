@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <title>Veggiekarte - Find vegetarian and vegan places</title>
     <meta charset="utf-8" />
@@ -25,7 +25,7 @@
       <!-- Info box -->
       <div id="info-overlay" class="info-overlay">
         <div id="information" class="info-modal">
-          <button id="close" class="close-button" onclick="closeInfo()" type="button"></button>
+          <button id="close" class="close-button" onclick="closeInfo()" type="button" aria-label="Close"></button>
           <div class="info-loading">
             <div id="progress">
               <div id="progress-bar"></div>
@@ -44,11 +44,11 @@
             <p id="content-further-text"></p>
             <p class="data-date-line">
               <span id="content-data-date"></span>
-              <a href="#" id="check-updates"></a>
+              <a href="#" id="check-updates">Check for updates</a>
             </p>
           </div>
           <div id="info-tutorial" hidden>
-            <button type="button" class="info-back"></button>
+            <button type="button" class="info-back">Back</button>
             <div class="info-tutorial-content"></div>
           </div>
         </div>
