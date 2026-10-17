@@ -53,7 +53,7 @@ export default {
   category_food_bar_pub: "Baarit ja pubit",
   category_food_ice_cream: "Jäätelö",
   category_food_community_meals: "Yhteisöruokalat",
-  category_food_bakery: "Leipomot",
+  category_food_bakery: "Leipomot ja konditoriat",
   category_shopping: "Ostokset",
   category_shopping_supermarket: "Supermarketit",
   category_shopping_food_shop: "Ruokakaupat",

@@ -53,7 +53,7 @@ export default {
   category_food_bar_pub: "Bares y pubs",
   category_food_ice_cream: "Heladerías",
   category_food_community_meals: "Comedores comunitarios",
-  category_food_bakery: "Panaderías",
+  category_food_bakery: "Panaderías y pastelerías",
   category_shopping: "Compras",
   category_shopping_supermarket: "Supermercados",
   category_shopping_food_shop: "Tiendas de alimentos",

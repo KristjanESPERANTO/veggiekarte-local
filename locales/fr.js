@@ -53,7 +53,7 @@ export default {
   category_food_bar_pub: "Bars et pubs",
   category_food_ice_cream: "Glaces",
   category_food_community_meals: "Repas communautaires",
-  category_food_bakery: "Boulangeries",
+  category_food_bakery: "Boulangeries et pâtisseries",
   category_shopping: "Shopping",
   category_shopping_supermarket: "Supermarchés",
   category_shopping_food_shop: "Épiceries",

@@ -53,7 +53,7 @@ export default {
   category_food_bar_pub: "Bars i pubs",
   category_food_ice_cream: "Gelats",
   category_food_community_meals: "Menjadors comunitaris",
-  category_food_bakery: "Forns",
+  category_food_bakery: "Forns i pastisseries",
   category_shopping: "Compres",
   category_shopping_supermarket: "Supermercats",
   category_shopping_food_shop: "Botigues d'alimentació",

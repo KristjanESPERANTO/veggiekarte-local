@@ -53,7 +53,7 @@ export default {
   category_food_bar_pub: "Bars & Pubs",
   category_food_ice_cream: "Ice Cream",
   category_food_community_meals: "Community meals",
-  category_food_bakery: "Bakeries",
+  category_food_bakery: "Bakeries & Pastries",
   category_shopping: "Shopping",
   category_shopping_supermarket: "Supermarkets",
   category_shopping_food_shop: "Food Shops",

@@ -53,7 +53,7 @@ export default {
   category_food_bar_pub: "Бары и пабы",
   category_food_ice_cream: "Мороженое",
   category_food_community_meals: "Социальные столовые",
-  category_food_bakery: "Пекарни",
+  category_food_bakery: "Пекарни и кондитерские",
   category_shopping: "Покупки",
   category_shopping_supermarket: "Супермаркеты",
   category_shopping_food_shop: "Продуктовые магазины",

@@ -53,7 +53,7 @@ export default {
   category_food_bar_pub: "Bar e pub",
   category_food_ice_cream: "Gelaterie",
   category_food_community_meals: "Mense comunitarie",
-  category_food_bakery: "Panetterie",
+  category_food_bakery: "Panetterie e pasticcerie",
   category_shopping: "Acquisti",
   category_shopping_supermarket: "Supermercati",
   category_shopping_food_shop: "Negozi alimentari",

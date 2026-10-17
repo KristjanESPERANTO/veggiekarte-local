@@ -53,7 +53,7 @@ export default {
   category_food_bar_pub: "Baroj kaj puboj",
   category_food_ice_cream: "Glaciaĵo",
   category_food_community_meals: "Komunumaj manĝejoj",
-  category_food_bakery: "Bakejoj",
+  category_food_bakery: "Bakejoj kaj kukejoj",
   category_shopping: "Aĉetado",
   category_shopping_supermarket: "Supermerkatoj",
   category_shopping_food_shop: "Manĝaĵbutikoj",

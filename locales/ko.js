@@ -53,7 +53,7 @@ export default {
   category_food_bar_pub: "바 및 펍",
   category_food_ice_cream: "아이스크림",
   category_food_community_meals: "무료 급식소",
-  category_food_bakery: "베이커리",
+  category_food_bakery: "베이커리 및 제과점",
   category_shopping: "쇼핑",
   category_shopping_supermarket: "슈퍼마켓",
   category_shopping_food_shop: "식품점",
