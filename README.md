@@ -21,7 +21,7 @@ There are several ways to get involved:
    1. Translate to new languages - take [locales/en.js](locales/en.js) as template.
    2. Complete translations: [locales/ko.js](locales/ko.js) is incomplete.
 4. Participate in development
-5. Write reviews for places on [https://lib.reviews/](lib.reviews)
+5. Write reviews for places on [https://lib.reviews/](https://lib.reviews/)
 
 ## Keys
 
