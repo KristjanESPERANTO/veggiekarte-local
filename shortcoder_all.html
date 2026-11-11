@@ -1,0 +1,326 @@
+<style>
+  /*****    Zentralen Inhalts-Container bei breiten Bildschirmen breiter machen     *****/
+  @media (min-width: 992px) {
+    .col-md-offset-2 {
+      margin-left: 5% !important;
+    }
+    .col-md-8 {
+      width: 90% !important;
+    }
+  }
+
+  /*****    Darstellung für normal breite Bildschirme     *****/
+  @media only screen and (min-width: 768px) {
+    /* Info- und OSM-Container nebeneinander */
+    .divContentRow {
+      display: flex;
+      flex-wrap: nowrap;
+      width: 95%;
+    }
+    /*****     Place-Info-Container     *****/
+    .divPlaceContent {
+      width: 100%;
+      border-radius: 6px 0 0 6px;
+    }
+    /*****     OSM-Container     *****/
+    .divPlaceOsmData {
+      width: 100%;
+      border-radius: 0 6px 6px 0;
+    }
+
+    /* Links in der OSM-Tabelle etwas kleiner */
+    .emojiCell ~ td > a {
+      font-size: 16px;
+    }
+  }
+
+  /*****    globale Einstellungen     *****/
+
+  /* Korrektur Ankerversatz */
+  .anchor > h4::before,
+  h2.anchor:before {
+    display: inline;
+    vertical-align: bottom !important;
+    line-height: 5em;
+    content: " ";
+  }
+  .divContentRow,
+  h2.anchor {
+    margin-bottom: -2em;
+  }
+
+  /*****     Emojis zentriert     *****/
+  .emojiCell {
+    text-align: center;
+  }
+
+  /*****     Emoji-Größe anpasse (fällt nur bei kleinen Displays auf)     *****/
+  img.emoji {
+    max-width: 400%;
+  }
+
+  /*****     Zellen ohne Rand     *****/
+  table > tbody > tr {
+    border-bottom: 0px solid #eee !important;
+  }
+
+  /*****     Place-Info-Container     *****/
+  .divPlaceContent {
+    background-color: #f8f8f8;
+    padding: 20px;
+  }
+
+  /*****     OSM-Container     *****/
+  .divPlaceOsmData {
+    background-color: #f0f0f0;
+    padding: 20px;
+  }
+
+  /*****     OSM-Überschrift     *****/
+  .osmHead {
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+  }
+
+  /*****    Darstellung für schmale Bildschirme     *****/
+  @media only screen and (max-width: 768px) {
+    /* Runde Ecken */
+    .divPlaceContent {
+      border-radius: 6px 6px 0 0;
+    }
+    .divPlaceOsmData {
+      border-radius: 0 0 6px 6px;
+    }
+  }
+</style>
+
+<div id="stadtkarte"></div>
+
+<script>
+  // URLs to the json files (places.json lists the places, place_details.json has address and contact data from OSM).
+  const url = "https://www.vegan-in-halle.de/map/veggiekarte-halle/data/places.json";
+  const detailsUrl = "https://www.vegan-in-halle.de/map/veggiekarte-halle/data/place_details.json";
+  // Detail pages are child pages of this page (the Stadtkarte page itself).
+  const detailPagesUrl = "https://www.vegan-in-halle.de/wp/wp-json/wp/v2/pages?parent=28&per_page=100&_fields=slug,title,link,content";
+
+  // Function to load a json file; the list still works without it, only the OSM data is missing then.
+  const fetchJson = async (jsonUrl, fallback) => {
+    try {
+      const response = await fetch(jsonUrl);
+      if (!response.ok) throw new Error(`HTTP error ${response.status}`);
+      return await response.json();
+    } catch (error) {
+      console.error(`Request for ${jsonUrl} failed:`, error);
+      return fallback;
+    }
+  };
+
+  // The page grows when the places are filled in, so the browser's first jump to the anchor ends up at the wrong place.
+  const scrollToHash = () => {
+    if (location.hash) document.getElementById(decodeURIComponent(location.hash.slice(1)))?.scrollIntoView();
+  };
+
+  // Function to get the detail pages and the OSM data in parallel and build the list of places.
+  const fetchOsmData = async () => {
+    const [data, details, detailPages] = await Promise.all([fetchJson(url, { features: [] }), fetchJson(detailsUrl, {}), fetchDetailPages()]);
+    renderPlaces(data, details, detailPages);
+    scrollToHash();
+  };
+
+  // Small helper for timeout-controlled fetch
+  const fetchWithTimeout = (fetchUrl, options = {}, timeoutMs = 8000) => {
+    const controller = new AbortController();
+    const id = setTimeout(() => controller.abort(), timeoutMs);
+    return fetch(fetchUrl, { ...options, signal: controller.signal }).finally(() => clearTimeout(id));
+  };
+
+  // Function to get all detail pages with their texts (one request per 100 pages).
+  const fetchDetailPages = async () => {
+    const pages = [];
+    try {
+      for (let page = 1, totalPages = 1; page <= totalPages; page++) {
+        const response = await fetchWithTimeout(`${detailPagesUrl}&page=${page}`, {}, 10000);
+        if (!response.ok) throw new Error(`HTTP error ${response.status}`);
+        totalPages = Number(response.headers.get("X-WP-TotalPages")) || 1;
+        pages.push(...(await response.json()));
+      }
+    } catch (error) {
+      console.error("Request for detail pages failed:", error);
+    }
+    return pages;
+  };
+
+  // Escape text for use in HTML (OSM data can be edited by anyone)
+  const escapeHtml = (text) => String(text).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+
+  // Function to build OSM data HTML from the place details
+  const buildOsmDataHtml = (place, details) => {
+    let osmData = '<div class="osmHead"><a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap-Daten ©</a></div>';
+    osmData += "<table><tbody>";
+
+    // ######## Address ########
+    const { street, housenumber, city } = details;
+
+    if (street) {
+      let addressText = street;
+      if (housenumber) addressText += " " + housenumber;
+      // Add city if it's not Halle
+      if (city && city !== "Halle (Saale)" && city !== "Halle") {
+        addressText += ", " + city;
+      }
+      osmData += `<tr><td class="emojiCell">📍</td><td><a rel="noreferrer noopener" href="https://www.openstreetmap.org/?mlat=${place.geometry.coordinates[1]}&mlon=${place.geometry.coordinates[0]}#map=18/${place.geometry.coordinates[1]}/${place.geometry.coordinates[0]}" target="_blank">${escapeHtml(addressText)}</a></td></tr>`;
+    }
+
+    // ######## Website ########
+    const { website } = details;
+    if (website) {
+      const displayUrl = website.replace(/^https?:\/\//, "").replace(/\/$/, "");
+      const websiteHref = /^https?:\/\//i.test(website) ? website : `https://${website}`;
+      osmData += `<tr><td class="emojiCell">🌐</td><td><a rel="noreferrer noopener" href="${escapeHtml(websiteHref)}" target="_blank">${escapeHtml(displayUrl)}</a></td></tr>`;
+    }
+
+    // ######## Facebook ########
+    const { facebook } = details;
+    if (facebook) {
+      const fbName = facebook.replace(/^https?:\/\/(www\.)?facebook\.com\//, "").replace(/\/$/, "");
+      const fbHref = facebook.startsWith("http") ? facebook : `https://www.facebook.com/${facebook}`;
+      osmData += `<tr><td class="emojiCell">🇫</td><td><a rel="noreferrer noopener" href="${escapeHtml(fbHref)}" target="_blank">${escapeHtml(fbName)}</a></td></tr>`;
+    }
+
+    // ######## Instagram ########
+    const { instagram } = details;
+    if (instagram) {
+      const igName = instagram.replace(/^https?:\/\/(www\.)?instagram\.com\//, "").replace(/\/$/, "");
+      const igHref = instagram.startsWith("http") ? instagram : `https://www.instagram.com/${instagram}`;
+      osmData += `<tr><td class="emojiCell">📸</td><td><a rel="noreferrer noopener" href="${escapeHtml(igHref)}" target="_blank">${escapeHtml(igName)}</a></td></tr>`;
+    }
+
+    // ######## Telephone ########
+    const { phone } = details;
+    if (phone) {
+      osmData += `<tr><td class="emojiCell">☎️</td><td><a href="tel:${escapeHtml(phone.replace(/\s/g, ""))}">${escapeHtml(phone)}</a></td></tr>`;
+    }
+
+    // ######## Email ########
+    const { email } = details;
+    if (email) {
+      osmData += `<tr><td class="emojiCell">✉️</td><td><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></td></tr>`;
+    }
+
+    // ######## Opening Hours ########
+    const openingHours = details.opening_hours;
+    if (openingHours) {
+      const formattedHours = escapeHtml(openingHours)
+        .replace(/Mo/g, "Mo")
+        .replace(/Tu/g, "Di")
+        .replace(/We/g, "Mi")
+        .replace(/Th/g, "Do")
+        .replace(/Fr/g, "Fr")
+        .replace(/Sa/g, "Sa")
+        .replace(/Su/g, "So")
+        .replace(/PH/g, "Feiertag")
+        .replace(/off/g, "geschlossen")
+        .replace(/, /g, "<br />")
+        .replace(/,/g, ", ")
+        .replace(/; /g, "<br />");
+      osmData += `<tr><td class="emojiCell">🕐</td><td>${formattedHours}</td></tr>`;
+    }
+
+    osmData += "</tbody></table>";
+    return osmData;
+  };
+
+  // Sections of the list in page order. A place goes into the first section whose test matches its OSM data.
+  const sections = [
+    { id: "allesvegan", title: "alles vegan", test: (place) => place.category === "vegan_only" },
+    {
+      id: "essen",
+      title: "Restaurants, Imbisse und Bars",
+      test: (place) => ["restaurant", "restaurant-pizza", "fast_food", "bar", "pub", "soup_kitchen", "bbq"].includes(place.icon)
+    },
+    { id: "cafes", title: "Cafés und Bäckereien", test: (place) => ["cafe", "ice_cream", "bakery"].includes(place.icon) },
+    { id: "laeden", title: "Läden mit vielen veganen Produkten", test: (place) => ["convenience", "supermarket", "shop", "greengrocer", "alcohol"].includes(place.icon) },
+    // Also takes the places that are not in the OSM data (yet)
+    { id: "sonstige", title: "Sonstige", test: () => true }
+  ];
+
+  // The OSM ID of a place is part of its detail page: placeId = "node_123" in the place data script (older versions of it compare it with the OSM data).
+  const getOsmId = (detailPage) => {
+    const content = detailPage.content.rendered;
+    const match = content.match(/placeId\s*=\W{0,12}?(node|way|relation)_(\d+)/) || content.match(/\b(node|way|relation)_(\d+)\b/);
+    return match ? { type: match[1], id: match[2] } : null;
+  };
+
+  const decodeHtml = (html) => new DOMParser().parseFromString(html, "text/html").documentElement.textContent;
+
+  // Function to build the container of a place; the OSM data is only added if the place is in the OSM data.
+  const createPlaceContainer = ({ detailPage, osm, title, feature }, details) => {
+    const container = document.createElement("div");
+    container.className = "anchor";
+    container.id = `${osm.type}${osm.id}`;
+    container.innerHTML = '<h4></h4><div class="divContentRow"><div class="divPlaceContent"></div><div class="divPlaceOsmData"></div></div>';
+    container.querySelector("h4").textContent = title;
+    const osmContainer = container.querySelector(".divPlaceOsmData");
+    appendHtmlData(detailPage, container.querySelector(".divPlaceContent"));
+
+    if (feature) {
+      osmContainer.innerHTML = buildOsmDataHtml(feature, details[osm.type]?.[osm.id] || {});
+    } else {
+      osmContainer.hidden = true;
+    }
+    return container;
+  };
+
+  // Function to put the table of contents, the sections and the places to the page.
+  const renderPlaces = (data, details, detailPages) => {
+    const root = document.getElementById("stadtkarte");
+    const features = new Map(data.features.map((feature) => [`${feature.properties._type}${feature.properties._id}`, feature]));
+    const placesBySection = new Map(sections.map((section) => [section, []]));
+
+    detailPages.forEach((detailPage) => {
+      const osm = getOsmId(detailPage);
+      if (!osm) {
+        console.warn(`Keine OSM-ID auf der Detailseite ${detailPage.slug}.`);
+        return;
+      }
+      const feature = features.get(`${osm.type}${osm.id}`);
+      if (!feature) console.warn(`Kein Datensatz für ${osm.type}${osm.id} (${detailPage.slug}).`);
+
+      const section = sections.find((candidate) => candidate.test(feature?.properties || {}));
+      placesBySection.get(section).push({ detailPage, osm, title: decodeHtml(detailPage.title.rendered), feature });
+    });
+
+    const usedSections = sections.filter((section) => placesBySection.get(section).length > 0);
+    if (usedSections.length === 0) {
+      root.textContent = "Die Orte konnten leider nicht geladen werden.";
+      return;
+    }
+
+    const separator = '<hr class="wp-block-separator has-css-opacity is-style-wide" />';
+    root.innerHTML = `${separator}<h2 class="wp-block-heading">Kategorien</h2><ul class="wp-block-list">${usedSections.map((section) => `<li><a href="#${section.id}">${section.title}</a></li>`).join("")}</ul>`;
+    usedSections.forEach((section) => {
+      root.insertAdjacentHTML("beforeend", `${separator}<h2 id="${section.id}" class="wp-block-heading anchor">${section.title}</h2>`);
+      placesBySection
+        .get(section)
+        .sort((a, b) => a.title.localeCompare(b.title, "de"))
+        .forEach((place) => root.append(createPlaceContainer(place, details)));
+    });
+  };
+
+  // Function to put the text of the places page to the Stadtkarte page.
+  const appendHtmlData = (detailPage, infoCell) => {
+    // Only the text before the "more" mark belongs to the Stadtkarte
+    let al = detailPage.content.rendered.split("<!--more-->")[0];
+    al += `<div><a href="${escapeHtml(detailPage.link)}">ℹ️ » Detailseite «</a></div>`;
+
+    infoCell.innerHTML = al;
+    // Pages without a "more" mark still contain the place data block of their own page
+    infoCell.querySelectorAll("style, script, .divPlaceOsmData").forEach((element) => element.remove());
+  };
+
+  fetchOsmData();
+</script>
+
+<!-- Abstand zum Footer -->
+<div><br /><br /><br /></div>

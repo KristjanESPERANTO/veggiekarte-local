@@ -149,7 +149,7 @@ export class Sidebar {
   _createLegend() {
     this._legend = DomUtil.create("div", "map-legend", document.body);
     this._legend.setAttribute("aria-hidden", "true");
-    this._legendItems = DIET_ORDER.map((diet) => {
+    this._legendItems = DIET_ORDER.filter(diet => diet !== "vegetarian_friendly").map((diet) => {
       const item = DomUtil.create("span", "map-legend-item", this._legend);
       DomUtil.create("span", `diet-swatch ${diet}`, item);
       const label = DomUtil.create("span", "", item);

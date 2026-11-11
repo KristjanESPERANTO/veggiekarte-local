@@ -34,6 +34,9 @@ else:
 with open(CONFIG_FILE) as f:
     CONFIG = json.load(f)
 
+# Places with a link to the local site, as (OSM type, OSM id)
+MORE_INFO_PLACES = {(place["type"], place["id"]) for place in CONFIG["localSiteMoreInfoIds"]}
+
 # Read version from package.json for the User-Agent header
 _PACKAGE_JSON = Path(__file__).parent / "package.json"
 with open(_PACKAGE_JSON) as f:
@@ -75,6 +78,7 @@ VEGGIEPLACES_OLDFILE = DATA_DIR / "places_old.json"            # previous versio
 OVERPASS_FILE = DATA_DIR / "overpass.json"                     # the raw overpass output file (useful for later use)
 POSTPASS_FILE = DATA_DIR / "postpass.json"                     # the raw postpass output file (useful for later use)
 OPENING_HOURS_FILE = DATA_DIR / "opening_hours.json"           # opening hours data for filtering
+PLACE_DETAILS_FILE = DATA_DIR / "place_details.json"           # address and contact data for the local site (shortcoder_all.html)
 
 # variables to handle the json data
 stat_data = {}
@@ -176,6 +180,19 @@ def determine_icon(tags):
             icon = icon_name
             break
     return icon
+
+
+def determine_category(tags):
+    """Determine the diet category of a place."""
+    if tags.get("diet:vegan", "") == "only":
+        return "vegan_only"
+    if tags.get("diet:vegetarian", "") == "only" and tags.get("diet:vegan", "") == "yes":
+        return "vegetarian_only"
+    if tags.get("diet:vegan", "") == "yes":
+        return "vegan_friendly"
+    if tags.get("diet:vegan", "") == "limited":
+        return "vegan_limited"
+    return "vegetarian_friendly"
 
 
 def build_overpass_query():
@@ -424,11 +441,7 @@ def write_data(data):
     places_data = {}
 
     # Initialize variables to count the markers
-    n_vegan_only = 0
-    n_vegetarian_only = 0
-    n_vegan_friendly = 0
-    n_vegan_limited = 0
-    n_vegetarian_friendly = 0
+    category_counts = {"vegan_only": 0, "vegetarian_only": 0, "vegan_friendly": 0, "vegan_limited": 0, "vegetarian_friendly": 0}
 
     # Adding timestamp
     places_data["_timestamp"] = TIMESTAMP
@@ -475,7 +488,7 @@ def write_data(data):
         place_obj["properties"]["icon"] = icon
 
         # Add "more_info" flag if element is in the config list
-        if CONFIG["localSiteEnabled"] and element_id in CONFIG["localSiteMoreInfoIds"]:
+        if CONFIG["localSiteEnabled"] and (element_type, element_id) in MORE_INFO_PLACES:
             place_obj["properties"]["more_info"] = True
 
         # Get a name
@@ -500,22 +513,9 @@ def write_data(data):
         print(osm_element_index, " / ", osm_elements_number, "\t", end="\r")
 
         # Give the object a category
-        if tags.get("diet:vegan", "") == "only":
-            place_obj["properties"]["category"] = "vegan_only"
-            n_vegan_only += 1
-        elif (tags.get("diet:vegetarian", "") == "only"
-              and tags.get("diet:vegan", "") == "yes"):
-            place_obj["properties"]["category"] = "vegetarian_only"
-            n_vegetarian_only += 1
-        elif tags.get("diet:vegan", "") == "yes":
-            place_obj["properties"]["category"] = "vegan_friendly"
-            n_vegan_friendly += 1
-        elif tags.get("diet:vegan", "") == "limited":
-            place_obj["properties"]["category"] = "vegan_limited"
-            n_vegan_limited += 1
-        else:
-            place_obj["properties"]["category"] = "vegetarian_friendly"
-            n_vegetarian_friendly += 1
+        category = determine_category(tags)
+        place_obj["properties"]["category"] = category
+        category_counts[category] += 1
 
         # Cuisine is shown in the place list. Further details (contacts, opening hours,
         # descriptions, menu) are omitted to keep the base dataset small; they are
@@ -531,11 +531,11 @@ def write_data(data):
     # Collect the statistic data in an object and add it to the places object
     stat_obj = {
         "date": DATE,
-        "n_vegan_only": n_vegan_only,
-        "n_vegetarian_only": n_vegetarian_only,
-        "n_vegan_friendly": n_vegan_friendly,
-        "n_vegan_limited": n_vegan_limited,
-        "n_vegetarian_friendly": n_vegetarian_friendly,
+        "n_vegan_only": category_counts["vegan_only"],
+        "n_vegetarian_only": category_counts["vegetarian_only"],
+        "n_vegan_friendly": category_counts["vegan_friendly"],
+        "n_vegan_limited": category_counts["vegan_limited"],
+        "n_vegetarian_friendly": category_counts["vegetarian_friendly"],
     }
 
     # Check if the local statistic file exists
@@ -650,6 +650,66 @@ def write_opening_hours(osm_data):
     return opening_hours
 
 
+def write_place_details(osm_data):
+    """Extract address and contact data from OSM data and write to JSON file."""
+    # Each output field with the OSM tags it is read from (first match wins)
+    detail_tags = {
+        "street": ["addr:street"],
+        "housenumber": ["addr:housenumber"],
+        "city": ["addr:city"],
+        "website": ["website", "contact:website"],
+        "facebook": ["contact:facebook"],
+        "instagram": ["contact:instagram"],
+        "phone": ["phone", "contact:phone"],
+        "email": ["email", "contact:email"],
+        "opening_hours": ["opening_hours"],
+        "menu": ["website:menu", "menu:url"],
+        "check_date": ["check_date"],
+    }
+    # Symbols on the detail page: name, OSM tag and the tag values that switch it on
+    feature_tags = {
+        "wheelchair": ("wheelchair", ("yes",)),
+        "wheelchair_limited": ("wheelchair", ("limited",)),
+        "outdoor_seating": ("outdoor_seating", ("yes",)),
+        "takeaway": ("takeaway", ("yes", "only")),
+        "delivery": ("delivery", ("yes",)),
+        "gluten_free": ("diet:gluten_free", ("yes", "only")),
+    }
+    details = {
+        "node": {},
+        "way": {},
+        "relation": {}
+    }
+    total_count = 0
+
+    for element in osm_data.get("elements", []):
+        element_id = element.get("id")
+        element_type = element.get("type")
+        tags = element.get("tags", {})
+        if not element_id or element_type not in details:
+            continue
+
+        # Way and relation elements carry their coordinates in "center"
+        position = element.get("center", element)
+        place_details = {"lat": position.get("lat"), "lon": position.get("lon"), "category": determine_category(tags)}
+        for field, keys in detail_tags.items():
+            value = next((tags[key] for key in keys if tags.get(key)), None)
+            if value:
+                place_details[field] = value
+        features = [name for name, (key, values) in feature_tags.items() if tags.get(key) in values]
+        if features:
+            place_details["features"] = features
+
+        details[element_type][str(element_id)] = place_details
+        total_count += 1
+
+    print(f"Writing {total_count} place details to {PLACE_DETAILS_FILE}")
+    PLACE_DETAILS_FILE.touch()
+    PLACE_DETAILS_FILE.write_text(
+        json.dumps(details, indent=None, separators=(",", ":"), ensure_ascii=False, sort_keys=True)
+    )
+
+
 def main():
     """Call the functions to get and write the osm data."""
     # Get data
@@ -673,6 +733,10 @@ def main():
 
         # Write opening hours data
         write_opening_hours(osm_data)
+
+        # The local site shows address and contact data from this file instead of querying Nominatim
+        if CONFIG["localSiteEnabled"]:
+            write_place_details(osm_data)
 
         # Write file in pretty format
         VEGGIEPLACES_TEMPFILE.touch()

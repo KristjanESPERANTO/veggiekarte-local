@@ -137,12 +137,13 @@ function initInfoTutorials() {
 }
 
 /**
- * Show info modal on startup and set up backdrop click handler.
+ * Set up the backdrop click handler and optionally show the info modal on startup.
+ * @param {boolean} [open] - Open the info box right away
  */
-function showInfoOnStartup() {
+function showInfoOnStartup(open = true) {
   const overlay = document.getElementById("info-overlay");
   if (overlay) {
-    openInfo();
+    if (open) { openInfo(); }
     // Close on backdrop click
     overlay.addEventListener("click", (evt) => {
       if (evt.target === overlay) { closeInfo(); }

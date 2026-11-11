@@ -179,14 +179,12 @@ async function veggiemap() {
   // Capture marker permalink before map movements overwrite it
   const pendingMarkerHash = parseMarkerHash();
 
-  // Show the info box during initial loading so progress stays visible
-  // Skip if a marker permalink is active — the popup will open instead
   initDialog(document.getElementById("info-overlay"), document.getElementById("information"), {
     close: closeInfo,
     getLabelElement: () => document.getElementById("content-welcome-heading")
   });
   initInfoTutorials();
-  if (!pendingMarkerHash) { showInfoOnStartup(); }
+  showInfoOnStartup(false);
 
   // Load the places and put them on the map
   veggiemapPopulate(pendingMarkerHash);

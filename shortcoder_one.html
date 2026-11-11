@@ -1,0 +1,244 @@
+<style>
+  /*****     OSM-Container     *****/
+  .divPlaceOsmData {
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    background-color: #f0f0f0;
+  }
+
+  /*****     OSM-Überschrift     *****/
+  .osmHead {
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+  }
+
+  /*****     Links in der OSM-Tabelle etwas kleiner     *****/
+  .emojiCell ~ td > a {
+    font-size: 14px;
+  }
+
+  /*****     Emojis zentriert     *****/
+  .emojiCell {
+    text-align: center;
+  }
+
+  /*****     Zellen ohne Rand     *****/
+  table > tbody > tr {
+    border-bottom: 0px solid #eee !important;
+  }
+
+  /*****     Kategorie und Eigenschaften     *****/
+  .osmChips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 12px;
+  }
+  .osmBadge,
+  .osmChip {
+    padding: 2px 10px;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    background-color: #fff;
+    font-size: 14px;
+  }
+  /* Farben wie in der Legende der Karte */
+  .osmBadge.vegan_only {
+    background: #050;
+    border-color: #172;
+    color: #fff;
+  }
+  .osmBadge.vegetarian_only {
+    background: #181;
+    border-color: #181;
+    color: #fff;
+  }
+  .osmBadge.vegan_friendly {
+    background: #00bc00;
+    border-color: #00bc00;
+  }
+  .osmBadge.vegan_limited {
+    background: #afa;
+    border-color: seagreen;
+  }
+  .osmBadge.vegetarian_friendly {
+    background: #fff;
+    border-color: #181;
+  }
+
+  /*****     Links und Stand     *****/
+  .osmLinks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px 16px;
+    margin-top: 12px;
+    font-size: 14px;
+  }
+  .osmDate {
+    margin-top: 8px;
+    text-align: center;
+    font-size: 12px;
+    color: #777;
+  }
+</style>
+
+<div class="divPlaceOsmData"></div>
+
+<script>
+  // URL to the json file with the address and contact data of all places (written by refresh.py).
+  const detailsUrl = "https://www.vegan-in-halle.de/map/veggiekarte-halle/data/place_details.json";
+
+  // The shortcode parameter (type and ID, joined by an underscore). The overview page reads the OSM ID from this line, so keep it.
+  const placeId = "%%id%%";
+
+  const osmHead = '<div class="osmHead"><a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap-Daten ©</a></div>';
+
+  // Escape text for use in HTML (OSM data can be edited by anyone)
+  const escapeHtml = (text) => String(text).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+
+  // Links in OSM are sometimes missing the scheme
+  const toHref = (link) => (/^https?:\/\//i.test(link) ? link : `https://${link}`);
+
+  const categoryLabels = {
+    vegan_only: "alles vegan",
+    vegetarian_only: "rein vegetarisch und vegan",
+    vegan_friendly: "vegan-freundlich",
+    vegan_limited: "eingeschränkt vegan",
+    vegetarian_friendly: "vegetarisch-freundlich"
+  };
+
+  const featureLabels = {
+    wheelchair: "♿ rollstuhlgerecht",
+    wheelchair_limited: "♿ eingeschränkt rollstuhlgerecht",
+    outdoor_seating: "☀️ Außensitzplätze",
+    takeaway: "🥡 zum Mitnehmen",
+    delivery: "🛵 Lieferservice",
+    gluten_free: "🌾 glutenfreie Optionen"
+  };
+
+  // OSM dates are "2026-03-12" or "2026-03"; anything else is shown as it is
+  const formatDate = (date) => (/^\d{4}-\d{2}/.test(date) ? new Date(date).toLocaleDateString("de-DE", { month: "long", year: "numeric", timeZone: "UTC" }) : date);
+
+  // Function to build OSM data HTML from the place details
+  const buildOsmDataHtml = (details, osmType, osmId) => {
+    let osmData = osmHead + "<table><tbody>";
+
+    // ######## Address ########
+    const { street, housenumber, city } = details;
+    if (street) {
+      let addressText = street;
+      if (housenumber) addressText += " " + housenumber;
+      // Add city if it's not Halle
+      if (city && city !== "Halle (Saale)" && city !== "Halle") {
+        addressText += ", " + city;
+      }
+      osmData += `<tr><td class="emojiCell">📍</td><td><a rel="noreferrer noopener" href="https://www.openstreetmap.org/?mlat=${details.lat}&mlon=${details.lon}#map=18/${details.lat}/${details.lon}" target="_blank">${escapeHtml(addressText)}</a></td></tr>`;
+    }
+
+    // ######## Website ########
+    const { website } = details;
+    if (website) {
+      const displayUrl = website.replace(/^https?:\/\//, "").replace(/\/$/, "");
+      osmData += `<tr><td class="emojiCell">🌐</td><td><a rel="noreferrer noopener" href="${escapeHtml(toHref(website))}" target="_blank">${escapeHtml(displayUrl)}</a></td></tr>`;
+    }
+
+    // ######## Menu ########
+    const { menu } = details;
+    if (menu) {
+      osmData += `<tr><td class="emojiCell">📖</td><td><a rel="noreferrer noopener" href="${escapeHtml(toHref(menu))}" target="_blank">Speisekarte</a></td></tr>`;
+    }
+
+    // ######## Facebook ########
+    const { facebook } = details;
+    if (facebook) {
+      const fbName = facebook.replace(/^https?:\/\/(www\.)?facebook\.com\//, "").replace(/\/$/, "");
+      const fbHref = facebook.startsWith("http") ? facebook : `https://www.facebook.com/${facebook}`;
+      osmData += `<tr><td class="emojiCell">🇫</td><td><a rel="noreferrer noopener" href="${escapeHtml(fbHref)}" target="_blank">${escapeHtml(fbName)}</a></td></tr>`;
+    }
+
+    // ######## Instagram ########
+    const { instagram } = details;
+    if (instagram) {
+      const igName = instagram.replace(/^https?:\/\/(www\.)?instagram\.com\//, "").replace(/\/$/, "");
+      const igHref = instagram.startsWith("http") ? instagram : `https://www.instagram.com/${instagram}`;
+      osmData += `<tr><td class="emojiCell">📸</td><td><a rel="noreferrer noopener" href="${escapeHtml(igHref)}" target="_blank">${escapeHtml(igName)}</a></td></tr>`;
+    }
+
+    // ######## Telephone ########
+    const { phone } = details;
+    if (phone) {
+      osmData += `<tr><td class="emojiCell">☎️</td><td><a href="tel:${escapeHtml(phone.replace(/\s/g, ""))}">${escapeHtml(phone)}</a></td></tr>`;
+    }
+
+    // ######## Email ########
+    const { email } = details;
+    if (email) {
+      osmData += `<tr><td class="emojiCell">✉️</td><td><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></td></tr>`;
+    }
+
+    // ######## Opening Hours ########
+    const openingHours = details.opening_hours;
+    if (openingHours) {
+      const formattedHours = escapeHtml(openingHours)
+        .replace(/Mo/g, "Mo")
+        .replace(/Tu/g, "Di")
+        .replace(/We/g, "Mi")
+        .replace(/Th/g, "Do")
+        .replace(/Fr/g, "Fr")
+        .replace(/Sa/g, "Sa")
+        .replace(/Su/g, "So")
+        .replace(/PH/g, "Feiertag")
+        .replace(/off/g, "geschlossen")
+        .replace(/, /g, "<br />")
+        .replace(/,/g, ", ")
+        .replace(/; /g, "<br />");
+      osmData += `<tr><td class="emojiCell">🕐</td><td>${formattedHours}</td></tr>`;
+    }
+
+    osmData += "</tbody></table>";
+
+    const chips = [];
+    if (categoryLabels[details.category]) chips.push(`<span class="osmBadge ${details.category}">${categoryLabels[details.category]}</span>`);
+    (details.features || []).forEach((feature) => {
+      if (featureLabels[feature]) chips.push(`<span class="osmChip">${featureLabels[feature]}</span>`);
+    });
+    if (chips.length > 0) osmData += `<div class="osmChips">${chips.join("")}</div>`;
+
+    const routeParam = encodeURIComponent(`;${details.lat},${details.lon}`);
+    osmData += '<div class="osmLinks">';
+    osmData += `<a href="https://map.vegan-in-halle.de/#${osmType}/${osmId}">Auf der Karte zeigen</a>`;
+    osmData += `<a rel="noreferrer noopener" href="https://www.openstreetmap.org/directions?route=${routeParam}" target="_blank">Route planen</a>`;
+    osmData += `<a rel="noreferrer noopener" href="https://www.openstreetmap.org/${osmType}/${osmId}" target="_blank">In OpenStreetMap verbessern</a>`;
+    osmData += "</div>";
+    if (details.check_date) osmData += `<div class="osmDate">Zuletzt geprüft: ${escapeHtml(formatDate(details.check_date))}</div>`;
+
+    return osmData;
+  };
+
+  // Function to put the data of the place from the json file to the page.
+  const fetchOsmData = async () => {
+    const container = document.getElementsByClassName("divPlaceOsmData")[0];
+    let message = "Daten konnten nicht geladen werden.";
+    try {
+      const response = await fetch(detailsUrl);
+      if (!response.ok) throw new Error(`HTTP error ${response.status}`);
+      const [type, id] = placeId.split("_");
+      const details = (await response.json())[type]?.[id];
+      if (details) {
+        container.innerHTML = buildOsmDataHtml(details, type, id);
+        return;
+      }
+      // New places are in the data after the next refresh
+      message = "Für diesen Ort gibt es noch keine Daten.";
+    } catch (error) {
+      console.error("Request failed", error);
+    }
+    container.innerHTML = `${osmHead}<p>${message}</p>`;
+  };
+
+  fetchOsmData();
+</script>
