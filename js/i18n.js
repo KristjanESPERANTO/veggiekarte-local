@@ -148,11 +148,6 @@ function updateContent() {
     document.locateControl.options.strings.metersUnit = t("leaflet_L_control_locate_meter");
     document.locateControl.options.strings.popup = t("leaflet_L_control_locate_distance");
   }
-  if (document.fullscreenControl) {
-    document.fullscreenControl.link.title = t("leaflet_L_control_fullscreen_fullscreen");
-    document.fullscreenControl.options.title = t("leaflet_L_control_fullscreen_fullscreen");
-    document.fullscreenControl.options.titleCancel = t("leaflet_L_control_fullscreen_exitFullscreen");
-  }
 
   // Language selector control
   const langButton = document.querySelector(".leaflet-control-languageselector-button");

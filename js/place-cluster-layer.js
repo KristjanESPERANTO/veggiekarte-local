@@ -157,7 +157,7 @@ export class PlaceClusterLayer {
     const { lat, lng } = place.getLatLng();
     // The index stores rounded (32-bit) coordinates, so the search box is a few meters wide
     const delta = 1e-4;
-    return this._index.getClusters([lng - delta, lat - delta, lng + delta, lat + delta], zoom).includes(place);
+    return this._index.getClusters([lng - delta, lat - delta, lng + delta, lat + delta], zoom).some(item => item.properties.place === place);
   }
 
   _render() {
@@ -170,7 +170,7 @@ export class PlaceClusterLayer {
     const wanted = new Map();
     items.forEach((item) => {
       if (item.properties?.cluster) { wanted.set(`c${item.properties.cluster_id}`, item); }
-      else { wanted.set(item, item); }
+      else { wanted.set(item.properties.place, item.properties.place); }
     });
     this._rendered.forEach((marker, key) => {
       if (!wanted.has(key)) {
@@ -220,9 +220,6 @@ export class PlaceClusterLayer {
       this._map.setView(marker.getLatLng(), zoom);
     };
     marker.on("click", zoomIn);
-    marker.on("keypress", (evt) => {
-      if (evt.originalEvent.code === "Enter") { zoomIn(); }
-    });
     marker.on("add", () => {
       const element = marker.getElement();
       element.setAttribute("role", "button");
@@ -249,6 +246,6 @@ export class PlaceClusterLayer {
     const clusters = [...this._rendered.values()]
       .filter(marker => marker.clusterId !== undefined && marker.pointCount <= MAX_SEARCHED_CLUSTER_SIZE)
       .sort((markerA, markerB) => map.latLngToLayerPoint(markerA.getLatLng()).distanceTo(point) - map.latLngToLayerPoint(markerB.getLatLng()).distanceTo(point));
-    return clusters.find(marker => this._index.getLeaves(marker.clusterId, Infinity).includes(place)) || null;
+    return clusters.find(marker => this._index.getLeaves(marker.clusterId, Infinity).some(leaf => leaf.properties.place === place)) || null;
   }
 }

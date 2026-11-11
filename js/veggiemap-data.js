@@ -29,6 +29,8 @@ class Place {
   constructor(feature) {
     this.feature = feature;
     this.geometry = feature.geometry;
+    // Supercluster returns only geometry and properties of a single point, so the place is found again through these
+    this.properties = { place: this };
     this.dietType = feature.properties.category;
     this.categoryInfo = getCategoryForIcon(feature.properties.icon);
   }
@@ -58,9 +60,6 @@ export function createPlaceMarker(place) {
   marker.on("click", () => {
     marker.closeTooltip();
     if (placeClickHandler) { placeClickHandler(place); }
-  });
-  marker.on("keypress", (evt) => {
-    if (evt.originalEvent.code === "Enter" && placeClickHandler) { placeClickHandler(place); }
   });
 
   // Set aria-label when marker is added to map (for screen readers)
