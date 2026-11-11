@@ -9,9 +9,10 @@ export class ZoomRadiusSupercluster extends Supercluster {
     this._radiusForZoom = radiusForZoom;
   }
 
-  _cluster(tree, zoom) {
+  _cluster(data, ...clusterArgs) {
+    const [, zoom] = clusterArgs;
     this.options.radius = this._radiusForZoom(zoom);
-    return super._cluster(tree, zoom);
+    return super._cluster(data, ...clusterArgs);
   }
 
   getChildren(clusterId) {
