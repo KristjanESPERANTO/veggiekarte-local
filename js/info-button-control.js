@@ -12,13 +12,13 @@ import { t } from "./i18n.js";
  * - Inner element gets the CSS class `info-button` (existing styles apply).
  * - Title/ARIA can be set by i18n.js after creation (keeps current behavior).
  */
-const InfoButton = Control.extend({
-  options: {
+class InfoButton extends Control {
+  static defaultOptions = {
     position: "topright",
     onClick: null, // Function (evt)
     ariaLabel: "Info",
     contentHtml: null // Optional inner HTML (defaults to <div class="info-button"></div>)
-  },
+  };
 
   onAdd(map) {
     const container = DomUtil.create("div", "leaflet-bar");
@@ -46,7 +46,7 @@ const InfoButton = Control.extend({
 
     return container;
   }
-});
+}
 
 /**
  * Open the Info box.

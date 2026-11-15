@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 
-import { Control, Icon, LatLng, LayerGroup, Map, Marker, TileLayer } from "leaflet";
+import { DefaultIcon, LatLng, LayerGroup, LayersControl, Map, Marker, TileLayer, ZoomControl } from "leaflet";
 import { InfoButton, openInfo, showInfoOnStartup } from "./info-button-control.js";
 import { PlaceClusterLayer, clusterRadiusForZoom } from "./place-cluster-layer.js";
 import { Geocoder } from "leaflet-control-geocoder";
@@ -42,8 +42,7 @@ function applyIssueFilter() {
 
 function veggiemap() {
   // Provide inline SVG defaults to decouple from external marker assets
-  delete Icon.Default.prototype._getIconUrl;
-  Icon.Default.mergeOptions({
+  DefaultIcon.mergeOptions({
     iconRetinaUrl: "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2728%27%20height%3D%2741%27%20viewBox%3D%270%200%2028%2041%27%3E%3Cpath%20fill%3D%27%232c7a7b%27%20d%3D%27M14%200c-7.18%200-13%206.1-13%2013.6%200%2011.6%2013%2027.4%2013%2027.4s13-15.8%2013-27.4C27%206.1%2021.18%200%2014%200z%27/%3E%3Ccircle%20fill%3D%27%23ffffff%27%20cx%3D%2714%27%20cy%3D%2713%27%20r%3D%276%27/%3E%3C/svg%3E",
     iconUrl: "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2728%27%20height%3D%2741%27%20viewBox%3D%270%200%2028%2041%27%3E%3Cpath%20fill%3D%27%232c7a7b%27%20d%3D%27M14%200c-7.18%200-13%206.1-13%2013.6%200%2011.6%2013%2027.4%2013%2027.4s13-15.8%2013-27.4C27%206.1%2021.18%200%2014%200z%27/%3E%3Ccircle%20fill%3D%27%23ffffff%27%20cx%3D%2714%27%20cy%3D%2713%27%20r%3D%276%27/%3E%3C/svg%3E",
     shadowUrl: "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2728%27%20height%3D%2712%27%3E%3Cellipse%20cx%3D%2714%27%20cy%3D%276%27%20rx%3D%2710%27%20ry%3D%275%27%20fill%3D%27rgba%280%2C0%2C0%2C0.25%29%27/%3E%3C/svg%3E"
@@ -65,7 +64,7 @@ function veggiemap() {
   });
 
   // Add zoom control
-  new Control.Zoom({ position: "topright" }).addTo(map);
+  new ZoomControl({ position: "topright" }).addTo(map);
 
   // Clustered places with issues
   clusterLayer = new PlaceClusterLayer(map, {
@@ -87,7 +86,7 @@ function veggiemap() {
       "<div class='legend-row' data-layer='issue_count_6'><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'>6 issues</div><div class='third-cell' id='issue_count_6'></div></div>": issueCount6,
       "<div class='legend-row' data-layer='issue_count_many'><div class='row-toggle' aria-hidden='true'></div><div class='second-cell'>more than 6</div><div class='third-cell' id='issue_count_many'></div></div>": issueCountMany
     };
-    const layerControl = new Control.Layers(null, overlays);
+    const layerControl = new LayersControl(null, overlays);
     layerControl.addTo(map);
 
     // Put the numbers and the data date into the legend (its rows exist once the control is added)
@@ -199,7 +198,9 @@ function geojsonToPlaceGroups(geojson) {
 function createPlace(feature) {
   const [lng, lat] = feature.geometry.coordinates;
   const latlng = new LatLng(lat, lng);
-  return { feature, geometry: feature.geometry, getLatLng: () => latlng };
+  const place = { feature, geometry: feature.geometry, getLatLng: () => latlng };
+  place.properties = { place };
+  return place;
 }
 
 // Function to get the marker of a place.

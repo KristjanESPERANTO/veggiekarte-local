@@ -23,13 +23,13 @@ const MENU_ICON = "<svg width='20' height='20' viewBox='0 0 24 24' fill='none' s
  * MenuControl - map button with a menu for language, information, fullscreen and statistics.
  *
  * Options:
- * - fullscreenControl: leaflet.fullscreen control whose toggle the fullscreen entry uses
+ * - fullscreenControl: Leaflet FullscreenControl whose toggle the fullscreen entry uses
  */
-export const MenuControl = Control.extend({
-  options: {
+export class MenuControl extends Control {
+  static defaultOptions = {
     position: "topright",
     fullscreenControl: null
-  },
+  };
 
   onAdd(map) {
     this._map = map;
@@ -66,8 +66,8 @@ export const MenuControl = Control.extend({
     DomUtil.create("hr", "menu-divider", this._panel);
     this._infoItem = this._createItem(() => openInfo());
     if (this.options.fullscreenControl) {
-      this._fullscreenItem = this._createItem(() => this.options.fullscreenControl.toggleFullScreen());
-      map.on("enterFullscreen exitFullscreen", this._updateLabels, this);
+      this._fullscreenItem = this._createItem(() => this.options.fullscreenControl.toggle());
+      map.on("enterfullscreen exitfullscreen", this._updateLabels, this);
     }
     this._statisticsItem = DomUtil.create("a", "menu-item", this._panel);
     this._statisticsItem.href = "data_chart.html";
@@ -86,7 +86,7 @@ export const MenuControl = Control.extend({
     this._updateLabels();
     onLanguageChange(() => this._updateLabels());
     return container;
-  },
+  }
 
   _createItem(action) {
     const item = DomUtil.create("button", "menu-item", this._panel);
@@ -96,7 +96,7 @@ export const MenuControl = Control.extend({
       action();
     });
     return item;
-  },
+  }
 
   _updateLabels() {
     const menuLabel = t("menu_title");
@@ -108,23 +108,23 @@ export const MenuControl = Control.extend({
     this._languageButtons.forEach(({ code, button }) => button.setAttribute("aria-pressed", String(code === current)));
     this._infoItem.textContent = t("leaflet_L_control_infoButton_title");
     if (this._fullscreenItem) {
-      this._fullscreenItem.textContent = this._map._isFullscreen
+      this._fullscreenItem.textContent = this.options.fullscreenControl.isFullscreen()
         ? t("leaflet_L_control_fullscreen_exitFullscreen")
         : t("leaflet_L_control_fullscreen_fullscreen");
     }
     this._statisticsItem.textContent = t("menu_statistics");
-  },
+  }
 
   open() {
     this._panel.hidden = false;
     this._button.setAttribute("aria-expanded", "true");
     document.addEventListener("pointerdown", this._outsideHandler);
     this._languageButtons.find(({ code }) => code === getUserLanguage())?.button.focus();
-  },
+  }
 
   close() {
     this._panel.hidden = true;
     this._button.setAttribute("aria-expanded", "false");
     document.removeEventListener("pointerdown", this._outsideHandler);
   }
-});
+}

@@ -2,6 +2,7 @@ import terser from "@rollup/plugin-terser";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import replace from "@rollup/plugin-replace";
+import path from "node:path";
 import { readFileSync, existsSync } from "fs";
 
 const pkg = JSON.parse(readFileSync("./package.json"));
@@ -27,8 +28,20 @@ const banner = `/*! ************************************************************
 ***************************************************************************** */
 `;
 
+// Plugins written for Leaflet 1 get a Leaflet with the removed Class.extend and Browser added back
+const legacyLeafletPlugins = ["node_modules/leaflet-control-geocoder/", "node_modules/leaflet.locatecontrol/"];
+
 // Shared plugins for all bundles
 const sharedPlugins = [
+  {
+    name: "leaflet-compat",
+    resolveId(source, importer) {
+      if (source === "leaflet" && legacyLeafletPlugins.some(plugin => importer?.includes(plugin))) {
+        return path.resolve("js/leaflet-compat.js");
+      }
+      return null;
+    }
+  },
   replace({
     preventAssignment: true,
     values: {

@@ -6,18 +6,18 @@ import { t } from "./i18n.js";
  * OpeningHoursControl - Toggle button to filter places by opening hours
  * Shows only places that are currently open (works from zoom level 10+)
  */
-const OpeningHoursControl = Control.extend({
-  options: {
+class OpeningHoursControl extends Control {
+  static defaultOptions = {
     position: "topright"
-  },
+  };
 
-  initialize(options) {
-    Control.prototype.initialize.call(this, options);
-    this._enabled = this._loadState();
+  constructor(options) {
+    super(options);
+    this._enabled = loadEnabledState();
     this._callback = null;
     this._openingHoursData = null; // Cached opening hours data
     this._loadingPromise = null; // Loading promise to avoid duplicate loads
-  },
+  }
 
   onAdd(map) {
     this._map = map;
@@ -52,7 +52,7 @@ const OpeningHoursControl = Control.extend({
     });
 
     return container;
-  },
+  }
 
   _toggle() {
     const currentZoom = this._map ? this._map.getZoom() : 0;
@@ -70,7 +70,7 @@ const OpeningHoursControl = Control.extend({
     if (this._callback) {
       this._callback();
     }
-  },
+  }
 
   _updateButton() {
     if (!this._button || !this._map) { return; }
@@ -100,53 +100,44 @@ const OpeningHoursControl = Control.extend({
       this._button.title = hintText;
       this._button.setAttribute("aria-label", hintText);
     }
-  },
-
-  _loadState() {
-    try {
-      const saved = localStorage.getItem("openingHoursControlEnabled");
-      if (saved !== null) { return JSON.parse(saved); }
-    }
-    catch { /* Ignore */ }
-    return false; // Default: disabled
-  },
+  }
 
   _saveState() {
     try {
       localStorage.setItem("openingHoursControlEnabled", JSON.stringify(this._enabled));
     }
     catch { /* Ignore */ }
-  },
+  }
 
   // Public API
   onChange(callback) {
     this._callback = callback;
-  },
+  }
 
   isEnabled() {
     const currentZoom = this._map ? this._map.getZoom() : 0;
     const MIN_ZOOM = 10;
     return this._enabled && currentZoom >= MIN_ZOOM;
-  },
+  }
 
   /**
    * @returns {boolean} Whether the filter can be used at the current zoom level
    */
   isAvailable() {
     return Boolean(this._map) && this._map.getZoom() >= 10;
-  },
+  }
 
   /** Switch the filter on or off (no effect below the minimum zoom level). */
   toggle() {
     this._toggle();
-  },
+  }
 
   /**
    * @returns {object|null} Opening hours data if it has been loaded already
    */
   getLoadedData() {
     return this._openingHoursData;
-  },
+  }
 
   /**
    * Open state of a place from the loaded data; results are cached for the current minute.
@@ -163,11 +154,11 @@ const OpeningHoursControl = Control.extend({
     const key = `${feature.properties._type}/${feature.properties._id}`;
     if (!this._openStateCache.has(key)) { this._openStateCache.set(key, isPlaceOpen(feature, this._openingHoursData)); }
     return this._openStateCache.get(key);
-  },
+  }
 
   updateTranslations() {
     this._updateButton();
-  },
+  }
 
   /**
    * Load opening hours data from JSON file
@@ -206,6 +197,15 @@ const OpeningHoursControl = Control.extend({
 
     return this._loadingPromise;
   }
-});
+}
+
+function loadEnabledState() {
+  try {
+    const saved = localStorage.getItem("openingHoursControlEnabled");
+    if (saved !== null) { return JSON.parse(saved); }
+  }
+  catch { /* Ignore */ }
+  return false; // Default: disabled
+}
 
 export { OpeningHoursControl };

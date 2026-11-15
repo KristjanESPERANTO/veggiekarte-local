@@ -9,13 +9,13 @@
  * Original Python logic preserved as close as practical.
  */
 import OpeningHours from "opening_hours";
+import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
 import fs from "node:fs/promises";
 import { parsePhoneNumberFromString } from "libphonenumber-js";
 import path from "node:path";
 import process from "node:process";
 import validator from "email-validator";
-import { createRequire } from "node:module";
 
 const _require = createRequire(import.meta.url);
 const { version } = _require("../package.json");
@@ -213,6 +213,27 @@ function validateEmailAddress(email) {
   return validator.validate(email);
 }
 
+async function checkSocialMediaTag(issues, tagName, value) {
+  const platform = tagName.slice("contact:".length);
+  const preferredUrl = `https://www.${platform}.com/`;
+  const alternativeUrl = `https://${platform}.com/`;
+  if (value.startsWith("http://")) {
+    issues.push(`'${tagName}' starts with 'http' instead of 'https'`);
+    return;
+  }
+  if (value.startsWith("https://")) {
+    if (!value.startsWith(preferredUrl) && !value.startsWith(alternativeUrl)) {
+      issues.push(`'${tagName}' should start with '${preferredUrl}'`);
+      return;
+    }
+    const check = await isUrlOk(value);
+    if (!check.isOk) { issues.push(`'${tagName}' ${check.text}`); }
+    return;
+  }
+  const check = await isUrlOk(`${preferredUrl}${value}`);
+  if (!check.isOk) { issues.push(`'${tagName}' ${check.text}`); }
+}
+
 function checkPhoneNumber(issueCollector, tagName, tags) {
   const raw = tags[tagName] || "";
   const invalidChars = raw.replace(/[0-9 +;-]/gu, "");
@@ -334,45 +355,11 @@ async function checkData(osmData) {
       if (website.includes("instagram")) { properties.issues.push("'instagram' URI as website -> change to 'contact:instagram'"); }
       if ("contact:website" in tags && "website" in tags) { properties.issues.push("'website' and 'contact:website' defined -> remove one"); }
       if ("contact:facebook" in tags) {
-        let contactFacebook = tags["contact:facebook"];
-        if (contactFacebook.startsWith("http://")) {
-          properties.issues.push("'contact:facebook' starts with 'http' instead of 'https'");
-        }
-        else if (contactFacebook.startsWith("https://")) {
-          if (contactFacebook.startsWith("https://www.facebook.com/") || contactFacebook.startsWith("https://facebook.com/")) {
-            const check = await isUrlOk(contactFacebook);
-            if (!check.isOk) { properties.issues.push(`'contact:facebook' ${check.text}`); }
-          }
-          else {
-            properties.issues.push("'contact:facebook' should start with 'https://www.facebook.com/'");
-          }
-        }
-        else {
-          contactFacebook = `https://www.facebook.com/${contactFacebook}`;
-          const check = await isUrlOk(contactFacebook);
-          if (!check.isOk) { properties.issues.push(`'contact:facebook' ${check.text}`); }
-        }
+        await checkSocialMediaTag(properties.issues, "contact:facebook", tags["contact:facebook"]);
       }
       if ("facebook" in tags) { properties.issues.push("old tag: 'facebook' -> change to 'contact:facebook'"); }
       if ("contact:instagram" in tags) {
-        let contactInstagram = tags["contact:instagram"];
-        if (contactInstagram.startsWith("http://")) {
-          properties.issues.push("'contact:instagram' starts with 'http' instead of 'https'");
-        }
-        else if (contactInstagram.startsWith("https://")) {
-          if (contactInstagram.startsWith("https://www.instagram.com/") || contactInstagram.startsWith("https://instagram.com/")) {
-            const check = await isUrlOk(contactInstagram);
-            if (!check.isOk) { properties.issues.push(`'contact:instagram' ${check.text}`); }
-          }
-          else {
-            properties.issues.push("'contact:instagram' should start with 'https://www.instagram.com/'");
-          }
-        }
-        else {
-          contactInstagram = `https://www.instagram.com/${contactInstagram}`;
-          const check = await isUrlOk(contactInstagram);
-          if (!check.isOk) { properties.issues.push(`'contact:instagram' ${check.text}`); }
-        }
+        await checkSocialMediaTag(properties.issues, "contact:instagram", tags["contact:instagram"]);
       }
       if ("instagram" in tags) { properties.issues.push("old tag 'instagram' -> change to 'contact:instagram'"); }
       let email;

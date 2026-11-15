@@ -1,5 +1,5 @@
-import { Control, Icon, Map, TileLayer } from "leaflet";
-import { DEFAULT_THEMES, ThemeControl } from "leaflet-theme-control";
+import { DEFAULT_THEMES, ThemeControl as LeafletThemeControl } from "leaflet-theme-control";
+import { DefaultIcon, FullscreenControl, Map, ScaleControl, TileLayer, ZoomControl } from "leaflet";
 import { PlaceClusterLayer, clusterRadiusForZoom } from "./place-cluster-layer.js";
 import { addLanguageResources, getUserLanguage, t } from "./i18n.js";
 import { closeInfo, initInfoTutorials, showInfoOnStartup } from "./info-button-control.js";
@@ -7,7 +7,6 @@ import { createMapHash, parseMarkerHash, setMarkerHash } from "./map-hash.js";
 import { createPlaceMarker, geojsonToPlaceGroups, setPlaceClickHandler, statPopulate } from "./veggiemap-data.js";
 import { CATEGORY_HIERARCHY } from "./category-mapping.js";
 import { CategoryFilterControl } from "./category-filter-control.js";
-import { FullScreen } from "leaflet.fullscreen";
 import { LocateControl } from "leaflet.locatecontrol";
 import { MenuControl } from "./menu-control.js";
 import { OpeningHoursControl } from "./opening-hours-control.js";
@@ -22,6 +21,16 @@ import { initUpdateCheck } from "./update-check.js";
  * Progress bar for loading the map: data fetch (0-50%), then clustering and showing the places (50-100%).
  */
 const progress = createProgressController();
+
+const initializeThemeControl = LeafletThemeControl.prototype.initialize;
+delete LeafletThemeControl.prototype.initialize;
+
+class ThemeControl extends LeafletThemeControl {
+  constructor(options) {
+    super(options);
+    initializeThemeControl.call(this, options);
+  }
+}
 
 const DIET_TYPES = ["vegan_only", "vegetarian_only", "vegan_friendly", "vegan_limited", "vegetarian_friendly"];
 
@@ -135,8 +144,7 @@ async function veggiemap() {
   initUpdateCheck(t);
 
   // Replace Leaflet's default marker assets with inline SVG data URIs
-  delete Icon.Default.prototype._getIconUrl;
-  Icon.Default.mergeOptions({
+  DefaultIcon.mergeOptions({
     iconRetinaUrl: "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2728%27%20height%3D%2741%27%20viewBox%3D%270%200%2028%2041%27%3E%3Cpath%20fill%3D%27%232c7a7b%27%20d%3D%27M14%200c-7.18%200-13%206.1-13%2013.6%200%2011.6%2013%2027.4%2013%2027.4s13-15.8%2013-27.4C27%206.1%2021.18%200%2014%200z%27/%3E%3Ccircle%20fill%3D%27%23ffffff%27%20cx%3D%2714%27%20cy%3D%2713%27%20r%3D%276%27/%3E%3C/svg%3E",
     iconUrl: "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2728%27%20height%3D%2741%27%20viewBox%3D%270%200%2028%2041%27%3E%3Cpath%20fill%3D%27%232c7a7b%27%20d%3D%27M14%200c-7.18%200-13%206.1-13%2013.6%200%2011.6%2013%2027.4%2013%2027.4s13-15.8%2013-27.4C27%206.1%2021.18%200%2014%200z%27/%3E%3Ccircle%20fill%3D%27%23ffffff%27%20cx%3D%2714%27%20cy%3D%2713%27%20r%3D%276%27/%3E%3C/svg%3E",
     shadowUrl: "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2728%27%20height%3D%2712%27%3E%3Cellipse%20cx%3D%2714%27%20cy%3D%276%27%20rx%3D%2710%27%20ry%3D%275%27%20fill%3D%27rgba%280%2C0%2C0%2C0.25%29%27/%3E%3C/svg%3E"
@@ -158,7 +166,7 @@ async function veggiemap() {
   });
 
   // Add zoom control
-  new Control.Zoom({ position: "topright" }).addTo(map);
+  new ZoomControl({ position: "topright" }).addTo(map);
 
   // Clustered place markers
   clusterLayer = new PlaceClusterLayer(map, {
@@ -187,9 +195,9 @@ async function veggiemap() {
   const { syncHash } = createMapHash(map);
 
   // Fullscreen control (its button is hidden; the menu toggles it)
-  document.fullscreenControl = new FullScreen({
+  document.fullscreenControl = new FullscreenControl({
     position: "topright",
-    fullscreenElement: map.getContainer().parentNode
+    container: map.getContainer().parentNode
   });
   document.fullscreenControl.addTo(map);
   document.fullscreenControl.getContainer().hidden = true;
@@ -279,7 +287,7 @@ async function veggiemap() {
   setPlaceClickHandler(place => sidebar.showPlace(place));
 
   // Add scale control
-  new Control.Scale().addTo(map);
+  new ScaleControl().addTo(map);
 
   // The open-now filter covers the area around the view, so it follows the map
   // (crossing its minimum zoom level is handled by the control's own zoomend callback)

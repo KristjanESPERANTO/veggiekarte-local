@@ -8,20 +8,20 @@ import { t } from "./i18n.js";
  * CategoryFilterControl - Leaflet control for filtering markers by category and diet type.
  * Built like InfoButton: simple button that toggles a panel.
  */
-const CategoryFilterControl = Control.extend({
-  options: {
+class CategoryFilterControl extends Control {
+  static defaultOptions = {
     position: "topright"
-  },
+  };
 
-  initialize(options) {
-    Control.prototype.initialize.call(this, options);
-    this._categoryStates = this._loadStates();
-    this._dietStates = this._loadDietStates();
+  constructor(options) {
+    super(options);
+    this._categoryStates = loadStates();
+    this._dietStates = loadDietStates();
     this._categoryCounts = {};
     this._listeners = [];
     this._dietFilters = [];
     this._panelVisible = false;
-  },
+  }
 
   onAdd(map) {
     this._map = map;
@@ -46,7 +46,7 @@ const CategoryFilterControl = Control.extend({
     this._createPanel();
 
     return container;
-  },
+  }
 
   _createPanel() {
     // Create modal overlay (backdrop)
@@ -80,7 +80,7 @@ const CategoryFilterControl = Control.extend({
     this._contentDiv = document.createElement("div");
     this._contentDiv.className = "category-filter-content";
     this._panel.appendChild(this._contentDiv);
-  },
+  }
 
   _togglePanel() {
     if (!this._overlay) { return; }
@@ -95,7 +95,7 @@ const CategoryFilterControl = Control.extend({
       }
       this._overlay.classList.add("visible");
     }
-  },
+  }
 
   _createUI() {
     if (!this._contentDiv) { return; }
@@ -143,7 +143,7 @@ const CategoryFilterControl = Control.extend({
     Object.entries(CATEGORY_HIERARCHY).forEach(([mainId, mainCat]) => {
       this._createCategorySection(categoryList, mainId, mainCat);
     });
-  },
+  }
 
   _createCategorySection(parent, mainId, mainCat) {
     const section = DomUtil.create("div", "category-section", parent);
@@ -180,7 +180,7 @@ const CategoryFilterControl = Control.extend({
       subCount.dataset.categoryId = key;
       subCount.textContent = this._categoryCounts[key] || "0";
     });
-  },
+  }
 
   _toggleMainCategory(mainId, enabled) {
     if (this._isUpdating) { return; } // Prevent recursion from _updateUI
@@ -192,7 +192,7 @@ const CategoryFilterControl = Control.extend({
     this._saveStates();
     this._updateUI();
     this._notifyChange();
-  },
+  }
 
   _toggleSubCategory(mainId, subId, enabled) {
     if (this._isUpdating) { return; } // Prevent recursion from _updateUI
@@ -213,7 +213,7 @@ const CategoryFilterControl = Control.extend({
     this._saveStates();
     this._updateUI();
     this._notifyChange();
-  },
+  }
 
   _toggleFoodOnly() {
     Object.entries(CATEGORY_HIERARCHY).forEach(([mainId, mainCat]) => {
@@ -226,7 +226,7 @@ const CategoryFilterControl = Control.extend({
     this._saveStates();
     this._updateUI();
     this._notifyChange();
-  },
+  }
 
   _enableAll() {
     Object.entries(CATEGORY_HIERARCHY).forEach(([mainId, mainCat]) => {
@@ -238,11 +238,11 @@ const CategoryFilterControl = Control.extend({
     this._saveStates();
     this._updateUI();
     this._notifyChange();
-  },
+  }
 
   _resetToDefaults() {
     // Categories: food and shopping; diet types: all enabled
-    this._categoryStates = this._defaultStates();
+    this._categoryStates = defaultStates();
     this._dietStates = Object.fromEntries(Object.keys(this._dietStates).map(key => [key, true]));
     // Update diet checkboxes in DOM
     if (this._dietList) {
@@ -254,7 +254,7 @@ const CategoryFilterControl = Control.extend({
     this._saveDietStates();
     this._updateUI();
     this._notifyChange();
-  },
+  }
 
   _updateUI() {
     if (!this._contentDiv) { return; }
@@ -297,75 +297,42 @@ const CategoryFilterControl = Control.extend({
     });
 
     this._isUpdating = false;
-  },
-
-  _loadStates() {
-    try {
-      const saved = localStorage.getItem("categoryFilterStates");
-      if (saved) { return JSON.parse(saved); }
-    }
-    catch { /* Ignore */ }
-
-    return this._defaultStates();
-  },
-
-  // Default: food + shopping enabled, others disabled
-  _defaultStates() {
-    const defaults = {};
-    Object.entries(CATEGORY_HIERARCHY).forEach(([mainId, mainCat]) => {
-      const enabled = mainId === "food" || mainId === "shopping";
-      defaults[mainId] = enabled;
-      Object.keys(mainCat.subcategories).forEach((subId) => {
-        defaults[`${mainId}_${subId}`] = enabled;
-      });
-    });
-    return defaults;
-  },
+  }
 
   _saveStates() {
     try {
       localStorage.setItem("categoryFilterStates", JSON.stringify(this._categoryStates));
     }
     catch { /* Ignore */ }
-  },
-
-  _loadDietStates() {
-    try {
-      const saved = localStorage.getItem("dietFilterStates");
-      if (saved) { return JSON.parse(saved); }
-    }
-    catch { /* Ignore */ }
-    // Default: all diet types enabled
-    return { vegan_only: true, vegetarian_only: true, vegan_friendly: true, vegan_limited: true, vegetarian_friendly: true };
-  },
+  }
 
   _saveDietStates() {
     try {
       localStorage.setItem("dietFilterStates", JSON.stringify(this._dietStates));
     }
     catch { /* Ignore */ }
-  },
+  }
 
   _notifyChange() {
     this._listeners.forEach(fn => fn(this._categoryStates));
-  },
+  }
 
   // Public API
   onChange(callback) {
     this._listeners.push(callback);
-  },
+  }
 
   /** Whether the filter dialog is open. */
-  isPanelVisible() { return Boolean(this._overlay?.classList.contains("visible")); },
+  isPanelVisible() { return Boolean(this._overlay?.classList.contains("visible")); }
 
   /** Restore the default categories and diet types. */
-  resetToDefaults() { this._resetToDefaults(); },
+  resetToDefaults() { this._resetToDefaults(); }
 
   /** Show how many filter settings differ from the defaults with a reset button (hidden for 0); reset focuses the close button. */
   setChangeCount(count, onReset) {
     [this._changeCount, this._onResetChanges] = [count, onReset];
     this._renderChangeNote();
-  },
+  }
 
   _renderChangeNote() {
     if (!this._changeNote) { return; }
@@ -376,16 +343,16 @@ const CategoryFilterControl = Control.extend({
       this._onResetChanges?.();
       this._panel.querySelector(".category-filter-close")?.focus();
     });
-  },
+  }
 
   /** Whether the main category or any of its subcategories is enabled. */
-  isMainCategoryEnabled(mainId) { return this._categoryStates[mainId] !== false; },
+  isMainCategoryEnabled(mainId) { return this._categoryStates[mainId] !== false; }
 
   /** Enable or disable a main category with all its subcategories. */
-  setMainCategoryEnabled(mainId, enabled) { this._toggleMainCategory(mainId, enabled); },
+  setMainCategoryEnabled(mainId, enabled) { this._toggleMainCategory(mainId, enabled); }
 
   /** Whether places of a diet type (e.g. "vegetarian_friendly") are shown. */
-  isDietEnabled(dietKey) { return this.getEnabledDietTypes().includes(dietKey); },
+  isDietEnabled(dietKey) { return this.getEnabledDietTypes().includes(dietKey); }
 
   /** Show or hide places of a diet type. */
   setDietEnabled(dietKey, enabled) {
@@ -394,37 +361,37 @@ const CategoryFilterControl = Control.extend({
     const checkbox = this._dietList?.querySelector(`input[data-diet-key="${dietKey}"]`);
     if (checkbox) { checkbox.checked = enabled; }
     this._notifyChange();
-  },
+  }
 
   /** Diet types off, main categories differing from the defaults and subcategories differing from their main category. */
   countChangedFilters({ ignoreDiets = [], ignoreCategories = [] } = {}) {
-    const [defaults, dietsOff] = [this._defaultStates(), Object.keys(this._dietStates).filter(key => !ignoreDiets.includes(key) && !this.isDietEnabled(key)).length];
+    const [defaults, dietsOff] = [defaultStates(), Object.keys(this._dietStates).filter(key => !ignoreDiets.includes(key) && !this.isDietEnabled(key)).length];
     return Object.entries(CATEGORY_HIERARCHY).reduce((sum, [mainId, { subcategories }]) => {
       const mainOn = this.isMainCategoryEnabled(mainId);
       const subsChanged = Object.keys(subcategories).filter(subId => this.isSubCategoryEnabled(mainId, subId) !== mainOn).length;
       return sum + subsChanged + (!ignoreCategories.includes(mainId) && mainOn !== defaults[mainId] ? 1 : 0);
     }, dietsOff);
-  },
+  }
 
   isSubCategoryEnabled(mainId, subId) {
     return this._categoryStates[`${mainId}_${subId}`] !== false;
-  },
+  }
 
   getCategoryStates() {
     return { ...this._categoryStates };
-  },
+  }
 
   setCategoryCounts(counts) {
     this._categoryCounts = counts;
     this._updateUI();
-  },
+  }
 
   addDietFilter(options) {
     this._dietFilters.push(options);
     if (this._dietList) {
       this._addDietFilterToDOM(options);
     }
-  },
+  }
 
   _addDietFilterToDOM(options) {
     const { dietKey, labelHtml, count, onToggle } = options;
@@ -453,13 +420,13 @@ const CategoryFilterControl = Control.extend({
       this._saveDietStates();
       onToggle(dietKey, checkbox.checked);
     });
-  },
+  }
 
   updateDietCount(dietKey, count) {
     if (!this._dietList) { return; }
     const countEl = this._dietList.querySelector(`span.category-count[data-diet-key="${dietKey}"]`);
     if (countEl) { countEl.textContent = count; }
-  },
+  }
 
   updateMarkerCounter(totalVisible, totalMarkers, viewportCount) {
     if (!this._markerCounter) { return; }
@@ -467,7 +434,7 @@ const CategoryFilterControl = Control.extend({
     const visibleText = t("category_counter_visible");
     const viewportText = t("category_counter_viewport");
     this._markerCounter.innerHTML = `<span>${totalMarkers.toLocaleString()} ${totalText}</span> | <strong class="counter-visible">${totalVisible.toLocaleString()}</strong> ${visibleText} | <span>${viewportCount.toLocaleString()} ${viewportText}</span>`;
-  },
+  }
 
   getEnabledDietTypes() {
     // If DOM is not ready, use saved states
@@ -485,7 +452,7 @@ const CategoryFilterControl = Control.extend({
       if (cb.checked) { enabled.push(cb.dataset.dietKey); }
     });
     return enabled;
-  },
+  }
 
   updateTranslations() {
     // Update button label even if panel not yet opened
@@ -506,7 +473,7 @@ const CategoryFilterControl = Control.extend({
       this._createUI();
     }
   }
-});
+}
 
 /**
  * Check if a place is currently open based on opening_hours tag
@@ -555,6 +522,39 @@ function isPlaceOpen(feature, openingHoursData) {
   catch {
     return null; // Error parsing opening hours
   }
+}
+
+// Default: food + shopping enabled, others disabled
+function defaultStates() {
+  const defaults = {};
+  Object.entries(CATEGORY_HIERARCHY).forEach(([mainId, mainCat]) => {
+    const enabled = mainId === "food" || mainId === "shopping";
+    defaults[mainId] = enabled;
+    Object.keys(mainCat.subcategories).forEach((subId) => {
+      defaults[`${mainId}_${subId}`] = enabled;
+    });
+  });
+  return defaults;
+}
+
+function loadStates() {
+  try {
+    const saved = localStorage.getItem("categoryFilterStates");
+    if (saved) { return JSON.parse(saved); }
+  }
+  catch { /* Ignore */ }
+
+  return defaultStates();
+}
+
+// Default: all diet types enabled
+function loadDietStates() {
+  try {
+    const saved = localStorage.getItem("dietFilterStates");
+    if (saved) { return JSON.parse(saved); }
+  }
+  catch { /* Ignore */ }
+  return { vegan_only: true, vegetarian_only: true, vegan_friendly: true, vegan_limited: true, vegetarian_friendly: true };
 }
 
 export { CategoryFilterControl, isPlaceOpen };
