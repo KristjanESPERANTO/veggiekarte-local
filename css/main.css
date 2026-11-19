@@ -399,16 +399,10 @@ body {
   text-decoration: none;
 }
 
-/* × symbol via CSS */
+/* × symbol via CSS (the popup button already contains its own ×) */
 .close-button::before,
-.category-filter-close::before,
-.leaflet-container a.leaflet-popup-close-button::before {
+.category-filter-close::before {
   content: "×";
-}
-
-/* Hide Leaflet's default × span */
-.leaflet-container a.leaflet-popup-close-button span {
-  display: none;
 }
 
 .close-button:hover,
