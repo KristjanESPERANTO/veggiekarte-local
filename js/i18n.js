@@ -134,7 +134,7 @@ function updateContent() {
     { selector: ".info-button", prop: "title", key: "leaflet_L_control_infoButton_title", getEl: el => el?.parentElement?.parentElement },
     { selector: ".leaflet-control-geocoder", prop: "title", key: "leaflet_L_control_geocoder_title" },
     { selector: ".leaflet-control-geocoder-form input", prop: "placeholder", key: "leaflet_L_control_geocoder_placeholder" },
-    { selector: ".leaflet-control-geocoder-form-no-error", prop: "innerText", key: "leaflet_L_control_geocoder_error_message" },
+    { selector: ".leaflet-control-geocoder-error", prop: "innerText", key: "leaflet_L_control_geocoder_error_message" },
     { selector: ".leaflet-control-locate a", prop: "title", key: "leaflet_L_control_locate_where_am_i" }
   ];
 

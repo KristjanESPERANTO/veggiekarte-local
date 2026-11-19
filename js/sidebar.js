@@ -48,6 +48,7 @@ export class Sidebar {
   constructor({ map, clusterLayer, geocoder, categoryFilterControl, openingHoursControl, onClosePlace }) {
     this._map = map;
     this._clusterLayer = clusterLayer;
+    this._geocoder = geocoder;
     this._categoryFilterControl = categoryFilterControl;
     this._openingHoursControl = openingHoursControl;
     this._onClosePlace = onClosePlace;
@@ -343,8 +344,9 @@ export class Sidebar {
     searchInput.placeholder = t("leaflet_L_control_geocoder_placeholder");
     searchInput.setAttribute("aria-label", t("leaflet_L_control_geocoder_title"));
     this._geocoderElement.querySelector(".leaflet-control-geocoder-icon")?.setAttribute("aria-label", t("leaflet_L_control_geocoder_title"));
-    const errorMessage = this._geocoderElement.querySelector(".leaflet-control-geocoder-form-no-error, .leaflet-control-geocoder-error");
-    if (errorMessage) { errorMessage.textContent = t("leaflet_L_control_geocoder_error_message"); }
+    this._geocoder.options.errorMessage = t("leaflet_L_control_geocoder_error_message");
+    const errorMessage = this._geocoderElement.querySelector(".leaflet-control-geocoder-error");
+    if (errorMessage) { errorMessage.textContent = this._geocoder.options.errorMessage; }
 
     this._filterButton.setAttribute("aria-label", t("category_selection_title"));
     this._filterButton.title = t("category_selection_title");
