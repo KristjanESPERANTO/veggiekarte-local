@@ -153,7 +153,7 @@ input {
   background: var(--vk-tint) !important;
 }
 
-/* The search library removes the input's outline; the whole field shows the focus instead */
+/* The input's own outline is hidden; the whole field shows the focus instead */
 :root .sidebar .search-slot .leaflet-control-geocoder:focus-within {
   box-shadow: 0 0 0 2px var(--vk-accent);
 }
@@ -164,11 +164,6 @@ input {
   height: 44px;
   border-radius: 12px 0 0 12px;
   background-color: transparent !important;
-  background-size: 22px;
-}
-
-:root[data-control-style="dark"] .search-slot .leaflet-control-geocoder-icon {
-  filter: invert(1);
 }
 
 :root .sidebar .search-slot .leaflet-control-geocoder-form {
@@ -186,6 +181,7 @@ input {
   font-size: 15px;
   color: var(--vk-ink);
   background: transparent !important;
+  outline: none;
 }
 
 :root .sidebar .search-slot .leaflet-control-geocoder-form input::placeholder {
