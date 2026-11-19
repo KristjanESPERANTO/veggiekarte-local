@@ -33,6 +33,7 @@ const sharedPlugins = [
     preventAssignment: true,
     values: {
       __APP_NAME__: JSON.stringify(config.appName),
+      __APP_VERSION__: JSON.stringify(pkg.version),
       __APP_DESCRIPTION__: JSON.stringify(config.appDescription),
       __MAP_CENTER__: JSON.stringify(config.mapCenter),
       __MAP_ZOOM__: JSON.stringify(config.mapZoom),

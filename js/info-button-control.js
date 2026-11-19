@@ -125,6 +125,7 @@ async function showTutorial(link) {
  * Clicks with a modifier key keep the browser's default behaviour.
  */
 function initInfoTutorials() {
+  document.getElementById("app-version").textContent = `Version ${__APP_VERSION__}`;
   document.getElementById("content")?.addEventListener("click", (evt) => {
     const link = evt.target.closest("a[href*='how-to/']");
     if (!link || evt.button !== 0 || evt.ctrlKey || evt.metaKey || evt.shiftKey || evt.altKey) { return; }
