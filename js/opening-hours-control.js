@@ -1,6 +1,9 @@
 import { Control, DomEvent, DomUtil } from "leaflet";
+import { loadJsonSetting, saveJsonSetting } from "./storage.js";
 import { isPlaceOpen } from "./category-filter-control.js";
 import { t } from "./i18n.js";
+
+const STORAGE_KEY = "openingHoursControlEnabled";
 
 /**
  * OpeningHoursControl - Toggle button to filter places by opening hours
@@ -13,7 +16,7 @@ class OpeningHoursControl extends Control {
 
   constructor(options) {
     super(options);
-    this._enabled = loadEnabledState();
+    this._enabled = loadJsonSetting(STORAGE_KEY, false);
     this._callback = null;
     this._openingHoursData = null; // Cached opening hours data
     this._loadingPromise = null; // Loading promise to avoid duplicate loads
@@ -64,7 +67,7 @@ class OpeningHoursControl extends Control {
     }
 
     this._enabled = !this._enabled;
-    this._saveState();
+    saveJsonSetting(STORAGE_KEY, this._enabled);
     this._updateButton();
 
     if (this._callback) {
@@ -100,13 +103,6 @@ class OpeningHoursControl extends Control {
       this._button.title = hintText;
       this._button.setAttribute("aria-label", hintText);
     }
-  }
-
-  _saveState() {
-    try {
-      localStorage.setItem("openingHoursControlEnabled", JSON.stringify(this._enabled));
-    }
-    catch { /* Ignore */ }
   }
 
   // Public API
@@ -197,15 +193,6 @@ class OpeningHoursControl extends Control {
 
     return this._loadingPromise;
   }
-}
-
-function loadEnabledState() {
-  try {
-    const saved = localStorage.getItem("openingHoursControlEnabled");
-    if (saved !== null) { return JSON.parse(saved); }
-  }
-  catch { /* Ignore */ }
-  return false; // Default: disabled
 }
 
 export { OpeningHoursControl };

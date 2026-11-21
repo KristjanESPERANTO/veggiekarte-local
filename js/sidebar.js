@@ -3,6 +3,7 @@
 import { DIET_ORDER, PlaceList } from "./place-list.js";
 import { DomEvent, DomUtil } from "leaflet";
 import { addNominatimInformation, calculatePopup } from "./popup.js";
+import { loadSetting, saveSetting } from "./storage.js";
 import { onLanguageChange, t } from "./i18n.js";
 import { setMarkerHash } from "./map-hash.js";
 
@@ -16,18 +17,6 @@ const ICONS = {
   back: "<svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M19 12H5M11 6l-6 6 6 6'/></svg>",
   chevron: "<svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='m6 15 6-6 6 6'/></svg>"
 };
-
-/** Read a value from localStorage; returns null when storage is unavailable. */
-function loadSetting(key) {
-  try { return localStorage.getItem(key); }
-  catch { return null; }
-}
-
-/** Write a value to localStorage; ignored when storage is unavailable. */
-function saveSetting(key, value) {
-  try { localStorage.setItem(key, value); }
-  catch { /* Ignore */ }
-}
 
 /**
  * Sidebar with the search card (search field, quick filters, filter dialog button) and a panel

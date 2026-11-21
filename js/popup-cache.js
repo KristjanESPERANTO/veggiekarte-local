@@ -1,3 +1,5 @@
+import { loadJsonSetting, saveJsonSetting } from "./storage.js";
+
 const nominatimCache = {};
 const inflight = {};
 
@@ -11,16 +13,8 @@ let persistentStore = { entries: {}, order: [] };
 function loadPersistentStore() {
   if (persistentLoaded) { return; }
   persistentLoaded = true;
-  try {
-    const parsed = JSON.parse(window.localStorage.getItem(PERSIST_KEY) || "{}");
-    if (parsed.entries && parsed.order) { persistentStore = parsed; }
-  }
-  catch { /* Ignore */ }
-}
-
-function savePersistentStore() {
-  try { window.localStorage.setItem(PERSIST_KEY, JSON.stringify(persistentStore)); }
-  catch { /* Ignore */ }
+  const parsed = loadJsonSetting(PERSIST_KEY, {});
+  if (parsed.entries && parsed.order) { persistentStore = parsed; }
 }
 
 function touchOrder(key) {
@@ -56,7 +50,7 @@ export function setPersistentNominatim(key, data) {
   loadPersistentStore();
   persistentStore.entries[key] = { ts: Date.now(), data };
   touchOrder(key);
-  savePersistentStore();
+  saveJsonSetting(PERSIST_KEY, persistentStore);
 }
 
 /** Retrieve in-flight request promise for key (if any). */

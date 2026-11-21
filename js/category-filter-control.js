@@ -1,8 +1,13 @@
 /* eslint-disable camelcase */
 import { Control, DomEvent, DomUtil } from "leaflet";
+import { loadJsonSetting, saveJsonSetting } from "./storage.js";
 import { CATEGORY_HIERARCHY } from "./category-mapping.js";
 import opening_hours from "opening_hours";
 import { t } from "./i18n.js";
+
+const CATEGORY_STORAGE_KEY = "categoryFilterStates";
+const DIET_STORAGE_KEY = "dietFilterStates";
+const DEFAULT_DIET_STATES = { vegan_only: true, vegetarian_only: true, vegan_friendly: true, vegan_limited: true, vegetarian_friendly: true };
 
 /**
  * CategoryFilterControl - Leaflet control for filtering markers by category and diet type.
@@ -15,8 +20,8 @@ class CategoryFilterControl extends Control {
 
   constructor(options) {
     super(options);
-    this._categoryStates = loadStates();
-    this._dietStates = loadDietStates();
+    this._categoryStates = loadJsonSetting(CATEGORY_STORAGE_KEY, defaultStates());
+    this._dietStates = loadJsonSetting(DIET_STORAGE_KEY, { ...DEFAULT_DIET_STATES });
     this._categoryCounts = {};
     this._listeners = [];
     this._dietFilters = [];
@@ -300,17 +305,11 @@ class CategoryFilterControl extends Control {
   }
 
   _saveStates() {
-    try {
-      localStorage.setItem("categoryFilterStates", JSON.stringify(this._categoryStates));
-    }
-    catch { /* Ignore */ }
+    saveJsonSetting(CATEGORY_STORAGE_KEY, this._categoryStates);
   }
 
   _saveDietStates() {
-    try {
-      localStorage.setItem("dietFilterStates", JSON.stringify(this._dietStates));
-    }
-    catch { /* Ignore */ }
+    saveJsonSetting(DIET_STORAGE_KEY, this._dietStates);
   }
 
   _notifyChange() {
@@ -535,26 +534,6 @@ function defaultStates() {
     });
   });
   return defaults;
-}
-
-function loadStates() {
-  try {
-    const saved = localStorage.getItem("categoryFilterStates");
-    if (saved) { return JSON.parse(saved); }
-  }
-  catch { /* Ignore */ }
-
-  return defaultStates();
-}
-
-// Default: all diet types enabled
-function loadDietStates() {
-  try {
-    const saved = localStorage.getItem("dietFilterStates");
-    if (saved) { return JSON.parse(saved); }
-  }
-  catch { /* Ignore */ }
-  return { vegan_only: true, vegetarian_only: true, vegan_friendly: true, vegan_limited: true, vegetarian_friendly: true };
 }
 
 export { CategoryFilterControl, isPlaceOpen };

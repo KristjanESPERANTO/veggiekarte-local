@@ -5,6 +5,7 @@
  * - Flat key-value structure (simple lookup)
  */
 
+import { loadSetting, saveSetting } from "./storage.js";
 import fallbackTranslations from "../locales/en.js";
 import { updateCheckLabel } from "./update-check.js";
 
@@ -45,7 +46,7 @@ function t(key) {
  */
 function getUserLanguage() {
   if (currentLanguage === undefined) {
-    const storedLang = localStorage.getItem("veggiekarte_language");
+    const storedLang = loadSetting("veggiekarte_language");
 
     currentLanguage = storedLang || navigator.language.split("-")[0];
     console.info(`i18n: Language: ${currentLanguage}`);
@@ -82,7 +83,7 @@ async function addLanguageResources(language) {
   }
 
   // Save language preference and notify listeners
-  localStorage.setItem("veggiekarte_language", currentLanguage);
+  saveSetting("veggiekarte_language", currentLanguage);
   languageChangeListeners.forEach(fn => fn());
 }
 
