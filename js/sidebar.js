@@ -3,6 +3,7 @@
 import { DIET_ORDER, PlaceList } from "./place-list.js";
 import { DomEvent, DomUtil } from "leaflet";
 import { addNominatimInformation, calculatePopup } from "./popup.js";
+import { loadSetting, saveSetting } from "./storage.js";
 import { onLanguageChange, t } from "./i18n.js";
 import { setMarkerHash } from "./map-hash.js";
 
@@ -16,18 +17,6 @@ const ICONS = {
   back: "<svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M19 12H5M11 6l-6 6 6 6'/></svg>",
   chevron: "<svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='m6 15 6-6 6 6'/></svg>"
 };
-
-/** Read a value from localStorage; returns null when storage is unavailable. */
-function loadSetting(key) {
-  try { return localStorage.getItem(key); }
-  catch { return null; }
-}
-
-/** Write a value to localStorage; ignored when storage is unavailable. */
-function saveSetting(key, value) {
-  try { localStorage.setItem(key, value); }
-  catch { /* Ignore */ }
-}
 
 /**
  * Sidebar with the search card (search field, quick filters, filter dialog button) and a panel
@@ -48,6 +37,7 @@ export class Sidebar {
   constructor({ map, clusterLayer, geocoder, categoryFilterControl, openingHoursControl, onClosePlace }) {
     this._map = map;
     this._clusterLayer = clusterLayer;
+    this._geocoder = geocoder;
     this._categoryFilterControl = categoryFilterControl;
     this._openingHoursControl = openingHoursControl;
     this._onClosePlace = onClosePlace;
@@ -343,8 +333,9 @@ export class Sidebar {
     searchInput.placeholder = t("leaflet_L_control_geocoder_placeholder");
     searchInput.setAttribute("aria-label", t("leaflet_L_control_geocoder_title"));
     this._geocoderElement.querySelector(".leaflet-control-geocoder-icon")?.setAttribute("aria-label", t("leaflet_L_control_geocoder_title"));
-    const errorMessage = this._geocoderElement.querySelector(".leaflet-control-geocoder-form-no-error, .leaflet-control-geocoder-error");
-    if (errorMessage) { errorMessage.textContent = t("leaflet_L_control_geocoder_error_message"); }
+    this._geocoder.options.errorMessage = t("leaflet_L_control_geocoder_error_message");
+    const errorMessage = this._geocoderElement.querySelector(".leaflet-control-geocoder-error");
+    if (errorMessage) { errorMessage.textContent = this._geocoder.options.errorMessage; }
 
     this._filterButton.setAttribute("aria-label", t("category_selection_title"));
     this._filterButton.title = t("category_selection_title");

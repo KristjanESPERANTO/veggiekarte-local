@@ -1,5 +1,7 @@
 /** @module map-hash */
 
+import { loadSetting, saveSetting } from "./storage.js";
+
 let markerHashActive = false;
 
 /** Write a marker permalink to the URL hash and lock map-position updates.
@@ -37,7 +39,7 @@ export function createMapHash(map) {
       history.replaceState(null, "", hashStr);
     }
     // Always update localStorage to remember last position
-    localStorage.setItem("veggiekarte_map_position", hashStr);
+    saveSetting("veggiekarte_map_position", hashStr);
   }
 
   function parsePosition(hashString) {
@@ -58,7 +60,7 @@ export function createMapHash(map) {
 
   // Try hash first, then localStorage, then use default from map
   const position = parsePosition(location.hash)
-    || parsePosition(localStorage.getItem("veggiekarte_map_position"));
+    || parsePosition(loadSetting("veggiekarte_map_position"));
 
   if (position) {
     map.setView([position.lat, position.lng], position.zoom);

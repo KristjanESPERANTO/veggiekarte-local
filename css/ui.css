@@ -153,7 +153,7 @@ input {
   background: var(--vk-tint) !important;
 }
 
-/* The search library removes the input's outline; the whole field shows the focus instead */
+/* The input's own outline is hidden; the whole field shows the focus instead */
 :root .sidebar .search-slot .leaflet-control-geocoder:focus-within {
   box-shadow: 0 0 0 2px var(--vk-accent);
 }
@@ -164,11 +164,6 @@ input {
   height: 44px;
   border-radius: 12px 0 0 12px;
   background-color: transparent !important;
-  background-size: 22px;
-}
-
-:root[data-control-style="dark"] .search-slot .leaflet-control-geocoder-icon {
-  filter: invert(1);
 }
 
 :root .sidebar .search-slot .leaflet-control-geocoder-form {
@@ -186,6 +181,7 @@ input {
   font-size: 15px;
   color: var(--vk-ink);
   background: transparent !important;
+  outline: none;
 }
 
 :root .sidebar .search-slot .leaflet-control-geocoder-form input::placeholder {
@@ -1151,12 +1147,28 @@ body.is-updating .chip {
   }
 }
 
-/* "Data as of … · Check for updates" line in the info box */
+/* Version, data date and update link in the info box */
 .data-date-line {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4em 1em;
   margin-top: 1em;
   text-align: center;
   font-size: 0.9em;
   color: var(--vk-muted);
+}
+
+.data-date-line > :empty {
+  display: none;
+}
+
+.data-date-line > :not(:first-child):not(:empty)::before {
+  content: "·";
+  display: inline-block;
+  margin-right: 1em;
+  color: var(--vk-muted);
+  font-weight: normal;
 }
 
 /* Tutorial (how-to page) shown inside the info box */

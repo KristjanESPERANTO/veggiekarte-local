@@ -32,6 +32,7 @@ export default defineConfig([
         ...globals.browser,
         // Build-time constants injected by @rollup/plugin-replace
         __APP_NAME__: "readonly",
+        __APP_VERSION__: "readonly",
         __APP_DESCRIPTION__: "readonly",
         __MAP_CENTER__: "readonly",
         __MAP_ZOOM__: "readonly",
