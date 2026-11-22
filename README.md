@@ -1,4 +1,6 @@
-# Veggiekarte
+# Veggiekarte local
+
+This is a fork of the world wide map [veggiekarte from piratenpanda](https://codeberg.org/piratenpanda/veggiekarte). This map is for local use. Improvements will be added to the upstream project.
 
 ## Description
 

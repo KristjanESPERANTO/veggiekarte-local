@@ -1,0 +1,18 @@
+{
+  "appName": "Veggiekarte Halle",
+  "appDescription": "Vegane Orte auf OpenStreetMap in Halle (Saale) und Saalekreis",
+  "mapCenter": [51.42, 12.0],
+  "mapZoom": 11,
+  "mapMinZoom": 3,
+  "mapMaxZoom": 19,
+  "areas": [
+    { "type": "de:amtlicher_gemeindeschluessel", "value": "15002000", "name": "halle" },
+    { "type": "de:amtlicher_gemeindeschluessel", "value": "15088", "name": "saalekreis" }
+  ],
+  "areaQuery": null,
+  "includeVegetarian": false,
+  "localSiteEnabled": true,
+  "localSiteUrl": "https://www.vegan-in-halle.de/wp/leben/vegane-stadtkarte/",
+  "localSiteApiUrl": "https://www.vegan-in-halle.de/wp/wp-json/commonplaces/v1/places",
+  "localSiteMoreInfoIds": []
+}

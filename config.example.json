@@ -10,5 +10,6 @@
   "includeVegetarian": true,
   "localSiteEnabled": false,
   "localSiteUrl": null,
+  "localSiteApiUrl": null,
   "localSiteMoreInfoIds": []
 }

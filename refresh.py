@@ -178,6 +178,19 @@ def determine_icon(tags):
     return icon
 
 
+def determine_category(tags):
+    """Determine the diet category of a place."""
+    if tags.get("diet:vegan", "") == "only":
+        return "vegan_only"
+    if tags.get("diet:vegetarian", "") == "only" and tags.get("diet:vegan", "") == "yes":
+        return "vegetarian_only"
+    if tags.get("diet:vegan", "") == "yes":
+        return "vegan_friendly"
+    if tags.get("diet:vegan", "") == "limited":
+        return "vegan_limited"
+    return "vegetarian_friendly"
+
+
 def build_overpass_query():
     """Build the Overpass query from config."""
     query = "?data=[out:json][timeout:900];"
@@ -418,17 +431,40 @@ def get_osm_data():
     return None
 
 
+def load_more_info_places():
+    """Return the places with a detail page on the local site as (OSM type, OSM id)."""
+    places = {(place["type"], place["id"]) for place in CONFIG["localSiteMoreInfoIds"]}
+    api_url = CONFIG.get("localSiteApiUrl")
+    if not api_url:
+        return places
+
+    # The Commonplaces plugin lists its published places; a failed request must not remove the links
+    try:
+        response = HTTP.request("GET", api_url, timeout=30)
+        if response.status != 200:
+            raise ValueError(f"HTTP status {response.status}")
+        listed = {(place["type"], place["id"]) for place in json.loads(response.data)}
+    except Exception as error:
+        print(f"Could not read {api_url}: {error}. Keeping the links of the previous data file.")
+        listed = set()
+        if VEGGIEPLACES_FILE.exists():
+            for feature in json.loads(VEGGIEPLACES_FILE.read_text(encoding="utf-8"))["features"]:
+                properties = feature["properties"]
+                if properties.get("more_info"):
+                    listed.add((properties["_type"], properties["_id"]))
+    print(f"{len(listed)} places with a detail page on the local site")
+    return places | listed
+
+
 def write_data(data):
     """Write the data in a temp file."""
 
     places_data = {}
 
+    more_info_places = load_more_info_places() if CONFIG["localSiteEnabled"] else set()
+
     # Initialize variables to count the markers
-    n_vegan_only = 0
-    n_vegetarian_only = 0
-    n_vegan_friendly = 0
-    n_vegan_limited = 0
-    n_vegetarian_friendly = 0
+    category_counts = {"vegan_only": 0, "vegetarian_only": 0, "vegan_friendly": 0, "vegan_limited": 0, "vegetarian_friendly": 0}
 
     # Adding timestamp
     places_data["_timestamp"] = TIMESTAMP
@@ -475,7 +511,7 @@ def write_data(data):
         place_obj["properties"]["icon"] = icon
 
         # Add "more_info" flag if element is in the config list
-        if CONFIG["localSiteEnabled"] and element_id in CONFIG["localSiteMoreInfoIds"]:
+        if (element_type, element_id) in more_info_places:
             place_obj["properties"]["more_info"] = True
 
         # Get a name
@@ -500,22 +536,9 @@ def write_data(data):
         print(osm_element_index, " / ", osm_elements_number, "\t", end="\r")
 
         # Give the object a category
-        if tags.get("diet:vegan", "") == "only":
-            place_obj["properties"]["category"] = "vegan_only"
-            n_vegan_only += 1
-        elif (tags.get("diet:vegetarian", "") == "only"
-              and tags.get("diet:vegan", "") == "yes"):
-            place_obj["properties"]["category"] = "vegetarian_only"
-            n_vegetarian_only += 1
-        elif tags.get("diet:vegan", "") == "yes":
-            place_obj["properties"]["category"] = "vegan_friendly"
-            n_vegan_friendly += 1
-        elif tags.get("diet:vegan", "") == "limited":
-            place_obj["properties"]["category"] = "vegan_limited"
-            n_vegan_limited += 1
-        else:
-            place_obj["properties"]["category"] = "vegetarian_friendly"
-            n_vegetarian_friendly += 1
+        category = determine_category(tags)
+        place_obj["properties"]["category"] = category
+        category_counts[category] += 1
 
         # Cuisine is shown in the place list. Further details (contacts, opening hours,
         # descriptions, menu) are omitted to keep the base dataset small; they are
@@ -531,11 +554,11 @@ def write_data(data):
     # Collect the statistic data in an object and add it to the places object
     stat_obj = {
         "date": DATE,
-        "n_vegan_only": n_vegan_only,
-        "n_vegetarian_only": n_vegetarian_only,
-        "n_vegan_friendly": n_vegan_friendly,
-        "n_vegan_limited": n_vegan_limited,
-        "n_vegetarian_friendly": n_vegetarian_friendly,
+        "n_vegan_only": category_counts["vegan_only"],
+        "n_vegetarian_only": category_counts["vegetarian_only"],
+        "n_vegan_friendly": category_counts["vegan_friendly"],
+        "n_vegan_limited": category_counts["vegan_limited"],
+        "n_vegetarian_friendly": category_counts["vegetarian_friendly"],
     }
 
     # Check if the local statistic file exists
